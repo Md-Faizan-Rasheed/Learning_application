@@ -7,9 +7,11 @@
 
 ## 1. Overview & scope
 
-This document describes the system architecture, data model, game flow, and match lifecycle for the game, after applying the design brief. It also gives a phased build order and a hosting/cost estimate. It intentionally focuses on **architecture and mechanics** — the retention, monetization, and learning-science depth live in the design brief and are referenced here rather than reproduced.
+This document describes the system architecture, data model, game flow, onboarding flow, and match lifecycle for the game, after applying the design brief. It also gives a phased build order and a hosting/cost estimate. It intentionally focuses on **architecture and mechanics** — the retention, monetization, and learning-science depth live in the design brief and are referenced here rather than reproduced.
 
 The guiding principle throughout: **the server is the single authority.** The Flutter client renders and captures taps; it holds no rules and is never trusted with anything it could exploit (correct answers, timing, scores).
+
+The schema is delivered as validated **Alembic migrations** (`0001` foundations, `0002` categories). Apply with `alembic upgrade head` against the **direct** (non-pooled) connection string — DDL through a pooled/PgBouncer endpoint can silently no-op.
 
 ---
 
@@ -37,7 +39,7 @@ flowchart TB
     subgraph content["CONTENT SIDE"]
         Dev["🧑‍💻 Developer / Admin"]
         Scholar["🧕 Scholar reviewer"]
-        AdminAPI["Content API<br/>upload · LLM-draft · edit"]
+        AdminAPI["Content API<br/>categories · questions<br/>upload · LLM-draft · edit"]
         Review["Review workflow<br/>draft → scholar-reviewed → live"]
     end
 
@@ -48,14 +50,14 @@ flowchart TB
     end
 
     subgraph services["SUPPORTING SERVICES"]
-        MM["Matchmaking<br/>TrueSkill + widening band<br/>same-gender & difficulty = hard filters"]
+        MM["Matchmaking<br/>TrueSkill + widening band<br/>gender · difficulty · category = hard filters"]
         Learn["Learning service<br/>FSRS spaced repetition · IRT · weak-area targeting"]
         Meta["Progression<br/>XP · streaks (+freeze) · leagues · quests"]
         Recap["Recap service<br/>per-player misses + citation + practice"]
     end
 
     Redis[("⚡ Redis<br/>live match state · sessions · queues · pub/sub")]
-    PG[("🗄️ Postgres<br/>USER · MATCH · MATCH_PLAYER · ATTEMPT<br/>QUESTION (+review_state) · action log · SR_STATE")]
+    PG[("🗄️ Postgres<br/>USER · MATCH · MATCH_PLAYER · ATTEMPT<br/>CATEGORY · QUESTION (+review_state) · SR_STATE")]
     Obs["📊 Analytics / Observability<br/>funnel · match quality · per-question difficulty"]
 
     Phone <-->|WSS| LB
@@ -78,7 +80,7 @@ flowchart TB
     MM -.-> Obs
 ```
 
-**Reading it.** The phone talks to a load balancer that routes by `match_id` to a game server. The game engine is authoritative — it runs simultaneous answering, speed scoring, and the strategic layer. Redis holds live state and queues; Postgres holds everything durable. Four supporting services (matchmaking, learning, progression, recap) are separate concerns that read/write Postgres. On the content side, every question flows through a scholar-review gate before it can go live. Bots and ghosts backfill matches when there aren't enough live players.
+**Reading it.** The phone talks to a load balancer that routes by `match_id` to a game server. The game engine is authoritative — it runs simultaneous answering, speed scoring, and the strategic layer. Redis holds live state and queues; Postgres holds everything durable. Four supporting services (matchmaking, learning, progression, recap) are separate concerns that read/write Postgres. On the content side, an admin manages **categories** and **questions**, and every question flows through a scholar-review gate before it can go live. Bots and ghosts backfill matches when there aren't enough live players.
 
 ---
 
@@ -91,8 +93,11 @@ erDiagram
     MATCH ||--o{ ATTEMPT : contains
     USER ||--o{ ATTEMPT : makes
     QUESTION ||--o{ ATTEMPT : answered_in
+    CATEGORY ||--o{ QUESTION : groups
+    CATEGORY ||--o{ MATCH : played_in
     USER ||--o{ SR_STATE : has
     ADMIN ||--o{ QUESTION : uploads_or_reviews
+    ADMIN ||--o{ CATEGORY : creates
 
     USER {
         uuid id
@@ -103,9 +108,17 @@ erDiagram
         int streak_days
         timestamp created_at
     }
+    CATEGORY {
+        uuid id
+        string slug "seerah / arabic / ..."
+        string display_name
+        bool is_active "hide without deleting"
+        uuid created_by "which admin made it"
+    }
     MATCH {
         uuid id
         string difficulty
+        uuid category_id "NULL = Mixed / All"
         timestamp started_at
         timestamp ended_at
     }
@@ -131,7 +144,7 @@ erDiagram
         uuid id
         string prompt
         string difficulty
-        string category
+        uuid category_id "FK -> CATEGORY"
         json options
         string correct_answer
         string source "provenance / citation"
@@ -152,7 +165,9 @@ erDiagram
     }
 ```
 
-**Why each table earns its place.** `USER` carries the skill rating (TrueSkill `mu`/`sigma`) and streak state. `MATCH_PLAYER` records how each player placed in a given match. `ATTEMPT` is the keystone — every answer, its correctness, response time, and points, which is what makes recap/spaced-repetition/analytics possible. `QUESTION` carries both the `source` (provenance/citation, surfaced to players) and the `review_state` gate, plus an `irt_difficulty` that self-calibrates as real answer data accumulates. `SR_STATE` holds per-player, per-concept spaced-repetition scheduling.
+**Why each table earns its place.** `USER` carries the skill rating (TrueSkill `mu`/`sigma`) and streak state. `CATEGORY` is admin-managed (seerah, arabic, and anything created later); `is_active` hides a category from players without deleting its questions. `MATCH` records the difficulty and the `category_id` being played — `NULL` means the "Mixed / All" mode. `MATCH_PLAYER` records how each player placed. `ATTEMPT` is the keystone — every answer, its correctness, response time, and points, which makes recap/spaced-repetition/analytics possible. `QUESTION` belongs to exactly one category by FK, and carries the `source` (provenance/citation) and the `review_state` gate, plus an `irt_difficulty` that self-calibrates. `SR_STATE` holds per-player, per-concept spaced-repetition scheduling.
+
+*Migrations:* `0001_stage1` builds users/questions/matches/match_players/match_questions/attempts; `0002_categories` promotes `category` from free text to the `CATEGORY` table and adds `MATCH.category_id`. Each question sits in one category today; multi-category tagging, if ever needed, is a future `question_tags` join table — not a rewrite.
 
 ---
 
@@ -160,9 +175,8 @@ erDiagram
 
 ```mermaid
 flowchart TB
-    Start["Match starts · difficulty chosen<br/>4 players (+ bots if needed)"]
-    Draft["Category draft / ban<br/>(pre-game agency)"]
-    Load["Load questions for difficulty<br/>weighted to players' weak areas"]
+    Start["Match starts · category + difficulty already chosen<br/>4 players (+ bots if needed)"]
+    Load["Load questions for that category + difficulty<br/>weighted to players' weak areas"]
     Show["Show SAME question to ALL 4 at once<br/>timer · options depend on difficulty"]
     Answer["Everyone answers simultaneously"]
     Score["Score each player<br/>correct → base × speed · wrong/timeout → 0"]
@@ -173,7 +187,7 @@ flowchart TB
     Sudden["⚡ Sudden-death lightning round<br/>rapid true / false, simultaneous"]
     End["🏆 Winner · per-player recap<br/>+ spaced-repetition homework"]
 
-    Start --> Draft --> Load --> Show --> Answer --> Score --> Reveal --> Strat
+    Start --> Load --> Show --> Answer --> Score --> Reveal --> Strat
     Strat -->|yes| Beats --> More
     Strat -->|no| More
     More -->|yes| Show
@@ -188,7 +202,7 @@ flowchart TB
 | Medium | Hidden — reveal via lifeline, max 4 per game | 35 (base) |
 | Hard | No options — recall the answer | 50 (base) |
 
-Base points are then scaled by speed. Difficulty sets your **baseline option visibility and reveal allowance**; all other power-ups are earned through play and capped at one per question (see Locked Decisions §13.2). So Medium's "4 lifelines" is simply the reveal power-up granted four times at that tier.
+Base points are then scaled by speed. Difficulty sets your **baseline option visibility and reveal allowance**; all other power-ups are earned through play and capped at one per question (see Locked Decisions §14.2). So Medium's "4 lifelines" is simply the reveal power-up granted four times at that tier.
 
 ---
 
@@ -205,7 +219,7 @@ sequenceDiagram
     participant RC as Recap / Learning
 
     Note over P,MM: MATCHMAKING
-    P->>MM: find match (difficulty, gender)
+    P->>MM: find match (gender, difficulty, category | Mixed)
     MM->>R: enqueue · widen skill band over time
     MM->>MM: fill with bots / ghosts if queue thin
     MM->>PG: create MATCH + MATCH_PLAYER rows
@@ -236,42 +250,77 @@ sequenceDiagram
 
 ---
 
-## 7. Server authority & anti-cheat
+## 7. Onboarding user flow
 
-The one rule that threads through the whole system: **the correct answer never leaves the server before a player has answered.** The client receives only the prompt and options; it submits a choice; the server validates correctness and timing and returns the result. If the answer were sent up front, it could be read straight from network traffic.
+The single most important retention lever early on: **let a new player reach the fun before asking for anything.** They play a practice round against bots first, *then* they're invited to sign up to save progress and play with real people. Account creation is a soft gate placed after the first taste of the core loop, not before it.
 
-Supporting rules: the server stamps question-send and answer-receive times and rejects late answers (with a small latency grace) rather than trusting client-reported timing; every action is validated against server state; submissions are rate-limited and deduplicated via idempotency keys so a retry never double-applies.
+```mermaid
+flowchart TB
+    Launch["App launch"]
+    Returning{"Returning user?"}
+    Home["Home screen<br/>pick category + difficulty → play"]
+    Welcome["Welcome · one-line value prop (skippable)"]
+    Practice["▶️ Instant practice round vs bots<br/>no account · feel the core loop in <60s"]
+    PRecap["Practice recap<br/>score + one thing you just learned"]
+    SoftPrompt["Soft sign-up prompt<br/>'save your streak & play with real people'"]
+    Choice{"Sign up now?"}
+    Signup["Sign up · Google / Apple / email"]
+    Setup["Quick setup<br/>display name · GENDER (required for matchmaking)<br/>difficulty & category preference"]
+    FirstMatch["First real 4-player match<br/>matchmaking: gender + difficulty + category<br/>(or Mixed for a fast fill)"]
+    PostMatch["Post-match recap<br/>streak started · XP · daily quest · invite friends"]
+
+    Launch --> Returning
+    Returning -->|yes| Home --> FirstMatch
+    Returning -->|no| Welcome --> Practice --> PRecap --> SoftPrompt --> Choice
+    Choice -->|yes| Signup --> Setup
+    Choice -->|"later (guest)"| Setup
+    Setup --> FirstMatch
+    FirstMatch --> PostMatch
+    PostMatch --> Home
+```
+
+**Why it's shaped this way.** The practice round needs no account and no gender, because it's against bots — so nothing stands between opening the app and playing. **Gender is captured at Quick Setup**, on both the sign-up and guest paths, because it's a hard requirement for same-gender matchmaking and a real match can't be formed without it. Guests can play but skip account creation; they lose streak-saving and ranked until they convert, which is the gentle pull toward signup. Returning users bypass the whole funnel and land on the Home screen, where category and difficulty are picked before hitting matchmaking. The post-match recap is where the retention hooks fire — the streak starts, XP lands, the daily quest appears, and the invite prompt shows while satisfaction is highest.
 
 ---
 
-## 8. Disconnect & reconnect
+## 8. Server authority & anti-cheat
+
+The one rule that threads through the whole system: **the correct answer never leaves the server before a player has answered.** The client receives only the prompt and options; it submits a choice; the server validates correctness and timing and returns the result. If the answer were sent up front, it could be read straight from network traffic.
+
+Supporting rules: the server stamps question-send and answer-receive times and rejects late answers (with a small latency grace) rather than trusting client-reported timing; every action is validated against server state; submissions are rate-limited and deduplicated via idempotency keys so a retry never double-applies. At the data layer, `ATTEMPT`'s `UNIQUE (match_id, question_id, user_id)` constraint makes double-recording an answer impossible even under reconnect races.
+
+---
+
+## 9. Disconnect & reconnect
 
 Live match state is stored in Redis keyed by `match_id`. On reconnect, the player re-subscribes and the server replays current state as a snapshot. A grace period runs before a player is marked abandoned; past that, a bot substitutes or missed questions score zero. All message handling is idempotent, so a reconnect-and-resend can't double-apply an answer. Mobile connections drop constantly, so this path is a first-class feature, not an edge case.
 
 ---
 
-## 9. Matchmaking & cold-start
+## 10. Matchmaking & cold-start
 
-Matchmaking uses a skill rating with uncertainty — **TrueSkill**, which fits 4-player free-for-all better than Elo (built for 1v1). New players start with high uncertainty and update fast for their first several matches, then settle. The skill band starts tight and **widens the longer a player waits** — a good match that never fills is worse than a slightly uneven one that starts in twenty seconds. Same-gender and difficulty are **non-relaxable filters**; only the skill band relaxes.
+Matchmaking uses a skill rating with uncertainty — **TrueSkill**, which fits 4-player free-for-all better than Elo (built for 1v1). New players start with high uncertainty and update fast for their first several matches, then settle. The skill band starts tight and **widens the longer a player waits** — a good match that never fills is worse than a slightly uneven one that starts in twenty seconds.
+
+**Hard filters:** gender, difficulty, and category. These never relax — only the skill band does. The queue key is therefore `gender + difficulty + category`. Because three hard filters fragment the player pool (a player who wants *Hard Arabic* can only meet others who chose exactly that), the design includes a **Mixed / All mode**: `MATCH.category_id = NULL`, a queue that ignores category so casual players fill fast. Wire the queue so a null category means "match me with anyone regardless of category." Reserve strict single-category matching for players who deliberately pick one.
 
 Cold-start (too few concurrent players to fill a 4-player match) is the hardest early problem. Mitigations, in order of value: bot opponents tuned to a realistic ability band; async "ghosts" that replay recorded answer-timings of past players; backfill (start with 2–3 humans + bots, swap humans in); and seeding matchmaking at known peak times (post-Isha, Ramadan evenings). An async mode (players get up to ~36 hours to respond) removes the need for four concurrent players entirely and is worth having.
 
 ---
 
-## 10. Content pipeline & scholar review
+## 11. Content pipeline & scholar review
 
-Questions enter through the Content API — manual upload, CSV/JSON bulk, or LLM-drafted — and **must** pass a scholar-review workflow (`draft → reviewed → live`) before players ever see them. For this vertical that gate is a trust necessity: never ship unreviewed religious content. Every question carries provenance (`source`) that is surfaced to players as a citation in the recap.
+An admin manages two things through the Content API: **categories** (create, rename, activate/deactivate) and **questions** (add under a category, edit). Questions enter by manual upload, CSV/JSON bulk, or LLM-drafting — and **must** pass a scholar-review workflow (`draft → reviewed → live`) before players ever see them. For this vertical that gate is a trust necessity: never ship unreviewed religious content. Only `live` questions in an `active` category are ever served. Every question carries provenance (`source`) surfaced to players as a citation in the recap.
 
 Two content nuances worth building in early: for disputed fiqh, either restrict competitive questions to points of consensus, or tag by madhhab and present "According to the Hanafi school… / the Shafi'i school…" in the recap rather than forcing one "correct" answer. And gamify *knowledge about* the Quran (meanings, Tajweed, Seerah, vocabulary) — never the sacred text itself in a flippant way.
 
 ---
 
-## 11. Phased build roadmap
+## 12. Phased build roadmap
 
 Ordered by return on effort. Do not skip Stage 1 — the rest depends on it.
 
 **Stage 1 — Foundations (highest ROI).**
-1. Build the `USER`, `MATCH_PLAYER`, and `ATTEMPT` tables. Nothing downstream works without `ATTEMPT`.
+1. Build the `USER`, `CATEGORY`, `QUESTION`, `MATCH`, `MATCH_PLAYER`, and `ATTEMPT` tables (migrations `0001`+`0002`). Nothing downstream works without `ATTEMPT`.
 2. Switch to simultaneous answering with speed scoring; wrong and timeout both zero.
 3. Lock down server authority: never send correct answers pre-answer; validate timing server-side.
 4. Ship a genuinely useful per-player recap (what you missed, why, citation, one-tap practice).
@@ -280,12 +329,12 @@ Ordered by return on effort. Do not skip Stage 1 — the rest depends on it.
 **Stage 2 — Make it feel like a game (1–2 months).**
 6. Add juice: card/answer animations, countdown tension, victory sequences, haptics.
 7. Add the strategic layer: steals, final-round wagering, earn-only power-ups, streak combos.
-8. Rebuild onboarding to play-before-signup, core loop reachable in under 60 seconds.
+8. Build the play-before-signup onboarding flow (see §7); core loop reachable in under 60 seconds.
 9. Add streaks (with freeze), XP/levels, daily quests.
 
 **Stage 3 — Retention & learning depth (2–4 months).**
 10. Implement FSRS spaced repetition and weak-area-weighted question selection.
-11. Add TrueSkill matchmaking with widening bands, plus bots/ghosts/async for cold-start.
+11. Add TrueSkill matchmaking with widening bands + Mixed mode, plus bots/ghosts/async for cold-start.
 12. Add friends, private rooms, study circles, leaderboards, ranked seasons.
 13. Launch Ramadan live-ops (your single biggest calendar opportunity).
 
@@ -297,7 +346,7 @@ Ordered by return on effort. Do not skip Stage 1 — the rest depends on it.
 
 ---
 
-## 12. Hosting & cost
+## 13. Hosting & cost
 
 **For first feedback (free).** A free tier (e.g. Render) gives ~750 web-service hours/month plus a free Postgres and a free key-value store. The catch: free services sleep after ~15 minutes idle, so the first player after a quiet spell waits ~30 seconds for wake-up. Fine for testing with a handful of friends; not fine for a real launch.
 
@@ -307,23 +356,37 @@ Launch on free purely to gather feedback; pay the moment real usage justifies it
 
 ---
 
-## 13. Locked decisions
+## 14. Locked decisions
 
-**13.1 — Core loop: simultaneous answering. Turn-based passing is *not* built.**
+**14.1 — Core loop: simultaneous answering. Turn-based passing is *not* built.**
 All four answer every question at once; the "steal" strategic beat carries the passing tension. Literal turn-based passing is not offered even as a mode, because it reintroduces the dead-time and stall-to-win problems the brief exists to fix, and doubles the game engine's state machine for little gain. Revisit only if playtests show players actively want a slow, solo-turn mode.
 
-**13.2 — One unified power-up economy; difficulty sets the baseline.**
+**14.2 — One unified power-up economy; difficulty sets the baseline.**
 There are not two parallel systems. Difficulty fixes your starting option visibility and reveal allowance, and every other power-up is earned through play, capped at one per question (which keeps it from feeling pay-to-win):
 - **Easy** — options always visible; no reveal power-up needed.
 - **Medium** — options hidden; a "Reveal" power-up granted up to 4× per game (this *is* the lifeline); other power-ups earnable.
 - **Hard** — options never shown; no reveal power-up; only skill-based power-ups (Extra Time, Skip) earned through play.
 
-**13.3 — Difficulty is chosen once per match.**
-The whole match is Easy, Medium, or Hard. This keeps the match fair (everyone sees the same tier), makes difficulty a clean non-relaxable matchmaking filter, and keeps scoring consistent. Categories still interleave within a match, and per-question IRT weighting toward weak areas still applies — but the *tier* is fixed for the match.
+**14.3 — Difficulty is chosen once per match.**
+The whole match is Easy, Medium, or Hard. This keeps the match fair (everyone sees the same tier), makes difficulty a clean non-relaxable matchmaking filter, and keeps scoring consistent. Categories still interleave within a match at the sub-topic level, and per-question IRT weighting toward weak areas still applies — but the *tier* is fixed for the match.
 
-**13.4 — Scoring is symmetric: wrong = 0, timeout = 0.**
+**14.4 — Scoring is symmetric: wrong = 0, timeout = 0.**
 The old "wrong ends the turn / timeout passes it on" distinction is dropped entirely. It was the source of the stall-to-win incentive. Correct answers score `base × speed`; everything else scores zero. The "steal" is a separate, opt-in strategic beat, never triggered by an individual wrong answer.
+
+**14.5 — Category is a first-class, admin-managed entity, chosen per match.**
+Categories (seerah, arabic, …) live in their own table and are created/edited by an admin; questions belong to exactly one category by FK. Players pick a category to play, stored on `MATCH.category_id`. Category is a hard matchmaking filter alongside gender and difficulty, with a **Mixed / All mode** (`category_id = NULL`) as the escape hatch so thin categories never strand players.
 
 ---
 
-*This document consolidates the architecture, data model, game flow, and match lifecycle diagrams (also available as standalone `.mermaid` files) with the phased roadmap from the design brief.*
+*This document consolidates the architecture, data model, game flow, onboarding flow, and match lifecycle diagrams (also available as standalone `.mermaid` files) with the phased roadmap from the design brief. The schema ships as Alembic migrations `0001` and `0002`.*
+
+
+
+
+app/
+  main.py            FastAPI entrypoint
+  config.py          env-based settings
+  db.py              async SQLAlchemy engine/session
+  redis_client.py    async Redis client
+  health/routes.py   /health dependency check
+migrations/          Alembic (0001 foundations, 0002 categories, 0003 i18n)

@@ -1,0 +1,49 @@
+%% Architecture v3 — full system (categories + review + services)
+flowchart TB
+    subgraph players["PLAYERS"]
+        Phone["📱 Flutter apps (4 per match)"]
+        Bots["🤖 Bots / Ghosts<br/>backfill when the queue is thin"]
+    end
+
+    subgraph content["CONTENT SIDE"]
+        Dev["🧑‍💻 Developer / Admin"]
+        Scholar["🧕 Scholar reviewer"]
+        AdminAPI["Content API<br/>categories · questions<br/>upload · LLM-draft · edit"]
+        Review["Review workflow<br/>draft → scholar-reviewed → live"]
+    end
+
+    LB["Load Balancer<br/>room affinity: hash(match_id)"]
+
+    subgraph app["GAME SERVERS — match-affinity, Redis-backed failover"]
+        GS["Game Engine (authoritative)<br/>simultaneous answering · speed scoring<br/>steals · wagers · earn-only power-ups"]
+    end
+
+    subgraph services["SUPPORTING SERVICES"]
+        MM["Matchmaking<br/>TrueSkill + widening band<br/>gender · difficulty · category = hard filters"]
+        Learn["Learning service<br/>FSRS spaced repetition · IRT · weak-area targeting"]
+        Meta["Progression<br/>XP · streaks (+freeze) · leagues · quests"]
+        Recap["Recap service<br/>per-player misses + citation + practice"]
+    end
+
+    Redis[("⚡ Redis<br/>live match state · sessions · queues · pub/sub")]
+    PG[("🗄️ Postgres<br/>USER · MATCH · MATCH_PLAYER · ATTEMPT<br/>CATEGORY · QUESTION (+review_state) · SR_STATE")]
+    Obs["📊 Analytics / Observability<br/>funnel · match quality · per-question difficulty"]
+
+    Phone <-->|WSS| LB
+    LB --> GS
+    Bots -.-> GS
+    LB -. find game .-> MM
+    GS <--> Redis
+    GS -->|"ATTEMPTs + result (transactional)"| PG
+    MM <--> Redis
+    MM --> PG
+    GS --> Learn
+    GS --> Meta
+    GS --> Recap
+    Learn <--> PG
+    Meta <--> PG
+    Recap <--> PG
+    Dev --> AdminAPI --> Review --> PG
+    Scholar --> Review
+    GS -.-> Obs
+    MM -.-> Obs

@@ -1,0 +1,38 @@
+%% Match lifecycle v3 — simultaneous answering + recap
+sequenceDiagram
+    autonumber
+    participant P as Players (x4)
+    participant GW as Game Server
+    participant MM as Matchmaking
+    participant R as Redis
+    participant PG as Postgres
+    participant RC as Recap / Learning
+
+    Note over P,MM: MATCHMAKING
+    P->>MM: find match (gender, difficulty, category | Mixed)
+    MM->>R: enqueue · widen skill band over time
+    MM->>MM: fill with bots / ghosts if queue thin
+    MM->>PG: create MATCH + MATCH_PLAYER rows
+    MM-->>GW: assign match to instance (affinity)
+    GW-->>P: match_found
+
+    Note over P,PG: SIMULTANEOUS ANSWERING (each question)
+    loop each question
+        GW-->>P: prompt + options (correct answer NOT sent)
+        Note over P: all 4 answer at once · timer runs
+        P->>GW: submit choice + timestamp
+        GW->>GW: validate timing + correctness server-side
+        GW->>R: score = f(correct, speed) · update live scores
+        GW->>PG: append ATTEMPT row per player
+        GW-->>P: reveal result + live leaderboard
+    end
+
+    Note over P,GW: STRATEGIC BEATS (interleaved)
+    GW-->>P: steal / wager / power-up windows
+
+    Note over GW,RC: MATCH END
+    GW->>PG: flush final scores + placements (transactional)
+    GW->>RC: trigger recap + spaced-repetition update
+    RC->>PG: read ATTEMPTs · schedule weak concepts (FSRS)
+    RC-->>P: per-player recap (misses + citation + practice)
+    GW->>R: cleanup live state (TTL)

@@ -1,0 +1,19 @@
+%% Game flow v3 — simultaneous answering + strategic layer
+flowchart TB
+    Start["Match starts · category + difficulty already chosen<br/>4 players (+ bots if needed)"]
+    Load["Load questions for that category + difficulty<br/>weighted to players' weak areas"]
+    Show["Show SAME question to ALL 4 at once<br/>timer · options depend on difficulty"]
+    Answer["Everyone answers simultaneously"]
+    Score["Score each player<br/>correct → base × speed · wrong/timeout → 0"]
+    Reveal["Reveal answer + citation<br/>update live leaderboard"]
+    Strat{"Strategic beat<br/>this round?"}
+    Beats["Steal · wager · earn-only power-up<br/>(skill-based catch-up)"]
+    More{"More questions?"}
+    Sudden["⚡ Sudden-death lightning round<br/>rapid true / false, simultaneous"]
+    End["🏆 Winner · per-player recap<br/>+ spaced-repetition homework"]
+
+    Start --> Load --> Show --> Answer --> Score --> Reveal --> Strat
+    Strat -->|yes| Beats --> More
+    Strat -->|no| More
+    More -->|yes| Show
+    More -->|"final round"| Sudden --> End

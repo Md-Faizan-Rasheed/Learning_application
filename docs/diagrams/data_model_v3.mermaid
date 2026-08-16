@@ -1,0 +1,77 @@
+%% Data model — foundation + admin-managed categories
+erDiagram
+    USER ||--o{ MATCH_PLAYER : joins
+    MATCH ||--o{ MATCH_PLAYER : has
+    MATCH ||--o{ ATTEMPT : contains
+    USER ||--o{ ATTEMPT : makes
+    QUESTION ||--o{ ATTEMPT : answered_in
+    CATEGORY ||--o{ QUESTION : groups
+    CATEGORY ||--o{ MATCH : played_in
+    USER ||--o{ SR_STATE : has
+    ADMIN ||--o{ QUESTION : uploads_or_reviews
+    ADMIN ||--o{ CATEGORY : creates
+
+    USER {
+        uuid id
+        string gender
+        string difficulty_pref
+        float skill_mu "TrueSkill rating"
+        float skill_sigma "uncertainty"
+        int streak_days
+        timestamp created_at
+    }
+    CATEGORY {
+        uuid id
+        string slug "seerah / arabic / ..."
+        string display_name
+        bool is_active "hide without deleting"
+        uuid created_by "which admin made it"
+    }
+    MATCH {
+        uuid id
+        string difficulty
+        uuid category_id "NULL = Mixed / All"
+        timestamp started_at
+        timestamp ended_at
+    }
+    MATCH_PLAYER {
+        uuid match_id
+        uuid user_id
+        int final_score
+        int placement
+        string connection_state
+    }
+    ATTEMPT {
+        uuid id
+        uuid match_id
+        uuid question_id
+        uuid user_id
+        string chosen_answer
+        bool is_correct
+        int response_ms "for speed scoring"
+        int points_awarded
+        timestamp created_at
+    }
+    QUESTION {
+        uuid id
+        string prompt
+        string difficulty
+        uuid category_id "FK -> CATEGORY"
+        json options
+        string correct_answer
+        string source "provenance / citation"
+        string review_state "draft / reviewed / live"
+        uuid reviewer_id
+        float irt_difficulty "auto-calibrated over time"
+    }
+    SR_STATE {
+        uuid user_id
+        string concept
+        float stability "FSRS"
+        float difficulty "FSRS"
+        timestamp due_at
+    }
+    ADMIN {
+        uuid id
+        string role "developer / scholar"
+    }

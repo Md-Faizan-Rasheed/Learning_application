@@ -1,0 +1,23 @@
+%% Onboarding user flow — play before signup
+flowchart TB
+    Launch["App launch"]
+    Returning{"Returning user?"}
+    Home["Home screen<br/>pick category + difficulty → play"]
+    Welcome["Welcome · one-line value prop (skippable)"]
+    Practice["▶️ Instant practice round vs bots<br/>no account · feel the core loop in <60s"]
+    PRecap["Practice recap<br/>score + one thing you just learned"]
+    SoftPrompt["Soft sign-up prompt<br/>'save your streak & play with real people'"]
+    Choice{"Sign up now?"}
+    Signup["Sign up · Google / Apple / email"]
+    Setup["Quick setup<br/>display name · GENDER (required for matchmaking)<br/>difficulty & category preference"]
+    FirstMatch["First real 4-player match<br/>matchmaking: gender + difficulty + category<br/>(or Mixed for a fast fill)"]
+    PostMatch["Post-match recap<br/>streak started · XP · daily quest · invite friends"]
+
+    Launch --> Returning
+    Returning -->|yes| Home --> FirstMatch
+    Returning -->|no| Welcome --> Practice --> PRecap --> SoftPrompt --> Choice
+    Choice -->|yes| Signup --> Setup
+    Choice -->|"later (guest)"| Setup
+    Setup --> FirstMatch
+    FirstMatch --> PostMatch
+    PostMatch --> Home

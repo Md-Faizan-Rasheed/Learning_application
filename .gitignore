@@ -1,0 +1,21 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+.env
+
+# Flutter
+client/.dart_tool/
+client/build/
+
+# secrets / local config
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# misc
+.DS_Store
