@@ -1,0 +1,11 @@
+
+{
+  "@@locale": "ar",
+  "appTitle": "لعبة التعلّم الإسلامي",
+  "checkingBackend": "جارٍ فحص الخادم…",
+  "backendHealthy": "الخادم يعمل بشكل سليم",
+  "backendUnreachable": "تعذّر الوصول إلى الخادم",
+  "database": "قاعدة البيانات",
+  "cache": "الذاكرة المؤقتة",
+  "retry": "إعادة المحاولة"
+}

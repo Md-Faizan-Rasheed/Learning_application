@@ -1,0 +1,10 @@
+{
+  "@@locale": "en",
+  "appTitle": "Islamic Learning Game",
+  "checkingBackend": "Checking backend…",
+  "backendHealthy": "Backend is healthy",
+  "backendUnreachable": "Backend unreachable",
+  "database": "Database",
+  "cache": "Cache",
+  "retry": "Retry"
+}

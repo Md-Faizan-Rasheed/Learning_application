@@ -1,0 +1,10 @@
+{
+  "@@locale": "ur",
+  "appTitle": "اسلامی تعلیمی گیم",
+  "checkingBackend": "بیک اینڈ چیک ہو رہا ہے…",
+  "backendHealthy": "بیک اینڈ ٹھیک کام کر رہا ہے",
+  "backendUnreachable": "بیک اینڈ تک رسائی نہیں",
+  "database": "ڈیٹا بیس",
+  "cache": "کیش",
+  "retry": "دوبارہ کوشش کریں"
+}
