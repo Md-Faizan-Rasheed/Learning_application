@@ -144,3 +144,50 @@ async def insert_attempt(
             "pts": points_awarded,
         },
     )
+
+
+async def create_db_match(db: AsyncSession, difficulty: str) -> str:
+    """Create a real matches row (durable record) and return its id."""
+    row = (
+        await db.execute(
+            text(
+                """
+                INSERT INTO matches (difficulty, status, started_at)
+                VALUES (CAST(:d AS difficulty_level), 'active', now())
+                RETURNING id
+                """
+            ),
+            {"d": difficulty},
+        )
+    ).first()
+    return str(row[0])
+
+
+async def create_db_user(db: AsyncSession, display_name: str, gender: str = "male") -> str:
+    """Create a real users row for a joining human. TODO(auth-epic): replace
+    with the authenticated user instead of creating one per join."""
+    row = (
+        await db.execute(
+            text(
+                """
+                INSERT INTO users (role, display_name, gender)
+                VALUES ('player', :n, CAST(:g AS gender_type))
+                RETURNING id
+                """
+            ),
+            {"n": display_name, "g": gender},
+        )
+    ).first()
+    return str(row[0])
+
+
+async def add_match_player(db: AsyncSession, match_id: str, user_id: str) -> None:
+    await db.execute(
+        text(
+            """
+            INSERT INTO match_players (match_id, user_id)
+            VALUES (:m, :u) ON CONFLICT (match_id, user_id) DO NOTHING
+            """
+        ),
+        {"m": match_id, "u": user_id},
+    )

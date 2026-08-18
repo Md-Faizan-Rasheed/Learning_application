@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 import 'api/game_api.dart' show kApiBaseUrl;
 import 'l10n/app_localizations.dart';
+import 'screens/multiplayer_screen.dart';
 import 'screens/practice_screen.dart';
 
 void main() => runApp(const IslamicGameApp());
@@ -146,6 +147,23 @@ class _HealthScreenState extends State<HealthScreen> {
                         : null,
                     icon: const Icon(Icons.play_arrow),
                     label: Text(t.practice),
+                  ),
+                  const SizedBox(height: 8),
+                  OutlinedButton.icon(
+                    onPressed: _ok
+                        ? () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => MultiplayerScreen(
+                                  lang: widget.currentLang,
+                                  name: 'You',
+                                ),
+                              ),
+                            );
+                          }
+                        : null,
+                    icon: const Icon(Icons.groups),
+                    label: const Text('Multiplayer'),
                   ),
                   const SizedBox(height: 8),
                   TextButton.icon(

@@ -6,3 +6,4 @@ redis>=5
 pydantic-settings
 alembic
 psycopg2-binary
+python-socketio>=5

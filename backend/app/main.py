@@ -3,8 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .content.routes import router as content_router
-from .health.routes import router as health_router
 from .game.routes import router as game_router
+from .health.routes import router as health_router
+from .realtime.server import sio
 
 app = FastAPI(title="Islamic Learning Game API")
 
@@ -25,7 +26,13 @@ app.include_router(content_router)
 app.include_router(game_router)
 
 
-
 @app.get("/")
 async def root() -> dict:
     return {"service": "islamic-learning-game", "status": "running"}
+
+
+# Wrap FastAPI so Socket.IO owns "/socket.io/*" and delegates everything else
+# (REST routes) to FastAPI. Run with:  uvicorn app.main:asgi_app --reload
+import socketio  # noqa: E402
+
+asgi_app = socketio.ASGIApp(sio, other_asgi_app=app)
