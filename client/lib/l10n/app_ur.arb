@@ -6,5 +6,14 @@
   "backendUnreachable": "بیک اینڈ تک رسائی نہیں",
   "database": "ڈیٹا بیس",
   "cache": "کیش",
-  "retry": "دوبارہ کوشش کریں"
+  "retry": "دوبارہ کوشش کریں",
+  "practice": "مشق",
+  "loadingQuestion": "سوال لوڈ ہو رہا ہے…",
+  "submit": "جمع کریں",
+  "correct": "درست!",
+  "incorrect": "درست نہیں",
+  "correctAnswerIs": "درست جواب: {answer}",
+  "pointsEarned": "+{points} پوائنٹس",
+  "nextQuestion": "اگلا سوال",
+  "chooseAnswer": "جواب منتخب کریں"
 }

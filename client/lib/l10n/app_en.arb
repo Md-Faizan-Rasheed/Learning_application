@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "en",
   "appTitle": "Islamic Learning Game",
   "checkingBackend": "Checking backend…",
@@ -6,5 +6,16 @@
   "backendUnreachable": "Backend unreachable",
   "database": "Database",
   "cache": "Cache",
-  "retry": "Retry"
+  "retry": "Retry",
+  "practice": "Practice",
+  "loadingQuestion": "Loading a question…",
+  "submit": "Submit",
+  "correct": "Correct!",
+  "incorrect": "Not quite",
+  "correctAnswerIs": "Correct answer: {answer}",
+  "@correctAnswerIs": { "placeholders": { "answer": {} } },
+  "pointsEarned": "+{points} points",
+  "@pointsEarned": { "placeholders": { "points": {} } },
+  "nextQuestion": "Next question",
+  "chooseAnswer": "Choose an answer"
 }

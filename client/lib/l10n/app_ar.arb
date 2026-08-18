@@ -1,4 +1,23 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   "@@locale": "ar",
   "appTitle": "لعبة التعلّم الإسلامي",
@@ -7,5 +26,14 @@
   "backendUnreachable": "تعذّر الوصول إلى الخادم",
   "database": "قاعدة البيانات",
   "cache": "الذاكرة المؤقتة",
-  "retry": "إعادة المحاولة"
+  "retry": "إعادة المحاولة",
+  "practice": "تدريب",
+  "loadingQuestion": "جارٍ تحميل سؤال…",
+  "submit": "إرسال",
+  "correct": "إجابة صحيحة!",
+  "incorrect": "ليست صحيحة",
+  "correctAnswerIs": "الإجابة الصحيحة: {answer}",
+  "pointsEarned": "+{points} نقطة",
+  "nextQuestion": "السؤال التالي",
+  "chooseAnswer": "اختر إجابة"
 }

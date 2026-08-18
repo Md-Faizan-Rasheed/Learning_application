@@ -10,6 +10,11 @@ class Settings(BaseSettings):
     database_url: str = "postgresql://postgres:postgres@localhost:5432/game"
     redis_url: str = "redis://localhost:6379/0"
 
+    # TODO(auth-epic): temporary admin gate. Replace with proper role-based
+    # auth once the Auth epic lands. For now, admin content endpoints require
+    # this key in the `X-Admin-Key` header.
+    admin_api_key: str = "dev-admin-key-change-me"
+
     @property
     def async_database_url(self) -> str:
         """The app talks to Postgres over asyncpg; normalise the URL for it.
