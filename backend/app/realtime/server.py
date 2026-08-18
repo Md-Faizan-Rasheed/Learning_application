@@ -17,6 +17,10 @@ from ..db import SessionLocal
 from ..game import repository as game_repo
 from ..game.scoring import QUESTION_TIME_MS, score_answer
 from . import match_store
+from .match_store import ROUNDS_PER_MATCH
+
+# Pause between a round resolving and the next question appearing (ms).
+INTER_ROUND_MS = 3500
 
 # CORS for the socket handshake: same localhost-only policy as the REST app.
 _cors = "*" if settings.env != "development" else [
@@ -326,18 +330,81 @@ async def _resolve_round(match_id: str, round_no: int) -> None:
             await db.commit()
 
         results.sort(key=lambda r: r["total"], reverse=True)
+        is_final = (round_no + 1) >= ROUNDS_PER_MATCH
         await sio.emit(
             "round_result",
             {
                 "match_id": match_id,
                 "round_no": round_no,
+                "total_rounds": ROUNDS_PER_MATCH,
                 "correct_index": correct,  # revealed AFTER answering
                 "results": results,
+                "is_final": is_final,
             },
             room=match_id,
         )
     finally:
         _resolving.discard(guard)
+
+    # After the result is shown, either advance to the next question or finish.
+    if is_final:
+        await _end_match(match_id)
+    else:
+        asyncio.create_task(_advance_after_pause(match_id, round_no + 1))
+
+
+async def _advance_after_pause(match_id: str, next_index: int) -> None:
+    """Wait so players can read the result, then broadcast the next question."""
+    await asyncio.sleep(INTER_ROUND_MS / 1000)
+    meta = await match_store.get_meta(match_id)
+    if not meta or meta.get("status") != "active":
+        return  # match ended or was cleaned up
+    difficulty = meta.get("difficulty", "easy")
+    await _start_and_broadcast_question(match_id, difficulty=difficulty, index=next_index)
+
+
+async def _end_match(match_id: str) -> None:
+    """Finalize: mark done, broadcast final standings, and persist placements."""
+    await match_store.set_status(match_id, "completed")
+    scores = await match_store.get_scores(match_id)
+    players = {p["seat"]: p for p in await match_store.get_players(match_id)}
+
+    standings = [
+        {
+            "seat": seat,
+            "name": players[seat]["name"],
+            "is_bot": players[seat]["is_bot"],
+            "total": scores.get(seat, 0),
+        }
+        for seat in players
+    ]
+    standings.sort(key=lambda s: s["total"], reverse=True)
+    for placement, s in enumerate(standings, start=1):
+        s["placement"] = placement
+
+    # Persist final score + placement for real (non-bot) players.
+    async with SessionLocal() as db:
+        for s in standings:
+            player = players[s["seat"]]
+            if player["is_bot"]:
+                continue
+            try:
+                await game_repo.set_match_player_result(
+                    db,
+                    match_id=match_id,
+                    user_id=player["user_id"],
+                    final_score=s["total"],
+                    placement=s["placement"],
+                )
+            except Exception as e:  # noqa: BLE001
+                print(f"[ws] placement persist skipped (seat {s['seat']}): {e}")
+        await db.commit()
+
+    await sio.emit(
+        "match_over",
+        {"match_id": match_id, "standings": standings},
+        room=match_id,
+    )
 
 
 @sio.event

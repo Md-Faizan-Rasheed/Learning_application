@@ -87,15 +87,47 @@ class RoundResultRow {
 }
 
 class RoundResult {
-  RoundResult({required this.correctIndex, required this.rows});
+  RoundResult({
+    required this.correctIndex,
+    required this.rows,
+    required this.roundNo,
+    required this.totalRounds,
+    required this.isFinal,
+  });
   final int correctIndex;
   final List<RoundResultRow> rows;
+  final int roundNo;
+  final int totalRounds;
+  final bool isFinal;
 
   factory RoundResult.fromJson(Map<String, dynamic> j) => RoundResult(
         correctIndex: j['correct_index'] as int,
+        roundNo: (j['round_no'] ?? 0) as int,
+        totalRounds: (j['total_rounds'] ?? 0) as int,
+        isFinal: (j['is_final'] ?? false) as bool,
         rows: (j['results'] as List)
             .map((e) => RoundResultRow.fromJson((e as Map).cast<String, dynamic>()))
             .toList(),
+      );
+}
+
+class FinalStanding {
+  FinalStanding({
+    required this.placement,
+    required this.name,
+    required this.isBot,
+    required this.total,
+  });
+  final int placement;
+  final String name;
+  final bool isBot;
+  final int total;
+
+  factory FinalStanding.fromJson(Map<String, dynamic> j) => FinalStanding(
+        placement: j['placement'] as int,
+        name: j['name'] as String,
+        isBot: j['is_bot'] as bool,
+        total: j['total'] as int,
       );
 }
 
@@ -107,11 +139,13 @@ class MatchSocket {
   final _roster = StreamController<List<MatchPlayer>>.broadcast();
   final _question = StreamController<MatchQuestion>.broadcast();
   final _result = StreamController<RoundResult>.broadcast();
+  final _matchOver = StreamController<List<FinalStanding>>.broadcast();
 
   Stream<bool> get connected => _connected.stream;
   Stream<List<MatchPlayer>> get roster => _roster.stream;
   Stream<MatchQuestion> get question => _question.stream;
   Stream<RoundResult> get result => _result.stream;
+  Stream<List<FinalStanding>> get matchOver => _matchOver.stream;
 
   void connect() {
     final socket = io.io(
@@ -137,6 +171,12 @@ class MatchSocket {
     });
     socket.on('round_result', (data) {
       _result.add(RoundResult.fromJson((data as Map).cast<String, dynamic>()));
+    });
+    socket.on('match_over', (data) {
+      final standings = ((data as Map)['standings'] as List)
+          .map((e) => FinalStanding.fromJson((e as Map).cast<String, dynamic>()))
+          .toList();
+      _matchOver.add(standings);
     });
 
     socket.connect();
@@ -164,5 +204,6 @@ class MatchSocket {
     _roster.close();
     _question.close();
     _result.close();
+    _matchOver.close();
   }
 }

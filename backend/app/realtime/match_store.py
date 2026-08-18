@@ -21,7 +21,7 @@ from ..redis_client import redis_client
 
 MAX_SEATS = 4
 _TTL_SECONDS = 60 * 60  # safety expiry so abandoned matches self-clean
-
+ROUNDS_PER_MATCH = 5  # a match plays this many questions, then ends
 
 def _meta_key(match_id: str) -> str:
     return f"match:{match_id}:meta"

@@ -191,3 +191,19 @@ async def add_match_player(db: AsyncSession, match_id: str, user_id: str) -> Non
         ),
         {"m": match_id, "u": user_id},
     )
+
+
+async def set_match_player_result(
+    db: AsyncSession, *, match_id: str, user_id: str, final_score: int, placement: int
+) -> None:
+    """Write a player's final score + placement onto their match_players row."""
+    await db.execute(
+        text(
+            """
+            UPDATE match_players
+            SET final_score = :s, placement = :p
+            WHERE match_id = :m AND user_id = :u
+            """
+        ),
+        {"s": final_score, "p": placement, "m": match_id, "u": user_id},
+    )

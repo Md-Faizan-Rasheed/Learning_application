@@ -14,7 +14,7 @@ class MultiplayerScreen extends StatefulWidget {
   State<MultiplayerScreen> createState() => _MultiplayerScreenState();
 }
 
-enum _Phase { connecting, waiting, question, results }
+enum _Phase { connecting, waiting, question, results, finished }
 
 class _MultiplayerScreenState extends State<MultiplayerScreen> {
   final MatchSocket _socket = MatchSocket();
@@ -24,6 +24,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
   List<MatchPlayer> _players = [];
   MatchQuestion? _question;
   RoundResult? _result;
+  List<FinalStanding>? _finalStandings;
   int? _selected;
   bool _answered = false;
 
@@ -57,6 +58,13 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
       setState(() {
         _result = r;
         _phase = _Phase.results;
+      });
+    }));
+    _subs.add(_socket.matchOver.listen((standings) {
+      _ticker?.cancel();
+      setState(() {
+        _finalStandings = standings;
+        _phase = _Phase.finished;
       });
     }));
     _socket.connect();
@@ -101,6 +109,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
           _Phase.waiting => _buildWaiting(),
           _Phase.question => _buildQuestion(),
           _Phase.results => _buildResults(),
+          _Phase.finished => _buildFinished(),
         },
       ),
     );
@@ -138,8 +147,12 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Q${q.index + 1}',
-                style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(
+              _result != null && _result!.totalRounds > 0
+                  ? 'Q${q.index + 1} / ${_result!.totalRounds}'
+                  : 'Q${q.index + 1}',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
             _timerChip(),
           ],
         ),
@@ -236,9 +249,65 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
           );
         }),
         const SizedBox(height: 16),
-        const Center(
-          child: Text('Round complete',
-              style: TextStyle(color: Colors.grey)),
+        Center(
+          child: Text(
+            r.isFinal ? 'Final round complete…' : 'Next question coming up…',
+            style: const TextStyle(color: Colors.grey),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFinished() {
+    final standings = _finalStandings!;
+    final me = standings.firstWhere(
+      (s) => !s.isBot && s.name == widget.name,
+      orElse: () => standings.first,
+    );
+    final won = me.placement == 1;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 8),
+        Center(
+          child: Column(
+            children: [
+              Icon(won ? Icons.emoji_events : Icons.flag,
+                  size: 56, color: won ? Colors.amber : Colors.grey),
+              const SizedBox(height: 8),
+              Text(
+                won ? 'You won!' : 'You placed #${me.placement}',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Text('Final standings',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 8),
+        ...standings.map((s) {
+          final isMe = !s.isBot && s.name == widget.name;
+          return Card(
+            color: isMe
+                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.08)
+                : null,
+            child: ListTile(
+              leading: Text('#${s.placement}',
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
+              title: Text(s.isBot ? 'Bot' : s.name),
+              trailing: Text('${s.total}',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold)),
+            ),
+          );
+        }),
+        const SizedBox(height: 24),
+        FilledButton.icon(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: const Icon(Icons.home),
+          label: const Text('Back to home'),
         ),
       ],
     );
