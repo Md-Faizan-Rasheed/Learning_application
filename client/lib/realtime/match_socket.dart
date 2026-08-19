@@ -135,29 +135,47 @@ class FinalStanding {
 class MatchSocket {
   io.Socket? _socket;
 
+  // Remembered across a drop so we can rejoin the same match.
+  String? _matchId;
+  String? _userId;
+
   final _connected = StreamController<bool>.broadcast();
   final _roster = StreamController<List<MatchPlayer>>.broadcast();
   final _question = StreamController<MatchQuestion>.broadcast();
   final _result = StreamController<RoundResult>.broadcast();
   final _matchOver = StreamController<List<FinalStanding>>.broadcast();
+  final _resume = StreamController<Map<String, dynamic>>.broadcast();
 
   Stream<bool> get connected => _connected.stream;
   Stream<List<MatchPlayer>> get roster => _roster.stream;
   Stream<MatchQuestion> get question => _question.stream;
   Stream<RoundResult> get result => _result.stream;
   Stream<List<FinalStanding>> get matchOver => _matchOver.stream;
+  Stream<Map<String, dynamic>> get resume => _resume.stream;
 
-  void connect() {
-    final socket = io.io(
-      kSocketUrl,
-      io.OptionBuilder()
-          .setTransports(['websocket'])
-          .disableAutoConnect()
-          .build(),
-    );
+  bool get hasMatch => _matchId != null && _userId != null;
+
+  void connect({String? token}) {
+    final builder = io.OptionBuilder()
+        .setTransports(['websocket'])
+        .disableAutoConnect();
+    if (token != null && token.isNotEmpty) {
+      builder.setAuth({'token': token});
+    }
+    final socket = io.io(kSocketUrl, builder.build());
     _socket = socket;
 
-    socket.onConnect((_) => _connected.add(true));
+    socket.onConnect((_) {
+      _connected.add(true);
+      // If we dropped mid-match, transparently rejoin on reconnect.
+      if (_matchId != null && _userId != null) {
+        socket.emitWithAck(
+          'rejoin_match',
+          {'match_id': _matchId, 'user_id': _userId},
+          ack: (_) {},
+        );
+      }
+    });
     socket.onDisconnect((_) => _connected.add(false));
 
     socket.on('roster', (data) {
@@ -178,6 +196,11 @@ class MatchSocket {
           .toList();
       _matchOver.add(standings);
     });
+    socket.on('resume_snapshot', (data) {
+      final map = (data as Map).cast<String, dynamic>();
+      _matchId = map['match_id'] as String? ?? _matchId;
+      _resume.add(map);
+    });
 
     socket.connect();
   }
@@ -186,8 +209,20 @@ class MatchSocket {
     _socket?.emitWithAck(
       'find_match',
       {'name': name, 'difficulty': difficulty},
-      ack: (_) {},
+      ack: (resp) {
+        if (resp is Map) {
+          _matchId = resp['match_id'] as String? ?? _matchId;
+          _userId = resp['user_id'] as String? ?? _userId;
+        }
+      },
     );
+  }
+
+  /// The server assigns a per-join user_id server-side; we learn ours from the
+  /// roster/snapshot. For reconnect we store whatever the server tells us.
+  void rememberIdentity({String? matchId, String? userId}) {
+    _matchId = matchId ?? _matchId;
+    _userId = userId ?? _userId;
   }
 
   void submitAnswer(int? chosenIndex) {

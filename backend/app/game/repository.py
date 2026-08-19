@@ -207,3 +207,11 @@ async def set_match_player_result(
         ),
         {"s": final_score, "p": placement, "m": match_id, "u": user_id},
     )
+
+
+async def set_user_display_name(db: AsyncSession, user_id: str, display_name: str) -> None:
+    """Keep the user's display_name current when they join (a no-op if unchanged)."""
+    await db.execute(
+        text("UPDATE users SET display_name = :n WHERE id = :id"),
+        {"n": display_name, "id": user_id},
+    )

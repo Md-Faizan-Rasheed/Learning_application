@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ..common.deps import get_db, require_admin
+from ..common.deps import get_db, require_admin_user
 from . import repository as repo
 from .schemas import (
     CategoryCreate,
@@ -15,8 +15,8 @@ from .schemas import (
     QuestionOut,
 )
 
-# All routes here are admin-only (temporary key gate — see require_admin).
-router = APIRouter(prefix="/admin", tags=["content-admin"], dependencies=[Depends(require_admin)])
+# Admin-only: real admin/developer JWT, or legacy X-Admin-Key during migration.
+router = APIRouter(prefix="/admin", tags=["content-admin"], dependencies=[Depends(require_admin_user)])
 
 
 @router.post("/categories", response_model=CategoryOut, status_code=status.HTTP_201_CREATED)
@@ -63,5 +63,3 @@ async def review_question(
     if result is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="question not found")
     return result
-
-

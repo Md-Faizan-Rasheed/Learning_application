@@ -5,10 +5,16 @@ import 'package:flutter/material.dart';
 import '../realtime/match_socket.dart';
 
 class MultiplayerScreen extends StatefulWidget {
-  const MultiplayerScreen({super.key, required this.lang, required this.name});
+  const MultiplayerScreen({
+  super.key,
+  required this.lang,
+  required this.name,
+  this.token,
+  });
 
   final String lang;
   final String name;
+  final String? token;
 
   @override
   State<MultiplayerScreen> createState() => _MultiplayerScreenState();
@@ -67,6 +73,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
         _phase = _Phase.finished;
       });
     }));
+    _subs.add(_socket.resume.listen(_onResume));
     _socket.connect();
   }
 
@@ -86,6 +93,34 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
     if (_answered || _selected == null) return;
     _socket.submitAnswer(_selected);
     setState(() => _answered = true);
+  }
+
+  void _onResume(Map<String, dynamic> snap) {
+    final phase = snap['phase'] as String?;
+    if (phase == 'question' && snap['question'] != null) {
+      final q = (snap['question'] as Map).cast<String, dynamic>();
+      final restored = MatchQuestion(
+        questionId: q['question_id'] as String,
+        index: q['index'] as int,
+        prompt: (q['prompt'] as Map).cast<String, dynamic>(),
+        options: (q['options'] as Map).cast<String, dynamic>(),
+        deadlineMs: q['deadline_ms'] as int,
+        timeMs: q['time_ms'] as int,
+      );
+      setState(() {
+        _question = restored;
+        _result = null;
+        _answered = (q['already_answered'] as bool?) ?? false;
+        _selected = null;
+        _phase = _Phase.question;
+      });
+      _startCountdown(restored.deadlineMs);
+    } else if (phase == 'finished') {
+      // Match already ended while we were away — show a simple end state.
+      setState(() => _phase = _Phase.results);
+    } else {
+      setState(() => _phase = _Phase.waiting);
+    }
   }
 
   @override

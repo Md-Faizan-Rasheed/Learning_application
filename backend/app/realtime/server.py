@@ -40,8 +40,23 @@ sio = socketio.AsyncServer(
 
 @sio.event
 async def connect(sid: str, environ: dict, auth: dict | None = None) -> None:
-    # TODO(auth-epic): validate a real token from `auth` here.
-    print(f"[ws] client connected: {sid}")
+    """Validate the JWT passed in the socket auth payload and remember who this
+    connection belongs to. Guests without a token are allowed (anonymous play),
+    but authenticated users get their real identity attached to their matches."""
+    from ..auth.security import decode_access_token
+
+    user_id = None
+    role = "player"
+    token = (auth or {}).get("token") if isinstance(auth, dict) else None
+    if token:
+        payload = decode_access_token(token)
+        if payload and "sub" in payload:
+            user_id = payload["sub"]
+            role = payload.get("role", "player")
+
+    # Stash on the socket session so later events (find_match) can read it.
+    await sio.save_session(sid, {"user_id": user_id, "role": role})
+    print(f"[ws] client connected: {sid} (user={user_id or 'anon'})")
     await sio.emit("server_hello", {"message": "connected", "sid": sid}, to=sid)
 
 
@@ -77,44 +92,102 @@ async def _broadcast_roster(match_id: str) -> None:
     )
 
 
+# Seconds a lobby waits for more humans before starting with bot backfill.
+LOBBY_WAIT_SECONDS = 8
+# Serialize lobby join/create so two joiners don't each open a lobby.
+_lobby_lock = asyncio.Lock()
+
+
 @sio.event
 async def find_match(sid: str, data: dict) -> dict:
-    """Seat this player into a match, backfill bots to fill the table, and
-    start it. Task 2 keeps matchmaking trivial: one fresh match per request.
-    Real skill/gender/category matchmaking arrives in a later task.
+    """Real matchmaking: pool humans joining within a short window into the SAME
+    match. The first joiner opens a lobby; others attach to it. When the lobby
+    fills (4 seats) it starts immediately; otherwise a timer starts it with bots
+    filling the empty seats.
 
-    data: { user_id, name, difficulty? }
+    data: { name, difficulty? }
     """
-    user_id = (data or {}).get("user_id") or f"guest-{sid[:6]}"
     name = (data or {}).get("name") or "Player"
     difficulty = (data or {}).get("difficulty") or "easy"
 
-    # Provision durable DB rows so attempts have valid foreign keys.
-    async with SessionLocal() as db:
-        db_match_id = await game_repo.create_db_match(db, difficulty)
-        db_user_id = await game_repo.create_db_user(db, name)
-        await game_repo.add_match_player(db, db_match_id, db_user_id)
-        await db.commit()
+    # Prefer the authenticated identity attached at connect-time.
+    session = await sio.get_session(sid)
+    auth_user_id = session.get("user_id") if session else None
 
-    # Redis live-state match keyed by the SAME id as the DB match row.
-    match_id = await match_store.create_match(difficulty=difficulty, match_id=db_match_id)
+    async with _lobby_lock:
+        match_id = await match_store.find_open_match(difficulty)
 
-    player = await match_store.add_player(
-        match_id, sid=sid, user_id=db_user_id, name=name, is_bot=False
-    )
-    await sio.enter_room(sid, match_id)
+        if match_id is None:
+            # No open lobby -> create one (durable DB match).
+            async with SessionLocal() as db:
+                match_id = await game_repo.create_db_match(db, difficulty)
+                if auth_user_id:
+                    db_user_id = auth_user_id  # real account
+                    await game_repo.set_user_display_name(db, db_user_id, name)
+                else:
+                    db_user_id = await game_repo.create_db_user(db, name)  # anon guest
+                await game_repo.add_match_player(db, match_id, db_user_id)
+                await db.commit()
+            await match_store.create_match(difficulty=difficulty, match_id=match_id)
+            await match_store.set_open_match(difficulty, match_id)
+            opened_new = True
+        else:
+            # Attach to the existing lobby.
+            async with SessionLocal() as db:
+                if auth_user_id:
+                    db_user_id = auth_user_id
+                    await game_repo.set_user_display_name(db, db_user_id, name)
+                else:
+                    db_user_id = await game_repo.create_db_user(db, name)
+                await game_repo.add_match_player(db, match_id, db_user_id)
+                await db.commit()
+            opened_new = False
 
-    # Fill the remaining seats with bots so a full 4-player table can start.
-    await match_store.fill_with_bots(match_id)
-    await match_store.set_status(match_id, "active")
+        player = await match_store.add_player(
+            match_id, sid=sid, user_id=db_user_id, name=name, is_bot=False
+        )
+        await sio.enter_room(sid, match_id)
+        humans = await match_store.count_humans(match_id)
 
     await _broadcast_roster(match_id)
+
+    # If the lobby is now full of humans, start immediately.
+    if player is not None and humans >= match_store.MAX_SEATS:
+        await match_store.clear_open_match(difficulty, match_id)
+        await _begin_match(match_id, difficulty)
+    elif opened_new:
+        # First joiner arms the start timer; more humans may join meanwhile.
+        asyncio.create_task(_lobby_timer(match_id, difficulty))
+
+    return {
+        "ok": True,
+        "match_id": match_id,
+        "seat": player["seat"] if player else None,
+        "user_id": db_user_id,
+    }
+
+
+async def _lobby_timer(match_id: str, difficulty: str) -> None:
+    """After the wait window, close the lobby and start with bot backfill."""
+    await asyncio.sleep(LOBBY_WAIT_SECONDS)
+    meta = await match_store.get_meta(match_id)
+    if not meta or meta.get("status") != "waiting":
+        return  # already started (filled early) or gone
+    await match_store.clear_open_match(difficulty, match_id)
+    await _begin_match(match_id, difficulty)
+
+
+async def _begin_match(match_id: str, difficulty: str) -> None:
+    """Fill leftover seats with bots, mark active, and serve the first question."""
+    # guard: only begin once
+    meta = await match_store.get_meta(match_id)
+    if not meta or meta.get("status") != "waiting":
+        return
+    await match_store.fill_with_bots(match_id)
+    await match_store.set_status(match_id, "active")
+    await _broadcast_roster(match_id)
     await sio.emit("match_started", {"match_id": match_id}, room=match_id)
-
-    # Task 3: immediately serve the first question to the whole room.
     await _start_and_broadcast_question(match_id, difficulty=difficulty, index=0)
-
-    return {"ok": True, "match_id": match_id, "seat": player["seat"] if player else None}
 
 
 async def _start_and_broadcast_question(
@@ -405,6 +478,64 @@ async def _end_match(match_id: str) -> None:
         {"match_id": match_id, "standings": standings},
         room=match_id,
     )
+
+
+@sio.event
+async def rejoin_match(sid: str, data: dict) -> dict:
+    """Reconnect handshake. The client remembers its match_id + user_id across a
+    drop and calls this; the server reattaches the seat and replays a snapshot
+    of the current match state so the player resumes where they left off.
+
+    data: { match_id, user_id }
+    """
+    import time as _t
+
+    match_id = (data or {}).get("match_id")
+    user_id = (data or {}).get("user_id")
+    if not match_id or not user_id:
+        return {"ok": False, "error": "match_id and user_id required"}
+
+    meta = await match_store.get_meta(match_id)
+    if not meta:
+        return {"ok": False, "error": "match no longer exists"}
+
+    player = await match_store.reseat_player(match_id, user_id, sid)
+    if player is None:
+        return {"ok": False, "error": "you are not in this match"}
+
+    await sio.enter_room(sid, match_id)
+    await _broadcast_roster(match_id)
+
+    # Build a snapshot of what's happening right now, just for this client.
+    status = meta.get("status")
+    snapshot: dict = {"ok": True, "match_id": match_id, "seat": player["seat"], "status": status}
+
+    if status == "completed":
+        scores = await match_store.get_scores(match_id)
+        snapshot["phase"] = "finished"
+        snapshot["scores"] = scores
+    else:
+        rnd = await match_store.get_round(match_id)
+        if rnd:
+            remaining = max(0, rnd["started_at_ms"] + rnd["time_ms"] - int(_t.time() * 1000))
+            already = await match_store.has_answered(match_id, rnd["round_no"], player["seat"])
+            snapshot["phase"] = "question"
+            snapshot["question"] = {
+                "index": rnd["round_no"],
+                "question_id": rnd["question_id"],
+                "prompt": rnd["prompt"],
+                "options": rnd["options"],
+                "deadline_ms": rnd["started_at_ms"] + rnd["time_ms"],
+                "time_ms": rnd["time_ms"],
+                "remaining_ms": remaining,
+                "already_answered": already,
+            }
+        else:
+            snapshot["phase"] = "waiting"
+
+    # Send the snapshot only to the reconnecting client.
+    await sio.emit("resume_snapshot", snapshot, to=sid)
+    return snapshot
 
 
 @sio.event

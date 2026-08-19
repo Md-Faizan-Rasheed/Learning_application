@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     # this key in the `X-Admin-Key` header.
     admin_api_key: str = "dev-admin-key-change-me"
 
+    # JWT signing. CHANGE THIS in any non-local environment.
+    jwt_secret: str = "dev-jwt-secret-change-me"
+    jwt_algorithm: str = "HS256"
+    jwt_ttl_days: int = 7
+
     @property
     def async_database_url(self) -> str:
         """The app talks to Postgres over asyncpg; normalise the URL for it.

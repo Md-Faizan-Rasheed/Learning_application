@@ -23,6 +23,7 @@ MAX_SEATS = 4
 _TTL_SECONDS = 60 * 60  # safety expiry so abandoned matches self-clean
 ROUNDS_PER_MATCH = 5  # a match plays this many questions, then ends
 
+
 def _meta_key(match_id: str) -> str:
     return f"match:{match_id}:meta"
 
@@ -45,6 +46,63 @@ def _answers_key(match_id: str, round_no: int) -> str:
 
 def _scores_key(match_id: str) -> str:
     return f"match:{match_id}:scores"
+
+
+# ---- matchmaking lobby (pools humans before a match starts) ----
+# open:{difficulty} -> match_id of the currently-forming lobby (if any)
+
+def _open_key(difficulty: str) -> str:
+    return f"open:{difficulty}"
+
+
+async def find_open_match(difficulty: str) -> str | None:
+    """The match_id of a lobby currently accepting players for this difficulty."""
+    return await redis_client.get(_open_key(difficulty))
+
+
+async def set_open_match(difficulty: str, match_id: str) -> None:
+    # short-lived pointer; the lobby closes when it fills or the timer fires
+    await redis_client.set(_open_key(difficulty), match_id, ex=_TTL_SECONDS)
+
+
+async def clear_open_match(difficulty: str, match_id: str) -> None:
+    """Stop new players joining this lobby — but only if it's still the open one
+    (compare-and-delete, so we don't clobber a newer lobby)."""
+    current = await redis_client.get(_open_key(difficulty))
+    if current == match_id:
+        await redis_client.delete(_open_key(difficulty))
+
+
+async def try_claim_open_seat(difficulty: str) -> str | None:
+    """Atomically get the open lobby for this difficulty, or None. (Read is
+    atomic enough here; seat contention is handled by add_player returning None
+    when full.)"""
+    return await redis_client.get(_open_key(difficulty))
+
+
+async def count_humans(match_id: str) -> int:
+    raw = await redis_client.hgetall(_players_key(match_id))
+    return sum(1 for v in raw.values() if not json.loads(v)["is_bot"])
+
+
+async def reseat_player(match_id: str, user_id: str, new_sid: str) -> dict | None:
+    """On reconnect: find the seat this user_id already holds and reattach the
+    new socket id to it. Returns the player, or None if they're not in the match."""
+    raw = await redis_client.hgetall(_players_key(match_id))
+    for seat, v in raw.items():
+        p = json.loads(v)
+        if p.get("user_id") == user_id:
+            p["sid"] = new_sid
+            await redis_client.hset(_players_key(match_id), seat, json.dumps(p))
+            await redis_client.set(_sid_key(new_sid), match_id, ex=_TTL_SECONDS)
+            return p
+    return None
+
+
+async def has_answered(match_id: str, round_no: int, seat: int) -> bool:
+    return bool(
+        await redis_client.hexists(_answers_key(match_id, round_no), str(seat))
+    )
 
 
 async def create_match(

@@ -7,3 +7,6 @@ pydantic-settings
 alembic
 psycopg2-binary
 python-socketio>=5
+argon2-cffi
+pyjwt
+email-validator
