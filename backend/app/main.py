@@ -7,6 +7,7 @@ from .game.routes import router as game_router
 from .health.routes import router as health_router
 from .auth.routes import router as auth_router
 from .realtime.server import sio
+from .progression.routes import router as profile_router
 
 app = FastAPI(title="Islamic Learning Game API")
 
@@ -26,6 +27,7 @@ app.include_router(health_router)
 app.include_router(content_router)
 app.include_router(game_router)
 app.include_router(auth_router)
+app.include_router(profile_router)
 
 @app.get("/")
 async def root() -> dict:

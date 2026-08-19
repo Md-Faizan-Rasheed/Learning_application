@@ -6,10 +6,10 @@ import '../realtime/match_socket.dart';
 
 class MultiplayerScreen extends StatefulWidget {
   const MultiplayerScreen({
-  super.key,
-  required this.lang,
-  required this.name,
-  this.token,
+    super.key,
+    required this.lang,
+    required this.name,
+    this.token,
   });
 
   final String lang;
@@ -74,7 +74,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
       });
     }));
     _subs.add(_socket.resume.listen(_onResume));
-    _socket.connect();
+    _socket.connect(token: widget.token);
   }
 
   void _startCountdown(int deadlineMs) {
@@ -315,6 +315,41 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
                 won ? 'You won!' : 'You placed #${me.placement}',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
+              if (me.xpEarned != null) ...[
+                const SizedBox(height: 16),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.amber.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.star, color: Colors.amber),
+                      const SizedBox(width: 8),
+                      Text('+${me.xpEarned} XP',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                ),
+                if (me.streakDays != null) ...[
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.local_fire_department,
+                          color: Colors.orange),
+                      const SizedBox(width: 6),
+                      Text('${me.streakDays} day streak',
+                          style: Theme.of(context).textTheme.titleMedium),
+                    ],
+                  ),
+                ],
+              ],
             ],
           ),
         ),

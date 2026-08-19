@@ -9,6 +9,7 @@ import 'auth/auth_service.dart';
 import 'l10n/app_localizations.dart';
 import 'screens/multiplayer_screen.dart';
 import 'screens/practice_screen.dart';
+import 'screens/profile_screen.dart';
 
 void main() => runApp(const IslamicGameApp());
 
@@ -203,6 +204,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         : null,
                     icon: const Icon(Icons.groups),
                     label: const Text('Multiplayer'),
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton.icon(
+                    onPressed: _ok && widget.auth.current != null
+                        ? () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => ProfileScreen(
+                                  token: widget.auth.current!.token,
+                                ),
+                              ),
+                            );
+                          }
+                        : null,
+                    icon: const Icon(Icons.person),
+                    label: const Text('My profile'),
                   ),
                   const SizedBox(height: 8),
                   TextButton.icon(

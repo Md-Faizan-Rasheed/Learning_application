@@ -117,18 +117,27 @@ class FinalStanding {
     required this.name,
     required this.isBot,
     required this.total,
+    this.xpEarned,
+    this.streakDays,
   });
   final int placement;
   final String name;
   final bool isBot;
   final int total;
+  final int? xpEarned;
+  final int? streakDays;
 
-  factory FinalStanding.fromJson(Map<String, dynamic> j) => FinalStanding(
-        placement: j['placement'] as int,
-        name: j['name'] as String,
-        isBot: j['is_bot'] as bool,
-        total: j['total'] as int,
-      );
+  factory FinalStanding.fromJson(Map<String, dynamic> j) {
+    final rewards = j['rewards'] as Map?;
+    return FinalStanding(
+      placement: j['placement'] as int,
+      name: j['name'] as String,
+      isBot: j['is_bot'] as bool,
+      total: j['total'] as int,
+      xpEarned: rewards?['xp_earned'] as int?,
+      streakDays: rewards?['streak_days'] as int?,
+    );
+  }
 }
 
 /// Thin wrapper over socket_io_client exposing broadcast streams the UI listens to.

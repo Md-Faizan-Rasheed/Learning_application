@@ -1,0 +1,91 @@
+{
+  "categories": [
+    {
+      "slug": "seerah",
+      "display_name": "Seerah",
+      "description": "The life of the Prophet Muhammad ﷺ"
+    }
+  ],
+  "questions": [
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the name of the Prophet Muhammad ﷺ's father?",
+        "ur": "نبی کریم ﷺ کے والد کا نام کیا تھا؟",
+        "ar": "ما اسم والد النبي محمد ﷺ؟"
+      },
+      "options": {
+        "en": ["Abdullah ibn Abd al-Muttalib", "Abu Talib", "Al-Abbas ibn Abd al-Muttalib", "Hamza ibn Abd al-Muttalib"],
+        "ur": ["عبداللہ بن عبدالمطلب", "ابو طالب", "عباس بن عبدالمطلب", "حمزہ بن عبدالمطلب"],
+        "ar": ["عبد الله بن عبد المطلب", "أبو طالب", "العباس بن عبد المطلب", "حمزة بن عبد المطلب"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Lineage and Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the name of the mother of the Prophet Muhammad ﷺ?",
+        "ur": "نبی کریم ﷺ کی والدہ کا نام کیا تھا؟",
+        "ar": "ما اسم والدة النبي محمد ﷺ؟"
+      },
+      "options": {
+        "en": ["Aminah bint Wahb", "Halimah as-Sa'diyyah", "Fatimah bint Asad", "Khadijah bint Khuwaylid"],
+        "ur": ["آمنہ بنت وہب", "حلیمہ سعدیہ", "فاطمہ بنت اسد", "خدیجہ بنت خویلد"],
+        "ar": ["آمنة بنت وهب", "حليمة السعدية", "فاطمة بنت أسد", "خديجة بنت خويلد"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Lineage and Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which woman of Banu Sa'd nursed the Prophet ﷺ during his infancy?",
+        "ur": "بنو سعد کی کس خاتون نے بچپن میں نبی کریم ﷺ کو دودھ پلایا؟",
+        "ar": "من هي المرضعة من بني سعد التي أرضعت النبي ﷺ في صغره؟"
+      },
+      "options": {
+        "en": ["Halimah as-Sa'diyyah", "Aminah bint Wahb", "Umm Ayman", "Fatimah bint Asad"],
+        "ur": ["حلیمہ سعدیہ", "آمنہ بنت وہب", "ام ایمن", "فاطمہ بنت اسد"],
+        "ar": ["حليمة السعدية", "آمنة بنت وهب", "أم أيمن", "فاطمة بنت أسد"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Childhood"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "At what age did the Prophet ﷺ receive the first revelation?",
+        "ur": "نبی کریم ﷺ کو پہلی وحی کس عمر میں نازل ہوئی؟",
+        "ar": "في أي عمر نزل الوحي على النبي ﷺ لأول مرة؟"
+      },
+      "options": {
+        "en": ["40 years", "35 years", "25 years", "53 years"],
+        "ur": ["چالیس سال", "پینتیس سال", "پچیس سال", "ترپن سال"],
+        "ar": ["أربعون سنة", "خمس وثلاثون سنة", "خمس وعشرون سنة", "ثلاث وخمسون سنة"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Beginning of Revelation"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "In which cave did the Prophet ﷺ receive the first revelation?",
+        "ur": "نبی کریم ﷺ پر پہلی وحی ک س غار میں نازل ہوئی؟",
+        "ar": "في أي غار نزل الوحي على النبي ﷺ أول مرة؟"
+      },
+      "options": {
+        "en": ["Cave of Hira", "Cave of Thawr", "Cave of the People of the Cave", "Mount Uhud"],
+        "ur": ["غار حرا", "غار ثور", "غار اصحابِ کہف", "جبل احد"],
+        "ar": ["غار حراء", "غار ثور", "كهف أصحاب الكهف", "جبل أحد"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Beginning of Revelation"
+    }
+  ]
+}
