@@ -6,7 +6,6 @@ __pycache__/
 
 # Flutter
 client/.dart_tool/
-client/build/
 
 # secrets / local config
 .env
