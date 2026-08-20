@@ -4,7 +4,7 @@ import 'package:socket_io_client/socket_io_client.dart' as io;
 
 /// Base URL of the backend. Socket.IO connects here; the server wraps FastAPI,
 /// so the default "/socket.io" path is correct.
-const String kSocketUrl = 'http://127.0.0.1:8000';
+const String kSocketUrl = 'https://learning-application-re35.onrender.com';
 
 class MatchPlayer {
   MatchPlayer({
