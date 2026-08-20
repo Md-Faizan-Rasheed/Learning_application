@@ -455,7 +455,12 @@ async def _end_match(match_id: str) -> None:
     for placement, s in enumerate(standings, start=1):
         s["placement"] = placement
 
-    # Persist final score + placement for real (non-bot) players.
+    # Persist final score + placement, and award XP + streak for real players.
+    import datetime as _dt
+
+    from ..progression import repository as prog_repo
+
+    rewards: dict[int, dict] = {}
     async with SessionLocal() as db:
         for s in standings:
             player = players[s["seat"]]
@@ -469,9 +474,26 @@ async def _end_match(match_id: str) -> None:
                     final_score=s["total"],
                     placement=s["placement"],
                 )
+                # count this player's correct answers across the match
+                correct = await game_repo.count_correct_answers(
+                    db, match_id=match_id, user_id=player["user_id"]
+                )
+                reward = await prog_repo.apply_match_result(
+                    db,
+                    user_id=player["user_id"],
+                    placement=s["placement"],
+                    correct_answers=correct,
+                    today=_dt.date.today(),
+                )
+                rewards[s["seat"]] = reward
             except Exception as e:  # noqa: BLE001
-                print(f"[ws] placement persist skipped (seat {s['seat']}): {e}")
+                print(f"[ws] progression/persist skipped (seat {s['seat']}): {e}")
         await db.commit()
+
+    # attach each player's rewards to their standings row
+    for s in standings:
+        if s["seat"] in rewards:
+            s["rewards"] = rewards[s["seat"]]
 
     await sio.emit(
         "match_over",

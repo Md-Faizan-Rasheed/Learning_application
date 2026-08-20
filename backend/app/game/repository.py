@@ -215,3 +215,16 @@ async def set_user_display_name(db: AsyncSession, user_id: str, display_name: st
         text("UPDATE users SET display_name = :n WHERE id = :id"),
         {"n": display_name, "id": user_id},
     )
+
+
+async def count_correct_answers(db: AsyncSession, *, match_id: str, user_id: str) -> int:
+    row = (
+        await db.execute(
+            text(
+                "SELECT count(*) FROM attempts "
+                "WHERE match_id = :m AND user_id = :u AND is_correct = TRUE"
+            ),
+            {"m": match_id, "u": user_id},
+        )
+    ).first()
+    return int(row[0]) if row else 0
