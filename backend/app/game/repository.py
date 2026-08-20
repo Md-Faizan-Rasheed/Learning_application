@@ -30,9 +30,13 @@ async def get_or_create_practice_user(db: AsyncSession) -> str:
     return str(row[0])
 
 
-async def pick_live_question(db: AsyncSession, difficulty: str | None) -> dict | None:
+async def pick_live_question(
+    db: AsyncSession, difficulty: str | None, category_slug: str | None = None
+) -> dict | None:
     """Pick one LIVE question in an ACTIVE category. review_state gate enforced
-    here so unreviewed content can never reach a player."""
+    here so unreviewed content can never reach a player. If category_slug is
+    given (and not 'mixed'), restrict to that category; otherwise draw from all."""
+    print(f"[DEBUG] pick_live_question category_slug={category_slug!r}")   # <-- ADD THIS
     q = """
         SELECT q.id, q.difficulty::text AS difficulty, q.prompt, q.options,
                q.correct_index
@@ -44,6 +48,9 @@ async def pick_live_question(db: AsyncSession, difficulty: str | None) -> dict |
     if difficulty:
         q += " AND q.difficulty = CAST(:difficulty AS difficulty_level)"
         params["difficulty"] = difficulty
+    if category_slug and category_slug.lower() != "mixed":
+        q += " AND c.slug = :cslug"
+        params["cslug"] = category_slug.lower()
     q += " ORDER BY random() LIMIT 1"
     row = (await db.execute(text(q), params)).mappings().first()
     return dict(row) if row else None

@@ -109,13 +109,15 @@ async def find_match(sid: str, data: dict) -> dict:
     """
     name = (data or {}).get("name") or "Player"
     difficulty = (data or {}).get("difficulty") or "easy"
+    category = (data or {}).get("category") or "mixed"
+    print(f"[DEBUG] find_match received data={data}")   # <-- ADD THIS
 
     # Prefer the authenticated identity attached at connect-time.
     session = await sio.get_session(sid)
     auth_user_id = session.get("user_id") if session else None
 
     async with _lobby_lock:
-        match_id = await match_store.find_open_match(difficulty)
+        match_id = await match_store.find_open_match(difficulty, category)
 
         if match_id is None:
             # No open lobby -> create one (durable DB match).
@@ -128,8 +130,10 @@ async def find_match(sid: str, data: dict) -> dict:
                     db_user_id = await game_repo.create_db_user(db, name)  # anon guest
                 await game_repo.add_match_player(db, match_id, db_user_id)
                 await db.commit()
-            await match_store.create_match(difficulty=difficulty, match_id=match_id)
-            await match_store.set_open_match(difficulty, match_id)
+            await match_store.create_match(
+                difficulty=difficulty, category=category, match_id=match_id
+            )
+            await match_store.set_open_match(difficulty, match_id, category)
             opened_new = True
         else:
             # Attach to the existing lobby.
@@ -153,11 +157,10 @@ async def find_match(sid: str, data: dict) -> dict:
 
     # If the lobby is now full of humans, start immediately.
     if player is not None and humans >= match_store.MAX_SEATS:
-        await match_store.clear_open_match(difficulty, match_id)
+        await match_store.clear_open_match(difficulty, match_id, category)
         await _begin_match(match_id, difficulty)
     elif opened_new:
-        # First joiner arms the start timer; more humans may join meanwhile.
-        asyncio.create_task(_lobby_timer(match_id, difficulty))
+        asyncio.create_task(_lobby_timer(match_id, difficulty, category))
 
     return {
         "ok": True,
@@ -167,13 +170,13 @@ async def find_match(sid: str, data: dict) -> dict:
     }
 
 
-async def _lobby_timer(match_id: str, difficulty: str) -> None:
+async def _lobby_timer(match_id: str, difficulty: str, category: str = "mixed") -> None:
     """After the wait window, close the lobby and start with bot backfill."""
     await asyncio.sleep(LOBBY_WAIT_SECONDS)
     meta = await match_store.get_meta(match_id)
     if not meta or meta.get("status") != "waiting":
         return  # already started (filled early) or gone
-    await match_store.clear_open_match(difficulty, match_id)
+    await match_store.clear_open_match(difficulty, match_id, category)
     await _begin_match(match_id, difficulty)
 
 
@@ -198,8 +201,11 @@ async def _start_and_broadcast_question(
     NEVER sent to clients."""
     import time as _t
 
+    meta = await match_store.get_meta(match_id)
+    category = meta.get("category", "mixed") if meta else "mixed"
+
     async with SessionLocal() as db:
-        q = await game_repo.pick_live_question(db, difficulty)
+        q = await game_repo.pick_live_question(db, difficulty, category)
     if q is None:
         await sio.emit(
             "no_questions",

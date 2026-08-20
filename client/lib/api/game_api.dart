@@ -67,8 +67,13 @@ class GameApi {
   GameApi({http.Client? client}) : _client = client ?? http.Client();
   final http.Client _client;
 
-  Future<ServedQuestion> fetchPracticeQuestion({String lang = 'en'}) async {
-    final uri = Uri.parse('$kApiBaseUrl/play/practice/question?lang=$lang');
+  Future<ServedQuestion> fetchPracticeQuestion({
+    String lang = 'en',
+    String category = 'mixed',
+  }) async {
+    final catParam = category == 'mixed' ? '' : '&category=$category';
+    final uri = Uri.parse(
+        '$kApiBaseUrl/play/practice/question?lang=$lang$catParam');
     final res = await _client.get(uri).timeout(const Duration(seconds: 8));
     if (res.statusCode == 404) {
       throw ApiException('No live questions yet. Add one and set it to "live".');

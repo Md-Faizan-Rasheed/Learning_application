@@ -13,6 +13,29 @@ import 'screens/profile_screen.dart';
 
 void main() => runApp(const IslamicGameApp());
 
+Future<String?> _pickCategory(BuildContext context) async {
+  return showDialog<String>(
+    context: context,
+    builder: (ctx) => SimpleDialog(
+      title: const Text('Choose a category'),
+      children: [
+        for (final c in const [
+          ['seerah', 'Seerah'],
+          ['arabic', 'Arabic'],
+          ['mixed', 'Mixed (all)'],
+        ])
+          SimpleDialogOption(
+            onPressed: () => Navigator.pop(ctx, c[0]),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Text(c[1], style: const TextStyle(fontSize: 16)),
+            ),
+          ),
+      ],
+    ),
+  );
+}
+
 class IslamicGameApp extends StatefulWidget {
   const IslamicGameApp({super.key});
 
@@ -175,11 +198,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 24),
                   FilledButton.icon(
                     onPressed: _ok
-                        ? () {
+                        ? () async {
+                            final category = await _pickCategory(context);
+                            if (category == null || !context.mounted) return;
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) =>
-                                    PracticeScreen(lang: widget.currentLang),
+                                builder: (_) => PracticeScreen(
+                                  lang: widget.currentLang,
+                                  category: category,
+                                ),
                               ),
                             );
                           }
@@ -190,13 +217,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 8),
                   OutlinedButton.icon(
                     onPressed: _ok
-                        ? () {
+                        ? () async {
+                            final category = await _pickCategory(context);
+                            if (category == null || !context.mounted) return;
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (_) => MultiplayerScreen(
                                   lang: widget.currentLang,
                                   name: widget.auth.current?.displayName ?? 'You',
                                   token: widget.auth.current?.token,
+                                  category: category,
                                 ),
                               ),
                             );

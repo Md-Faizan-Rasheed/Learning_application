@@ -51,26 +51,7 @@ def _scores_key(match_id: str) -> str:
 # ---- matchmaking lobby (pools humans before a match starts) ----
 # open:{difficulty} -> match_id of the currently-forming lobby (if any)
 
-def _open_key(difficulty: str) -> str:
-    return f"open:{difficulty}"
 
-
-async def find_open_match(difficulty: str) -> str | None:
-    """The match_id of a lobby currently accepting players for this difficulty."""
-    return await redis_client.get(_open_key(difficulty))
-
-
-async def set_open_match(difficulty: str, match_id: str) -> None:
-    # short-lived pointer; the lobby closes when it fills or the timer fires
-    await redis_client.set(_open_key(difficulty), match_id, ex=_TTL_SECONDS)
-
-
-async def clear_open_match(difficulty: str, match_id: str) -> None:
-    """Stop new players joining this lobby — but only if it's still the open one
-    (compare-and-delete, so we don't clobber a newer lobby)."""
-    current = await redis_client.get(_open_key(difficulty))
-    if current == match_id:
-        await redis_client.delete(_open_key(difficulty))
 
 
 async def try_claim_open_seat(difficulty: str) -> str | None:
@@ -269,3 +250,20 @@ async def add_score(match_id: str, seat: int, points: int) -> int:
 async def get_scores(match_id: str) -> dict[int, int]:
     raw = await redis_client.hgetall(_scores_key(match_id))
     return {int(seat): int(v) for seat, v in raw.items()}
+
+def _open_key(difficulty: str, category: str = "mixed") -> str:
+    return f"open:{category}:{difficulty}"
+
+
+async def find_open_match(difficulty: str, category: str = "mixed") -> str | None:
+    return await redis_client.get(_open_key(difficulty, category))
+
+
+async def set_open_match(difficulty: str, match_id: str, category: str = "mixed") -> None:
+    await redis_client.set(_open_key(difficulty, category), match_id, ex=_TTL_SECONDS)
+
+
+async def clear_open_match(difficulty: str, match_id: str, category: str = "mixed") -> None:
+    current = await redis_client.get(_open_key(difficulty, category))
+    if current == match_id:
+        await redis_client.delete(_open_key(difficulty, category))

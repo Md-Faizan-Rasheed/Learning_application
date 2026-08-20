@@ -10,11 +10,15 @@ class MultiplayerScreen extends StatefulWidget {
     required this.lang,
     required this.name,
     this.token,
+    this.category = 'mixed'
   });
 
   final String lang;
   final String name;
   final String? token;
+  final String category;
+
+
 
   @override
   State<MultiplayerScreen> createState() => _MultiplayerScreenState();
@@ -42,7 +46,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen> {
     super.initState();
     _subs.add(_socket.connected.listen((ok) {
       if (ok && _phase == _Phase.connecting) {
-        _socket.findMatch(name: widget.name);
+        _socket.findMatch(name: widget.name, category: widget.category);
         setState(() => _phase = _Phase.waiting);
       }
     }));

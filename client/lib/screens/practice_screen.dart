@@ -4,15 +4,15 @@ import '../api/game_api.dart';
 import '../l10n/app_localizations.dart';
 
 class PracticeScreen extends StatefulWidget {
-  const PracticeScreen({super.key, required this.lang});
+  const PracticeScreen({super.key, required this.lang,this.category = 'mixed'});
 
   /// Current language code (en/ur/ar) so the server returns the right text.
   final String lang;
+  final String category;
 
   @override
   State<PracticeScreen> createState() => _PracticeScreenState();
 }
-
 class _PracticeScreenState extends State<PracticeScreen> {
   final GameApi _api = GameApi();
 

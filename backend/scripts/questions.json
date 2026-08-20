@@ -1,0 +1,629 @@
+{
+  "categories": [
+    {
+      "slug": "seerah",
+      "display_name": "Seerah",
+      "description": "The life of the Prophet Muhammad ﷺ"
+    },
+    {
+      "slug": "arabic",
+      "display_name": "Arabic",
+      "description": "Basic Arabic literacy, letters, vowels, words, and foundational language concepts"
+    }
+  ],
+  "questions": [
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was the first wife of the Prophet Muhammad ﷺ?",
+        "ur": "نبی کریم ﷺ کی پہلی زوجہ کون تھیں؟",
+        "ar": "من كانت أول زوجة للنبي محمد ﷺ؟"
+      },
+      "options": {
+        "en": ["Khadijah bint Khuwaylid", "Aishah bint Abu Bakr", "Hafsah bint Umar", "Zaynab bint Jahsh"],
+        "ur": ["خدیجہ بنت خویلد", "عائشہ بنت ابوبکر", "حفصہ بنت عمر", "زینب بنت جحش"],
+        "ar": ["خديجة بنت خويلد", "عائشة بنت أبي بكر", "حفصة بنت عمر", "زينب بنت جحش"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Family Life"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was the grandfather of the Prophet Muhammad ﷺ?",
+        "ur": "نبی کریم ﷺ کے دادا کا نام کیا تھا؟",
+        "ar": "ما اسم جد النبي محمد ﷺ؟"
+      },
+      "options": {
+        "en": ["Abd al-Muttalib", "Abu Talib", "Abdullah", "Al-Abbas"],
+        "ur": ["عبدالمطلب", "ابو طالب", "عبداللہ", "عباس"],
+        "ar": ["عبد المطلب", "أبو طالب", "عبد الله", "العباس"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Lineage and Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was the first person to believe in the Prophet ﷺ among women?",
+        "ur": "خواتین میں سب سے پہلے نبی کریم ﷺ پر ایمان لانے والی کون تھیں؟",
+        "ar": "من أول امرأة آمنت بالنبي ﷺ؟"
+      },
+      "options": {
+        "en": ["Khadijah bint Khuwaylid", "Aishah bint Abu Bakr", "Fatimah bint Muhammad", "Hafsah bint Umar"],
+        "ur": ["خدیجہ بنت خویلد", "عائشہ بنت ابوبکر", "فاطمہ بنت محمد", "حفصہ بنت عمر"],
+        "ar": ["خديجة بنت خويلد", "عائشة بنت أبي بكر", "فاطمة بنت محمد", "حفصة بنت عمر"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Beginning of Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the name of the Prophet Muhammad ﷺ's city of birth?",
+        "ur": "نبی کریم ﷺ کی جائے پیدائش کا شہر کون سا تھا؟",
+        "ar": "ما اسم المدينة التي وُلد فيها النبي محمد ﷺ؟"
+      },
+      "options": {
+        "en": ["Makkah", "Madinah", "Taif", "Jerusalem"],
+        "ur": ["مکہ", "مدینہ", "طائف", "بیت المقدس"],
+        "ar": ["مكة", "المدينة", "الطائف", "القدس"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Birth and Early Life"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which companion accompanied the Prophet ﷺ during the Hijrah?",
+        "ur": "ہجرت کے دوران نبی کریم ﷺ کے ساتھ کون سے صحابی تھے؟",
+        "ar": "من الصحابي الذي رافق النبي ﷺ أثناء الهجرة؟"
+      },
+      "options": {
+        "en": ["Abu Bakr as-Siddiq", "Umar ibn al-Khattab", "Uthman ibn Affan", "Ali ibn Abi Talib"],
+        "ur": ["ابوبکر صدیق", "عمر بن خطاب", "عثمان بن عفان", "علی بن ابی طالب"],
+        "ar": ["أبو بكر الصديق", "عمر بن الخطاب", "عثمان بن عفان", "علي بن أبي طالب"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — The Hijrah"
+    },
+
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which angel brought the first revelation to the Prophet ﷺ?",
+        "ur": "نبی کریم ﷺ کے پاس پہلی وحی کون سے فرشتے لائے؟",
+        "ar": "أيُّ ملك جاء بالوحي الأول إلى النبي ﷺ؟"
+      },
+      "options": {
+        "en": ["Jibril", "Mikail", "Israfil", "Malik"],
+        "ur": ["جبرائیل", "میکائیل", "اسرافیل", "مالک"],
+        "ar": ["جبريل", "ميكائيل", "إسرافيل", "مالك"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Beginning of Revelation"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What was the name of the cave where the Prophet ﷺ and Abu Bakr stayed during the Hijrah?",
+        "ur": "ہجرت کے دوران نبی کریم ﷺ اور ابوبکرؓ نے کس غار میں قیام کیا؟",
+        "ar": "ما اسم الغار الذي مكث فيه النبي ﷺ وأبو بكر أثناء الهجرة؟"
+      },
+      "options": {
+        "en": ["Cave of Thawr", "Cave of Hira", "Cave of Uhud", "Cave of Safa"],
+        "ur": ["غار ثور", "غار حرا", "غار احد", "غار صفا"],
+        "ar": ["غار ثور", "غار حراء", "غار أحد", "غار الصفا"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — The Hijrah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which city did the Prophet ﷺ migrate to from Makkah?",
+        "ur": "نبی کریم ﷺ نے مکہ سے کس شہر کی طرف ہجرت فرمائی؟",
+        "ar": "إلى أي مدينة هاجر النبي ﷺ من مكة؟"
+      },
+      "options": {
+        "en": ["Madinah", "Taif", "Damascus", "Jerusalem"],
+        "ur": ["مدینہ", "طائف", "دمشق", "بیت المقدس"],
+        "ar": ["المدينة", "الطائف", "دمشق", "القدس"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — The Hijrah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What was the first mosque built by the Prophet ﷺ after the Hijrah?",
+        "ur": "ہجرت کے بعد نبی کریم ﷺ نے سب سے پہلے کون سی مسجد تعمیر فرمائی؟",
+        "ar": "ما أول مسجد بناه النبي ﷺ بعد الهجرة؟"
+      },
+      "options": {
+        "en": ["Masjid Quba", "Masjid an-Nabawi", "Masjid al-Haram", "Masjid al-Aqsa"],
+        "ur": ["مسجد قبا", "مسجد نبوی", "مسجد الحرام", "مسجد اقصیٰ"],
+        "ar": ["مسجد قباء", "المسجد النبوي", "المسجد الحرام", "المسجد الأقصى"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which battle was fought between the Muslims and Quraysh in 2 AH?",
+        "ur": "2 ہجری میں مسلمانوں اور قریش کے درمیان کون سی جنگ ہوئی؟",
+        "ar": "ما المعركة التي وقعت بين المسلمين وقريش في السنة الثانية للهجرة؟"
+      },
+      "options": {
+        "en": ["Battle of Badr", "Battle of Uhud", "Battle of Khandaq", "Battle of Hunayn"],
+        "ur": ["غزوۂ بدر", "غزوۂ احد", "غزوۂ خندق", "غزوۂ حنین"],
+        "ar": ["غزوة بدر", "غزوة أحد", "غزوة الخندق", "غزوة حنين"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Battles"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which battle is also known as the Battle of the Trench?",
+        "ur": "کون سی جنگ غزوۂ خندق کے نام سے بھی مشہور ہے؟",
+        "ar": "أي معركة تُعرف أيضًا باسم غزوة الخندق؟"
+      },
+      "options": {
+        "en": ["Battle of Ahzab", "Battle of Badr", "Battle of Uhud", "Battle of Khaybar"],
+        "ur": ["غزوۂ احزاب", "غزوۂ بدر", "غزوۂ احد", "غزوۂ خیبر"],
+        "ar": ["غزوة الأحزاب", "غزوة بدر", "غزوة أحد", "غزوة خيبر"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Battles"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which treaty was made between the Muslims and Quraysh before the conquest of Makkah?",
+        "ur": "فتح مکہ سے پہلے مسلمانوں اور قریش کے درمیان کون سا معاہدہ ہوا؟",
+        "ar": "ما اسم المعاهدة التي عقدت بين المسلمين وقريش قبل فتح مكة؟"
+      },
+      "options": {
+        "en": ["Treaty of Hudaybiyyah", "Treaty of Madinah", "Treaty of Aqabah", "Treaty of Taif"],
+        "ur": ["صلح حدیبیہ", "میثاق مدینہ", "بیعت عقبہ", "معاہدۂ طائف"],
+        "ar": ["صلح الحديبية", "صحيفة المدينة", "بيعة العقبة", "معاهدة الطائف"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Hudaybiyyah"
+    },
+
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Who was the first person to accept Islam among the young companions?",
+        "ur": "نوجوان صحابہ میں سب سے پہلے اسلام قبول کرنے والے کون تھے؟",
+        "ar": "من أول من أسلم من الفتيان؟"
+      },
+      "options": {
+        "en": ["Ali ibn Abi Talib", "Umar ibn al-Khattab", "Uthman ibn Affan", "Zubayr ibn al-Awwam"],
+        "ur": ["علی بن ابی طالب", "عمر بن خطاب", "عثمان بن عفان", "زبیر بن عوام"],
+        "ar": ["علي بن أبي طالب", "عمر بن الخطاب", "عثمان بن عفان", "الزبير بن العوام"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Early Muslims"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "What was the name of the year in which Abu Talib and Khadijah رضي الله عنها passed away?",
+        "ur": "وہ سال کس نام سے مشہور ہے جس میں ابو طالب اور حضرت خدیجہ رضی اللہ عنہا کا انتقال ہوا؟",
+        "ar": "بماذا عُرف العام الذي توفي فيه أبو طالب وخديجة رضي الله عنها؟"
+      },
+      "options": {
+        "en": ["Year of Sorrow", "Year of Victory", "Year of Delegations", "Year of the Elephant"],
+        "ur": ["عام الحزن", "عام الفتح", "عام الوفود", "عام الفیل"],
+        "ar": ["عام الحزن", "عام الفتح", "عام الوفود", "عام الفيل"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Year of Sorrow"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "What was the name of the Prophet ﷺ's uncle who was martyred at the Battle of Uhud?",
+        "ur": "غزوۂ احد میں نبی کریم ﷺ کے کس چچا نے شہادت پائی؟",
+        "ar": "من عم النبي ﷺ الذي استشهد في غزوة أحد؟"
+      },
+      "options": {
+        "en": ["Hamza ibn Abd al-Muttalib", "Abu Talib", "Al-Abbas ibn Abd al-Muttalib", "Abu Lahab"],
+        "ur": ["حمزہ بن عبدالمطلب", "ابو طالب", "عباس بن عبدالمطلب", "ابو لہب"],
+        "ar": ["حمزة بن عبد المطلب", "أبو طالب", "العباس بن عبد المطلب", "أبو لهب"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Battle of Uhud"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which companion was known as the first muezzin of Islam?",
+        "ur": "اسلام کے پہلے مؤذن کے طور پر کون سے صحابی مشہور تھے؟",
+        "ar": "من الصحابي الذي عُرف بأنه أول مؤذن في الإسلام؟"
+      },
+      "options": {
+        "en": ["Bilal ibn Rabah", "Abu Hurairah", "Salman al-Farisi", "Ammar ibn Yasir"],
+        "ur": ["بلال بن رباح", "ابوہریرہ", "سلمان فارسی", "عمار بن یاسر"],
+        "ar": ["بلال بن رباح", "أبو هريرة", "سلمان الفارسي", "عمار بن ياسر"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Companions"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which event is traditionally associated with the Prophet ﷺ's journey from Makkah to Jerusalem?",
+        "ur": "نبی کریم ﷺ کے مکہ سے بیت المقدس کے سفر کو کس واقعے سے تعبیر کیا جاتا ہے؟",
+        "ar": "ما اسم الرحلة التي أُسري فيها بالنبي ﷺ من مكة إلى بيت المقدس؟"
+      },
+      "options": {
+        "en": ["Isra", "Hijrah", "Miqat", "Aqabah"],
+        "ur": ["اسراء", "ہجرت", "میقات", "عقبہ"],
+        "ar": ["الإسراء", "الهجرة", "الميقات", "العقبة"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Isra and Mi'raj"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which event followed the Prophet ﷺ's journey to Jerusalem in the account of Isra and Mi'raj?",
+        "ur": "اسراء کے واقعے میں بیت المقدس کے سفر کے بعد کون سا واقعہ پیش آیا؟",
+        "ar": "ما الحدث الذي جاء بعد رحلة النبي ﷺ إلى بيت المقدس في قصة الإسراء والمعراج؟"
+      },
+      "options": {
+        "en": ["Ascension to the heavens", "Migration to Madinah", "Conquest of Makkah", "Battle of Badr"],
+        "ur": ["آسمانوں کی طرف معراج", "مدینہ کی طرف ہجرت", "فتح مکہ", "غزوۂ بدر"],
+        "ar": ["المعراج إلى السماوات", "الهجرة إلى المدينة", "فتح مكة", "غزوة بدر"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Isra and Mi'raj"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "What was the name of the Prophet ﷺ's son who was born to Mariyah al-Qibtiyyah?",
+        "ur": "ماریہ قبطیہ رضی اللہ عنہا سے نبی کریم ﷺ کے کس صاحبزادے کی ولادت ہوئی؟",
+        "ar": "ما اسم ابن النبي ﷺ الذي ولد من مارية القبطية؟"
+      },
+      "options": {
+        "en": ["Ibrahim", "Abdullah", "Qasim", "Tayyib"],
+        "ur": ["ابراہیم", "عبداللہ", "قاسم", "طیب"],
+        "ar": ["إبراهيم", "عبد الله", "القاسم", "الطيب"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which companion was sent by the Prophet ﷺ to Madinah to teach Islam before the Hijrah?",
+        "ur": "ہجرت سے پہلے نبی کریم ﷺ نے اسلام کی تعلیم دینے کے لیے کس صحابی کو مدینہ بھیجا؟",
+        "ar": "أي صحابي أرسله النبي ﷺ إلى المدينة لتعليم الناس الإسلام قبل الهجرة؟"
+      },
+      "options": {
+        "en": ["Mus'ab ibn Umayr", "Bilal ibn Rabah", "Abu Dharr al-Ghifari", "Salman al-Farisi"],
+        "ur": ["مصعب بن عمیر", "بلال بن رباح", "ابو ذر غفاری", "سلمان فارسی"],
+        "ar": ["مصعب بن عمير", "بلال بن رباح", "أبو ذر الغفاري", "سلمان الفارسي"]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Madinah before Hijrah"
+    },
+
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic letter is the first letter of the Arabic alphabet?",
+        "ur": "عربی حروف تہجی کا پہلا حرف کون سا ہے؟",
+        "ar": "ما أول حرف في الأبجدية العربية؟"
+      },
+      "options": {
+        "en": ["Alif", "Ba", "Ta", "Tha"],
+        "ur": ["الف", "با", "تا", "ثا"],
+        "ar": ["الألف", "الباء", "التاء", "الثاء"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Letters"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic letter is written as ب?",
+        "ur": "عربی کا کون سا حرف ب کی شکل میں لکھا جاتا ہے؟",
+        "ar": "أي حرف عربي يُكتب بهذا الشكل: ب؟"
+      },
+      "options": {
+        "en": ["Ba", "Ta", "Nun", "Ya"],
+        "ur": ["با", "تا", "نون", "یا"],
+        "ar": ["الباء", "التاء", "النون", "الياء"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Letters"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What sound does the Arabic vowel mark Fathah generally represent?",
+        "ur": "عربی میں فتحہ عام طور پر کس آواز کو ظاہر کرتا ہے؟",
+        "ar": "ما الصوت الذي تدل عليه الفتحة عادةً؟"
+      },
+      "options": {
+        "en": ["Short a", "Short i", "Short u", "Long aa"],
+        "ur": ["مختصر اَ", "مختصر اِ", "مختصر اُ", "لمبی آ"],
+        "ar": ["صوت الفتحة القصير", "صوت الكسرة القصير", "صوت الضمة القصير", "الألف الطويلة"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Harakat"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which vowel mark is written as ِ below the letter?",
+        "ur": "حرف کے نیچے لکھی جانے والی حرکت کون سی ہے؟",
+        "ar": "ما الحركة التي تُكتب أسفل الحرف؟"
+      },
+      "options": {
+        "en": ["Kasrah", "Fathah", "Dammah", "Sukoon"],
+        "ur": ["کسرہ", "فتحہ", "ضمہ", "سکون"],
+        "ar": ["الكسرة", "الفتحة", "الضمة", "السكون"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Harakat"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which vowel mark is written as ُ above the letter?",
+        "ur": "حرف کے اوپر ُ کون سی حرکت ہے؟",
+        "ar": "ما الحركة التي تُكتب بهذا الشكل ُ فوق الحرف؟"
+      },
+      "options": {
+        "en": ["Dammah", "Kasrah", "Fathah", "Sukoon"],
+        "ur": ["ضمہ", "کسرہ", "فتحہ", "سکون"],
+        "ar": ["الضمة", "الكسرة", "الفتحة", "السكون"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Harakat"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does the Arabic word كتاب mean?",
+        "ur": "عربی لفظ کتاب کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني كلمة كتاب؟"
+      },
+      "options": {
+        "en": ["Book", "House", "Pen", "Door"],
+        "ur": ["کتاب", "گھر", "قلم", "دروازہ"],
+        "ar": ["كتاب", "بيت", "قلم", "باب"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Vocabulary"
+    },
+
+    {
+      "category_slug": "arabic",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which Arabic letter has one dot below it?",
+        "ur": "کون سے عربی حرف کے نیچے ایک نقطہ ہوتا ہے؟",
+        "ar": "أي حرف عربي له نقطة واحدة تحته؟"
+      },
+      "options": {
+        "en": ["Ba", "Ta", "Tha", "Nun"],
+        "ur": ["با", "تا", "ثا", "نون"],
+        "ar": ["الباء", "التاء", "الثاء", "النون"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Letter Recognition"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which Arabic letter has two dots above it?",
+        "ur": "کون سے عربی حرف کے اوپر دو نقطے ہوتے ہیں؟",
+        "ar": "أي حرف عربي له نقطتان فوقه؟"
+      },
+      "options": {
+        "en": ["Ta", "Ba", "Tha", "Ya"],
+        "ur": ["تا", "با", "ثا", "یا"],
+        "ar": ["التاء", "الباء", "الثاء", "الياء"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Letter Recognition"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What does the Arabic word بيت mean?",
+        "ur": "عربی لفظ بیت کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني كلمة بيت؟"
+      },
+      "options": {
+        "en": ["House", "Book", "School", "Water"],
+        "ur": ["گھر", "کتاب", "اسکول", "پانی"],
+        "ar": ["بيت", "كتاب", "مدرسة", "ماء"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What does the Arabic word مدرسة mean?",
+        "ur": "عربی لفظ مدرسہ کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني كلمة مدرسة؟"
+      },
+      "options": {
+        "en": ["School", "Mosque", "House", "Market"],
+        "ur": ["اسکول", "مسجد", "گھر", "بازار"],
+        "ar": ["مدرسة", "مسجد", "بيت", "سوق"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Which Arabic word means water?",
+        "ur": "پانی کے لیے کون سا عربی لفظ استعمال ہوتا ہے؟",
+        "ar": "أي كلمة عربية تعني الماء؟"
+      },
+      "options": {
+        "en": ["ماء", "نار", "بيت", "كتاب"],
+        "ur": ["ماء", "نار", "بیت", "کتاب"],
+        "ar": ["ماء", "نار", "بيت", "كتاب"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "What does the Arabic word قلم mean?",
+        "ur": "عربی لفظ قلم کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني كلمة قلم؟"
+      },
+      "options": {
+        "en": ["Pen", "Book", "Door", "Chair"],
+        "ur": ["قلم", "کتاب", "دروازہ", "کرسی"],
+        "ar": ["قلم", "كتاب", "باب", "كرسي"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Vocabulary"
+    },
+
+    {
+      "category_slug": "arabic",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which Arabic letter is known as a guttural letter?",
+        "ur": "ان میں سے کون سا عربی حرف حلقی حرف ہے؟",
+        "ar": "أي حرف من هذه الحروف يُعد من حروف الحلق؟"
+      },
+      "options": {
+        "en": ["Ayn (ع)", "Ba (ب)", "Mim (م)", "Lam (ل)"],
+        "ur": ["عین (ع)", "با (ب)", "میم (م)", "لام (ل)"],
+        "ar": ["العين (ع)", "الباء (ب)", "الميم (م)", "اللام (ل)"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Letter Characteristics"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which Arabic letter is written as ء and represents the Hamzah sound?",
+        "ur": "کون سا عربی حرف ء کی شکل میں لکھا جاتا ہے اور ہمزہ کی آواز ظاہر کرتا ہے؟",
+        "ar": "أي رمز عربي يُكتب هكذا ء ويمثل صوت الهمزة؟"
+      },
+      "options": {
+        "en": ["Hamzah", "Alif", "Ayn", "Waw"],
+        "ur": ["ہمزہ", "الف", "عین", "واو"],
+        "ar": ["الهمزة", "الألف", "العين", "الواو"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Hamzah"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "What is the function of Sukoon (ْ) on an Arabic letter?",
+        "ur": "عربی حرف پر سکون (ْ) کا بنیادی کام کیا ہے؟",
+        "ar": "ما وظيفة السكون (ْ) على الحرف العربي؟"
+      },
+      "options": {
+        "en": ["It indicates that the letter has no vowel", "It adds a long vowel", "It doubles the letter", "It changes the letter into Hamzah"],
+        "ur": ["یہ ظاہر کرتا ہے کہ حرف پر کوئی حرکت نہیں ہے", "یہ لمبی حرکت بناتا ہے", "یہ حرف کو دوگنا کرتا ہے", "یہ حرف کو ہمزہ میں بدل دیتا ہے"],
+        "ar": ["يدل على أن الحرف ساكن بلا حركة", "يدل على مد طويل", "يدل على تشديد الحرف", "يحوّل الحرف إلى همزة"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Harakat"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which Arabic vowel mark indicates doubling of the consonant sound?",
+        "ur": "کون سی عربی علامت حرف کی آواز کو دوگنا ظاہر کرتی ہے؟",
+        "ar": "أي علامة عربية تدل على تشديد الحرف وتضعيف صوته؟"
+      },
+      "options": {
+        "en": ["Shaddah", "Sukoon", "Fathah", "Kasrah"],
+        "ur": ["شدہ", "سکون", "فتحہ", "کسرہ"],
+        "ar": ["الشدة", "السكون", "الفتحة", "الكسرة"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Harakat"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which of these Arabic words means 'the book' rather than simply 'a book'?",
+        "ur": "ان میں سے کون سا عربی لفظ 'کتاب' کے بجائے 'وہ کتاب' یعنی معرفہ کتاب کے معنی دیتا ہے؟",
+        "ar": "أي كلمة من هذه تعني 'الكتاب' المعرفة وليست 'كتاب' النكرة؟"
+      },
+      "options": {
+        "en": ["الكتاب", "كتاب", "كتب", "كاتب"],
+        "ur": ["الکتاب", "کتاب", "کتب", "کاتب"],
+        "ar": ["الكتاب", "كتاب", "كتب", "كاتب"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Definite Article"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Which Arabic word is the plural of كتاب?",
+        "ur": "کتاب کی جمع کے لیے کون سا عربی لفظ استعمال ہوتا ہے؟",
+        "ar": "ما جمع كلمة كتاب؟"
+      },
+      "options": {
+        "en": ["كتب", "كاتب", "مكتوب", "كتابان"],
+        "ur": ["کتب", "کاتب", "مکتوب", "کتابان"],
+        "ar": ["كتب", "كاتب", "مكتوب", "كتابان"]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basic Word Forms"
+    }
+  ]
+}

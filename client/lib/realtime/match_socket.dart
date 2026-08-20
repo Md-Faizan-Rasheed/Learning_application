@@ -214,10 +214,14 @@ class MatchSocket {
     socket.connect();
   }
 
-  void findMatch({required String name, String difficulty = 'easy'}) {
+  void findMatch({
+    required String name,
+    String difficulty = 'easy',
+    String category = 'mixed',
+  }) {
     _socket?.emitWithAck(
       'find_match',
-      {'name': name, 'difficulty': difficulty},
+      {'name': name, 'difficulty': difficulty, 'category': category},
       ack: (resp) {
         if (resp is Map) {
           _matchId = resp['match_id'] as String? ?? _matchId;
