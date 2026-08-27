@@ -1,5 +1,6 @@
 # Python
 backend/venv/
+__pycache__/
 *.pyc
 .env
 
@@ -26,10 +27,12 @@ client/.dart_tool/
 secrets/
 
 # ---------- Python / FastAPI backend ----------
+__pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+build/
 develop-eggs/
 dist/
 downloads/
@@ -65,6 +68,7 @@ client/.dart_tool/
 client/.flutter-plugins
 client/.flutter-plugins-dependencies
 client/.packages
+client/build/
 client/.pub-cache/
 client/.pub/
 client/pubspec.lock        # app repo: optional to ignore; keep if you want reproducible builds
@@ -85,6 +89,7 @@ client/ios/Flutter/Flutter.podspec
 client/ios/Pods/
 client/ios/.symlinks/
 client/**/*.g.dart.lock
+client/web/build/
 
 # ---------- Docker ----------
 # (compose file IS tracked; ignore local overrides & volumes if any)
