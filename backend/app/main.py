@@ -16,16 +16,22 @@ app = FastAPI(title="Islamic Learning Game API")
 # from a localhost dev port) can't reach this API unless we allow it.
 # In development we allow any localhost origin; production locks this down.
 if settings.env == "development":
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[
-        "http://localhost:xxxx",
+    origins = [
+        "http://localhost:5173",
+        "http://localhost:5174",
+    ]
+else:
+    origins = [
         "https://learning-application-1.onrender.com",
-    ],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
+    ]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(health_router)
 app.include_router(auth_router)
