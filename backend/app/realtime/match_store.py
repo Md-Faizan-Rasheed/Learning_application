@@ -21,7 +21,7 @@ from ..redis_client import redis_client
 
 MAX_SEATS = 4
 _TTL_SECONDS = 60 * 60  # safety expiry so abandoned matches self-clean
-ROUNDS_PER_MATCH = 5  # a match plays this many questions, then ends
+ROUNDS_PER_MATCH = 8  # a match plays this many questions, then ends
 
 
 def _meta_key(match_id: str) -> str:
@@ -267,3 +267,11 @@ async def clear_open_match(difficulty: str, match_id: str, category: str = "mixe
     current = await redis_client.get(_open_key(difficulty, category))
     if current == match_id:
         await redis_client.delete(_open_key(difficulty, category))
+
+
+async def get_recent_questions(match_id: str) -> list[str]:
+    return await redis_client.lrange(f"{match_id}:recent_questions", 0, -1)
+
+async def add_recent_question(match_id: str, question_id: str) -> None:
+    await redis_client.rpush(f"{match_id}:recent_questions", question_id)
+    await redis_client.ltrim(f"{match_id}:recent_questions", -10, -1)

@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from .auth.routes import router as auth_router
 from .config import settings
 from .content.routes import router as content_router
 from .game.routes import router as game_router
 from .health.routes import router as health_router
-from .auth.routes import router as auth_router
-from .realtime.server import sio
 from .progression.routes import router as profile_router
+from .quests.routes import router as quests_router
+from .realtime.server import sio
 
 app = FastAPI(title="Islamic Learning Game API")
 
@@ -24,10 +25,12 @@ if settings.env == "development":
     )
 
 app.include_router(health_router)
+app.include_router(auth_router)
 app.include_router(content_router)
 app.include_router(game_router)
-app.include_router(auth_router)
 app.include_router(profile_router)
+app.include_router(quests_router)
+
 
 @app.get("/")
 async def root() -> dict:

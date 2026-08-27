@@ -158,3 +158,13 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+    # validate a bank without writing anything
+# python -m scripts.import_content scripts/questions.json --dry-run
+
+# # load it, leaving questions as draft (for review)
+# python -m scripts.import_content scripts/questions.json
+
+# # load AND promote to live (for already-reviewed banks)
+# python -m scripts.import_content scripts/questions.json --live

@@ -54,6 +54,33 @@ async def apply_match_result(
     }
 
 
+async def get_leaderboard(db: AsyncSession, limit: int = 20) -> list[dict]:
+    """Top players by total XP, for the global leaderboard screen."""
+    rows = (
+        await db.execute(
+            text(
+                """
+                SELECT display_name, total_xp, streak_days
+                FROM users
+                ORDER BY total_xp DESC, streak_days DESC
+                LIMIT :limit
+                """
+            ),
+            {"limit": limit},
+        )
+    ).mappings().all()
+
+    return [
+        {
+            "placement": i + 1,
+            "display_name": r["display_name"],
+            "total_xp": r["total_xp"] or 0,
+            "streak_days": r["streak_days"] or 0,
+        }
+        for i, r in enumerate(rows)
+    ]
+
+
 async def get_profile(db: AsyncSession, user_id: str) -> dict | None:
     user = (
         await db.execute(

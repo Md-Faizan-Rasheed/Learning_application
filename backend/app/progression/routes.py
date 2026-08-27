@@ -19,3 +19,12 @@ async def my_profile(
     if profile is None:
         raise HTTPException(status_code=404, detail="user not found")
     return profile
+
+
+@router.get("/leaderboard")
+async def leaderboard(
+    current: CurrentUser = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
+    """Top players ranked by total XP."""
+    return {"players": await repo.get_leaderboard(db)}

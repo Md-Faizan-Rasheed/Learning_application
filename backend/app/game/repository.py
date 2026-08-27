@@ -4,6 +4,7 @@ from uuid import UUID
 
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.sql import bindparam
 
 
 async def get_or_create_practice_user(db: AsyncSession) -> str:
@@ -30,31 +31,77 @@ async def get_or_create_practice_user(db: AsyncSession) -> str:
     return str(row[0])
 
 
-async def pick_live_question(
-    db: AsyncSession, difficulty: str | None, category_slug: str | None = None
-) -> dict | None:
-    """Pick one LIVE question in an ACTIVE category. review_state gate enforced
-    here so unreviewed content can never reach a player. If category_slug is
-    given (and not 'mixed'), restrict to that category; otherwise draw from all."""
-    print(f"[DEBUG] pick_live_question category_slug={category_slug!r}")   # <-- ADD THIS
-    q = """
-        SELECT q.id, q.difficulty::text AS difficulty, q.prompt, q.options,
-               q.correct_index
-        FROM questions q
-        JOIN categories c ON c.id = q.category_id
-        WHERE q.review_state = 'live' AND c.is_active = TRUE
-    """
-    params: dict = {}
-    if difficulty:
-        q += " AND q.difficulty = CAST(:difficulty AS difficulty_level)"
-        params["difficulty"] = difficulty
-    if category_slug and category_slug.lower() != "mixed":
-        q += " AND c.slug = :cslug"
-        params["cslug"] = category_slug.lower()
-    q += " ORDER BY random() LIMIT 1"
-    row = (await db.execute(text(q), params)).mappings().first()
-    return dict(row) if row else None
 
+async def pick_live_question(
+    db: AsyncSession,
+    difficulty: str | None,
+    category_slug: str | None = None,
+    recent_questions: list[str] | None = None,
+) -> dict | None:
+
+    recent_questions = recent_questions or []
+
+    q = """
+        SELECT
+            q.id,
+            q.difficulty::text AS difficulty,
+            q.prompt,
+            q.options,
+            q.correct_index
+        FROM questions q
+        JOIN categories c
+            ON c.id = q.category_id
+        WHERE q.review_state = 'live'
+          AND c.is_active = TRUE
+    """
+
+    params = {}
+
+    # Difficulty filter
+    if difficulty:
+        q += """
+            AND q.difficulty = CAST(:difficulty AS difficulty_level)
+        """
+        params["difficulty"] = difficulty
+
+    # Category filter
+    if category_slug and category_slug.lower() != "mixed":
+        q += """
+            AND c.slug = :cslug
+        """
+        params["cslug"] = category_slug.lower()
+
+    # Don't repeat recently-used questions
+    if recent_questions:
+        q += """
+            AND q.id NOT IN (
+                SELECT unnest(CAST(:recent_questions AS uuid[]))
+            )
+        """
+        params["recent_questions"] = recent_questions
+
+    q += """
+        ORDER BY random()
+        LIMIT 1
+    """
+
+    print("\n========== PICK LIVE QUESTION DEBUG ==========")
+    print("SQL:")
+    print(q)
+    print("PARAMS:")
+    print(params)
+    print("PARAM TYPE:")
+    print(type(params))
+    print("==============================================\n")
+
+    result = await db.execute(
+        text(q),
+        params
+    )
+
+    row = result.mappings().first()
+
+    return dict(row) if row else None
 
 async def create_practice_match(db: AsyncSession, difficulty: str) -> str:
     row = (

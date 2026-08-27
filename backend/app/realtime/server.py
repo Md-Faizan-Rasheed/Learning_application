@@ -110,7 +110,6 @@ async def find_match(sid: str, data: dict) -> dict:
     name = (data or {}).get("name") or "Player"
     difficulty = (data or {}).get("difficulty") or "easy"
     category = (data or {}).get("category") or "mixed"
-    print(f"[DEBUG] find_match received data={data}")   # <-- ADD THIS
 
     # Prefer the authenticated identity attached at connect-time.
     session = await sio.get_session(sid)
@@ -203,9 +202,10 @@ async def _start_and_broadcast_question(
 
     meta = await match_store.get_meta(match_id)
     category = meta.get("category", "mixed") if meta else "mixed"
-
+    recent_questions = await match_store.get_recent_questions(match_id)
     async with SessionLocal() as db:
-        q = await game_repo.pick_live_question(db, difficulty, category)
+           q = await game_repo.pick_live_question(db, difficulty, category, recent_questions)
+           await match_store.add_recent_question(match_id, str(q["id"]))
     if q is None:
         await sio.emit(
             "no_questions",
@@ -465,6 +465,8 @@ async def _end_match(match_id: str) -> None:
     import datetime as _dt
 
     from ..progression import repository as prog_repo
+    from ..quests import catalog as quest_catalog
+    from ..quests import repository as quest_repo
 
     rewards: dict[int, dict] = {}
     async with SessionLocal() as db:
@@ -491,9 +493,31 @@ async def _end_match(match_id: str) -> None:
                     correct_answers=correct,
                     today=_dt.date.today(),
                 )
+                # advance daily quests: played a match, answered N correct, maybe won
+                today = _dt.date.today()
+                completed = []
+                completed += await quest_repo.advance_quests(
+                    db, player["user_id"], today,
+                    event=quest_catalog.EVENT_MATCH_PLAYED, amount=1,
+                )
+                completed += await quest_repo.advance_quests(
+                    db, player["user_id"], today,
+                    event=quest_catalog.EVENT_CORRECT_ANSWER, amount=correct,
+                )
+                if s["placement"] == 1:
+                    completed += await quest_repo.advance_quests(
+                        db, player["user_id"], today,
+                        event=quest_catalog.EVENT_MATCH_WON, amount=1,
+                    )
+                reward["quests_completed"] = [
+                    {"description": c["description"], "reward_xp": c["reward_xp"]}
+                    for c in completed
+                ]
                 rewards[s["seat"]] = reward
             except Exception as e:  # noqa: BLE001
-                print(f"[ws] progression/persist skipped (seat {s['seat']}): {e}")
+                import traceback
+                print(f"[ws] progression/quests error (seat {s['seat']}): {e}")
+                traceback.print_exc()
         await db.commit()
 
     # attach each player's rewards to their standings row
