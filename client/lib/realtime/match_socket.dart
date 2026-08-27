@@ -17,7 +17,7 @@ class MatchSocket {
       final completer = Completer<bool>();
 
       _socket = io(
-        'http://127.0.0.1:8000',
+        'https://learning-application-re35.onrender.com',
         OptionBuilder()
             .setTransports(['websocket'])
             .setAuth({
