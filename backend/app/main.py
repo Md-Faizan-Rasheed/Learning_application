@@ -18,9 +18,11 @@ from .realtime.server import sio
 from .social.routes import router as social_router
 from .teacher.routes import router as teacher_router
 
-# A None DSN is Sentry's own documented way to disable the SDK — safe to
-# call unconditionally even before SENTRY_DSN is configured.
-sentry_sdk.init(dsn=settings.sentry_dsn, environment=settings.env, send_default_pii=False)
+# A None DSN disables the SDK, but an *empty string* (what Render leaves an
+# unset `sync: false` env var as) makes sentry_sdk raise BadDsn instead — so
+# guard on truthiness, not just presence of the setting.
+if settings.sentry_dsn:
+    sentry_sdk.init(dsn=settings.sentry_dsn, environment=settings.env, send_default_pii=False)
 
 
 class UTF8JSONResponse(JSONResponse):
