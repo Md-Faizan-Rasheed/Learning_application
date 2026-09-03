@@ -1,3 +1,4 @@
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -33,6 +34,17 @@ class Settings(BaseSettings):
     # Crash/error reporting. Unset -> Sentry's SDK no-ops (its own documented
     # behavior for a None DSN), so this is safe to leave unconfigured.
     sentry_dsn: str | None = None
+
+    # Render's `sync: false` env vars are created blank (an empty string,
+    # not an unset key) whenever they're left empty at first deploy, so a
+    # merely-optional secret's default of None never actually applies —
+    # normalize blank/whitespace values back to None for all of them.
+    @field_validator("openai_api_key", "resend_api_key", "sentry_dsn", mode="before")
+    @classmethod
+    def _blank_to_none(cls, v: str | None) -> str | None:
+        if isinstance(v, str) and not v.strip():
+            return None
+        return v
 
     @property
     def async_database_url(self) -> str:
