@@ -18,11 +18,15 @@ from .realtime.server import sio
 from .social.routes import router as social_router
 from .teacher.routes import router as teacher_router
 
-# A None DSN disables the SDK, but an *empty string* (what Render leaves an
-# unset `sync: false` env var as) makes sentry_sdk raise BadDsn instead — so
-# guard on truthiness, not just presence of the setting.
+# A None DSN disables the SDK, but a blank or malformed one makes
+# sentry_sdk raise instead of no-op — crash/error reporting is optional and
+# must never be able to take the whole API down over a typo'd env var, so
+# swallow init failures here rather than let them abort startup.
 if settings.sentry_dsn:
-    sentry_sdk.init(dsn=settings.sentry_dsn, environment=settings.env, send_default_pii=False)
+    try:
+        sentry_sdk.init(dsn=settings.sentry_dsn, environment=settings.env, send_default_pii=False)
+    except Exception as exc:
+        print(f"Sentry init failed, continuing without it: {exc}")
 
 
 class UTF8JSONResponse(JSONResponse):
