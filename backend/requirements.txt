@@ -10,3 +10,10 @@ python-socketio>=5
 argon2-cffi
 pyjwt
 email-validator
+openai
+httpx
+sentry-sdk
+
+# test-only, not needed at runtime
+pytest
+pytest-asyncio

@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..common.deps import CurrentUser, get_current_user, get_db
+from ..social import repository as social_repo
 from . import repository as repo
 
 router = APIRouter(prefix="/me", tags=["profile"])
@@ -27,4 +28,25 @@ async def leaderboard(
     db: AsyncSession = Depends(get_db),
 ) -> dict:
     """Top players ranked by total XP."""
-    return {"players": await repo.get_leaderboard(db)}
+    return {"players": await repo.get_leaderboard(db, current.user_id)}
+
+
+@router.get("/leaderboard/nearby")
+async def leaderboard_nearby(
+    current: CurrentUser = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
+    """The caller's own rank plus a small window of players around them —
+    works even when the caller isn't in the top-N global list."""
+    return {"players": await repo.get_my_rank_and_nearby(db, current.user_id)}
+
+
+@router.get("/leaderboard/friends")
+async def leaderboard_friends(
+    current: CurrentUser = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
+    """Same shape as the global leaderboard, scoped to the caller plus their
+    accepted friends."""
+    friend_ids = await social_repo.get_friend_ids(db, current.user_id)
+    return {"players": await repo.get_friends_leaderboard(db, current.user_id, friend_ids)}

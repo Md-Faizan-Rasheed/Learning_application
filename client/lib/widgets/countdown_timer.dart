@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 class CountdownTimer extends StatelessWidget {
   final int remainingTime;
   final int totalTime;
@@ -12,7 +14,8 @@ class CountdownTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ratio = totalTime > 0 ? (remainingTime / totalTime).clamp(0.0, 1.0) : 0.0;
+    final ratio =
+        totalTime > 0 ? (remainingTime / totalTime).clamp(0.0, 1.0) : 0.0;
     final secondsLeft = (remainingTime / 1000).ceil().clamp(0, 999);
 
     final Color color = ratio <= 0.2
@@ -26,12 +29,15 @@ class CountdownTimer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Time left',
-              style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+              AppLocalizations.of(context)!.ctTimeLeft,
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  fontSize: 13),
             ),
             Text(
               '${secondsLeft}s',
-              style: TextStyle(color: color, fontWeight: FontWeight.w800, fontSize: 15),
+              style: TextStyle(
+                  color: color, fontWeight: FontWeight.w800, fontSize: 15),
             ),
           ],
         ),

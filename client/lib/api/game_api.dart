@@ -2,8 +2,19 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-// Where the backend lives during local web dev.
-const String kApiBaseUrl = 'https://learning-application-re35.onrender.com';
+// The backend's base URL. Defaults to local dev (8000 and 8010 both ended up
+// with a stuck kernel-level listening socket on this machine — netstat shows
+// a PID that no longer exists in the process table, and nothing can free it
+// short of a reboot — 8091 sidesteps it; if this ever gets stuck too, bump
+// the port here and in your `uvicorn --port` command).
+//
+// For a release build pointed at a real deployed backend, override at build
+// time instead of editing this default:
+//   flutter build appbundle --dart-define=API_BASE_URL=https://your-backend.example.com
+const String kApiBaseUrl = String.fromEnvironment(
+  'API_BASE_URL',
+  defaultValue: 'https://learning-application-re35.onrender.com',
+);
 
 /// A question as the client receives it — note there is NO correct answer here;
 /// the server withholds it until we submit.
@@ -57,10 +68,37 @@ class AnswerResult {
 }
 
 class ApiException implements Exception {
-  ApiException(this.message);
+  ApiException(this.message, {this.statusCode});
   final String message;
+  final int? statusCode;
   @override
   String toString() => message;
+}
+
+/// Pulls FastAPI's `detail` out of a non-2xx JSON body so error messages are
+/// actionable (e.g. "options -> 1: options must not be empty") instead of a
+/// bare status code. Falls back to [fallback] if the body isn't in that shape.
+String describeApiError(http.Response res, String fallback) {
+  try {
+    final body = jsonDecode(utf8.decode(res.bodyBytes));
+    if (body is Map && body['detail'] != null) {
+      final d = body['detail'];
+      if (d is String) return d;
+      if (d is List) {
+        return d.map((e) {
+          if (e is Map) {
+            final loc = (e['loc'] as List?)?.skip(1).join(' -> ') ?? '';
+            final msg = e['msg'] ?? '';
+            return loc.isEmpty ? '$msg' : '$loc: $msg';
+          }
+          return e.toString();
+        }).join('; ');
+      }
+    }
+  } catch (_) {
+    // Body wasn't JSON, or not in FastAPI's error shape — use the fallback.
+  }
+  return fallback;
 }
 
 class GameApi {
@@ -81,7 +119,7 @@ class GameApi {
     if (res.statusCode != 200) {
       throw ApiException('Server error (${res.statusCode}).');
     }
-    return ServedQuestion.fromJson(jsonDecode(res.body) as Map<String, dynamic>);
+    return ServedQuestion.fromJson(jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
   }
 
   Future<AnswerResult> submitAnswer({
@@ -106,6 +144,6 @@ class GameApi {
     if (res.statusCode != 200) {
       throw ApiException('Server error (${res.statusCode}).');
     }
-    return AnswerResult.fromJson(jsonDecode(res.body) as Map<String, dynamic>);
+    return AnswerResult.fromJson(jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
   }
 }

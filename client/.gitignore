@@ -43,5 +43,12 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Release signing — the real keystore and its passwords must never be
+# committed. Losing them means you can never update the Play Store listing
+# again, so back them up outside this repo instead.
+/android/key.properties
+/android/*.jks
+/android/*.keystore
+
 # Widget Preview related
 .widget_preview/

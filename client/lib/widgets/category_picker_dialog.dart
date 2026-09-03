@@ -1,95 +1,133 @@
 import 'package:flutter/material.dart';
 
-class _CategoryOption {
-  const _CategoryOption({
-    required this.value,
-    required this.title,
-    required this.subtitle,
-    required this.iconAsset,
-    required this.colors,
-  });
-
-  final String value;
-  final String title;
-  final String subtitle;
-  final String iconAsset;
-  final List<Color> colors;
-}
-
-const _categoryOptions = [
-  _CategoryOption(
-    value: 'seerah',
-    title: 'Seerah',
-    subtitle: 'Life of the Prophet ﷺ',
-    iconAsset: 'assets/images/seerah_icon.png',
-    colors: [Color(0xFF16A34A), Color(0xFF0D9488)],
-  ),
-  _CategoryOption(
-    value: 'arabic',
-    title: 'Arabic',
-    subtitle: 'Language & vocabulary',
-    iconAsset: 'assets/images/arabic_icon.png',
-    colors: [Color(0xFF2563EB), Color(0xFF7C3AED)],
-  ),
-  _CategoryOption(
-    value: 'mixed',
-    title: 'Mixed',
-    subtitle: 'A bit of everything',
-    iconAsset: 'assets/images/mixed_icon.png',
-    colors: [Color(0xFFF59E0B), Color(0xFFEF4444)],
-  ),
-];
+import '../api/admin_api.dart' show AdminCategory;
+import '../api/content_api.dart';
+import '../l10n/app_localizations.dart';
+import 'category_options.dart';
 
 /// A gamified category-selection dialog: colorful gradient "power-up" tiles
-/// instead of a plain text list. Returns the chosen category value, or null
-/// if dismissed.
-Future<String?> showCategoryPicker(BuildContext context) {
-  return showDialog<String>(
+/// instead of a plain text list. Fetches the live, active-only category
+/// list from the backend (falling back to the static built-ins if that
+/// fails) so admin-created categories appear and deactivated ones don't.
+/// Returns the chosen category value, or null if dismissed.
+Future<String?> showCategoryPicker(BuildContext context,
+    {required String token}) {
+  return showModalBottomSheet<String>(
     context: context,
-    builder: (ctx) => Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+    isScrollControlled: true,
+    useSafeArea: true,
+    backgroundColor: Colors.transparent,
+    builder: (ctx) => _CategoryPickerSheet(token: token),
+  );
+}
+
+class _CategoryPickerSheet extends StatefulWidget {
+  const _CategoryPickerSheet({required this.token});
+  final String token;
+
+  @override
+  State<_CategoryPickerSheet> createState() => _CategoryPickerSheetState();
+}
+
+class _CategoryPickerSheetState extends State<_CategoryPickerSheet> {
+  late final Future<List<AdminCategory>?> _future;
+
+  @override
+  void initState() {
+    super.initState();
+    _future = ContentApi()
+        .listCategories(widget.token)
+        .then<List<AdminCategory>?>((v) => v)
+        .catchError((_) => null);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
+    return Align(
+      alignment: Alignment.bottomCenter,
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 420),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(22, 26, 22, 22),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Choose your challenge',
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                'Pick a category to test your knowledge',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
-              ),
-              const SizedBox(height: 22),
-              for (int i = 0; i < _categoryOptions.length; i++) ...[
-                _CategoryOptionCard(
-                  option: _categoryOptions[i],
-                  onTap: () => Navigator.pop(ctx, _categoryOptions[i].value),
+        constraints: BoxConstraints(
+          maxWidth: 480,
+          maxHeight: MediaQuery.of(context).size.height * 0.85,
+        ),
+        child: Material(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(22, 14, 22, 22),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: Container(
+                    width: 40,
+                    height: 4,
+                    margin: const EdgeInsets.only(bottom: 16),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
                 ),
-                if (i != _categoryOptions.length - 1) const SizedBox(height: 14),
+                Text(
+                  t.catPickerTitle,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  t.catPickerSubtitle,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      fontSize: 13),
+                ),
+                const SizedBox(height: 22),
+                FutureBuilder<List<AdminCategory>?>(
+                  future: _future,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState != ConnectionState.done) {
+                      return const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 30),
+                        child: Center(child: CircularProgressIndicator()),
+                      );
+                    }
+                    final options = resolveCategoryOptions(t, snapshot.data);
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        for (int i = 0; i < options.length; i++) ...[
+                          _CategoryOptionCard(
+                            option: options[i],
+                            onTap: () =>
+                                Navigator.pop(context, options[i].value),
+                          ),
+                          if (i != options.length - 1)
+                            const SizedBox(height: 14),
+                        ],
+                      ],
+                    );
+                  },
+                ),
               ],
-            ],
+            ),
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 class _CategoryOptionCard extends StatefulWidget {
   const _CategoryOptionCard({required this.option, required this.onTap});
 
-  final _CategoryOption option;
+  final CategoryOption option;
   final VoidCallback onTap;
 
   @override

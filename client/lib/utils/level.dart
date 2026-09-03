@@ -1,20 +1,24 @@
+import '../l10n/app_localizations.dart';
+
 /// Derives a player level/title purely from total XP. No backend concept of
 /// "level" exists — this is a client-side presentation layer over the raw
 /// XP number the server already tracks.
 class LevelInfo {
   const LevelInfo({
     required this.level,
-    required this.title,
+    required this.titleIndex,
     required this.currentLevelXp,
     required this.nextLevelXp,
     required this.xpIntoLevel,
   });
 
   final int level;
-  final String title;
+  final int titleIndex;
   final int currentLevelXp;
   final int? nextLevelXp; // null at the final tier
   final int xpIntoLevel;
+
+  String title(AppLocalizations t) => _kLevelTitleGetters[titleIndex](t);
 
   double get progress {
     if (nextLevelXp == null) return 1.0;
@@ -27,17 +31,17 @@ class LevelInfo {
 }
 
 const _kLevelThresholds = <int>[0, 50, 150, 300, 600, 1000, 1600, 2500, 4000, 6000];
-const _kLevelTitles = <String>[
-  'Newcomer',
-  'Learner',
-  'Devoted Student',
-  'Rising Scholar',
-  'Seerah Scholar',
-  'Arabic Adept',
-  'Knowledge Seeker',
-  'Wise One',
-  'Master Scholar',
-  'Legend',
+final _kLevelTitleGetters = <String Function(AppLocalizations)>[
+  (t) => t.levelNewcomer,
+  (t) => t.levelLearner,
+  (t) => t.levelDevotedStudent,
+  (t) => t.levelRisingScholar,
+  (t) => t.levelSeerahScholar,
+  (t) => t.levelArabicAdept,
+  (t) => t.levelKnowledgeSeeker,
+  (t) => t.levelWiseOne,
+  (t) => t.levelMasterScholar,
+  (t) => t.levelLegend,
 ];
 
 LevelInfo levelForXp(int totalXp) {
@@ -56,7 +60,7 @@ LevelInfo levelForXp(int totalXp) {
 
   return LevelInfo(
     level: levelIndex + 1,
-    title: _kLevelTitles[levelIndex],
+    titleIndex: levelIndex,
     currentLevelXp: currentLevelXp,
     nextLevelXp: nextLevelXp,
     xpIntoLevel: totalXp - currentLevelXp,

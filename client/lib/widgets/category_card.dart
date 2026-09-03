@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 class CategoryCard extends StatefulWidget {
   const CategoryCard({
     super.key,
     required this.title,
+    required this.subtitle,
     required this.icon,
     required this.onTap,
   });
 
   final String title;
+  final String subtitle;
   final IconData icon;
   final VoidCallback onTap;
 
@@ -176,7 +180,7 @@ class _CategoryCardState extends State<CategoryCard> {
         const SizedBox(height: 4),
 
         Text(
-          _descriptionFor(widget.title),
+          widget.subtitle,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: theme.textTheme.bodySmall?.copyWith(
@@ -199,7 +203,7 @@ class _CategoryCardState extends State<CategoryCard> {
 
             Flexible(
               child: Text(
-                'Play challenge',
+                AppLocalizations.of(context)!.cardPlayChallenge,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.labelMedium?.copyWith(
@@ -235,21 +239,5 @@ class _CategoryCardState extends State<CategoryCard> {
             : colors.onSurfaceVariant,
       ),
     );
-  }
-
-  String _descriptionFor(String title) {
-    switch (title.toLowerCase()) {
-      case 'seerah':
-        return 'Explore the life and teachings of the Prophet.';
-
-      case 'arabic':
-        return 'Build your Arabic vocabulary and language skills.';
-
-      case 'mixed':
-        return 'A little bit of everything. Stay ready for anything.';
-
-      default:
-        return 'Choose this challenge and test what you know.';
-    }
   }
 }

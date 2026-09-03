@@ -14,14 +14,18 @@ instance dying — any instance can rebuild a match from these keys.
 from __future__ import annotations
 
 import json
+import secrets
 import time
 import uuid
 
 from ..redis_client import redis_client
 
-MAX_SEATS = 4
+MAX_SEATS = 4  # default seat cap for quick-match; party rooms may set a higher per-match cap
 _TTL_SECONDS = 60 * 60  # safety expiry so abandoned matches self-clean
 ROUNDS_PER_MATCH = 8  # a match plays this many questions, then ends
+
+# Room invite codes: 0/O/1/I removed so a spoken/handwritten code is unambiguous.
+_ROOM_CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 
 
 def _meta_key(match_id: str) -> str:
@@ -87,7 +91,10 @@ async def has_answered(match_id: str, round_no: int, seat: int) -> bool:
 
 
 async def create_match(
-    difficulty: str = "easy", category: str | None = None, match_id: str | None = None
+    difficulty: str = "easy",
+    category: str | None = None,
+    match_id: str | None = None,
+    max_seats: int = MAX_SEATS,
 ) -> str:
     match_id = match_id or str(uuid.uuid4())
     await redis_client.hset(
@@ -96,11 +103,18 @@ async def create_match(
             "status": "waiting",
             "difficulty": difficulty,
             "category": category or "",
+            "max_seats": str(max_seats),
             "created_at": str(int(time.time())),
         },
     )
     await redis_client.expire(_meta_key(match_id), _TTL_SECONDS)
     return match_id
+
+
+async def set_meta_fields(match_id: str, **fields) -> None:
+    """Patch arbitrary fields onto a match's meta hash (e.g. is_private,
+    host_seat) without clobbering the rest of it."""
+    await redis_client.hset(_meta_key(match_id), mapping={k: str(v) for k, v in fields.items()})
 
 
 async def get_players(match_id: str) -> list[dict]:
@@ -114,10 +128,13 @@ async def add_player(
     match_id: str, *, sid: str | None, user_id: str, name: str, is_bot: bool = False
 ) -> dict | None:
     """Seat a player in the first free seat. Returns the seated player, or None
-    if the match is already full."""
+    if the match is already full. The seat cap is read from this match's own
+    meta (party rooms may set a higher cap than quick-match's default)."""
+    meta = await redis_client.hgetall(_meta_key(match_id))
+    cap = int(meta.get("max_seats", MAX_SEATS))
     existing = await redis_client.hgetall(_players_key(match_id))
     taken = {json.loads(v)["seat"] for v in existing.values()}
-    seat = next((i for i in range(MAX_SEATS) if i not in taken), None)
+    seat = next((i for i in range(cap) if i not in taken), None)
     if seat is None:
         return None
 
@@ -168,6 +185,15 @@ async def remove_player_by_sid(sid: str) -> tuple[str | None, dict | None]:
             return match_id, p
     await redis_client.delete(_sid_key(sid))
     return match_id, None
+
+
+async def remove_seat(match_id: str, seat: int) -> None:
+    """Actually free a seat (unlike remove_player_by_sid, which only nulls the
+    sid so a disconnected human can reconnect and resume). Used when someone
+    explicitly leaves a match that hasn't started yet — otherwise the seat
+    stays "taken" forever and, for a party room, blocks others from joining
+    up to the host's chosen cap."""
+    await redis_client.hdel(_players_key(match_id), str(seat))
 
 
 async def set_status(match_id: str, status: str) -> None:
@@ -267,6 +293,27 @@ async def clear_open_match(difficulty: str, match_id: str, category: str = "mixe
     current = await redis_client.get(_open_key(difficulty, category))
     if current == match_id:
         await redis_client.delete(_open_key(difficulty, category))
+
+
+def _room_key(code: str) -> str:
+    return f"room:{code}"
+
+
+async def generate_room_code(match_id: str, length: int = 6, attempts: int = 5) -> str | None:
+    """Mint a party-room invite code. Rooms are ephemeral/Redis-only (no DB row
+    to lean on for a UNIQUE constraint, unlike the teacher module's join_code),
+    so collisions are checked via SET ... NX instead of catching an IntegrityError."""
+    for _ in range(attempts):
+        code = "".join(secrets.choice(_ROOM_CODE_ALPHABET) for _ in range(length))
+        claimed = await redis_client.set(_room_key(code), match_id, nx=True, ex=_TTL_SECONDS)
+        if claimed:
+            await set_meta_fields(match_id, room_code=code)
+            return code
+    return None
+
+
+async def match_id_for_room_code(code: str) -> str | None:
+    return await redis_client.get(_room_key(code.upper()))
 
 
 async def get_recent_questions(match_id: str) -> list[str]:

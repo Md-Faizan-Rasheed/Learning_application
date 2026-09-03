@@ -1,11 +1,11 @@
-{
+  {
   "categories": [
     {
       "slug": "seerah",
       "display_name": "Seerah",
       "description": "The life of the Prophet Muhammad ﷺ"
     },
-    {
+     {
       "slug": "arabic",
       "display_name": "Arabic",
       "description": "Basic Arabic literacy and language"
@@ -16,30 +16,29 @@
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "What was the name of the Prophet Muhammad's ﷺ grandfather?",
+        "en": "When was Prophet Muhammad (PBUH) born?",
         "ur": "نبی کریم ﷺ کے دادا کا نام کیا تھا؟",
         "ar": "ما اسم جد النبي محمد ﷺ؟"
       },
       "options": {
-        "en": ["Abd al-Muttalib", "Abu Talib", "Abdullah", "Al-Abbas"],
-        "ur": ["عبدالمطلب", "ابو طالب", "عبداللہ", "عباس"],
-        "ar": ["عبد المطلب", "أبو طالب", "عبد الله", "العباس"]
-      },
-      "correct_index": 0,
-      "source": "Seerah — Family"
-    },
-    {
-      "category_slug": "seerah",
-      "difficulty": "easy",
-      "prompt": {
-        "en": "In which city was the Prophet Muhammad ﷺ born?",
-        "ur": "نبی کریم ﷺ کس شہر میں پیدا ہوئے؟",
-        "ar": "في أي مدينة وُلِد النبي محمد ﷺ؟"
-      },
-      "options": {
-        "en": ["Makkah", "Madinah", "Taif", "Jerusalem"],
-        "ur": ["مکہ", "مدینہ", "طائف", "بیت المقدس"],
-        "ar": ["مكة", "المدينة", "الطائف", "القدس"]
+        "en": [
+          "Monday, 9th of Rabi ul Awwal (April 22, 571 AD)",
+          "Friday, 12th of Rabi ul Awwal (610 AD)",
+          "Monday, 1st of Muharram (622 AD)",
+          "Sunday, 10th of Ramadan (632 AD)"
+        ],
+        "ur": [
+          "عبدالمطلب",
+          "ابو طالب",
+          "عبداللہ",
+          "عباس"
+        ],
+        "ar": [
+          "عبد المطلب",
+          "أبو طالب",
+          "عبد الله",
+          "العباس"
+        ]
       },
       "correct_index": 0,
       "source": "Seerah — Birth"
@@ -48,46 +47,215 @@
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "What was the name of the Prophet Muhammad's ﷺ father?",
+        "en": "Where was Prophet Muhammad (PBUH) born?",
+        "ur": "نبی کریم ﷺ کس شہر میں پیدا ہوئے؟",
+        "ar": "في أي مدينة وُلِد النبي محمد ﷺ؟"
+      },
+      "options": {
+        "en": [
+          "Madinah, Saudi Arabia",
+          "Makkah, Saudi Arabia",
+          "Taif, Saudi Arabia",
+          "Jerusalem, Palestine"
+        ],
+        "ur": [
+          "مکہ",
+          "مدینہ",
+          "طائف",
+          "بیت المقدس"
+        ],
+        "ar": [
+          "مكة",
+          "المدينة",
+          "الطائف",
+          "القدس"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Birth"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the name of Prophet Muhammad's (PBUH) father?",
         "ur": "نبی کریم ﷺ کے والد کا نام کیا تھا؟",
         "ar": "ما اسم والد النبي محمد ﷺ؟"
       },
       "options": {
-        "en": ["Abdullah ibn Abd al-Muttalib", "Abu Talib", "Abd al-Muttalib", "Al-Abbas"],
-        "ur": ["عبداللہ بن عبدالمطلب", "ابو طالب", "عبدالمطلب", "عباس"],
-        "ar": ["عبد الله بن عبد المطلب", "أبو طالب", "عبد المطلب", "العباس"]
+        "en": [
+          "Abu Talib ibn Abdul-Muttalib",
+          "Abdullah ibn Abdul-Muttalib",
+          "Abbas ibn Abdul-Muttalib",
+          "Hamzah ibn Abdul-Muttalib"
+        ],
+        "ur": [
+          "عبداللہ بن عبدالمطلب",
+          "ابو طالب",
+          "عبدالمطلب",
+          "عباس"
+        ],
+        "ar": [
+          "عبد الله بن عبد المطلب",
+          "أبو طالب",
+          "عبد المطلب",
+          "العباس"
+        ]
       },
-      "correct_index": 0,
+      "correct_index": 1,
       "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "What was the name of the Prophet Muhammad's ﷺ mother?",
+        "en": "What was the name of Prophet Muhammad's (PBUH) mother?",
         "ur": "نبی کریم ﷺ کی والدہ کا نام کیا تھا؟",
         "ar": "ما اسم والدة النبي محمد ﷺ؟"
       },
       "options": {
-        "en": ["Aminah bint Wahb", "Khadijah bint Khuwaylid", "Fatimah bint Asad", "Halimah as-Sa'diyyah"],
-        "ur": ["آمنہ بنت وہب", "خدیجہ بنت خویلد", "فاطمہ بنت اسد", "حلیمہ سعدیہ"],
-        "ar": ["آمنة بنت وهب", "خديجة بنت خويلد", "فاطمة بنت أسد", "حليمة السعدية"]
+        "en": [
+          "Hafsa bint Umar",
+          "Aaminah bint Wahab",
+          "Khadijah bint Khuwaylid",
+          "Safiyyah bint Abdul-Muttalib"
+        ],
+        "ur": [
+          "حفصہ بنت عمر",
+          "خدیجہ بنت خویلد",
+          "خدیجہ بنت خویلد",
+          "حلیمہ سعدیہ"
+        ],
+        "ar": [
+          "حفصة بنت عمر",
+          "خديجة بنت خويلد",
+          "خديجة بنت خويلد",
+          "حليمة السعدية"
+        ]
       },
-      "correct_index": 0,
+      "correct_index": 1,
       "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "Who was the first wife of the Prophet Muhammad ﷺ?",
+        "en": "Where did Prophet Muhammad's (PBUH) father pass away?",
         "ur": "نبی کریم ﷺ کی پہلی زوجہ کون تھیں؟",
         "ar": "من كانت أول زوجة للنبي محمد ﷺ؟"
       },
       "options": {
-        "en": ["Khadijah bint Khuwaylid", "Aisha bint Abu Bakr", "Hafsa bint Umar", "Zaynab bint Jahsh"],
-        "ur": ["خدیجہ بنت خویلد", "عائشہ بنت ابوبکر", "حفصہ بنت عمر", "زینب بنت جحش"],
-        "ar": ["خديجة بنت خويلد", "عائشة بنت أبي بكر", "حفصة بنت عمر", "زينب بنت جحش"]
+        "en": [
+          "Makkah, after Muhammad was born",
+          "Yathrib (Madinah), before Muhammad (PBUH) was born",
+          "Taif, when Muhammad was six",
+          "Syria, when Muhammad was twelve"
+        ],
+        "ur": [
+          "خدیجہ بنت خویلد",
+          "عائشہ بنت ابوبکر",
+          "حفصہ بنت عمر",
+          "زینب بنت جحش"
+        ],
+        "ar": [
+          "خديجة بنت خويلد",
+          "عائشة بنت أبي بكر",
+          "حفصة بنت عمر",
+          "زينب بنت جحش"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was Prophet Muhammad's (PBUH) paternal grandfather?",
+        "ur": "نبی کریم ﷺ کے پاس وحی کون سے فرشتے لاتے تھے؟",
+        "ar": "أي ملك كان يأتي بالوحي إلى النبي محمد ﷺ؟"
+      },
+      "options": {
+        "en": [
+          "Abu Talib, chief of Bani Hashim",
+          "Abdul Muttalib, chief of Bani Hashim",
+          "Abu Bakr, chief of Quraish",
+          "Abbas, chief of Bani Umayyah"
+        ],
+        "ur": [
+          "جبریل",
+          "میکائیل",
+          "اسرافیل",
+          "مالک"
+        ],
+        "ar": [
+          "جبريل",
+          "ميكائيل",
+          "إسرافيل",
+          "مالك"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were among the Prophet's (PBUH) nannies?",
+        "ur": "جس مہینے میں پہلی وحی نازل ہوئی اس کا نام کیا ہے؟",
+        "ar": "ما اسم الشهر الذي نزل فيه الوحي أول مرة؟"
+      },
+      "options": {
+        "en": [
+          "Aaminah, Khadijah, Hafsah and Aisha",
+          "Thuwaybah, Haleemah, Shaymaa and Umm Ayman",
+          "Safiyyah, Fatimah, Ruqayyah and Zaynab",
+          "Maryam, Asma, Sumayyah and Sawdah"
+        ],
+        "ur": [
+          "رمضان",
+          "محرم",
+          "رجب",
+          "شوال"
+        ],
+        "ar": [
+          "رمضان",
+          "محرم",
+          "رجب",
+          "شوال"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was the midwife of the Prophet (PBUH)?",
+        "ur": "ہجرت کے دوران نبی کریم ﷺ اور ابوبکر رضی اللہ عنہ کس غار میں ٹھہرے؟",
+        "ar": "ما اسم الغار الذي مكث فيه النبي ﷺ وأبو بكر أثناء الهجرة؟"
+      },
+      "options": {
+        "en": [
+          "Al-Shifa bint Aouf (Umm Abdul Rahman)",
+          "Umm Salamah",
+          "Halimah Sa'diyah",
+          "Aminah bint Wahab"
+        ],
+        "ur": [
+          "غار ثور",
+          "غار حرا",
+          "غار احد",
+          "غار صفا"
+        ],
+        "ar": [
+          "غار ثور",
+          "غار حراء",
+          "غار أحد",
+          "غار الصفا"
+        ]
       },
       "correct_index": 0,
       "source": "Seerah — Family"
@@ -96,482 +264,4434 @@
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which angel brought revelation to the Prophet Muhammad ﷺ?",
-        "ur": "نبی کریم ﷺ کے پاس وحی کون سے فرشتے لاتے تھے؟",
-        "ar": "أي ملك كان يأتي بالوحي إلى النبي محمد ﷺ؟"
-      },
-      "options": {
-        "en": ["Jibril", "Mikail", "Israfil", "Malik"],
-        "ur": ["جبریل", "میکائیل", "اسرافیل", "مالک"],
-        "ar": ["جبريل", "ميكائيل", "إسرافيل", "مالك"]
-      },
-      "correct_index": 0,
-      "source": "Seerah — Revelation"
-    },
-    {
-      "category_slug": "seerah",
-      "difficulty": "easy",
-      "prompt": {
-        "en": "What is the name of the month in which the first revelation came?",
-        "ur": "جس مہینے میں پہلی وحی نازل ہوئی اس کا نام کیا ہے؟",
-        "ar": "ما اسم الشهر الذي نزل فيه الوحي أول مرة؟"
-      },
-      "options": {
-        "en": ["Ramadan", "Muharram", "Rajab", "Shawwal"],
-        "ur": ["رمضان", "محرم", "رجب", "شوال"],
-        "ar": ["رمضان", "محرم", "رجب", "شوال"]
-      },
-      "correct_index": 0,
-      "source": "Seerah — Revelation"
-    },
-    {
-      "category_slug": "seerah",
-      "difficulty": "easy",
-      "prompt": {
-        "en": "What was the name of the cave where the Prophet ﷺ and Abu Bakr stayed during the Hijrah?",
-        "ur": "ہجرت کے دوران نبی کریم ﷺ اور ابوبکر رضی اللہ عنہ کس غار میں ٹھہرے؟",
-        "ar": "ما اسم الغار الذي مكث فيه النبي ﷺ وأبو بكر أثناء الهجرة؟"
-      },
-      "options": {
-        "en": ["Cave of Thawr", "Cave of Hira", "Cave of Uhud", "Cave of Safa"],
-        "ur": ["غار ثور", "غار حرا", "غار احد", "غار صفا"],
-        "ar": ["غار ثور", "غار حراء", "غار أحد", "غار الصفا"]
-      },
-      "correct_index": 0,
-      "source": "Seerah — The Hijrah"
-    },
-    {
-      "category_slug": "seerah",
-      "difficulty": "easy",
-      "prompt": {
-        "en": "What was Madinah called before the Hijrah?",
+        "en": "Who named the Prophet Muhammad (PBUH)?",
         "ur": "ہجرت سے پہلے مدینہ کو کس نام سے جانا جاتا تھا؟",
         "ar": "بماذا كانت تُعرف المدينة قبل الهجرة؟"
       },
       "options": {
-        "en": ["Yathrib", "Taif", "Makkah", "Najran"],
-        "ur": ["یثرب", "طائف", "مکہ", "نجران"],
-        "ar": ["يثرب", "الطائف", "مكة", "نجران"]
+        "en": [
+          "His father, Abdullah",
+          "His mother, Aaminah",
+          "His grandfather, Abdul Muttalib",
+          "His uncle, Abu Talib"
+        ],
+        "ur": [
+          "یثرب",
+          "طائف",
+          "مکہ",
+          "نجران"
+        ],
+        "ar": [
+          "يثرب",
+          "الطائف",
+          "مكة",
+          "نجران"
+        ]
       },
-      "correct_index": 0,
-      "source": "Seerah — The Hijrah"
+      "correct_index": 2,
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which companion accompanied the Prophet ﷺ during the Hijrah?",
-        "ur": "ہجرت کے دوران کون سے صحابی نبی کریم ﷺ کے ساتھ تھے؟",
-        "ar": "أي صحابي رافق النبي ﷺ في الهجرة؟"
+        "en": "What did the Prophet's (PBUH) mother name him?",
+        "ur": "What did the Prophet's (PBUH) mother name him?",
+        "ar": "What did the Prophet's (PBUH) mother name him?"
       },
       "options": {
-        "en": ["Abu Bakr as-Siddiq", "Umar ibn al-Khattab", "Uthman ibn Affan", "Ali ibn Abi Talib"],
-        "ur": ["ابوبکر صدیق", "عمر بن خطاب", "عثمان بن عفان", "علی بن ابی طالب"],
-        "ar": ["أبو بكر الصديق", "عمر بن الخطاب", "عثمان بن عفان", "علي بن أبي طالب"]
+        "en": [
+          "Muhammad",
+          "Ahmad",
+          "Mustafa",
+          "Hamid"
+        ],
+        "ur": [
+          "Muhammad",
+          "Ahmad",
+          "Mustafa",
+          "Hamid"
+        ],
+        "ar": [
+          "Muhammad",
+          "Ahmad",
+          "Mustafa",
+          "Hamid"
+        ]
       },
-      "correct_index": 0,
-      "source": "Seerah — The Hijrah"
+      "correct_index": 1,
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "What was the first mosque built by the Prophet ﷺ after the Hijrah?",
-        "ur": "ہجرت کے بعد نبی کریم ﷺ نے سب سے پہلے کون سی مسجد تعمیر فرمائی؟",
-        "ar": "ما أول مسجد بناه النبي ﷺ بعد الهجرة؟"
+        "en": "Why did his mother choose the name Ahmad?",
+        "ur": "Why did his mother choose the name Ahmad?",
+        "ar": "Why did his mother choose the name Ahmad?"
       },
       "options": {
-        "en": ["Masjid Quba", "Masjid al-Haram", "Masjid an-Nabawi", "Masjid al-Aqsa"],
-        "ur": ["مسجد قبا", "مسجد الحرام", "مسجد نبوی", "مسجد اقصیٰ"],
-        "ar": ["مسجد قباء", "المسجد الحرام", "المسجد النبوي", "المسجد الأقصى"]
+        "en": [
+          "She heard it from her father",
+          "She saw an angel in a dream calling the newborn Ahmad",
+          "It was the name of his grandfather",
+          "It was the name of a local leader"
+        ],
+        "ur": [
+          "She heard it from her father",
+          "She saw an angel in a dream calling the newborn Ahmad",
+          "It was the name of his grandfather",
+          "It was the name of a local leader"
+        ],
+        "ar": [
+          "She heard it from her father",
+          "She saw an angel in a dream calling the newborn Ahmad",
+          "It was the name of his grandfather",
+          "It was the name of a local leader"
+        ]
       },
-      "correct_index": 0,
-      "source": "Seerah — Madinah"
+      "correct_index": 1,
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "In which city was Masjid an-Nabawi established?",
-        "ur": "مسجد نبوی کس شہر میں قائم کی گئی؟",
-        "ar": "في أي مدينة أُسست المسجد النبوي؟"
+        "en": "Which were among the names the Prophet (PBUH) called himself?",
+        "ur": "Which were among the names the Prophet (PBUH) called himself?",
+        "ar": "Which were among the names the Prophet (PBUH) called himself?"
       },
       "options": {
-        "en": ["Madinah", "Makkah", "Taif", "Damascus"],
-        "ur": ["مدینہ", "مکہ", "طائف", "دمشق"],
-        "ar": ["المدينة", "مكة", "الطائف", "دمشق"]
+        "en": [
+          "Muhammad, Ahmad, Al-Maahi, Al-Haashir and Al-Aaqib",
+          "Abu Talib, Al-Faruq, Al-Amin and Al-Mansur",
+          "Hamzah, Abbas, Zubair and Qasim",
+          "Al-Faruq, As-Siddiq, Dhun-Nurayn and Al-Murtada"
+        ],
+        "ur": [
+          "Muhammad, Ahmad, Al-Maahi, Al-Haashir and Al-Aaqib",
+          "Abu Talib, Al-Faruq, Al-Amin and Al-Mansur",
+          "Hamzah, Abbas, Zubair and Qasim",
+          "Al-Faruq, As-Siddiq, Dhun-Nurayn and Al-Murtada"
+        ],
+        "ar": [
+          "Muhammad, Ahmad, Al-Maahi, Al-Haashir and Al-Aaqib",
+          "Abu Talib, Al-Faruq, Al-Amin and Al-Mansur",
+          "Hamzah, Abbas, Zubair and Qasim",
+          "Al-Faruq, As-Siddiq, Dhun-Nurayn and Al-Murtada"
+        ]
       },
       "correct_index": 0,
-      "source": "Seerah — Madinah"
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "Who was the first mu'adhdhin of Islam?",
-        "ur": "اسلام کے پہلے مؤذن کون تھے؟",
-        "ar": "من كان أول مؤذن في الإسلام؟"
+        "en": "Did Prophet Muhammad (PBUH) have brothers or sisters?",
+        "ur": "Did Prophet Muhammad (PBUH) have brothers or sisters?",
+        "ar": "Did Prophet Muhammad (PBUH) have brothers or sisters?"
       },
       "options": {
-        "en": ["Bilal ibn Rabah", "Abu Hurairah", "Salman al-Farisi", "Zayd ibn Thabit"],
-        "ur": ["بلال بن رباح", "ابو ہریرہ", "سلمان فارسی", "زید بن ثابت"],
-        "ar": ["بلال بن رباح", "أبو هريرة", "سلمان الفارسي", "زيد بن ثابت"]
+        "en": [
+          "Yes, four biological brothers",
+          "No biological siblings; he had 6 foster brothers and 1 foster sister",
+          "Yes, two biological sisters",
+          "Yes, one biological brother and one sister"
+        ],
+        "ur": [
+          "Yes, four biological brothers",
+          "No biological siblings; he had 6 foster brothers and 1 foster sister",
+          "Yes, two biological sisters",
+          "Yes, one biological brother and one sister"
+        ],
+        "ar": [
+          "Yes, four biological brothers",
+          "No biological siblings; he had 6 foster brothers and 1 foster sister",
+          "Yes, two biological sisters",
+          "Yes, one biological brother and one sister"
+        ]
       },
-      "correct_index": 0,
-      "source": "Seerah — Companions"
+      "correct_index": 1,
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which city did the Prophet ﷺ migrate to from Makkah?",
-        "ur": "نبی کریم ﷺ نے مکہ سے کس شہر کی طرف ہجرت فرمائی؟",
-        "ar": "إلى أي مدينة هاجر النبي ﷺ من مكة؟"
+        "en": "How old was Muhammad (PBUH) when his mother passed away?",
+        "ur": "How old was Muhammad (PBUH) when his mother passed away?",
+        "ar": "How old was Muhammad (PBUH) when his mother passed away?"
       },
       "options": {
-        "en": ["Madinah", "Taif", "Damascus", "Jerusalem"],
-        "ur": ["مدینہ", "طائف", "دمشق", "بیت المقدس"],
-        "ar": ["المدينة", "الطائف", "دمشق", "القدس"]
+        "en": [
+          "Two years old",
+          "Six years old",
+          "Eight years old",
+          "Twelve years old"
+        ],
+        "ur": [
+          "Two years old",
+          "Six years old",
+          "Eight years old",
+          "Twelve years old"
+        ],
+        "ar": [
+          "Two years old",
+          "Six years old",
+          "Eight years old",
+          "Twelve years old"
+        ]
       },
-      "correct_index": 0,
-      "source": "Seerah — The Hijrah"
+      "correct_index": 1,
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "What was the name of the Prophet's ﷺ foster mother from Banu Sa'd?",
-        "ur": "بنو سعد سے نبی کریم ﷺ کی رضاعی والدہ کا نام کیا تھا؟",
-        "ar": "ما اسم مرضعة النبي ﷺ من بني سعد؟"
+        "en": "Where did his mother take him when he was young?",
+        "ur": "Where did his mother take him when he was young?",
+        "ar": "Where did his mother take him when he was young?"
       },
       "options": {
-        "en": ["Halimah as-Sa'diyyah", "Aminah bint Wahb", "Umm Salamah", "Fatimah bint Asad"],
-        "ur": ["حلیمہ سعدیہ", "آمنہ بنت وہب", "ام سلمہ", "فاطمہ بنت اسد"],
-        "ar": ["حليمة السعدية", "آمنة بنت وهب", "أم سلمة", "فاطمة بنت أسد"]
+        "en": [
+          "Taif",
+          "Syria",
+          "Yathrib (Madinah)",
+          "Jerusalem"
+        ],
+        "ur": [
+          "طائف",
+          "Syria",
+          "Yathrib (Madinah)",
+          "بیت المقدس"
+        ],
+        "ar": [
+          "الطائف",
+          "Syria",
+          "Yathrib (Madinah)",
+          "القدس"
+        ]
       },
-      "correct_index": 0,
-      "source": "Seerah — Childhood"
+      "correct_index": 2,
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "Who was the Prophet's ﷺ uncle who cared for him after his grandfather's death?",
-        "ur": "دادا کی وفات کے بعد نبی کریم ﷺ کی کفالت کس چچا نے کی؟",
-        "ar": "من عم النبي ﷺ الذي كفله بعد وفاة جده؟"
+        "en": "Where did Muhammad's (PBUH) mother pass away?",
+        "ur": "Where did Muhammad's (PBUH) mother pass away?",
+        "ar": "Where did Muhammad's (PBUH) mother pass away?"
       },
       "options": {
-        "en": ["Abu Talib", "Abu Lahab", "Hamza", "Al-Abbas"],
-        "ur": ["ابو طالب", "ابو لہب", "حمزہ", "عباس"],
-        "ar": ["أبو طالب", "أبو لهب", "حمزة", "العباس"]
+        "en": [
+          "Abwa, on the way back to Makkah",
+          "Madinah",
+          "Taif",
+          "Syria"
+        ],
+        "ur": [
+          "Abwa, on the way back to Makkah",
+          "مدینہ",
+          "طائف",
+          "Syria"
+        ],
+        "ar": [
+          "Abwa, on the way back to Makkah",
+          "المدينة المنورة",
+          "الطائف",
+          "Syria"
+        ]
       },
       "correct_index": 0,
-      "source": "Seerah — Childhood"
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "What is the name of the Prophet Muhammad's ﷺ mosque in Madinah?",
-        "ur": "مدینہ میں نبی کریم ﷺ کی مسجد کا نام کیا ہے؟",
-        "ar": "ما اسم مسجد النبي محمد ﷺ في المدينة؟"
+        "en": "Who brought Muhammad (PBUH) back to Makkah after his mother's death?",
+        "ur": "Who brought Muhammad (PBUH) back to Makkah after his mother's death?",
+        "ar": "Who brought Muhammad (PBUH) back to Makkah after his mother's death?"
       },
       "options": {
-        "en": ["Masjid an-Nabawi", "Masjid Quba", "Masjid al-Haram", "Masjid al-Aqsa"],
-        "ur": ["مسجد نبوی", "مسجد قبا", "مسجد الحرام", "مسجد اقصیٰ"],
-        "ar": ["المسجد النبوي", "مسجد قباء", "المسجد الحرام", "المسجد الأقصى"]
+        "en": [
+          "Abu Talib",
+          "Umm Ayman",
+          "Abdul Muttalib",
+          "Halimah"
+        ],
+        "ur": [
+          "ابو طالب",
+          "Umm Ayman",
+          "Abdul Muttalib",
+          "Halimah"
+        ],
+        "ar": [
+          "أبو طالب",
+          "Umm Ayman",
+          "Abdul Muttalib",
+          "Halimah"
+        ]
       },
-      "correct_index": 0,
-      "source": "Seerah — Madinah"
+      "correct_index": 1,
+      "source": "Seerah — Family"
     },
     {
       "category_slug": "seerah",
       "difficulty": "easy",
       "prompt": {
-        "en": "What is the name of the Prophet Muhammad's ﷺ final pilgrimage?",
-        "ur": "نبی کریم ﷺ کے آخری حج کو کیا کہا جاتا ہے؟",
-        "ar": "ماذا يُسمى حج النبي محمد ﷺ الأخير؟"
+        "en": "Who took care of the Prophet (PBUH) after his mother died?",
+        "ur": "Who took care of the Prophet (PBUH) after his mother died?",
+        "ar": "Who took care of the Prophet (PBUH) after his mother died?"
       },
       "options": {
-        "en": ["Farewell Pilgrimage", "First Pilgrimage", "Victory Pilgrimage", "Madinah Pilgrimage"],
-        "ur": ["حجۃ الوداع", "پہلا حج", "فتح کا حج", "مدینہ کا حج"],
-        "ar": ["حجة الوداع", "الحجة الأولى", "حجة الفتح", "حجة المدينة"]
+        "en": [
+          "His uncle Abu Lahab",
+          "His grandfather Abdul Muttalib",
+          "His foster mother Haleemah",
+          "Abu Bakr"
+        ],
+        "ur": [
+          "His uncle Abu Lahab",
+          "His grandfather Abdul Muttalib",
+          "His foster mother Haleemah",
+          "Abu Bakr"
+        ],
+        "ar": [
+          "His uncle Abu Lahab",
+          "His grandfather Abdul Muttalib",
+          "His foster mother Haleemah",
+          "Abu Bakr"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How long did Abdul Muttalib take care of him?",
+        "ur": "How long did Abdul Muttalib take care of him?",
+        "ar": "How long did Abdul Muttalib take care of him?"
+      },
+      "options": {
+        "en": [
+          "One year, until age seven",
+          "Two years, until Muhammad (PBUH) was eight",
+          "Five years, until age eleven",
+          "Ten years, until age eighteen"
+        ],
+        "ur": [
+          "One year, until age seven",
+          "Two years, until Muhammad (PBUH) was eight",
+          "Five years, until age eleven",
+          "Ten years, until age eighteen"
+        ],
+        "ar": [
+          "One year, until age seven",
+          "Two years, until Muhammad (PBUH) was eight",
+          "Five years, until age eleven",
+          "Ten years, until age eighteen"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How did Abdul Muttalib treat Muhammad (PBUH)?",
+        "ur": "How did Abdul Muttalib treat Muhammad (PBUH)?",
+        "ar": "How did Abdul Muttalib treat Muhammad (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "He ignored him",
+          "He loved him greatly and preferred him over his own sons",
+          "He sent him away from Makkah",
+          "He treated him exactly like a stranger"
+        ],
+        "ur": [
+          "He ignored him",
+          "He loved him greatly and preferred him over his own sons",
+          "He sent him away from Makkah",
+          "He treated him exactly like a stranger"
+        ],
+        "ar": [
+          "He ignored him",
+          "He loved him greatly and preferred him over his own sons",
+          "He sent him away from Makkah",
+          "He treated him exactly like a stranger"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who cared for the Prophet (PBUH) after Abdul Muttalib died?",
+        "ur": "Who cared for the Prophet (PBUH) after Abdul Muttalib died?",
+        "ar": "Who cared for the Prophet (PBUH) after Abdul Muttalib died?"
+      },
+      "options": {
+        "en": [
+          "His uncle Abu Talib",
+          "Abu Bakr",
+          "Umar ibn al-Khattab",
+          "Abbas ibn Abdul-Muttalib"
+        ],
+        "ur": [
+          "His uncle Abu Talib",
+          "Abu Bakr",
+          "Umar ibn al-Khattab",
+          "Abbas ibn Abdul-Muttalib"
+        ],
+        "ar": [
+          "His uncle Abu Talib",
+          "Abu Bakr",
+          "Umar ibn al-Khattab",
+          "Abbas ibn Abdul-Muttalib"
+        ]
       },
       "correct_index": 0,
-      "source": "Seerah — Farewell Pilgrimage"
+      "source": "Seerah — Family"
     },
-
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which clan and tribe was the Prophet (PBUH) from?",
+        "ur": "Which clan and tribe was the Prophet (PBUH) from?",
+        "ar": "Which clan and tribe was the Prophet (PBUH) from?"
+      },
+      "options": {
+        "en": [
+          "Banu Umayyah and Quraish",
+          "Banu Hashim and Quraish",
+          "Banu Thaqif and Aws",
+          "Banu Nadir and Khazraj"
+        ],
+        "ur": [
+          "Banu Umayyah and Quraish",
+          "Banu Hashim and Quraish",
+          "Banu Thaqif and Aws",
+          "Banu Nadir and Khazraj"
+        ],
+        "ar": [
+          "Banu Umayyah and Quraish",
+          "Banu Hashim and Quraish",
+          "Banu Thaqif and Aws",
+          "Banu Nadir and Khazraj"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What work did the Prophet (PBUH) do until age 40?",
+        "ur": "What work did the Prophet (PBUH) do until age 40?",
+        "ar": "What work did the Prophet (PBUH) do until age 40?"
+      },
+      "options": {
+        "en": [
+          "He was a farmer only",
+          "He tended sheep and also worked as a trader",
+          "He was a soldier",
+          "He was a builder only"
+        ],
+        "ur": [
+          "He was a farmer only",
+          "He tended sheep and also worked as a trader",
+          "He was a soldier",
+          "He was a builder only"
+        ],
+        "ar": [
+          "He was a farmer only",
+          "He tended sheep and also worked as a trader",
+          "He was a soldier",
+          "He was a builder only"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "When did Muhammad (PBUH) travel to Syria and with whom?",
+        "ur": "When did Muhammad (PBUH) travel to Syria and with whom?",
+        "ar": "When did Muhammad (PBUH) travel to Syria and with whom?"
+      },
+      "options": {
+        "en": [
+          "At age 12 with Abu Talib for trade",
+          "At age 20 with Abu Bakr for Hajj",
+          "At age 25 with Khadijah for trade",
+          "At age 40 with Jibraeel for revelation"
+        ],
+        "ur": [
+          "At age 12 with Abu Talib for trade",
+          "At age 20 with Abu Bakr for Hajj",
+          "At age 25 with Khadijah for trade",
+          "At age 40 with Jibraeel for revelation"
+        ],
+        "ar": [
+          "At age 12 with Abu Talib for trade",
+          "At age 20 with Abu Bakr for Hajj",
+          "At age 25 with Khadijah for trade",
+          "At age 40 with Jibraeel for revelation"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Early Life & Marriage"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was Khadijah (RA)?",
+        "ur": "Who was Khadijah (RA)?",
+        "ar": "Who was Khadijah (RA)?"
+      },
+      "options": {
+        "en": [
+          "A ruler of Madinah",
+          "A wealthy businesswoman of Makkah",
+          "A scholar from Syria",
+          "A foster mother of the Prophet"
+        ],
+        "ur": [
+          "A ruler of Madinah",
+          "A wealthy businesswoman of Makkah",
+          "A scholar from Syria",
+          "A foster mother of the Prophet"
+        ],
+        "ar": [
+          "A ruler of Madinah",
+          "A wealthy businesswoman of Makkah",
+          "A scholar from Syria",
+          "A foster mother of the Prophet"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Early Life & Marriage"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Why did Khadijah (RA) want to marry Muhammad (PBUH)?",
+        "ur": "Why did Khadijah (RA) want to marry Muhammad (PBUH)?",
+        "ar": "Why did Khadijah (RA) want to marry Muhammad (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "Because of his wealth",
+          "Because of his family position only",
+          "Because of his truthfulness and good conduct",
+          "Because he was a military leader"
+        ],
+        "ur": [
+          "Because of his wealth",
+          "Because of his family position only",
+          "Because of his truthfulness and good conduct",
+          "Because he was a military leader"
+        ],
+        "ar": [
+          "Because of his wealth",
+          "Because of his family position only",
+          "Because of his truthfulness and good conduct",
+          "Because he was a military leader"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Early Life & Marriage"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How old was Khadijah (RA) when she married Muhammad (PBUH)?",
+        "ur": "How old was Khadijah (RA) when she married Muhammad (PBUH)?",
+        "ar": "How old was Khadijah (RA) when she married Muhammad (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "25 years old",
+          "30 years old",
+          "40 years old",
+          "50 years old"
+        ],
+        "ur": [
+          "25 years old",
+          "30 years old",
+          "40 years old",
+          "50 years old"
+        ],
+        "ar": [
+          "25 years old",
+          "30 years old",
+          "40 years old",
+          "50 years old"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Early Life & Marriage"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How old was Muhammad (PBUH) when he married Khadijah (RA)?",
+        "ur": "How old was Muhammad (PBUH) when he married Khadijah (RA)?",
+        "ar": "How old was Muhammad (PBUH) when he married Khadijah (RA)?"
+      },
+      "options": {
+        "en": [
+          "20",
+          "25",
+          "30",
+          "40"
+        ],
+        "ur": [
+          "20",
+          "25",
+          "30",
+          "40"
+        ],
+        "ar": [
+          "20",
+          "25",
+          "30",
+          "40"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Early Life & Marriage"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What did the Prophet (PBUH) give Khadijah as Mahr according to the source?",
+        "ur": "What did the Prophet (PBUH) give Khadijah as Mahr according to the source?",
+        "ar": "What did the Prophet (PBUH) give Khadijah as Mahr according to the source?"
+      },
+      "options": {
+        "en": [
+          "Ten camels",
+          "Twenty camels",
+          "Forty camels",
+          "One hundred camels"
+        ],
+        "ur": [
+          "Ten camels",
+          "Twenty camels",
+          "Forty camels",
+          "One hundred camels"
+        ],
+        "ar": [
+          "Ten camels",
+          "Twenty camels",
+          "Forty camels",
+          "One hundred camels"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Early Life & Marriage"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Was Khadijah (RA) a widow before marrying the Prophet (PBUH)?",
+        "ur": "Was Khadijah (RA) a widow before marrying the Prophet (PBUH)?",
+        "ar": "Was Khadijah (RA) a widow before marrying the Prophet (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "No; he was her first husband",
+          "Yes; the Prophet was her third husband",
+          "Yes; he was her second husband",
+          "No; she was unmarried"
+        ],
+        "ur": [
+          "No; he was her first husband",
+          "Yes; the Prophet was her third husband",
+          "Yes; he was her second husband",
+          "No; she was unmarried"
+        ],
+        "ar": [
+          "No; he was her first husband",
+          "Yes; the Prophet was her third husband",
+          "Yes; he was her second husband",
+          "No; she was unmarried"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many children did the Prophet (PBUH) have with Khadijah (RA)?",
+        "ur": "How many children did the Prophet (PBUH) have with Khadijah (RA)?",
+        "ar": "How many children did the Prophet (PBUH) have with Khadijah (RA)?"
+      },
+      "options": {
+        "en": [
+          "Four: two daughters and two sons",
+          "Five: three daughters and two sons",
+          "Six: four daughters and two sons",
+          "Seven: five daughters and two sons"
+        ],
+        "ur": [
+          "Four: two daughters and two sons",
+          "Five: three daughters and two sons",
+          "Six: four daughters and two sons",
+          "Seven: five daughters and two sons"
+        ],
+        "ar": [
+          "Four: two daughters and two sons",
+          "Five: three daughters and two sons",
+          "Six: four daughters and two sons",
+          "Seven: five daughters and two sons"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Did the Prophet (PBUH) have any other children?",
+        "ur": "Did the Prophet (PBUH) have any other children?",
+        "ar": "Did the Prophet (PBUH) have any other children?"
+      },
+      "options": {
+        "en": [
+          "No, he had no other children",
+          "Yes, Ibrahim, from his servant Maariyah",
+          "Yes, Abdullah, from Aisha",
+          "Yes, Umar, from Sawdah"
+        ],
+        "ur": [
+          "No, he had no other children",
+          "Yes, Ibrahim, from his servant Maariyah",
+          "Yes, Abdullah, from Aisha",
+          "Yes, Umar, from Sawdah"
+        ],
+        "ar": [
+          "No, he had no other children",
+          "Yes, Ibrahim, from his servant Maariyah",
+          "Yes, Abdullah, from Aisha",
+          "Yes, Umar, from Sawdah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many wives of the Prophet (PBUH) are named in the source?",
+        "ur": "How many wives of the Prophet (PBUH) are named in the source?",
+        "ar": "How many wives of the Prophet (PBUH) are named in the source?"
+      },
+      "options": {
+        "en": [
+          "Seven",
+          "Nine",
+          "Eleven",
+          "Thirteen"
+        ],
+        "ur": [
+          "Seven",
+          "Nine",
+          "Eleven",
+          "Thirteen"
+        ],
+        "ar": [
+          "Seven",
+          "Nine",
+          "Eleven",
+          "Thirteen"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were the Prophet's (PBUH) sons-in-law?",
+        "ur": "Who were the Prophet's (PBUH) sons-in-law?",
+        "ar": "Who were the Prophet's (PBUH) sons-in-law?"
+      },
+      "options": {
+        "en": [
+          "Bilal, Abu Bakr and Umar",
+          "Uthman ibn Affan, Ali ibn Abi Talib and Abul Aas ibn Al-Rabi'",
+          "Hamzah, Abbas and Abu Talib",
+          "Zayd, Salman and Ammar"
+        ],
+        "ur": [
+          "Bilal, Abu Bakr and Umar",
+          "Uthman ibn Affan, Ali ibn Abi Talib and Abul Aas ibn Al-Rabi'",
+          "Hamzah, Abbas and Abu Talib",
+          "Zayd, Salman and Ammar"
+        ],
+        "ar": [
+          "Bilal, Abu Bakr and Umar",
+          "Uthman ibn Affan, Ali ibn Abi Talib and Abul Aas ibn Al-Rabi'",
+          "Hamzah, Abbas and Abu Talib",
+          "Zayd, Salman and Ammar"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many grandchildren are listed in the source?",
+        "ur": "How many grandchildren are listed in the source?",
+        "ar": "How many grandchildren are listed in the source?"
+      },
+      "options": {
+        "en": [
+          "Four",
+          "Six",
+          "Eight",
+          "Ten"
+        ],
+        "ur": [
+          "Four",
+          "Six",
+          "Eight",
+          "Ten"
+        ],
+        "ar": [
+          "Four",
+          "Six",
+          "Eight",
+          "Ten"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Were all the wives of the Prophet (PBUH) widows or divorcees before marriage?",
+        "ur": "Were all the wives of the Prophet (PBUH) widows or divorcees before marriage?",
+        "ar": "Were all the wives of the Prophet (PBUH) widows or divorcees before marriage?"
+      },
+      "options": {
+        "en": [
+          "No, none were",
+          "Yes, except Aisha (RA)",
+          "Yes, except Khadijah (RA)",
+          "Only Aisha and Hafsah were exceptions"
+        ],
+        "ur": [
+          "No, none were",
+          "Yes, except Aisha (RA)",
+          "Yes, except Khadijah (RA)",
+          "Only Aisha and Hafsah were exceptions"
+        ],
+        "ar": [
+          "No, none were",
+          "Yes, except Aisha (RA)",
+          "Yes, except Khadijah (RA)",
+          "Only Aisha and Hafsah were exceptions"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many paternal aunties of the Prophet (PBUH) are named?",
+        "ur": "How many paternal aunties of the Prophet (PBUH) are named?",
+        "ar": "How many paternal aunties of the Prophet (PBUH) are named?"
+      },
+      "options": {
+        "en": [
+          "Four",
+          "Six",
+          "Eight",
+          "Twelve"
+        ],
+        "ur": [
+          "Four",
+          "Six",
+          "Eight",
+          "Twelve"
+        ],
+        "ar": [
+          "Four",
+          "Six",
+          "Eight",
+          "Twelve"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were the Prophet's (PBUH) grandmothers named in the source?",
+        "ur": "Who were the Prophet's (PBUH) grandmothers named in the source?",
+        "ar": "Who were the Prophet's (PBUH) grandmothers named in the source?"
+      },
+      "options": {
+        "en": [
+          "Aaminah and Khadijah",
+          "Fatimah bint Omar and Barrah bint Abdul Uzza",
+          "Safiyyah and Aisha",
+          "Haleemah and Sawdah"
+        ],
+        "ur": [
+          "Aaminah and Khadijah",
+          "Fatimah bint Omar and Barrah bint Abdul Uzza",
+          "Safiyyah and Aisha",
+          "Haleemah and Sawdah"
+        ],
+        "ar": [
+          "Aaminah and Khadijah",
+          "Fatimah bint Omar and Barrah bint Abdul Uzza",
+          "Safiyyah and Aisha",
+          "Haleemah and Sawdah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many times is the name Muhammad mentioned in the Holy Quran according to the source?",
+        "ur": "How many times is the name Muhammad mentioned in the Holy Quran according to the source?",
+        "ar": "How many times is the name Muhammad mentioned in the Holy Quran according to the source?"
+      },
+      "options": {
+        "en": [
+          "Two times",
+          "Three times",
+          "Four times",
+          "Seven times"
+        ],
+        "ur": [
+          "Two times",
+          "Three times",
+          "Four times",
+          "Seven times"
+        ],
+        "ar": [
+          "Two times",
+          "Three times",
+          "Four times",
+          "Seven times"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Character & Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How was Muhammad (PBUH) known in his society?",
+        "ur": "How was Muhammad (PBUH) known in his society?",
+        "ar": "How was Muhammad (PBUH) known in his society?"
+      },
+      "options": {
+        "en": [
+          "Al-Faruq and As-Siddiq",
+          "Al-Saadiq and Al-Ameen",
+          "Dhun-Nurayn and Al-Murtada",
+          "Al-Hakim and Al-Qawi"
+        ],
+        "ur": [
+          "Al-Faruq and As-Siddiq",
+          "Al-Saadiq and Al-Ameen",
+          "Dhun-Nurayn and Al-Murtada",
+          "Al-Hakim and Al-Qawi"
+        ],
+        "ar": [
+          "Al-Faruq and As-Siddiq",
+          "Al-Saadiq and Al-Ameen",
+          "Dhun-Nurayn and Al-Murtada",
+          "Al-Hakim and Al-Qawi"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Did Muhammad (PBUH) receive formal education from society?",
+        "ur": "Did Muhammad (PBUH) receive formal education from society?",
+        "ar": "Did Muhammad (PBUH) receive formal education from society?"
+      },
+      "options": {
+        "en": [
+          "Yes, in a formal school",
+          "No; the source says he was taught by Almighty Allah",
+          "Yes, in Syria",
+          "Yes, by Roman scholars"
+        ],
+        "ur": [
+          "Yes, in a formal school",
+          "No; the source says he was taught by Almighty Allah",
+          "Yes, in Syria",
+          "Yes, by Roman scholars"
+        ],
+        "ar": [
+          "Yes, in a formal school",
+          "No; the source says he was taught by Almighty Allah",
+          "Yes, in Syria",
+          "Yes, by Roman scholars"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What should be said when the Prophet's (PBUH) name is mentioned?",
+        "ur": "What should be said when the Prophet's (PBUH) name is mentioned?",
+        "ar": "What should be said when the Prophet's (PBUH) name is mentioned?"
+      },
+      "options": {
+        "en": [
+          "A takbir only",
+          "Durood and Salaam",
+          "A khutbah",
+          "A poem only"
+        ],
+        "ur": [
+          "A takbir only",
+          "Durood and Salaam",
+          "A khutbah",
+          "A poem only"
+        ],
+        "ar": [
+          "A takbir only",
+          "Durood and Salaam",
+          "A khutbah",
+          "A poem only"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many paternal uncles of the Prophet (PBUH) are named?",
+        "ur": "How many paternal uncles of the Prophet (PBUH) are named?",
+        "ar": "How many paternal uncles of the Prophet (PBUH) are named?"
+      },
+      "options": {
+        "en": [
+          "Eight",
+          "Ten",
+          "Twelve",
+          "Fourteen"
+        ],
+        "ur": [
+          "Eight",
+          "Ten",
+          "Twelve",
+          "Fourteen"
+        ],
+        "ar": [
+          "Eight",
+          "Ten",
+          "Twelve",
+          "Fourteen"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Character & Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were the two maternal uncles named in the source?",
+        "ur": "Who were the two maternal uncles named in the source?",
+        "ar": "Who were the two maternal uncles named in the source?"
+      },
+      "options": {
+        "en": [
+          "Abu Talib and Abbas",
+          "Al-Aswad ibn Yaghooth and Abdullah ibn Al-Arqam",
+          "Hamzah and Zubair",
+          "Uthman and Ali"
+        ],
+        "ur": [
+          "Abu Talib and Abbas",
+          "Al-Aswad ibn Yaghooth and Abdullah ibn Al-Arqam",
+          "Hamzah and Zubair",
+          "Uthman and Ali"
+        ],
+        "ar": [
+          "Abu Talib and Abbas",
+          "Al-Aswad ibn Yaghooth and Abdullah ibn Al-Arqam",
+          "Hamzah and Zubair",
+          "Uthman and Ali"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which three Christian monks/learned men are named?",
+        "ur": "Which three Christian monks/learned men are named?",
+        "ar": "Which three Christian monks/learned men are named?"
+      },
+      "options": {
+        "en": [
+          "Buhaira, Nastoorah and Waraqah ibn Nawfal",
+          "Heraclius, Kisra and Najashi",
+          "Abu Talib, Waraqah and Bilal",
+          "Salman, Suhaib and Ammar"
+        ],
+        "ur": [
+          "Buhaira, Nastoorah and Waraqah ibn Nawfal",
+          "Heraclius, Kisra and Najashi",
+          "Abu Talib, Waraqah and Bilal",
+          "Salman, Suhaib and Ammar"
+        ],
+        "ar": [
+          "Buhaira, Nastoorah and Waraqah ibn Nawfal",
+          "Heraclius, Kisra and Najashi",
+          "Abu Talib, Waraqah and Bilal",
+          "Salman, Suhaib and Ammar"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Character & Family"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Did Abu Talib accept Islam according to the source?",
+        "ur": "Did Abu Talib accept Islam according to the source?",
+        "ar": "Did Abu Talib accept Islam according to the source?"
+      },
+      "options": {
+        "en": [
+          "Yes, before the Hijrah",
+          "No; he died a polytheist, while protecting the Prophet",
+          "Yes, at the conquest of Makkah",
+          "The source says he became a ruler"
+        ],
+        "ur": [
+          "Yes, before the Hijrah",
+          "No; he died a polytheist, while protecting the Prophet",
+          "Yes, at the conquest of Makkah",
+          "The source says he became a ruler"
+        ],
+        "ar": [
+          "Yes, before the Hijrah",
+          "No; he died a polytheist, while protecting the Prophet",
+          "Yes, at the conquest of Makkah",
+          "The source says he became a ruler"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Where did the Prophet (PBUH) go into seclusion?",
+        "ur": "Where did the Prophet (PBUH) go into seclusion?",
+        "ar": "Where did the Prophet (PBUH) go into seclusion?"
+      },
+      "options": {
+        "en": [
+          "The Cave of Thaur",
+          "The Cave of Hira",
+          "Masjid al-Aqsa",
+          "Mount Uhud"
+        ],
+        "ur": [
+          "The Cave of Thaur",
+          "The Cave of Hira",
+          "Masjid al-Aqsa",
+          "Mount Uhud"
+        ],
+        "ar": [
+          "The Cave of Thaur",
+          "The Cave of Hira",
+          "Masjid al-Aqsa",
+          "Mount Uhud"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the first stage of revelation?",
+        "ur": "What was the first stage of revelation?",
+        "ar": "What was the first stage of revelation?"
+      },
+      "options": {
+        "en": [
+          "True dreams for six months",
+          "Written revelation for one year",
+          "Public preaching for three years",
+          "The Hijrah"
+        ],
+        "ur": [
+          "True dreams for six months",
+          "Written revelation for one year",
+          "Public preaching for three years",
+          "The Hijrah"
+        ],
+        "ar": [
+          "True dreams for six months",
+          "Written revelation for one year",
+          "Public preaching for three years",
+          "The Hijrah"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "When did the first revelation come down according to the source?",
+        "ur": "When did the first revelation come down according to the source?",
+        "ar": "When did the first revelation come down according to the source?"
+      },
+      "options": {
+        "en": [
+          "When he was twenty-five",
+          "On a night in Ramadan when he was forty",
+          "After the Hijrah",
+          "At the conquest of Makkah"
+        ],
+        "ur": [
+          "When he was twenty-five",
+          "On a night in Ramadan when he was forty",
+          "After the Hijrah",
+          "At the conquest of Makkah"
+        ],
+        "ar": [
+          "When he was twenty-five",
+          "On a night in Ramadan when he was forty",
+          "After the Hijrah",
+          "At the conquest of Makkah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who brought revelation from Allah?",
+        "ur": "Who brought revelation from Allah?",
+        "ar": "Who brought revelation from Allah?"
+      },
+      "options": {
+        "en": [
+          "Mikaeel",
+          "The Archangel Jibraeel",
+          "Israfeel",
+          "Azraeel"
+        ],
+        "ur": [
+          "Mikaeel",
+          "The Archangel Jibraeel",
+          "Israfeel",
+          "Azraeel"
+        ],
+        "ar": [
+          "Mikaeel",
+          "The Archangel Jibraeel",
+          "Israfeel",
+          "Azraeel"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the mission of the Prophet (PBUH)?",
+        "ur": "What was the mission of the Prophet (PBUH)?",
+        "ar": "What was the mission of the Prophet (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "To establish a trading empire",
+          "To invite humankind and jinn to Islam and the Oneness of Allah",
+          "To become a king of Arabia",
+          "To teach only the people of Makkah"
+        ],
+        "ur": [
+          "To establish a trading empire",
+          "To invite humankind and jinn to Islam and the Oneness of Allah",
+          "To become a king of Arabia",
+          "To teach only the people of Makkah"
+        ],
+        "ar": [
+          "To establish a trading empire",
+          "To invite humankind and jinn to Islam and the Oneness of Allah",
+          "To become a king of Arabia",
+          "To teach only the people of Makkah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were among the first people to embrace Islam?",
+        "ur": "Who were among the first people to embrace Islam?",
+        "ar": "Who were among the first people to embrace Islam?"
+      },
+      "options": {
+        "en": [
+          "Only the Quraysh leaders",
+          "Khadijah, Zaid ibn Haaritha, Ali ibn Abi Talib and Abu Bakr are listed for different categories",
+          "Only Roman Christians",
+          "Only the people of Madinah"
+        ],
+        "ur": [
+          "Only the Quraysh leaders",
+          "Khadijah, Zaid ibn Haaritha, Ali ibn Abi Talib and Abu Bakr are listed for different categories",
+          "Only Roman Christians",
+          "Only the people of Madinah"
+        ],
+        "ar": [
+          "Only the Quraysh leaders",
+          "Khadijah, Zaid ibn Haaritha, Ali ibn Abi Talib and Abu Bakr are listed for different categories",
+          "Only Roman Christians",
+          "Only the people of Madinah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were some of the first ladies after Khadijah (RA) to accept Islam?",
+        "ur": "Who were some of the first ladies after Khadijah (RA) to accept Islam?",
+        "ar": "Who were some of the first ladies after Khadijah (RA) to accept Islam?"
+      },
+      "options": {
+        "en": [
+          "Ummul Fadl, Asma bint Umais, Asma bint Abi Bakr and Fatimah bint Al-Khattab",
+          "Aisha, Hafsah, Safiyyah and Maymunah",
+          "Maryam, Sarah, Hajar and Asiya",
+          "Zaynab, Ruqayyah, Umm Kulthoom and Fatimah"
+        ],
+        "ur": [
+          "Ummul Fadl, Asma bint Umais, Asma bint Abi Bakr and Fatimah bint Al-Khattab",
+          "Aisha, Hafsah, Safiyyah and Maymunah",
+          "Maryam, Sarah, Hajar and Asiya",
+          "Zaynab, Ruqayyah, Umm Kulthoom and Fatimah"
+        ],
+        "ar": [
+          "Ummul Fadl, Asma bint Umais, Asma bint Abi Bakr and Fatimah bint Al-Khattab",
+          "Aisha, Hafsah, Safiyyah and Maymunah",
+          "Maryam, Sarah, Hajar and Asiya",
+          "Zaynab, Ruqayyah, Umm Kulthoom and Fatimah"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How was dawah done in the early days of Islam?",
+        "ur": "How was dawah done in the early days of Islam?",
+        "ar": "How was dawah done in the early days of Islam?"
+      },
+      "options": {
+        "en": [
+          "Openly from the first day",
+          "Secretly for three years, then openly",
+          "Only in Madinah",
+          "Only through letters"
+        ],
+        "ur": [
+          "Openly from the first day",
+          "Secretly for three years, then openly",
+          "Only in Madinah",
+          "Only through letters"
+        ],
+        "ar": [
+          "Openly from the first day",
+          "Secretly for three years, then openly",
+          "Only in Madinah",
+          "Only through letters"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Where did Muslims secretly gather during the early period?",
+        "ur": "Where did Muslims secretly gather during the early period?",
+        "ar": "Where did Muslims secretly gather during the early period?"
+      },
+      "options": {
+        "en": [
+          "In the Ka'bah",
+          "In the house of Arqam",
+          "In the Cave of Thaur",
+          "In the marketplace"
+        ],
+        "ur": [
+          "In the Ka'bah",
+          "In the house of Arqam",
+          "In the Cave of Thaur",
+          "In the marketplace"
+        ],
+        "ar": [
+          "In the Ka'bah",
+          "In the house of Arqam",
+          "In the Cave of Thaur",
+          "In the marketplace"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many people embraced Islam in the early stage according to the source?",
+        "ur": "How many people embraced Islam in the early stage according to the source?",
+        "ar": "How many people embraced Islam in the early stage according to the source?"
+      },
+      "options": {
+        "en": [
+          "About ten",
+          "About twenty",
+          "About forty",
+          "About one hundred"
+        ],
+        "ur": [
+          "About ten",
+          "About twenty",
+          "About forty",
+          "About one hundred"
+        ],
+        "ar": [
+          "About ten",
+          "About twenty",
+          "About forty",
+          "About one hundred"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the impact of the Prophet's public preaching?",
+        "ur": "What was the impact of the Prophet's public preaching?",
+        "ar": "What was the impact of the Prophet's public preaching?"
+      },
+      "options": {
+        "en": [
+          "Everyone immediately accepted Islam",
+          "Some mocked Islam and others accepted it",
+          "Everyone left Makkah",
+          "No one heard the message"
+        ],
+        "ur": [
+          "Everyone immediately accepted Islam",
+          "Some mocked Islam and others accepted it",
+          "Everyone left Makkah",
+          "No one heard the message"
+        ],
+        "ar": [
+          "Everyone immediately accepted Islam",
+          "Some mocked Islam and others accepted it",
+          "Everyone left Makkah",
+          "No one heard the message"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who was Ali (RA)?",
+        "ur": "Who was Ali (RA)?",
+        "ar": "Who was Ali (RA)?"
+      },
+      "options": {
+        "en": [
+          "Son of Abu Bakr",
+          "Son of Abu Talib, cousin and son-in-law of the Prophet (PBUH)",
+          "Son of Umar",
+          "Brother of Uthman"
+        ],
+        "ur": [
+          "Son of Abu Bakr",
+          "Son of Abu Talib, cousin and son-in-law of the Prophet (PBUH)",
+          "Son of Umar",
+          "Brother of Uthman"
+        ],
+        "ar": [
+          "Son of Abu Bakr",
+          "Son of Abu Talib, cousin and son-in-law of the Prophet (PBUH)",
+          "Son of Umar",
+          "Brother of Uthman"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many sons did Ali (RA) have from Fatimah (RA)?",
+        "ur": "How many sons did Ali (RA) have from Fatimah (RA)?",
+        "ar": "How many sons did Ali (RA) have from Fatimah (RA)?"
+      },
+      "options": {
+        "en": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ],
+        "ur": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ],
+        "ar": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which of the Prophet's (PBUH) children had children?",
+        "ur": "Which of the Prophet's (PBUH) children had children?",
+        "ar": "Which of the Prophet's (PBUH) children had children?"
+      },
+      "options": {
+        "en": [
+          "Only Ibrahim",
+          "Zainab and Fatimah had children; descendants continued through Fatimah and Ali",
+          "Only Qasim",
+          "None of his children had children"
+        ],
+        "ur": [
+          "Only Ibrahim",
+          "Zainab and Fatimah had children; descendants continued through Fatimah and Ali",
+          "Only Qasim",
+          "None of his children had children"
+        ],
+        "ar": [
+          "Only Ibrahim",
+          "Zainab and Fatimah had children; descendants continued through Fatimah and Ali",
+          "Only Qasim",
+          "None of his children had children"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Revelation & Early Islam"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What collective punishment was inflicted on Banu Hashim?",
+        "ur": "What collective punishment was inflicted on Banu Hashim?",
+        "ar": "What collective punishment was inflicted on Banu Hashim?"
+      },
+      "options": {
+        "en": [
+          "They were sent to Syria",
+          "They were boycotted in the valley of Abu Talib for three years",
+          "They were imprisoned in Madinah",
+          "They were exiled to Egypt"
+        ],
+        "ur": [
+          "They were sent to Syria",
+          "They were boycotted in the valley of Abu Talib for three years",
+          "They were imprisoned in Madinah",
+          "They were exiled to Egypt"
+        ],
+        "ar": [
+          "They were sent to Syria",
+          "They were boycotted in the valley of Abu Talib for three years",
+          "They were imprisoned in Madinah",
+          "They were exiled to Egypt"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Hijrah & Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What happened in the Year of Sorrow (Aam ul Huzn)?",
+        "ur": "What happened in the Year of Sorrow (Aam ul Huzn)?",
+        "ar": "What happened in the Year of Sorrow (Aam ul Huzn)?"
+      },
+      "options": {
+        "en": [
+          "The Hijrah occurred",
+          "Abu Talib and Khadijah passed away; the Prophet then went to Taif",
+          "The conquest of Makkah occurred",
+          "The first revelation occurred"
+        ],
+        "ur": [
+          "The Hijrah occurred",
+          "Abu Talib and Khadijah passed away; the Prophet then went to Taif",
+          "The conquest of Makkah occurred",
+          "The first revelation occurred"
+        ],
+        "ar": [
+          "The Hijrah occurred",
+          "Abu Talib and Khadijah passed away; the Prophet then went to Taif",
+          "The conquest of Makkah occurred",
+          "The first revelation occurred"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Hijrah & Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is Israa & Mi'raaj?",
+        "ur": "What is Israa & Mi'raaj?",
+        "ar": "What is Israa & Mi'raaj?"
+      },
+      "options": {
+        "en": [
+          "The journey to Syria for trade",
+          "The journey from Makkah to Masjid al-Aqsa and then to the heavens",
+          "The migration to Madinah",
+          "The conquest of Makkah"
+        ],
+        "ur": [
+          "The journey to Syria for trade",
+          "The journey from Makkah to Masjid al-Aqsa and then to the heavens",
+          "The migration to Madinah",
+          "The conquest of Makkah"
+        ],
+        "ar": [
+          "The journey to Syria for trade",
+          "The journey from Makkah to Masjid al-Aqsa and then to the heavens",
+          "The migration to Madinah",
+          "The conquest of Makkah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Hijrah & Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Why did the Prophet (PBUH) migrate from Makkah to Madinah?",
+        "ur": "Why did the Prophet (PBUH) migrate from Makkah to Madinah?",
+        "ar": "Why did the Prophet (PBUH) migrate from Makkah to Madinah?"
+      },
+      "options": {
+        "en": [
+          "For trade",
+          "Because of persecution of Muslims in Makkah",
+          "To visit relatives",
+          "To study in Madinah"
+        ],
+        "ur": [
+          "For trade",
+          "Because of persecution of Muslims in Makkah",
+          "To visit relatives",
+          "To study in Madinah"
+        ],
+        "ar": [
+          "For trade",
+          "Because of persecution of Muslims in Makkah",
+          "To visit relatives",
+          "To study in Madinah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Hijrah & Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Why did the Prophet (PBUH) choose Madinah?",
+        "ur": "Why did the Prophet (PBUH) choose Madinah?",
+        "ar": "Why did the Prophet (PBUH) choose Madinah?"
+      },
+      "options": {
+        "en": [
+          "It was the richest city",
+          "Its people invited him and promised to unite and support him",
+          "It was closest to Syria",
+          "It had the largest army"
+        ],
+        "ur": [
+          "It was the richest city",
+          "Its people invited him and promised to unite and support him",
+          "It was closest to Syria",
+          "It had the largest army"
+        ],
+        "ar": [
+          "It was the richest city",
+          "Its people invited him and promised to unite and support him",
+          "It was closest to Syria",
+          "It had the largest army"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Hijrah & Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What date did the Prophet (PBUH) migrate to Madinah according to the source?",
+        "ur": "What date did the Prophet (PBUH) migrate to Madinah according to the source?",
+        "ar": "What date did the Prophet (PBUH) migrate to Madinah according to the source?"
+      },
+      "options": {
+        "en": [
+          "1st Muharram, 1 AH",
+          "12th Rabi ul Awwal, 1 AH (23 September 622 AD)",
+          "10th Ramadan, 10 AH",
+          "9th Dhul Hijjah, 10 AH"
+        ],
+        "ur": [
+          "1st Muharram, 1 AH",
+          "12th Rabi ul Awwal, 1 AH (23 September 622 AD)",
+          "10th Ramadan, 10 AH",
+          "9th Dhul Hijjah, 10 AH"
+        ],
+        "ar": [
+          "1st Muharram, 1 AH",
+          "12th Rabi ul Awwal, 1 AH (23 September 622 AD)",
+          "10th Ramadan, 10 AH",
+          "9th Dhul Hijjah, 10 AH"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Hijrah & Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How did Allah protect the Prophet (PBUH) and Abu Bakr during the migration?",
+        "ur": "How did Allah protect the Prophet (PBUH) and Abu Bakr during the migration?",
+        "ar": "How did Allah protect the Prophet (PBUH) and Abu Bakr during the migration?"
+      },
+      "options": {
+        "en": [
+          "A wall was built around them",
+          "A spider web and pigeon nest were at the cave entrance, among other protection",
+          "They hid in a palace",
+          "An army escorted them"
+        ],
+        "ur": [
+          "A wall was built around them",
+          "A spider web and pigeon nest were at the cave entrance, among other protection",
+          "They hid in a palace",
+          "An army escorted them"
+        ],
+        "ar": [
+          "A wall was built around them",
+          "A spider web and pigeon nest were at the cave entrance, among other protection",
+          "They hid in a palace",
+          "An army escorted them"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Hijrah & Madinah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many battles did the Prophet (PBUH) participate in according to the source?",
+        "ur": "How many battles did the Prophet (PBUH) participate in according to the source?",
+        "ar": "How many battles did the Prophet (PBUH) participate in according to the source?"
+      },
+      "options": {
+        "en": [
+          "5 or 6",
+          "10 or 12",
+          "23 or 27, with 9 or 10 having actual confrontations",
+          "50 or 60"
+        ],
+        "ur": [
+          "5 or 6",
+          "10 or 12",
+          "23 or 27, with 9 or 10 having actual confrontations",
+          "50 or 60"
+        ],
+        "ar": [
+          "5 or 6",
+          "10 or 12",
+          "23 or 27, with 9 or 10 having actual confrontations",
+          "50 or 60"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Battles & Worship"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Was the Prophet (PBUH) injured in a battle?",
+        "ur": "Was the Prophet (PBUH) injured in a battle?",
+        "ar": "Was the Prophet (PBUH) injured in a battle?"
+      },
+      "options": {
+        "en": [
+          "No, never",
+          "Yes, at Uhud",
+          "Yes, at Badr only",
+          "Yes, at Hunain only"
+        ],
+        "ur": [
+          "No, never",
+          "Yes, at Uhud",
+          "Yes, at Badr only",
+          "Yes, at Hunain only"
+        ],
+        "ar": [
+          "No, never",
+          "Yes, at Uhud",
+          "Yes, at Badr only",
+          "Yes, at Hunain only"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Battles & Worship"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How did the Prophet (PBUH) respond to his injury at Uhud?",
+        "ur": "How did the Prophet (PBUH) respond to his injury at Uhud?",
+        "ar": "How did the Prophet (PBUH) respond to his injury at Uhud?"
+      },
+      "options": {
+        "en": [
+          "He sought revenge",
+          "He forgave them and asked Allah to forgive them",
+          "He left Madinah",
+          "He declared a boycott"
+        ],
+        "ur": [
+          "He sought revenge",
+          "He forgave them and asked Allah to forgive them",
+          "He left Madinah",
+          "He declared a boycott"
+        ],
+        "ar": [
+          "He sought revenge",
+          "He forgave them and asked Allah to forgive them",
+          "He left Madinah",
+          "He declared a boycott"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Battles & Worship"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the Treaty of Hudaybiyah?",
+        "ur": "What was the Treaty of Hudaybiyah?",
+        "ar": "What was the Treaty of Hudaybiyah?"
+      },
+      "options": {
+        "en": [
+          "A two-year trade agreement",
+          "A ten-year truce between the Muslims and Quraysh",
+          "A treaty with Rome",
+          "A peace agreement with Persia"
+        ],
+        "ur": [
+          "A two-year trade agreement",
+          "A ten-year truce between the Muslims and Quraysh",
+          "A treaty with Rome",
+          "A peace agreement with Persia"
+        ],
+        "ar": [
+          "A two-year trade agreement",
+          "A ten-year truce between the Muslims and Quraysh",
+          "A treaty with Rome",
+          "A peace agreement with Persia"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Battles & Worship"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How did the Prophet (PBUH) treat the enemies after the conquest of Makkah?",
+        "ur": "How did the Prophet (PBUH) treat the enemies after the conquest of Makkah?",
+        "ar": "How did the Prophet (PBUH) treat the enemies after the conquest of Makkah?"
+      },
+      "options": {
+        "en": [
+          "He imprisoned all of them",
+          "He showed mercy and forgave most of them",
+          "He expelled every resident",
+          "He demanded compensation from everyone"
+        ],
+        "ur": [
+          "He imprisoned all of them",
+          "He showed mercy and forgave most of them",
+          "He expelled every resident",
+          "He demanded compensation from everyone"
+        ],
+        "ar": [
+          "He imprisoned all of them",
+          "He showed mercy and forgave most of them",
+          "He expelled every resident",
+          "He demanded compensation from everyone"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Battles & Worship"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which were famous battles/major events listed by the source?",
+        "ur": "Which were famous battles/major events listed by the source?",
+        "ar": "Which were famous battles/major events listed by the source?"
+      },
+      "options": {
+        "en": [
+          "Badr, Uhud, Ahzaab/Khandaq, Hunain and the conquest of Makkah",
+          "Yarmouk, Qadisiyyah, Nahavand and Tours",
+          "Only Badr and Uhud",
+          "Only Hunain and Tabuk"
+        ],
+        "ur": [
+          "Badr, Uhud, Ahzaab/Khandaq, Hunain and the conquest of Makkah",
+          "Yarmouk, Qadisiyyah, Nahavand and Tours",
+          "Only Badr and Uhud",
+          "Only Hunain and Tabuk"
+        ],
+        "ar": [
+          "Badr, Uhud, Ahzaab/Khandaq, Hunain and the conquest of Makkah",
+          "Yarmouk, Qadisiyyah, Nahavand and Tours",
+          "Only Badr and Uhud",
+          "Only Hunain and Tabuk"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Battles & Worship"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How many times did the Prophet (PBUH) perform Hajj and Umrah?",
+        "ur": "How many times did the Prophet (PBUH) perform Hajj and Umrah?",
+        "ar": "How many times did the Prophet (PBUH) perform Hajj and Umrah?"
+      },
+      "options": {
+        "en": [
+          "One Umrah and four Hajjs",
+          "Four Umrahs and one Hajj",
+          "Two Umrahs and two Hajjs",
+          "Ten Umrahs and one Hajj"
+        ],
+        "ur": [
+          "One Umrah and four Hajjs",
+          "Four Umrahs and one Hajj",
+          "Two Umrahs and two Hajjs",
+          "Ten Umrahs and one Hajj"
+        ],
+        "ar": [
+          "One Umrah and four Hajjs",
+          "Four Umrahs and one Hajj",
+          "Two Umrahs and two Hajjs",
+          "Ten Umrahs and one Hajj"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Battles & Worship"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which five sincere assistants are named in the source?",
+        "ur": "Which five sincere assistants are named in the source?",
+        "ar": "Which five sincere assistants are named in the source?"
+      },
+      "options": {
+        "en": [
+          "Anas ibn Malik, Abdullah ibn Masood, Uqbah ibn Aamir, Asla' ibn Shareek and Ayman ibn Ubaid",
+          "Abu Bakr, Umar, Uthman, Ali and Bilal",
+          "Hamzah, Abbas, Talha, Zubayr and Salman",
+          "Zaid, Muadh, Khalid, Saad and Ammar"
+        ],
+        "ur": [
+          "Anas ibn Malik, Abdullah ibn Masood, Uqbah ibn Aamir, Asla' ibn Shareek and Ayman ibn Ubaid",
+          "Abu Bakr, Umar, Uthman, Ali and Bilal",
+          "Hamzah, Abbas, Talha, Zubayr and Salman",
+          "Zaid, Muadh, Khalid, Saad and Ammar"
+        ],
+        "ar": [
+          "Anas ibn Malik, Abdullah ibn Masood, Uqbah ibn Aamir, Asla' ibn Shareek and Ayman ibn Ubaid",
+          "Abu Bakr, Umar, Uthman, Ali and Bilal",
+          "Hamzah, Abbas, Talha, Zubayr and Salman",
+          "Zaid, Muadh, Khalid, Saad and Ammar"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Final Years"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What illness did the Prophet (PBUH) experience before passing away?",
+        "ur": "What illness did the Prophet (PBUH) experience before passing away?",
+        "ar": "What illness did the Prophet (PBUH) experience before passing away?"
+      },
+      "options": {
+        "en": [
+          "A broken leg",
+          "A severe headache followed by a strong fever lasting thirteen days",
+          "A stomach illness lasting one day",
+          "A long-term eye disease"
+        ],
+        "ur": [
+          "A broken leg",
+          "A severe headache followed by a strong fever lasting thirteen days",
+          "A stomach illness lasting one day",
+          "A long-term eye disease"
+        ],
+        "ar": [
+          "A broken leg",
+          "A severe headache followed by a strong fever lasting thirteen days",
+          "A stomach illness lasting one day",
+          "A long-term eye disease"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Final Years"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "When did the Prophet (PBUH) pass away according to the source?",
+        "ur": "When did the Prophet (PBUH) pass away according to the source?",
+        "ar": "When did the Prophet (PBUH) pass away according to the source?"
+      },
+      "options": {
+        "en": [
+          "Friday, 10th Ramadan 10 AH; he was 60",
+          "Monday, 12th Rabi-ul-Awwal 11 AH; he was 63",
+          "Monday, 1st Muharram 1 AH; he was 40",
+          "Tuesday, 9th Dhul Hijjah 10 AH; he was 70"
+        ],
+        "ur": [
+          "Friday, 10th Ramadan 10 AH; he was 60",
+          "Monday, 12th Rabi-ul-Awwal 11 AH; he was 63",
+          "Monday, 1st Muharram 1 AH; he was 40",
+          "Tuesday, 9th Dhul Hijjah 10 AH; he was 70"
+        ],
+        "ar": [
+          "Friday, 10th Ramadan 10 AH; he was 60",
+          "Monday, 12th Rabi-ul-Awwal 11 AH; he was 63",
+          "Monday, 1st Muharram 1 AH; he was 40",
+          "Tuesday, 9th Dhul Hijjah 10 AH; he was 70"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Final Years"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Where was the Prophet (PBUH) buried?",
+        "ur": "Where was the Prophet (PBUH) buried?",
+        "ar": "Where was the Prophet (PBUH) buried?"
+      },
+      "options": {
+        "en": [
+          "In Makkah near the Ka'bah",
+          "In the room of Aisha (RA) in Madinah",
+          "In the Cave of Hira",
+          "In Masjid al-Aqsa"
+        ],
+        "ur": [
+          "In Makkah near the Ka'bah",
+          "In the room of Aisha (RA) in Madinah",
+          "In the Cave of Hira",
+          "In Masjid al-Aqsa"
+        ],
+        "ar": [
+          "In Makkah near the Ka'bah",
+          "In the room of Aisha (RA) in Madinah",
+          "In the Cave of Hira",
+          "In Masjid al-Aqsa"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Final Years"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the inheritance of the Prophet (PBUH)?",
+        "ur": "What was the inheritance of the Prophet (PBUH)?",
+        "ar": "What was the inheritance of the Prophet (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "Gold and property",
+          "The Quran and Sunnah",
+          "A kingdom",
+          "A large treasury"
+        ],
+        "ur": [
+          "Gold and property",
+          "The Quran and Sunnah",
+          "A kingdom",
+          "A large treasury"
+        ],
+        "ar": [
+          "Gold and property",
+          "The Quran and Sunnah",
+          "A kingdom",
+          "A large treasury"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Final Years"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What did the Prophet (PBUH) describe as the coolness of his eyes?",
+        "ur": "What did the Prophet (PBUH) describe as the coolness of his eyes?",
+        "ar": "What did the Prophet (PBUH) describe as the coolness of his eyes?"
+      },
+      "options": {
+        "en": [
+          "Fasting",
+          "Salaah",
+          "Travel",
+          "Trade"
+        ],
+        "ur": [
+          "Fasting",
+          "Salaah",
+          "Travel",
+          "Trade"
+        ],
+        "ar": [
+          "Fasting",
+          "Salaah",
+          "Travel",
+          "Trade"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which description of the Prophet's (PBUH) physical features appears in the source?",
+        "ur": "Which description of the Prophet's (PBUH) physical features appears in the source?",
+        "ar": "Which description of the Prophet's (PBUH) physical features appears in the source?"
+      },
+      "options": {
+        "en": [
+          "Very short with narrow shoulders",
+          "Moderate height, broad shoulders, thick beard and other described features",
+          "Very tall with red hair",
+          "Short with a thin beard"
+        ],
+        "ur": [
+          "Very short with narrow shoulders",
+          "Moderate height, broad shoulders, thick beard and other described features",
+          "Very tall with red hair",
+          "Short with a thin beard"
+        ],
+        "ar": [
+          "Very short with narrow shoulders",
+          "Moderate height, broad shoulders, thick beard and other described features",
+          "Very tall with red hair",
+          "Short with a thin beard"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the Seal of Prophethood?",
+        "ur": "What was the Seal of Prophethood?",
+        "ar": "What was the Seal of Prophethood?"
+      },
+      "options": {
+        "en": [
+          "A mark on the forehead",
+          "A raised piece of flesh between the shoulder blades, closer to the right side",
+          "A ring on the hand",
+          "A scar on the foot"
+        ],
+        "ur": [
+          "A mark on the forehead",
+          "A raised piece of flesh between the shoulder blades, closer to the right side",
+          "A ring on the hand",
+          "A scar on the foot"
+        ],
+        "ar": [
+          "A mark on the forehead",
+          "A raised piece of flesh between the shoulder blades, closer to the right side",
+          "A ring on the hand",
+          "A scar on the foot"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which was listed as a miracle of the Prophet (PBUH)?",
+        "ur": "Which was listed as a miracle of the Prophet (PBUH)?",
+        "ar": "Which was listed as a miracle of the Prophet (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "Only his military victories",
+          "The Quran, splitting of the moon, water from his fingers and many others",
+          "Only the Hijrah",
+          "Only the Treaty of Hudaybiyah"
+        ],
+        "ur": [
+          "Only his military victories",
+          "The Quran, splitting of the moon, water from his fingers and many others",
+          "Only the Hijrah",
+          "Only the Treaty of Hudaybiyah"
+        ],
+        "ar": [
+          "Only his military victories",
+          "The Quran, splitting of the moon, water from his fingers and many others",
+          "Only the Hijrah",
+          "Only the Treaty of Hudaybiyah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What was the greatest miracle of the Prophet (PBUH)?",
+        "ur": "What was the greatest miracle of the Prophet (PBUH)?",
+        "ar": "What was the greatest miracle of the Prophet (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "The Cave of Hira",
+          "The Holy Quran",
+          "The Hijrah",
+          "The conquest of Makkah"
+        ],
+        "ur": [
+          "The Cave of Hira",
+          "The Holy Quran",
+          "The Hijrah",
+          "The conquest of Makkah"
+        ],
+        "ar": [
+          "The Cave of Hira",
+          "The Holy Quran",
+          "The Hijrah",
+          "The conquest of Makkah"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How old was the Prophet (PBUH) when he passed away?",
+        "ur": "How old was the Prophet (PBUH) when he passed away?",
+        "ar": "How old was the Prophet (PBUH) when he passed away?"
+      },
+      "options": {
+        "en": [
+          "53 years old",
+          "60 years old",
+          "63 years old",
+          "70 years old"
+        ],
+        "ur": [
+          "53 years old",
+          "60 years old",
+          "63 years old",
+          "70 years old"
+        ],
+        "ar": [
+          "53 years old",
+          "60 years old",
+          "63 years old",
+          "70 years old"
+        ]
+      },
+      "correct_index": 2,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How long did the Prophet (PBUH) live in Makkah and Madinah?",
+        "ur": "How long did the Prophet (PBUH) live in Makkah and Madinah?",
+        "ar": "How long did the Prophet (PBUH) live in Makkah and Madinah?"
+      },
+      "options": {
+        "en": [
+          "40 years in Makkah and 23 in Madinah",
+          "53 years in Makkah and 10 years in Madinah",
+          "10 years in Makkah and 53 in Madinah",
+          "50 years in each"
+        ],
+        "ur": [
+          "40 years in Makkah and 23 in Madinah",
+          "53 years in Makkah and 10 years in Madinah",
+          "10 years in Makkah and 53 in Madinah",
+          "50 years in each"
+        ],
+        "ar": [
+          "40 years in Makkah and 23 in Madinah",
+          "53 years in Makkah and 10 years in Madinah",
+          "10 years in Makkah and 53 in Madinah",
+          "50 years in each"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How is the wealth and charitable status of the Prophet (PBUH) described?",
+        "ur": "How is the wealth and charitable status of the Prophet (PBUH) described?",
+        "ar": "How is the wealth and charitable status of the Prophet (PBUH) described?"
+      },
+      "options": {
+        "en": [
+          "He lived as a wealthy king",
+          "He lived modestly and generously, often in poverty",
+          "He avoided charity",
+          "He stored large amounts of wealth"
+        ],
+        "ur": [
+          "He lived as a wealthy king",
+          "He lived modestly and generously, often in poverty",
+          "He avoided charity",
+          "He stored large amounts of wealth"
+        ],
+        "ar": [
+          "He lived as a wealthy king",
+          "He lived modestly and generously, often in poverty",
+          "He avoided charity",
+          "He stored large amounts of wealth"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Character & Description"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were the four khalifahs after the Prophet (PBUH)?",
+        "ur": "Who were the four khalifahs after the Prophet (PBUH)?",
+        "ar": "Who were the four khalifahs after the Prophet (PBUH)?"
+      },
+      "options": {
+        "en": [
+          "Abu Bakr, Umar, Uthman and Ali",
+          "Bilal, Salman, Suhaib and Ammar",
+          "Talha, Zubayr, Saad and Khalid",
+          "Abbas, Hamzah, Abu Talib and Zaid"
+        ],
+        "ur": [
+          "Abu Bakr, Umar, Uthman and Ali",
+          "Bilal, Salman, Suhaib and Ammar",
+          "Talha, Zubayr, Saad and Khalid",
+          "Abbas, Hamzah, Abu Talib and Zaid"
+        ],
+        "ar": [
+          "Abu Bakr, Umar, Uthman and Ali",
+          "Bilal, Salman, Suhaib and Ammar",
+          "Talha, Zubayr, Saad and Khalid",
+          "Abbas, Hamzah, Abu Talib and Zaid"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who did the Prophet (PBUH) appoint as the first Mu'adhdhin?",
+        "ur": "Who did the Prophet (PBUH) appoint as the first Mu'adhdhin?",
+        "ar": "Who did the Prophet (PBUH) appoint as the first Mu'adhdhin?"
+      },
+      "options": {
+        "en": [
+          "Abu Bakr",
+          "Bilal ibn Rabaah",
+          "Umar ibn al-Khattab",
+          "Zaid ibn Thabit"
+        ],
+        "ur": [
+          "Abu Bakr",
+          "Bilal ibn Rabaah",
+          "Umar ibn al-Khattab",
+          "Zaid ibn Thabit"
+        ],
+        "ar": [
+          "Abu Bakr",
+          "Bilal ibn Rabaah",
+          "Umar ibn al-Khattab",
+          "Zaid ibn Thabit"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Who were the Asharah Mubasharah?",
+        "ur": "Who were the Asharah Mubasharah?",
+        "ar": "Who were the Asharah Mubasharah?"
+      },
+      "options": {
+        "en": [
+          "The ten companions whom the Prophet (PBUH) guaranteed Paradise",
+          "The ten governors of Madinah",
+          "The ten first children to accept Islam",
+          "The ten Quraysh leaders who opposed Islam"
+        ],
+        "ur": [
+          "The ten companions whom the Prophet (PBUH) guaranteed Paradise",
+          "The ten governors of Madinah",
+          "The ten first children to accept Islam",
+          "The ten Quraysh leaders who opposed Islam"
+        ],
+        "ar": [
+          "The ten companions whom the Prophet (PBUH) guaranteed Paradise",
+          "The ten governors of Madinah",
+          "The ten first children to accept Islam",
+          "The ten Quraysh leaders who opposed Islam"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which is a quality of the Prophet (PBUH) listed in the source?",
+        "ur": "Which is a quality of the Prophet (PBUH) listed in the source?",
+        "ar": "Which is a quality of the Prophet (PBUH) listed in the source?"
+      },
+      "options": {
+        "en": [
+          "He was harsh with everyone",
+          "He was charitable, soft-spoken, kind, forgiving and had excellent character",
+          "He avoided his family",
+          "He sought revenge for personal matters"
+        ],
+        "ur": [
+          "He was harsh with everyone",
+          "He was charitable, soft-spoken, kind, forgiving and had excellent character",
+          "He avoided his family",
+          "He sought revenge for personal matters"
+        ],
+        "ar": [
+          "He was harsh with everyone",
+          "He was charitable, soft-spoken, kind, forgiving and had excellent character",
+          "He avoided his family",
+          "He sought revenge for personal matters"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What sport did the Prophet (PBUH) learn when visiting his father's grave?",
+        "ur": "What sport did the Prophet (PBUH) learn when visiting his father's grave?",
+        "ar": "What sport did the Prophet (PBUH) learn when visiting his father's grave?"
+      },
+      "options": {
+        "en": [
+          "Swimming",
+          "Archery",
+          "Horse racing",
+          "Running"
+        ],
+        "ur": [
+          "Swimming",
+          "Archery",
+          "Horse racing",
+          "Running"
+        ],
+        "ar": [
+          "Swimming",
+          "Archery",
+          "Horse racing",
+          "Running"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which other sports did the Prophet (PBUH) practice according to the source?",
+        "ur": "Which other sports did the Prophet (PBUH) practice according to the source?",
+        "ar": "Which other sports did the Prophet (PBUH) practice according to the source?"
+      },
+      "options": {
+        "en": [
+          "Swimming only",
+          "Horse riding, archery, running and horse racing",
+          "Wrestling only",
+          "Cycling and swimming"
+        ],
+        "ur": [
+          "Swimming only",
+          "Horse riding, archery, running and horse racing",
+          "Wrestling only",
+          "Cycling and swimming"
+        ],
+        "ar": [
+          "Swimming only",
+          "Horse riding, archery, running and horse racing",
+          "Wrestling only",
+          "Cycling and swimming"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What nasheed did the children sing when the Prophet (PBUH) arrived in Madinah?",
+        "ur": "What nasheed did the children sing when the Prophet (PBUH) arrived in Madinah?",
+        "ar": "What nasheed did the children sing when the Prophet (PBUH) arrived in Madinah?"
+      },
+      "options": {
+        "en": [
+          "Tala al Badru Alayna",
+          "Ya Nabi Salam Alayka",
+          "Qasida Burda",
+          "Labbaik Allahumma Labbaik"
+        ],
+        "ur": [
+          "Tala al Badru Alayna",
+          "Ya Nabi Salam Alayka",
+          "Qasida Burda",
+          "Labbaik Allahumma Labbaik"
+        ],
+        "ar": [
+          "Tala al Badru Alayna",
+          "Ya Nabi Salam Alayka",
+          "Qasida Burda",
+          "Labbaik Allahumma Labbaik"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "When did the Prophet (PBUH) deliver his final public sermon?",
+        "ur": "When did the Prophet (PBUH) deliver his final public sermon?",
+        "ar": "When did the Prophet (PBUH) deliver his final public sermon?"
+      },
+      "options": {
+        "en": [
+          "1st Muharram, 1 AH",
+          "9th Dhul Hijjah, 10 AH, during Hajj at Arafah",
+          "12th Rabi ul Awwal, 11 AH",
+          "17th Ramadan, 2 AH"
+        ],
+        "ur": [
+          "1st Muharram, 1 AH",
+          "9th Dhul Hijjah, 10 AH, during Hajj at Arafah",
+          "12th Rabi ul Awwal, 11 AH",
+          "17th Ramadan, 2 AH"
+        ],
+        "ar": [
+          "1st Muharram, 1 AH",
+          "9th Dhul Hijjah, 10 AH, during Hajj at Arafah",
+          "12th Rabi ul Awwal, 11 AH",
+          "17th Ramadan, 2 AH"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which was a key theme of the Prophet's (PBUH) final sermon?",
+        "ur": "Which was a key theme of the Prophet's (PBUH) final sermon?",
+        "ar": "Which was a key theme of the Prophet's (PBUH) final sermon?"
+      },
+      "options": {
+        "en": [
+          "Tribal superiority",
+          "Trust, accountability, brotherhood, piety and obedience to Allah and His Messenger",
+          "Building an empire",
+          "Collecting wealth"
+        ],
+        "ur": [
+          "Tribal superiority",
+          "Trust, accountability, brotherhood, piety and obedience to Allah and His Messenger",
+          "Building an empire",
+          "Collecting wealth"
+        ],
+        "ar": [
+          "Tribal superiority",
+          "Trust, accountability, brotherhood, piety and obedience to Allah and His Messenger",
+          "Building an empire",
+          "Collecting wealth"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which foods are listed as foods the Prophet (PBUH) liked?",
+        "ur": "Which foods are listed as foods the Prophet (PBUH) liked?",
+        "ar": "Which foods are listed as foods the Prophet (PBUH) liked?"
+      },
+      "options": {
+        "en": [
+          "Only meat and rice",
+          "Dates, honey, barley, milk, olives, olive oil and vegetables",
+          "Only bread and water",
+          "Only fruits"
+        ],
+        "ur": [
+          "Only meat and rice",
+          "Dates, honey, barley, milk, olives, olive oil and vegetables",
+          "Only bread and water",
+          "Only fruits"
+        ],
+        "ar": [
+          "Only meat and rice",
+          "Dates, honey, barley, milk, olives, olive oil and vegetables",
+          "Only bread and water",
+          "Only fruits"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "How is the social conduct of the Prophet (PBUH) described?",
+        "ur": "How is the social conduct of the Prophet (PBUH) described?",
+        "ar": "How is the social conduct of the Prophet (PBUH) described?"
+      },
+      "options": {
+        "en": [
+          "Distant and unapproachable",
+          "Approachable, welcoming, caring for neighbours and family, and avoiding harm to others",
+          "Focused only on trade",
+          "Strictly avoiding children"
+        ],
+        "ur": [
+          "Distant and unapproachable",
+          "Approachable, welcoming, caring for neighbours and family, and avoiding harm to others",
+          "Focused only on trade",
+          "Strictly avoiding children"
+        ],
+        "ar": [
+          "Distant and unapproachable",
+          "Approachable, welcoming, caring for neighbours and family, and avoiding harm to others",
+          "Focused only on trade",
+          "Strictly avoiding children"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
+    {
+      "category_slug": "seerah",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Did the Prophet (PBUH) carry out household chores?",
+        "ur": "Did the Prophet (PBUH) carry out household chores?",
+        "ar": "Did the Prophet (PBUH) carry out household chores?"
+      },
+      "options": {
+        "en": [
+          "No; he never did household work",
+          "Yes; he helped his wives, cleaned and mended his clothes, and collected firewood",
+          "Only during travel",
+          "Only when guests arrived"
+        ],
+        "ur": [
+          "No; he never did household work",
+          "Yes; he helped his wives, cleaned and mended his clothes, and collected firewood",
+          "Only during travel",
+          "Only when guests arrived"
+        ],
+        "ar": [
+          "No; he never did household work",
+          "Yes; he helped his wives, cleaned and mended his clothes, and collected firewood",
+          "Only during travel",
+          "Only when guests arrived"
+        ]
+      },
+      "correct_index": 1,
+      "source": "Seerah — Companions & Sunnah"
+    },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter is the first letter of the Arabic alphabet?",
-        "ur": "عربی حروفِ تہجی کا پہلا حرف کون سا ہے؟",
-        "ar": "ما أول حرف في الأبجدية العربية؟"
+        "en": "What is the Arabic word for 'book'?",
+        "ur": "ما الكلمة العربية التي تعني «كتاب»؟",
+        "ar": "ما الكلمة العربية التي تعني «كتاب»؟"
       },
       "options": {
-        "en": ["ا (Alif)", "ب (Ba)", "ت (Ta)", "ث (Tha)"],
-        "ur": ["ا (الف)", "ب (باء)", "ت (تاء)", "ث (ثاء)"],
-        "ar": ["ا (الألف)", "ب (الباء)", "ت (التاء)", "ث (الثاء)"]
+        "en": [
+          "كتاب",
+          "قلم",
+          "باب",
+          "بيت"
+        ],
+        "ur": [
+          "كتاب",
+          "قلم",
+          "دروازہ",
+          "گھر"
+        ],
+        "ar": [
+          "كتاب",
+          "قلم",
+          "باب",
+          "بيت"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Alphabet"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter comes after Alif?",
-        "ur": "الف کے بعد کون سا عربی حرف آتا ہے؟",
-        "ar": "أي حرف عربي يأتي بعد الألف؟"
+        "en": "What is the Arabic word for 'pen'?",
+        "ur": "ما الكلمة العربية التي تعني «قلم»؟",
+        "ar": "ما الكلمة العربية التي تعني «قلم»؟"
       },
       "options": {
-        "en": ["Ba (ب)", "Ta (ت)", "Jim (ج)", "Dal (د)"],
-        "ur": ["باء (ب)", "تاء (ت)", "جیم (ج)", "دال (د)"],
-        "ar": ["الباء (ب)", "التاء (ت)", "الجيم (ج)", "الدال (د)"]
+        "en": [
+          "قلم",
+          "كتاب",
+          "كرسي",
+          "ماء"
+        ],
+        "ur": [
+          "قلم",
+          "کتاب",
+          "کرسی",
+          "پانی"
+        ],
+        "ar": [
+          "قلم",
+          "كتاب",
+          "كرسي",
+          "ماء"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Alphabet"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "What sound does the Arabic letter ب usually represent?",
-        "ur": "عربی حرف ب عام طور پر کون سی آواز دیتا ہے؟",
-        "ar": "ما الصوت الذي يمثله حرف الباء عادة؟"
+        "en": "What is the Arabic word for 'house'?",
+        "ur": "ما الكلمة العربية التي تعني «بيت»؟",
+        "ar": "ما الكلمة العربية التي تعني «بيت»؟"
       },
       "options": {
-        "en": ["B", "T", "J", "D"],
-        "ur": ["ب", "ت", "ج", "د"],
-        "ar": ["ب", "ت", "ج", "د"]
+        "en": [
+          "بيت",
+          "باب",
+          "مدرسة",
+          "سوق"
+        ],
+        "ur": [
+          "گھر",
+          "دروازہ",
+          "مدرسہ",
+          "بازار"
+        ],
+        "ar": [
+          "بيت",
+          "باب",
+          "مدرسة",
+          "سوق"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Letter Sounds"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter has one dot below it?",
-        "ur": "کون سے عربی حرف کے نیچے ایک نقطہ ہوتا ہے؟",
-        "ar": "أي حرف عربي له نقطة واحدة تحته؟"
+        "en": "What is the Arabic word for 'water'?",
+        "ur": "ما الكلمة العربية التي تعني «پانی»؟",
+        "ar": "ما الكلمة العربية التي تعني «ماء»؟"
       },
       "options": {
-        "en": ["ب", "ت", "ث", "ن"],
-        "ur": ["ب", "ت", "ث", "ن"],
-        "ar": ["ب", "ت", "ث", "ن"]
+        "en": [
+          "ماء",
+          "نار",
+          "هواء",
+          "تراب"
+        ],
+        "ur": [
+          "پانی",
+          "آگ",
+          "ہوا",
+          "مٹی"
+        ],
+        "ar": [
+          "ماء",
+          "نار",
+          "هواء",
+          "تراب"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Letter Recognition"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter has two dots above it?",
-        "ur": "کون سے عربی حرف کے اوپر دو نقطے ہوتے ہیں؟",
-        "ar": "أي حرف عربي له نقطتان فوقه؟"
+        "en": "What is the Arabic word for 'school'?",
+        "ur": "ما الكلمة العربية التي تعني «مدرسہ»؟",
+        "ar": "ما الكلمة العربية التي تعني «مدرسة»؟"
       },
       "options": {
-        "en": ["ت", "ب", "ث", "ن"],
-        "ur": ["ت", "ب", "ث", "ن"],
-        "ar": ["ت", "ب", "ث", "ن"]
+        "en": [
+          "مدرسة",
+          "جامعة",
+          "مكتبة",
+          "مسجد"
+        ],
+        "ur": [
+          "مدرسہ",
+          "یونیورسٹی",
+          "کتب خانہ",
+          "مسجد"
+        ],
+        "ar": [
+          "مدرسة",
+          "جامعة",
+          "مكتبة",
+          "مسجد"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Letter Recognition"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter has three dots above it?",
-        "ur": "کون سے عربی حرف کے اوپر تین نقطے ہوتے ہیں؟",
-        "ar": "أي حرف عربي له ثلاث نقاط فوقه؟"
+        "en": "What is the Arabic word for 'mosque'?",
+        "ur": "ما الكلمة العربية التي تعني «مسجد»؟",
+        "ar": "ما الكلمة العربية التي تعني «مسجد»؟"
       },
       "options": {
-        "en": ["ث", "ت", "ب", "ن"],
-        "ur": ["ث", "ت", "ب", "ن"],
-        "ar": ["ث", "ت", "ب", "ن"]
+        "en": [
+          "مسجد",
+          "مدرسة",
+          "بيت",
+          "سوق"
+        ],
+        "ur": [
+          "مسجد",
+          "مدرسہ",
+          "گھر",
+          "بازار"
+        ],
+        "ar": [
+          "مسجد",
+          "مدرسة",
+          "بيت",
+          "سوق"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Letter Recognition"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter is called Jeem?",
-        "ur": "کون سے عربی حرف کو جیم کہتے ہیں؟",
-        "ar": "أي حرف عربي يسمى الجيم؟"
+        "en": "What is the Arabic word for 'teacher'?",
+        "ur": "ما الكلمة العربية التي تعني «استاد»؟",
+        "ar": "ما الكلمة العربية التي تعني «معلم»؟"
       },
       "options": {
-        "en": ["ج", "ح", "خ", "د"],
-        "ur": ["ج", "ح", "خ", "د"],
-        "ar": ["ج", "ح", "خ", "د"]
+        "en": [
+          "معلم",
+          "طالب",
+          "طبيب",
+          "تاجر"
+        ],
+        "ur": [
+          "استاد",
+          "طالب علم",
+          "ڈاکٹر",
+          "تاجر"
+        ],
+        "ar": [
+          "معلم",
+          "طالب",
+          "طبيب",
+          "تاجر"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Alphabet"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter is called Haa (حاء)?",
-        "ur": "کون سے عربی حرف کو حاء کہتے ہیں؟",
-        "ar": "أي حرف عربي يسمى الحاء؟"
+        "en": "What is the Arabic word for 'student'?",
+        "ur": "ما الكلمة العربية التي تعني «طالب علم»؟",
+        "ar": "ما الكلمة العربية التي تعني «طالب»؟"
       },
       "options": {
-        "en": ["ح", "ج", "خ", "ه"],
-        "ur": ["ح", "ج", "خ", "ہ"],
-        "ar": ["ح", "ج", "خ", "ه"]
+        "en": [
+          "طالب",
+          "معلم",
+          "طبيب",
+          "مهندس"
+        ],
+        "ur": [
+          "طالب علم",
+          "استاد",
+          "ڈاکٹر",
+          "انجینئر"
+        ],
+        "ar": [
+          "طالب",
+          "معلم",
+          "طبيب",
+          "مهندس"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Alphabet"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic letter has one dot above it and is pronounced 'Kh'?",
-        "ur": "کون سے عربی حرف کے اوپر ایک نقطہ ہوتا ہے اور اس کی آواز 'خ' ہے؟",
-        "ar": "أي حرف عربي فوقه نقطة واحدة وينطق بصوت الخاء؟"
+        "en": "What is the Arabic word for 'doctor'?",
+        "ur": "ما الكلمة العربية التي تعني «ڈاکٹر»؟",
+        "ar": "ما الكلمة العربية التي تعني «طبيب»؟"
       },
       "options": {
-        "en": ["خ", "ح", "ج", "غ"],
-        "ur": ["خ", "ح", "ج", "غ"],
-        "ar": ["خ", "ح", "ج", "غ"]
+        "en": [
+          "طبيب",
+          "معلم",
+          "طالب",
+          "تاجر"
+        ],
+        "ur": [
+          "ڈاکٹر",
+          "استاد",
+          "طالب علم",
+          "تاجر"
+        ],
+        "ar": [
+          "طبيب",
+          "معلم",
+          "طالب",
+          "تاجر"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Letter Sounds"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic vowel mark is called Fathah?",
-        "ur": "کون سی عربی حرکت فتحہ کہلاتی ہے؟",
-        "ar": "أي حركة عربية تسمى الفتحة؟"
+        "en": "What is the Arabic word for 'door'?",
+        "ur": "ما الكلمة العربية التي تعني «دروازہ»؟",
+        "ar": "ما الكلمة العربية التي تعني «باب»؟"
       },
       "options": {
-        "en": ["َ", "ِ", "ُ", "ْ"],
-        "ur": ["َ", "ِ", "ُ", "ْ"],
-        "ar": ["َ", "ِ", "ُ", "ْ"]
+        "en": [
+          "باب",
+          "بيت",
+          "كتاب",
+          "قلم"
+        ],
+        "ur": [
+          "دروازہ",
+          "گھر",
+          "کتاب",
+          "قلم"
+        ],
+        "ar": [
+          "باب",
+          "بيت",
+          "كتاب",
+          "قلم"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Harakat"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic vowel mark is called Kasrah?",
-        "ur": "کون سی عربی حرکت کسرہ کہلاتی ہے؟",
-        "ar": "أي حركة عربية تسمى الكسرة؟"
+        "en": "Which Arabic word means 'man'?",
+        "ur": "أي كلمة عربية تعني «مرد»؟",
+        "ar": "أي كلمة عربية تعني «رجل»؟"
       },
       "options": {
-        "en": ["ِ", "َ", "ُ", "ْ"],
-        "ur": ["ِ", "َ", "ُ", "ْ"],
-        "ar": ["ِ", "َ", "ُ", "ْ"]
+        "en": [
+          "رجل",
+          "امرأة",
+          "طفل",
+          "بنت"
+        ],
+        "ur": [
+          "مرد",
+          "عورت",
+          "بچہ",
+          "لڑکی"
+        ],
+        "ar": [
+          "رجل",
+          "امرأة",
+          "طفل",
+          "بنت"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Harakat"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "Which Arabic vowel mark is called Dammah?",
-        "ur": "کون سی عربی حرکت ضمہ کہلاتی ہے؟",
-        "ar": "أي حركة عربية تسمى الضمة؟"
+        "en": "Which Arabic word means 'woman'?",
+        "ur": "أي كلمة عربية تعني «عورت»؟",
+        "ar": "أي كلمة عربية تعني «امرأة»؟"
       },
       "options": {
-        "en": ["ُ", "َ", "ِ", "ْ"],
-        "ur": ["ُ", "َ", "ِ", "ْ"],
-        "ar": ["ُ", "َ", "ِ", "ْ"]
+        "en": [
+          "امرأة",
+          "رجل",
+          "ولد",
+          "أب"
+        ],
+        "ur": [
+          "عورت",
+          "مرد",
+          "لڑکا",
+          "والد"
+        ],
+        "ar": [
+          "امرأة",
+          "رجل",
+          "ولد",
+          "أب"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Harakat"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "What does the Arabic word 'كتاب' mean?",
-        "ur": "عربی لفظ 'كتاب' کا کیا مطلب ہے؟",
-        "ar": "ماذا تعني كلمة «كتاب»؟"
+        "en": "Which Arabic word means 'father'?",
+        "ur": "أي كلمة عربية تعني «والد»؟",
+        "ar": "أي كلمة عربية تعني «أب»؟"
       },
       "options": {
-        "en": ["Book", "Pen", "House", "Door"],
-        "ur": ["کتاب", "قلم", "گھر", "دروازہ"],
-        "ar": ["كتاب", "قلم", "بيت", "باب"]
+        "en": [
+          "أب",
+          "أم",
+          "أخ",
+          "ابن"
+        ],
+        "ur": [
+          "والد",
+          "والدہ",
+          "بھائی",
+          "بیٹا"
+        ],
+        "ar": [
+          "أب",
+          "أم",
+          "أخ",
+          "ابن"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Basic Vocabulary"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "What does the Arabic word 'قلم' mean?",
-        "ur": "عربی لفظ 'قلم' کا کیا مطلب ہے؟",
-        "ar": "ماذا تعني كلمة «قلم»؟"
+        "en": "Which Arabic word means 'mother'?",
+        "ur": "أي كلمة عربية تعني «والدہ»؟",
+        "ar": "أي كلمة عربية تعني «أم»؟"
       },
       "options": {
-        "en": ["Pen", "Book", "Chair", "School"],
-        "ur": ["قلم", "کتاب", "کرسی", "مدرسہ"],
-        "ar": ["قلم", "كتاب", "كرسي", "مدرسة"]
+        "en": [
+          "أم",
+          "أب",
+          "أخت",
+          "بنت"
+        ],
+        "ur": [
+          "والدہ",
+          "والد",
+          "بہن",
+          "بیٹی"
+        ],
+        "ar": [
+          "أم",
+          "أب",
+          "أخت",
+          "بنت"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Basic Vocabulary"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "What does the Arabic word 'بيت' mean?",
-        "ur": "عربی لفظ 'بيت' کا کیا مطلب ہے؟",
+        "en": "Which Arabic word means 'brother'?",
+        "ur": "أي كلمة عربية تعني «بھائی»؟",
+        "ar": "أي كلمة عربية تعني «أخ»؟"
+      },
+      "options": {
+        "en": [
+          "أخ",
+          "أخت",
+          "أب",
+          "ابن"
+        ],
+        "ur": [
+          "بھائی",
+          "بہن",
+          "والد",
+          "بیٹا"
+        ],
+        "ar": [
+          "أخ",
+          "أخت",
+          "أب",
+          "ابن"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'sister'?",
+        "ur": "أي كلمة عربية تعني «بہن»؟",
+        "ar": "أي كلمة عربية تعني «أخت»؟"
+      },
+      "options": {
+        "en": [
+          "أخت",
+          "أخ",
+          "أم",
+          "بنت"
+        ],
+        "ur": [
+          "بہن",
+          "بھائی",
+          "والدہ",
+          "بیٹی"
+        ],
+        "ar": [
+          "أخت",
+          "أخ",
+          "أم",
+          "بنت"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'son'?",
+        "ur": "أي كلمة عربية تعني «بیٹا»؟",
+        "ar": "أي كلمة عربية تعني «ابن»؟"
+      },
+      "options": {
+        "en": [
+          "ابن",
+          "بنت",
+          "أب",
+          "أخ"
+        ],
+        "ur": [
+          "بیٹا",
+          "بیٹی",
+          "والد",
+          "بھائی"
+        ],
+        "ar": [
+          "ابن",
+          "بنت",
+          "أب",
+          "أخ"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'daughter'?",
+        "ur": "أي كلمة عربية تعني «بیٹی»؟",
+        "ar": "أي كلمة عربية تعني «بنت»؟"
+      },
+      "options": {
+        "en": [
+          "بنت",
+          "ابن",
+          "أخت",
+          "أم"
+        ],
+        "ur": [
+          "بیٹی",
+          "بیٹا",
+          "بہن",
+          "والدہ"
+        ],
+        "ar": [
+          "بنت",
+          "ابن",
+          "أخت",
+          "أم"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does «السلام عليكم» mean?",
+        "ur": "عبارت «السلام عليكم» کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني عبارة «السلام عليكم»؟"
+      },
+      "options": {
+        "en": [
+          "Peace be upon you",
+          "Good night",
+          "Thank you",
+          "Welcome"
+        ],
+        "ur": [
+          "آپ پر سلامتی ہو",
+          "شب بخیر",
+          "شکریہ",
+          "خوش آمدید"
+        ],
+        "ar": [
+          "السلام عليكم",
+          "تصبح على خير",
+          "شكراً",
+          "أهلاً وسهلاً"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Phrases"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the appropriate response to «السلام عليكم»?",
+        "ur": "«السلام عليكم» کا مناسب جواب کیا ہے؟",
+        "ar": "ما الرد المناسب على «السلام عليكم»؟"
+      },
+      "options": {
+        "en": [
+          "وعليكم السلام",
+          "شكراً",
+          "مع السلامة",
+          "صباح الخير"
+        ],
+        "ur": [
+          "وعلیکم السلام",
+          "شکریہ",
+          "اللہ حافظ",
+          "صبح بخیر"
+        ],
+        "ar": [
+          "وعليكم السلام",
+          "شكراً",
+          "مع السلامة",
+          "صباح الخير"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Phrases"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does «شكراً» mean?",
+        "ur": "«شكراً» کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني «شكراً»؟"
+      },
+      "options": {
+        "en": [
+          "Thank you",
+          "Please",
+          "Sorry",
+          "Hello"
+        ],
+        "ur": [
+          "شکریہ",
+          "براہ کرم",
+          "معاف کیجیے",
+          "سلام"
+        ],
+        "ar": [
+          "شكراً",
+          "من فضلك",
+          "آسف",
+          "مرحباً"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Phrases"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does «نعم» mean?",
+        "ur": "«نعم» کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني «نعم»؟"
+      },
+      "options": {
+        "en": [
+          "Yes",
+          "No",
+          "Maybe",
+          "Never"
+        ],
+        "ur": [
+          "ہاں",
+          "نہیں",
+          "شاید",
+          "کبھی نہیں"
+        ],
+        "ar": [
+          "نعم",
+          "لا",
+          "ربما",
+          "أبداً"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basics"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does «لا» mean?",
+        "ur": "«لا» کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني «لا»؟"
+      },
+      "options": {
+        "en": [
+          "No",
+          "Yes",
+          "Here",
+          "There"
+        ],
+        "ur": [
+          "نہیں",
+          "ہاں",
+          "یہاں",
+          "وہاں"
+        ],
+        "ar": [
+          "لا",
+          "نعم",
+          "هنا",
+          "هناك"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Basics"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does «بيت» mean?",
+        "ur": "لفظ «بيت» کا کیا مطلب ہے؟",
         "ar": "ماذا تعني كلمة «بيت»؟"
       },
       "options": {
-        "en": ["House", "School", "Book", "Water"],
-        "ur": ["گھر", "اسکول", "کتاب", "پانی"],
-        "ar": ["بيت", "مدرسة", "كتاب", "ماء"]
+        "en": [
+          "House",
+          "School",
+          "Book",
+          "Market"
+        ],
+        "ur": [
+          "گھر",
+          "مدرسہ",
+          "کتاب",
+          "بازار"
+        ],
+        "ar": [
+          "بيت",
+          "مدرسة",
+          "كتاب",
+          "سوق"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Basic Vocabulary"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "What does the Arabic word 'ماء' mean?",
-        "ur": "عربی لفظ 'ماء' کا کیا مطلب ہے؟",
+        "en": "What does «كتاب» mean?",
+        "ur": "لفظ «كتاب» کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني كلمة «كتاب»؟"
+      },
+      "options": {
+        "en": [
+          "Book",
+          "Pen",
+          "Door",
+          "Chair"
+        ],
+        "ur": [
+          "کتاب",
+          "قلم",
+          "دروازہ",
+          "کرسی"
+        ],
+        "ar": [
+          "كتاب",
+          "قلم",
+          "باب",
+          "كرسي"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does «قلم» mean?",
+        "ur": "لفظ «قلم» کا کیا مطلب ہے؟",
+        "ar": "ماذا تعني كلمة «قلم»؟"
+      },
+      "options": {
+        "en": [
+          "Pen",
+          "Book",
+          "Paper",
+          "Desk"
+        ],
+        "ur": [
+          "قلم",
+          "کتاب",
+          "کاغذ",
+          "میز"
+        ],
+        "ar": [
+          "قلم",
+          "كتاب",
+          "ورق",
+          "مكتب"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Vocabulary"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What does «ماء» mean?",
+        "ur": "لفظ «ماء» کا کیا مطلب ہے؟",
         "ar": "ماذا تعني كلمة «ماء»؟"
       },
       "options": {
-        "en": ["Water", "Food", "Milk", "Bread"],
-        "ur": ["پانی", "کھانا", "دودھ", "روٹی"],
-        "ar": ["ماء", "طعام", "لبن", "خبز"]
+        "en": [
+          "Water",
+          "Milk",
+          "Tea",
+          "Juice"
+        ],
+        "ur": [
+          "پانی",
+          "دودھ",
+          "چائے",
+          "جوس"
+        ],
+        "ar": [
+          "ماء",
+          "حليب",
+          "شاي",
+          "عصير"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Basic Vocabulary"
+      "source": "Arabic — Vocabulary"
     },
     {
       "category_slug": "arabic",
       "difficulty": "easy",
       "prompt": {
-        "en": "What does the Arabic word 'مدرسة' mean?",
-        "ur": "عربی لفظ 'مدرسة' کا کیا مطلب ہے؟",
-        "ar": "ماذا تعني كلمة «مدرسة»؟"
+        "en": "Which Arabic word means 'day'?",
+        "ur": "کون سا عربی لفظ «دن» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة تعني «اليوم»؟"
       },
       "options": {
-        "en": ["School", "Mosque", "House", "Market"],
-        "ur": ["اسکول", "مسجد", "گھر", "بازار"],
-        "ar": ["مدرسة", "مسجد", "بيت", "سوق"]
+        "en": [
+          "يوم",
+          "ليل",
+          "شهر",
+          "عام"
+        ],
+        "ur": [
+          "دن",
+          "رات",
+          "مہینہ",
+          "سال"
+        ],
+        "ar": [
+          "يوم",
+          "ليل",
+          "شهر",
+          "عام"
+        ]
       },
       "correct_index": 0,
-      "source": "Arabic — Basic Vocabulary"
+      "source": "Arabic — Time"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'night'?",
+        "ur": "کون سا عربی لفظ «رات» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة تعني «الليل»؟"
+      },
+      "options": {
+        "en": [
+          "ليل",
+          "يوم",
+          "صباح",
+          "أسبوع"
+        ],
+        "ur": [
+          "رات",
+          "دن",
+          "صبح",
+          "ہفتہ"
+        ],
+        "ar": [
+          "ليل",
+          "يوم",
+          "صباح",
+          "أسبوع"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Time"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'morning'?",
+        "ur": "کون سا عربی لفظ «صبح» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة تعني «الصباح»؟"
+      },
+      "options": {
+        "en": [
+          "صباح",
+          "مساء",
+          "ليل",
+          "غد"
+        ],
+        "ur": [
+          "صبح",
+          "شام",
+          "رات",
+          "کل"
+        ],
+        "ar": [
+          "صباح",
+          "مساء",
+          "ليل",
+          "غد"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Time"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'evening'?",
+        "ur": "کون سا عربی لفظ «شام» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة تعني «المساء»؟"
+      },
+      "options": {
+        "en": [
+          "مساء",
+          "صباح",
+          "ليل",
+          "ظهر"
+        ],
+        "ur": [
+          "شام",
+          "صبح",
+          "رات",
+          "دوپہر"
+        ],
+        "ar": [
+          "مساء",
+          "صباح",
+          "ليل",
+          "ظهر"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Time"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'one'?",
+        "ur": "عدد «ایک» کو عربی میں کیا کہتے ہیں؟",
+        "ar": "ما الكلمة العربية للعدد «واحد»؟"
+      },
+      "options": {
+        "en": [
+          "واحد",
+          "اثنان",
+          "ثلاثة",
+          "أربعة"
+        ],
+        "ur": [
+          "ایک",
+          "دو",
+          "تین",
+          "چار"
+        ],
+        "ar": [
+          "واحد",
+          "اثنان",
+          "ثلاثة",
+          "أربعة"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Numbers"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'two'?",
+        "ur": "عدد «دو» کو عربی میں کیا کہتے ہیں؟",
+        "ar": "ما الكلمة العربية للعدد «اثنان»؟"
+      },
+      "options": {
+        "en": [
+          "اثنان",
+          "واحد",
+          "ثلاثة",
+          "خمسة"
+        ],
+        "ur": [
+          "دو",
+          "ایک",
+          "تین",
+          "پانچ"
+        ],
+        "ar": [
+          "اثنان",
+          "واحد",
+          "ثلاثة",
+          "خمسة"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Numbers"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'three'?",
+        "ur": "عدد «تین» کو عربی میں کیا کہتے ہیں؟",
+        "ar": "ما الكلمة العربية للعدد «ثلاثة»؟"
+      },
+      "options": {
+        "en": [
+          "ثلاثة",
+          "اثنان",
+          "أربعة",
+          "ستة"
+        ],
+        "ur": [
+          "تین",
+          "دو",
+          "چار",
+          "چھ"
+        ],
+        "ar": [
+          "ثلاثة",
+          "اثنان",
+          "أربعة",
+          "ستة"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Numbers"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'four'?",
+        "ur": "عدد «چار» کو عربی میں کیا کہتے ہیں؟",
+        "ar": "ما الكلمة العربية للعدد «أربعة»؟"
+      },
+      "options": {
+        "en": [
+          "أربعة",
+          "ثلاثة",
+          "خمسة",
+          "سبعة"
+        ],
+        "ur": [
+          "چار",
+          "تین",
+          "پانچ",
+          "سات"
+        ],
+        "ar": [
+          "أربعة",
+          "ثلاثة",
+          "خمسة",
+          "سبعة"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Numbers"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'five'?",
+        "ur": "عدد «پانچ» کو عربی میں کیا کہتے ہیں؟",
+        "ar": "ما الكلمة العربية للعدد «خمسة»؟"
+      },
+      "options": {
+        "en": [
+          "خمسة",
+          "أربعة",
+          "ستة",
+          "ثمانية"
+        ],
+        "ur": [
+          "پانچ",
+          "چار",
+          "چھ",
+          "آٹھ"
+        ],
+        "ar": [
+          "خمسة",
+          "أربعة",
+          "ستة",
+          "ثمانية"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Numbers"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic pronoun means 'I'?",
+        "ur": "کون سی عربی ضمیر «میں» کے معنی رکھتی ہے؟",
+        "ar": "أي ضمير عربي يعني «أنا»؟"
+      },
+      "options": {
+        "en": [
+          "أنا",
+          "أنت",
+          "هو",
+          "نحن"
+        ],
+        "ur": [
+          "میں",
+          "آپ/تم",
+          "وہ",
+          "ہم"
+        ],
+        "ar": [
+          "أنا",
+          "أنت",
+          "هو",
+          "نحن"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Grammar"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic pronoun means 'you' (singular)?",
+        "ur": "کون سی عربی ضمیر واحد شخص کے لیے «آپ/تم» ہے؟",
+        "ar": "أي ضمير يعني «أنت» للمفرد؟"
+      },
+      "options": {
+        "en": [
+          "أنت",
+          "أنا",
+          "هو",
+          "هم"
+        ],
+        "ur": [
+          "آپ/تم",
+          "میں",
+          "وہ",
+          "وہ سب"
+        ],
+        "ar": [
+          "أنت",
+          "أنا",
+          "هو",
+          "هم"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Grammar"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic pronoun means 'he'?",
+        "ur": "کون سی عربی ضمیر «وہ (مرد)» کے معنی رکھتی ہے؟",
+        "ar": "أي ضمير عربي يعني «هو»؟"
+      },
+      "options": {
+        "en": [
+          "هو",
+          "هي",
+          "أنا",
+          "أنت"
+        ],
+        "ur": [
+          "وہ (مرد)",
+          "وہ (عورت)",
+          "میں",
+          "آپ"
+        ],
+        "ar": [
+          "هو",
+          "هي",
+          "أنا",
+          "أنت"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Grammar"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic pronoun means 'she'?",
+        "ur": "کون سی عربی ضمیر «وہ (عورت)» کے معنی رکھتی ہے؟",
+        "ar": "أي ضمير عربي يعني «هي»؟"
+      },
+      "options": {
+        "en": [
+          "هي",
+          "هو",
+          "نحن",
+          "أنت"
+        ],
+        "ur": [
+          "وہ (عورت)",
+          "وہ (مرد)",
+          "ہم",
+          "آپ"
+        ],
+        "ar": [
+          "هي",
+          "هو",
+          "نحن",
+          "أنت"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Grammar"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic pronoun means 'we'?",
+        "ur": "کون سی عربی ضمیر «ہم» کے معنی رکھتی ہے؟",
+        "ar": "أي ضمير عربي يعني «نحن»؟"
+      },
+      "options": {
+        "en": [
+          "نحن",
+          "أنا",
+          "هو",
+          "هم"
+        ],
+        "ur": [
+          "ہم",
+          "میں",
+          "وہ",
+          "وہ سب"
+        ],
+        "ar": [
+          "نحن",
+          "أنا",
+          "هو",
+          "هم"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Grammar"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic pronoun means 'they'?",
+        "ur": "کون سی عربی ضمیر «وہ سب» کے معنی رکھتی ہے؟",
+        "ar": "أي ضمير عربي يعني «هم»؟"
+      },
+      "options": {
+        "en": [
+          "هم",
+          "نحن",
+          "هو",
+          "أنت"
+        ],
+        "ur": [
+          "وہ سب",
+          "ہم",
+          "وہ",
+          "آپ"
+        ],
+        "ar": [
+          "هم",
+          "نحن",
+          "هو",
+          "أنت"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Grammar"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'big'?",
+        "ur": "«بڑا» کے لیے عربی لفظ کیا ہے؟",
+        "ar": "ما الكلمة العربية التي تعني «كبير»؟"
+      },
+      "options": {
+        "en": [
+          "كبير",
+          "صغير",
+          "طويل",
+          "قصير"
+        ],
+        "ur": [
+          "بڑا",
+          "چھوٹا",
+          "لمبا",
+          "چھوٹا قد"
+        ],
+        "ar": [
+          "كبير",
+          "صغير",
+          "طويل",
+          "قصير"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Adjectives"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'small'?",
+        "ur": "«چھوٹا» کے لیے عربی لفظ کیا ہے؟",
+        "ar": "ما الكلمة العربية التي تعني «صغير»؟"
+      },
+      "options": {
+        "en": [
+          "صغير",
+          "كبير",
+          "جميل",
+          "سريع"
+        ],
+        "ur": [
+          "چھوٹا",
+          "بڑا",
+          "خوبصورت",
+          "تیز"
+        ],
+        "ar": [
+          "صغير",
+          "كبير",
+          "جميل",
+          "سريع"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Adjectives"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'beautiful'?",
+        "ur": "«خوبصورت» کے لیے عربی لفظ کیا ہے؟",
+        "ar": "ما الكلمة العربية التي تعني «جميل»؟"
+      },
+      "options": {
+        "en": [
+          "جميل",
+          "قبيح",
+          "كبير",
+          "قديم"
+        ],
+        "ur": [
+          "خوبصورت",
+          "بدصورت",
+          "بڑا",
+          "پرانا"
+        ],
+        "ar": [
+          "جميل",
+          "قبيح",
+          "كبير",
+          "قديم"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Adjectives"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'new'?",
+        "ur": "«نیا» کے لیے عربی لفظ کیا ہے؟",
+        "ar": "ما الكلمة العربية التي تعني «جديد»؟"
+      },
+      "options": {
+        "en": [
+          "جديد",
+          "قديم",
+          "صغير",
+          "كبير"
+        ],
+        "ur": [
+          "نیا",
+          "پرانا",
+          "چھوٹا",
+          "بڑا"
+        ],
+        "ar": [
+          "جديد",
+          "قديم",
+          "صغير",
+          "كبير"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Adjectives"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "What is the Arabic word for 'old'?",
+        "ur": "«پرانا» کے لیے عربی لفظ کیا ہے؟",
+        "ar": "ما الكلمة العربية التي تعني «قديم»؟"
+      },
+      "options": {
+        "en": [
+          "قديم",
+          "جديد",
+          "سريع",
+          "جميل"
+        ],
+        "ur": [
+          "پرانا",
+          "نیا",
+          "تیز",
+          "خوبصورت"
+        ],
+        "ar": [
+          "قديم",
+          "جديد",
+          "سريع",
+          "جميل"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Adjectives"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'where'?",
+        "ur": "کون سا عربی لفظ «کہاں» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة عربية تعني «أين»؟"
+      },
+      "options": {
+        "en": [
+          "أين",
+          "متى",
+          "ماذا",
+          "من"
+        ],
+        "ur": [
+          "کہاں",
+          "کب",
+          "کیا",
+          "کون"
+        ],
+        "ar": [
+          "أين",
+          "متى",
+          "ماذا",
+          "من"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Question Words"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'when'?",
+        "ur": "کون سا عربی لفظ «کب» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة عربية تعني «متى»؟"
+      },
+      "options": {
+        "en": [
+          "متى",
+          "أين",
+          "من",
+          "كيف"
+        ],
+        "ur": [
+          "کب",
+          "کہاں",
+          "کون",
+          "کیسے"
+        ],
+        "ar": [
+          "متى",
+          "أين",
+          "من",
+          "كيف"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Question Words"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'who'?",
+        "ur": "کون سا عربی لفظ «کون» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة عربية تعني «من»؟"
+      },
+      "options": {
+        "en": [
+          "من",
+          "ماذا",
+          "أين",
+          "متى"
+        ],
+        "ur": [
+          "کون",
+          "کیا",
+          "کہاں",
+          "کب"
+        ],
+        "ar": [
+          "من",
+          "ماذا",
+          "أين",
+          "متى"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Question Words"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'what'?",
+        "ur": "کون سا عربی لفظ «کیا» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة عربية تعني «ماذا»؟"
+      },
+      "options": {
+        "en": [
+          "ماذا",
+          "من",
+          "أين",
+          "كيف"
+        ],
+        "ur": [
+          "کیا",
+          "کون",
+          "کہاں",
+          "کیسے"
+        ],
+        "ar": [
+          "ماذا",
+          "من",
+          "أين",
+          "كيف"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Question Words"
+    },
+    {
+      "category_slug": "arabic",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Which Arabic word means 'how'?",
+        "ur": "کون سا عربی لفظ «کیسے» کے معنی رکھتا ہے؟",
+        "ar": "أي كلمة عربية تعني «كيف»؟"
+      },
+      "options": {
+        "en": [
+          "كيف",
+          "متى",
+          "أين",
+          "من"
+        ],
+        "ur": [
+          "کیسے",
+          "کب",
+          "کہاں",
+          "کون"
+        ],
+        "ar": [
+          "كيف",
+          "متى",
+          "أين",
+          "من"
+        ]
+      },
+      "correct_index": 0,
+      "source": "Arabic — Question Words"
     }
   ]
 }

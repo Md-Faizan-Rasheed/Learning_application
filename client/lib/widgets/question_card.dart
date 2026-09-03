@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 class QuestionCard extends StatelessWidget {
   final String question;
   final List<String> options;
@@ -41,23 +43,32 @@ class QuestionCard extends StatelessWidget {
                   text: options[i],
                   selected: selectedIndex == i,
                   isCorrect: revealed && i == correctIndex,
-                  isWrongPick: revealed && selectedIndex == i && i != correctIndex,
-                  onTap: onOptionSelected == null ? null : () => onOptionSelected!(i),
+                  isWrongPick:
+                      revealed && selectedIndex == i && i != correctIndex,
+                  onTap: onOptionSelected == null
+                      ? null
+                      : () => onOptionSelected!(i),
                 ),
               ),
             if (revealed && selectedIndex == null) ...[
               const SizedBox(height: 8),
               Text(
-                'Time\'s up — no answer submitted.',
+                AppLocalizations.of(context)!.qcTimeUp,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontSize: 13),
               ),
-            ] else if (!revealed && selectedIndex != null && onOptionSelected == null) ...[
+            ] else if (!revealed &&
+                selectedIndex != null &&
+                onOptionSelected == null) ...[
               const SizedBox(height: 8),
               Text(
-                'Answer locked in — waiting for others…',
+                AppLocalizations.of(context)!.qcAnswerLocked,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontSize: 13),
               ),
             ],
           ],

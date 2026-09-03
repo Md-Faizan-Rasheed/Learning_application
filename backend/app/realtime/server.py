@@ -16,6 +16,7 @@ from ..config import settings
 from ..db import SessionLocal
 from ..game import repository as game_repo
 from ..game.scoring import QUESTION_TIME_MS, score_answer
+from ..moderation import repository as moderation_repo
 from . import match_store
 from .match_store import ROUNDS_PER_MATCH
 
@@ -65,7 +66,29 @@ async def disconnect(sid: str) -> None:
     match_id, player = await match_store.remove_player_by_sid(sid)
     print(f"[ws] client disconnected: {sid} (match={match_id})")
     if match_id:
+        await _handle_pre_start_departure(match_id, player)
         await _broadcast_roster(match_id)
+
+
+async def _handle_pre_start_departure(match_id: str, player: dict | None) -> None:
+    """If someone leaves (explicitly or by disconnecting) a PARTY ROOM before
+    it has started, actually free their seat and, if they were the host, hand
+    the room off to the next-lowest seated player. Deliberately scoped to
+    rooms only: quick-match's forming lobby intentionally keeps a disconnected
+    human's seat reserved for a moment (reconnect grace) rather than freeing
+    it — that existing behavior is unchanged here. A mid-match departure is
+    also left alone either way, for the same reconnect reason."""
+    if player is None:
+        return
+    meta = await match_store.get_meta(match_id)
+    if not meta or meta.get("status") != "waiting" or meta.get("is_private") != "1":
+        return
+    await match_store.remove_seat(match_id, player["seat"])
+    if int(meta.get("host_seat", -1)) == player["seat"]:
+        remaining = await match_store.get_players(match_id)
+        if remaining:
+            new_host = min(p["seat"] for p in remaining)
+            await match_store.set_meta_fields(match_id, host_seat=new_host)
 
 
 @sio.event
@@ -76,15 +99,21 @@ async def echo(sid: str, data: dict) -> dict:
 
 
 async def _broadcast_roster(match_id: str) -> None:
-    """Tell everyone in the room who is currently seated."""
+    """Tell everyone in the room who is currently seated. Also carries party-room
+    context (max_seats/room_code/is_host) — harmless no-ops for quick-match,
+    where no seat matches host_seat and room_code is unset."""
     players = await match_store.get_players(match_id)
+    meta = await match_store.get_meta(match_id)
+    host_seat = int(meta["host_seat"]) if meta and meta.get("host_seat") not in (None, "") else -1
     await sio.emit(
         "roster",
         {
             "match_id": match_id,
+            "max_seats": int(meta.get("max_seats", match_store.MAX_SEATS)) if meta else match_store.MAX_SEATS,
+            "room_code": (meta or {}).get("room_code") or None,
             "players": [
                 {"seat": p["seat"], "name": p["name"], "is_bot": p["is_bot"],
-                 "connected": p["sid"] is not None}
+                 "connected": p["sid"] is not None, "is_host": p["seat"] == host_seat}
                 for p in players
             ],
         },
@@ -117,6 +146,19 @@ async def find_match(sid: str, data: dict) -> dict:
 
     async with _lobby_lock:
         match_id = await match_store.find_open_match(difficulty, category)
+
+        if match_id is not None and auth_user_id:
+            # Don't pool a blocked pair together — only checkable for a real
+            # account (a guest's identity is thrown away every join, so
+            # there's nothing stable to have blocked). Falling back to None
+            # here reuses the "no open lobby" branch below, opening a fresh
+            # one instead of silently joining an incompatible pool.
+            seated = await match_store.get_players(match_id)
+            seated_human_ids = [p["user_id"] for p in seated if not p["is_bot"]]
+            async with SessionLocal() as db:
+                blocked = await moderation_repo.any_block_between(db, auth_user_id, seated_human_ids)
+            if blocked:
+                match_id = None
 
         if match_id is None:
             # No open lobby -> create one (durable DB match).
@@ -179,17 +221,158 @@ async def _lobby_timer(match_id: str, difficulty: str, category: str = "mixed") 
     await _begin_match(match_id, difficulty)
 
 
-async def _begin_match(match_id: str, difficulty: str) -> None:
-    """Fill leftover seats with bots, mark active, and serve the first question."""
+async def _begin_match(match_id: str, difficulty: str, *, fill_bots: bool = True) -> None:
+    """Mark active and serve the first question. Quick-match backfills empty
+    seats with bots (fill_bots=True, the default); party rooms start with
+    however many real players are seated (fill_bots=False, see start_room)."""
     # guard: only begin once
     meta = await match_store.get_meta(match_id)
     if not meta or meta.get("status") != "waiting":
         return
-    await match_store.fill_with_bots(match_id)
+    if fill_bots:
+        await match_store.fill_with_bots(match_id)
     await match_store.set_status(match_id, "active")
     await _broadcast_roster(match_id)
     await sio.emit("match_started", {"match_id": match_id}, room=match_id)
     await _start_and_broadcast_question(match_id, difficulty=difficulty, index=0)
+
+
+_ROOM_SEAT_CHOICES = (4, 6, 8)
+
+
+@sio.event
+async def create_room(sid: str, data: dict) -> dict:
+    """Host creates a private party room: no stranger matchmaking, no bot
+    backfill, no lobby timer — it waits indefinitely (bounded only by Redis's
+    usual match TTL) for the host to invite real friends by code and press Start.
+
+    data: { name, difficulty?, category?, max_seats }
+    """
+    name = (data or {}).get("name") or "Player"
+    difficulty = (data or {}).get("difficulty") or "easy"
+    category = (data or {}).get("category") or "mixed"
+    max_seats = (data or {}).get("max_seats")
+    max_seats = max_seats if max_seats in _ROOM_SEAT_CHOICES else 4
+
+    session = await sio.get_session(sid)
+    auth_user_id = session.get("user_id") if session else None
+
+    async with SessionLocal() as db:
+        match_id = await game_repo.create_db_match(db, difficulty)
+        if auth_user_id:
+            db_user_id = auth_user_id
+            await game_repo.set_user_display_name(db, db_user_id, name)
+        else:
+            db_user_id = await game_repo.create_db_user(db, name)
+        await game_repo.add_match_player(db, match_id, db_user_id)
+        await db.commit()
+
+    await match_store.create_match(
+        difficulty=difficulty, category=category, match_id=match_id, max_seats=max_seats
+    )
+    await match_store.set_meta_fields(match_id, is_private=1, host_seat=0)
+    room_code = await match_store.generate_room_code(match_id)
+    if room_code is None:
+        return {"ok": False, "error": "could not generate a room code, try again"}
+
+    player = await match_store.add_player(
+        match_id, sid=sid, user_id=db_user_id, name=name, is_bot=False
+    )
+    await sio.enter_room(sid, match_id)
+    await _broadcast_roster(match_id)
+
+    return {
+        "ok": True,
+        "match_id": match_id,
+        "seat": player["seat"] if player else 0,
+        "user_id": db_user_id,
+        "room_code": room_code,
+        "max_seats": max_seats,
+        "is_host": True,
+    }
+
+
+@sio.event
+async def join_room(sid: str, data: dict) -> dict:
+    """A friend joins a host's party room by its invite code.
+
+    data: { name, room_code }
+    """
+    name = (data or {}).get("name") or "Player"
+    room_code = ((data or {}).get("room_code") or "").strip().upper()
+    if not room_code:
+        return {"ok": False, "error": "room code required"}
+
+    match_id = await match_store.match_id_for_room_code(room_code)
+    if not match_id:
+        return {"ok": False, "error": "room not found"}
+
+    meta = await match_store.get_meta(match_id)
+    if not meta or meta.get("status") != "waiting":
+        return {"ok": False, "error": "room already started"}
+
+    session = await sio.get_session(sid)
+    auth_user_id = session.get("user_id") if session else None
+
+    async with SessionLocal() as db:
+        if auth_user_id:
+            db_user_id = auth_user_id
+            await game_repo.set_user_display_name(db, db_user_id, name)
+        else:
+            db_user_id = await game_repo.create_db_user(db, name)
+        await game_repo.add_match_player(db, match_id, db_user_id)
+        await db.commit()
+
+    player = await match_store.add_player(
+        match_id, sid=sid, user_id=db_user_id, name=name, is_bot=False
+    )
+    if player is None:
+        return {"ok": False, "error": "room full"}
+
+    await sio.enter_room(sid, match_id)
+    await _broadcast_roster(match_id)
+
+    return {
+        "ok": True,
+        "match_id": match_id,
+        "seat": player["seat"],
+        "user_id": db_user_id,
+        "room_code": room_code,
+        "is_host": False,
+    }
+
+
+@sio.event
+async def start_room(sid: str, data: dict | None = None) -> dict:
+    """The host starts their party room early (or once everyone's in) — no
+    bot backfill, whoever's seated is who plays."""
+    match_id = await match_store.match_id_for_sid(sid)
+    if not match_id:
+        return {"ok": False, "error": "not in a match"}
+
+    meta = await match_store.get_meta(match_id)
+    if not meta or meta.get("is_private") != "1":
+        return {"ok": False, "error": "not a party room"}
+    if meta.get("status") != "waiting":
+        return {"ok": False, "error": "already started"}
+
+    players = await match_store.get_players(match_id)
+    seat = next((p["seat"] for p in players if p.get("sid") == sid), None)
+    host_seat = int(meta.get("host_seat", -1))
+    if seat is None or seat != host_seat:
+        return {"ok": False, "error": "only the host can start"}
+
+    humans = await match_store.count_humans(match_id)
+    if humans < 2:
+        return {"ok": False, "error": "need at least 2 players"}
+
+    await _begin_match(match_id, meta.get("difficulty", "easy"), fill_bots=False)
+    # Deliberately NOT releasing the room code here: join_room looks the code
+    # up first and only then checks status, so an early release would turn a
+    # clear "room already started" into a confusing "room not found" for
+    # anyone who tries the code right after start. Let it expire with the
+    # match's own TTL instead — same cleanup, better error message.
+    return {"ok": True}
 
 
 async def _start_and_broadcast_question(
@@ -330,6 +513,15 @@ async def _handle_answer(
     if not accepted:
         return False  # duplicate — ignore silently
 
+    # Tell the room a seat has answered — never the choice itself, so
+    # opponents can't infer anyone's pick before the round resolves. Purely
+    # a live "who's still thinking" presence signal for the client.
+    await sio.emit(
+        "player_answered",
+        {"match_id": match_id, "round_no": round_no, "seat": seat},
+        room=match_id,
+    )
+
     # If every seat has now answered, resolve immediately.
     answers = await match_store.get_answers(match_id, round_no)
     players = await match_store.get_players(match_id)
@@ -404,6 +596,7 @@ async def _resolve_round(match_id: str, round_no: int) -> None:
                         "is_correct": is_correct,
                         "points": points,
                         "total": total,
+                        "response_ms": resp_ms,
                     }
                 )
             await db.commit()
@@ -453,6 +646,7 @@ async def _end_match(match_id: str) -> None:
             "seat": seat,
             "name": players[seat]["name"],
             "is_bot": players[seat]["is_bot"],
+            "user_id": players[seat]["user_id"],
             "total": scores.get(seat, 0),
         }
         for seat in players
@@ -592,8 +786,9 @@ async def rejoin_match(sid: str, data: dict) -> dict:
 
 @sio.event
 async def leave_match(sid: str, data: dict | None = None) -> dict:
-    match_id, _ = await match_store.remove_player_by_sid(sid)
+    match_id, player = await match_store.remove_player_by_sid(sid)
     if match_id:
         await sio.leave_room(sid, match_id)
+        await _handle_pre_start_departure(match_id, player)
         await _broadcast_roster(match_id)
     return {"ok": True}

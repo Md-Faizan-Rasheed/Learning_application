@@ -1,22 +1,43 @@
-import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../api/game_api.dart';
+import '../api/social_api.dart';
 import '../l10n/app_localizations.dart';
 import '../services/sound_service.dart';
+import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
 import '../widgets/loading_view.dart';
+import '../widgets/option_tile.dart';
+import '../widgets/result_banner.dart';
+import '../widgets/session_complete_card.dart';
 
 const _kSessionLength = 8;
 
 class PracticeScreen extends StatefulWidget {
-  const PracticeScreen(
-      {super.key, required this.lang, this.category = 'mixed'});
+  const PracticeScreen({
+    super.key,
+    required this.lang,
+    this.category = 'mixed',
+    this.challengeId,
+    this.questionCount,
+    this.token,
+    this.myUserId,
+  });
 
   /// Current language code (en/ur/ar) so the server returns the right text.
   final String lang;
   final String category;
+
+  /// When set, this session is playing out a friend challenge: on
+  /// completion the tally is reported to `SocialApi.submitChallengeScore`
+  /// instead of just being shown locally. [token] and [myUserId] are
+  /// required in that case (normal practice needs neither, since
+  /// `/play/*` doesn't require auth).
+  final String? challengeId;
+  final int? questionCount;
+  final String? token;
+  final String? myUserId;
 
   @override
   State<PracticeScreen> createState() => _PracticeScreenState();
@@ -24,6 +45,7 @@ class PracticeScreen extends StatefulWidget {
 
 class _PracticeScreenState extends State<PracticeScreen> {
   final GameApi _api = GameApi();
+  final SocialApi _socialApi = SocialApi();
 
   bool _loading = true;
   String? _error;
@@ -39,18 +61,23 @@ class _PracticeScreenState extends State<PracticeScreen> {
   int _sessionXp = 0;
   bool _sessionComplete = false;
 
-  late final ConfettiController _confetti;
+  final _scrollController = ScrollController();
+
+  Challenge? _challengeResult;
+  bool _submittingChallenge = false;
+  String? _challengeSubmitError;
+
+  int get _sessionLength => widget.questionCount ?? _kSessionLength;
 
   @override
   void initState() {
     super.initState();
-    _confetti = ConfettiController(duration: const Duration(seconds: 2));
     _load();
   }
 
   @override
   void dispose() {
-    _confetti.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -65,14 +92,32 @@ class _PracticeScreenState extends State<PracticeScreen> {
   }
 
   void _nextQuestion() {
-    if (_questionsAnswered >= _kSessionLength) {
+    if (_questionsAnswered >= _sessionLength) {
       setState(() => _sessionComplete = true);
-      if (_correctCount >= (_kSessionLength * 0.6).ceil()) {
-        _confetti.play();
-      }
+      if (widget.challengeId != null) _submitChallengeScore();
       return;
     }
     _load();
+  }
+
+  Future<void> _submitChallengeScore() async {
+    setState(() => _submittingChallenge = true);
+    try {
+      final result = await _socialApi.submitChallengeScore(
+        widget.token!,
+        widget.challengeId!,
+        _correctCount,
+      );
+      setState(() {
+        _challengeResult = result;
+        _submittingChallenge = false;
+      });
+    } catch (e) {
+      setState(() {
+        _challengeSubmitError = e.toString();
+        _submittingChallenge = false;
+      });
+    }
   }
 
   Future<void> _load() async {
@@ -83,7 +128,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
       _selectedIndex = null;
     });
     try {
-      final q = await _api.fetchPracticeQuestion(lang: widget.lang);
+      final q = await _api.fetchPracticeQuestion(
+          lang: widget.lang, category: widget.category);
       setState(() {
         _question = q;
         _shownAt = DateTime.now();
@@ -135,97 +181,94 @@ class _PracticeScreenState extends State<PracticeScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppHeader(title: t.practice),
+      appBar: AppHeader(
+        title: t.practice,
+        scrollController: _sessionComplete
+            ? (widget.challengeId != null ? _scrollController : null)
+            : ((_loading || _error != null) ? null : _scrollController),
+      ),
       body: Stack(
-        alignment: Alignment.topCenter,
         children: [
-          _sessionComplete ? _buildSessionSummary(context) : _buildBody(t),
-          ConfettiWidget(
-            confettiController: _confetti,
-            blastDirectionality: BlastDirectionality.explosive,
-            numberOfParticles: 24,
-            gravity: 0.3,
-            shouldLoop: false,
-          ),
+          const Positioned.fill(child: AmbientBackdrop()),
+          SafeArea(
+              child:
+                  _sessionComplete ? _buildSessionSummary(t) : _buildBody(t)),
         ],
       ),
     );
   }
 
-  Widget _buildSessionSummary(BuildContext context) {
+  Widget _buildSessionSummary(AppLocalizations t) {
     final accuracy =
         _questionsAnswered == 0 ? 0.0 : _correctCount / _questionsAnswered;
-    final colors = Theme.of(context).colorScheme;
+    final isChallenge = widget.challengeId != null;
+    final card = SessionCompleteCard(
+      title: t.practiceSessionComplete,
+      celebrate: _correctCount >= (_sessionLength * 0.6).ceil(),
+      stats: [
+        StatItem(
+            value: '$_correctCount/$_questionsAnswered',
+            label: t.practiceCorrectLabel),
+        StatItem(
+            value: '${(accuracy * 100).round()}%',
+            label: t.practiceAccuracyLabel),
+        StatItem(value: '+$_sessionXp', label: t.practicePointsLabel),
+      ],
+      buttonLabel: isChallenge ? t.challengeDone : t.practicePlayAgain,
+      onButtonPressed: isChallenge
+          ? () => Navigator.of(context).pop(_challengeResult)
+          : _restartSession,
+      shareText: t.practiceShareText(
+          _correctCount, _questionsAnswered, _sessionXp, t.appTitle),
+    );
+
+    if (!isChallenge) return card;
 
     return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 480),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(28),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [colors.primary, colors.secondary],
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: colors.primary.withValues(alpha: 0.3),
-                      blurRadius: 18,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    const Icon(Icons.emoji_events_rounded,
-                        color: Colors.white, size: 56),
-                    const SizedBox(height: 12),
-                    Text(
-                      'Session complete!',
-                      style: TextStyle(
-                        color: colors.onPrimary,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        _SummaryStat(
-                          value: '$_correctCount/$_questionsAnswered',
-                          label: 'Correct',
-                        ),
-                        _SummaryStat(
-                          value: '${(accuracy * 100).round()}%',
-                          label: 'Accuracy',
-                        ),
-                        _SummaryStat(
-                          value: '+$_sessionXp',
-                          label: 'Points',
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 24),
-              FilledButton.icon(
-                onPressed: _restartSession,
-                icon: const Icon(Icons.refresh_rounded),
-                label: const Text('Play again'),
-              ),
-            ],
-          ),
+      child: SingleChildScrollView(
+        controller: _scrollController,
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            card,
+            const SizedBox(height: 16),
+            _buildChallengeOutcome(t),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget _buildChallengeOutcome(AppLocalizations t) {
+    if (_submittingChallenge) {
+      return const CircularProgressIndicator();
+    }
+    if (_challengeSubmitError != null) {
+      return Text(
+        _challengeSubmitError!,
+        textAlign: TextAlign.center,
+        style: const TextStyle(color: Colors.red),
+      );
+    }
+    final c = _challengeResult;
+    if (c == null) return const SizedBox.shrink();
+
+    final iAmChallenger = c.challengerId == widget.myUserId;
+    final opponentName = iAmChallenger ? c.opponentName : c.challengerName;
+
+    if (c.status == 'pending') {
+      return Text(t.challengeWaitingOn(opponentName),
+          textAlign: TextAlign.center);
+    }
+    if (c.winnerId == null) {
+      return Text(t.challengeTied, textAlign: TextAlign.center);
+    }
+    final iWon = c.winnerId == widget.myUserId;
+    return Text(
+      iWon ? t.challengeYouWon(opponentName) : t.challengeYouLost(opponentName),
+      textAlign: TextAlign.center,
+      style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
     );
   }
 
@@ -271,13 +314,15 @@ class _PracticeScreenState extends State<PracticeScreen> {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 640),
             child: SingleChildScrollView(
+              controller: _scrollController,
               padding: EdgeInsets.fromLTRB(
                   horizontalPadding, 24, horizontalPadding, 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Question ${_questionsAnswered + 1} of $_kSessionLength',
+                    t.practiceQuestionProgress(
+                        _questionsAnswered + 1, _sessionLength),
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium
@@ -301,17 +346,17 @@ class _PracticeScreenState extends State<PracticeScreen> {
                   ...List.generate(q.options.length, (i) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),
-                      child: _OptionTile(
+                      child: OptionTile(
                         text: q.options[i],
                         selected: _selectedIndex == i,
                         // colour only appears after answering (server verdict)
                         state: !answered
-                            ? _OptionState.neutral
+                            ? OptionState.neutral
                             : i == _result!.correctIndex
-                                ? _OptionState.correct
+                                ? OptionState.correct
                                 : (i == _selectedIndex
-                                    ? _OptionState.wrong
-                                    : _OptionState.neutral),
+                                    ? OptionState.wrong
+                                    : OptionState.neutral),
                         onTap: answered
                             ? null
                             : () => setState(() => _selectedIndex = i),
@@ -327,14 +372,18 @@ class _PracticeScreenState extends State<PracticeScreen> {
                       child: Text(_submitting ? '…' : t.submit),
                     )
                   else ...[
-                    _ResultBanner(result: _result!, t: t),
+                    ResultBanner(
+                      isCorrect: _result!.isCorrect,
+                      correctOption: _result!.correctOption,
+                      pointsAwarded: _result!.pointsAwarded,
+                    ),
                     const SizedBox(height: 16),
                     FilledButton.icon(
                       onPressed: _nextQuestion,
                       icon: const Icon(Icons.arrow_forward),
                       label: Text(
-                        _questionsAnswered >= _kSessionLength
-                            ? 'See results'
+                        _questionsAnswered >= _sessionLength
+                            ? t.practiceSeeResults
                             : t.nextQuestion,
                       ),
                     ),
@@ -345,120 +394,6 @@ class _PracticeScreenState extends State<PracticeScreen> {
           ),
         );
       },
-    );
-  }
-}
-
-enum _OptionState { neutral, correct, wrong }
-
-class _OptionTile extends StatelessWidget {
-  const _OptionTile({
-    required this.text,
-    required this.selected,
-    required this.state,
-    required this.onTap,
-  });
-
-  final String text;
-  final bool selected;
-  final _OptionState state;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    Color? bg;
-    Color? border;
-    switch (state) {
-      case _OptionState.correct:
-        bg = Colors.green.withValues(alpha: 0.15);
-        border = Colors.green;
-        break;
-      case _OptionState.wrong:
-        bg = Colors.red.withValues(alpha: 0.15);
-        border = Colors.red;
-        break;
-      case _OptionState.neutral:
-        bg = selected
-            ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.12)
-            : null;
-        border = selected ? Theme.of(context).colorScheme.primary : Colors.grey;
-    }
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        decoration: BoxDecoration(
-          color: bg,
-          border: Border.all(color: border ?? Colors.grey, width: 1.5),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Text(text, style: Theme.of(context).textTheme.titleMedium),
-      ),
-    );
-  }
-}
-
-class _ResultBanner extends StatelessWidget {
-  const _ResultBanner({required this.result, required this.t});
-
-  final AnswerResult result;
-  final AppLocalizations t;
-
-  @override
-  Widget build(BuildContext context) {
-    final ok = result.isCorrect;
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: (ok ? Colors.green : Colors.red).withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(ok ? Icons.check_circle : Icons.cancel,
-                  color: ok ? Colors.green : Colors.red),
-              const SizedBox(width: 8),
-              Text(
-                ok ? t.correct : t.incorrect,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          if (!ok) Text(t.correctAnswerIs(result.correctOption)),
-          Text(t.pointsEarned(result.pointsAwarded)),
-        ],
-      ),
-    );
-  }
-}
-
-class _SummaryStat extends StatelessWidget {
-  const _SummaryStat({required this.value, required this.label});
-
-  final String value;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          value,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 22, fontWeight: FontWeight.w900),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.85), fontSize: 12),
-        ),
-      ],
     );
   }
 }

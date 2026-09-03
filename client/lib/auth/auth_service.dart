@@ -85,11 +85,50 @@ class AuthService {
     await prefs.remove(_key);
   }
 
+  /// Permanently deletes the current account (server-side cascade removes
+  /// every row tied to it — friends, matches, progress, everything). Signs
+  /// out locally on success, same as [signOut].
+  Future<void> deleteAccount({String? password}) async {
+    final session = _current;
+    if (session == null) throw AuthException('Not signed in.');
+    final res = await _client.delete(
+      Uri.parse('$kApiBaseUrl/auth/account'),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${session.token}',
+      },
+      body: jsonEncode({if (password != null) 'password': password}),
+    );
+    if (res.statusCode == 401) {
+      throw AuthException('Incorrect password.');
+    }
+    if (res.statusCode != 204) {
+      throw AuthException('Could not delete account (${res.statusCode}).');
+    }
+    await signOut();
+  }
+
+  /// Always succeeds from the caller's point of view — the backend never
+  /// reveals whether [email] is registered, to prevent account enumeration.
+  /// If it is, a reset link is emailed (the link opens a server-rendered
+  /// page; there's no in-app reset flow to build).
+  Future<void> forgotPassword(String email) async {
+    final res = await _client.post(
+      Uri.parse('$kApiBaseUrl/auth/forgot-password'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'email': email}),
+    );
+    if (res.statusCode != 200) {
+      throw AuthException('Could not process that request (${res.statusCode}).');
+    }
+  }
+
   Future<Session> register({
     required String email,
     required String password,
     required String displayName,
     required String gender,
+    String role = 'player',
   }) async {
     final res = await _client.post(
       Uri.parse('$kApiBaseUrl/auth/register'),
@@ -99,6 +138,7 @@ class AuthService {
         'password': password,
         'display_name': displayName,
         'gender': gender,
+        'role': role,
       }),
     );
     if (res.statusCode == 409) {
@@ -110,7 +150,8 @@ class AuthService {
     if (res.statusCode != 201) {
       throw AuthException('Registration failed (${res.statusCode}).');
     }
-    final s = Session.fromJson(jsonDecode(res.body) as Map<String, dynamic>);
+    final s = Session.fromJson(
+        jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
     await _persist(s);
     return s;
   }
@@ -130,7 +171,8 @@ class AuthService {
     if (res.statusCode != 200) {
       throw AuthException('Login failed (${res.statusCode}).');
     }
-    final s = Session.fromJson(jsonDecode(res.body) as Map<String, dynamic>);
+    final s = Session.fromJson(
+        jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
     await _persist(s);
     return s;
   }
@@ -147,7 +189,8 @@ class AuthService {
     if (res.statusCode != 201) {
       throw AuthException('Could not start guest session (${res.statusCode}).');
     }
-    final s = Session.fromJson(jsonDecode(res.body) as Map<String, dynamic>);
+    final s = Session.fromJson(
+        jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
     await _persist(s);
     return s;
   }

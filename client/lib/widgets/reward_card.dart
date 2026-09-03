@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
 import '../utils/level.dart';
 
 class RewardCard extends StatelessWidget {
@@ -18,6 +19,7 @@ class RewardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     final colors = Theme.of(context).colorScheme;
     final level = totalXp != null ? levelForXp(totalXp!) : null;
 
@@ -47,7 +49,7 @@ class RewardCard extends StatelessWidget {
                 Expanded(
                   child: _RewardStat(
                     icon: Icons.stars_rounded,
-                    label: '+$xpEarned XP',
+                    label: t.rewardXpBadge(xpEarned!),
                   ),
                 ),
               if (xpEarned != null && streakDays != null)
@@ -56,7 +58,7 @@ class RewardCard extends StatelessWidget {
                 Expanded(
                   child: _RewardStat(
                     icon: Icons.local_fire_department,
-                    label: '$streakDays day streak',
+                    label: t.rewardStreakDays(streakDays!),
                   ),
                 ),
             ],
@@ -64,7 +66,7 @@ class RewardCard extends StatelessWidget {
           if (level != null) ...[
             const SizedBox(height: 16),
             Text(
-              'Lv.${level.level} · ${level.title}',
+              t.levelWithTitle(level.level, level.title(t)),
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: colors.onPrimary,
@@ -91,7 +93,7 @@ class RewardCard extends StatelessWidget {
           if (questsCompleted.isNotEmpty) ...[
             const SizedBox(height: 16),
             Text(
-              'Quests completed',
+              t.rewardQuestsCompleted,
               style: TextStyle(
                 color: colors.onPrimary.withValues(alpha: 0.85),
                 fontWeight: FontWeight.w700,

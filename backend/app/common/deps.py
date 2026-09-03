@@ -48,7 +48,8 @@ async def get_current_user_optional(
     authorization: str = Header(default=""),
 ) -> CurrentUser | None:
     """Like get_current_user but returns None instead of raising when there's no
-    valid token. Lets endpoints accept alternative auth (e.g. the legacy key)."""
+    valid token — lets a dependency (e.g. require_admin_user) check the role
+    itself and raise its own error rather than a generic 401."""
     from ..auth.security import decode_access_token
 
     if not authorization.lower().startswith("bearer "):
@@ -61,25 +62,28 @@ async def get_current_user_optional(
 
 async def require_admin_user(
     user: CurrentUser | None = Depends(get_current_user_optional),
-    x_admin_key: str = Header(default=""),
 ) -> CurrentUser:
-    """Admin gate. Accepts either a real admin/developer JWT role, OR the legacy
-    X-Admin-Key (kept temporarily for tooling/scripts until fully migrated).
-    Returns 403 when neither is present/valid."""
+    """Admin gate: requires a real admin/developer JWT. (The legacy X-Admin-Key
+    header backdoor that used to also satisfy this has been removed — nothing
+    in this repo depended on it, and real JWT-based admin auth has covered
+    every admin flow since the Auth epic landed.)"""
     if user and user.role in ("admin", "developer"):
         return user
-    if x_admin_key and x_admin_key == settings.admin_api_key:
-        return user or CurrentUser(user_id="legacy-admin-key", role="admin")
     raise HTTPException(
         status_code=status.HTTP_403_FORBIDDEN,
         detail="admin privileges required",
     )
 
 
-async def require_admin(x_admin_key: str = Header(default="")) -> None:
-    """Legacy key-only gate, kept for backward compatibility."""
-    if x_admin_key != settings.admin_api_key:
+async def require_teacher_user(
+    user: CurrentUser = Depends(get_current_user),
+) -> CurrentUser:
+    """Teacher gate: requires a real JWT with role == 'teacher'."""
+    if user.role != "teacher":
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or missing admin key",
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="teacher privileges required",
         )
+    return user
+
+
