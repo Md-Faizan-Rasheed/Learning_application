@@ -455,9 +455,18 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildHeroHeader(BuildContext context, AppLocalizations t, String name,
       Profile profile, LevelInfo level) {
     final colors = Theme.of(context).colorScheme;
+    final media = MediaQuery.of(context);
+    final isMobile = media.size.width < 600;
+
+    // Hug the real status-bar/notch inset instead of a flat guess — a fixed
+    // value either leaves a gap on phones with a short status bar or, worse,
+    // sits under a taller one on others.
+    final topPadding = media.padding.top + (isMobile ? 10.0 : 16.0);
+    final avatarSize = isMobile ? 40.0 : 48.0;
+    final logoutIconSize = isMobile ? 20.0 : 24.0;
 
     return Container(
-      padding: const EdgeInsets.fromLTRB(18, 50, 18, 22),
+      padding: EdgeInsets.fromLTRB(18, topPadding, 18, isMobile ? 16 : 22),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -477,30 +486,37 @@ class _HomeScreenState extends State<HomeScreen>
         children: [
           Row(
             children: [
-              _BannerAvatar(name: name, size: 48),
-              const SizedBox(width: 14),
+              _BannerAvatar(name: name, size: avatarSize),
+              const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   name.isEmpty ? t.appTitle : _greeting(t, name),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.white,
-                      fontSize: 19,
+                      fontSize: isMobile ? 17 : 19,
                       fontWeight: FontWeight.w800),
                 ),
               ),
+              const SizedBox(width: 6),
               LanguagePicker(
                   currentLanguage: widget.currentLang,
-                  onLocaleChange: widget.onLocaleChange),
+                  onLocaleChange: widget.onLocaleChange,
+                  compact: isMobile),
+              SizedBox(width: isMobile ? 2 : 6),
               IconButton(
-                icon: const Icon(Icons.logout, color: Colors.white),
+                icon: Icon(Icons.logout,
+                    color: Colors.white, size: logoutIconSize),
                 tooltip: t.signOut,
                 onPressed: widget.onSignOut,
+                visualDensity: isMobile ? VisualDensity.compact : null,
+                padding: EdgeInsets.all(isMobile ? 6 : 8),
+                constraints: const BoxConstraints(),
               ),
             ],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: isMobile ? 14 : 18),
           Row(
             children: [
               Expanded(

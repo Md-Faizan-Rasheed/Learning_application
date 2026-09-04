@@ -18,10 +18,16 @@ class LanguagePicker extends StatelessWidget {
   final String currentLanguage;
   final Function(Locale) onLocaleChange;
 
+  /// When true, renders as a small icon-only button (no language name label)
+  /// — for tight spaces like the mobile home header, where the full pill
+  /// crowds out the neighboring avatar/logout button.
+  final bool compact;
+
   const LanguagePicker({
     Key? key,
     required this.currentLanguage,
     required this.onLocaleChange,
+    this.compact = false,
   }) : super(key: key);
 
   @override
@@ -34,25 +40,42 @@ class LanguagePicker extends StatelessWidget {
     return PopupMenuButton<Locale>(
       tooltip: AppLocalizations.of(context)!.changeLanguage,
       onSelected: (locale) => onLocaleChange(locale),
-      icon: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-        decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.18),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white.withValues(alpha: 0.35)),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.language_rounded, size: 18, color: Colors.white),
-            const SizedBox(width: 4),
-            Text(
-              current.nativeName,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13, color: Colors.white),
+      icon: compact
+          ? Container(
+              width: 32,
+              height: 32,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.18),
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.white.withValues(alpha: 0.35)),
+              ),
+              child: const Icon(Icons.language_rounded,
+                  size: 16, color: Colors.white),
+            )
+          : Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.18),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Colors.white.withValues(alpha: 0.35)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.language_rounded,
+                      size: 18, color: Colors.white),
+                  const SizedBox(width: 4),
+                  Text(
+                    current.nativeName,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 13,
+                        color: Colors.white),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
-      ),
       itemBuilder: (context) => [
         for (final lang in _kLanguages)
           PopupMenuItem(
