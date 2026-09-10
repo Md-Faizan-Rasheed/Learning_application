@@ -8,7 +8,7 @@ from __future__ import annotations
 BASE_POINTS = {"easy": 20, "medium": 35, "hard": 50}
 
 # How long a question is "live" for full-speed credit, in milliseconds.
-QUESTION_TIME_MS = 20_000
+QUESTION_TIME_MS = 30_000
 
 
 def score_answer(

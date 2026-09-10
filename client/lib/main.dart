@@ -27,11 +27,11 @@ import 'widgets/category_picker_dialog.dart';
 import 'widgets/fade_scroll_edge.dart';
 import 'widgets/language_picker.dart';
 import 'widgets/reward_card.dart';
-import 'widgets/streak_flame.dart';
 
 // Empty DSN makes the SDK a documented safe no-op — set at build time with
 //   flutter build appbundle --dart-define=SENTRY_DSN=https://...
-const String _kSentryDsn = String.fromEnvironment('SENTRY_DSN', defaultValue: '');
+const String _kSentryDsn =
+    String.fromEnvironment('SENTRY_DSN', defaultValue: '');
 
 Future<void> main() async {
   await SentryFlutter.init(
@@ -392,6 +392,11 @@ class _HomeScreenState extends State<HomeScreen>
                                   _buildConnectionError(t),
                                   const SizedBox(height: 20),
                                 ],
+                                // Highest-priority action first: playing with
+                                // others is a full screen-width tap away,
+                                // not buried in the Quick Play scroller below.
+                                _buildMultiplayerCta(context, t),
+                                const SizedBox(height: 24),
                                 _sectionTitle(context, t.homeTodaysJourney),
                                 const SizedBox(height: 12),
                                 _buildJourney(context, t),
@@ -400,15 +405,16 @@ class _HomeScreenState extends State<HomeScreen>
                                   _buildDailyChallenge(context, t),
                                   const SizedBox(height: 28),
                                 ],
-                                _buildStreakSection(context, t, profile),
-                                const SizedBox(height: 28),
                                 _sectionTitle(context, t.homeQuickPlay),
                                 const SizedBox(height: 12),
                                 _buildQuickPlay(context, t),
                                 const SizedBox(height: 28),
+                                // Streak is already visible up in the hero
+                                // header — this card adds the one thing that
+                                // isn't shown there yet: progress to the next
+                                // level.
                                 RewardCard(
                                     totalXp: profile.totalXp,
-                                    streakDays: profile.streakDays,
                                     questsCompleted: const []),
                                 const SizedBox(height: 28),
                                 Row(
@@ -716,51 +722,114 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget _buildStreakSection(
-      BuildContext context, AppLocalizations t, Profile profile) {
+  /// The single highest-priority action on the home screen: a full-width,
+  /// unmissable entry point into multiplayer, instead of it being one of
+  /// three equally-weighted cards in a horizontal scroller further down.
+  Widget _buildMultiplayerCta(BuildContext context, AppLocalizations t) {
     final colors = Theme.of(context).colorScheme;
-    final filled = profile.streakDays.clamp(0, 7);
+    // Below this width, icon + title/subtitle + button all crammed into one
+    // Row leaves the text column only ~120dp — cramped and prone to awkward
+    // wrapping. Stack instead: icon+text on top, a full-width button below.
+    final stacked = MediaQuery.sizeOf(context).width < 400;
 
-    return Container(
-      padding: const EdgeInsets.all(18),
+    final icon = Container(
+      width: 52,
+      height: 52,
       decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: colors.outlineVariant),
-        boxShadow: [
-          BoxShadow(
-              color: colors.shadow.withValues(alpha: 0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 4))
+        color: Colors.white.withValues(alpha: 0.24),
+        shape: BoxShape.circle,
+      ),
+      child: const Icon(Icons.groups_rounded, color: Colors.white, size: 28),
+    );
+
+    final textBlock = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(t.cardMultiplayerTitle,
+            style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+                fontSize: 17)),
+        const SizedBox(height: 3),
+        Text(
+          t.cardMultiplayerSubtitle,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.9),
+              fontSize: 12.5,
+              height: 1.3),
+        ),
+      ],
+    );
+
+    final playButton = Container(
+      width: stacked ? double.infinity : null,
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(t.homePlayMultiplayer,
+              style: TextStyle(
+                  color: colors.tertiary,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 14)),
+          const SizedBox(width: 6),
+          Icon(Icons.arrow_forward_rounded, color: colors.tertiary, size: 17),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          StreakFlame(streak: profile.streakDays),
-          const SizedBox(height: 12),
-          Text(t.homeStreakSubtitle,
-              style: TextStyle(color: colors.onSurfaceVariant, fontSize: 13)),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              for (int i = 0; i < 7; i++)
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Container(
-                    width: 16,
-                    height: 16,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: i < filled
-                          ? Colors.deepOrange
-                          : colors.outlineVariant.withValues(alpha: 0.5),
-                    ),
-                  ),
-                ),
-            ],
+    );
+
+    return InkWell(
+      borderRadius: BorderRadius.circular(24),
+      onTap: _openMultiplayer,
+      child: Container(
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [colors.tertiary, colors.secondary],
           ),
-        ],
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            BoxShadow(
+              color: colors.tertiary.withValues(alpha: 0.32),
+              blurRadius: 18,
+              offset: const Offset(0, 8),
+            ),
+          ],
+        ),
+        child: stacked
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      icon,
+                      const SizedBox(width: 14),
+                      Expanded(child: textBlock),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  playButton,
+                ],
+              )
+            : Row(
+                children: [
+                  icon,
+                  const SizedBox(width: 14),
+                  Expanded(child: textBlock),
+                  const SizedBox(width: 12),
+                  playButton,
+                ],
+              ),
       ),
     );
   }
@@ -772,11 +841,6 @@ class _HomeScreenState extends State<HomeScreen>
           title: t.practice,
           subtitle: t.cardPracticeSubtitle,
           onTap: _openPracticeWithPicker),
-      _QuickPlayItem(
-          icon: Icons.groups_rounded,
-          title: t.cardMultiplayerTitle,
-          subtitle: t.cardMultiplayerSubtitle,
-          onTap: _openMultiplayer),
       _QuickPlayItem(
         icon: Icons.assignment_turned_in_rounded,
         title: t.cardAssignedQuizzesTitle,

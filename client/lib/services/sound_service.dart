@@ -15,16 +15,25 @@ class SoundService {
 
   bool enabled = true;
 
-  Future<void> playCorrect() => _play(_correctPlayer, 'sounds/correct.mp3');
+  /// [pitch] is a playback-rate multiplier (1.0 = normal). There's only one
+  /// "correct" clip bundled, so a combo streak is signaled by pitching the
+  /// same clip up rather than switching assets — cheap, and reads the same
+  /// way a rising combo jingle would.
+  Future<void> playCorrect({double pitch = 1.0}) =>
+      _play(_correctPlayer, 'sounds/correct.mp3', pitch: pitch);
 
-  Future<void> playIncorrect() => _play(_incorrectPlayer, 'sounds/incorrect.mp3');
+  Future<void> playIncorrect() =>
+      _play(_incorrectPlayer, 'sounds/incorrect.mp3');
 
-  Future<void> playCountdown() => _play(_countdownPlayer, 'sounds/countdown.mp3');
+  Future<void> playCountdown() =>
+      _play(_countdownPlayer, 'sounds/countdown.mp3');
 
-  Future<void> _play(AudioPlayer player, String assetPath) async {
+  Future<void> _play(AudioPlayer player, String assetPath,
+      {double pitch = 1.0}) async {
     if (!enabled) return;
     try {
       await player.stop();
+      await player.setPlaybackRate(pitch);
       await player.play(AssetSource(assetPath));
     } catch (_) {
       // Sound is a nice-to-have; never let a playback failure break gameplay.

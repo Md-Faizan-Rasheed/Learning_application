@@ -365,38 +365,64 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Widget _buildModeSelector(BuildContext context, AppLocalizations t) {
-    return Container(
-      padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.25),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppPalette.glassBorder),
-      ),
-      child: SegmentedButton<_Mode>(
-        segments: [
-          ButtonSegment(
-              value: _Mode.login,
-              label: Text(t.authLogin),
-              icon: const Icon(Icons.login_rounded)),
-          ButtonSegment(
-              value: _Mode.register,
-              label: Text(t.authRegister),
-              icon: const Icon(Icons.person_add_alt_1_rounded)),
-          ButtonSegment(
-              value: _Mode.guest,
-              label: Text(t.authGuest),
-              icon: const Icon(Icons.explore_rounded)),
-        ],
-        selected: {_mode},
-        onSelectionChanged:
-            _busy ? null : (selection) => _goToMode(selection.first),
-        showSelectedIcon: false,
-        style: ButtonStyle(
-          visualDensity: VisualDensity.compact,
-          padding: WidgetStateProperty.all(
-              const EdgeInsets.symmetric(horizontal: 6, vertical: 12)),
-        ),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Three full-word segments (icon + label each) don't fit a narrow
+        // phone at normal size — the longest label ("Register") wraps to a
+        // second line instead of truncating. Below this width, drop the
+        // icons and shrink the text so all three stay on one line.
+        final compact = constraints.maxWidth < 360;
+
+        Widget label(String text) => Text(
+              text,
+              maxLines: 1,
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+            );
+
+        return Container(
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            color: Colors.black.withValues(alpha: 0.25),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: AppPalette.glassBorder),
+          ),
+          child: SegmentedButton<_Mode>(
+            segments: [
+              ButtonSegment(
+                  value: _Mode.login,
+                  label: label(t.authLogin),
+                  icon: compact ? null : const Icon(Icons.login_rounded)),
+              ButtonSegment(
+                  value: _Mode.register,
+                  label: label(t.authRegister),
+                  icon: compact
+                      ? null
+                      : const Icon(Icons.person_add_alt_1_rounded)),
+              ButtonSegment(
+                  value: _Mode.guest,
+                  label: label(t.authGuest),
+                  icon: compact ? null : const Icon(Icons.explore_rounded)),
+            ],
+            selected: {_mode},
+            onSelectionChanged:
+                _busy ? null : (selection) => _goToMode(selection.first),
+            showSelectedIcon: false,
+            style: ButtonStyle(
+              visualDensity: VisualDensity.compact,
+              textStyle: WidgetStateProperty.all(
+                TextStyle(
+                    fontSize: compact ? 12.5 : 14,
+                    fontWeight: FontWeight.w700),
+              ),
+              padding: WidgetStateProperty.all(
+                EdgeInsets.symmetric(
+                    horizontal: compact ? 2 : 6, vertical: 12),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 

@@ -221,17 +221,29 @@ async def _lobby_timer(match_id: str, difficulty: str, category: str = "mixed") 
     await _begin_match(match_id, difficulty)
 
 
+# Serializes _begin_match per match_id. Without this, the "lobby filled up
+# early" path (in find_match) and the LOBBY_WAIT_SECONDS timer can both pass
+# the "still waiting" check before either has written status="active" —
+# fill_with_bots alone spans several awaited Redis round-trips, plenty of
+# room for both callers to interleave — and both go on to broadcast round 0,
+# which looks to players like the first question getting skipped instantly.
+_begin_locks: dict[str, asyncio.Lock] = {}
+
+
 async def _begin_match(match_id: str, difficulty: str, *, fill_bots: bool = True) -> None:
     """Mark active and serve the first question. Quick-match backfills empty
     seats with bots (fill_bots=True, the default); party rooms start with
     however many real players are seated (fill_bots=False, see start_room)."""
-    # guard: only begin once
-    meta = await match_store.get_meta(match_id)
-    if not meta or meta.get("status") != "waiting":
-        return
-    if fill_bots:
-        await match_store.fill_with_bots(match_id)
-    await match_store.set_status(match_id, "active")
+    lock = _begin_locks.setdefault(match_id, asyncio.Lock())
+    async with lock:
+        # guard: only begin once
+        meta = await match_store.get_meta(match_id)
+        if not meta or meta.get("status") != "waiting":
+            return
+        if fill_bots:
+            await match_store.fill_with_bots(match_id)
+        await match_store.set_status(match_id, "active")
+    _begin_locks.pop(match_id, None)
     await _broadcast_roster(match_id)
     await sio.emit("match_started", {"match_id": match_id}, room=match_id)
     await _start_and_broadcast_question(match_id, difficulty=difficulty, index=0)

@@ -18,8 +18,9 @@ import '../widgets/loading_view.dart';
 import '../widgets/question_card.dart';
 import '../widgets/reward_card.dart';
 import 'multiplayer_choice_screen.dart';
+import 'multiplayer_match_report_screen.dart';
 
-const kQuestionTimeMs = 20000;
+const kQuestionTimeMs = 30000;
 // Mirrors match_store.MAX_SEATS server-side — used only for the lobby's
 // "N/4 joined" copy, not for any matchmaking logic (the server owns that).
 const kMultiplayerMaxSeats = 4;
@@ -80,6 +81,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
   bool _starting = false;
 
   final List<RoundResult> _roundHistory = [];
+  final List<MatchReportEntry> _reportEntries = [];
   _MatchHighlights? _highlights;
   final Set<String> _friendRequestSent = {}; // opponent user ids
   final Set<String> _blockedUserIds = {};
@@ -214,7 +216,8 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
 
   void _failAndLeave(String message) {
     setState(() => _connecting = false);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
     Navigator.of(context).pop();
   }
 
@@ -271,9 +274,11 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
     setState(() => _starting = false);
     if (ack['ok'] != true) {
       final t = AppLocalizations.of(context)!;
-      final message =
-          ack['error'] == 'need at least 2 players' ? t.mpNeedTwoPlayers : t.mpRoomJoinFailed;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+      final message = ack['error'] == 'need at least 2 players'
+          ? t.mpNeedTwoPlayers
+          : t.mpRoomJoinFailed;
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
     }
   }
 
@@ -337,11 +342,24 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
       _myPreviousRank = myIndex;
     }
 
+    final currentQuestion = _question;
     setState(() {
       _roundResult = result;
       _combo = wasCorrect ? _combo + 1 : 0;
       _myRankShift = rankShift;
       _roundHistory.add(result);
+      if (currentQuestion != null) {
+        _reportEntries.add(MatchReportEntry(
+          roundNo: result.roundNo,
+          question: currentQuestion,
+          correctIndex: result.correctIndex,
+          myChosenIndex: myIndex != -1
+              ? result.results[myIndex].chosenIndex
+              : _selectedIndex,
+          isCorrect:
+              myIndex != -1 ? result.results[myIndex].isCorrect : wasCorrect,
+        ));
+      }
     });
 
     if (_selectedIndex != null) {
@@ -465,6 +483,11 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
       comebackSpots: comebackSpots,
     );
   }
+
+  /// 1.0 at no streak, ramping up to 1.4x by a streak of 5+ — mirrors
+  /// PracticeScreen's combo scaling so both quiz modes escalate the reveal
+  /// the same way.
+  double get _comboBoost => 1.0 + (_combo.clamp(0, 5) * 0.08);
 
   void _submitAnswer(int index) {
     if (_submitted || _remainingTimeMs <= 0) {
@@ -688,7 +711,8 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
               const SizedBox(height: 16),
             ],
             Text(
-              t.mpLobbyJoined(_roster.length, isRoom ? _seatCap : kMultiplayerMaxSeats),
+              t.mpLobbyJoined(
+                  _roster.length, isRoom ? _seatCap : kMultiplayerMaxSeats),
               style: Theme.of(context)
                   .textTheme
                   .titleMedium
@@ -714,7 +738,8 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
             if (isRoom && _isHost) ...[
               const SizedBox(height: 24),
               FilledButton.icon(
-                onPressed: (_roster.length >= 2 && !_starting) ? _startRoom : null,
+                onPressed:
+                    (_roster.length >= 2 && !_starting) ? _startRoom : null,
                 icon: _starting
                     ? const SizedBox(
                         width: 16,
@@ -728,7 +753,8 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
                 const SizedBox(height: 6),
                 Text(
                   t.mpNeedTwoPlayers,
-                  style: TextStyle(color: colors.onSurfaceVariant, fontSize: 12),
+                  style:
+                      TextStyle(color: colors.onSurfaceVariant, fontSize: 12),
                 ),
               ],
             ],
@@ -794,6 +820,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
                     onOptionSelected: _submitted ? null : _submitAnswer,
                     selectedIndex: _selectedIndex,
                     correctIndex: _roundResult?.correctIndex,
+                    comboBoost: _comboBoost,
                   ),
                   if (_roundResult != null) ...[
                     const SizedBox(height: 16),
@@ -803,7 +830,36 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
                       answered: _selectedIndex != null,
                       rankShift: _myRankShift,
                     ),
-                    if (_roundResult!.results.isNotEmpty) ...[
+                    if (_roundResult!.isFinal) ...[
+                      // The final round's own leaderboard is about to be
+                      // superseded by match_over's authoritative standings a
+                      // moment later — showing it here just to have it
+                      // replaced reads as a glitchy double reload, so skip
+                      // straight to a "finalizing" beat instead of flashing
+                      // numbers that are about to change.
+                      const SizedBox(height: 20),
+                      Center(
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              width: 20,
+                              height: 20,
+                              child:
+                                  CircularProgressIndicator(strokeWidth: 2.5),
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              t.mpFinalizingResults,
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurfaceVariant,
+                                  fontSize: 13),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ] else if (_roundResult!.results.isNotEmpty) ...[
                       const SizedBox(height: 16),
                       Text(
                         t.mpThisRoundTitle,
@@ -935,6 +991,21 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
             ),
             const SizedBox(height: 8),
           ],
+        ],
+        if (_reportEntries.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => MatchReportScreen(
+                  lang: widget.lang,
+                  entries: _reportEntries,
+                ),
+              ),
+            ),
+            icon: const Icon(Icons.fact_check_rounded),
+            label: Text(t.mpViewReport),
+          ),
         ],
         const SizedBox(height: 20),
         FilledButton.icon(
@@ -1181,11 +1252,13 @@ class _ReportDialogState extends State<_ReportDialog> {
             initialValue: _reason,
             decoration: InputDecoration(
               labelText: t.mpReportReasonLabel,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
             ),
             items: [
               for (final reason in kReportReasons)
-                DropdownMenuItem(value: reason, child: Text(_reasonLabel(t, reason))),
+                DropdownMenuItem(
+                    value: reason, child: Text(_reasonLabel(t, reason))),
             ],
             onChanged: (v) => setState(() => _reason = v ?? _reason),
           ),
@@ -1195,7 +1268,8 @@ class _ReportDialogState extends State<_ReportDialog> {
             maxLines: 3,
             decoration: InputDecoration(
               labelText: t.mpReportDetailsLabel,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
             ),
           ),
         ],
@@ -1206,8 +1280,8 @@ class _ReportDialogState extends State<_ReportDialog> {
           child: Text(t.authCancel),
         ),
         FilledButton(
-          onPressed: () => Navigator.pop(
-              context, (_reason, _detailsController.text.trim())),
+          onPressed: () =>
+              Navigator.pop(context, (_reason, _detailsController.text.trim())),
           child: Text(t.mpReportSubmitBtn),
         ),
       ],

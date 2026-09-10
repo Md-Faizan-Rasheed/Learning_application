@@ -14,6 +14,89 @@ import '../widgets/session_complete_card.dart';
 
 const _kSessionLength = 8;
 
+/// Whole-card "hit-stop" punch on a correct answer — a small, quick scale
+/// bump (not the tile's own pop) so the reveal reads on the whole question,
+/// not just the tapped option.
+final _cardPunchTween = TweenSequence<double>([
+  TweenSequenceItem(
+      tween: Tween(begin: 1.0, end: 1.03).chain(CurveTween(curve: Curves.easeOut)),
+      weight: 30),
+  TweenSequenceItem(
+      tween: Tween(begin: 1.03, end: 1.0).chain(CurveTween(curve: Curves.easeIn)),
+      weight: 70),
+]);
+
+/// One in-flight "+N" popup floating up from the answered question.
+class _FloatingScore {
+  _FloatingScore(this.id, this.points);
+  final int id;
+  final int points;
+}
+
+/// Rises and fades over [duration], then reports itself done so the caller
+/// can drop it from the list — a fire-and-forget visual, not a real overlay
+/// route.
+class _FloatingScoreText extends StatefulWidget {
+  const _FloatingScoreText({super.key, required this.points, required this.onDone});
+  final int points;
+  final VoidCallback onDone;
+
+  @override
+  State<_FloatingScoreText> createState() => _FloatingScoreTextState();
+}
+
+class _FloatingScoreTextState extends State<_FloatingScoreText>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _c;
+
+  @override
+  void initState() {
+    super.initState();
+    _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 900))
+      ..forward().whenComplete(widget.onDone);
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: AnimatedBuilder(
+        animation: _c,
+        builder: (context, _) {
+          final t = Curves.easeOut.transform(_c.value);
+          return Positioned(
+            top: 4,
+            left: 0,
+            right: 0,
+            child: Opacity(
+              opacity: (1 - t).clamp(0.0, 1.0),
+              child: Transform.translate(
+                offset: Offset(0, -46 * t),
+                child: Center(
+                  child: Text(
+                    '+${widget.points}',
+                    style: const TextStyle(
+                      color: Colors.amber,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 26,
+                      shadows: [Shadow(blurRadius: 8, color: Colors.black45)],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
 class PracticeScreen extends StatefulWidget {
   const PracticeScreen({
     super.key,
@@ -43,7 +126,8 @@ class PracticeScreen extends StatefulWidget {
   State<PracticeScreen> createState() => _PracticeScreenState();
 }
 
-class _PracticeScreenState extends State<PracticeScreen> {
+class _PracticeScreenState extends State<PracticeScreen>
+    with SingleTickerProviderStateMixin {
   final GameApi _api = GameApi();
   final SocialApi _socialApi = SocialApi();
 
@@ -61,7 +145,14 @@ class _PracticeScreenState extends State<PracticeScreen> {
   int _sessionXp = 0;
   bool _sessionComplete = false;
 
+  // Consecutive-correct streak within this session — escalates the reveal
+  // (bigger pop/glow, higher-pitched sound) as it grows, and resets on a miss.
+  int _streak = 0;
+
   final _scrollController = ScrollController();
+  late final AnimationController _cardPunch;
+  final List<_FloatingScore> _floatingScores = [];
+  int _nextFloatingId = 0;
 
   Challenge? _challengeResult;
   bool _submittingChallenge = false;
@@ -69,15 +160,22 @@ class _PracticeScreenState extends State<PracticeScreen> {
 
   int get _sessionLength => widget.questionCount ?? _kSessionLength;
 
+  /// 1.0 at no streak, ramping up to 1.4x by a streak of 5+ — used to scale
+  /// both the tile pop/glow and the correct-sound pitch.
+  double get _comboBoost => 1.0 + (_streak.clamp(0, 5) * 0.08);
+
   @override
   void initState() {
     super.initState();
+    _cardPunch =
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 320));
     _load();
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    _cardPunch.dispose();
     super.dispose();
   }
 
@@ -87,6 +185,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
       _correctCount = 0;
       _sessionXp = 0;
       _sessionComplete = false;
+      _streak = 0;
     });
     _load();
   }
@@ -160,11 +259,21 @@ class _PracticeScreenState extends State<PracticeScreen> {
         _submitting = false;
         _questionsAnswered++;
         _sessionXp += result.pointsAwarded;
-        if (result.isCorrect) _correctCount++;
+        if (result.isCorrect) {
+          _correctCount++;
+          _streak++;
+        } else {
+          _streak = 0;
+        }
       });
       if (result.isCorrect) {
         HapticFeedback.lightImpact();
-        SoundService.instance.playCorrect();
+        SoundService.instance.playCorrect(pitch: 1.0 + (_streak.clamp(0, 5) * 0.05));
+        _cardPunch.forward(from: 0);
+        if (result.pointsAwarded > 0) {
+          final id = _nextFloatingId++;
+          setState(() => _floatingScores.add(_FloatingScore(id, result.pointsAwarded)));
+        }
       } else {
         HapticFeedback.mediumImpact();
         SoundService.instance.playIncorrect();
@@ -317,77 +426,119 @@ class _PracticeScreenState extends State<PracticeScreen> {
               controller: _scrollController,
               padding: EdgeInsets.fromLTRB(
                   horizontalPadding, 24, horizontalPadding, 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+              child: Stack(
                 children: [
-                  Text(
-                    t.practiceQuestionProgress(
-                        _questionsAnswered + 1, _sessionLength),
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium
-                        ?.copyWith(fontWeight: FontWeight.w800),
-                  ),
-                  const SizedBox(height: 12),
-                  Card(
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Text(
-                        q.prompt,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                        textAlign: TextAlign.center,
+                  AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 220),
+                    switchInCurve: Curves.easeOut,
+                    switchOutCurve: Curves.easeIn,
+                    transitionBuilder: (child, animation) => FadeTransition(
+                      opacity: animation,
+                      child: SlideTransition(
+                        position: Tween<Offset>(
+                                begin: const Offset(0, 0.04), end: Offset.zero)
+                            .animate(animation),
+                        child: child,
                       ),
+                    ),
+                    child: Column(
+                      // Keying by question forces a fresh subtree per
+                      // question, which is what makes AnimatedSwitcher above
+                      // treat each new question as a transition rather than
+                      // an in-place update.
+                      key: ValueKey(q.questionId),
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          t.practiceQuestionProgress(
+                              _questionsAnswered + 1, _sessionLength),
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(fontWeight: FontWeight.w800),
+                        ),
+                        const SizedBox(height: 12),
+                        AnimatedBuilder(
+                          animation: _cardPunch,
+                          builder: (context, child) => Transform.scale(
+                            scale: _cardPunchTween.evaluate(_cardPunch),
+                            child: child,
+                          ),
+                          child: Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Text(
+                                q.prompt,
+                                style: Theme.of(context).textTheme.headlineSmall,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        ...List.generate(q.options.length, (i) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 6),
+                            child: OptionTile(
+                              text: q.options[i],
+                              selected: _selectedIndex == i,
+                              // colour only appears after answering (server verdict)
+                              state: !answered
+                                  ? OptionState.neutral
+                                  : i == _result!.correctIndex
+                                      ? OptionState.correct
+                                      : (i == _selectedIndex
+                                          ? OptionState.wrong
+                                          : OptionState.neutral),
+                              comboBoost: _comboBoost,
+                              onTap: answered
+                                  ? null
+                                  : () => setState(() => _selectedIndex = i),
+                            ),
+                          );
+                        }),
+                        const SizedBox(height: 24),
+                        if (!answered)
+                          FilledButton(
+                            onPressed: _selectedIndex == null || _submitting
+                                ? null
+                                : _submit,
+                            child: Text(_submitting ? '…' : t.submit),
+                          )
+                        else ...[
+                          ResultBanner(
+                            isCorrect: _result!.isCorrect,
+                            correctOption: _result!.correctOption,
+                            pointsAwarded: _result!.pointsAwarded,
+                          ),
+                          const SizedBox(height: 16),
+                          FilledButton.icon(
+                            onPressed: _nextQuestion,
+                            icon: const Icon(Icons.arrow_forward),
+                            label: Text(
+                              _questionsAnswered >= _sessionLength
+                                  ? t.practiceSeeResults
+                                  : t.nextQuestion,
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 24),
-                  ...List.generate(q.options.length, (i) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6),
-                      child: OptionTile(
-                        text: q.options[i],
-                        selected: _selectedIndex == i,
-                        // colour only appears after answering (server verdict)
-                        state: !answered
-                            ? OptionState.neutral
-                            : i == _result!.correctIndex
-                                ? OptionState.correct
-                                : (i == _selectedIndex
-                                    ? OptionState.wrong
-                                    : OptionState.neutral),
-                        onTap: answered
-                            ? null
-                            : () => setState(() => _selectedIndex = i),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 24),
-                  if (!answered)
-                    FilledButton(
-                      onPressed: _selectedIndex == null || _submitting
-                          ? null
-                          : _submit,
-                      child: Text(_submitting ? '…' : t.submit),
-                    )
-                  else ...[
-                    ResultBanner(
-                      isCorrect: _result!.isCorrect,
-                      correctOption: _result!.correctOption,
-                      pointsAwarded: _result!.pointsAwarded,
+                  for (final f in _floatingScores)
+                    _FloatingScoreText(
+                      key: ValueKey(f.id),
+                      points: f.points,
+                      onDone: () {
+                        if (mounted) {
+                          setState(() =>
+                              _floatingScores.removeWhere((e) => e.id == f.id));
+                        }
+                      },
                     ),
-                    const SizedBox(height: 16),
-                    FilledButton.icon(
-                      onPressed: _nextQuestion,
-                      icon: const Icon(Icons.arrow_forward),
-                      label: Text(
-                        _questionsAnswered >= _sessionLength
-                            ? t.practiceSeeResults
-                            : t.nextQuestion,
-                      ),
-                    ),
-                  ],
                 ],
               ),
             ),

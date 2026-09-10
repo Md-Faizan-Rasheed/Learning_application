@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse
 router = APIRouter(prefix="/legal", tags=["legal"])
 
 _CONTACT_EMAIL = "mdfaizanrasheed123@gmail.com"
-_APP_NAME = "Learning with Game"
+_APP_NAME = "Muslim360"
 
 _STYLE = """
 <style>
@@ -26,7 +26,7 @@ async def privacy_policy() -> HTMLResponse:
 <html><head><meta charset="utf-8"><title>Privacy Policy — {_APP_NAME}</title>{_STYLE}</head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: 2026-09-02</p>
+<p class="updated">Last updated: 2026-09-04</p>
 
 <p>{_APP_NAME} ("the app") is an Islamic-learning quiz app. This page explains what
 information the app collects and how it's used.</p>
@@ -77,7 +77,7 @@ async def terms_of_service() -> HTMLResponse:
 <html><head><meta charset="utf-8"><title>Terms of Service — {_APP_NAME}</title>{_STYLE}</head>
 <body>
 <h1>Terms of Service</h1>
-<p class="updated">Last updated: 2026-09-02</p>
+<p class="updated">Last updated: 2026-09-04</p>
 
 <p>By using {_APP_NAME}, you agree to the following terms.</p>
 

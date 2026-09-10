@@ -14,7 +14,8 @@ class MatchSocket {
   String? get matchId => _matchId;
   String? get userId => _userId;
 
-  Future<Map<String, dynamic>> _emitWithAck(String event, Map<String, dynamic> data) {
+  Future<Map<String, dynamic>> _emitWithAck(
+      String event, Map<String, dynamic> data) {
     final completer = Completer<Map<String, dynamic>>();
     _socket?.emitWithAck(
       event,
@@ -297,6 +298,26 @@ class PlayerRoundResult {
       total: json['total'] as int? ?? 0,
     );
   }
+}
+
+/// One resolved round, paired with the question it was for — built
+/// client-side purely from data already broadcast during the match (each
+/// `question` snapshot combined with its own `round_result`), so the
+/// post-match report needs no extra fetch from the server.
+class MatchReportEntry {
+  MatchReportEntry({
+    required this.roundNo,
+    required this.question,
+    required this.correctIndex,
+    required this.myChosenIndex,
+    required this.isCorrect,
+  });
+
+  final int roundNo;
+  final MatchQuestion question;
+  final int correctIndex;
+  final int? myChosenIndex;
+  final bool isCorrect;
 }
 
 class RoundResult {

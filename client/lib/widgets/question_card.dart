@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
+import 'option_tile.dart';
 
 class QuestionCard extends StatelessWidget {
   final String question;
@@ -9,6 +10,11 @@ class QuestionCard extends StatelessWidget {
   final int? selectedIndex;
   final int? correctIndex;
 
+  /// Amplifies the correct-answer pop/glow — forwarded straight to
+  /// [OptionTile.comboBoost] so multiplayer's combo streak reads the same
+  /// way practice's does.
+  final double comboBoost;
+
   const QuestionCard({
     Key? key,
     required this.question,
@@ -16,6 +22,7 @@ class QuestionCard extends StatelessWidget {
     this.onOptionSelected,
     this.selectedIndex,
     this.correctIndex,
+    this.comboBoost = 1.0,
   }) : super(key: key);
 
   @override
@@ -39,12 +46,18 @@ class QuestionCard extends StatelessWidget {
             for (int i = 0; i < options.length; i++)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 6),
-                child: _OptionTile(
+                child: OptionTile(
                   text: options[i],
                   selected: selectedIndex == i,
-                  isCorrect: revealed && i == correctIndex,
-                  isWrongPick:
-                      revealed && selectedIndex == i && i != correctIndex,
+                  index: i,
+                  comboBoost: comboBoost,
+                  state: !revealed
+                      ? OptionState.neutral
+                      : i == correctIndex
+                          ? OptionState.correct
+                          : (i == selectedIndex
+                              ? OptionState.wrong
+                              : OptionState.neutral),
                   onTap: onOptionSelected == null
                       ? null
                       : () => onOptionSelected!(i),
@@ -71,67 +84,6 @@ class QuestionCard extends StatelessWidget {
                     fontSize: 13),
               ),
             ],
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _OptionTile extends StatelessWidget {
-  const _OptionTile({
-    required this.text,
-    required this.selected,
-    required this.isCorrect,
-    required this.isWrongPick,
-    required this.onTap,
-  });
-
-  final String text;
-  final bool selected;
-  final bool isCorrect;
-  final bool isWrongPick;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-
-    Color? bg;
-    Color border;
-    Widget? trailing;
-
-    if (isCorrect) {
-      bg = Colors.green.withValues(alpha: 0.14);
-      border = Colors.green;
-      trailing = const Icon(Icons.check_circle, color: Colors.green, size: 20);
-    } else if (isWrongPick) {
-      bg = Colors.red.withValues(alpha: 0.14);
-      border = Colors.red;
-      trailing = const Icon(Icons.cancel, color: Colors.red, size: 20);
-    } else if (selected) {
-      bg = colors.primary.withValues(alpha: 0.12);
-      border = colors.primary;
-    } else {
-      border = colors.outlineVariant;
-    }
-
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        decoration: BoxDecoration(
-          color: bg,
-          border: Border.all(color: border, width: 1.5),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(text, style: Theme.of(context).textTheme.titleMedium),
-            ),
-            if (trailing != null) trailing,
           ],
         ),
       ),
