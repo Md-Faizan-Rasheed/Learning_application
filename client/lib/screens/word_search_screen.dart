@@ -92,6 +92,12 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     }
   }
 
+  // Deliberately local-only, like practice sessions' own on-screen "+XP":
+  // the backend only persists XP/streak from a finished multiplayer match
+  // (apply_match_result, called solely from the realtime match-end handler)
+  // against an authenticated user. There's no endpoint yet for awarding a
+  // solo activity's XP to the real profile, and no event-based achievement
+  // hook to trigger from one — that's backend work, not a client wiring gap.
   Future<void> _finish() async {
     _ticker?.cancel();
     // Faster finishes earn a bonus, capped so it can't dominate the score.
