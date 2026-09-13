@@ -504,7 +504,7 @@
   "challengesTapToPlay": "اضغط للعب دورك",
 
   "wsQuickPlayTitle": "البحث عن الكلمات",
-  "wsQuickPlaySubtitle": "ابحث عن أسماء الأنبياء المخفية في الشبكة.",
+  "wsQuickPlaySubtitle": "ابحث عن الكلمات الإسلامية المخفية في الشبكة.",
   "wsScreenTitle": "البحث عن الكلمات",
   "wsRestartTooltip": "لغز جديد",
   "wsPuzzleComplete": "اكتمل اللغز!",
@@ -514,7 +514,11 @@
   "wsHintsRemaining": "{count} تلميحات متبقية",
   "@wsHintsRemaining": { "placeholders": { "count": {} } },
   "wsDifficultyPickerTitle": "اختر مستوى الصعوبة",
-  "wsDifficultyPickerSubtitle": "ابحث عن أسماء الأنبياء المخفية قبل نفاد الكلمات.",
+  "wsDifficultyPickerSubtitle": "ابحث عن كل كلمة مخفية قبل نفاد التلميحات.",
+  "wsCategoryPickerLabel": "الموضوع",
+  "wsCategoryProphets": "الأنبياء",
+  "wsCategoryNamesOfAllah": "أسماء الله",
+  "wsCategoryHijriMonths": "الأشهر الهجرية",
   "wsDifficultyEasy": "سهل",
   "wsDifficultyEasySubtitle": "٦ أسماء · شبكة ٨×٨",
   "wsDifficultyMedium": "متوسط",
@@ -522,5 +526,6 @@
   "wsDifficultyHard": "صعب",
   "wsDifficultyHardSubtitle": "١٠ أسماء · شبكة ١٤×١٤",
   "wsBestTime": "الأفضل: {time}",
+  "wsWordsLearnedTitle": "الكلمات التي تعلمتها",
   "@wsBestTime": { "placeholders": { "time": {} } }
 }

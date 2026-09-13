@@ -557,7 +557,7 @@
   "challengesTapToPlay": "Tap to play your turn",
 
   "wsQuickPlayTitle": "Word Search",
-  "wsQuickPlaySubtitle": "Find hidden Prophet names in the grid.",
+  "wsQuickPlaySubtitle": "Find hidden Islamic words in the grid.",
   "wsScreenTitle": "Word Search",
   "wsRestartTooltip": "New puzzle",
   "wsPuzzleComplete": "Puzzle complete!",
@@ -567,7 +567,11 @@
   "wsHintsRemaining": "{count} hints left",
   "@wsHintsRemaining": { "placeholders": { "count": {} } },
   "wsDifficultyPickerTitle": "Choose a difficulty",
-  "wsDifficultyPickerSubtitle": "Find hidden Prophet names before you're out of words.",
+  "wsDifficultyPickerSubtitle": "Find every hidden word before you run out of guesses.",
+  "wsCategoryPickerLabel": "Topic",
+  "wsCategoryProphets": "Prophets",
+  "wsCategoryNamesOfAllah": "Names of Allah",
+  "wsCategoryHijriMonths": "Hijri Months",
   "wsDifficultyEasy": "Easy",
   "wsDifficultyEasySubtitle": "6 names · 8×8 grid",
   "wsDifficultyMedium": "Medium",
@@ -575,5 +579,6 @@
   "wsDifficultyHard": "Hard",
   "wsDifficultyHardSubtitle": "10 names · 14×14 grid",
   "wsBestTime": "Best: {time}",
+  "wsWordsLearnedTitle": "Words you learned",
   "@wsBestTime": { "placeholders": { "time": {} } }
 }

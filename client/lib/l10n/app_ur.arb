@@ -504,7 +504,7 @@
   "challengesTapToPlay": "اپنی باری کھیلنے کے لیے تھپتھپائیں",
 
   "wsQuickPlayTitle": "لفظ تلاش کریں",
-  "wsQuickPlaySubtitle": "گرڈ میں چھپے ہوئے انبیاء کے نام تلاش کریں۔",
+  "wsQuickPlaySubtitle": "گرڈ میں چھپے ہوئے اسلامی الفاظ تلاش کریں۔",
   "wsScreenTitle": "لفظ تلاش کریں",
   "wsRestartTooltip": "نیا پزل",
   "wsPuzzleComplete": "پزل مکمل ہوگیا!",
@@ -514,7 +514,11 @@
   "wsHintsRemaining": "{count} اشارے باقی",
   "@wsHintsRemaining": { "placeholders": { "count": {} } },
   "wsDifficultyPickerTitle": "مشکل کی سطح منتخب کریں",
-  "wsDifficultyPickerSubtitle": "الفاظ ختم ہونے سے پہلے چھپے ہوئے انبیاء کے نام تلاش کریں۔",
+  "wsDifficultyPickerSubtitle": "اشارے ختم ہونے سے پہلے ہر چھپا ہوا لفظ تلاش کریں۔",
+  "wsCategoryPickerLabel": "موضوع",
+  "wsCategoryProphets": "انبیاء",
+  "wsCategoryNamesOfAllah": "اللہ کے نام",
+  "wsCategoryHijriMonths": "ہجری مہینے",
   "wsDifficultyEasy": "آسان",
   "wsDifficultyEasySubtitle": "٦ نام · ٨×٨ گرڈ",
   "wsDifficultyMedium": "درمیانہ",
@@ -522,5 +526,6 @@
   "wsDifficultyHard": "مشکل",
   "wsDifficultyHardSubtitle": "١٠ نام · ١٤×١٤ گرڈ",
   "wsBestTime": "بہترین: {time}",
+  "wsWordsLearnedTitle": "آپ نے یہ سیکھا",
   "@wsBestTime": { "placeholders": { "time": {} } }
 }
