@@ -16,3 +16,9 @@ class ActivityCompleteIn(BaseModel):
     total_words: int = Field(ge=0)
     seconds: int = Field(ge=0)
     hints_used: int = Field(ge=0)
+
+    # The actual words found this session (word_search only) — lets the
+    # server track *which* words a user has ever found, not just how many,
+    # so a "found every word in a category" achievement is possible. Capped
+    # generously; a real puzzle never has more than ~10 words anyway.
+    words: list[str] = Field(default_factory=list, max_length=50)

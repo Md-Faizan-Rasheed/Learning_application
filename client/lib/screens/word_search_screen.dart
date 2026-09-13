@@ -140,6 +140,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
         totalWords: _puzzle.placedWords.length,
         seconds: _elapsedSeconds,
         hintsUsed: _hintsUsed,
+        words: _foundWords.map((w) => w.word.word).toList(),
       );
       if (mounted) setState(() => _activityResult = result);
     } catch (_) {

@@ -52,6 +52,14 @@ async def complete_activity(
         raise HTTPException(status_code=422, detail=f"unknown activity: {data.activity}")
 
     xp_earned = scorer(data)
+
+    if data.activity == "word_search" and data.words:
+        if not data.category:
+            raise HTTPException(status_code=422, detail="category is required with words")
+        await repo.record_word_search_finds(
+            db, user_id=current.user_id, category=data.category, words=data.words
+        )
+
     return await repo.apply_activity_result(
         db, user_id=current.user_id, xp_earned=xp_earned, today=dt.date.today()
     )

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../api/profile_api.dart';
 import '../l10n/app_localizations.dart';
+import '../utils/hijri_months.dart';
+import '../utils/names_of_allah.dart';
+import '../utils/prophet_names.dart';
+import '../utils/word_search_generator.dart';
 
 class Achievement {
   const Achievement({
@@ -27,6 +31,9 @@ List<Achievement> achievementsFor(AppLocalizations t, Profile profile) {
   final streak = profile.streakDays;
   final matches = profile.recentMatches.length;
   final approvedQuestions = profile.approvedQuestionCount;
+  final wsProgress = profile.wordSearchProgress;
+  bool wsComplete(WordSearchCategory c, int total) =>
+      (wsProgress[c.name] ?? 0) >= total;
 
   return [
     Achievement(
@@ -82,6 +89,24 @@ List<Achievement> achievementsFor(AppLocalizations t, Profile profile) {
       description: t.achKnowledgeBuilderDesc,
       icon: Icons.local_library_rounded,
       unlocked: approvedQuestions >= 10,
+    ),
+    Achievement(
+      title: t.achProphetScholarTitle,
+      description: t.achProphetScholarDesc,
+      icon: Icons.groups_2_rounded,
+      unlocked: wsComplete(WordSearchCategory.prophets, kProphetNames.length),
+    ),
+    Achievement(
+      title: t.achDivineNamesTitle,
+      description: t.achDivineNamesDesc,
+      icon: Icons.brightness_7_rounded,
+      unlocked: wsComplete(WordSearchCategory.namesOfAllah, kNamesOfAllah.length),
+    ),
+    Achievement(
+      title: t.achCalendarKeeperTitle,
+      description: t.achCalendarKeeperDesc,
+      icon: Icons.calendar_month_rounded,
+      unlocked: wsComplete(WordSearchCategory.hijriMonths, kHijriMonths.length),
     ),
   ];
 }

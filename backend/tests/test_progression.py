@@ -87,6 +87,36 @@ async def test_activity_complete_awards_xp_and_extends_streak(client):
     await _delete_account(client, token, "TestPass123!")
 
 
+async def test_activity_complete_tracks_distinct_words_found(client):
+    token = await _register(client)
+    headers = {"Authorization": f"Bearer {token}"}
+
+    async def complete(words):
+        res = await client.post(
+            "/me/activity/complete",
+            headers=headers,
+            json={
+                "activity": "word_search",
+                "category": "prophets",
+                "difficulty": "easy",
+                "words_found": len(words),
+                "total_words": len(words),
+                "seconds": 30,
+                "hints_used": 0,
+                "words": words,
+            },
+        )
+        assert res.status_code == 200
+
+    await complete(["ADAM", "NUH", "MUSA"])
+    await complete(["NUH", "ISA"])  # NUH repeats — should not double-count
+
+    profile = await client.get("/me/profile", headers=headers)
+    assert profile.json()["word_search_progress"]["prophets"] == 4
+
+    await _delete_account(client, token, "TestPass123!")
+
+
 async def test_activity_complete_rejects_unknown_activity(client):
     token = await _register(client)
 

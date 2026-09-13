@@ -29,6 +29,7 @@ class Profile {
     required this.streakDays,
     required this.recentMatches,
     this.approvedQuestionCount = 0,
+    this.wordSearchProgress = const {},
   });
 
   final String displayName;
@@ -36,6 +37,11 @@ class Profile {
   final int streakDays;
   final List<MatchHistoryItem> recentMatches;
   final int approvedQuestionCount;
+
+  /// Distinct words ever found per Word Search category (server key, e.g.
+  /// "prophets") — compared against that category's word-bank size on the
+  /// client to decide whether a "found them all" achievement unlocks.
+  final Map<String, int> wordSearchProgress;
 
   factory Profile.fromJson(Map<String, dynamic> j) => Profile(
         displayName: j['display_name'] as String? ?? 'Player',
@@ -46,6 +52,8 @@ class Profile {
                 MatchHistoryItem.fromJson((e as Map).cast<String, dynamic>()))
             .toList(),
         approvedQuestionCount: j['approved_question_count'] as int? ?? 0,
+        wordSearchProgress: ((j['word_search_progress'] as Map?) ?? const {})
+            .map((k, v) => MapEntry(k as String, v as int)),
       );
 }
 
@@ -118,6 +126,7 @@ class ProfileApi {
     required int totalWords,
     required int seconds,
     required int hintsUsed,
+    List<String> words = const [],
   }) async {
     final res = await _client
         .post(
@@ -134,6 +143,7 @@ class ProfileApi {
             'total_words': totalWords,
             'seconds': seconds,
             'hints_used': hintsUsed,
+            'words': words,
           }),
         )
         .timeout(const Duration(seconds: 8));

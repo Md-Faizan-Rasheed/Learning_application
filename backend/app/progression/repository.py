@@ -217,6 +217,8 @@ async def get_profile(db: AsyncSession, user_id: str) -> dict | None:
         )
     ).scalar()
 
+    word_search_progress = await get_word_search_progress(db, user_id)
+
     return {
         "user_id": str(user["id"]),
         "display_name": user["display_name"],
@@ -234,4 +236,44 @@ async def get_profile(db: AsyncSession, user_id: str) -> dict | None:
             }
             for h in history
         ],
+        "word_search_progress": word_search_progress,
     }
+
+
+async def record_word_search_finds(
+    db: AsyncSession, *, user_id: str, category: str, words: list[str]
+) -> None:
+    """Records that [user_id] has found each of [words] in [category] at
+    least once — ON CONFLICT DO NOTHING so re-finding the same word across
+    different sessions doesn't error or affect first_found_at. This is what
+    a "found every word in a category" achievement checks against; it's
+    deliberately separate from the per-session XP award above."""
+    if not words:
+        return
+    await db.execute(
+        text(
+            """
+            INSERT INTO word_search_finds (user_id, category, word)
+            SELECT :user_id, :category, w
+            FROM unnest(CAST(:words AS text[])) AS w
+            ON CONFLICT (user_id, category, word) DO NOTHING
+            """
+        ),
+        {"user_id": user_id, "category": category, "words": words},
+    )
+
+
+async def get_word_search_progress(db: AsyncSession, user_id: str) -> dict[str, int]:
+    """Distinct words ever found per category — compared against each
+    category's known word-bank size on the client to decide whether a
+    "found them all" achievement should unlock."""
+    rows = (
+        await db.execute(
+            text(
+                "SELECT category, count(*) AS found "
+                "FROM word_search_finds WHERE user_id = :id GROUP BY category"
+            ),
+            {"id": user_id},
+        )
+    ).mappings().all()
+    return {r["category"]: r["found"] for r in rows}

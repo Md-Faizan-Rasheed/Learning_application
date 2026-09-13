@@ -459,6 +459,12 @@
   "achContributorDesc": "Get a submitted question approved",
   "achKnowledgeBuilderTitle": "Knowledge Builder",
   "achKnowledgeBuilderDesc": "Get 10 submitted questions approved",
+  "achProphetScholarTitle": "Prophet Scholar",
+  "achProphetScholarDesc": "Find every Prophet in Word Search",
+  "achDivineNamesTitle": "Divine Names",
+  "achDivineNamesDesc": "Find every Name of Allah in Word Search",
+  "achCalendarKeeperTitle": "Calendar Keeper",
+  "achCalendarKeeperDesc": "Find every Hijri month in Word Search",
 
   "leagueBronze": "Bronze",
   "leagueSilver": "Silver",
