@@ -315,7 +315,11 @@ class _HomeScreenState extends State<HomeScreen>
     final (category, difficulty) = choice;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => WordSearchScreen(difficulty: difficulty, category: category),
+        builder: (_) => WordSearchScreen(
+          difficulty: difficulty,
+          category: category,
+          token: widget.auth.current?.token,
+        ),
       ),
     );
   }

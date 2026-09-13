@@ -8,11 +8,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from . import rules
 
 
-async def apply_match_result(
-    db: AsyncSession, *, user_id: str, placement: int, correct_answers: int, today: dt.date
+async def _apply_xp_and_streak(
+    db: AsyncSession, *, user_id: str, xp_earned: int, today: dt.date
 ) -> dict:
-    """Award XP and update the streak for one finished match. Returns a summary
-    of what changed (for a post-match 'you earned…' screen)."""
+    """Shared by apply_match_result and apply_activity_result: award
+    already-computed XP and advance the daily streak. Returns a summary of
+    what changed (for a post-session 'you earned…' screen)."""
     row = (
         await db.execute(
             text(
@@ -25,7 +26,6 @@ async def apply_match_result(
     if row is None:
         return {"xp_earned": 0, "total_xp": 0, "streak_days": 0, "streak_extended": False}
 
-    xp_earned = rules.xp_for_match(placement=placement, correct_answers=correct_answers)
     new_streak, counted_today = rules.next_streak(
         last_played_on=row["last_played_on"],
         today=today,
@@ -52,6 +52,24 @@ async def apply_match_result(
         "streak_days": new_streak,
         "streak_extended": counted_today,
     }
+
+
+async def apply_match_result(
+    db: AsyncSession, *, user_id: str, placement: int, correct_answers: int, today: dt.date
+) -> dict:
+    """Award XP and update the streak for one finished match."""
+    xp_earned = rules.xp_for_match(placement=placement, correct_answers=correct_answers)
+    return await _apply_xp_and_streak(db, user_id=user_id, xp_earned=xp_earned, today=today)
+
+
+async def apply_activity_result(
+    db: AsyncSession, *, user_id: str, xp_earned: int, today: dt.date
+) -> dict:
+    """Award XP and update the streak for a completed solo activity (e.g. a
+    Word Search puzzle) — the non-match equivalent of apply_match_result.
+    Takes the already-computed xp_earned directly since solo activities have
+    no placement to score from."""
+    return await _apply_xp_and_streak(db, user_id=user_id, xp_earned=xp_earned, today=today)
 
 
 async def get_leaderboard(db: AsyncSession, current_user_id: str, limit: int = 30) -> list[dict]:

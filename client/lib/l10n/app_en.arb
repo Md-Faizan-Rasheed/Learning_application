@@ -580,5 +580,7 @@
   "wsDifficultyHardSubtitle": "10 names · 14×14 grid",
   "wsBestTime": "Best: {time}",
   "wsWordsLearnedTitle": "Words you learned",
+  "wsActivityXpEarned": "+{xp} XP added to your profile",
+  "@wsActivityXpEarned": { "placeholders": { "xp": {} } },
   "@wsBestTime": { "placeholders": { "time": {} } }
 }

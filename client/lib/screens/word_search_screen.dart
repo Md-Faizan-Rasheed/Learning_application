@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../api/profile_api.dart';
 import '../l10n/app_localizations.dart';
 import '../services/word_search_stats.dart';
 import '../theme/app_theme.dart';
@@ -11,6 +12,7 @@ import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
 import '../widgets/card_stock.dart';
 import '../widgets/session_complete_card.dart';
+import '../widgets/status_pill.dart';
 import '../widgets/word_search_grid.dart';
 
 const _kMaxHints = 3;
@@ -22,10 +24,18 @@ class WordSearchScreen extends StatefulWidget {
     super.key,
     required this.difficulty,
     this.category = WordSearchCategory.prophets,
+    this.token,
   });
 
   final WordSearchDifficulty difficulty;
   final WordSearchCategory category;
+
+  /// When set (the player is logged in), a completed puzzle is reported to
+  /// the same profile ledger a finished multiplayer match updates — real,
+  /// persisted XP and streak credit, not just the local best-time blob.
+  /// Null (guest play) skips that report entirely; the puzzle still works
+  /// exactly as it always has.
+  final String? token;
 
   @override
   State<WordSearchScreen> createState() => _WordSearchScreenState();
@@ -43,6 +53,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
   int _hintsUsed = 0;
   bool _complete = false;
   bool _statsSaved = false;
+  ActivityResult? _activityResult;
 
   @override
   void initState() {
@@ -78,6 +89,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       _hintsUsed = 0;
       _complete = false;
       _statsSaved = false;
+      _activityResult = null;
     });
     _startTicker();
   }
@@ -92,12 +104,6 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     }
   }
 
-  // Deliberately local-only, like practice sessions' own on-screen "+XP":
-  // the backend only persists XP/streak from a finished multiplayer match
-  // (apply_match_result, called solely from the realtime match-end handler)
-  // against an authenticated user. There's no endpoint yet for awarding a
-  // solo activity's XP to the real profile, and no event-based achievement
-  // hook to trigger from one — that's backend work, not a client wiring gap.
   Future<void> _finish() async {
     _ticker?.cancel();
     // Faster finishes earn a bonus, capped so it can't dominate the score.
@@ -111,6 +117,33 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       await WordSearchStats.instance.recordCompletion(
           widget.category, widget.difficulty,
           seconds: _elapsedSeconds);
+      await _reportActivity();
+    }
+  }
+
+  /// Reports the finished puzzle to the real profile (XP + streak), same
+  /// ledger a finished multiplayer match updates. Guest play (no token)
+  /// skips this entirely — that path is unchanged from before. A network
+  /// failure here is swallowed rather than shown: the puzzle is already
+  /// done and the local stats already saved, so this is a bonus on top,
+  /// not something worth surfacing an error banner over.
+  Future<void> _reportActivity() async {
+    final token = widget.token;
+    if (token == null) return;
+    try {
+      final result = await ProfileApi().completeActivity(
+        token,
+        activity: 'word_search',
+        category: widget.category.name,
+        difficulty: widget.difficulty.name,
+        wordsFound: _foundWords.length,
+        totalWords: _puzzle.placedWords.length,
+        seconds: _elapsedSeconds,
+        hintsUsed: _hintsUsed,
+      );
+      if (mounted) setState(() => _activityResult = result);
+    } catch (_) {
+      // Non-critical background report — see doc comment above.
     }
   }
 
@@ -183,11 +216,39 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             card,
+            if (_activityResult != null) ...[
+              const SizedBox(height: 12),
+              _buildActivityResultBadge(t, _activityResult!),
+            ],
             const SizedBox(height: 16),
             _buildWordsLearnedRecap(t),
           ],
         ),
       ),
+    );
+  }
+
+  /// Only shown once the backend has actually confirmed the XP/streak
+  /// report (see _reportActivity) — guests and offline failures simply
+  /// never see this, rather than showing a number that might not be real.
+  Widget _buildActivityResultBadge(AppLocalizations t, ActivityResult result) {
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 8,
+      runSpacing: 6,
+      children: [
+        StatusPill(
+          label: t.wsActivityXpEarned(result.xpEarned),
+          tone: StatusTone.success,
+          icon: Icons.stars_rounded,
+        ),
+        if (result.streakExtended)
+          StatusPill(
+            label: t.rewardStreakDays(result.streakDays),
+            tone: StatusTone.warning,
+            icon: Icons.local_fire_department_rounded,
+          ),
+      ],
     );
   }
 

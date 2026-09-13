@@ -76,9 +76,73 @@ class LeaderboardEntry {
       );
 }
 
+/// What completing a solo activity (currently just Word Search) earned —
+/// the non-match equivalent of the "you earned…" summary a finished
+/// multiplayer match produces.
+class ActivityResult {
+  ActivityResult({
+    required this.xpEarned,
+    required this.totalXp,
+    required this.streakDays,
+    required this.streakExtended,
+  });
+
+  final int xpEarned;
+  final int totalXp;
+  final int streakDays;
+  final bool streakExtended;
+
+  factory ActivityResult.fromJson(Map<String, dynamic> j) => ActivityResult(
+        xpEarned: j['xp_earned'] as int? ?? 0,
+        totalXp: j['total_xp'] as int? ?? 0,
+        streakDays: j['streak_days'] as int? ?? 0,
+        streakExtended: j['streak_extended'] as bool? ?? false,
+      );
+}
+
 class ProfileApi {
   ProfileApi({http.Client? client}) : _client = client ?? http.Client();
   final http.Client _client;
+
+  /// Reports a finished solo activity so it counts toward the real,
+  /// persisted profile (XP + daily streak) — the same ledger a finished
+  /// multiplayer match updates. Requires a logged-in [token]; there is no
+  /// anonymous/guest path for this call (unlike the /play/* practice
+  /// endpoints), since XP has to be attributed to a real account.
+  Future<ActivityResult> completeActivity(
+    String token, {
+    required String activity,
+    String? category,
+    required String difficulty,
+    required int wordsFound,
+    required int totalWords,
+    required int seconds,
+    required int hintsUsed,
+  }) async {
+    final res = await _client
+        .post(
+          Uri.parse('$kApiBaseUrl/me/activity/complete'),
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode({
+            'activity': activity,
+            'category': category,
+            'difficulty': difficulty,
+            'words_found': wordsFound,
+            'total_words': totalWords,
+            'seconds': seconds,
+            'hints_used': hintsUsed,
+          }),
+        )
+        .timeout(const Duration(seconds: 8));
+    if (res.statusCode != 200) {
+      throw ApiException('Could not record activity (${res.statusCode}).');
+    }
+    return ActivityResult.fromJson(
+        jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>);
+  }
 
   Future<Profile> fetchProfile(String token) async {
     final res = await _client.get(

@@ -527,5 +527,7 @@
   "wsDifficultyHardSubtitle": "١٠ نام · ١٤×١٤ گرڈ",
   "wsBestTime": "بہترین: {time}",
   "wsWordsLearnedTitle": "آپ نے یہ سیکھا",
+  "wsActivityXpEarned": "+{xp} XP آپ کی پروفائل میں شامل ہو گئے",
+  "@wsActivityXpEarned": { "placeholders": { "xp": {} } },
   "@wsBestTime": { "placeholders": { "time": {} } }
 }

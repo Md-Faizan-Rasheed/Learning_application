@@ -527,5 +527,7 @@
   "wsDifficultyHardSubtitle": "١٠ أسماء · شبكة ١٤×١٤",
   "wsBestTime": "الأفضل: {time}",
   "wsWordsLearnedTitle": "الكلمات التي تعلمتها",
+  "wsActivityXpEarned": "تمت إضافة +{xp} نقطة خبرة إلى ملفك الشخصي",
+  "@wsActivityXpEarned": { "placeholders": { "xp": {} } },
   "@wsBestTime": { "placeholders": { "time": {} } }
 }

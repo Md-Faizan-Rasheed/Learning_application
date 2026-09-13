@@ -1,13 +1,28 @@
 from __future__ import annotations
 
+import datetime as dt
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..common.deps import CurrentUser, get_current_user, get_db
 from ..social import repository as social_repo
 from . import repository as repo
+from . import rules
+from .schemas import ActivityCompleteIn
 
 router = APIRouter(prefix="/me", tags=["profile"])
+
+# Activities this endpoint knows how to score. Adding a new solo activity
+# means adding its xp_for_* rule and a branch here — same shape as
+# game/scoring.py's per-difficulty table.
+_ACTIVITY_SCORERS = {
+    "word_search": lambda data: rules.xp_for_word_search(
+        difficulty=data.difficulty,
+        words_found=min(data.words_found, data.total_words),
+        hints_used=data.hints_used,
+    ),
+}
 
 
 @router.get("/profile")
@@ -20,6 +35,26 @@ async def my_profile(
     if profile is None:
         raise HTTPException(status_code=404, detail="user not found")
     return profile
+
+
+@router.post("/activity/complete")
+async def complete_activity(
+    data: ActivityCompleteIn,
+    current: CurrentUser = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
+    """Award XP + streak credit for a finished solo learning activity (e.g.
+    Word Search) — the non-match equivalent of a multiplayer match ending.
+    XP is always computed here from the reported fields, never accepted
+    from the client directly."""
+    scorer = _ACTIVITY_SCORERS.get(data.activity)
+    if scorer is None:
+        raise HTTPException(status_code=422, detail=f"unknown activity: {data.activity}")
+
+    xp_earned = scorer(data)
+    return await repo.apply_activity_result(
+        db, user_id=current.user_id, xp_earned=xp_earned, today=dt.date.today()
+    )
 
 
 @router.get("/leaderboard")
