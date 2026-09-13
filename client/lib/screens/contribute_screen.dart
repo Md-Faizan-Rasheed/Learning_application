@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../api/contributions_api.dart';
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
 import '../widgets/loading_view.dart';
@@ -260,7 +261,7 @@ class _ContributeScreenState extends State<ContributeScreen> {
                                           Radio<int>(
                                             value: j,
                                             groupValue: _correctIndex,
-                                            activeColor: Colors.green,
+                                            activeColor: AppPalette.correctGold,
                                             onChanged: (v) => setState(
                                                 () => _correctIndex = v ?? 0),
                                           ),
@@ -274,7 +275,7 @@ class _ContributeScreenState extends State<ContributeScreen> {
                                                 isDense: true,
                                                 filled: true,
                                                 fillColor: j == _correctIndex
-                                                    ? Colors.green
+                                                    ? AppPalette.correctGold
                                                         .withValues(alpha: 0.08)
                                                     : colors
                                                         .surfaceContainerHighest
@@ -285,7 +286,7 @@ class _ContributeScreenState extends State<ContributeScreen> {
                                                       BorderRadius.circular(12),
                                                   borderSide: j == _correctIndex
                                                       ? const BorderSide(
-                                                          color: Colors.green)
+                                                          color: AppPalette.correctGold)
                                                       : BorderSide.none,
                                                 ),
                                               ),

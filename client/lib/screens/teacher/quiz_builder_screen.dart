@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../api/teacher_api.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/app_theme.dart';
 import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 
@@ -11,11 +12,11 @@ const _maxOptions = 8;
 Color _difficultyColor(String difficulty, ColorScheme colors) {
   switch (difficulty) {
     case 'easy':
-      return Colors.green.shade700;
+      return colors.primary;
     case 'hard':
-      return Colors.red.shade700;
+      return AppPalette.incorrectRed;
     default:
-      return Colors.amber.shade800;
+      return AppPalette.mutedGold;
   }
 }
 
@@ -416,7 +417,7 @@ class _QuizBuilderScreenState extends State<QuizBuilderScreen> {
 
     if (b.isAiDraft) {
       final q = b.bankQuestion!;
-      final badgeColor = b.confirmed ? Colors.green : Colors.amber.shade800;
+      final badgeColor = b.confirmed ? colors.primary : AppPalette.mutedGold;
       return Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
@@ -424,7 +425,7 @@ class _QuizBuilderScreenState extends State<QuizBuilderScreen> {
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
               color:
-                  b.confirmed ? colors.outlineVariant : Colors.amber.shade400),
+                  b.confirmed ? colors.outlineVariant : AppPalette.mutedGold),
           boxShadow: [
             BoxShadow(
                 color: colors.shadow.withValues(alpha: 0.05),
@@ -645,7 +646,7 @@ class _QuizBuilderScreenState extends State<QuizBuilderScreen> {
                   Radio<int>(
                     value: j,
                     groupValue: d.correctIndex,
-                    activeColor: Colors.green,
+                    activeColor: AppPalette.correctGold,
                     onChanged: (v) => setState(() => d.correctIndex = v ?? 0),
                   ),
                   Expanded(
@@ -657,13 +658,13 @@ class _QuizBuilderScreenState extends State<QuizBuilderScreen> {
                         isDense: true,
                         filled: true,
                         fillColor: j == d.correctIndex
-                            ? Colors.green.withValues(alpha: 0.08)
+                            ? AppPalette.correctGold.withValues(alpha: 0.12)
                             : colors.surfaceContainerHighest
                                 .withValues(alpha: 0.25),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: j == d.correctIndex
-                              ? const BorderSide(color: Colors.green)
+                              ? const BorderSide(color: AppPalette.correctGold)
                               : BorderSide.none,
                         ),
                       ),

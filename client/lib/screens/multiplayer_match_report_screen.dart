@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
 import '../realtime/match_socket.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
@@ -96,7 +97,7 @@ class _ReportQuestionCard extends StatelessWidget {
                   entry.isCorrect
                       ? Icons.check_circle_rounded
                       : Icons.cancel_rounded,
-                  color: entry.isCorrect ? Colors.green : Colors.red,
+                  color: entry.isCorrect ? AppPalette.correctGold : AppPalette.incorrectRed,
                   size: 20,
                 ),
               ],

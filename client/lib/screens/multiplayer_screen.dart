@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +11,19 @@ import '../api/social_api.dart';
 import '../l10n/app_localizations.dart';
 import '../realtime/match_socket.dart';
 import '../services/sound_service.dart';
+import '../theme/app_theme.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
+import '../widgets/card_stock.dart';
 import '../widgets/countdown_timer.dart';
 import '../widgets/leaderboard.dart';
 import '../widgets/loading_view.dart';
+import '../widgets/mark_painters.dart';
+import '../widgets/medal_painter.dart';
 import '../widgets/question_card.dart';
+import '../widgets/question_flip_transition.dart';
 import '../widgets/reward_card.dart';
+import '../widgets/seat_marker.dart';
 import 'multiplayer_choice_screen.dart';
 import 'multiplayer_match_report_screen.dart';
 
@@ -678,6 +685,11 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
               numberOfParticles: 28,
               gravity: 0.3,
               shouldLoop: false,
+              colors: const [
+                AppPalette.deepTeal,
+                AppPalette.mutedGold,
+                AppPalette.cardStock,
+              ],
             ),
           ],
         ),
@@ -727,13 +739,10 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
               style: TextStyle(color: colors.onSurfaceVariant, fontSize: 13),
             ),
             const SizedBox(height: 20),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              alignment: WrapAlignment.center,
-              children: [
-                for (final p in _roster) _LobbyPlayerChip(player: p),
-              ],
+            _CardTableLobby(
+              roster: _roster,
+              seatCap: isRoom ? _seatCap : kMultiplayerMaxSeats,
+              mySeat: _mySeat,
             ),
             if (isRoom && _isHost) ...[
               const SizedBox(height: 24),
@@ -814,13 +823,16 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
                     ),
                   ],
                   const SizedBox(height: 20),
-                  QuestionCard(
-                    question: question.promptFor(widget.lang),
-                    options: question.optionsFor(widget.lang),
-                    onOptionSelected: _submitted ? null : _submitAnswer,
-                    selectedIndex: _selectedIndex,
-                    correctIndex: _roundResult?.correctIndex,
-                    comboBoost: _comboBoost,
+                  QuestionFlipTransition(
+                    flipKey: question.questionId,
+                    child: QuestionCard(
+                      question: question.promptFor(widget.lang),
+                      options: question.optionsFor(widget.lang),
+                      onOptionSelected: _submitted ? null : _submitAnswer,
+                      selectedIndex: _selectedIndex,
+                      correctIndex: _roundResult?.correctIndex,
+                      comboBoost: _comboBoost,
+                    ),
                   ),
                   if (_roundResult != null) ...[
                     const SizedBox(height: 16),
@@ -927,11 +939,9 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
         Center(
           child: Column(
             children: [
-              Icon(
-                won ? Icons.emoji_events_rounded : Icons.flag_rounded,
-                size: 56,
-                color: won ? Colors.amber : Colors.grey,
-              ),
+              won
+                  ? const MedalIcon(size: 56)
+                  : Icon(Icons.flag_rounded, size: 56, color: AppPalette.inkMuted),
               const SizedBox(height: 8),
               Text(
                 myStanding == null
@@ -1299,13 +1309,11 @@ class _ComboBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFFF97316), Color(0xFFEF4444)],
-        ),
+        color: AppPalette.mutedGold,
         borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(
-            color: Colors.orange.withValues(alpha: 0.4),
+            color: AppPalette.shadowInk,
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
@@ -1315,12 +1323,12 @@ class _ComboBadge extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(Icons.local_fire_department,
-              color: Colors.white, size: 16),
+              color: AppPalette.ink, size: 16),
           const SizedBox(width: 4),
           Text(
             AppLocalizations.of(context)!.mpComboX(combo),
             style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w800, fontSize: 12),
+                color: AppPalette.ink, fontWeight: FontWeight.w800, fontSize: 12),
           ),
         ],
       ),
@@ -1343,25 +1351,32 @@ class _RoundResultBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final ok = answered && correct;
-    final color = !answered ? Colors.grey : (ok ? Colors.green : Colors.red);
+    final color =
+        !answered ? AppPalette.inkMuted : (ok ? AppPalette.correctGold : AppPalette.incorrectRed);
 
     return Column(
       children: [
         Container(
           padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.12),
-            borderRadius: BorderRadius.circular(12),
+          decoration: cardStockDecoration(
+            color: Color.alphaBlend(color.withValues(alpha: 0.10), AppPalette.cardStock),
+            borderColor: color.withValues(alpha: 0.4),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                !answered
-                    ? Icons.timer_off
-                    : (ok ? Icons.check_circle : Icons.cancel),
-                color: color,
-              ),
+              if (!answered)
+                Icon(Icons.timer_off, color: color)
+              else
+                SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CustomPaint(
+                    painter: ok
+                        ? CheckmarkPainter(color: color)
+                        : CrossPainter(color: color),
+                  ),
+                ),
               const SizedBox(width: 8),
               Text(
                 !answered
@@ -1381,7 +1396,7 @@ class _RoundResultBanner extends StatelessWidget {
                 rankShift! > 0
                     ? Icons.arrow_upward_rounded
                     : Icons.arrow_downward_rounded,
-                color: rankShift! > 0 ? Colors.green : Colors.red,
+                color: rankShift! > 0 ? AppPalette.deepTeal : AppPalette.incorrectRed,
                 size: 16,
               ),
               const SizedBox(width: 4),
@@ -1390,7 +1405,7 @@ class _RoundResultBanner extends StatelessWidget {
                     ? t.mpRankUp(rankShift!)
                     : t.mpRankDown(-rankShift!),
                 style: TextStyle(
-                  color: rankShift! > 0 ? Colors.green : Colors.red,
+                  color: rankShift! > 0 ? AppPalette.deepTeal : AppPalette.incorrectRed,
                   fontWeight: FontWeight.w700,
                   fontSize: 12.5,
                 ),
@@ -1450,26 +1465,13 @@ class _PresenceChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-    final initial = player.name.trim().isNotEmpty
-        ? player.name.trim()[0].toUpperCase()
-        : '?';
     return Tooltip(
       message: player.name,
-      child: CircleAvatar(
-        radius: 14,
-        backgroundColor:
-            answered ? colors.primary : colors.surfaceContainerHighest,
-        child: answered
-            ? const Icon(Icons.check_rounded, color: Colors.white, size: 16)
-            : Text(
-                initial,
-                style: TextStyle(
-                  color: colors.onSurfaceVariant,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 12,
-                ),
-              ),
+      child: SeatMarker(
+        name: player.name,
+        isBot: player.isBot,
+        answered: answered,
+        size: 30,
       ),
     );
   }
@@ -1528,44 +1530,122 @@ class _RoomCodeCard extends StatelessWidget {
   }
 }
 
-class _LobbyPlayerChip extends StatelessWidget {
-  const _LobbyPlayerChip({required this.player});
-  final RosterPlayer player;
+/// A physical card-table layout: seats arranged in a circle around a table
+/// graphic, generalized to however many seats this match actually has
+/// (quick-match's fixed 4, or a room's chosen 4/6/8). Empty seats show a
+/// pulsing "waiting" glow via [SeatMarker]; filled seats show the real
+/// player name.
+class _CardTableLobby extends StatelessWidget {
+  const _CardTableLobby({
+    required this.roster,
+    required this.seatCap,
+    required this.mySeat,
+  });
+
+  final List<RosterPlayer> roster;
+  final int seatCap;
+  final int? mySeat;
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-    final initial = player.name.trim().isNotEmpty
-        ? player.name.trim()[0].toUpperCase()
-        : '?';
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CircleAvatar(
-          radius: 22,
-          backgroundColor: colors.primary.withValues(alpha: 0.18),
-          child: player.isBot
-              ? Icon(Icons.smart_toy_rounded, color: colors.primary)
-              : Text(
-                  initial,
-                  style: TextStyle(
-                      color: colors.primary, fontWeight: FontWeight.w800),
-                ),
-        ),
-        const SizedBox(height: 4),
-        SizedBox(
-          width: 64,
-          child: Text(
-            player.name,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: colors.onSurfaceVariant, fontSize: 11),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final side = constraints.maxWidth.clamp(0, 340).toDouble();
+        final tableDiameter = side * 0.56;
+        final seatSize = seatCap > 6 ? 44.0 : 52.0;
+        final orbitRadius = tableDiameter / 2 + seatSize / 2 + 10;
+        final boardSize = tableDiameter + seatSize * 2 + 20;
+
+        final bySeat = {for (final p in roster) p.seat: p};
+
+        return SizedBox(
+          width: boardSize,
+          height: boardSize,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              CustomPaint(
+                size: Size(tableDiameter, tableDiameter),
+                painter: const _TablePainter(),
+              ),
+              for (var seat = 0; seat < seatCap; seat++)
+                Builder(builder: (context) {
+                  final angle =
+                      (2 * math.pi * seat / seatCap) - (math.pi / 2);
+                  final dx = orbitRadius * math.cos(angle);
+                  final dy = orbitRadius * math.sin(angle);
+                  final player = bySeat[seat];
+                  return Transform.translate(
+                    offset: Offset(dx, dy),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SeatMarker(
+                          name: player?.name,
+                          isBot: player?.isBot ?? false,
+                          highlighted: seat == mySeat,
+                          size: seatSize,
+                        ),
+                        if (player != null) ...[
+                          const SizedBox(height: 4),
+                          SizedBox(
+                            width: 64,
+                            child: Text(
+                              player.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurfaceVariant,
+                                  fontSize: 11),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  );
+                }),
+            ],
           ),
-        ),
-      ],
+        );
+      },
     );
   }
+}
+
+/// A flat card-stock "table" disc the seats sit around.
+class _TablePainter extends CustomPainter {
+  const _TablePainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height / 2);
+    final radius = size.width / 2;
+
+    canvas.drawCircle(
+      center,
+      radius,
+      Paint()..color = AppPalette.shadowInk,
+    );
+    canvas.drawCircle(
+      center.translate(0, -3),
+      radius,
+      Paint()..color = AppPalette.deepTealMuted,
+    );
+    canvas.drawCircle(
+      center.translate(0, -3),
+      radius,
+      Paint()
+        ..color = AppPalette.deepTeal.withValues(alpha: 0.5)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _TablePainter oldDelegate) => false;
 }
 
 /// The already-broadcast per-player breakdown for one resolved round,
@@ -1598,7 +1678,7 @@ class _RoundStandingsList extends StatelessWidget {
               children: [
                 SizedBox(
                   width: 28,
-                  child: i < podiumGradients.length
+                  child: i < podiumColors.length
                       ? podiumRankBadge(i, size: 24)
                       : Text('${i + 1}',
                           textAlign: TextAlign.center,
@@ -1610,7 +1690,9 @@ class _RoundStandingsList extends StatelessWidget {
                 Icon(
                   results[i].isCorrect ? Icons.check_circle : Icons.cancel,
                   size: 16,
-                  color: results[i].isCorrect ? Colors.green : Colors.red,
+                  color: results[i].isCorrect
+                      ? AppPalette.correctGold
+                      : AppPalette.incorrectRed,
                 ),
                 const SizedBox(width: 8),
                 Expanded(

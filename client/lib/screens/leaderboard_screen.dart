@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import '../api/profile_api.dart';
 import '../l10n/app_localizations.dart';
 import '../screens/practice_screen.dart';
+import '../theme/app_theme.dart';
 import '../utils/league.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
 import '../widgets/category_picker_dialog.dart';
 import '../widgets/fade_scroll_edge.dart';
-import '../widgets/leaderboard.dart' show podiumGradients;
+import '../widgets/leaderboard.dart' show podiumColors, podiumShadowColors;
 import '../widgets/loading_view.dart';
 
 enum _Zone { promotion, safe, atRisk, none }
@@ -23,11 +24,11 @@ _Zone _zoneForRank(int rank) {
 Color _zoneColor(_Zone zone) {
   switch (zone) {
     case _Zone.promotion:
-      return Colors.amber.shade700;
+      return AppPalette.mutedGold;
     case _Zone.safe:
-      return Colors.blueGrey.shade400;
+      return AppPalette.inkMuted;
     case _Zone.atRisk:
-      return Colors.red.shade400;
+      return AppPalette.incorrectRed;
     case _Zone.none:
       return Colors.transparent;
   }
@@ -299,34 +300,31 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     return Container(
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [colors.primary, colors.secondary]),
+        color: colors.primary,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-              color: colors.primary.withValues(alpha: 0.3),
-              blurRadius: 18,
-              offset: const Offset(0, 8))
+              color: AppPalette.shadowInk,
+              blurRadius: 14,
+              offset: const Offset(0, 6))
         ],
       ),
       child: Column(
         children: [
-          const Icon(Icons.flag_circle_rounded, color: Colors.white, size: 56),
+          Icon(Icons.flag_circle_rounded, color: colors.onPrimary, size: 56),
           const SizedBox(height: 16),
           Text(
             t.lbEmptyTitle,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w800),
+            style: TextStyle(
+                color: colors.onPrimary, fontSize: 20, fontWeight: FontWeight.w800),
           ),
           const SizedBox(height: 8),
           Text(
             t.lbEmptyBody,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.9), fontSize: 13),
+                color: colors.onPrimary.withValues(alpha: 0.85), fontSize: 13),
           ),
           const SizedBox(height: 20),
           SizedBox(
@@ -334,7 +332,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
             height: 50,
             child: FilledButton.icon(
               style: FilledButton.styleFrom(
-                  backgroundColor: Colors.white,
+                  backgroundColor: colors.onPrimary,
                   foregroundColor: colors.primary),
               onPressed: _startChallenge,
               icon: const Icon(Icons.rocket_launch_rounded),
@@ -367,16 +365,13 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     return Container(
       padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [colors.primary, colors.secondary]),
+        color: colors.primary,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-              color: colors.primary.withValues(alpha: 0.3),
-              blurRadius: 18,
-              offset: const Offset(0, 8))
+              color: AppPalette.shadowInk,
+              blurRadius: 14,
+              offset: const Offset(0, 6))
         ],
       ),
       child: Column(
@@ -389,17 +384,17 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                 height: 52,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withValues(alpha: 0.22),
+                  color: colors.onPrimary.withValues(alpha: 0.22),
                   border: Border.all(
-                      color: Colors.white.withValues(alpha: 0.6), width: 2),
+                      color: colors.onPrimary.withValues(alpha: 0.6), width: 2),
                 ),
                 child: Center(
                   child: Text(
                     profile.displayName.trim().isNotEmpty
                         ? profile.displayName.trim()[0].toUpperCase()
                         : 'P',
-                    style: const TextStyle(
-                        color: Colors.white,
+                    style: TextStyle(
+                        color: colors.onPrimary,
                         fontSize: 22,
                         fontWeight: FontWeight.w900),
                   ),
@@ -412,15 +407,15 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                   children: [
                     Text(
                       rank != null ? t.lbYourRank(rank) : profile.displayName,
-                      style: const TextStyle(
-                          color: Colors.white,
+                      style: TextStyle(
+                          color: colors.onPrimary,
                           fontSize: 22,
                           fontWeight: FontWeight.w900),
                     ),
                     Text(
                       t.xpTotal(profile.totalXp),
                       style: TextStyle(
-                          color: Colors.white.withValues(alpha: 0.9),
+                          color: colors.onPrimary.withValues(alpha: 0.85),
                           fontWeight: FontWeight.w700),
                     ),
                   ],
@@ -431,7 +426,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
           const SizedBox(height: 14),
           Text(gapLine,
               style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.95),
+                  color: colors.onPrimary.withValues(alpha: 0.9),
                   fontWeight: FontWeight.w600)),
           const SizedBox(height: 16),
           SizedBox(
@@ -439,7 +434,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
             height: 48,
             child: FilledButton.icon(
               style: FilledButton.styleFrom(
-                  backgroundColor: Colors.white,
+                  backgroundColor: colors.onPrimary,
                   foregroundColor: colors.primary),
               onPressed: _startChallenge,
               icon: const Icon(Icons.arrow_forward_rounded),
@@ -498,11 +493,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                     width: 64,
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      gradient: active
-                          ? LinearGradient(colors: tierInfo.colors)
-                          : null,
                       color: active
-                          ? null
+                          ? tierInfo.colors.first
                           : colors.surfaceContainerHighest
                               .withValues(alpha: 0.3),
                       borderRadius: BorderRadius.circular(16),
@@ -514,8 +506,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(tierInfo.icon,
-                            color:
-                                active ? Colors.white : colors.onSurfaceVariant,
+                            color: active
+                                ? AppPalette.cardStock
+                                : colors.onSurfaceVariant,
                             size: 22),
                         const SizedBox(height: 4),
                         Text(
@@ -525,8 +518,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                           style: TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.w800,
-                            color:
-                                active ? Colors.white : colors.onSurfaceVariant,
+                            color: active
+                                ? AppPalette.cardStock
+                                : colors.onSurfaceVariant,
                           ),
                         ),
                       ],
@@ -653,28 +647,28 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
       _RewardTier(
           icon: Icons.emoji_events_rounded,
           label: t.lbReward1st,
-          colors: podiumGradients[0],
+          color: podiumColors[0],
           inRange: rank != null && rank <= 1),
       _RewardTier(
           icon: Icons.emoji_events_rounded,
           label: t.lbReward2nd,
-          colors: podiumGradients[1],
+          color: podiumColors[1],
           inRange: rank != null && rank <= 2),
       _RewardTier(
           icon: Icons.emoji_events_rounded,
           label: t.lbReward3rd,
-          colors: podiumGradients[2],
+          color: podiumColors[2],
           inRange: rank != null && rank <= 3),
       _RewardTier(
         icon: Icons.stars_rounded,
         label: t.lbRewardTop10(500),
-        colors: const [Color(0xFF34D399), Color(0xFF059669)],
+        color: AppPalette.deepTeal,
         inRange: rank != null && rank <= 10,
       ),
       _RewardTier(
         icon: Icons.military_tech_rounded,
         label: t.lbRewardTop20,
-        colors: const [Color(0xFF60A5FA), Color(0xFF2563EB)],
+        color: AppPalette.deepTeal.withValues(alpha: 0.75),
         inRange: rank != null && rank <= 20,
       ),
     ];
@@ -699,14 +693,14 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
         t.lbAchTop10Title,
         t.lbAchTop10Desc,
         Icons.trending_up_rounded,
-        const [Color(0xFF0EA5E9), Color(0xFF6366F1)],
+        AppPalette.deepTeal,
         rank != null && rank <= 10
       ),
       (
         t.lbAchTop3Title,
         t.lbAchTop3Desc,
         Icons.emoji_events_rounded,
-        podiumGradients[0],
+        podiumColors[0],
         rank != null && rank <= 3
       ),
     ];
@@ -719,23 +713,20 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
           itemCount: achievements.length,
           separatorBuilder: (_, __) => const SizedBox(width: 10),
           itemBuilder: (context, i) {
-            final (title, desc, icon, colors, unlocked) = achievements[i];
+            final (title, desc, icon, color, unlocked) = achievements[i];
             return Container(
               width: 160,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                gradient: unlocked
-                    ? LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: colors)
-                    : null,
-                color: unlocked ? null : Colors.grey.withValues(alpha: 0.12),
+                color: unlocked ? color : AppPalette.cardStock,
+                border: unlocked
+                    ? null
+                    : Border.all(color: AppPalette.borderTaupe),
                 boxShadow: unlocked
                     ? [
                         BoxShadow(
-                            color: colors.first.withValues(alpha: 0.3),
+                            color: AppPalette.shadowInk,
                             blurRadius: 10,
                             offset: const Offset(0, 4))
                       ]
@@ -745,14 +736,14 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(unlocked ? icon : Icons.lock_rounded,
-                      color: unlocked ? Colors.white : Colors.grey.shade600,
+                      color: unlocked ? AppPalette.cardStock : AppPalette.inkMuted,
                       size: 22),
                   const Spacer(),
                   Text(title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                          color: unlocked ? Colors.white : Colors.grey.shade700,
+                          color: unlocked ? AppPalette.cardStock : AppPalette.ink,
                           fontWeight: FontWeight.w800,
                           fontSize: 12.5)),
                   Text(desc,
@@ -760,8 +751,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                           color: unlocked
-                              ? Colors.white.withValues(alpha: 0.9)
-                              : Colors.grey.shade500,
+                              ? AppPalette.cardStock.withValues(alpha: 0.9)
+                              : AppPalette.inkMuted,
                           fontSize: 10.5)),
                 ],
               ),
@@ -793,16 +784,16 @@ class _PodiumSlot extends StatelessWidget {
         children: [
           if (index == 0)
             const Icon(Icons.auto_awesome_rounded,
-                color: Color(0xFFFFD54F), size: 20),
+                color: AppPalette.mutedGold, size: 20),
           Container(
             width: _avatarSize,
             height: _avatarSize,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(colors: podiumGradients[index]),
+              color: podiumColors[index],
               boxShadow: [
                 BoxShadow(
-                    color: podiumGradients[index].first.withValues(alpha: 0.4),
+                    color: podiumShadowColors[index].withValues(alpha: 0.4),
                     blurRadius: 12,
                     offset: const Offset(0, 4))
               ],
@@ -816,7 +807,7 @@ class _PodiumSlot extends StatelessWidget {
                     ? entry.displayName.trim()[0].toUpperCase()
                     : '?',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: AppPalette.ink,
                     fontSize: _avatarSize * 0.4,
                     fontWeight: FontWeight.w900),
               ),
@@ -840,10 +831,7 @@ class _PodiumSlot extends StatelessWidget {
             height: _height * 0.32,
             width: double.infinity,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: podiumGradients[index]),
+              color: podiumColors[index],
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(12)),
             ),
@@ -851,7 +839,7 @@ class _PodiumSlot extends StatelessWidget {
             padding: const EdgeInsets.only(top: 6),
             child: Text('#${index + 1}',
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: AppPalette.ink,
                     fontWeight: FontWeight.w900,
                     fontSize: 16)),
           ),
@@ -930,8 +918,8 @@ class _LeaderboardRow extends StatelessWidget {
                         color: colors.primary,
                         borderRadius: BorderRadius.circular(8)),
                     child: Text(t.lbYouTag,
-                        style: const TextStyle(
-                            color: Colors.white,
+                        style: TextStyle(
+                            color: colors.onPrimary,
                             fontSize: 9,
                             fontWeight: FontWeight.w800)),
                   ),
@@ -945,7 +933,7 @@ class _LeaderboardRow extends StatelessWidget {
               children: [
                 if (entry.streakDays > 0) ...[
                   const Icon(Icons.local_fire_department,
-                      color: Colors.orange, size: 15),
+                      color: AppPalette.mutedGold, size: 15),
                   const SizedBox(width: 2),
                   Text('${entry.streakDays}',
                       style: const TextStyle(
@@ -1017,11 +1005,11 @@ class _RewardTier {
   const _RewardTier(
       {required this.icon,
       required this.label,
-      required this.colors,
+      required this.color,
       required this.inRange});
   final IconData icon;
   final String label;
-  final List<Color> colors;
+  final Color color;
   final bool inRange;
 }
 
@@ -1041,12 +1029,12 @@ class _RewardCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
             color: tier.inRange
-                ? tier.colors.first.withValues(alpha: 0.6)
+                ? tier.color.withValues(alpha: 0.6)
                 : colors.outlineVariant,
             width: tier.inRange ? 1.6 : 1),
         boxShadow: [
           BoxShadow(
-              color: colors.shadow.withValues(alpha: 0.05),
+              color: AppPalette.shadowInk,
               blurRadius: 8,
               offset: const Offset(0, 3))
         ],
@@ -1058,13 +1046,10 @@ class _RewardCard extends StatelessWidget {
             width: 38,
             height: 38,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: tier.inRange
-                      ? tier.colors
-                      : [Colors.grey.shade400, Colors.grey.shade500]),
+              color: tier.inRange ? tier.color : AppPalette.borderTaupe,
               shape: BoxShape.circle,
             ),
-            child: Icon(tier.icon, color: Colors.white, size: 18),
+            child: Icon(tier.icon, color: AppPalette.cardStock, size: 18),
           ),
           const Spacer(),
           Text(tier.label,
@@ -1077,8 +1062,7 @@ class _RewardCard extends StatelessWidget {
             tier.inRange ? t.lbRewardInRange : t.lbRewardLocked,
             style: TextStyle(
                 fontSize: 10.5,
-                color:
-                    tier.inRange ? tier.colors.first : colors.onSurfaceVariant,
+                color: tier.inRange ? tier.color : colors.onSurfaceVariant,
                 fontWeight: FontWeight.w700),
           ),
         ],

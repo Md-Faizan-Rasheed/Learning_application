@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
 
 import '../l10n/app_localizations.dart';
 
@@ -19,8 +20,8 @@ class CountdownTimer extends StatelessWidget {
     final secondsLeft = (remainingTime / 1000).ceil().clamp(0, 999);
 
     final Color color = ratio <= 0.2
-        ? Colors.red
-        : (ratio <= 0.5 ? Colors.orange : Colors.green);
+        ? AppPalette.incorrectRed
+        : (ratio <= 0.5 ? AppPalette.mutedGold : AppPalette.deepTeal);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

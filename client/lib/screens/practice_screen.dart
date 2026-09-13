@@ -4,11 +4,13 @@ import 'package:flutter/services.dart';
 import '../api/game_api.dart';
 import '../api/social_api.dart';
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
 import '../services/sound_service.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
 import '../widgets/loading_view.dart';
 import '../widgets/option_tile.dart';
+import '../widgets/question_flip_transition.dart';
 import '../widgets/result_banner.dart';
 import '../widgets/session_complete_card.dart';
 
@@ -81,7 +83,7 @@ class _FloatingScoreTextState extends State<_FloatingScoreText>
                   child: Text(
                     '+${widget.points}',
                     style: const TextStyle(
-                      color: Colors.amber,
+                      color: AppPalette.mutedGold,
                       fontWeight: FontWeight.w900,
                       fontSize: 26,
                       shadows: [Shadow(blurRadius: 8, color: Colors.black45)],
@@ -357,7 +359,7 @@ class _PracticeScreenState extends State<PracticeScreen>
       return Text(
         _challengeSubmitError!,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.red),
+        style: const TextStyle(color: AppPalette.incorrectRed),
       );
     }
     final c = _challengeResult;
@@ -395,7 +397,7 @@ class _PracticeScreenState extends State<PracticeScreen>
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.error, color: Colors.red, size: 48),
+              const Icon(Icons.error, color: AppPalette.incorrectRed, size: 48),
               const SizedBox(height: 12),
               Text(_error!, textAlign: TextAlign.center),
               const SizedBox(height: 16),
@@ -428,24 +430,9 @@ class _PracticeScreenState extends State<PracticeScreen>
                   horizontalPadding, 24, horizontalPadding, 24),
               child: Stack(
                 children: [
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 220),
-                    switchInCurve: Curves.easeOut,
-                    switchOutCurve: Curves.easeIn,
-                    transitionBuilder: (child, animation) => FadeTransition(
-                      opacity: animation,
-                      child: SlideTransition(
-                        position: Tween<Offset>(
-                                begin: const Offset(0, 0.04), end: Offset.zero)
-                            .animate(animation),
-                        child: child,
-                      ),
-                    ),
+                  QuestionFlipTransition(
+                    flipKey: q.questionId,
                     child: Column(
-                      // Keying by question forces a fresh subtree per
-                      // question, which is what makes AnimatedSwitcher above
-                      // treat each new question as a transition rather than
-                      // an in-place update.
                       key: ValueKey(q.questionId),
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -465,9 +452,10 @@ class _PracticeScreenState extends State<PracticeScreen>
                             child: child,
                           ),
                           child: Card(
-                            elevation: 3,
+                            elevation: 2,
+                            shadowColor: AppPalette.shadowInk,
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16)),
+                                borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.all(20),
                               child: Text(

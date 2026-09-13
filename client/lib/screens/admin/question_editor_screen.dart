@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../api/admin_api.dart';
 import '../../api/game_api.dart' show ApiException;
 import '../../l10n/app_localizations.dart';
+import '../../theme/app_theme.dart';
 import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 import '../../widgets/loading_view.dart';
@@ -19,11 +20,11 @@ const _maxOptions = 8;
 Color _difficultyColor(String difficulty) {
   switch (difficulty) {
     case 'easy':
-      return Colors.green.shade700;
+      return AppPalette.deepTeal;
     case 'hard':
-      return Colors.red.shade700;
+      return AppPalette.incorrectRed;
     default:
-      return Colors.amber.shade800;
+      return AppPalette.mutedGold;
   }
 }
 
@@ -233,7 +234,7 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
             child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
           ),
           FilledButton(
-            style: FilledButton.styleFrom(backgroundColor: Colors.red.shade700),
+            style: FilledButton.styleFrom(backgroundColor: AppPalette.incorrectRed),
             onPressed: () => Navigator.pop(context, true),
             child: Text(t.adminDeleteQuestion),
           ),
@@ -557,7 +558,7 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
                   Radio<int>(
                     value: j,
                     groupValue: _correctIndex,
-                    activeColor: Colors.green,
+                    activeColor: AppPalette.correctGold,
                     onChanged: (v) => setState(() => _correctIndex = v ?? 0),
                   ),
                   Expanded(
@@ -570,13 +571,13 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
                         isDense: true,
                         filled: true,
                         fillColor: j == _correctIndex
-                            ? Colors.green.withValues(alpha: 0.08)
+                            ? AppPalette.correctGold.withValues(alpha: 0.12)
                             : colors.surfaceContainerHighest
                                 .withValues(alpha: 0.25),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: j == _correctIndex
-                              ? const BorderSide(color: Colors.green)
+                              ? const BorderSide(color: AppPalette.correctGold)
                               : BorderSide.none,
                         ),
                       ),

@@ -464,7 +464,7 @@
   "lbFriendsEmpty": "أضف أصدقاء لتراهم هنا!",
 
   "share": "مشاركة",
-  "achievementShareText": "لقد فتحت للتو وسام \"{title}\" في {appName}! 🏆",
+  "achievementShareText": "لقد فتحت للتو وسام \"{title}\" في {appName}!",
   "practiceShareText": "حصلت على {correct}/{total} (+{xp} نقطة خبرة) في {appName}!",
   "profileShareText": "{name} في المستوى {level} برصيد {xp} نقطة خبرة وسلسلة {streak} يوم في {appName}!",
 
@@ -501,5 +501,26 @@
   "challengesYourTurn": "دورك",
   "challengesWaiting": "بالانتظار",
   "challengesCompleted": "مكتملة",
-  "challengesTapToPlay": "اضغط للعب دورك"
+  "challengesTapToPlay": "اضغط للعب دورك",
+
+  "wsQuickPlayTitle": "البحث عن الكلمات",
+  "wsQuickPlaySubtitle": "ابحث عن أسماء الأنبياء المخفية في الشبكة.",
+  "wsScreenTitle": "البحث عن الكلمات",
+  "wsRestartTooltip": "لغز جديد",
+  "wsPuzzleComplete": "اكتمل اللغز!",
+  "wsFoundLabel": "تم العثور عليها",
+  "wsTimeLabel": "الوقت",
+  "wsScoreLabel": "النقاط",
+  "wsHintsRemaining": "{count} تلميحات متبقية",
+  "@wsHintsRemaining": { "placeholders": { "count": {} } },
+  "wsDifficultyPickerTitle": "اختر مستوى الصعوبة",
+  "wsDifficultyPickerSubtitle": "ابحث عن أسماء الأنبياء المخفية قبل نفاد الكلمات.",
+  "wsDifficultyEasy": "سهل",
+  "wsDifficultyEasySubtitle": "٦ أسماء · شبكة ٨×٨",
+  "wsDifficultyMedium": "متوسط",
+  "wsDifficultyMediumSubtitle": "٨ أسماء · شبكة ١١×١١",
+  "wsDifficultyHard": "صعب",
+  "wsDifficultyHardSubtitle": "١٠ أسماء · شبكة ١٤×١٤",
+  "wsBestTime": "الأفضل: {time}",
+  "@wsBestTime": { "placeholders": { "time": {} } }
 }

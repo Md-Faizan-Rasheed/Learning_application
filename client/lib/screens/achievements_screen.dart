@@ -3,6 +3,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../api/profile_api.dart';
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
 import '../widgets/achievement_data.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
@@ -107,23 +108,17 @@ class _AchievementTile extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        gradient: unlocked
-            ? LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: achievement.colors,
-              )
-            : null,
-        color: unlocked ? null : Colors.grey.withValues(alpha: 0.12),
-        boxShadow: unlocked
-            ? [
-                BoxShadow(
-                  color: achievement.colors.first.withValues(alpha: 0.30),
-                  blurRadius: 12,
-                  offset: const Offset(0, 5),
-                ),
-              ]
-            : null,
+        color: unlocked ? AppPalette.mutedGold : AppPalette.cardStock,
+        border: unlocked
+            ? null
+            : Border.all(color: AppPalette.borderTaupe),
+        boxShadow: [
+          BoxShadow(
+            color: AppPalette.shadowInk,
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Row(
         children: [
@@ -133,12 +128,12 @@ class _AchievementTile extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: unlocked
-                  ? Colors.white.withValues(alpha: 0.22)
-                  : Colors.grey.withValues(alpha: 0.25),
+                  ? AppPalette.cardStock.withValues(alpha: 0.35)
+                  : AppPalette.borderTaupe,
             ),
             child: Icon(
               unlocked ? achievement.icon : Icons.lock_rounded,
-              color: unlocked ? Colors.white : Colors.grey.shade600,
+              color: unlocked ? AppPalette.ink : AppPalette.inkMuted,
               size: 22,
             ),
           ),
@@ -153,7 +148,7 @@ class _AchievementTile extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: unlocked ? Colors.white : Colors.grey.shade700,
+                    color: AppPalette.ink,
                     fontWeight: FontWeight.w800,
                     fontSize: 14.5,
                   ),
@@ -165,8 +160,8 @@ class _AchievementTile extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: unlocked
-                        ? Colors.white.withValues(alpha: 0.9)
-                        : Colors.grey.shade500,
+                        ? AppPalette.ink.withValues(alpha: 0.75)
+                        : AppPalette.inkMuted,
                     fontSize: 11.5,
                   ),
                 ),
@@ -181,7 +176,7 @@ class _AchievementTile extends StatelessWidget {
                     t.achievementShareText(achievement.title, t.appTitle));
               },
               icon: const Icon(Icons.share_rounded,
-                  color: Colors.white, size: 20),
+                  color: AppPalette.ink, size: 20),
               tooltip: AppLocalizations.of(context)!.share,
             ),
         ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../api/admin_api.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/app_theme.dart';
 import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 
@@ -174,21 +175,21 @@ class _BulkImportScreenState extends State<BulkImportScreen> {
                       Container(
                         padding: const EdgeInsets.all(14),
                         decoration: BoxDecoration(
-                          color: Colors.green.withValues(alpha: 0.12),
+                          color: AppPalette.correctGold.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(14),
                           border: Border.all(
-                              color: Colors.green.withValues(alpha: 0.4)),
+                              color: AppPalette.correctGold.withValues(alpha: 0.4)),
                         ),
                         child: Row(
                           children: [
                             const Icon(Icons.check_circle_rounded,
-                                color: Colors.green),
+                                color: AppPalette.correctGold),
                             const SizedBox(width: 10),
                             Text(
                               t.adminBulkImportCreated(_result!.created),
                               style: const TextStyle(
                                   fontWeight: FontWeight.w800,
-                                  color: Colors.green),
+                                  color: AppPalette.correctGold),
                             ),
                           ],
                         ),

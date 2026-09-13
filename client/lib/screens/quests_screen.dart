@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../api/game_api.dart' show kApiBaseUrl, describeApiError;
+import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
@@ -244,7 +245,7 @@ class _QuestCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: done
                         ? Colors.white.withValues(alpha: 0.22)
-                        : Colors.amber.withValues(alpha: 0.2),
+                        : AppPalette.mutedGoldMuted,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Row(
@@ -252,7 +253,7 @@ class _QuestCard extends StatelessWidget {
                     children: [
                       Icon(Icons.stars_rounded,
                           size: 14,
-                          color: done ? Colors.white : Colors.amber.shade800),
+                          color: done ? Colors.white : AppPalette.mutedGold),
                       const SizedBox(width: 3),
                       Flexible(
                         child: Text(
@@ -261,7 +262,7 @@ class _QuestCard extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: done ? Colors.white : Colors.amber.shade800,
+                            color: done ? Colors.white : AppPalette.mutedGold,
                           ),
                         ),
                       ),

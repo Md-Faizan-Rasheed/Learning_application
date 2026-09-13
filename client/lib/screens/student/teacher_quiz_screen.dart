@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../api/classroom_api.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/app_theme.dart';
 import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 import '../../widgets/loading_view.dart';
@@ -175,7 +176,7 @@ class _TeacherQuizScreenState extends State<TeacherQuizScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.error, color: Colors.red, size: 48),
+              const Icon(Icons.error, color: AppPalette.incorrectRed, size: 48),
               const SizedBox(height: 12),
               Text(_error!, textAlign: TextAlign.center),
               const SizedBox(height: 16),
@@ -218,9 +219,10 @@ class _TeacherQuizScreenState extends State<TeacherQuizScreen> {
                   ),
                   const SizedBox(height: 12),
                   Card(
-                    elevation: 3,
+                    elevation: 2,
+                    shadowColor: AppPalette.shadowInk,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16)),
+                        borderRadius: BorderRadius.circular(12)),
                     child: Padding(
                       padding: const EdgeInsets.all(20),
                       child: Text(

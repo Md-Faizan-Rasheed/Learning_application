@@ -5,7 +5,7 @@ import '../../l10n/app_localizations.dart';
 import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 import '../../widgets/leaderboard.dart'
-    show podiumGradients, podiumOrFlatDecoration, podiumRankBadge;
+    show podiumColors, podiumOrFlatDecoration, podiumRankBadge;
 import '../../widgets/loading_view.dart';
 import '../../widgets/status_pill.dart';
 
@@ -164,7 +164,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                                     student: students[i],
                                     index: students[i].status == 'completed'
                                         ? i
-                                        : podiumGradients.length,
+                                        : podiumColors.length,
                                     statusLabel:
                                         _statusLabel(t, students[i].status),
                                     statusStyle:
@@ -260,7 +260,7 @@ class _StudentRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final isPodium = index < podiumGradients.length;
+    final isPodium = index < podiumColors.length;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),

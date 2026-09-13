@@ -1,37 +1,41 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../realtime/match_socket.dart';
+import '../theme/app_theme.dart';
+import 'medal_painter.dart';
 
-/// Gold/silver/bronze gradients for the top 3 ranks — shared by this widget
-/// and `screens/leaderboard_screen.dart` so both leaderboards podium-ize the
-/// same way despite having different data models underneath.
-const podiumGradients = [
-  [Color(0xFFFFD54F), Color(0xFFFF9800)], // gold
-  [Color(0xFFE0E0E0), Color(0xFFB0B0B0)], // silver
-  [Color(0xFFD7A26A), Color(0xFF8D5524)], // bronze
+/// Flat gold/silver/bronze tones for the top 3 ranks — shared by this widget
+/// and other leaderboards (`screens/leaderboard_screen.dart`,
+/// `screens/teacher/quiz_results_screen.dart`) so every podium in the app
+/// uses the same three colors. No gradients: rank order is real information,
+/// but the color itself is a flat fill per the app's card-stock system.
+const podiumColors = [
+  AppPalette.mutedGold,
+  Color(0xFFB9AFA0), // warm silver-grey, kept in the parchment family
+  Color(0xFF9C7A4E), // warm bronze-brown
 ];
 
-const podiumMedalColors = [Color(0xFFB8860B), Color(0xFF757575), Color(0xFF6B3F1D)];
+const podiumShadowColors = [
+  Color(0xFF9C7A33),
+  Color(0xFF8A8070),
+  Color(0xFF6B4F2E),
+];
 
 BoxDecoration podiumOrFlatDecoration({
   required int index,
   required ColorScheme colors,
   bool highlighted = false,
 }) {
-  if (index < podiumGradients.length) {
-    final gradient = podiumGradients[index];
+  if (index < podiumColors.length) {
+    final tone = podiumColors[index];
     return BoxDecoration(
-      gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [gradient[0].withValues(alpha: 0.30), gradient[1].withValues(alpha: 0.16)],
-      ),
+      color: Color.alphaBlend(tone.withValues(alpha: 0.22), AppPalette.cardStock),
       borderRadius: BorderRadius.circular(16),
-      border: Border.all(color: gradient[0].withValues(alpha: 0.55), width: 1.4),
+      border: Border.all(color: tone.withValues(alpha: 0.6), width: 1.4),
       boxShadow: [
         BoxShadow(
-          color: gradient[0].withValues(alpha: 0.22),
-          blurRadius: 12,
+          color: AppPalette.shadowInk,
+          blurRadius: 10,
           offset: const Offset(0, 4),
         ),
       ],
@@ -47,19 +51,8 @@ BoxDecoration podiumOrFlatDecoration({
 }
 
 Widget podiumRankBadge(int index, {double size = 32}) {
-  if (index >= podiumMedalColors.length) return const SizedBox.shrink();
-  return Container(
-    width: size,
-    height: size,
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      gradient: LinearGradient(colors: podiumGradients[index]),
-      boxShadow: [
-        BoxShadow(color: podiumMedalColors[index].withValues(alpha: 0.4), blurRadius: 6, offset: const Offset(0, 2)),
-      ],
-    ),
-    child: Icon(Icons.emoji_events_rounded, color: Colors.white, size: size * 0.62),
-  );
+  if (index >= podiumColors.length) return const SizedBox.shrink();
+  return MedalIcon(size: size * 0.9, color: podiumColors[index]);
 }
 
 class Leaderboard extends StatelessWidget {
@@ -81,7 +74,7 @@ class Leaderboard extends StatelessWidget {
       itemBuilder: (context, index) {
         final standing = standings[index];
         final isMe = !standing.isBot && standing.name == highlightName;
-        final isPodium = index < podiumGradients.length;
+        final isPodium = index < podiumColors.length;
 
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../api/admin_api.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/app_theme.dart';
 import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 import '../../widgets/loading_view.dart';
@@ -12,11 +13,11 @@ import 'question_editor_screen.dart';
 Color _difficultyColor(String difficulty) {
   switch (difficulty) {
     case 'easy':
-      return Colors.green.shade700;
+      return AppPalette.deepTeal;
     case 'hard':
-      return Colors.red.shade700;
+      return AppPalette.incorrectRed;
     default:
-      return Colors.amber.shade800;
+      return AppPalette.mutedGold;
   }
 }
 

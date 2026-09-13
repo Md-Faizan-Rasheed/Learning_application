@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../api/classroom_api.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/app_theme.dart';
 import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 import '../../widgets/loading_view.dart';
@@ -221,23 +222,18 @@ class _QuizCard extends StatelessWidget {
               width: 52,
               height: 52,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: done
-                      ? [Colors.green.shade400, Colors.green.shade700]
-                      : [colors.primary, colors.secondary],
-                ),
+                color: done ? AppPalette.mutedGold : colors.primary,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: (done ? Colors.green : colors.primary)
-                        .withValues(alpha: 0.25),
+                    color: AppPalette.shadowInk,
                     blurRadius: 8,
                     offset: const Offset(0, 3),
                   ),
                 ],
               ),
               child: Icon(done ? Icons.check_rounded : Icons.quiz_rounded,
-                  color: Colors.white, size: 26),
+                  color: done ? AppPalette.ink : colors.onPrimary, size: 26),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -268,7 +264,7 @@ class _QuizCard extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             const Icon(Icons.stars_rounded,
-                                size: 14, color: Colors.amber),
+                                size: 14, color: AppPalette.mutedGold),
                             const SizedBox(width: 2),
                             Text('${quiz.score}',
                                 style: const TextStyle(
@@ -282,7 +278,7 @@ class _QuizCard extends StatelessWidget {
             ),
             Icon(
               done ? Icons.check_circle_rounded : Icons.chevron_right_rounded,
-              color: done ? Colors.green : colors.onSurfaceVariant,
+              color: done ? AppPalette.correctGold : colors.onSurfaceVariant,
             ),
           ],
         ),

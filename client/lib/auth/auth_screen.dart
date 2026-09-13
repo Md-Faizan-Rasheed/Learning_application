@@ -1,14 +1,14 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../api/game_api.dart' show kApiBaseUrl;
 import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
+import '../widgets/ambient_backdrop.dart';
+import '../widgets/card_stock.dart';
 import '../widgets/language_picker.dart';
 import 'auth_service.dart';
-import 'portal_backdrop.dart';
+import 'brand_mark.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({
@@ -67,16 +67,6 @@ class _AuthScreenState extends State<AuthScreen> {
     super.dispose();
   }
 
-  double get _portalIntensity {
-    if (_busy) return 1.0;
-    if (_emailFocus.hasFocus ||
-        _passwordFocus.hasFocus ||
-        _nameFocus.hasFocus) {
-      return 0.85;
-    }
-    return 0.4;
-  }
-
   Future<void> _submit() async {
     FocusScope.of(context).unfocus();
 
@@ -115,7 +105,7 @@ class _AuthScreenState extends State<AuthScreen> {
       }
 
       if (mounted) {
-        // Let the portal's light burst play before handing off to the app.
+        // Let the brand mark's success ring play before handing off to the app.
         setState(() => _burstSignal++);
         await Future.delayed(const Duration(milliseconds: 500));
         if (mounted) widget.onSignedIn(s);
@@ -167,33 +157,21 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
 
-    return Theme(
-      data: ThemeData.dark(useMaterial3: true).copyWith(
-        colorScheme: const ColorScheme.dark(
-          primary: AppPalette.emerald,
-          secondary: AppPalette.violet,
-          surface: AppPalette.nightTop,
-          error: AppPalette.gold,
-        ),
-        scaffoldBackgroundColor: AppPalette.nightTop,
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Stack(
-          children: [
-            const AnimatedNightBackground(),
-            SafeArea(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final isDesktop = constraints.maxWidth >= 900;
-                  return isDesktop
-                      ? _buildDesktopLayout(context, t)
-                      : _buildMobileLayout(context, t);
-                },
-              ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          const Positioned.fill(child: AmbientBackdrop()),
+          SafeArea(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final isDesktop = constraints.maxWidth >= 900;
+                return isDesktop
+                    ? _buildDesktopLayout(context, t)
+                    : _buildMobileLayout(context, t);
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -207,11 +185,7 @@ class _AuthScreenState extends State<AuthScreen> {
           const SizedBox(height: 12),
           _buildHero(context, t),
           const SizedBox(height: 18),
-          GlowingPortal(
-              size: 176,
-              intensity: _portalIntensity,
-              spinFast: _busy,
-              burstSignal: _burstSignal),
+          BrandMark(size: 132, busy: _busy, burstSignal: _burstSignal),
           const SizedBox(height: 18),
           _buildGlassPanel(context, t),
         ],
@@ -235,11 +209,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     children: [
                       _buildHero(context, t),
                       const SizedBox(height: 32),
-                      GlowingPortal(
-                          size: 260,
-                          intensity: _portalIntensity,
-                          spinFast: _busy,
-                          burstSignal: _burstSignal),
+                      BrandMark(size: 180, busy: _busy, burstSignal: _burstSignal),
                     ],
                   ),
                 ),
@@ -290,20 +260,16 @@ class _AuthScreenState extends State<AuthScreen> {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: AppPalette.textPrimary,
-              fontSize: 22,
-              fontWeight: FontWeight.w900,
-              letterSpacing: 1.1,
-              shadows: [Shadow(color: AppPalette.emerald, blurRadius: 18)],
-            ),
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  letterSpacing: 0.5,
+                ),
           ),
           const SizedBox(height: 8),
           Text(
             subtitle,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-                color: AppPalette.textSecondary,
+            style: TextStyle(
+                color: AppPalette.inkMuted,
                 fontSize: 13.5,
                 fontWeight: FontWeight.w500),
           ),
@@ -315,7 +281,7 @@ class _AuthScreenState extends State<AuthScreen> {
               child: Text(
                 t.authOpeningPortal,
                 style: const TextStyle(
-                    color: AppPalette.gold,
+                    color: AppPalette.mutedGold,
                     fontSize: 12.5,
                     fontWeight: FontWeight.w700),
               ),
@@ -327,39 +293,28 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Widget _buildGlassPanel(BuildContext context, AppLocalizations t) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(28),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: AppPalette.glassFill,
-            borderRadius: BorderRadius.circular(28),
-            border: Border.all(color: AppPalette.glassBorder),
+    return CardStock(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          _buildModeSelector(context, t),
+          const SizedBox(height: 20),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 250),
+            switchInCurve: Curves.easeOut,
+            switchOutCurve: Curves.easeIn,
+            child: _mode == _Mode.register
+                ? _buildRegisterSteps(context, t)
+                : _buildSingleStepForm(context, t),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _buildModeSelector(context, t),
-              const SizedBox(height: 20),
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 250),
-                switchInCurve: Curves.easeOut,
-                switchOutCurve: Curves.easeIn,
-                child: _mode == _Mode.register
-                    ? _buildRegisterSteps(context, t)
-                    : _buildSingleStepForm(context, t),
-              ),
-              if (_mode != _Mode.guest) ...[
-                const SizedBox(height: 18),
-                _buildChooseWayIn(context, t),
-              ],
-              const SizedBox(height: 16),
-              _buildFooterLinks(context, t),
-            ],
-          ),
-        ),
+          if (_mode != _Mode.guest) ...[
+            const SizedBox(height: 18),
+            _buildChooseWayIn(context, t),
+          ],
+          const SizedBox(height: 16),
+          _buildFooterLinks(context, t),
+        ],
       ),
     );
   }
@@ -380,45 +335,37 @@ class _AuthScreenState extends State<AuthScreen> {
               overflow: TextOverflow.ellipsis,
             );
 
-        return Container(
-          padding: const EdgeInsets.all(4),
-          decoration: BoxDecoration(
-            color: Colors.black.withValues(alpha: 0.25),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppPalette.glassBorder),
-          ),
-          child: SegmentedButton<_Mode>(
-            segments: [
-              ButtonSegment(
-                  value: _Mode.login,
-                  label: label(t.authLogin),
-                  icon: compact ? null : const Icon(Icons.login_rounded)),
-              ButtonSegment(
-                  value: _Mode.register,
-                  label: label(t.authRegister),
-                  icon: compact
-                      ? null
-                      : const Icon(Icons.person_add_alt_1_rounded)),
-              ButtonSegment(
-                  value: _Mode.guest,
-                  label: label(t.authGuest),
-                  icon: compact ? null : const Icon(Icons.explore_rounded)),
-            ],
-            selected: {_mode},
-            onSelectionChanged:
-                _busy ? null : (selection) => _goToMode(selection.first),
-            showSelectedIcon: false,
-            style: ButtonStyle(
-              visualDensity: VisualDensity.compact,
-              textStyle: WidgetStateProperty.all(
-                TextStyle(
-                    fontSize: compact ? 12.5 : 14,
-                    fontWeight: FontWeight.w700),
-              ),
-              padding: WidgetStateProperty.all(
-                EdgeInsets.symmetric(
-                    horizontal: compact ? 2 : 6, vertical: 12),
-              ),
+        return SegmentedButton<_Mode>(
+          segments: [
+            ButtonSegment(
+                value: _Mode.login,
+                label: label(t.authLogin),
+                icon: compact ? null : const Icon(Icons.login_rounded)),
+            ButtonSegment(
+                value: _Mode.register,
+                label: label(t.authRegister),
+                icon: compact
+                    ? null
+                    : const Icon(Icons.person_add_alt_1_rounded)),
+            ButtonSegment(
+                value: _Mode.guest,
+                label: label(t.authGuest),
+                icon: compact ? null : const Icon(Icons.explore_rounded)),
+          ],
+          selected: {_mode},
+          onSelectionChanged:
+              _busy ? null : (selection) => _goToMode(selection.first),
+          showSelectedIcon: false,
+          style: ButtonStyle(
+            visualDensity: VisualDensity.compact,
+            textStyle: WidgetStateProperty.all(
+              TextStyle(
+                  fontSize: compact ? 12.5 : 14,
+                  fontWeight: FontWeight.w700),
+            ),
+            padding: WidgetStateProperty.all(
+              EdgeInsets.symmetric(
+                  horizontal: compact ? 2 : 6, vertical: 12),
             ),
           ),
         );
@@ -454,7 +401,7 @@ class _AuthScreenState extends State<AuthScreen> {
             child: TextButton(
               onPressed: _busy ? null : _showForgotPasswordDialog,
               style: TextButton.styleFrom(
-                foregroundColor: AppPalette.textSecondary,
+                foregroundColor: AppPalette.inkMuted,
                 textStyle: const TextStyle(fontSize: 12.5),
                 padding: EdgeInsets.zero,
                 minimumSize: const Size(0, 32),
@@ -466,7 +413,7 @@ class _AuthScreenState extends State<AuthScreen> {
         ] else ...[
           Text(t.authExploreFirst,
               style: const TextStyle(
-                  color: AppPalette.gold,
+                  color: AppPalette.mutedGold,
                   fontWeight: FontWeight.w800,
                   fontSize: 12,
                   letterSpacing: 1)),
@@ -482,8 +429,7 @@ class _AuthScreenState extends State<AuthScreen> {
           _buildGenderSelector(context, t),
           const SizedBox(height: 8),
           Text(t.authGuestHelper,
-              style: const TextStyle(
-                  color: AppPalette.textSecondary, fontSize: 11.5)),
+              style: TextStyle(color: AppPalette.inkMuted, fontSize: 11.5)),
           const SizedBox(height: 14),
         ],
         if (_error != null) ...[
@@ -556,8 +502,8 @@ class _AuthScreenState extends State<AuthScreen> {
               height: 4,
               decoration: BoxDecoration(
                 color: i <= _registerStep
-                    ? AppPalette.emerald
-                    : AppPalette.glassBorder,
+                    ? AppPalette.deepTeal
+                    : AppPalette.borderTaupe,
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
@@ -575,7 +521,7 @@ class _AuthScreenState extends State<AuthScreen> {
         Text(
           titles[_registerStep],
           style: const TextStyle(
-              color: AppPalette.textPrimary,
+              color: AppPalette.ink,
               fontWeight: FontWeight.w800,
               fontSize: 15),
         ),
@@ -645,6 +591,8 @@ class _AuthScreenState extends State<AuthScreen> {
     TextInputType? keyboardType,
     bool obscureText = false,
   }) {
+    // Relies on the app-wide `inputDecorationTheme` (fill/border/focus color)
+    // rather than overriding every field's decoration locally.
     return TextField(
       controller: controller,
       focusNode: focusNode,
@@ -653,25 +601,10 @@ class _AuthScreenState extends State<AuthScreen> {
       enabled: !_busy,
       onChanged: (_) => setState(() {}),
       textInputAction: TextInputAction.next,
-      style: const TextStyle(color: AppPalette.textPrimary),
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
-        labelStyle: const TextStyle(color: AppPalette.textSecondary),
-        hintStyle:
-            TextStyle(color: AppPalette.textSecondary.withValues(alpha: 0.6)),
-        prefixIcon: Icon(icon, color: AppPalette.textSecondary),
-        filled: true,
-        fillColor: Colors.black.withValues(alpha: 0.22),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide.none),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: AppPalette.glassBorder)),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: AppPalette.emerald, width: 2)),
+        prefixIcon: Icon(icon, color: AppPalette.inkMuted),
       ),
     );
   }
@@ -679,23 +612,11 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget _buildGenderSelector(BuildContext context, AppLocalizations t) {
     return DropdownButtonFormField<String>(
       initialValue: _gender,
-      dropdownColor: AppPalette.nightBottom,
-      style: const TextStyle(color: AppPalette.textPrimary),
+      dropdownColor: AppPalette.parchmentDeep,
       decoration: InputDecoration(
         labelText: t.authGender,
         helperText: t.authGenderHelper,
-        labelStyle: const TextStyle(color: AppPalette.textSecondary),
-        helperStyle: const TextStyle(color: AppPalette.textSecondary),
-        prefixIcon:
-            const Icon(Icons.groups_rounded, color: AppPalette.textSecondary),
-        filled: true,
-        fillColor: Colors.black.withValues(alpha: 0.22),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide.none),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: AppPalette.glassBorder)),
+        prefixIcon: Icon(Icons.groups_rounded, color: AppPalette.inkMuted),
       ),
       items: [
         DropdownMenuItem(value: 'male', child: Text(t.authMale)),
@@ -715,34 +636,33 @@ class _AuthScreenState extends State<AuthScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           color: _asTeacher
-              ? AppPalette.emerald.withValues(alpha: 0.16)
-              : Colors.black.withValues(alpha: 0.22),
+              ? AppPalette.deepTealMuted
+              : AppPalette.cardStock,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
               color: _asTeacher
-                  ? AppPalette.emerald.withValues(alpha: 0.6)
-                  : AppPalette.glassBorder),
+                  ? AppPalette.deepTeal.withValues(alpha: 0.6)
+                  : AppPalette.borderTaupe),
         ),
         child: Row(
           children: [
             Icon(Icons.school_rounded,
                 size: 20,
                 color:
-                    _asTeacher ? AppPalette.emerald : AppPalette.textSecondary),
+                    _asTeacher ? AppPalette.deepTeal : AppPalette.inkMuted),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
                 t.authRegisterAsTeacher,
                 style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    color: _asTeacher
-                        ? AppPalette.emerald
-                        : AppPalette.textPrimary),
+                    color:
+                        _asTeacher ? AppPalette.deepTeal : AppPalette.ink),
               ),
             ),
             Switch(
               value: _asTeacher,
-              activeThumbColor: AppPalette.emerald,
+              activeThumbColor: AppPalette.deepTeal,
               onChanged: _busy ? null : (v) => setState(() => _asTeacher = v),
             ),
           ],
@@ -755,14 +675,14 @@ class _AuthScreenState extends State<AuthScreen> {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: AppPalette.gold.withValues(alpha: 0.12),
+        color: AppPalette.incorrectRed.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppPalette.gold.withValues(alpha: 0.4)),
+        border: Border.all(color: AppPalette.incorrectRed.withValues(alpha: 0.4)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.auto_fix_high_rounded, color: AppPalette.gold),
+          const Icon(Icons.error_outline_rounded, color: AppPalette.incorrectRed),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -770,12 +690,11 @@ class _AuthScreenState extends State<AuthScreen> {
               children: [
                 Text(t.authErrorSoft,
                     style: const TextStyle(
-                        color: AppPalette.textPrimary,
+                        color: AppPalette.ink,
                         fontWeight: FontWeight.w700)),
                 const SizedBox(height: 2),
                 Text(_error!,
-                    style: const TextStyle(
-                        color: AppPalette.textSecondary, fontSize: 12.5)),
+                    style: TextStyle(color: AppPalette.inkMuted, fontSize: 12.5)),
               ],
             ),
           ),
@@ -795,14 +714,13 @@ class _AuthScreenState extends State<AuthScreen> {
       height: 52,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          gradient: const LinearGradient(
-              colors: [AppPalette.emerald, AppPalette.teal, AppPalette.violet]),
+          borderRadius: BorderRadius.circular(12),
+          color: AppPalette.deepTeal,
           boxShadow: [
             BoxShadow(
-                color: AppPalette.emerald.withValues(alpha: 0.35),
-                blurRadius: 16,
-                offset: const Offset(0, 6))
+                color: AppPalette.shadowInk,
+                blurRadius: 14,
+                offset: const Offset(0, 5))
           ],
         ),
         child: FilledButton(
@@ -812,7 +730,7 @@ class _AuthScreenState extends State<AuthScreen> {
             shadowColor: Colors.transparent,
             disabledBackgroundColor: Colors.transparent,
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             textStyle:
                 const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w800),
           ),
@@ -824,16 +742,17 @@ class _AuthScreenState extends State<AuthScreen> {
                     width: 22,
                     height: 22,
                     child: CircularProgressIndicator(
-                        strokeWidth: 2.5, color: Colors.white),
+                        strokeWidth: 2.5, color: AppPalette.cardStock),
                   )
                 : Row(
                     key: const ValueKey('button'),
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(label, style: const TextStyle(color: Colors.white)),
+                      Text(label,
+                          style: const TextStyle(color: AppPalette.cardStock)),
                       const SizedBox(width: 8),
                       const Icon(Icons.arrow_forward_rounded,
-                          color: Colors.white),
+                          color: AppPalette.cardStock),
                     ],
                   ),
           ),
@@ -851,37 +770,36 @@ class _AuthScreenState extends State<AuthScreen> {
     return Column(
       children: [
         Text(t.authChooseWayIn,
-            style: const TextStyle(
-                color: AppPalette.textSecondary,
+            style: TextStyle(
+                color: AppPalette.inkMuted,
                 fontSize: 11.5,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.6)),
         const SizedBox(height: 12),
         Row(
           children: [
-            const Expanded(child: Divider(color: AppPalette.glassBorder)),
+            const Expanded(child: Divider(color: AppPalette.borderTaupe)),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(t.authOrDivider,
-                  style: const TextStyle(
-                      color: AppPalette.textSecondary, fontSize: 12)),
+                  style: TextStyle(color: AppPalette.inkMuted, fontSize: 12)),
             ),
-            const Expanded(child: Divider(color: AppPalette.glassBorder)),
+            const Expanded(child: Divider(color: AppPalette.borderTaupe)),
           ],
         ),
         const SizedBox(height: 12),
         Row(
           children: [
             Expanded(
-                child: _GlowIconButton(
+                child: _SocialIconButton(
                     icon: Icons.g_mobiledata_rounded, onTap: comingSoon)),
             const SizedBox(width: 10),
             Expanded(
-                child: _GlowIconButton(
+                child: _SocialIconButton(
                     icon: Icons.apple_rounded, onTap: comingSoon)),
             const SizedBox(width: 10),
             Expanded(
-                child: _GlowIconButton(
+                child: _SocialIconButton(
                     icon: Icons.phone_iphone_rounded, onTap: comingSoon)),
           ],
         ),
@@ -891,8 +809,8 @@ class _AuthScreenState extends State<AuthScreen> {
           child: OutlinedButton.icon(
             onPressed: comingSoon,
             style: OutlinedButton.styleFrom(
-              foregroundColor: AppPalette.textSecondary,
-              side: const BorderSide(color: AppPalette.glassBorder),
+              foregroundColor: AppPalette.inkMuted,
+              side: const BorderSide(color: AppPalette.borderTaupe),
               padding: const EdgeInsets.symmetric(vertical: 12),
             ),
             icon: const Icon(Icons.send_rounded, size: 18),
@@ -914,11 +832,11 @@ class _AuthScreenState extends State<AuthScreen> {
                 children: [
                   TextSpan(
                       text: '${t.authNewExplorerPrompt} ',
-                      style: const TextStyle(color: AppPalette.textSecondary)),
+                      style: TextStyle(color: AppPalette.inkMuted)),
                   TextSpan(
                       text: t.authRegister,
                       style: const TextStyle(
-                          color: AppPalette.emerald,
+                          color: AppPalette.deepTeal,
                           fontWeight: FontWeight.w800)),
                 ],
               ),
@@ -928,8 +846,7 @@ class _AuthScreenState extends State<AuthScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.shield_outlined,
-                size: 15, color: AppPalette.textSecondary),
+            Icon(Icons.shield_outlined, size: 15, color: AppPalette.inkMuted),
             const SizedBox(width: 6),
             Flexible(
               child: Text(
@@ -937,8 +854,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ? t.authNoAccountRequired
                     : t.authProgressSaved,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                    color: AppPalette.textSecondary, fontSize: 11.5),
+                style: TextStyle(color: AppPalette.inkMuted, fontSize: 11.5),
               ),
             ),
           ],
@@ -950,17 +866,17 @@ class _AuthScreenState extends State<AuthScreen> {
             TextButton(
               onPressed: () => _openLegal('/legal/privacy'),
               style: TextButton.styleFrom(
-                foregroundColor: AppPalette.textSecondary,
+                foregroundColor: AppPalette.inkMuted,
                 textStyle: const TextStyle(fontSize: 11.5),
                 padding: const EdgeInsets.symmetric(horizontal: 8),
               ),
               child: Text(t.authPrivacyPolicy),
             ),
-            const Text('·', style: TextStyle(color: AppPalette.textSecondary)),
+            Text('·', style: TextStyle(color: AppPalette.inkMuted)),
             TextButton(
               onPressed: () => _openLegal('/legal/terms'),
               style: TextButton.styleFrom(
-                foregroundColor: AppPalette.textSecondary,
+                foregroundColor: AppPalette.inkMuted,
                 textStyle: const TextStyle(fontSize: 11.5),
                 padding: const EdgeInsets.symmetric(horizontal: 8),
               ),
@@ -1009,42 +925,30 @@ class _AuthScreenState extends State<AuthScreen> {
           }
 
           return AlertDialog(
-            backgroundColor: AppPalette.nightBottom,
-            title: Text(t.authForgotPasswordTitle,
-                style: const TextStyle(color: AppPalette.textPrimary)),
+            title: Text(t.authForgotPasswordTitle),
             content: sent
                 ? Text(t.authForgotPasswordSent,
-                    style: const TextStyle(color: AppPalette.textSecondary))
+                    style: TextStyle(color: AppPalette.inkMuted))
                 : Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(t.authForgotPasswordPrompt,
-                          style: const TextStyle(
-                              color: AppPalette.textSecondary, fontSize: 13)),
+                          style:
+                              TextStyle(color: AppPalette.inkMuted, fontSize: 13)),
                       const SizedBox(height: 14),
                       TextField(
                         controller: controller,
                         enabled: !sending,
                         autofocus: true,
                         keyboardType: TextInputType.emailAddress,
-                        style: const TextStyle(color: AppPalette.textPrimary),
-                        decoration: InputDecoration(
-                          labelText: t.authEmail,
-                          labelStyle:
-                              const TextStyle(color: AppPalette.textSecondary),
-                          filled: true,
-                          fillColor: Colors.black.withValues(alpha: 0.22),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none),
-                        ),
+                        decoration: InputDecoration(labelText: t.authEmail),
                       ),
                       if (error != null) ...[
                         const SizedBox(height: 10),
                         Text(error!,
                             style: const TextStyle(
-                                color: AppPalette.gold, fontSize: 12)),
+                                color: AppPalette.incorrectRed, fontSize: 12)),
                       ],
                     ],
                   ),
@@ -1072,17 +976,17 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 }
 
-/// A compact glowing round button for the disabled social-login row.
-class _GlowIconButton extends StatefulWidget {
-  const _GlowIconButton({required this.icon, required this.onTap});
+/// A compact card-stock round button for the disabled social-login row.
+class _SocialIconButton extends StatefulWidget {
+  const _SocialIconButton({required this.icon, required this.onTap});
   final IconData icon;
   final VoidCallback onTap;
 
   @override
-  State<_GlowIconButton> createState() => _GlowIconButtonState();
+  State<_SocialIconButton> createState() => _SocialIconButtonState();
 }
 
-class _GlowIconButtonState extends State<_GlowIconButton> {
+class _SocialIconButtonState extends State<_SocialIconButton> {
   bool _pressed = false;
 
   @override
@@ -1098,11 +1002,11 @@ class _GlowIconButtonState extends State<_GlowIconButton> {
         child: Container(
           height: 46,
           decoration: BoxDecoration(
-            color: Colors.black.withValues(alpha: 0.22),
+            color: AppPalette.cardStock,
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: AppPalette.glassBorder),
+            border: Border.all(color: AppPalette.borderTaupe),
           ),
-          child: Icon(widget.icon, color: AppPalette.textSecondary, size: 22),
+          child: Icon(widget.icon, color: AppPalette.inkMuted, size: 22),
         ),
       ),
     );

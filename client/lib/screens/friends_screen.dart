@@ -6,6 +6,7 @@ import '../api/admin_api.dart' show AdminCategory;
 import '../api/content_api.dart';
 import '../api/social_api.dart';
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
 import '../widgets/category_options.dart';
@@ -489,7 +490,7 @@ class _RequestTile extends StatelessWidget {
           IconButton(
             onPressed: onAccept,
             icon:
-                Icon(Icons.check_circle_rounded, color: Colors.green.shade600),
+                const Icon(Icons.check_circle_rounded, color: AppPalette.correctGold),
           ),
           IconButton(
             onPressed: onDecline,

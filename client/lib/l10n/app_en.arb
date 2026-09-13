@@ -507,7 +507,7 @@
   "lbFriendsEmpty": "Add friends to see them here!",
 
   "share": "Share",
-  "achievementShareText": "I just unlocked \"{title}\" in {appName}! 🏆",
+  "achievementShareText": "I just unlocked \"{title}\" in {appName}!",
   "@achievementShareText": { "placeholders": { "title": {}, "appName": {} } },
   "practiceShareText": "I scored {correct}/{total} (+{xp} XP) in {appName}!",
   "@practiceShareText": { "placeholders": { "correct": {}, "total": {}, "xp": {}, "appName": {} } },
@@ -554,5 +554,26 @@
   "challengesYourTurn": "Your Turn",
   "challengesWaiting": "Waiting",
   "challengesCompleted": "Completed",
-  "challengesTapToPlay": "Tap to play your turn"
+  "challengesTapToPlay": "Tap to play your turn",
+
+  "wsQuickPlayTitle": "Word Search",
+  "wsQuickPlaySubtitle": "Find hidden Prophet names in the grid.",
+  "wsScreenTitle": "Word Search",
+  "wsRestartTooltip": "New puzzle",
+  "wsPuzzleComplete": "Puzzle complete!",
+  "wsFoundLabel": "Found",
+  "wsTimeLabel": "Time",
+  "wsScoreLabel": "Score",
+  "wsHintsRemaining": "{count} hints left",
+  "@wsHintsRemaining": { "placeholders": { "count": {} } },
+  "wsDifficultyPickerTitle": "Choose a difficulty",
+  "wsDifficultyPickerSubtitle": "Find hidden Prophet names before you're out of words.",
+  "wsDifficultyEasy": "Easy",
+  "wsDifficultyEasySubtitle": "6 names · 8×8 grid",
+  "wsDifficultyMedium": "Medium",
+  "wsDifficultyMediumSubtitle": "8 names · 11×11 grid",
+  "wsDifficultyHard": "Hard",
+  "wsDifficultyHardSubtitle": "10 names · 14×14 grid",
+  "wsBestTime": "Best: {time}",
+  "@wsBestTime": { "placeholders": { "time": {} } }
 }

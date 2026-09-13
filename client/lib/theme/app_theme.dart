@@ -1,94 +1,129 @@
 import 'package:flutter/material.dart';
 
-/// The app's single visual language: a deep night-world palette shared by
-/// every screen (previously scoped to just the auth screen as `AuthPalette`).
+/// The app's single visual language: a warm parchment/manuscript palette
+/// shared by every screen. Named by role, not hue, so the palette can't
+/// silently drift back into per-screen accent colors — every screen pulls
+/// from these same roles via `Theme.of(context).colorScheme`.
 class AppPalette {
   const AppPalette._();
 
-  static const nightTop = Color(0xFF0B0F1E);
-  static const nightBottom = Color(0xFF15132A);
+  static const parchment = Color(0xFFF5EDE0);
+  static const parchmentDeep = Color(0xFFEBE0CC);
+  static const cardStock = Color(0xFFFBF6EC);
 
-  static const emerald = Color(0xFF34D399);
-  static const teal = Color(0xFF2DD4BF);
-  static const gold = Color(0xFFF5C453);
-  static const violet = Color(0xFFA78BFA);
+  static const deepTeal = Color(0xFF1B4B4A);
+  static const mutedGold = Color(0xFFC9A24B);
 
-  static const portalCore = Color(0xFFFDF6E3);
+  static const ink = Color(0xFF2B2320);
+  static const borderTaupe = Color(0xFFD9CBB3);
 
-  static const glassFill = Color(0x1AFFFFFF);
-  static const glassBorder = Color(0x33FFFFFF);
+  static const incorrectRed = Color(0xFFB3452F);
+  // "Correct" reads as gold, not green, in this palette.
+  static const correctGold = mutedGold;
 
-  static const textPrimary = Color(0xFFF5F3FF);
-  static const textSecondary = Color(0xB3F5F3FF);
-
-  static const List<Color> portalGradient = [emerald, teal, violet];
+  static Color get deepTealMuted => deepTeal.withValues(alpha: 0.15);
+  static Color get mutedGoldMuted => mutedGold.withValues(alpha: 0.18);
+  static Color get inkMuted => ink.withValues(alpha: 0.62);
+  static Color get shadowInk => ink.withValues(alpha: 0.18);
 }
 
-/// Builds the app-wide dark theme. Most screens already read colors via
-/// `Theme.of(context).colorScheme.*` rather than hardcoding light-specific
-/// literals, so this one swap recolors the large majority of the UI.
-ThemeData buildAppTheme() {
+/// Builds the app-wide light theme. Most screens already read colors via
+/// `Theme.of(context).colorScheme.*` rather than hardcoding literals, so
+/// this one function recolors the large majority of the UI.
+///
+/// [locale] picks the active font pairing: Noto Naskh Arabic (covers both
+/// Arabic and Urdu script) for `ar`/`ur`, or Playfair Display for display
+/// text + the platform default (Roboto) for body text otherwise.
+ThemeData buildAppTheme({required Locale locale}) {
+  final isArabicScript = locale.languageCode == 'ar' || locale.languageCode == 'ur';
+  final displayFontFamily = isArabicScript ? 'NotoNaskhArabic' : 'PlayfairDisplay';
+  final bodyFontFamily = isArabicScript ? 'NotoNaskhArabic' : null;
+
   final colorScheme = ColorScheme.fromSeed(
-    seedColor: AppPalette.emerald,
-    brightness: Brightness.dark,
+    seedColor: AppPalette.deepTeal,
+    brightness: Brightness.light,
   ).copyWith(
-    primary: AppPalette.emerald,
-    onPrimary: AppPalette.nightTop,
-    primaryContainer: AppPalette.emerald.withValues(alpha: 0.22),
-    onPrimaryContainer: AppPalette.textPrimary,
-    secondary: AppPalette.teal,
-    onSecondary: AppPalette.nightTop,
-    tertiary: AppPalette.violet,
-    onTertiary: AppPalette.nightTop,
-    surface: AppPalette.nightTop,
-    onSurface: AppPalette.textPrimary,
-    onSurfaceVariant: AppPalette.textSecondary,
-    surfaceContainerHighest: AppPalette.nightBottom,
-    outline: AppPalette.glassBorder,
-    outlineVariant: AppPalette.glassBorder,
-    shadow: Colors.black,
+    primary: AppPalette.deepTeal,
+    onPrimary: AppPalette.cardStock,
+    primaryContainer: AppPalette.deepTealMuted,
+    onPrimaryContainer: AppPalette.ink,
+    secondary: AppPalette.mutedGold,
+    onSecondary: AppPalette.ink,
+    secondaryContainer: AppPalette.mutedGoldMuted,
+    onSecondaryContainer: AppPalette.ink,
+    // No third accent hue in this palette — tertiary collapses onto primary
+    // rather than reintroducing a violet/blue/purple note.
+    tertiary: AppPalette.deepTeal,
+    onTertiary: AppPalette.cardStock,
+    surface: AppPalette.parchment,
+    onSurface: AppPalette.ink,
+    onSurfaceVariant: AppPalette.inkMuted,
+    surfaceContainerHighest: AppPalette.parchmentDeep,
+    outline: AppPalette.borderTaupe,
+    outlineVariant: AppPalette.borderTaupe,
+    shadow: AppPalette.ink,
+    error: AppPalette.incorrectRed,
+    onError: AppPalette.cardStock,
   );
 
-  final baseText =
-      Typography.material2021(platform: TargetPlatform.android).white;
-  final textTheme = baseText.apply(
-    bodyColor: AppPalette.textPrimary,
-    displayColor: AppPalette.textPrimary,
-  );
+  final baseText = Typography.material2021(platform: TargetPlatform.android).black;
+  final textTheme = baseText
+      .apply(
+        bodyColor: AppPalette.ink,
+        displayColor: AppPalette.ink,
+        fontFamily: bodyFontFamily,
+      )
+      .copyWith(
+        displayLarge: baseText.displayLarge?.copyWith(
+            fontFamily: displayFontFamily, fontWeight: FontWeight.w700, color: AppPalette.ink),
+        displayMedium: baseText.displayMedium?.copyWith(
+            fontFamily: displayFontFamily, fontWeight: FontWeight.w700, color: AppPalette.ink),
+        displaySmall: baseText.displaySmall?.copyWith(
+            fontFamily: displayFontFamily, fontWeight: FontWeight.w700, color: AppPalette.ink),
+        headlineLarge: baseText.headlineLarge?.copyWith(
+            fontFamily: displayFontFamily, fontWeight: FontWeight.w700, color: AppPalette.ink),
+        headlineMedium: baseText.headlineMedium?.copyWith(
+            fontFamily: displayFontFamily, fontWeight: FontWeight.w700, color: AppPalette.ink),
+        headlineSmall: baseText.headlineSmall?.copyWith(
+            fontFamily: displayFontFamily, fontWeight: FontWeight.w700, color: AppPalette.ink),
+        titleLarge: baseText.titleLarge?.copyWith(
+            fontFamily: displayFontFamily, fontWeight: FontWeight.w600, color: AppPalette.ink),
+      );
 
   return ThemeData(
     useMaterial3: true,
-    brightness: Brightness.dark,
+    brightness: Brightness.light,
     colorScheme: colorScheme,
-    scaffoldBackgroundColor: AppPalette.nightTop,
+    scaffoldBackgroundColor: AppPalette.parchment,
     textTheme: textTheme,
-    iconTheme: const IconThemeData(color: AppPalette.textPrimary),
-    dividerColor: AppPalette.glassBorder,
+    fontFamily: bodyFontFamily,
+    iconTheme: const IconThemeData(color: AppPalette.ink),
+    dividerColor: AppPalette.borderTaupe,
     cardTheme: CardThemeData(
-      color: AppPalette.glassFill,
+      color: AppPalette.cardStock,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-        side: const BorderSide(color: AppPalette.glassBorder),
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: AppPalette.borderTaupe),
       ),
     ),
     dialogTheme: const DialogThemeData(
-      backgroundColor: AppPalette.nightBottom,
+      backgroundColor: AppPalette.parchmentDeep,
       surfaceTintColor: Colors.transparent,
     ),
     bottomSheetTheme: const BottomSheetThemeData(
-      backgroundColor: AppPalette.nightBottom,
+      backgroundColor: AppPalette.parchmentDeep,
       surfaceTintColor: Colors.transparent,
     ),
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: AppPalette.nightBottom,
-      indicatorColor: AppPalette.emerald.withValues(alpha: 0.24),
+      backgroundColor: AppPalette.parchmentDeep,
+      indicatorColor: AppPalette.deepTealMuted,
       iconTheme: WidgetStateProperty.resolveWith(
         (states) => IconThemeData(
           color: states.contains(WidgetState.selected)
-              ? AppPalette.emerald
-              : AppPalette.textSecondary,
+              ? AppPalette.deepTeal
+              : AppPalette.inkMuted,
         ),
       ),
       labelTextStyle: WidgetStateProperty.resolveWith(
@@ -96,67 +131,73 @@ ThemeData buildAppTheme() {
           fontSize: 12,
           fontWeight: FontWeight.w700,
           color: states.contains(WidgetState.selected)
-              ? AppPalette.emerald
-              : AppPalette.textSecondary,
+              ? AppPalette.deepTeal
+              : AppPalette.inkMuted,
         ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: Colors.black.withValues(alpha: 0.22),
-      labelStyle: const TextStyle(color: AppPalette.textSecondary),
-      hintStyle: const TextStyle(color: AppPalette.textSecondary),
+      fillColor: AppPalette.cardStock,
+      labelStyle: TextStyle(color: AppPalette.inkMuted),
+      hintStyle: TextStyle(color: AppPalette.inkMuted.withValues(alpha: 0.7)),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide.none,
+        borderSide: const BorderSide(color: AppPalette.borderTaupe),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide.none,
+        borderSide: const BorderSide(color: AppPalette.borderTaupe),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: const BorderSide(color: AppPalette.emerald, width: 2),
+        borderSide: const BorderSide(color: AppPalette.deepTeal, width: 2),
       ),
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
-      foregroundColor: Colors.white,
+      foregroundColor: AppPalette.ink,
       elevation: 0,
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        backgroundColor: AppPalette.emerald,
-        foregroundColor: AppPalette.nightTop,
+        backgroundColor: AppPalette.deepTeal,
+        foregroundColor: AppPalette.cardStock,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppPalette.emerald,
-        foregroundColor: AppPalette.nightTop,
+        backgroundColor: AppPalette.deepTeal,
+        foregroundColor: AppPalette.cardStock,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        foregroundColor: AppPalette.textPrimary,
-        side: const BorderSide(color: AppPalette.glassBorder),
+        foregroundColor: AppPalette.ink,
+        side: const BorderSide(color: AppPalette.borderTaupe),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(foregroundColor: AppPalette.emerald),
+      style: TextButton.styleFrom(foregroundColor: AppPalette.deepTeal),
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: SegmentedButton.styleFrom(
-        backgroundColor: Colors.black.withValues(alpha: 0.22),
-        foregroundColor: AppPalette.textSecondary,
-        selectedBackgroundColor: AppPalette.emerald.withValues(alpha: 0.24),
-        selectedForegroundColor: AppPalette.emerald,
-        side: const BorderSide(color: AppPalette.glassBorder),
+        backgroundColor: AppPalette.cardStock,
+        foregroundColor: AppPalette.inkMuted,
+        selectedBackgroundColor: AppPalette.deepTealMuted,
+        selectedForegroundColor: AppPalette.deepTeal,
+        side: const BorderSide(color: AppPalette.borderTaupe),
+        // Material's default segmented-button shape is a stadium/pill —
+        // override it so it matches the card-stock 12px radius everywhere.
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     snackBarTheme: const SnackBarThemeData(
-      backgroundColor: AppPalette.nightBottom,
-      contentTextStyle: TextStyle(color: AppPalette.textPrimary),
+      backgroundColor: AppPalette.parchmentDeep,
+      contentTextStyle: TextStyle(color: AppPalette.ink),
       behavior: SnackBarBehavior.floating,
     ),
   );

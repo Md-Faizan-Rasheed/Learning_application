@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
+import 'card_stock.dart';
+import 'mark_painters.dart';
 
 /// Shared "you got it / not quite" banner shown after an answer is graded.
 /// Takes plain fields rather than a specific model type so it works for both
@@ -48,17 +51,18 @@ class _ResultBannerState extends State<ResultBanner>
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final ok = widget.isCorrect;
+    final tint = ok ? AppPalette.correctGold : AppPalette.incorrectRed;
     return FadeTransition(
       opacity: _fade,
       child: ScaleTransition(
         scale: _scale,
         child: Container(
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: (ok ? Colors.green : Colors.red).withValues(alpha: 0.12),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-                color: (ok ? Colors.green : Colors.red).withValues(alpha: 0.35)),
+          decoration: cardStockDecoration(
+            borderRadius: 16,
+            color: Color.alphaBlend(
+                tint.withValues(alpha: 0.10), AppPalette.cardStock),
+            borderColor: tint.withValues(alpha: 0.4),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,13 +73,18 @@ class _ResultBannerState extends State<ResultBanner>
                     width: 34,
                     height: 34,
                     decoration: BoxDecoration(
-                      color: ok ? Colors.green : Colors.red,
+                      color: tint,
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(
-                      ok ? Icons.check_rounded : Icons.close_rounded,
-                      color: Colors.white,
-                      size: 20,
+                    child: Padding(
+                      padding: const EdgeInsets.all(9),
+                      child: CustomPaint(
+                        painter: ok
+                            ? const CheckmarkPainter(
+                                color: AppPalette.cardStock, strokeWidth: 2.4)
+                            : const CrossPainter(
+                                color: AppPalette.cardStock, strokeWidth: 2.4),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 10),

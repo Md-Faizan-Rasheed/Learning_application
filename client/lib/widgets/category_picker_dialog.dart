@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import '../api/admin_api.dart' show AdminCategory;
 import '../api/content_api.dart';
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
+import 'card_stock.dart';
 import 'category_options.dart';
 
-/// A gamified category-selection dialog: colorful gradient "power-up" tiles
-/// instead of a plain text list. Fetches the live, active-only category
-/// list from the backend (falling back to the static built-ins if that
+/// A gamified category-selection dialog: card-stock tiles differentiated by
+/// icon and label only, not per-tile color. Fetches the live, active-only
+/// category list from the backend (falling back to the static built-ins if that
 /// fails) so admin-created categories appear and deactivated ones don't.
 /// Returns the chosen category value, or null if dismissed.
 Future<String?> showCategoryPicker(BuildContext context,
@@ -149,23 +151,9 @@ class _CategoryOptionCardState extends State<_CategoryOptionCard> {
       child: AnimatedScale(
         scale: _pressed ? 0.97 : 1.0,
         duration: const Duration(milliseconds: 100),
-        child: Container(
+        child: CardStock(
           padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: option.colors,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: option.colors.first.withValues(alpha: 0.35),
-                blurRadius: 14,
-                offset: const Offset(0, 6),
-              ),
-            ],
-          ),
+          borderRadius: 18,
           child: Row(
             children: [
               Container(
@@ -173,13 +161,13 @@ class _CategoryOptionCardState extends State<_CategoryOptionCard> {
                 height: 56,
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.22),
+                  color: AppPalette.deepTealMuted,
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset(
                   option.iconAsset,
                   errorBuilder: (_, __, ___) =>
-                      const Icon(Icons.category_rounded, color: Colors.white),
+                      const Icon(Icons.category_rounded, color: AppPalette.deepTeal),
                 ),
               ),
               const SizedBox(width: 14),
@@ -190,7 +178,7 @@ class _CategoryOptionCardState extends State<_CategoryOptionCard> {
                     Text(
                       option.title,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: AppPalette.ink,
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                       ),
@@ -199,14 +187,14 @@ class _CategoryOptionCardState extends State<_CategoryOptionCard> {
                     Text(
                       option.subtitle,
                       style: TextStyle(
-                        color: Colors.white.withValues(alpha: 0.9),
+                        color: AppPalette.inkMuted,
                         fontSize: 12.5,
                       ),
                     ),
                   ],
                 ),
               ),
-              const Icon(Icons.chevron_right_rounded, color: Colors.white),
+              const Icon(Icons.chevron_right_rounded, color: AppPalette.deepTeal),
             ],
           ),
         ),

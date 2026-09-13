@@ -9,6 +9,7 @@ import '../screens/achievements_screen.dart';
 import '../screens/contribute_screen.dart';
 import '../screens/friends_screen.dart';
 import '../screens/leaderboard_screen.dart';
+import '../theme/app_theme.dart';
 import '../utils/level.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
@@ -168,7 +169,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Expanded(
                         child: _StatCard(
                           icon: Icons.stars_rounded,
-                          iconColor: Colors.amber.shade700,
+                          iconColor: AppPalette.mutedGold,
                           value: '${profile.totalXp}',
                           label: t.profileTotalXp,
                           scale: scale,
@@ -178,7 +179,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Expanded(
                         child: _StatCard(
                           icon: Icons.local_fire_department_rounded,
-                          iconColor: Colors.orange,
+                          iconColor: AppPalette.mutedGold,
                           value: '${profile.streakDays}',
                           label: t.profileDayStreak,
                           scale: scale,
@@ -586,7 +587,7 @@ class _ProfileHero extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                   decoration: BoxDecoration(
-                    color: Colors.amber.shade600,
+                    color: AppPalette.mutedGold,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: colors.primary, width: 2),
                   ),
@@ -755,9 +756,9 @@ class _StreakHighlight extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           vertical: scale.heroPadding * 0.8, horizontal: scale.heroPadding),
       decoration: BoxDecoration(
-        color: Colors.orange.withValues(alpha: 0.10),
+        color: AppPalette.mutedGold.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.orange.withValues(alpha: 0.30)),
+        border: Border.all(color: AppPalette.mutedGold.withValues(alpha: 0.30)),
       ),
       child: Column(
         children: [

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
+import 'medal_painter.dart';
 
 /// One value/label pair shown in a [SessionCompleteCard]'s stat row.
 class StatItem {
@@ -81,23 +83,18 @@ class _SessionCompleteCardState extends State<SessionCompleteCard> {
                     padding: const EdgeInsets.all(28),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [colors.primary, colors.secondary],
-                      ),
+                      color: colors.primary,
                       boxShadow: [
                         BoxShadow(
-                          color: colors.primary.withValues(alpha: 0.3),
-                          blurRadius: 18,
-                          offset: const Offset(0, 8),
+                          color: AppPalette.shadowInk,
+                          blurRadius: 16,
+                          offset: const Offset(0, 6),
                         ),
                       ],
                     ),
                     child: Column(
                       children: [
-                        const Icon(Icons.emoji_events_rounded,
-                            color: Colors.white, size: 56),
+                        const MedalIcon(size: 56),
                         const SizedBox(height: 12),
                         Text(
                           widget.title,
@@ -145,6 +142,11 @@ class _SessionCompleteCardState extends State<SessionCompleteCard> {
           numberOfParticles: 24,
           gravity: 0.3,
           shouldLoop: false,
+          colors: const [
+            AppPalette.deepTeal,
+            AppPalette.mutedGold,
+            AppPalette.cardStock,
+          ],
         ),
       ],
     );
@@ -159,6 +161,7 @@ class _Stat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final onPrimary = Theme.of(context).colorScheme.onPrimary;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -167,8 +170,8 @@ class _Stat extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 22, fontWeight: FontWeight.w900),
+          style: TextStyle(
+              color: onPrimary, fontSize: 22, fontWeight: FontWeight.w900),
         ),
         const SizedBox(height: 4),
         Text(
@@ -176,8 +179,7 @@ class _Stat extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.85), fontSize: 12),
+          style: TextStyle(color: onPrimary.withValues(alpha: 0.85), fontSize: 12),
         ),
       ],
     );

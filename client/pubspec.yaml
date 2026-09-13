@@ -40,10 +40,34 @@ flutter:
     - assets/sounds/
     - assets/icon/
 
+  fonts:
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Variable.ttf
+        - asset: assets/fonts/PlayfairDisplay-Variable.ttf
+          weight: 500
+        - asset: assets/fonts/PlayfairDisplay-Variable.ttf
+          weight: 600
+        - asset: assets/fonts/PlayfairDisplay-Variable.ttf
+          weight: 700
+        - asset: assets/fonts/PlayfairDisplay-Variable.ttf
+          weight: 800
+        - asset: assets/fonts/PlayfairDisplay-Variable.ttf
+          weight: 900
+    - family: NotoNaskhArabic
+      fonts:
+        - asset: assets/fonts/NotoNaskhArabic-Variable.ttf
+        - asset: assets/fonts/NotoNaskhArabic-Variable.ttf
+          weight: 500
+        - asset: assets/fonts/NotoNaskhArabic-Variable.ttf
+          weight: 600
+        - asset: assets/fonts/NotoNaskhArabic-Variable.ttf
+          weight: 700
+
 flutter_launcher_icons:
   android: true
   ios: false
   image_path: "assets/icon/icon.png"
-  adaptive_icon_background: "#0B0F1E"
+  adaptive_icon_background: "#1B4B4A"
   adaptive_icon_foreground: "assets/icon/icon_foreground.png"
   min_sdk_android: 21

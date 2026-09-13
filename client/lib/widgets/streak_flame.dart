@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
 
 class StreakFlame extends StatelessWidget {
   const StreakFlame({super.key, required this.streak});
@@ -19,22 +20,19 @@ class StreakFlame extends StatelessWidget {
           height: badgeSize,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Color(0xFFF97316), Color(0xFFEF4444)],
-            ),
+            color: AppPalette.cardStock,
+            border: Border.all(color: AppPalette.mutedGold, width: 2.5),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFFF97316).withValues(alpha: 0.4),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
+                color: AppPalette.shadowInk,
+                blurRadius: 8,
+                offset: const Offset(0, 3),
               ),
             ],
           ),
           child: Icon(
             Icons.local_fire_department_rounded,
-            color: Colors.white,
+            color: AppPalette.mutedGold,
             size: badgeSize * 0.6,
           ),
         ),

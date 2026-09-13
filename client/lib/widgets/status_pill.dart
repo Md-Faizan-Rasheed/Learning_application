@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_theme.dart';
+
 enum StatusTone { neutral, info, success, warning }
 
 /// Small colored pill for a status word (quiz draft/published/closed, an
@@ -15,9 +17,9 @@ class StatusPill extends StatelessWidget {
   Color _colorFor(StatusTone tone, ColorScheme colors) {
     switch (tone) {
       case StatusTone.success:
-        return Colors.green.shade700;
+        return colors.primary;
       case StatusTone.warning:
-        return Colors.amber.shade800;
+        return AppPalette.mutedGold;
       case StatusTone.info:
         return colors.primary;
       case StatusTone.neutral:

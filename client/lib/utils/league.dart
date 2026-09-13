@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
+import '../widgets/leaderboard.dart' show podiumColors;
 
 /// Like [levelForXp] in level.dart, there's no backend concept of a
 /// "league" — this is a coarser, purely client-side re-bucketing of the
@@ -45,12 +47,16 @@ class LeagueInfo {
         League.master => Icons.auto_awesome_rounded,
       };
 
+  /// Flat tones climbing the same podium bronze/silver/gold ladder used
+  /// elsewhere, then extending it with teal for the two tiers above gold —
+  /// master (the top tier) pairs both accent colors, which the app's rules
+  /// allow as a two-tone teal/gold treatment.
   List<Color> get colors => switch (league) {
-        League.bronze => const [Color(0xFFCD7F32), Color(0xFF8D5524)],
-        League.silver => const [Color(0xFFE0E0E0), Color(0xFF9E9E9E)],
-        League.gold => const [Color(0xFFFFD54F), Color(0xFFFF9800)],
-        League.diamond => const [Color(0xFF67E8F9), Color(0xFF2563EB)],
-        League.master => const [Color(0xFFC084FC), Color(0xFF7C3AED)],
+        League.bronze => [podiumColors[2], podiumColors[2]],
+        League.silver => [podiumColors[1], podiumColors[1]],
+        League.gold => [podiumColors[0], podiumColors[0]],
+        League.diamond => const [AppPalette.deepTeal, AppPalette.deepTeal],
+        League.master => const [AppPalette.deepTeal, AppPalette.mutedGold],
       };
 }
 

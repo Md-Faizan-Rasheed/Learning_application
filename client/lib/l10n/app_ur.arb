@@ -464,7 +464,7 @@
   "lbFriendsEmpty": "دوست دیکھنے کے لیے انہیں شامل کریں!",
 
   "share": "شیئر کریں",
-  "achievementShareText": "میں نے ابھی {appName} میں \"{title}\" کھول لیا! 🏆",
+  "achievementShareText": "میں نے ابھی {appName} میں \"{title}\" کھول لیا!",
   "practiceShareText": "میں نے {appName} میں {correct}/{total} (+{xp} XP) اسکور کیا!",
   "profileShareText": "{name} {appName} میں لیول {level} پر ہے، {xp} XP اور {streak} دن کی اسٹریک کے ساتھ!",
 
@@ -501,5 +501,26 @@
   "challengesYourTurn": "آپ کی باری",
   "challengesWaiting": "انتظار میں",
   "challengesCompleted": "مکمل شدہ",
-  "challengesTapToPlay": "اپنی باری کھیلنے کے لیے تھپتھپائیں"
+  "challengesTapToPlay": "اپنی باری کھیلنے کے لیے تھپتھپائیں",
+
+  "wsQuickPlayTitle": "لفظ تلاش کریں",
+  "wsQuickPlaySubtitle": "گرڈ میں چھپے ہوئے انبیاء کے نام تلاش کریں۔",
+  "wsScreenTitle": "لفظ تلاش کریں",
+  "wsRestartTooltip": "نیا پزل",
+  "wsPuzzleComplete": "پزل مکمل ہوگیا!",
+  "wsFoundLabel": "ملے",
+  "wsTimeLabel": "وقت",
+  "wsScoreLabel": "اسکور",
+  "wsHintsRemaining": "{count} اشارے باقی",
+  "@wsHintsRemaining": { "placeholders": { "count": {} } },
+  "wsDifficultyPickerTitle": "مشکل کی سطح منتخب کریں",
+  "wsDifficultyPickerSubtitle": "الفاظ ختم ہونے سے پہلے چھپے ہوئے انبیاء کے نام تلاش کریں۔",
+  "wsDifficultyEasy": "آسان",
+  "wsDifficultyEasySubtitle": "٦ نام · ٨×٨ گرڈ",
+  "wsDifficultyMedium": "درمیانہ",
+  "wsDifficultyMediumSubtitle": "٨ نام · ١١×١١ گرڈ",
+  "wsDifficultyHard": "مشکل",
+  "wsDifficultyHardSubtitle": "١٠ نام · ١٤×١٤ گرڈ",
+  "wsBestTime": "بہترین: {time}",
+  "@wsBestTime": { "placeholders": { "time": {} } }
 }

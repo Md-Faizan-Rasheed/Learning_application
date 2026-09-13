@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/app_localizations.dart';
+import '../theme/app_theme.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
+import '../widgets/card_stock.dart';
 import '../widgets/category_picker_dialog.dart';
 import 'multiplayer_screen.dart';
 
@@ -105,7 +107,6 @@ class MultiplayerChoiceScreen extends StatelessWidget {
                         icon: Icons.bolt_rounded,
                         title: t.mpChoiceQuickMatch,
                         subtitle: t.mpChoiceQuickMatchSubtitle,
-                        colors: const [Color(0xFFF59E0B), Color(0xFFEF4444)],
                         onTap: () => _quickMatch(context),
                       ),
                       const SizedBox(height: 14),
@@ -113,7 +114,6 @@ class MultiplayerChoiceScreen extends StatelessWidget {
                         icon: Icons.add_circle_rounded,
                         title: t.mpChoiceCreateRoom,
                         subtitle: t.mpChoiceCreateRoomSubtitle,
-                        colors: const [Color(0xFF16A34A), Color(0xFF0D9488)],
                         onTap: () => _createRoom(context),
                       ),
                       const SizedBox(height: 14),
@@ -121,7 +121,6 @@ class MultiplayerChoiceScreen extends StatelessWidget {
                         icon: Icons.meeting_room_rounded,
                         title: t.mpChoiceJoinRoom,
                         subtitle: t.mpChoiceJoinRoomSubtitle,
-                        colors: const [Color(0xFF2563EB), Color(0xFF7C3AED)],
                         onTap: () => _joinRoom(context),
                       ),
                     ],
@@ -142,14 +141,12 @@ class _ChoiceCard extends StatefulWidget {
     required this.icon,
     required this.title,
     required this.subtitle,
-    required this.colors,
     required this.onTap,
   });
 
   final IconData icon;
   final String title;
   final String subtitle;
-  final List<Color> colors;
   final VoidCallback onTap;
 
   @override
@@ -169,33 +166,19 @@ class _ChoiceCardState extends State<_ChoiceCard> {
       child: AnimatedScale(
         scale: _pressed ? 0.97 : 1.0,
         duration: const Duration(milliseconds: 100),
-        child: Container(
+        child: CardStock(
           padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: widget.colors,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: widget.colors.first.withValues(alpha: 0.35),
-                blurRadius: 14,
-                offset: const Offset(0, 6),
-              ),
-            ],
-          ),
+          borderRadius: 20,
           child: Row(
             children: [
               Container(
                 width: 52,
                 height: 52,
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.22),
+                  color: AppPalette.deepTealMuted,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(widget.icon, color: Colors.white, size: 26),
+                child: Icon(widget.icon, color: AppPalette.deepTeal, size: 26),
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -205,7 +188,7 @@ class _ChoiceCardState extends State<_ChoiceCard> {
                     Text(
                       widget.title,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: AppPalette.ink,
                         fontSize: 17,
                         fontWeight: FontWeight.w800,
                       ),
@@ -214,14 +197,14 @@ class _ChoiceCardState extends State<_ChoiceCard> {
                     Text(
                       widget.subtitle,
                       style: TextStyle(
-                        color: Colors.white.withValues(alpha: 0.9),
+                        color: AppPalette.inkMuted,
                         fontSize: 12.5,
                       ),
                     ),
                   ],
                 ),
               ),
-              const Icon(Icons.chevron_right_rounded, color: Colors.white),
+              const Icon(Icons.chevron_right_rounded, color: AppPalette.deepTeal),
             ],
           ),
         ),

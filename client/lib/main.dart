@@ -18,15 +18,19 @@ import 'screens/profile_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/student/assigned_quizzes_screen.dart';
 import 'screens/teacher/teacher_home_screen.dart';
+import 'screens/word_search_screen.dart';
 import 'theme/app_theme.dart';
 import 'utils/level.dart';
 import 'widgets/achievement_data.dart';
 import 'widgets/ambient_backdrop.dart';
+import 'widgets/card_stock.dart';
 import 'widgets/category_options.dart';
+import 'widgets/continue_arrow_icon.dart';
 import 'widgets/category_picker_dialog.dart';
 import 'widgets/fade_scroll_edge.dart';
 import 'widgets/language_picker.dart';
 import 'widgets/reward_card.dart';
+import 'widgets/word_search_difficulty_sheet.dart';
 
 // Empty DSN makes the SDK a documented safe no-op — set at build time with
 //   flutter build appbundle --dart-define=SENTRY_DSN=https://...
@@ -67,7 +71,7 @@ class _IslamicGameAppState extends State<IslamicGameApp> {
       locale: _locale,
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      theme: buildAppTheme(),
+      theme: buildAppTheme(locale: _locale),
       home: _booting
           ? const Scaffold(body: Center(child: CircularProgressIndicator()))
           : _auth.isSignedIn
@@ -305,6 +309,16 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  Future<void> _openWordSearch() async {
+    final difficulty = await showWordSearchDifficultyPicker(context);
+    if (difficulty == null || !mounted) return;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => WordSearchScreen(difficulty: difficulty),
+      ),
+    );
+  }
+
   void _openLeaderboard() {
     if (widget.auth.current == null) return;
     Navigator.of(context).push(MaterialPageRoute(
@@ -472,22 +486,31 @@ class _HomeScreenState extends State<HomeScreen>
     final logoutIconSize = isMobile ? 20.0 : 24.0;
 
     return Container(
-      padding: EdgeInsets.fromLTRB(18, topPadding, 18, isMobile ? 16 : 22),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [colors.primary, colors.secondary],
-        ),
+        color: colors.primary,
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
         boxShadow: [
           BoxShadow(
-              color: colors.primary.withValues(alpha: 0.35),
-              blurRadius: 20,
-              offset: const Offset(0, 8)),
+              color: AppPalette.shadowInk,
+              blurRadius: 16,
+              offset: const Offset(0, 6)),
         ],
       ),
-      child: Column(
+      child: ClipRRect(
+        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: CustomPaint(
+                painter: GeometricPatternPainter(
+                  color: AppPalette.mutedGold,
+                  opacity: 0.14,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(18, topPadding, 18, isMobile ? 16 : 22),
+              child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
@@ -500,7 +523,7 @@ class _HomeScreenState extends State<HomeScreen>
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: Colors.white,
+                      color: colors.onPrimary,
                       fontSize: isMobile ? 17 : 19,
                       fontWeight: FontWeight.w800),
                 ),
@@ -513,7 +536,7 @@ class _HomeScreenState extends State<HomeScreen>
               SizedBox(width: isMobile ? 2 : 6),
               IconButton(
                 icon: Icon(Icons.logout,
-                    color: Colors.white, size: logoutIconSize),
+                    color: colors.onPrimary, size: logoutIconSize),
                 tooltip: t.signOut,
                 onPressed: widget.onSignOut,
                 visualDensity: isMobile ? VisualDensity.compact : null,
@@ -541,6 +564,10 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           ),
         ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -568,7 +595,7 @@ class _HomeScreenState extends State<HomeScreen>
           height: 52,
           child: FilledButton.icon(
             onPressed: () => _openPractice('mixed'),
-            icon: const Icon(Icons.rocket_launch_rounded),
+            icon: const ContinueArrowIcon(color: AppPalette.cardStock),
             label: Text(t.homeContinueLearning,
                 style: const TextStyle(fontWeight: FontWeight.w800)),
           ),
@@ -593,25 +620,25 @@ class _HomeScreenState extends State<HomeScreen>
       return Container(
         padding: const EdgeInsets.all(18),
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [colors.primary, colors.secondary]),
+          color: colors.primary,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-                color: colors.primary.withValues(alpha: 0.28),
-                blurRadius: 14,
-                offset: const Offset(0, 6))
+                color: AppPalette.shadowInk,
+                blurRadius: 12,
+                offset: const Offset(0, 5))
           ],
         ),
         child: Row(
           children: [
-            const Icon(Icons.celebration_rounded,
-                color: Colors.white, size: 28),
+            Icon(Icons.celebration_rounded,
+                color: colors.onPrimary, size: 28),
             const SizedBox(width: 14),
             Expanded(
               child: Text(
                 t.homeAllQuestsDone,
-                style: const TextStyle(
-                    color: Colors.white,
+                style: TextStyle(
+                    color: colors.onPrimary,
                     fontWeight: FontWeight.w800,
                     fontSize: 15),
               ),
@@ -628,14 +655,14 @@ class _HomeScreenState extends State<HomeScreen>
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: colors.surface,
+        color: AppPalette.cardStock,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: colors.outlineVariant),
+        border: Border.all(color: AppPalette.borderTaupe),
         boxShadow: [
           BoxShadow(
-              color: colors.shadow.withValues(alpha: 0.06),
-              blurRadius: 12,
-              offset: const Offset(0, 5))
+              color: AppPalette.shadowInk,
+              blurRadius: 10,
+              offset: const Offset(0, 4))
         ],
       ),
       child: Column(
@@ -647,11 +674,10 @@ class _HomeScreenState extends State<HomeScreen>
                 width: 44,
                 height: 44,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [colors.primary, colors.secondary]),
+                  color: colors.primary,
                   borderRadius: BorderRadius.circular(14),
                 ),
-                child: const Icon(Icons.bolt_rounded, color: Colors.white),
+                child: Icon(Icons.bolt_rounded, color: colors.onPrimary),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -674,14 +700,14 @@ class _HomeScreenState extends State<HomeScreen>
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(
-                      color: Colors.amber.withValues(alpha: 0.2),
+                      color: AppPalette.mutedGoldMuted,
                       borderRadius: BorderRadius.circular(12)),
                   child: Text(
                     t.questRewardXp(quest.rewardXp),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        color: Colors.amber.shade800,
+                        color: AppPalette.mutedGold,
                         fontWeight: FontWeight.w800),
                   ),
                 ),
@@ -698,8 +724,8 @@ class _HomeScreenState extends State<HomeScreen>
               builder: (context, value, _) => LinearProgressIndicator(
                 value: value,
                 minHeight: 10,
-                backgroundColor: colors.outlineVariant.withValues(alpha: 0.4),
-                valueColor: AlwaysStoppedAnimation<Color>(colors.primary),
+                backgroundColor: AppPalette.borderTaupe.withValues(alpha: 0.5),
+                valueColor: const AlwaysStoppedAnimation<Color>(AppPalette.mutedGold),
               ),
             ),
           ),
@@ -777,11 +803,11 @@ class _HomeScreenState extends State<HomeScreen>
         children: [
           Text(t.homePlayMultiplayer,
               style: TextStyle(
-                  color: colors.tertiary,
+                  color: colors.primary,
                   fontWeight: FontWeight.w800,
                   fontSize: 14)),
           const SizedBox(width: 6),
-          Icon(Icons.arrow_forward_rounded, color: colors.tertiary, size: 17),
+          Icon(Icons.arrow_forward_rounded, color: colors.primary, size: 17),
         ],
       ),
     );
@@ -792,17 +818,13 @@ class _HomeScreenState extends State<HomeScreen>
       child: Container(
         padding: const EdgeInsets.all(18),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [colors.tertiary, colors.secondary],
-          ),
+          color: colors.primary,
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: colors.tertiary.withValues(alpha: 0.32),
-              blurRadius: 18,
-              offset: const Offset(0, 8),
+              color: AppPalette.shadowInk,
+              blurRadius: 16,
+              offset: const Offset(0, 6),
             ),
           ],
         ),
@@ -846,6 +868,12 @@ class _HomeScreenState extends State<HomeScreen>
         title: t.cardAssignedQuizzesTitle,
         subtitle: t.cardAssignedQuizzesSubtitle,
         onTap: _openAssignedQuizzes,
+      ),
+      _QuickPlayItem(
+        icon: Icons.grid_on_rounded,
+        title: t.wsQuickPlayTitle,
+        subtitle: t.wsQuickPlaySubtitle,
+        onTap: _openWordSearch,
       ),
     ];
 
@@ -940,14 +968,14 @@ class _HomeScreenState extends State<HomeScreen>
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.red.withValues(alpha: 0.08),
+        color: AppPalette.incorrectRed.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.red.withValues(alpha: 0.25)),
+        border: Border.all(color: AppPalette.incorrectRed.withValues(alpha: 0.25)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.error_outline, color: Colors.red, size: 20),
+          const Icon(Icons.error_outline, color: AppPalette.incorrectRed, size: 20),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -955,12 +983,12 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 Text(t.backendUnreachable,
                     style: const TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.w700)),
+                        color: AppPalette.incorrectRed, fontWeight: FontWeight.w700)),
                 if (_healthError != null) ...[
                   const SizedBox(height: 4),
                   Text(_healthError!,
                       style:
-                          TextStyle(color: Colors.red.shade700, fontSize: 12)),
+                          TextStyle(color: AppPalette.incorrectRed, fontSize: 12)),
                 ],
               ],
             ),
@@ -982,13 +1010,14 @@ class _HeroStat extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.16),
+        color: AppPalette.cardStock,
         borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: AppPalette.mutedGold, width: 1.5),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.white, size: 18),
+          Icon(icon, color: AppPalette.mutedGold, size: 18),
           const SizedBox(width: 6),
           Flexible(
             child: Text(
@@ -996,7 +1025,7 @@ class _HeroStat extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                  color: Colors.white,
+                  color: AppPalette.ink,
                   fontWeight: FontWeight.w800,
                   fontSize: 13),
             ),
@@ -1030,57 +1059,46 @@ class _JourneyStopCardState extends State<_JourneyStopCard> {
       child: AnimatedScale(
         scale: _pressed ? 0.97 : 1.0,
         duration: const Duration(milliseconds: 100),
-        child: Container(
-          width: 150,
+        child: CardStock(
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: option.colors),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                  color: option.colors.first.withValues(alpha: 0.35),
-                  blurRadius: 14,
-                  offset: const Offset(0, 6))
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 44,
-                height: 44,
-                padding: const EdgeInsets.all(9),
-                decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.22),
-                    shape: BoxShape.circle),
-                child: Image.asset(
-                  option.iconAsset,
-                  errorBuilder: (_, __, ___) =>
-                      const Icon(Icons.category_rounded, color: Colors.white),
+          borderRadius: 20,
+          child: SizedBox(
+            width: 118,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
+                  padding: const EdgeInsets.all(9),
+                  decoration: BoxDecoration(
+                      color: AppPalette.deepTealMuted, shape: BoxShape.circle),
+                  child: Image.asset(
+                    option.iconAsset,
+                    errorBuilder: (_, __, ___) => const Icon(
+                        Icons.category_rounded,
+                        color: AppPalette.deepTeal),
+                  ),
                 ),
-              ),
-              const Spacer(),
-              Text(
-                option.title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 16),
-              ),
-              const SizedBox(height: 3),
-              Text(
-                option.subtitle,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.9), fontSize: 11.5),
-              ),
-            ],
+                const Spacer(),
+                Text(
+                  option.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      color: AppPalette.ink,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 16),
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  option.subtitle,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: AppPalette.inkMuted, fontSize: 11.5),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -1169,28 +1187,21 @@ class _AchievementChip extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        gradient: unlocked
-            ? LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: achievement.colors)
-            : null,
-        color: unlocked ? null : Colors.grey.withValues(alpha: 0.12),
-        boxShadow: unlocked
-            ? [
-                BoxShadow(
-                    color: achievement.colors.first.withValues(alpha: 0.3),
-                    blurRadius: 10,
-                    offset: const Offset(0, 4))
-              ]
-            : null,
+        color: unlocked ? AppPalette.mutedGold : AppPalette.cardStock,
+        border: unlocked ? null : Border.all(color: AppPalette.borderTaupe),
+        boxShadow: [
+          BoxShadow(
+              color: AppPalette.shadowInk,
+              blurRadius: 8,
+              offset: const Offset(0, 4))
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(
             unlocked ? achievement.icon : Icons.lock_rounded,
-            color: unlocked ? Colors.white : Colors.grey.shade600,
+            color: unlocked ? AppPalette.ink : AppPalette.inkMuted,
             size: 22,
           ),
           const Spacer(),
@@ -1198,8 +1209,8 @@ class _AchievementChip extends StatelessWidget {
             achievement.title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                color: unlocked ? Colors.white : Colors.grey.shade700,
+            style: const TextStyle(
+                color: AppPalette.ink,
                 fontWeight: FontWeight.w800,
                 fontSize: 12.5),
           ),
@@ -1209,8 +1220,8 @@ class _AchievementChip extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 color: unlocked
-                    ? Colors.white.withValues(alpha: 0.9)
-                    : Colors.grey.shade500,
+                    ? AppPalette.ink.withValues(alpha: 0.75)
+                    : AppPalette.inkMuted,
                 fontSize: 10.5),
           ),
         ],
