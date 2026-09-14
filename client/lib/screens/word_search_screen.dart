@@ -12,6 +12,7 @@ import '../utils/daily_word_search.dart';
 import '../utils/word_search_generator.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
+import '../widgets/arabic_word_row.dart';
 import '../widgets/card_stock.dart';
 import '../widgets/loading_view.dart';
 import '../widgets/session_complete_card.dart';
@@ -451,9 +452,19 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
               ),
               const SizedBox(height: 10),
               for (final placed in _puzzle.placedWords) ...[
-                Text(
-                  '${placed.word.word} — ${placed.word.displayName}',
-                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        '${placed.word.word} — ${placed.word.displayName}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    ArabicWordRow(arabicScript: placed.word.arabicScript, fontSize: 14),
+                  ],
                 ),
                 const SizedBox(height: 2),
                 Text(
@@ -563,6 +574,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
               word: placed.word.word,
               displayName: placed.word.displayName,
               fact: placed.word.fact,
+              arabicScript: placed.word.arabicScript,
               found: _foundWords.contains(placed),
               clueMode: widget.clueMode,
             ),
@@ -580,6 +592,7 @@ class _WordFactChip extends StatefulWidget {
     required this.word,
     required this.displayName,
     required this.fact,
+    required this.arabicScript,
     required this.found,
     required this.clueMode,
   });
@@ -587,6 +600,7 @@ class _WordFactChip extends StatefulWidget {
   final String word;
   final String displayName;
   final String fact;
+  final String arabicScript;
   final bool found;
 
   /// Show the fact as a clue in place of the plain word before it's found.
@@ -669,6 +683,8 @@ class _WordFactChipState extends State<_WordFactChip> {
               '${widget.word} · ${widget.displayName}',
               style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
             ),
+            const SizedBox(height: 2),
+            ArabicWordRow(arabicScript: widget.arabicScript, fontSize: 13),
             const SizedBox(height: 3),
             AnimatedSize(
               duration: const Duration(milliseconds: 180),

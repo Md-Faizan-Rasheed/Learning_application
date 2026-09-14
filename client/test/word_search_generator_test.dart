@@ -43,7 +43,7 @@ void main() {
     test('drops words that cannot possibly fit instead of crashing', () {
       // MUHAMMAD is 8 letters — cannot fit anywhere on a 4x4 grid.
       final puzzle = generateWordSearch(
-        words: const [WordEntry('MUHAMMAD', 'Muhammad', 'test fact')],
+        words: const [WordEntry('MUHAMMAD', 'Muhammad', 'test fact', 'محمد')],
         size: 4,
         random: Random(1),
       );

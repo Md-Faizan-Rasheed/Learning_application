@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   audioplayers_windows
+  flutter_tts
   sentry_flutter
   share_plus
   url_launcher_windows

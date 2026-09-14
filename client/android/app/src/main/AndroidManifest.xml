@@ -42,5 +42,11 @@
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
         </intent>
+        <!-- Required for flutter_tts on Android 11+ (API 30+) package
+             visibility rules — without this, the OS's text-to-speech
+             engine can't be found and speak() silently does nothing. -->
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE"/>
+        </intent>
     </queries>
 </manifest>
