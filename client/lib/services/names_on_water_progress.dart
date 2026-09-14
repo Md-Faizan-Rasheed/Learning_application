@@ -7,7 +7,7 @@ import '../utils/names_of_allah.dart';
 import '../utils/word_bank_entry.dart';
 
 /// Local, per-device tracking of where a player is in cycling through all
-/// 99 Names of Allah for the "Names on Water" matching game — same
+/// 99 Names of Allah for the "Names of Allah" matching game — same
 /// SharedPreferences-backed pattern as WordSearchStats/WordMasteryStore.
 /// Sequential (not shuffled) order: simplest to reason about, and progress
 /// only advances when a round is actually completed, not merely started —

@@ -4,65 +4,47 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
-/// The abstract "water" backdrop for Names on Water: thin concentric-ripple
-/// and current-line work over the app's own teal, not a photorealistic
-/// water texture or a new blue palette — same static/seeded/low-alpha
-/// painting philosophy as [GeometricPatternPainter] and [PaperGrainPainter]
-/// (see ambient_backdrop.dart, card_stock.dart), just a different motif.
-/// Pure geometry, painted once; `shouldRepaint` only fires on a real size
-/// change, so this costs nothing per frame regardless of how many pads
-/// float on top of it.
+/// The abstract "water" backdrop for Names of Allah: soft horizontal wave
+/// curves over the app's own teal, not a photorealistic water texture or a
+/// new blue palette. Lighter bands blend [AppPalette.parchment] over the
+/// teal fill at low alpha; darker bands blend [AppPalette.ink] — both
+/// existing tokens, no new hex values, since a flat teal has no
+/// lighter/darker variant of its own to reach for. Pure geometry, painted
+/// once; `shouldRepaint` only fires on a real size change.
 class WaterSurfacePainter extends CustomPainter {
   const WaterSurfacePainter({this.seed = 7});
 
   final int seed;
 
-  static const _rippleGroups = 6;
-  static const _ringsPerGroup = 3;
-  static const _currentLines = 3;
-
   @override
   void paint(Canvas canvas, Size size) {
     final rng = math.Random(seed);
 
-    final ringPaint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.1
-      ..color = AppPalette.parchment.withValues(alpha: 0.14);
+    // 2-3 soft wave bands at different depths — alternating a touch
+    // lighter/darker than the base fill so they read as gentle water
+    // texture, not a UI element competing for attention.
+    final bands = 2 + rng.nextInt(2);
+    for (var i = 0; i < bands; i++) {
+      final lighter = i.isEven;
+      final paint = Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.4
+        ..color = (lighter ? AppPalette.parchment : AppPalette.ink)
+            .withValues(alpha: lighter ? 0.09 : 0.07);
 
-    for (var g = 0; g < _rippleGroups; g++) {
-      final center = Offset(
-        rng.nextDouble() * size.width,
-        rng.nextDouble() * size.height,
-      );
-      final baseRadius = 14 + rng.nextDouble() * 22;
-      for (var r = 0; r < _ringsPerGroup; r++) {
-        final radius = baseRadius + r * 16;
-        final alpha = 0.16 - r * 0.045;
-        canvas.drawCircle(
-          center,
-          radius,
-          ringPaint..color = AppPalette.parchment.withValues(alpha: alpha.clamp(0.02, 1.0)),
-        );
-      }
-    }
+      final baseY = size.height * (0.22 + i * (0.56 / math.max(1, bands - 1)).clamp(0.18, 0.6)) +
+          rng.nextDouble() * 16 - 8;
+      final amplitude = 8 + rng.nextDouble() * 8;
+      final wavelength = size.width / (1.4 + rng.nextDouble() * 1.2);
+      final phase = rng.nextDouble() * 2 * math.pi;
 
-    final currentPaint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.0
-      ..color = AppPalette.parchment.withValues(alpha: 0.08);
-
-    for (var i = 0; i < _currentLines; i++) {
-      final baseY = size.height * (0.2 + i * 0.3) + rng.nextDouble() * 20 - 10;
-      final amplitude = 6 + rng.nextDouble() * 6;
-      final wavelength = size.width / (2 + rng.nextInt(2));
       final path = Path()..moveTo(0, baseY);
-      const step = 12.0;
+      const step = 10.0;
       for (var x = 0.0; x <= size.width; x += step) {
-        final y = baseY + amplitude * math.sin(x / wavelength * 2 * math.pi);
+        final y = baseY + amplitude * math.sin(x / wavelength * 2 * math.pi + phase);
         path.lineTo(x, y);
       }
-      canvas.drawPath(path, currentPaint);
+      canvas.drawPath(path, paint);
     }
   }
 

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +8,7 @@ import '../l10n/app_localizations.dart';
 import '../services/names_on_water_progress.dart';
 import '../services/sound_service.dart';
 import '../theme/app_theme.dart';
+import '../utils/pad_scatter.dart';
 import '../utils/word_bank_entry.dart';
 import '../widgets/app_header.dart';
 import '../widgets/floating_pad.dart';
@@ -17,7 +17,7 @@ import '../widgets/session_complete_card.dart';
 import '../widgets/status_pill.dart';
 import '../widgets/water_surface_painter.dart';
 
-/// "Names on Water": 5-7 Names of Allah float on a themed water surface;
+/// "Names of Allah": 5-7 names float on a themed water surface;
 /// the player drags each onto its matching meaning in the dock below.
 /// Cycles sequentially through all 99 names across sessions (see
 /// NamesOnWaterProgress) and reports completion through the same
@@ -155,6 +155,11 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
     return Scaffold(
       appBar: AppHeader(
         title: t.namesOnWaterScreenTitle,
+        // One flat fill from the app's own teal — matches the water panel
+        // below instead of the shared teal->gold header gradient, which
+        // reads as an unrelated hue here. Gold is reserved for the single
+        // small accent below (the timer text), not a background.
+        backgroundColor: AppPalette.deepTeal,
         actions: [
           IconButton(
             onPressed: _restart,
@@ -165,7 +170,7 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
       ),
       body: SafeArea(
         child: _loading
-            ? LoadingView(message: t.namesOnWaterPreparing, icon: Icons.water_rounded)
+            ? LoadingView(message: t.namesOnWaterPreparing, icon: Icons.waves_rounded)
             : (_complete ? _buildComplete(t) : _buildGame(t)),
       ),
     );
@@ -183,14 +188,17 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Row(
                 children: [
-                  Icon(Icons.swipe_rounded, size: 16, color: AppPalette.inkMuted),
+                  Icon(Icons.waves_rounded, size: 16, color: AppPalette.inkMuted),
                   const SizedBox(width: 6),
                   Expanded(
                     child: Text(t.namesOnWaterDockHint,
                         style: TextStyle(fontSize: 12.5, color: AppPalette.inkMuted)),
                   ),
+                  // The one deliberate small gold accent on this screen —
+                  // everywhere else gold stays reserved for "correct".
                   Text(_formatSeconds(_elapsedSeconds),
-                      style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w800, fontSize: 13, color: AppPalette.mutedGold)),
                 ],
               ),
             ),
@@ -203,7 +211,7 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
             ),
             Expanded(
               flex: wide ? 1 : 2,
-              child: _buildDock(t, wide),
+              child: _buildDock(t),
             ),
           ],
         );
@@ -222,30 +230,26 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
             LayoutBuilder(
               builder: (context, constraints) {
                 final area = Size(constraints.maxWidth, constraints.maxHeight);
-                final count = math.max(1, _floating.length);
-                final cols = math.max(1, math.sqrt(count * area.width / area.height).ceil());
-                final rows = (count / cols).ceil();
-                final cellW = area.width / cols;
-                final cellH = area.height / rows;
-                final padSize = (math.min(cellW, cellH) * 0.72).clamp(64.0, 128.0);
+                final count = _floating.length;
+                final padSize = padSizeFor(count, area);
                 final floatRange = (area.height * 0.035).clamp(6.0, 14.0);
                 // Deterministic per (count, area) so re-layouts (rotation,
                 // resize) don't jitter the arrangement between builds.
-                final rng = math.Random(count * 97 + area.width.round());
+                final anchors = scatterAnchors(
+                  count: count,
+                  area: area,
+                  padSize: padSize,
+                  seed: count * 97 + area.width.round(),
+                );
 
                 return Stack(
                   children: [
                     for (var i = 0; i < _floating.length; i++)
                       _positionedPad(
                         entry: _floating[i],
-                        index: i,
-                        cols: cols,
-                        cellW: cellW,
-                        cellH: cellH,
+                        anchor: anchors[i],
                         padSize: padSize,
                         floatRange: floatRange,
-                        area: area,
-                        rng: rng,
                         reduceMotion: reduceMotion,
                       ),
                   ],
@@ -260,34 +264,17 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
 
   Widget _positionedPad({
     required WordEntry entry,
-    required int index,
-    required int cols,
-    required double cellW,
-    required double cellH,
+    required Offset anchor,
     required double padSize,
     required double floatRange,
-    required Size area,
-    required math.Random rng,
     required bool reduceMotion,
   }) {
-    final col = index % cols;
-    final row = index ~/ cols;
-    final cx = col * cellW + cellW / 2;
-    final cy = row * cellH + cellH / 2;
-    final maxJitterX = math.max(0.0, cellW / 2 - padSize / 2 - 4);
-    final maxJitterY = math.max(0.0, cellH / 2 - padSize / 2 - 4);
-    final jx = (rng.nextDouble() * 2 - 1) * maxJitterX;
-    final jy = (rng.nextDouble() * 2 - 1) * maxJitterY;
-    final anchorX = (cx + jx).clamp(padSize / 2, math.max(padSize / 2, area.width - padSize / 2));
-    final anchorY =
-        (cy + jy).clamp(padSize / 2, math.max(padSize / 2, area.height - padSize / 2));
-
     return AnimatedPositioned(
       key: ValueKey(entry.word),
       duration: const Duration(milliseconds: 420),
       curve: Curves.easeOutCubic,
-      left: anchorX - padSize / 2,
-      top: anchorY - padSize / 2,
+      left: anchor.dx - padSize / 2,
+      top: anchor.dy - padSize / 2,
       width: padSize,
       height: padSize,
       child: FloatingPad(
@@ -303,27 +290,35 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
     );
   }
 
-  Widget _buildDock(AppLocalizations t, bool wide) {
-    final slots = [
-      for (final entry in _dockOrder)
-        _DockSlot(
-          entry: entry,
-          filled: _matchedWords.contains(entry.word),
-          onAccept: _handleCorrectMatch,
-        ),
-    ];
-
+  /// Always a two-column chip grid — sized and styled like the floating
+  /// cards (same radius/border/shadow language) so the dock reads as "the
+  /// same kind of object, anchored" rather than a settings-style form list.
+  Widget _buildDock(AppLocalizations t) {
+    const spacing = 10.0;
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
-      child: wide
-          ? SingleChildScrollView(
-              child: Wrap(spacing: 10, runSpacing: 10, children: slots),
-            )
-          : ListView.separated(
-              itemCount: slots.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 8),
-              itemBuilder: (context, i) => slots[i],
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final chipWidth = (constraints.maxWidth - spacing) / 2;
+          return SingleChildScrollView(
+            child: Wrap(
+              spacing: spacing,
+              runSpacing: spacing,
+              children: [
+                for (final entry in _dockOrder)
+                  SizedBox(
+                    width: chipWidth,
+                    child: _DockSlot(
+                      entry: entry,
+                      filled: _matchedWords.contains(entry.word),
+                      onAccept: _handleCorrectMatch,
+                    ),
+                  ),
+              ],
             ),
+          );
+        },
+      ),
     );
   }
 
@@ -376,11 +371,11 @@ class _NamesOnWaterScreenState extends State<NamesOnWaterScreen> {
   }
 }
 
-/// A meaning slot in the dock — mirrors SeatMarker's empty/filled
-/// dichotomy: a dashed hairline outline while waiting, a gold-tinted
-/// card-stock fill (with the same 1.0->1.03->1.0/400ms settle bump
-/// option_tile.dart uses for a correct answer, plus a brief expanding-ring
-/// "ripple") once a name lands on it correctly.
+/// A meaning slot in the dock — the same card-stock look (radius, border,
+/// shadow) as the floating cards above it: a hairline border while
+/// waiting, and a gold-tinted fill (with the same 1.0->1.03->1.0/400ms
+/// settle bump option_tile.dart uses for a correct answer, plus a brief
+/// expanding-ring "ripple") once a name lands on it correctly.
 class _DockSlot extends StatefulWidget {
   const _DockSlot({required this.entry, required this.filled, required this.onAccept});
 
@@ -420,6 +415,11 @@ class _DockSlotState extends State<_DockSlot> with SingleTickerProviderStateMixi
 
   @override
   Widget build(BuildContext context) {
+    // Same radius/border/shadow language as FloatingPad's card, whether
+    // filled or not, so the dock reads as the same kind of object as the
+    // floating cards rather than a disconnected settings-style list.
+    const radius = 12.0;
+
     if (widget.filled) {
       return AnimatedBuilder(
         animation: _settle,
@@ -444,24 +444,37 @@ class _DockSlotState extends State<_DockSlot> with SingleTickerProviderStateMixi
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: 48),
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           decoration: BoxDecoration(
             color: Color.alphaBlend(
                 AppPalette.correctGold.withValues(alpha: 0.20), AppPalette.cardStock),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(radius),
             border: Border.all(color: AppPalette.correctGold, width: 1.4),
+            boxShadow: [
+              BoxShadow(color: AppPalette.shadowInk, blurRadius: 8, offset: const Offset(0, 3)),
+            ],
           ),
-          child: Row(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.check_circle_rounded, color: AppPalette.correctGold, size: 20),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  '${widget.entry.displayName} — $_meaning',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-                ),
+              // The one icon on this screen that communicates match-state
+              // rather than decorating — kept for exactly that reason.
+              const Icon(Icons.check_circle_rounded, color: AppPalette.correctGold, size: 18),
+              const SizedBox(height: 3),
+              Text(
+                widget.entry.displayName,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+              ),
+              Text(
+                _meaning,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 11.5, color: AppPalette.inkMuted, fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -479,31 +492,25 @@ class _DockSlotState extends State<_DockSlot> with SingleTickerProviderStateMixi
         final matching = candidates.isNotEmpty;
         return Container(
           constraints: const BoxConstraints(minHeight: 48),
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           decoration: BoxDecoration(
-            color: matching
-                ? AppPalette.deepTeal.withValues(alpha: 0.08)
-                : AppPalette.cardStock.withValues(alpha: 0.6),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: CustomPaint(
-            painter: _DashedRectPainter(
+            color: AppPalette.cardStock,
+            borderRadius: BorderRadius.circular(radius),
+            border: Border.all(
               color: matching ? AppPalette.deepTeal : AppPalette.borderTaupe,
+              width: matching ? 1.6 : 1,
             ),
-            child: Row(
-              children: [
-                Icon(Icons.water_drop_outlined, size: 16, color: AppPalette.inkMuted),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    _meaning,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: AppPalette.ink),
-                  ),
-                ),
-              ],
-            ),
+            boxShadow: [
+              BoxShadow(color: AppPalette.shadowInk, blurRadius: 8, offset: const Offset(0, 3)),
+            ],
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            _meaning,
+            textAlign: TextAlign.center,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: AppPalette.ink),
           ),
         );
       },
@@ -536,34 +543,4 @@ class _RippleBurstPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _RippleBurstPainter oldDelegate) =>
       oldDelegate.progress != progress;
-}
-
-class _DashedRectPainter extends CustomPainter {
-  const _DashedRectPainter({required this.color});
-  final Color color;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.4;
-    final rrect = RRect.fromRectAndRadius(
-        Offset.zero & size, const Radius.circular(12));
-    final path = Path()..addRRect(rrect);
-    final metrics = path.computeMetrics();
-    for (final metric in metrics) {
-      const dashLength = 5.0;
-      const gapLength = 4.0;
-      var distance = 0.0;
-      while (distance < metric.length) {
-        final next = math.min(distance + dashLength, metric.length);
-        canvas.drawPath(metric.extractPath(distance, next), paint);
-        distance = next + gapLength;
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _DashedRectPainter oldDelegate) => oldDelegate.color != color;
 }

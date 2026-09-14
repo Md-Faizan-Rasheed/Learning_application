@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 
 import '../theme/app_theme.dart';
 import '../utils/word_bank_entry.dart';
-import 'card_stock.dart';
+import 'card_stock.dart' show PaperGrainPainter;
 
 /// One name floating on the water surface — a card-stock chip (matching
 /// every other piece of content in this app, not a lily-pad shape) with its
@@ -74,11 +74,21 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
   late double _freqRatio;
   late double _phaseOffset;
 
+  // Fixed for this pad's whole lifetime (not touched by drift/reflow) — a
+  // small static tilt so pads don't look machine-stamped, and a depth
+  // factor that scales this pad's shadow so some read as slightly nearer
+  // and some slightly farther, instead of one identical shadow on every
+  // card.
+  late double _tilt;
+  late double _depth;
+
   @override
   void initState() {
     super.initState();
     _rng = math.Random();
     _rollMotionParams();
+    _tilt = (_rng.nextDouble() * 2 - 1) * (4 * math.pi / 180); // -4..4 degrees
+    _depth = _rng.nextDouble();
 
     _floatController = AnimationController(
       vsync: this,
@@ -160,40 +170,62 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
     });
   }
 
+  /// Same card-stock look (cardStock fill, borderTaupe hairline, paper
+  /// grain) as [CardStock] elsewhere in the app, but with its own shadow
+  /// instead of a fixed one — [_depth] varies per pad so a "closer" card
+  /// gets a slightly stronger, tighter shadow and a "farther" one a
+  /// softer, more diffuse one, giving the floating layer a mild sense of
+  /// depth rather than every card casting an identical shadow.
   Widget _buildChip() {
-    return CardStock(
+    final radius = BorderRadius.circular(12);
+    return Container(
+      width: widget.size,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-      borderRadius: 12,
-      child: SizedBox(
-        width: widget.size,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: Text(
-                widget.entry.arabicScript,
+      decoration: BoxDecoration(
+        color: AppPalette.cardStock,
+        borderRadius: radius,
+        border: Border.all(color: AppPalette.borderTaupe),
+        boxShadow: [
+          BoxShadow(
+            color: AppPalette.shadowInk.withValues(alpha: 0.10 + _depth * 0.14),
+            blurRadius: 6 + _depth * 10,
+            offset: Offset(0, 3 + _depth * 5),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: radius,
+        child: CustomPaint(
+          painter: const PaperGrainPainter(),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Directionality(
+                textDirection: TextDirection.rtl,
+                child: Text(
+                  widget.entry.arabicScript,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontFamily: 'NotoNaskhArabic',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 17,
+                    color: AppPalette.ink,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                widget.entry.displayName,
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontFamily: 'NotoNaskhArabic',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 17,
-                  color: AppPalette.ink,
-                ),
+                style: TextStyle(fontSize: 11, color: AppPalette.inkMuted, fontWeight: FontWeight.w600),
               ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              widget.entry.displayName,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 11, color: AppPalette.inkMuted, fontWeight: FontWeight.w600),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -229,7 +261,12 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
       child: chip,
     );
 
-    if (widget.reduceMotion) return draggable;
+    if (widget.reduceMotion) {
+      // Tilt is a static layout/style choice (scattered, not machine-
+      // stamped), independent of the reduced-motion drift/wiggle — keep it
+      // even when animation is off.
+      return Transform.rotate(angle: _tilt, child: draggable);
+    }
 
     return AnimatedBuilder(
       animation: Listenable.merge([_floatController, _wiggleController]),
@@ -246,7 +283,7 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
 
         return Transform.translate(
           offset: Offset(horizontal, vertical),
-          child: Transform.rotate(angle: wiggleAngle, child: child),
+          child: Transform.rotate(angle: _tilt + wiggleAngle, child: child),
         );
       },
     );

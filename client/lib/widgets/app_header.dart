@@ -18,6 +18,7 @@ class AppHeader extends StatefulWidget implements PreferredSizeWidget {
     this.centerTitle = true,
     this.bottom,
     this.scrollController,
+    this.backgroundColor,
   });
 
   final String title;
@@ -26,6 +27,12 @@ class AppHeader extends StatefulWidget implements PreferredSizeWidget {
   final bool centerTitle;
   final PreferredSizeWidget? bottom;
   final ScrollController? scrollController;
+
+  /// Overrides the default teal→gold gradient with a flat fill — for a
+  /// screen whose own background needs one coherent solid tone instead
+  /// (e.g. Names of Allah's water panel). Every other screen omits this
+  /// and keeps the shared gradient.
+  final Color? backgroundColor;
 
   @override
   State<AppHeader> createState() => _AppHeaderState();
@@ -127,11 +134,14 @@ class _AppHeaderState extends State<AppHeader>
             children: [
               Container(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [colors.primary, colors.secondary],
-                  ),
+                  color: widget.backgroundColor,
+                  gradient: widget.backgroundColor == null
+                      ? LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [colors.primary, colors.secondary],
+                        )
+                      : null,
                 ),
               ),
               // Scroll-reactive scrim: adds depth/legibility as content
