@@ -25,11 +25,19 @@ class WordSearchScreen extends StatefulWidget {
     super.key,
     required this.difficulty,
     this.category = WordSearchCategory.prophets,
+    this.clueMode = false,
     this.token,
   });
 
   final WordSearchDifficulty difficulty;
   final WordSearchCategory category;
+
+  /// When true, an unfound word's sidebar chip shows its fact/clue instead
+  /// of the plain word itself — the player has to recall which word the
+  /// clue points to before searching for it, rather than just letter
+  /// -matching a word they can already read. Grid letters are unaffected
+  /// either way; this only changes what the sidebar gives away up front.
+  final bool clueMode;
 
   /// When set (the player is logged in), a completed puzzle is reported to
   /// the same profile ledger a finished multiplayer match updates — real,
@@ -414,6 +422,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
               displayName: placed.word.displayName,
               fact: placed.word.fact,
               found: _foundWords.contains(placed),
+              clueMode: widget.clueMode,
             ),
         ],
       ),
@@ -430,12 +439,16 @@ class _WordFactChip extends StatefulWidget {
     required this.displayName,
     required this.fact,
     required this.found,
+    required this.clueMode,
   });
 
   final String word;
   final String displayName;
   final String fact;
   final bool found;
+
+  /// Show the fact as a clue in place of the plain word before it's found.
+  final bool clueMode;
 
   @override
   State<_WordFactChip> createState() => _WordFactChipState();
@@ -449,17 +462,47 @@ class _WordFactChipState extends State<_WordFactChip> {
     final colors = Theme.of(context).colorScheme;
 
     if (!widget.found) {
-      return AnimatedContainer(
-        duration: const Duration(milliseconds: 220),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: BoxDecoration(
-          color: colors.surfaceContainerHighest.withValues(alpha: 0.5),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: colors.outlineVariant),
-        ),
-        child: Text(
-          widget.word,
-          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+      if (!widget.clueMode) {
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 220),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            color: colors.surfaceContainerHighest.withValues(alpha: 0.5),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: colors.outlineVariant),
+          ),
+          child: Text(
+            widget.word,
+            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+          ),
+        );
+      }
+
+      // Clue mode: the word itself stays hidden, and its fact is shown as
+      // the clue to recall from instead — tap to expand if it's truncated.
+      return GestureDetector(
+        onTap: () => setState(() => _expanded = !_expanded),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 220),
+          curve: Curves.easeOutCubic,
+          constraints: const BoxConstraints(maxWidth: 220),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            color: colors.surfaceContainerHighest.withValues(alpha: 0.5),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: colors.outlineVariant),
+          ),
+          child: AnimatedSize(
+            duration: const Duration(milliseconds: 180),
+            curve: Curves.easeOutCubic,
+            alignment: Alignment.topLeft,
+            child: Text(
+              widget.fact,
+              maxLines: _expanded ? null : 2,
+              overflow: _expanded ? TextOverflow.visible : TextOverflow.ellipsis,
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12.5),
+            ),
+          ),
         ),
       );
     }

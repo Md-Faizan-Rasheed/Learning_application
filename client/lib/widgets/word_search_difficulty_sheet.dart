@@ -5,13 +5,14 @@ import '../services/word_search_stats.dart';
 import '../theme/app_theme.dart';
 import '../utils/word_search_generator.dart';
 
-/// Bottom sheet for choosing a Word Search topic and difficulty, modeled on
-/// `category_picker_dialog.dart`'s sheet chrome. Topic and difficulty are
-/// independent choices — picking a topic just changes which best-times are
-/// shown against each difficulty card. Returns null if dismissed.
-Future<(WordSearchCategory, WordSearchDifficulty)?> showWordSearchDifficultyPicker(
+/// Bottom sheet for choosing a Word Search topic, difficulty, and clue mode,
+/// modeled on `category_picker_dialog.dart`'s sheet chrome. Topic and
+/// difficulty are independent choices — picking a topic just changes which
+/// best-times are shown against each difficulty card. Returns null if
+/// dismissed.
+Future<(WordSearchCategory, WordSearchDifficulty, bool)?> showWordSearchDifficultyPicker(
     BuildContext context) {
-  return showModalBottomSheet<(WordSearchCategory, WordSearchDifficulty)>(
+  return showModalBottomSheet<(WordSearchCategory, WordSearchDifficulty, bool)>(
     context: context,
     isScrollControlled: true,
     useSafeArea: true,
@@ -40,6 +41,7 @@ class _DifficultySheet extends StatefulWidget {
 
 class _DifficultySheetState extends State<_DifficultySheet> {
   WordSearchCategory _category = WordSearchCategory.prophets;
+  bool _clueMode = false;
   late Future<Map<WordSearchDifficulty, int?>> _bestTimes;
 
   @override
@@ -151,7 +153,17 @@ class _DifficultySheetState extends State<_DifficultySheet> {
                       ),
                   ],
                 ),
-                const SizedBox(height: 22),
+                const SizedBox(height: 10),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(t.wsClueModeLabel,
+                      style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5)),
+                  subtitle: Text(t.wsClueModeSubtitle,
+                      style: TextStyle(color: colors.onSurfaceVariant, fontSize: 12)),
+                  value: _clueMode,
+                  onChanged: (v) => setState(() => _clueMode = v),
+                ),
+                const SizedBox(height: 12),
                 FutureBuilder<Map<WordSearchDifficulty, int?>>(
                   future: _bestTimes,
                   builder: (context, snapshot) {
@@ -171,8 +183,8 @@ class _DifficultySheetState extends State<_DifficultySheet> {
                                 ? t.wsBestTime(_formatSeconds(
                                     bestTimes[WordSearchDifficulty.values[i]]!))
                                 : null,
-                            onTap: () => Navigator.pop(
-                                context, (_category, WordSearchDifficulty.values[i])),
+                            onTap: () => Navigator.pop(context,
+                                (_category, WordSearchDifficulty.values[i], _clueMode)),
                           ),
                           if (i != WordSearchDifficulty.values.length - 1)
                             const SizedBox(height: 14),

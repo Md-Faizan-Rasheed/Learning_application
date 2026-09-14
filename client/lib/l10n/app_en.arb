@@ -578,6 +578,8 @@
   "wsCategoryProphets": "Prophets",
   "wsCategoryNamesOfAllah": "Names of Allah",
   "wsCategoryHijriMonths": "Hijri Months",
+  "wsClueModeLabel": "Clue Mode",
+  "wsClueModeSubtitle": "See a clue instead of the word until you find it.",
   "wsDifficultyEasy": "Easy",
   "wsDifficultyEasySubtitle": "6 names · 8×8 grid",
   "wsDifficultyMedium": "Medium",
