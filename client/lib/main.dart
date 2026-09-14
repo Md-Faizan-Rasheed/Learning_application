@@ -312,15 +312,17 @@ class _HomeScreenState extends State<HomeScreen>
   Future<void> _openWordSearch() async {
     final choice = await showWordSearchDifficultyPicker(context);
     if (choice == null || !mounted) return;
-    final (category, difficulty, clueMode) = choice;
+    final token = widget.auth.current?.token;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => WordSearchScreen(
-          difficulty: difficulty,
-          category: category,
-          clueMode: clueMode,
-          token: widget.auth.current?.token,
-        ),
+        builder: (_) => choice.isDaily
+            ? WordSearchScreen.daily(token: token)
+            : WordSearchScreen(
+                difficulty: choice.difficulty,
+                category: choice.category,
+                clueMode: choice.clueMode,
+                token: token,
+              ),
       ),
     );
   }

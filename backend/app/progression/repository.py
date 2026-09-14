@@ -277,3 +277,78 @@ async def get_word_search_progress(db: AsyncSession, user_id: str) -> dict[str, 
         )
     ).mappings().all()
     return {r["category"]: r["found"] for r in rows}
+
+
+async def record_daily_score(
+    db: AsyncSession,
+    *,
+    user_id: str,
+    challenge_date: dt.date,
+    category: str,
+    score: int,
+    seconds: int,
+) -> None:
+    """Upserts one user's Word Search Daily Challenge attempt for the day,
+    keeping the best score if they replayed it. One row per user per day —
+    matches the "one shared puzzle a day" model, not an unlimited-attempts
+    leaderboard."""
+    await db.execute(
+        text(
+            """
+            INSERT INTO word_search_daily_scores
+                (user_id, challenge_date, category, score, seconds)
+            VALUES (:user_id, :date, :category, :score, :seconds)
+            ON CONFLICT (user_id, challenge_date) DO UPDATE
+            SET score = GREATEST(word_search_daily_scores.score, EXCLUDED.score),
+                seconds = CASE
+                    WHEN EXCLUDED.score > word_search_daily_scores.score THEN EXCLUDED.seconds
+                    ELSE word_search_daily_scores.seconds
+                END,
+                category = EXCLUDED.category
+            """
+        ),
+        {
+            "user_id": user_id,
+            "date": challenge_date,
+            "category": category,
+            "score": score,
+            "seconds": seconds,
+        },
+    )
+
+
+async def get_daily_leaderboard(
+    db: AsyncSession, current_user_id: str, friend_ids: list[str], challenge_date: dt.date
+) -> list[dict]:
+    """Today's (or any given day's) Word Search Daily Challenge standings
+    among the caller plus their accepted friends — same shape and same
+    friend-scoping as get_friends_leaderboard, but for a single day's
+    puzzle instead of all-time total_xp. Only players who've actually
+    played that day appear; there's no "hasn't played yet" placeholder."""
+    ids = [*friend_ids, current_user_id]
+    rows = (
+        await db.execute(
+            text(
+                """
+                SELECT u.id, u.display_name, s.score, s.seconds, (u.id = :uid) AS is_me
+                FROM word_search_daily_scores s
+                JOIN users u ON u.id = s.user_id
+                WHERE s.user_id = ANY(CAST(:ids AS uuid[])) AND s.challenge_date = :date
+                ORDER BY s.score DESC, s.seconds ASC, u.id
+                """
+            ),
+            {"ids": ids, "uid": current_user_id, "date": challenge_date},
+        )
+    ).mappings().all()
+
+    return [
+        {
+            "id": str(r["id"]),
+            "placement": i + 1,
+            "display_name": r["display_name"],
+            "score": r["score"],
+            "seconds": r["seconds"],
+            "is_me": r["is_me"],
+        }
+        for i, r in enumerate(rows)
+    ]

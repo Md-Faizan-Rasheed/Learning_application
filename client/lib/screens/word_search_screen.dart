@@ -8,6 +8,7 @@ import '../l10n/app_localizations.dart';
 import '../services/word_mastery_store.dart';
 import '../services/word_search_stats.dart';
 import '../theme/app_theme.dart';
+import '../utils/daily_word_search.dart';
 import '../utils/word_search_generator.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
@@ -29,10 +30,21 @@ class WordSearchScreen extends StatefulWidget {
     this.category = WordSearchCategory.prophets,
     this.clueMode = false,
     this.token,
+    this.isDaily = false,
   });
+
+  /// Today's shared Daily Challenge puzzle — same category, difficulty, and
+  /// grid for every player (see daily_word_search.dart), so [difficulty]
+  /// and [category] below are ignored in favor of that day's fixed values.
+  const WordSearchScreen.daily({super.key, this.token})
+      : difficulty = kDailyChallengeDifficulty,
+        category = WordSearchCategory.prophets, // overridden — see isDaily
+        clueMode = false,
+        isDaily = true;
 
   final WordSearchDifficulty difficulty;
   final WordSearchCategory category;
+  final bool isDaily;
 
   /// When true, an unfound word's sidebar chip shows its fact/clue instead
   /// of the plain word itself — the player has to recall which word the
@@ -45,7 +57,8 @@ class WordSearchScreen extends StatefulWidget {
   /// the same profile ledger a finished multiplayer match updates — real,
   /// persisted XP and streak credit, not just the local best-time blob.
   /// Null (guest play) skips that report entirely; the puzzle still works
-  /// exactly as it always has.
+  /// exactly as it always has. Daily Challenge results additionally need a
+  /// token to land on the friends leaderboard.
   final String? token;
 
   @override
@@ -80,6 +93,12 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
   bool _complete = false;
   bool _statsSaved = false;
   ActivityResult? _activityResult;
+  List<DailyLeaderboardEntry>? _dailyLeaderboard;
+
+  WordSearchCategory get _effectiveCategory =>
+      widget.isDaily ? dailyChallengeCategory() : widget.category;
+  WordSearchDifficulty get _effectiveDifficulty =>
+      widget.isDaily ? kDailyChallengeDifficulty : widget.difficulty;
 
   @override
   void initState() {
@@ -102,12 +121,26 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     });
   }
 
-  /// Weights word selection toward whatever WordMasteryStore says the
-  /// player hasn't seen or has struggled with, then generates the puzzle.
-  /// Runs on both first load and restart, since a just-finished session's
-  /// hints are recorded (in _finish) before this can run again — so a
-  /// same-category restart already reflects what was just struggled with.
+  /// Daily Challenge gets the one shared puzzle for today (see
+  /// daily_word_search.dart) with no per-player weighting — everyone needs
+  /// the same words for the comparison to be fair. Otherwise, weights word
+  /// selection toward whatever WordMasteryStore says the player hasn't seen
+  /// or has struggled with. Runs on both first load and restart, since a
+  /// just-finished session's hints are recorded (in _finish) before this
+  /// can run again — so a same-category restart already reflects what was
+  /// just struggled with.
   Future<void> _loadPuzzle() async {
+    if (widget.isDaily) {
+      final puzzle = generateDailyChallengePuzzle();
+      if (!mounted) return;
+      setState(() {
+        _puzzle = puzzle;
+        _loading = false;
+      });
+      _startTicker();
+      return;
+    }
+
     final bank = wordSearchCategoryWords[widget.category]!;
     final priority = await WordMasteryStore.instance.priorityFor(widget.category, bank);
     if (!mounted) return;
@@ -120,6 +153,20 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       _loading = false;
     });
     _startTicker();
+  }
+
+  /// Friends' scores for today's puzzle, shown once it's available — a non-
+  /// critical fetch (like _reportActivity), so a failure just leaves the
+  /// section empty rather than erroring the whole screen.
+  Future<void> _loadDailyLeaderboard() async {
+    final token = widget.token;
+    if (token == null) return;
+    try {
+      final board = await ProfileApi().fetchWordSearchDailyLeaderboard(token);
+      if (mounted) setState(() => _dailyLeaderboard = board);
+    } catch (_) {
+      // Non-critical — see doc comment above.
+    }
   }
 
   void _restart() {
@@ -138,6 +185,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       _complete = false;
       _statsSaved = false;
       _activityResult = null;
+      _dailyLeaderboard = null;
     });
     _loadPuzzle();
   }
@@ -163,14 +211,15 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     if (!_statsSaved) {
       _statsSaved = true;
       await WordSearchStats.instance.recordCompletion(
-          widget.category, widget.difficulty,
+          _effectiveCategory, _effectiveDifficulty,
           seconds: _elapsedSeconds);
       await WordMasteryStore.instance.recordSession(
-        category: widget.category,
+        category: _effectiveCategory,
         allWords: _puzzle.placedWords.map((w) => w.word.word).toSet(),
         hintedWords: _hintedWords,
       );
       await _reportActivity();
+      if (widget.isDaily) await _loadDailyLeaderboard();
     }
   }
 
@@ -187,13 +236,14 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       final result = await ProfileApi().completeActivity(
         token,
         activity: 'word_search',
-        category: widget.category.name,
-        difficulty: widget.difficulty.name,
+        category: _effectiveCategory.name,
+        difficulty: _effectiveDifficulty.name,
         wordsFound: _foundWords.length,
         totalWords: _puzzle.placedWords.length,
         seconds: _elapsedSeconds,
         hintsUsed: _hintsUsed,
         words: _foundWords.map((w) => w.word.word).toList(),
+        challengeDate: widget.isDaily ? dailyChallengeDateString() : null,
       );
       if (mounted) setState(() => _activityResult = result);
     } catch (_) {
@@ -249,7 +299,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     final t = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppHeader(
-        title: t.wsScreenTitle,
+        title: widget.isDaily ? t.wsDailyChallengeTitle : t.wsScreenTitle,
         actions: [
           IconButton(
             onPressed: _restart,
@@ -295,9 +345,65 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
               const SizedBox(height: 12),
               _buildActivityResultBadge(t, _activityResult!),
             ],
+            if (widget.isDaily) ...[
+              const SizedBox(height: 16),
+              _buildDailyLeaderboard(t),
+            ],
             const SizedBox(height: 16),
             _buildWordsLearnedRecap(t),
           ],
+        ),
+      ),
+    );
+  }
+
+  /// Friends' scores for today's puzzle — absent entirely for guests (no
+  /// token) or while it's still loading/unavailable, rather than showing an
+  /// empty-looking placeholder for what might just be a slow fetch.
+  Widget _buildDailyLeaderboard(AppLocalizations t) {
+    final board = _dailyLeaderboard;
+    if (board == null || board.isEmpty) return const SizedBox.shrink();
+
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 480),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: CardStock(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                t.wsDailyLeaderboardTitle,
+                style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
+              ),
+              const SizedBox(height: 10),
+              for (final entry in board) ...[
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 22,
+                      child: Text('${entry.placement}',
+                          style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13)),
+                    ),
+                    Expanded(
+                      child: Text(
+                        entry.displayName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontWeight: entry.isMe ? FontWeight.w800 : FontWeight.w600,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
+                    Text('${entry.score}',
+                        style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13)),
+                  ],
+                ),
+                if (entry != board.last) const SizedBox(height: 6),
+              ],
+            ],
+          ),
         ),
       ),
     );

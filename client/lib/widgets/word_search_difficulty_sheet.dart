@@ -3,16 +3,34 @@ import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../services/word_search_stats.dart';
 import '../theme/app_theme.dart';
+import '../utils/daily_word_search.dart';
 import '../utils/word_search_generator.dart';
 
-/// Bottom sheet for choosing a Word Search topic, difficulty, and clue mode,
-/// modeled on `category_picker_dialog.dart`'s sheet chrome. Topic and
-/// difficulty are independent choices — picking a topic just changes which
-/// best-times are shown against each difficulty card. Returns null if
-/// dismissed.
-Future<(WordSearchCategory, WordSearchDifficulty, bool)?> showWordSearchDifficultyPicker(
-    BuildContext context) {
-  return showModalBottomSheet<(WordSearchCategory, WordSearchDifficulty, bool)>(
+/// What the picker sheet resolved to: either the Daily Challenge (fixed
+/// category/difficulty, no clue mode — see WordSearchScreen.daily) or a
+/// regular free-play combination the player chose themselves.
+class WordSearchPickerResult {
+  const WordSearchPickerResult.regular(this.category, this.difficulty, this.clueMode)
+      : isDaily = false;
+  const WordSearchPickerResult.daily()
+      : category = WordSearchCategory.prophets, // unused — see isDaily
+        difficulty = kDailyChallengeDifficulty,
+        clueMode = false,
+        isDaily = true;
+
+  final WordSearchCategory category;
+  final WordSearchDifficulty difficulty;
+  final bool clueMode;
+  final bool isDaily;
+}
+
+/// Bottom sheet for choosing a Word Search topic, difficulty, and clue mode
+/// — or jumping straight into today's shared Daily Challenge — modeled on
+/// `category_picker_dialog.dart`'s sheet chrome. Topic and difficulty are
+/// independent choices — picking a topic just changes which best-times are
+/// shown against each difficulty card. Returns null if dismissed.
+Future<WordSearchPickerResult?> showWordSearchDifficultyPicker(BuildContext context) {
+  return showModalBottomSheet<WordSearchPickerResult>(
     context: context,
     isScrollControlled: true,
     useSafeArea: true,
@@ -132,6 +150,12 @@ class _DifficultySheetState extends State<_DifficultySheet> {
                       TextStyle(color: colors.onSurfaceVariant, fontSize: 13),
                 ),
                 const SizedBox(height: 18),
+                _DailyChallengeButton(
+                  category: dailyChallengeCategory(),
+                  onTap: () =>
+                      Navigator.pop(context, const WordSearchPickerResult.daily()),
+                ),
+                const SizedBox(height: 18),
                 Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
@@ -183,8 +207,11 @@ class _DifficultySheetState extends State<_DifficultySheet> {
                                 ? t.wsBestTime(_formatSeconds(
                                     bestTimes[WordSearchDifficulty.values[i]]!))
                                 : null,
-                            onTap: () => Navigator.pop(context,
-                                (_category, WordSearchDifficulty.values[i], _clueMode)),
+                            onTap: () => Navigator.pop(
+                              context,
+                              WordSearchPickerResult.regular(
+                                  _category, WordSearchDifficulty.values[i], _clueMode),
+                            ),
                           ),
                           if (i != WordSearchDifficulty.values.length - 1)
                             const SizedBox(height: 14),
@@ -244,6 +271,70 @@ class _CategoryChip extends StatelessWidget {
                 color: selected ? colors.onPrimary : AppPalette.ink,
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Flat, distinct entry point for today's shared puzzle — a fixed
+/// category/difficulty everyone gets, so it's deliberately styled apart
+/// from the free-play category chips and difficulty cards below it.
+class _DailyChallengeButton extends StatelessWidget {
+  const _DailyChallengeButton({required this.category, required this.onTap});
+
+  final WordSearchCategory category;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final colors = Theme.of(context).colorScheme;
+    final (categoryLabel, categoryIcon) = _categoryLabel(t, category);
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        decoration: BoxDecoration(
+          color: AppPalette.mutedGold.withValues(alpha: 0.16),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: AppPalette.mutedGold, width: 1.4),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                color: AppPalette.mutedGold,
+                shape: BoxShape.circle,
+              ),
+              alignment: Alignment.center,
+              child: const Icon(Icons.today_rounded, color: AppPalette.cardStock, size: 20),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(t.wsDailyChallengeTitle,
+                      style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15)),
+                  const SizedBox(height: 2),
+                  Row(
+                    children: [
+                      Icon(categoryIcon, size: 13, color: colors.onSurfaceVariant),
+                      const SizedBox(width: 4),
+                      Text(categoryLabel,
+                          style: TextStyle(color: colors.onSurfaceVariant, fontSize: 12.5)),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const Icon(Icons.chevron_right_rounded, color: AppPalette.ink),
           ],
         ),
       ),

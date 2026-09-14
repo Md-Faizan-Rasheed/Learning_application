@@ -40,6 +40,17 @@ def xp_for_word_search(*, difficulty: str, words_found: int, hints_used: int) ->
     return max(0, base - max(0, hints_used))
 
 
+def daily_score_for_word_search(*, words_found: int, seconds: int, hints_used: int) -> int:
+    """Score for one Word Search Daily Challenge attempt — computed here
+    from the same raw facts xp_for_word_search uses, never trusted directly
+    from the client. Doesn't need to match what a player's own device shows
+    on its completion screen exactly (that number is computed with slightly
+    different step-by-step clamping); it only needs to rank everyone who
+    played the same day's puzzle consistently."""
+    time_bonus = max(0, 120 - max(0, seconds))
+    return max(0, 10 * max(0, words_found) - 5 * max(0, hints_used)) + time_bonus
+
+
 def next_streak(
     *, last_played_on: dt.date | None, today: dt.date, current_streak: int
 ) -> tuple[int, bool]:

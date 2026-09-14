@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import datetime as dt
+
 from pydantic import BaseModel, Field
 
 
@@ -22,3 +24,9 @@ class ActivityCompleteIn(BaseModel):
     # so a "found every word in a category" achievement is possible. Capped
     # generously; a real puzzle never has more than ~10 words anyway.
     words: list[str] = Field(default_factory=list, max_length=50)
+
+    # Set only when this session was the Word Search Daily Challenge (the
+    # client-computed calendar date the shared puzzle was seeded from) —
+    # records/updates that day's leaderboard entry. Omitted for regular
+    # free-play word search.
+    challenge_date: dt.date | None = None

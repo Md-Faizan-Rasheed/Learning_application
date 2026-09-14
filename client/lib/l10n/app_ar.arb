@@ -528,6 +528,8 @@
   "wsClueModeLabel": "وضع التلميح",
   "wsClueModeSubtitle": "اعرض تلميحًا بدلاً من الكلمة حتى تجدها.",
   "wsPreparingPuzzle": "جارٍ إعداد اللغز…",
+  "wsDailyChallengeTitle": "التحدي اليومي",
+  "wsDailyLeaderboardTitle": "أصدقاء اليوم",
   "wsDifficultyEasy": "سهل",
   "wsDifficultyEasySubtitle": "٦ أسماء · شبكة ٨×٨",
   "wsDifficultyMedium": "متوسط",

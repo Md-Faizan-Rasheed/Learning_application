@@ -108,6 +108,36 @@ class ActivityResult {
       );
 }
 
+/// One player's standing on a given day's Word Search Daily Challenge —
+/// the friends-scoped equivalent of [LeaderboardEntry], but scored per day
+/// instead of by all-time total XP.
+class DailyLeaderboardEntry {
+  DailyLeaderboardEntry({
+    required this.id,
+    required this.placement,
+    required this.displayName,
+    required this.score,
+    required this.seconds,
+    required this.isMe,
+  });
+
+  final String id;
+  final int placement;
+  final String displayName;
+  final int score;
+  final int seconds;
+  final bool isMe;
+
+  factory DailyLeaderboardEntry.fromJson(Map<String, dynamic> j) => DailyLeaderboardEntry(
+        id: j['id'] as String? ?? '',
+        placement: j['placement'] as int,
+        displayName: j['display_name'] as String? ?? 'Player',
+        score: j['score'] as int? ?? 0,
+        seconds: j['seconds'] as int? ?? 0,
+        isMe: j['is_me'] as bool? ?? false,
+      );
+}
+
 class ProfileApi {
   ProfileApi({http.Client? client}) : _client = client ?? http.Client();
   final http.Client _client;
@@ -127,6 +157,7 @@ class ProfileApi {
     required int seconds,
     required int hintsUsed,
     List<String> words = const [],
+    String? challengeDate,
   }) async {
     final res = await _client
         .post(
@@ -144,6 +175,7 @@ class ProfileApi {
             'seconds': seconds,
             'hints_used': hintsUsed,
             'words': words,
+            'challenge_date': challengeDate,
           }),
         )
         .timeout(const Duration(seconds: 8));
@@ -210,6 +242,29 @@ class ProfileApi {
     return (body['players'] as List)
         .map((e) =>
             LeaderboardEntry.fromJson((e as Map).cast<String, dynamic>()))
+        .toList();
+  }
+
+  /// Friends' standings for [date]'s Word Search Daily Challenge (defaults
+  /// to today, in the format daily_word_search.dart's
+  /// dailyChallengeDateString produces).
+  Future<List<DailyLeaderboardEntry>> fetchWordSearchDailyLeaderboard(
+    String token, {
+    String? date,
+  }) async {
+    final uri = Uri.parse('$kApiBaseUrl/me/word-search/daily-leaderboard')
+        .replace(queryParameters: date != null ? {'date': date} : null);
+    final res = await _client
+        .get(uri, headers: {'Authorization': 'Bearer $token'})
+        .timeout(const Duration(seconds: 8));
+    if (res.statusCode != 200) {
+      throw ApiException(
+          'Could not load the daily leaderboard (${res.statusCode}).');
+    }
+    final body = jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>;
+    return (body['players'] as List)
+        .map((e) =>
+            DailyLeaderboardEntry.fromJson((e as Map).cast<String, dynamic>()))
         .toList();
   }
 }
