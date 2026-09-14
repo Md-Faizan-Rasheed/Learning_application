@@ -40,6 +40,18 @@ def xp_for_word_search(*, difficulty: str, words_found: int, hints_used: int) ->
     return max(0, base - max(0, hints_used))
 
 
+XP_PER_MATCH_NAMES_ON_WATER = 3  # per correctly-matched name
+
+
+def xp_for_names_on_water(*, matched: int, wrong_attempts: int) -> int:
+    """Total XP earned from one Names on Water round: a flat completion
+    credit plus per correct match, minus a small penalty per wrong drop —
+    floored at 0. Same shape as xp_for_word_search, scaled for a round with
+    no difficulty tiers (5-7 names, one fixed size range)."""
+    base = XP_PER_ACTIVITY + XP_PER_MATCH_NAMES_ON_WATER * max(0, matched)
+    return max(0, base - max(0, wrong_attempts))
+
+
 def daily_score_for_word_search(*, words_found: int, seconds: int, hints_used: int) -> int:
     """Score for one Word Search Daily Challenge attempt — computed here
     from the same raw facts xp_for_word_search uses, never trusted directly

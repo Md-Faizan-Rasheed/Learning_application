@@ -18,6 +18,7 @@ import 'screens/profile_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/student/assigned_quizzes_screen.dart';
 import 'screens/teacher/teacher_home_screen.dart';
+import 'screens/names_on_water_screen.dart';
 import 'screens/word_search_screen.dart';
 import 'theme/app_theme.dart';
 import 'utils/level.dart';
@@ -323,6 +324,14 @@ class _HomeScreenState extends State<HomeScreen>
                 clueMode: choice.clueMode,
                 token: token,
               ),
+      ),
+    );
+  }
+
+  void _openNamesOnWater() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => NamesOnWaterScreen(token: widget.auth.current?.token),
       ),
     );
   }
@@ -882,6 +891,12 @@ class _HomeScreenState extends State<HomeScreen>
         title: t.wsQuickPlayTitle,
         subtitle: t.wsQuickPlaySubtitle,
         onTap: _openWordSearch,
+      ),
+      _QuickPlayItem(
+        icon: Icons.water_rounded,
+        title: t.namesOnWaterQuickPlayTitle,
+        subtitle: t.namesOnWaterQuickPlaySubtitle,
+        onTap: _openNamesOnWater,
       ),
     ];
 

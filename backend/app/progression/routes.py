@@ -22,6 +22,10 @@ _ACTIVITY_SCORERS = {
         words_found=min(data.words_found, data.total_words),
         hints_used=data.hints_used,
     ),
+    "names_on_water": lambda data: rules.xp_for_names_on_water(
+        matched=min(data.words_found, data.total_words),
+        wrong_attempts=data.hints_used,
+    ),
 }
 
 

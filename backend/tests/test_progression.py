@@ -7,7 +7,11 @@ from __future__ import annotations
 
 import uuid
 
-from app.progression.rules import daily_score_for_word_search, xp_for_word_search
+from app.progression.rules import (
+    daily_score_for_word_search,
+    xp_for_names_on_water,
+    xp_for_word_search,
+)
 
 
 def _unique_email() -> str:
@@ -255,3 +259,44 @@ async def test_activity_complete_requires_auth(client):
         },
     )
     assert res.status_code == 401
+
+
+def test_xp_for_names_on_water_rewards_matches_and_penalizes_wrong_drops():
+    clean = xp_for_names_on_water(matched=6, wrong_attempts=0)
+    sloppy = xp_for_names_on_water(matched=6, wrong_attempts=4)
+    assert sloppy < clean
+
+    # Never negative, even with an absurd number of wrong drops.
+    assert xp_for_names_on_water(matched=0, wrong_attempts=99) == 0
+
+
+async def test_activity_complete_awards_xp_for_names_on_water(client):
+    token = await _register(client)
+    headers = {"Authorization": f"Bearer {token}"}
+
+    profile_before = await client.get("/me/profile", headers=headers)
+    xp_before = profile_before.json()["total_xp"]
+
+    res = await client.post(
+        "/me/activity/complete",
+        headers=headers,
+        json={
+            "activity": "names_on_water",
+            "difficulty": "standard",
+            "words_found": 6,
+            "total_words": 6,
+            "seconds": 45,
+            "hints_used": 1,
+        },
+    )
+    assert res.status_code == 200
+    body = res.json()
+    assert body["xp_earned"] > 0
+    assert body["total_xp"] == xp_before + body["xp_earned"]
+
+    # names_on_water doesn't track per-word finds — confirm it doesn't
+    # accidentally touch word_search_progress.
+    profile_after = await client.get("/me/profile", headers=headers)
+    assert profile_after.json()["word_search_progress"] == {}
+
+    await _delete_account(client, token, "TestPass123!")
