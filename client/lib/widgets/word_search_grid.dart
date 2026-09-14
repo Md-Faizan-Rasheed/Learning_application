@@ -291,7 +291,12 @@ class _Cell extends StatelessWidget {
                 Positioned(
                   right: 1,
                   top: 1,
-                  child: _VerdictBadge(size: size * 0.34, isWrong: isWrong),
+                  // Clamped so the mark stays legible even at the smallest
+                  // (hard-difficulty, narrow-screen) cell size, where 34% of
+                  // the cell would otherwise shrink the check/cross to just
+                  // a few pixels.
+                  child: _VerdictBadge(
+                      size: (size * 0.34).clamp(13.0, 20.0), isWrong: isWrong),
                 ),
             ],
           ),
