@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import '../services/sound_service.dart';
 import '../theme/app_theme.dart';
 import '../utils/word_search_generator.dart';
+import 'mark_painters.dart';
 
 const _kMinCell = 28.0;
 const _kMaxCell = 52.0;
@@ -233,18 +234,31 @@ class _Cell extends StatelessWidget {
   Widget build(BuildContext context) {
     Color bg = Colors.transparent;
     Color fg = Theme.of(context).colorScheme.onSurface;
+    Color? border;
+    double borderWidth = 1.5;
 
+    // Found/wrong are pass-fail *verdicts*, so — same reasoning as
+    // OptionTile/ResultBanner elsewhere in the app — they get a
+    // non-color-dependent mark too, not just a tinted background, so the
+    // state still reads for a colorblind player. Selected/hint are
+    // transient aids rather than verdicts, so a border is enough there.
     if (isWrong) {
       bg = AppPalette.incorrectRed.withValues(alpha: 0.35);
       fg = AppPalette.cardStock;
+      border = AppPalette.incorrectRed;
+      borderWidth = 2;
     } else if (isFound) {
       bg = AppPalette.correctGold.withValues(alpha: 0.35);
       fg = AppPalette.ink;
+      border = AppPalette.correctGold;
     } else if (isSelected) {
       bg = accentColor.withValues(alpha: 0.55);
       fg = AppPalette.cardStock;
+      border = accentColor;
+      borderWidth = 2;
     } else if (isHint) {
       bg = AppPalette.mutedGold.withValues(alpha: 0.4);
+      border = AppPalette.mutedGold;
     }
 
     return SizedBox(
@@ -258,17 +272,59 @@ class _Cell extends StatelessWidget {
           decoration: BoxDecoration(
             color: bg,
             borderRadius: BorderRadius.circular(6),
+            border: border != null ? Border.all(color: border, width: borderWidth) : null,
           ),
-          alignment: Alignment.center,
-          child: Text(
-            letter,
-            style: TextStyle(
-              fontSize: size * 0.42,
-              fontWeight: FontWeight.w700,
-              color: fg,
-            ),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Center(
+                child: Text(
+                  letter,
+                  style: TextStyle(
+                    fontSize: size * 0.42,
+                    fontWeight: FontWeight.w700,
+                    color: fg,
+                  ),
+                ),
+              ),
+              if (isFound || isWrong)
+                Positioned(
+                  right: 1,
+                  top: 1,
+                  child: _VerdictBadge(size: size * 0.34, isWrong: isWrong),
+                ),
+            ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// A small check/cross badge in a cell's corner — the non-color cue that
+/// backs up the found/wrong tint, drawn on its own solid backdrop so it
+/// stays legible regardless of the cell's tint underneath.
+class _VerdictBadge extends StatelessWidget {
+  const _VerdictBadge({required this.size, required this.isWrong});
+  final double size;
+  final bool isWrong;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = isWrong ? AppPalette.incorrectRed : AppPalette.correctGold;
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        color: AppPalette.cardStock,
+        shape: BoxShape.circle,
+        border: Border.all(color: color, width: 1),
+      ),
+      padding: EdgeInsets.all(size * 0.2),
+      child: CustomPaint(
+        painter: isWrong
+            ? CrossPainter(color: color, strokeWidth: size * 0.14)
+            : CheckmarkPainter(color: color, strokeWidth: size * 0.14),
       ),
     );
   }
