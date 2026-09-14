@@ -18,6 +18,7 @@ import '../widgets/word_search_grid.dart';
 const _kMaxHints = 3;
 const _kPointsPerWord = 10;
 const _kHintPenalty = 5;
+const _kMaxHintTier = 3;
 
 class WordSearchScreen extends StatefulWidget {
   const WordSearchScreen({
@@ -51,6 +52,15 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
   Timer? _ticker;
   int _score = 0;
   int _hintsUsed = 0;
+
+  // The hint budget escalates on whichever word it's currently pointed at,
+  // rather than spending each press on a fresh random word: tier 1 reveals
+  // just the first cell, tier 2 the first two (showing direction), tier 3
+  // the full path. Pressing hint again after a target is found (by the
+  // player or by the hint itself) starts a new target back at tier 1.
+  PlacedWord? _hintTarget;
+  int _hintTier = 0;
+
   bool _complete = false;
   bool _statsSaved = false;
   ActivityResult? _activityResult;
@@ -87,6 +97,8 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       _elapsedSeconds = 0;
       _score = 0;
       _hintsUsed = 0;
+      _hintTarget = null;
+      _hintTier = 0;
       _complete = false;
       _statsSaved = false;
       _activityResult = null;
@@ -153,15 +165,33 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     final remaining =
         _puzzle.placedWords.where((w) => !_foundWords.contains(w)).toList();
     if (remaining.isEmpty) return;
-    final target = remaining[Random().nextInt(remaining.length)];
+
+    // Keep escalating the same target across consecutive presses; only
+    // pick a fresh one if there isn't a live target (first hint ever, or
+    // the previous target got found some other way).
+    final previousTarget = _hintTarget;
+    final freshTarget = previousTarget == null || !remaining.contains(previousTarget);
+    final PlacedWord target =
+        freshTarget ? remaining[Random().nextInt(remaining.length)] : previousTarget;
+    final tier = min((freshTarget ? 0 : _hintTier) + 1, _kMaxHintTier);
+    final revealCount = switch (tier) {
+      1 => 1,
+      2 => 2,
+      _ => target.cells.length,
+    };
 
     _hintClearTimer?.cancel();
     setState(() {
       _hintsUsed++;
       _score = max(0, _score - _kHintPenalty);
-      _hintCells = target.cells.toSet();
+      _hintTarget = target;
+      _hintTier = tier;
+      _hintCells = target.cells.take(revealCount).toSet();
     });
-    _hintClearTimer = Timer(const Duration(milliseconds: 1200), () {
+    // A single revealed cell is easy to miss — give the earlier, weaker
+    // tiers a bit longer on screen than the full-path reveal.
+    final flashMs = tier >= _kMaxHintTier ? 1200 : 1800;
+    _hintClearTimer = Timer(Duration(milliseconds: flashMs), () {
       if (mounted) setState(() => _hintCells = {});
     });
   }
