@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 
 import '../api/profile_api.dart';
 import '../l10n/app_localizations.dart';
+import '../services/word_mastery_store.dart';
 import '../services/word_search_stats.dart';
 import '../theme/app_theme.dart';
 import '../utils/word_search_generator.dart';
 import '../widgets/ambient_backdrop.dart';
 import '../widgets/app_header.dart';
 import '../widgets/card_stock.dart';
+import '../widgets/loading_view.dart';
 import '../widgets/session_complete_card.dart';
 import '../widgets/status_pill.dart';
 import '../widgets/word_search_grid.dart';
@@ -69,6 +71,12 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
   PlacedWord? _hintTarget;
   int _hintTier = 0;
 
+  // Every word hinted-on at any point this session — feeds WordMasteryStore
+  // at completion so future puzzles lean toward words the player struggled
+  // with (see _finish and _loadPuzzle).
+  final Set<String> _hintedWords = {};
+
+  bool _loading = true;
   bool _complete = false;
   bool _statsSaved = false;
   ActivityResult? _activityResult;
@@ -76,8 +84,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
   @override
   void initState() {
     super.initState();
-    _puzzle = generatePuzzleForDifficulty(widget.difficulty, category: widget.category);
-    _startTicker();
+    _loadPuzzle();
   }
 
   @override
@@ -95,11 +102,31 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     });
   }
 
+  /// Weights word selection toward whatever WordMasteryStore says the
+  /// player hasn't seen or has struggled with, then generates the puzzle.
+  /// Runs on both first load and restart, since a just-finished session's
+  /// hints are recorded (in _finish) before this can run again — so a
+  /// same-category restart already reflects what was just struggled with.
+  Future<void> _loadPuzzle() async {
+    final bank = wordSearchCategoryWords[widget.category]!;
+    final priority = await WordMasteryStore.instance.priorityFor(widget.category, bank);
+    if (!mounted) return;
+    setState(() {
+      _puzzle = generatePuzzleForDifficulty(
+        widget.difficulty,
+        category: widget.category,
+        priority: priority,
+      );
+      _loading = false;
+    });
+    _startTicker();
+  }
+
   void _restart() {
     _ticker?.cancel();
     _hintClearTimer?.cancel();
     setState(() {
-      _puzzle = generatePuzzleForDifficulty(widget.difficulty, category: widget.category);
+      _loading = true;
       _foundWords.clear();
       _hintCells = {};
       _elapsedSeconds = 0;
@@ -107,11 +134,12 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       _hintsUsed = 0;
       _hintTarget = null;
       _hintTier = 0;
+      _hintedWords.clear();
       _complete = false;
       _statsSaved = false;
       _activityResult = null;
     });
-    _startTicker();
+    _loadPuzzle();
   }
 
   void _onWordFound(PlacedWord found) {
@@ -137,6 +165,11 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       await WordSearchStats.instance.recordCompletion(
           widget.category, widget.difficulty,
           seconds: _elapsedSeconds);
+      await WordMasteryStore.instance.recordSession(
+        category: widget.category,
+        allWords: _puzzle.placedWords.map((w) => w.word.word).toSet(),
+        hintedWords: _hintedWords,
+      );
       await _reportActivity();
     }
   }
@@ -194,6 +227,7 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       _score = max(0, _score - _kHintPenalty);
       _hintTarget = target;
       _hintTier = tier;
+      _hintedWords.add(target.word.word);
       _hintCells = target.cells.take(revealCount).toSet();
     });
     // A single revealed cell is easy to miss — give the earlier, weaker
@@ -226,7 +260,9 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
       ),
       body: ScreenWithAmbientBackdrop(
         child: SafeArea(
-          child: _complete ? _buildComplete(t) : _buildGame(t),
+          child: _loading
+              ? LoadingView(message: t.wsPreparingPuzzle, icon: Icons.grid_on_rounded)
+              : (_complete ? _buildComplete(t) : _buildGame(t)),
         ),
       ),
     );

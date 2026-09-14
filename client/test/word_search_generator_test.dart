@@ -71,4 +71,42 @@ void main() {
       }
     });
   });
+
+  group('generatePuzzleForDifficulty priority weighting', () {
+    int countAppearances(Map<String, int>? priority) {
+      var appearances = 0;
+      for (var seed = 0; seed < 30; seed++) {
+        final puzzle = generatePuzzleForDifficulty(
+          WordSearchDifficulty.easy,
+          priority: priority,
+          random: Random(seed),
+        );
+        if (puzzle.placedWords.any((p) => p.word.word == 'ADAM')) {
+          appearances++;
+        }
+      }
+      return appearances;
+    }
+
+    test('a heavily-weighted word appears far more often than uniform random', () {
+      final heavilyFavored = {
+        for (final w in kProphetNames) w.word: w.word == 'ADAM' ? 100 : 1,
+      };
+
+      final weightedCount = countAppearances(heavilyFavored);
+      final uniformCount = countAppearances(null);
+
+      expect(weightedCount, greaterThan(uniformCount));
+      expect(weightedCount, greaterThanOrEqualTo(25)); // out of 30 trials
+    });
+
+    test('omitting priority keeps existing behavior (no crash, valid puzzle)', () {
+      final puzzle = generatePuzzleForDifficulty(
+        WordSearchDifficulty.medium,
+        category: WordSearchCategory.hijriMonths,
+        random: Random(3),
+      );
+      expect(puzzle.placedWords, isNotEmpty);
+    });
+  });
 }
