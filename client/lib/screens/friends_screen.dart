@@ -31,6 +31,7 @@ class FriendsScreen extends StatefulWidget {
 class _FriendsScreenState extends State<FriendsScreen> {
   final SocialApi _api = SocialApi();
 
+  int _tabIndex = 0;
   bool _loading = true;
   String? _error;
   String? _myCode;
@@ -198,47 +199,57 @@ class _FriendsScreenState extends State<FriendsScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppHeader(
-          title: t.friendsTitle,
-          bottom: TabBar(tabs: [
-            Tab(text: t.friendsTabFriends),
-            Tab(text: t.friendsTabChallenges)
-          ]),
-        ),
-        body: Stack(
-          children: [
-            const Positioned.fill(child: AmbientBackdrop()),
-            SafeArea(
-              child: _loading
-                  ? LoadingView(
-                      message: t.friendsLoading, icon: Icons.people_alt_rounded)
-                  : _error != null
-                      ? Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(24),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(_error!, textAlign: TextAlign.center),
-                                const SizedBox(height: 16),
-                                FilledButton(
-                                    onPressed: _load, child: Text(t.retry)),
-                              ],
-                            ),
+    return Scaffold(
+      appBar: AppHeader(title: t.friendsTitle),
+      body: Stack(
+        children: [
+          const Positioned.fill(child: AmbientBackdrop()),
+          SafeArea(
+            child: _loading
+                ? LoadingView(
+                    message: t.friendsLoading, icon: Icons.people_alt_rounded)
+                : _error != null
+                    ? Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(24),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(_error!, textAlign: TextAlign.center),
+                              const SizedBox(height: 16),
+                              FilledButton(
+                                  onPressed: _load, child: Text(t.retry)),
+                            ],
                           ),
-                        )
-                      : TabBarView(
-                          children: [
-                            _buildFriendsTab(context, t),
-                            _buildChallengesTab(context, t),
-                          ],
                         ),
-            ),
-          ],
-        ),
+                      )
+                    : Column(
+                        children: [
+                          _buildScopeToggle(context, t),
+                          Expanded(
+                            child: _tabIndex == 0
+                                ? _buildFriendsTab(context, t)
+                                : _buildChallengesTab(context, t),
+                          ),
+                        ],
+                      ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildScopeToggle(BuildContext context, AppLocalizations t) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      child: SegmentedButton<int>(
+        segments: [
+          ButtonSegment(value: 0, label: Text(t.friendsTabFriends)),
+          ButtonSegment(value: 1, label: Text(t.friendsTabChallenges)),
+        ],
+        selected: {_tabIndex},
+        showSelectedIcon: false,
+        onSelectionChanged: (s) => setState(() => _tabIndex = s.first),
       ),
     );
   }
@@ -489,8 +500,8 @@ class _RequestTile extends StatelessWidget {
           ),
           IconButton(
             onPressed: onAccept,
-            icon:
-                const Icon(Icons.check_circle_rounded, color: AppPalette.correctGold),
+            icon: const Icon(Icons.check_circle_rounded,
+                color: AppPalette.correctGold),
           ),
           IconButton(
             onPressed: onDecline,
