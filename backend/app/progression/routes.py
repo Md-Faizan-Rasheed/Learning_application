@@ -26,6 +26,7 @@ _ACTIVITY_SCORERS = {
         matched=min(data.words_found, data.total_words),
         wrong_attempts=data.hints_used,
     ),
+    "find_my_ayah": lambda data: rules.xp_for_find_my_ayah(words_found=data.words_found),
 }
 
 

@@ -9,6 +9,7 @@ import uuid
 
 from app.progression.rules import (
     daily_score_for_word_search,
+    xp_for_find_my_ayah,
     xp_for_names_on_water,
     xp_for_word_search,
 )
@@ -268,6 +269,46 @@ def test_xp_for_names_on_water_rewards_matches_and_penalizes_wrong_drops():
 
     # Never negative, even with an absurd number of wrong drops.
     assert xp_for_names_on_water(matched=0, wrong_attempts=99) == 0
+
+
+def test_xp_for_find_my_ayah_rewards_milestone_crossings():
+    plain_checkin = xp_for_find_my_ayah(words_found=1)
+    milestone = xp_for_find_my_ayah(words_found=4)
+    assert milestone > plain_checkin
+    assert plain_checkin == 4  # XP_PER_CHECKIN alone
+
+
+async def test_activity_complete_awards_xp_for_find_my_ayah(client):
+    token = await _register(client)
+    headers = {"Authorization": f"Bearer {token}"}
+
+    profile_before = await client.get("/me/profile", headers=headers)
+    xp_before = profile_before.json()["total_xp"]
+
+    res = await client.post(
+        "/me/activity/complete",
+        headers=headers,
+        json={
+            "activity": "find_my_ayah",
+            "difficulty": "daily",
+            "words_found": 1,
+            "total_words": 1,
+            "seconds": 0,
+            "hints_used": 0,
+        },
+    )
+    assert res.status_code == 200
+    body = res.json()
+    assert body["xp_earned"] > 0
+    assert body["total_xp"] == xp_before + body["xp_earned"]
+    assert body["streak_days"] >= 1
+
+    # find_my_ayah doesn't track per-word finds either — same guard as the
+    # names_on_water check above.
+    profile_after = await client.get("/me/profile", headers=headers)
+    assert profile_after.json()["word_search_progress"] == {}
+
+    await _delete_account(client, token, "TestPass123!")
 
 
 async def test_activity_complete_awards_xp_for_names_on_water(client):

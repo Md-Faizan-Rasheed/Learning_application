@@ -52,6 +52,21 @@ def xp_for_names_on_water(*, matched: int, wrong_attempts: int) -> int:
     return max(0, base - max(0, wrong_attempts))
 
 
+XP_PER_CHECKIN = 4
+XP_PER_MILESTONE_STEP = 3
+
+
+def xp_for_find_my_ayah(*, words_found: int) -> int:
+    """XP for one Find My Ayah daily check-in: a small flat credit for
+    opening a verse today, plus a bonus when the client reports crossing a
+    discovery milestone (e.g. the 10th/20th/30th/40th situation ever
+    opened). `words_found` is repurposed here as a "milestone weight" —
+    1 for an ordinary check-in, higher when a milestone was crossed this
+    tap — the same repurposing convention xp_for_names_on_water already
+    uses for hints_used."""
+    return XP_PER_CHECKIN + XP_PER_MILESTONE_STEP * max(0, words_found - 1)
+
+
 def daily_score_for_word_search(*, words_found: int, seconds: int, hints_used: int) -> int:
     """Score for one Word Search Daily Challenge attempt — computed here
     from the same raw facts xp_for_word_search uses, never trusted directly
