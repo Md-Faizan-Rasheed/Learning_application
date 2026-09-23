@@ -1,5 +1,15 @@
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# libpq/psycopg-style query params that some hosts (e.g. Neon's connection
+# strings) append but that asyncpg's `connect()` doesn't accept as keyword
+# arguments — SQLAlchemy's asyncpg dialect forwards every query param
+# straight through, so leaving these in raises `TypeError: connect() got an
+# unexpected keyword argument 'sslmode'` at connection time. asyncpg
+# negotiates TLS with these hosts on its own without either param.
+_ASYNCPG_UNSUPPORTED_QUERY_PARAMS = {"sslmode", "channel_binding"}
 
 
 class Settings(BaseSettings):
@@ -54,10 +64,18 @@ class Settings(BaseSettings):
         """
         url = self.database_url
         if url.startswith("postgres://"):
-            return url.replace("postgres://", "postgresql+asyncpg://", 1)
-        if url.startswith("postgresql://"):
-            return url.replace("postgresql://", "postgresql+asyncpg://", 1)
-        return url
+            url = url.replace("postgres://", "postgresql+asyncpg://", 1)
+        elif url.startswith("postgresql://"):
+            url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+
+        split = urlsplit(url)
+        if split.query:
+            kept = [
+                (k, v) for k, v in parse_qsl(split.query, keep_blank_values=True)
+                if k not in _ASYNCPG_UNSUPPORTED_QUERY_PARAMS
+            ]
+            split = split._replace(query=urlencode(kept))
+        return urlunsplit(split)
 
 
 settings = Settings()

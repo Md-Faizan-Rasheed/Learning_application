@@ -62,7 +62,7 @@ async def connect(sid: str, environ: dict, auth: dict | None = None) -> None:
 
 
 @sio.event
-async def disconnect(sid: str) -> None:
+async def disconnect(sid: str, reason: str | None = None) -> None:
     match_id, player = await match_store.remove_player_by_sid(sid)
     print(f"[ws] client disconnected: {sid} (match={match_id})")
     if match_id:
