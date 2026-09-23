@@ -5,68 +5,62 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../theme/app_theme.dart';
+import '../utils/name_drag_payload.dart';
 import '../utils/word_bank_entry.dart';
 import 'card_stock.dart' show PaperGrainPainter;
 
-/// One name floating on the water surface — a card-stock chip (matching
-/// every other piece of content in this app, not a lily-pad shape) with its
-/// own independently-randomized drift, wrapped in a stock [Draggable].
+/// One name floating on the "Names of Allah" pool's water surface — the
+/// visual sibling of the old (now-removed) `FloatingPad`, adapted to drag
+/// a [NameDragPayload] instead of a raw [WordEntry] so it plays correctly
+/// with meaning boxes that accept any drop unconditionally: there is no
+/// "wrong drop" flash here anymore, since correctness is never decided
+/// until Submit.
 ///
 /// Motion is phase-based, not a Curve applied to a ping-pong tween: one
 /// continuously-looping controller (`..repeat()`, never reversed) drives a
 /// phase value, and vertical/horizontal offsets are computed as sine
-/// functions of that phase with per-pad-random amplitude, duration, start
-/// offset, and a horizontal/vertical frequency ratio. That last part is
-/// what keeps two pads from ever *looking* synced even if their phase
-/// happens to briefly line up — their whole drift pattern differs, not
-/// just their timing.
-class FloatingPad extends StatefulWidget {
-  const FloatingPad({
+/// functions of that phase with per-card-random amplitude, duration, start
+/// offset, and a horizontal/vertical frequency ratio — that last part is
+/// what keeps two cards from ever *looking* synced even if their phase
+/// happens to briefly line up.
+class FloatingNameCard extends StatefulWidget {
+  const FloatingNameCard({
     super.key,
     required this.entry,
     required this.size,
     required this.floatRange,
     required this.reduceMotion,
     required this.reflowNonce,
-    required this.onDropResult,
   });
 
   final WordEntry entry;
 
-  /// Side length of the pad's tap target — already clamped by the caller to
-  /// the platform's minimum (48px) and scaled from the water container's
-  /// own measured size, never a fixed constant.
+  /// Side length of the card's tap target — already clamped by the caller
+  /// to the platform's minimum and scaled from the water container's own
+  /// measured size, never a fixed constant.
   final double size;
 
   /// Max vertical amplitude in px, derived by the caller from the water
-  /// container's actual rendered height — not a fixed pixel value, so a
-  /// small phone and a tablet get proportionally different drift.
+  /// container's actual rendered height.
   final double floatRange;
 
   final bool reduceMotion;
 
-  /// Bumped by the caller whenever the active batch's pad count changes
-  /// (a reflow) — triggers a small, continuous-motion-preserving jitter to
-  /// this pad's amplitude/sway/frequency rather than a full re-seed, so
-  /// remaining pads don't all look identically tuned after one is removed.
+  /// Bumped by the caller whenever the pool's card count changes (one
+  /// dragged out, or one dragged back in) — nudges this card's drift
+  /// slightly rather than a full re-seed, so motion stays continuous but
+  /// the remaining cards don't all look identically tuned afterward.
   final int reflowNonce;
 
-  /// Called after a drag ends: true if accepted by a DragTarget, false if
-  /// dropped on nothing or rejected. The screen owns match-state and
-  /// sound/haptics; this widget only owns its own transient wrong-flash.
-  final ValueChanged<bool> onDropResult;
-
   @override
-  State<FloatingPad> createState() => _FloatingPadState();
+  State<FloatingNameCard> createState() => _FloatingNameCardState();
 }
 
-class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin {
+class _FloatingNameCardState extends State<FloatingNameCard> with TickerProviderStateMixin {
   late final math.Random _rng;
   late AnimationController _floatController;
   late AnimationController _wiggleController;
   Timer? _perturbTimer;
-  Timer? _wrongFlashTimer;
-  bool _wrongFlash = false;
   bool _dragging = false;
 
   late double _amplitude;
@@ -74,11 +68,9 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
   late double _freqRatio;
   late double _phaseOffset;
 
-  // Fixed for this pad's whole lifetime (not touched by drift/reflow) — a
-  // small static tilt so pads don't look machine-stamped, and a depth
-  // factor that scales this pad's shadow so some read as slightly nearer
-  // and some slightly farther, instead of one identical shadow on every
-  // card.
+  // Fixed for this card's whole lifetime — a small static tilt so cards
+  // don't look machine-stamped, and a depth factor that scales this
+  // card's shadow so some read as slightly nearer and some farther.
   late double _tilt;
   late double _depth;
 
@@ -121,13 +113,9 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
   }
 
   @override
-  void didUpdateWidget(FloatingPad oldWidget) {
+  void didUpdateWidget(FloatingNameCard oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.reflowNonce != oldWidget.reflowNonce) {
-      // A pad elsewhere in the batch was matched and removed — nudge this
-      // pad's drift slightly rather than a full re-seed, so motion stays
-      // continuous (no jump) but the remaining pads don't all look frozen
-      // in whatever pattern they started with.
       setState(() {
         _amplitude = (_amplitude * (0.85 + _rng.nextDouble() * 0.3)).clamp(4, widget.floatRange);
         _swayAmplitude = (_swayAmplitude * (0.85 + _rng.nextDouble() * 0.3)).clamp(2, 8);
@@ -139,7 +127,6 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
   @override
   void dispose() {
     _perturbTimer?.cancel();
-    _wrongFlashTimer?.cancel();
     _floatController.dispose();
     _wiggleController.dispose();
     super.dispose();
@@ -162,20 +149,9 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
     }
   }
 
-  void _flashWrong() {
-    _wrongFlashTimer?.cancel();
-    setState(() => _wrongFlash = true);
-    _wrongFlashTimer = Timer(const Duration(milliseconds: 250), () {
-      if (mounted) setState(() => _wrongFlash = false);
-    });
-  }
-
   /// Same card-stock look (cardStock fill, borderTaupe hairline, paper
-  /// grain) as [CardStock] elsewhere in the app, but with its own shadow
-  /// instead of a fixed one — [_depth] varies per pad so a "closer" card
-  /// gets a slightly stronger, tighter shadow and a "farther" one a
-  /// softer, more diffuse one, giving the floating layer a mild sense of
-  /// depth rather than every card casting an identical shadow.
+  /// grain) as [CardStock] elsewhere in the app, with its own shadow
+  /// varied by [_depth] for a mild sense of depth across the floating layer.
   Widget _buildChip() {
     final radius = BorderRadius.circular(12);
     return Container(
@@ -211,7 +187,7 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
                   style: const TextStyle(
                     fontFamily: 'NotoNaskhArabic',
                     fontWeight: FontWeight.w700,
-                    fontSize: 17,
+                    fontSize: 15,
                     color: AppPalette.ink,
                   ),
                 ),
@@ -222,7 +198,7 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 11, color: AppPalette.inkMuted, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 10, color: AppPalette.inkMuted, fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -233,38 +209,24 @@ class _FloatingPadState extends State<FloatingPad> with TickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    final chip = AnimatedContainer(
-      duration: const Duration(milliseconds: 180),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: _wrongFlash ? Border.all(color: AppPalette.incorrectRed, width: 2) : null,
-      ),
-      child: _buildChip(),
-    );
-
-    final draggable = Draggable<WordEntry>(
-      data: widget.entry,
+    final draggable = Draggable<NameDragPayload>(
+      data: NameDragPayload(entry: widget.entry, sourceBox: null),
       feedback: Material(
         color: Colors.transparent,
         child: Transform.scale(scale: 1.08, child: _buildChip()),
       ),
       childWhenDragging: Opacity(opacity: 0.25, child: _buildChip()),
-      onDragStarted: _pauseMotion,
-      onDragEnd: (details) {
-        _resumeMotion();
-        if (!details.wasAccepted) {
-          _flashWrong();
-          HapticFeedback.mediumImpact();
-        }
-        widget.onDropResult(details.wasAccepted);
+      onDragStarted: () {
+        HapticFeedback.selectionClick();
+        _pauseMotion();
       },
-      child: chip,
+      onDragEnd: (_) => _resumeMotion(),
+      child: _buildChip(),
     );
 
     if (widget.reduceMotion) {
       // Tilt is a static layout/style choice (scattered, not machine-
-      // stamped), independent of the reduced-motion drift/wiggle — keep it
-      // even when animation is off.
+      // stamped), independent of the reduced-motion drift/wiggle.
       return Transform.rotate(angle: _tilt, child: draggable);
     }
 

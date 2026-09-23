@@ -21,6 +21,12 @@ class AppPalette {
   // "Correct" reads as gold, not green, in this palette.
   static const correctGold = mutedGold;
 
+  // Illustration-only tone for the "Find My Ayah" tree's bark/branches —
+  // not a UI-chrome color, so it's exempt from the "pull from these same
+  // roles" rule above; every other visual property of that screen still
+  // reuses deepTeal/mutedGold/parchment like everywhere else.
+  static const barkGreen = Color(0xFFB7CBB0);
+
   static Color get deepTealMuted => deepTeal.withValues(alpha: 0.15);
   static Color get mutedGoldMuted => mutedGold.withValues(alpha: 0.18);
   static Color get inkMuted => ink.withValues(alpha: 0.62);

@@ -43,5 +43,26 @@ void main() {
       final again = await NamesOnWaterProgress.instance.nextBatch(random: Random(1));
       expect(again.first.word, first.first.word);
     });
+
+    test('batchForChapter returns a fixed chapter and never touches the sequential pointer', () async {
+      final chapterBatch = NamesOnWaterProgress.instance.batchForChapter(2);
+      expect(chapterBatch.length, 9);
+      expect(chapterBatch.first.word, kNamesOfAllah[18].word);
+
+      // The sequential pointer must be exactly where a fresh install left it.
+      final sequential = await NamesOnWaterProgress.instance.nextBatch(random: Random(1));
+      expect(sequential.first.word, kNamesOfAllah.first.word);
+    });
+
+    test('markChapterComplete records completion without affecting other chapters', () async {
+      expect(await NamesOnWaterProgress.instance.completedChapters(), isEmpty);
+
+      await NamesOnWaterProgress.instance.markChapterComplete(4);
+      final completed = await NamesOnWaterProgress.instance.completedChapters();
+      expect(completed, {4});
+
+      await NamesOnWaterProgress.instance.markChapterComplete(0);
+      expect(await NamesOnWaterProgress.instance.completedChapters(), {4, 0});
+    });
   });
 }

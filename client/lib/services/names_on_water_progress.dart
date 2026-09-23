@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../utils/name_chapters.dart';
 import '../utils/names_of_allah.dart';
 import '../utils/word_bank_entry.dart';
 
@@ -21,6 +22,7 @@ class NamesOnWaterProgress {
   static const _key = 'names_on_water_progress';
   static const _minBatch = 5;
   static const _maxBatch = 7;
+  static const _completedChaptersKey = 'names_on_water_completed_chapters';
 
   Future<int> _readNextIndex() async {
     final prefs = await SharedPreferences.getInstance();
@@ -57,5 +59,29 @@ class NamesOnWaterProgress {
   Future<void> advance(int batchSize) async {
     final start = await _readNextIndex();
     await _writeNextIndex(start + batchSize);
+  }
+
+  /// The fixed set of names for a chosen chapter — entirely independent of
+  /// [nextBatch]/[advance]'s sequential pointer, so practicing a chapter
+  /// never disturbs where "Continue My Journey" picks back up.
+  List<WordEntry> batchForChapter(int chapterIndex) =>
+      kNameChapters[chapterIndex].names;
+
+  Future<Set<int>> completedChapters() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getStringList(_completedChaptersKey);
+    if (raw == null) return {};
+    return raw.map(int.parse).toSet();
+  }
+
+  /// Records a chapter as fully matched at least once. Purely additive
+  /// (drives the ✓ badge on the chapter picker) — never touches the
+  /// sequential pointer.
+  Future<void> markChapterComplete(int chapterIndex) async {
+    final prefs = await SharedPreferences.getInstance();
+    final current = await completedChapters();
+    current.add(chapterIndex);
+    await prefs.setStringList(
+        _completedChaptersKey, current.map((i) => i.toString()).toList());
   }
 }
