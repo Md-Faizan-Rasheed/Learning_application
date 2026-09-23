@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -18,10 +19,13 @@ import 'screens/profile_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/student/assigned_quizzes_screen.dart';
 import 'screens/teacher/teacher_home_screen.dart';
+import 'screens/find_my_ayah_screen.dart';
 import 'screens/names_on_water_screen.dart';
 import 'screens/word_search_screen.dart';
 import 'theme/app_theme.dart';
+import 'utils/daily_content.dart';
 import 'utils/level.dart';
+import 'utils/tree_page_route.dart';
 import 'widgets/achievement_data.dart';
 import 'widgets/ambient_backdrop.dart';
 import 'widgets/card_stock.dart';
@@ -30,6 +34,7 @@ import 'widgets/continue_arrow_icon.dart';
 import 'widgets/category_picker_dialog.dart';
 import 'widgets/fade_scroll_edge.dart';
 import 'widgets/language_picker.dart';
+import 'widgets/names_of_allah_mode_sheet.dart';
 import 'widgets/reward_card.dart';
 import 'widgets/word_search_difficulty_sheet.dart';
 
@@ -112,21 +117,6 @@ class _IslamicGameAppState extends State<IslamicGameApp> {
   }
 }
 
-const _dailyPhrases = <(String, String)>[
-  ('السلام عليكم', 'Peace be upon you'),
-  ('بارك الله فيك', 'May Allah bless you'),
-  ('إن شاء الله', 'God willing'),
-  ('الحمد لله', 'Praise be to Allah'),
-  ('جزاك الله خيرا', 'May Allah reward you with good'),
-  ('صباح الخير', 'Good morning'),
-  ('مع السلامة', 'Go with peace / goodbye'),
-  ('شكرا جزيلا', 'Thank you very much'),
-  ('أهلا وسهلا', 'Welcome'),
-  ('كل عام وأنتم بخير', 'May every year find you well'),
-  ('طالب العلم', 'Seeker of knowledge'),
-  ('العلم نور', 'Knowledge is light'),
-];
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
@@ -155,7 +145,12 @@ class _HomeScreenState extends State<HomeScreen>
   Profile? _profile;
   List<Quest> _quests = [];
 
-  late int _phraseIndex;
+  static const _dailyCardCount = 3; // phrase, hadith, ayah
+  static const _dailyAutoSwipeInterval = Duration(seconds: 5);
+
+  final PageController _dailyPageController = PageController();
+  int _dailyPageIndex = 0;
+  Timer? _dailyAutoSwipeTimer;
 
   AnimationController? _animationController;
   Animation<double>? _fadeAnimation;
@@ -166,10 +161,6 @@ class _HomeScreenState extends State<HomeScreen>
     _checkHealth();
     _loadProfileAndQuests();
 
-    final dayOfYear =
-        DateTime.now().difference(DateTime(DateTime.now().year, 1, 1)).inDays;
-    _phraseIndex = dayOfYear % _dailyPhrases.length;
-
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
@@ -177,12 +168,36 @@ class _HomeScreenState extends State<HomeScreen>
     _fadeAnimation =
         Tween<double>(begin: 0, end: 1).animate(_animationController!);
     _animationController!.forward();
+    _scheduleDailyAutoSwipe();
   }
 
   @override
   void dispose() {
     _animationController!.dispose();
+    _dailyPageController.dispose();
+    _dailyAutoSwipeTimer?.cancel();
     super.dispose();
+  }
+
+  /// Re-armed every time the "Today's ___" carousel lands on a page —
+  /// whether that page change came from this timer or a manual swipe — so
+  /// auto-advance keeps a steady cadence per page instead of stacking with
+  /// or fighting the user's own swipes.
+  void _scheduleDailyAutoSwipe() {
+    _dailyAutoSwipeTimer?.cancel();
+    _dailyAutoSwipeTimer = Timer(_dailyAutoSwipeInterval, () {
+      if (!mounted || !_dailyPageController.hasClients) return;
+      if (MediaQuery.of(context).disableAnimations) {
+        _scheduleDailyAutoSwipe();
+        return;
+      }
+      final next = (_dailyPageIndex + 1) % _dailyCardCount;
+      _dailyPageController.animateToPage(
+        next,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    });
   }
 
   Future<void> _checkHealth() async {
@@ -328,10 +343,22 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  void _openNamesOnWater() {
+  void _openFindMyAyah() {
+    Navigator.of(context).push(
+      buildTreeRoute(
+          (_) => FindMyAyahScreen(token: widget.auth.current?.token)),
+    );
+  }
+
+  Future<void> _openNamesOnWater() async {
+    final choice = await showNamesOfAllahModePicker(context);
+    if (choice == null || !mounted) return;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => NamesOnWaterScreen(token: widget.auth.current?.token),
+        builder: (_) => NamesOnWaterScreen(
+          token: widget.auth.current?.token,
+          chapterIndex: choice.chapterIndex,
+        ),
       ),
     );
   }
@@ -462,7 +489,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 ),
                                 _buildAchievements(context, t, profile),
                                 const SizedBox(height: 20),
-                                _buildDailyPhraseCard(context, t),
+                                _buildDailyContentCarousel(context, t),
                               ],
                             ),
                           ),
@@ -526,61 +553,56 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(18, topPadding, 18, isMobile ? 16 : 22),
+              padding:
+                  EdgeInsets.fromLTRB(18, topPadding, 18, isMobile ? 16 : 22),
               child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(
-            children: [
-              _BannerAvatar(name: name, size: avatarSize),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  name.isEmpty ? t.appTitle : _greeting(t, name),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: colors.onPrimary,
-                      fontSize: isMobile ? 17 : 19,
-                      fontWeight: FontWeight.w800),
-                ),
-              ),
-              const SizedBox(width: 6),
-              LanguagePicker(
-                  currentLanguage: widget.currentLang,
-                  onLocaleChange: widget.onLocaleChange,
-                  compact: isMobile),
-              SizedBox(width: isMobile ? 2 : 6),
-              IconButton(
-                icon: Icon(Icons.logout,
-                    color: colors.onPrimary, size: logoutIconSize),
-                tooltip: t.signOut,
-                onPressed: widget.onSignOut,
-                visualDensity: isMobile ? VisualDensity.compact : null,
-                padding: EdgeInsets.all(isMobile ? 6 : 8),
-                constraints: const BoxConstraints(),
-              ),
-            ],
-          ),
-          SizedBox(height: isMobile ? 14 : 18),
-          Row(
-            children: [
-              Expanded(
-                child: _HeroStat(
-                  icon: Icons.local_fire_department_rounded,
-                  label: t.rewardStreakDays(profile.streakDays),
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: _HeroStat(
-                  icon: Icons.stars_rounded,
-                  label: t.levelWithTitle(level.level, level.title(t)),
-                ),
-              ),
-            ],
-          ),
-        ],
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      _BannerAvatar(name: name, size: avatarSize),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          name.isEmpty ? t.appTitle : _greeting(t, name),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: colors.onPrimary,
+                              fontSize: isMobile ? 17 : 19,
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      _HeaderOverflowMenu(
+                        currentLanguage: widget.currentLang,
+                        onLocaleChange: widget.onLocaleChange,
+                        onSignOut: widget.onSignOut,
+                        iconColor: colors.onPrimary,
+                        iconSize: logoutIconSize,
+                        compact: isMobile,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: isMobile ? 14 : 18),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _HeroStat(
+                          icon: Icons.local_fire_department_rounded,
+                          label: t.rewardStreakDays(profile.streakDays),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: _HeroStat(
+                          icon: Icons.stars_rounded,
+                          label: t.levelWithTitle(level.level, level.title(t)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],
@@ -648,8 +670,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         child: Row(
           children: [
-            Icon(Icons.celebration_rounded,
-                color: colors.onPrimary, size: 28),
+            Icon(Icons.celebration_rounded, color: colors.onPrimary, size: 28),
             const SizedBox(width: 14),
             Expanded(
               child: Text(
@@ -669,98 +690,93 @@ class _HomeScreenState extends State<HomeScreen>
         ? 0.0
         : (quest.progress / quest.target).clamp(0.0, 1.0);
 
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: AppPalette.cardStock,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppPalette.borderTaupe),
-        boxShadow: [
-          BoxShadow(
-              color: AppPalette.shadowInk,
-              blurRadius: 10,
-              offset: const Offset(0, 4))
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: colors.primary,
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: Icon(Icons.bolt_rounded, color: colors.onPrimary),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(t.homeDailyChallenge,
-                        style: TextStyle(
-                            color: colors.onSurfaceVariant,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700)),
-                    Text(quest.description,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 15)),
-                  ],
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: _openQuests,
+      child: Container(
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: AppPalette.cardStock,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: AppPalette.borderTaupe),
+          boxShadow: [
+            BoxShadow(
+                color: AppPalette.shadowInk,
+                blurRadius: 10,
+                offset: const Offset(0, 4))
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
-                      color: AppPalette.mutedGoldMuted,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Text(
-                    t.questRewardXp(quest.rewardXp),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: AppPalette.mutedGold,
-                        fontWeight: FontWeight.w800),
+                    color: colors.primary,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Icon(Icons.bolt_rounded, color: colors.onPrimary),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(t.homeDailyChallenge,
+                          style: TextStyle(
+                              color: colors.onSurfaceVariant,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700)),
+                      Text(quest.description,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w800, fontSize: 15)),
+                    ],
                   ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: TweenAnimationBuilder<double>(
-              tween: Tween(begin: 0, end: pct),
-              duration: const Duration(milliseconds: 700),
-              curve: Curves.easeOutCubic,
-              builder: (context, value, _) => LinearProgressIndicator(
-                value: value,
-                minHeight: 10,
-                backgroundColor: AppPalette.borderTaupe.withValues(alpha: 0.5),
-                valueColor: const AlwaysStoppedAnimation<Color>(AppPalette.mutedGold),
+                Flexible(
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                        color: AppPalette.mutedGoldMuted,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: Text(
+                      t.questRewardXp(quest.rewardXp),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: AppPalette.mutedGold,
+                          fontWeight: FontWeight.w800),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: TweenAnimationBuilder<double>(
+                tween: Tween(begin: 0, end: pct),
+                duration: const Duration(milliseconds: 700),
+                curve: Curves.easeOutCubic,
+                builder: (context, value, _) => LinearProgressIndicator(
+                  value: value,
+                  minHeight: 10,
+                  backgroundColor:
+                      AppPalette.borderTaupe.withValues(alpha: 0.5),
+                  valueColor:
+                      const AlwaysStoppedAnimation<Color>(AppPalette.mutedGold),
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 6),
-          Text(t.questProgress(quest.progress, quest.target),
-              style: TextStyle(color: colors.onSurfaceVariant, fontSize: 12)),
-          const SizedBox(height: 12),
-          SizedBox(
-            width: double.infinity,
-            height: 46,
-            child: FilledButton.icon(
-              onPressed: _openQuests,
-              icon: const Icon(Icons.play_arrow_rounded),
-              label: Text(t.homePlayChallenge,
-                  style: const TextStyle(fontWeight: FontWeight.w800)),
-            ),
-          ),
-        ],
+            const SizedBox(height: 6),
+            Text(t.questProgress(quest.progress, quest.target),
+                style: TextStyle(color: colors.onSurfaceVariant, fontSize: 12)),
+          ],
+        ),
       ),
     );
   }
@@ -876,11 +892,6 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildQuickPlay(BuildContext context, AppLocalizations t) {
     final items = <_QuickPlayItem>[
       _QuickPlayItem(
-          icon: Icons.play_arrow_rounded,
-          title: t.practice,
-          subtitle: t.cardPracticeSubtitle,
-          onTap: _openPracticeWithPicker),
-      _QuickPlayItem(
         icon: Icons.assignment_turned_in_rounded,
         title: t.cardAssignedQuizzesTitle,
         subtitle: t.cardAssignedQuizzesSubtitle,
@@ -897,6 +908,12 @@ class _HomeScreenState extends State<HomeScreen>
         title: t.namesOnWaterQuickPlayTitle,
         subtitle: t.namesOnWaterQuickPlaySubtitle,
         onTap: _openNamesOnWater,
+      ),
+      _QuickPlayItem(
+        icon: Icons.auto_awesome_rounded,
+        title: t.fmaQuickPlayTitle,
+        subtitle: t.fmaQuickPlaySubtitle,
+        onTap: _openFindMyAyah,
       ),
     ];
 
@@ -930,60 +947,77 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Widget _buildDailyPhraseCard(BuildContext context, AppLocalizations t) {
+  /// Three swipeable "Today's ___" cards (phrase / hadith / ayah), each
+  /// picked deterministically from the day of the year — so every player
+  /// sees the same three items on a given calendar day, and they roll over
+  /// automatically at midnight with no stored state and no network call.
+  Widget _buildDailyContentCarousel(BuildContext context, AppLocalizations t) {
     final colors = Theme.of(context).colorScheme;
-    final phrase = _dailyPhrases[_phraseIndex];
+    final cards = <(String, IconData, DailyEntry)>[
+      (
+        t.homeDailyPhraseTitle,
+        Icons.auto_awesome_rounded,
+        kDailyPhrases[dailyIndexFor(kDailyPhrases.length)],
+      ),
+      (
+        t.homeDailyHadithTitle,
+        Icons.menu_book_rounded,
+        kDailyHadiths[dailyIndexFor(kDailyHadiths.length)],
+      ),
+      (
+        t.homeDailyAyahTitle,
+        Icons.auto_stories_rounded,
+        kDailyAyats[dailyIndexFor(kDailyAyats.length)],
+      ),
+    ];
 
-    return InkWell(
-      borderRadius: BorderRadius.circular(20),
-      onTap: () => setState(
-          () => _phraseIndex = (_phraseIndex + 1) % _dailyPhrases.length),
-      child: Container(
-        padding: const EdgeInsets.all(18),
-        decoration: BoxDecoration(
-          color: colors.secondaryContainer.withValues(alpha: 0.4),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: colors.outlineVariant),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          height: 176,
+          child: PageView.builder(
+            controller: _dailyPageController,
+            itemCount: cards.length,
+            onPageChanged: (i) {
+              setState(() => _dailyPageIndex = i);
+              _scheduleDailyAutoSwipe();
+            },
+            itemBuilder: (context, i) {
+              final (title, icon, entry) = cards[i];
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 2),
+                child:
+                    _DailyContentCard(title: title, icon: icon, entry: entry),
+              );
+            },
+          ),
         ),
-        child: Row(
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.auto_awesome_rounded, color: colors.secondary),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(t.homeDailyPhraseTitle,
-                      style: TextStyle(
-                          color: colors.onSurfaceVariant,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700)),
-                  const SizedBox(height: 4),
-                  Text(
-                    phrase.$1,
-                    textDirection: TextDirection.rtl,
-                    style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w800),
-                  ),
-                  Text(phrase.$2,
-                      style: TextStyle(
-                          color: colors.onSurfaceVariant, fontSize: 13)),
-                ],
+            for (var i = 0; i < cards.length; i++)
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                margin: const EdgeInsets.symmetric(horizontal: 3),
+                width: _dailyPageIndex == i ? 18 : 6,
+                height: 6,
+                decoration: BoxDecoration(
+                  color: _dailyPageIndex == i
+                      ? colors.secondary
+                      : colors.outlineVariant,
+                  borderRadius: BorderRadius.circular(3),
+                ),
               ),
-            ),
-            Column(
-              children: [
-                Icon(Icons.touch_app_rounded,
-                    color: colors.onSurfaceVariant, size: 18),
-                const SizedBox(height: 2),
-                Text(t.homeDailyPhraseHint,
-                    style: TextStyle(
-                        color: colors.onSurfaceVariant, fontSize: 10)),
-              ],
-            ),
+            const SizedBox(width: 8),
+            Icon(Icons.swipe_rounded, size: 14, color: colors.onSurfaceVariant),
+            const SizedBox(width: 4),
+            Text(t.homeDailySwipeHint,
+                style: TextStyle(color: colors.onSurfaceVariant, fontSize: 11)),
           ],
         ),
-      ),
+      ],
     );
   }
 
@@ -993,12 +1027,14 @@ class _HomeScreenState extends State<HomeScreen>
       decoration: BoxDecoration(
         color: AppPalette.incorrectRed.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppPalette.incorrectRed.withValues(alpha: 0.25)),
+        border:
+            Border.all(color: AppPalette.incorrectRed.withValues(alpha: 0.25)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.error_outline, color: AppPalette.incorrectRed, size: 20),
+          const Icon(Icons.error_outline,
+              color: AppPalette.incorrectRed, size: 20),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -1006,12 +1042,13 @@ class _HomeScreenState extends State<HomeScreen>
               children: [
                 Text(t.backendUnreachable,
                     style: const TextStyle(
-                        color: AppPalette.incorrectRed, fontWeight: FontWeight.w700)),
+                        color: AppPalette.incorrectRed,
+                        fontWeight: FontWeight.w700)),
                 if (_healthError != null) ...[
                   const SizedBox(height: 4),
                   Text(_healthError!,
-                      style:
-                          TextStyle(color: AppPalette.incorrectRed, fontSize: 12)),
+                      style: TextStyle(
+                          color: AppPalette.incorrectRed, fontSize: 12)),
                 ],
               ],
             ),
@@ -1020,6 +1057,104 @@ class _HomeScreenState extends State<HomeScreen>
         ],
       ),
     );
+  }
+}
+
+/// Collapses the header's language and sign-out actions into one kebab
+/// menu. "Language" reopens as a second menu anchored on the same icon,
+/// reusing [kSupportedLanguages] so the choices stay in sync with
+/// [LanguagePicker] itself; "Sign out" calls [onSignOut] directly — both
+/// handlers are unchanged, only how they're triggered.
+class _HeaderOverflowMenu extends StatelessWidget {
+  const _HeaderOverflowMenu({
+    required this.currentLanguage,
+    required this.onLocaleChange,
+    required this.onSignOut,
+    required this.iconColor,
+    required this.iconSize,
+    required this.compact,
+  });
+
+  final String currentLanguage;
+  final void Function(Locale) onLocaleChange;
+  final Future<void> Function() onSignOut;
+  final Color iconColor;
+  final double iconSize;
+  final bool compact;
+
+  static const _kLanguageAction = 'language';
+  static const _kSignOutAction = 'sign_out';
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    return PopupMenuButton<String>(
+      tooltip: MaterialLocalizations.of(context).showMenuTooltip,
+      icon: Icon(Icons.more_vert, color: iconColor, size: iconSize),
+      padding: EdgeInsets.all(compact ? 6 : 8),
+      onSelected: (action) {
+        if (action == _kLanguageAction) {
+          _showLanguageMenu(context);
+        } else if (action == _kSignOutAction) {
+          onSignOut();
+        }
+      },
+      itemBuilder: (context) => [
+        PopupMenuItem(
+          value: _kLanguageAction,
+          child: Text(t.changeLanguage),
+        ),
+        PopupMenuItem(
+          value: _kSignOutAction,
+          child: Text(t.signOut),
+        ),
+      ],
+    );
+  }
+
+  void _showLanguageMenu(BuildContext context) {
+    final box = context.findRenderObject() as RenderBox;
+    final overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
+    final position = RelativeRect.fromRect(
+      Rect.fromPoints(
+        box.localToGlobal(Offset.zero, ancestor: overlay),
+        box.localToGlobal(box.size.bottomRight(Offset.zero), ancestor: overlay),
+      ),
+      Offset.zero & overlay.size,
+    );
+    showMenu<Locale>(
+      context: context,
+      position: position,
+      items: [
+        for (final lang in kSupportedLanguages)
+          PopupMenuItem(
+            value: Locale(lang.code),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 24,
+                  child: lang.code == currentLanguage
+                      ? Icon(Icons.check,
+                          size: 18,
+                          color: Theme.of(context).colorScheme.primary)
+                      : null,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  lang.nativeName,
+                  style: TextStyle(
+                    fontWeight: lang.code == currentLanguage
+                        ? FontWeight.w800
+                        : FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ],
+    ).then((locale) {
+      if (locale != null) onLocaleChange(locale);
+    });
   }
 }
 
@@ -1281,6 +1416,74 @@ class _BannerAvatar extends StatelessWidget {
             fontWeight: FontWeight.w900,
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// One page of the "Today's ___" carousel — shared shell for phrase/hadith/
+/// ayah, differing only by title, icon, and the [DailyEntry] to show.
+class _DailyContentCard extends StatelessWidget {
+  const _DailyContentCard({
+    required this.title,
+    required this.icon,
+    required this.entry,
+  });
+
+  final String title;
+  final IconData icon;
+  final DailyEntry entry;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: colors.secondaryContainer.withValues(alpha: 0.4),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: colors.outlineVariant),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: colors.secondary, size: 18),
+              const SizedBox(width: 8),
+              Text(title,
+                  style: TextStyle(
+                      color: colors.onSurfaceVariant,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700)),
+            ],
+          ),
+          const SizedBox(height: 8),
+          if (entry.arabic != null) ...[
+            Text(
+              entry.arabic!,
+              textDirection: TextDirection.rtl,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: 4),
+          ],
+          Text(entry.english,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: colors.onSurfaceVariant, fontSize: 13)),
+          if (entry.reference != null) ...[
+            const SizedBox(height: 6),
+            Text(entry.reference!,
+                style: TextStyle(
+                    color: colors.secondary,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700)),
+          ],
+        ],
       ),
     );
   }
