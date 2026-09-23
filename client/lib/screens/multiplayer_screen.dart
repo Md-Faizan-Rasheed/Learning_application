@@ -153,6 +153,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
     _socket.on('resume_snapshot', _handleResumeSnapshot);
     _socket.on('roster', _handleRoster);
     _socket.on('player_answered', _handlePlayerAnswered);
+    _socket.on('no_questions', _handleNoQuestions);
 
     switch (widget.mode) {
       case MultiplayerMode.quickMatch:
@@ -245,6 +246,15 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
     });
 
     _startCountdown(question.timeMs);
+  }
+
+  /// The server couldn't find a live question for this category/difficulty
+  /// (empty content bank, or every question already used this match) —
+  /// without this handler the lobby/question view just sits there forever
+  /// with no explanation, since no 'question' event ever arrives.
+  void _handleNoQuestions(Map<String, dynamic> data) {
+    if (!mounted) return;
+    _failAndLeave(AppLocalizations.of(context)!.mpNoQuestionsAvailable);
   }
 
   void _handleRoster(Map<String, dynamic> data) {
@@ -646,6 +656,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
     _socket.off('resume_snapshot');
     _socket.off('roster');
     _socket.off('player_answered');
+    _socket.off('no_questions');
 
     _socket.disconnect();
 
