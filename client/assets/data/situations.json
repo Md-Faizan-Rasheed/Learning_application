@@ -1,0 +1,207 @@
+{
+  "categories": [
+    {
+      "id": "emotions",
+      "label": "Emotions",
+      "situations": [
+        { "id": "anxiety", "label": "Anxious", "keywords": ["worried", "nervous", "panic", "stress", "overwhelmed"], "refs": [
+          { "type": "ayah", "arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ", "gloss": "Hearts find rest only through the remembrance of Allah.", "citation": "Surah Ar-Ra'd 13:28" },
+          { "type": "ayah", "arabic": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", "gloss": "With every hardship comes ease.", "citation": "Surah Ash-Sharh 94:5-6" },
+          { "type": "hadith", "arabic": "", "gloss": "The Prophet's dua for anxiety: 'O Allah, I seek refuge in You from worry and grief, from helplessness and laziness.'", "citation": "Sahih al-Bukhari 6369" }
+        ]},
+        { "id": "fear", "label": "Afraid", "keywords": ["scared", "terrified", "frightened", "danger"], "refs": [
+          { "type": "ayah", "arabic": "إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا", "gloss": "The Prophet ﷺ reassured Abu Bakr in the cave: 'Do not grieve, Allah is with us.'", "citation": "Surah At-Tawbah 9:40" },
+          { "type": "hadith", "arabic": "", "gloss": "Know that whatever has passed you by was not going to befall you, and whatever has befallen you was not going to pass you by.", "citation": "Jami' at-Tirmidhi 2516" }
+        ]},
+        { "id": "grief", "label": "Grieving", "keywords": ["loss", "mourning", "bereavement", "death", "sad"], "refs": [
+          { "type": "ayah", "arabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ", "gloss": "To Allah we belong and to Him we return — said at a calamity, met with Allah's blessings and mercy.", "citation": "Surah Al-Baqarah 2:156-157" },
+          { "type": "hadith", "arabic": "", "gloss": "True patience is at the first stroke of grief.", "citation": "Sahih al-Bukhari 1283" }
+        ]},
+        { "id": "loneliness", "label": "Lonely", "keywords": ["alone", "isolated", "no friends", "empty"], "refs": [
+          { "type": "ayah", "arabic": "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ", "gloss": "Allah is with you wherever you are.", "citation": "Surah Al-Hadid 57:4" },
+          { "type": "hadith", "arabic": "", "gloss": "Whenever people gather to remember Allah, angels surround them, mercy covers them, and tranquility descends upon them.", "citation": "Sahih Muslim 2700" }
+        ]},
+        { "id": "anger", "label": "Angry", "keywords": ["furious", "mad", "rage", "irritated"], "refs": [
+          { "type": "ayah", "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ", "gloss": "Those who restrain their anger and pardon people — Allah loves the doers of good.", "citation": "Surah Ali 'Imran 3:134" },
+          { "type": "hadith", "arabic": "", "gloss": "The strong one is not the wrestler, but the one who controls himself when angry.", "citation": "Sahih al-Bukhari 6114" }
+        ]},
+        { "id": "envy", "label": "Envious", "keywords": ["jealous", "jealousy", "comparison", "coveting"], "refs": [
+          { "type": "ayah", "arabic": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ", "gloss": "Seeking refuge from the evil of an envier when he envies.", "citation": "Surah Al-Falaq 113:5" },
+          { "type": "hadith", "arabic": "", "gloss": "Beware of envy, for it devours good deeds as fire devours wood.", "citation": "Sunan Abu Dawud 4903" }
+        ]},
+        { "id": "guilt", "label": "Guilty", "keywords": ["remorse", "shame", "wrongdoing", "sin"], "refs": [
+          { "type": "ayah", "arabic": "وَمَن يَعْمَلْ سُوءًا أَوْ يَظْلِمْ نَفْسَهُ ثُمَّ يَسْتَغْفِرِ اللَّهَ يَجِدِ اللَّهَ غَفُورًا رَّحِيمًا", "gloss": "Whoever does wrong or wrongs himself, then seeks Allah's forgiveness, will find Allah Forgiving and Merciful.", "citation": "Surah An-Nisa 4:110" },
+          { "type": "hadith", "arabic": "", "gloss": "Every son of Adam sins, and the best of sinners are those who repent.", "citation": "Jami' at-Tirmidhi" }
+        ]},
+        { "id": "despair", "label": "Hopeless", "keywords": ["despair", "giving up", "no hope", "depressed"], "refs": [
+          { "type": "ayah", "arabic": "لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ", "gloss": "Do not despair of the mercy of Allah — He forgives all sins.", "citation": "Surah Az-Zumar 39:53" },
+          { "type": "hadith", "arabic": "", "gloss": "Allah is more delighted with the repentance of His servant than a traveler who, having lost his ride laden with provisions in a barren desert, suddenly finds it again.", "citation": "Sahih al-Bukhari 6309" }
+        ]},
+        { "id": "happiness", "label": "Happy", "keywords": ["joy", "glad", "cheerful", "blessed"], "refs": [
+          { "type": "ayah", "arabic": "فَبِذَٰلِكَ فَلْيَفْرَحُوا", "gloss": "Let believers rejoice in Allah's grace — better than anything they accumulate.", "citation": "Surah Yunus 10:58" },
+          { "type": "hadith", "arabic": "", "gloss": "Your smiling in the face of your brother is charity.", "citation": "Jami' at-Tirmidhi 1956" }
+        ]},
+        { "id": "shame", "label": "Ashamed", "keywords": ["embarrassed", "humiliated", "disgrace"], "refs": [
+          { "type": "ayah", "arabic": "وَالَّذِينَ إِذَا فَعَلُوا فَاحِشَةً ذَكَرُوا اللَّهَ فَاسْتَغْفَرُوا", "gloss": "Those who, having done wrong, remember Allah and seek forgiveness.", "citation": "Surah Ali 'Imran 3:135" },
+          { "type": "hadith", "arabic": "", "gloss": "Modesty (haya') is a branch of faith.", "citation": "Sahih al-Bukhari 9" }
+        ]}
+      ]
+    },
+    {
+      "id": "faith",
+      "label": "Faith",
+      "situations": [
+        { "id": "doubt", "label": "Doubting", "keywords": ["uncertainty", "questioning", "waswasa", "skepticism"], "refs": [
+          { "type": "ayah", "arabic": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا", "gloss": "Dua: our Lord, do not let our hearts deviate after You have guided us.", "citation": "Surah Ali 'Imran 3:8" },
+          { "type": "hadith", "arabic": "", "gloss": "When Satan's whispers reach the point of 'who created your Lord?', seek refuge in Allah and put the thought aside.", "citation": "Sahih al-Bukhari 3276" }
+        ]},
+        { "id": "distant_from_allah", "label": "Feeling distant", "keywords": ["disconnected", "cold heart", "spiritual dryness"], "refs": [
+          { "type": "ayah", "arabic": "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ", "gloss": "When My servants ask about Me, indeed I am near.", "citation": "Surah Al-Baqarah 2:186" },
+          { "type": "hadith", "arabic": "", "gloss": "Whoever draws near to Me a hand's span, I draw near to him an arm's length.", "citation": "Sahih al-Bukhari 7405 (Hadith Qudsi)" }
+        ]},
+        { "id": "temptation", "label": "Struggling with sin", "keywords": ["desire", "lust", "addiction", "weakness"], "refs": [
+          { "type": "ayah", "arabic": "الشَّيْطَانُ يَعِدُكُمُ الْفَقْرَ وَيَأْمُرُكُم بِالْفَحْشَاءِ", "gloss": "Satan threatens poverty and commands immorality; Allah promises forgiveness and abundance.", "citation": "Surah Al-Baqarah 2:268" },
+          { "type": "hadith", "arabic": "", "gloss": "The Fire is surrounded by desires, and Paradise is surrounded by hardships.", "citation": "Sahih Muslim 2822" }
+        ]},
+        { "id": "repentance", "label": "Seeking forgiveness", "keywords": ["tawbah", "sin", "forgiveness", "mistake"], "refs": [
+          { "type": "ayah", "arabic": "إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ", "gloss": "Indeed, good deeds do away with misdeeds.", "citation": "Surah Hud 11:114" },
+          { "type": "hadith", "arabic": "", "gloss": "Even if your sins reached the clouds of the sky, and then you sought My forgiveness, I would forgive you.", "citation": "Jami' at-Tirmidhi 3540 (Hadith Qudsi)" }
+        ]},
+        { "id": "laziness_in_worship", "label": "Low motivation to worship", "keywords": ["lazy", "unmotivated", "procrastinating", "salah"], "refs": [
+          { "type": "ayah", "arabic": "إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا فَاعْبُدْنِي وَأَقِمِ الصَّلَاةَ لِذِكْرِي", "gloss": "Indeed, I am Allah — there is no god but Me, so worship Me and establish prayer for My remembrance.", "citation": "Surah Ta-Ha 20:14" },
+          { "type": "hadith", "arabic": "", "gloss": "The Prophet's dua sought refuge from laziness alongside grief and cowardice.", "citation": "Sunan Abu Dawud 1555" }
+        ]},
+        { "id": "sincerity", "label": "Wanting sincerity", "keywords": ["riya", "showing off", "ikhlas", "intention"], "refs": [
+          { "type": "ayah", "arabic": "وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ", "gloss": "They were commanded only to worship Allah, sincere to Him in religion.", "citation": "Surah Al-Bayyinah 98:5" },
+          { "type": "hadith", "arabic": "", "gloss": "Actions are judged by intentions.", "citation": "Sahih al-Bukhari 1" }
+        ]},
+        { "id": "fear_of_hereafter", "label": "Fear of death/hereafter", "keywords": ["dying", "akhirah", "grave", "judgment"], "refs": [
+          { "type": "ayah", "arabic": "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۖ ثُمَّ إِلَيْنَا تُرْجَعُونَ", "gloss": "Every soul will taste death; then to Us you will be returned.", "citation": "Surah Al-'Ankabut 29:57" },
+          { "type": "hadith", "arabic": "", "gloss": "Remember often the destroyer of pleasures — death.", "citation": "Jami' at-Tirmidhi 2307" }
+        ]},
+        { "id": "seeking_guidance", "label": "Making a big decision", "keywords": ["istikhara", "choice", "confused", "crossroads"], "refs": [
+          { "type": "ayah", "arabic": "وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ ۖ وَعَسَىٰ أَن تُحِبُّوا شَيْئًا وَهُوَ شَرٌّ لَّكُمْ ۗ وَاللَّهُ يَعْلَمُ وَأَنتُمْ لَا تَعْلَمُونَ", "gloss": "Perhaps you dislike a thing which is good for you, and perhaps you like a thing which is bad for you — Allah knows, and you do not.", "citation": "Surah Al-Baqarah 2:216" },
+          { "type": "hadith", "arabic": "", "gloss": "The Istikhara prayer, taught by the Prophet like a surah of the Quran, for guidance in any matter.", "citation": "Sahih al-Bukhari 1166" }
+        ]}
+      ]
+    },
+    {
+      "id": "trials",
+      "label": "Trials",
+      "situations": [
+        { "id": "death_of_loved_one", "label": "Lost someone", "keywords": ["death", "funeral", "passed away", "mourning"], "refs": [
+          { "type": "ayah", "arabic": "إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ", "gloss": "Indeed, the patient will be given their reward without limit.", "citation": "Surah Az-Zumar 39:10" },
+          { "type": "hadith", "arabic": "", "gloss": "The heart grieves and the eye sheds tears, but only what pleases Allah is said.", "citation": "Sahih al-Bukhari 1303" }
+        ]},
+        { "id": "illness", "label": "Illness", "keywords": ["sick", "disease", "pain", "hospital"], "refs": [
+          { "type": "ayah", "arabic": "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ", "gloss": "Ibrahim's words: and when I am ill, it is He who cures me.", "citation": "Surah Ash-Shu'ara 26:80" },
+          { "type": "hadith", "arabic": "", "gloss": "No fatigue, illness, worry or harm befalls a Muslim, even a thorn-prick, except that Allah expiates some of his sins for it.", "citation": "Sahih al-Bukhari 5641" }
+        ]},
+        { "id": "financial_hardship", "label": "Money troubles", "keywords": ["poverty", "debt", "broke", "bills"], "refs": [
+          { "type": "ayah", "arabic": "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا", "gloss": "Whoever is mindful of Allah — He will make a way out for him.", "citation": "Surah At-Talaq 65:2" },
+          { "type": "hadith", "arabic": "", "gloss": "Dua: O Allah, suffice me with what You have made lawful, away from what You have made unlawful.", "citation": "Jami' at-Tirmidhi 3563" }
+        ]},
+        { "id": "losing_a_job", "label": "Losing a job", "keywords": ["unemployed", "fired", "career", "income"], "refs": [
+          { "type": "ayah", "arabic": "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ", "gloss": "Whoever relies on Allah, He is sufficient for him.", "citation": "Surah At-Talaq 65:3" },
+          { "type": "hadith", "arabic": "", "gloss": "If you relied on Allah with the reliance He is due, He would provide for you as He provides for birds: they set out hungry in the morning and return full in the evening.", "citation": "Jami' at-Tirmidhi 2344" }
+        ]},
+        { "id": "marriage_struggles", "label": "Marriage struggles", "keywords": ["spouse", "husband", "wife", "relationship"], "refs": [
+          { "type": "ayah", "arabic": "وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً", "gloss": "Allah placed love and mercy between spouses.", "citation": "Surah Ar-Rum 30:21" },
+          { "type": "hadith", "arabic": "", "gloss": "The best of you are those who are best to their wives, and I am the best of you to my wives.", "citation": "Jami' at-Tirmidhi 3895" }
+        ]},
+        { "id": "parenting", "label": "Parenting difficulties", "keywords": ["kids", "children", "raising", "discipline"], "refs": [
+          { "type": "ayah", "arabic": "رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا", "gloss": "Dua for parents, adaptable as a dua for one's own children's wellbeing.", "citation": "Surah Al-Isra 17:24" },
+          { "type": "hadith", "arabic": "", "gloss": "Each of you is a shepherd, and each of you is responsible for his flock — a man is a shepherd of his household and is responsible for them.", "citation": "Sahih al-Bukhari 5200" }
+        ]},
+        { "id": "injustice", "label": "Facing injustice", "keywords": ["unfair", "oppressed", "wronged", "discrimination"], "refs": [
+          { "type": "ayah", "arabic": "وَلَا تَحْسَبَنَّ اللَّهَ غَافِلًا عَمَّا يَعْمَلُ الظَّالِمُونَ", "gloss": "Never think that Allah is unaware of what the wrongdoers do.", "citation": "Surah Ibrahim 14:42" },
+          { "type": "hadith", "arabic": "", "gloss": "Beware the supplication of the oppressed, for there is no barrier between it and Allah.", "citation": "Sahih al-Bukhari 1496" }
+        ]},
+        { "id": "conflict_with_others", "label": "Conflict with someone", "keywords": ["argument", "fight", "dispute", "disagreement"], "refs": [
+          { "type": "ayah", "arabic": "ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ", "gloss": "Repel evil with what is better, and your enemy may become a close friend.", "citation": "Surah Fussilat 41:34" },
+          { "type": "hadith", "arabic": "", "gloss": "Shall I not tell you of something better than fasting, prayer, and charity? Making peace between people — for corrupted relations are the destroyer of faith.", "citation": "Jami' at-Tirmidhi 2509" }
+        ]},
+        { "id": "divorce", "label": "Divorce / separation", "keywords": ["separation", "breakup", "talaq"], "refs": [
+          { "type": "ayah", "arabic": "فَإِمْسَاكٌ بِمَعْرُوفٍ أَوْ تَسْرِيحٌ بِإِحْسَانٍ", "gloss": "Then either retain with kindness or release with good treatment.", "citation": "Surah Al-Baqarah 2:229" },
+          { "type": "hadith", "arabic": "", "gloss": "Divorce, while permitted, is the most disliked of lawful things to Allah.", "citation": "Sunan Abu Dawud 2178" }
+        ]},
+        { "id": "infertility", "label": "Longing for a child", "keywords": ["barren", "pregnancy", "trying to conceive"], "refs": [
+          { "type": "ayah", "arabic": "رَبِّ لَا تَذَرْنِي فَرْدًا وَأَنتَ خَيْرُ الْوَارِثِينَ", "gloss": "Zakariyya's dua for a child in old age, answered with Yahya.", "citation": "Surah Al-Anbiya 21:89" },
+          { "type": "hadith", "arabic": "", "gloss": "Three duas are answered without doubt: the dua of the oppressed, the dua of the traveler, and the dua of a parent for their child.", "citation": "Sunan Abu Dawud 1536" }
+        ]},
+        { "id": "migration", "label": "Starting over somewhere new", "keywords": ["moving", "immigrant", "new country", "homesick"], "refs": [
+          { "type": "ayah", "arabic": "وَمَن يُهَاجِرْ فِي سَبِيلِ اللَّهِ يَجِدْ فِي الْأَرْضِ مُرَاغَمًا كَثِيرًا", "gloss": "Whoever migrates for Allah's sake will find abundant refuge and provision.", "citation": "Surah An-Nisa 4:100" },
+          { "type": "hadith", "arabic": "", "gloss": "The Muhajir (migrant) is one who gives up what Allah has forbidden.", "citation": "Sahih al-Bukhari 10" }
+        ]},
+        { "id": "failure", "label": "Facing failure", "keywords": ["failed", "mistake", "setback", "rejection"], "refs": [
+          { "type": "ayah", "arabic": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا", "gloss": "Allah does not burden a soul beyond what it can bear.", "citation": "Surah Al-Baqarah 2:286" },
+          { "type": "hadith", "arabic": "", "gloss": "If Allah wants good for someone, He afflicts him with trials.", "citation": "Sahih al-Bukhari 5645" }
+        ]},
+        { "id": "waiting_for_dua", "label": "Waiting for an answer", "keywords": ["unanswered prayer", "patience", "waiting"], "refs": [
+          { "type": "ayah", "arabic": "ادْعُونِي أَسْتَجِبْ لَكُمْ", "gloss": "Call upon Me and I will respond to you.", "citation": "Surah Ghafir 40:60" },
+          { "type": "hadith", "arabic": "", "gloss": "A servant's dua is answered as long as he doesn't grow impatient and say 'I supplicated and it was not answered.'", "citation": "Sahih al-Bukhari 6340" }
+        ]},
+        { "id": "feeling_tested", "label": "Feeling tested", "keywords": ["trial", "hardship", "test", "struggle"], "refs": [
+          { "type": "ayah", "arabic": "أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ", "gloss": "Do people think they will be left without being tested, as those before them were?", "citation": "Surah Al-'Ankabut 29:2" },
+          { "type": "hadith", "arabic": "", "gloss": "How wonderful is the affair of the believer — if good befalls him he is grateful, and if hardship befalls him he is patient, and both are good for him.", "citation": "Sahih Muslim 2999" }
+        ]},
+        { "id": "criticism", "label": "Facing criticism", "keywords": ["judged", "mocked", "insulted", "backbiting"], "refs": [
+          { "type": "ayah", "arabic": "ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ السَّيِّئَةَ", "gloss": "Repel a bad deed with what is better.", "citation": "Surah Fussilat 41:34" },
+          { "type": "hadith", "arabic": "", "gloss": "The believer who mixes with people and patiently bears their harm has greater reward than one who avoids people altogether.", "citation": "Jami' at-Tirmidhi 2507" }
+        ]}
+      ]
+    },
+    {
+      "id": "gratitude",
+      "label": "Gratitude",
+      "situations": [
+        { "id": "success", "label": "Success / achievement", "keywords": ["accomplishment", "win", "promotion", "graduation"], "refs": [
+          { "type": "ayah", "arabic": "قُلْ بِفَضْلِ اللَّهِ وَبِرَحْمَتِهِ فَبِذَٰلِكَ فَلْيَفْرَحُوا", "gloss": "Let believers rejoice in Allah's grace and mercy.", "citation": "Surah Yunus 10:58" },
+          { "type": "hadith", "arabic": "", "gloss": "Whoever does not thank people has not thanked Allah.", "citation": "Jami' at-Tirmidhi 1954" }
+        ]},
+        { "id": "ease_after_hardship", "label": "Relief after hardship", "keywords": ["relief", "breakthrough", "better times"], "refs": [
+          { "type": "ayah", "arabic": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا . إِنَّ مَعَ الْعُسْرِ يُسْرًا", "gloss": "With hardship comes ease — stated twice for emphasis.", "citation": "Surah Ash-Sharh 94:5-6" },
+          { "type": "hadith", "arabic": "", "gloss": "Whoever relieves a believer's hardship in this world, Allah will relieve his hardship on the Day of Judgment.", "citation": "Sahih Muslim 2699" }
+        ]},
+        { "id": "blessings", "label": "Feeling blessed", "keywords": ["thankful", "favor", "ni'mah"], "refs": [
+          { "type": "ayah", "arabic": "وَإِن تَعُدُّوا نِعْمَتَ اللَّهِ لَا تُحْصُوهَا", "gloss": "If you tried to count Allah's favors, you could never enumerate them.", "citation": "Surah An-Nahl 16:18" },
+          { "type": "hadith", "arabic": "", "gloss": "Look at those who are less fortunate than you, not at those above you — it will help you not to belittle Allah's blessing upon you.", "citation": "Sahih Muslim 2963" }
+        ]},
+        { "id": "contentment", "label": "Wanting more contentment", "keywords": ["satisfied", "qana'ah", "enough"], "refs": [
+          { "type": "ayah", "arabic": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ", "gloss": "If you are grateful, I will surely increase you.", "citation": "Surah Ibrahim 14:7" },
+          { "type": "hadith", "arabic": "", "gloss": "Richness is not having many possessions — true richness is the richness of the soul.", "citation": "Sahih al-Bukhari 6446" }
+        ]}
+      ]
+    },
+    {
+      "id": "meaning",
+      "label": "Meaning",
+      "situations": [
+        { "id": "purpose", "label": "Searching for purpose", "keywords": ["meaning of life", "why am I here"], "refs": [
+          { "type": "ayah", "arabic": "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ", "gloss": "Humankind and jinn were created only to worship Allah.", "citation": "Surah Adh-Dhariyat 51:56" },
+          { "type": "hadith", "arabic": "", "gloss": "The most beloved deeds to Allah are those done consistently, even if small.", "citation": "Sahih al-Bukhari 6465" }
+        ]},
+        { "id": "trials_in_general", "label": "Why do trials happen", "keywords": ["suffering", "meaning of hardship"], "refs": [
+          { "type": "ayah", "arabic": "الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ", "gloss": "Life and death are created to test who does best in deeds.", "citation": "Surah Al-Mulk 67:2" },
+          { "type": "hadith", "arabic": "", "gloss": "The believer is like a tender plant that bends whichever way the wind blows but springs upright again; the hypocrite is like a rigid pine tree, unmoved until it is uprooted all at once.", "citation": "Sahih al-Bukhari 5644" }
+        ]},
+        { "id": "judgment_day", "label": "Thinking about the hereafter", "keywords": ["akhirah", "qiyamah", "accountability"], "refs": [
+          { "type": "ayah", "arabic": "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ", "gloss": "On that Day, even an atom's weight of good or evil will be shown.", "citation": "Surah Az-Zalzalah 99:7-8" },
+          { "type": "hadith", "arabic": "", "gloss": "No one's feet will move on the Day of Judgment until he is questioned about his life, his knowledge, his wealth, and his body.", "citation": "Jami' at-Tirmidhi 2417" }
+        ]},
+        { "id": "forgiving_others", "label": "Deciding whether to forgive", "keywords": ["grudge", "forgiveness", "letting go"], "refs": [
+          { "type": "ayah", "arabic": "وَلْيَعْفُوا وَلْيَصْفَحُوا أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ", "gloss": "Let them pardon and overlook — do you not wish that Allah should forgive you?", "citation": "Surah An-Nur 24:22" },
+          { "type": "hadith", "arabic": "", "gloss": "No one forgives except that Allah increases him in honor.", "citation": "Sahih Muslim 2588" }
+        ]},
+        { "id": "reconciliation", "label": "Wanting to reconcile", "keywords": ["making up", "mending ties", "sulh"], "refs": [
+          { "type": "ayah", "arabic": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ", "gloss": "The believers are but brothers, so reconcile between them.", "citation": "Surah Al-Hujurat 49:10" },
+          { "type": "hadith", "arabic": "", "gloss": "It is not lawful for a Muslim to shun his brother for more than three nights; the better of the two is the one who is first to give the greeting of peace.", "citation": "Sahih al-Bukhari 6237" }
+        ]},
+        { "id": "community", "label": "Wanting connection", "keywords": ["ummah", "belonging", "brotherhood"], "refs": [
+          { "type": "ayah", "arabic": "وَأَلَّفَ بَيْنَ قُلُوبِهِمْ ۚ لَوْ أَنفَقْتَ مَا فِي الْأَرْضِ جَمِيعًا مَّا أَلَّفْتَ بَيْنَ قُلُوبِهِمْ وَلَٰكِنَّ اللَّهَ أَلَّفَ بَيْنَ قُلُوبِهِمْ", "gloss": "Allah joined their hearts — had you spent all that is on earth, you could not have joined their hearts, but Allah joined them.", "citation": "Surah Al-Anfal 8:63" },
+          { "type": "hadith", "arabic": "", "gloss": "The believers, in mutual love and mercy, are like one body — when one part suffers, the whole responds.", "citation": "Sahih al-Bukhari 6011" }
+        ]}
+      ]
+    }
+  ]
+}
