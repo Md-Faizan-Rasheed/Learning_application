@@ -209,11 +209,13 @@ class _PracticeScreenState extends State<PracticeScreen>
         widget.challengeId!,
         _correctCount,
       );
+      if (!mounted) return;
       setState(() {
         _challengeResult = result;
         _submittingChallenge = false;
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         _challengeSubmitError = e.toString();
         _submittingChallenge = false;
@@ -231,12 +233,14 @@ class _PracticeScreenState extends State<PracticeScreen>
     try {
       final q = await _api.fetchPracticeQuestion(
           lang: widget.lang, category: widget.category);
+      if (!mounted) return;
       setState(() {
         _question = q;
         _shownAt = DateTime.now();
         _loading = false;
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         _error = e.toString();
         _loading = false;
@@ -256,6 +260,7 @@ class _PracticeScreenState extends State<PracticeScreen>
         chosenIndex: _selectedIndex,
         responseMs: elapsed,
       );
+      if (!mounted) return;
       setState(() {
         _result = result;
         _submitting = false;
@@ -281,6 +286,7 @@ class _PracticeScreenState extends State<PracticeScreen>
         SoundService.instance.playIncorrect();
       }
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         _error = e.toString();
         _submitting = false;
@@ -436,13 +442,23 @@ class _PracticeScreenState extends State<PracticeScreen>
                       key: ValueKey(q.questionId),
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(
-                          t.practiceQuestionProgress(
-                              _questionsAnswered + 1, _sessionLength),
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(fontWeight: FontWeight.w800),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                t.practiceQuestionProgress(
+                                    _questionsAnswered + 1, _sessionLength),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(fontWeight: FontWeight.w800),
+                              ),
+                            ),
+                            if (_streak >= 2) ...[
+                              const SizedBox(width: 8),
+                              _ComboBadge(combo: _streak),
+                            ],
+                          ],
                         ),
                         const SizedBox(height: 12),
                         AnimatedBuilder(
@@ -533,6 +549,46 @@ class _PracticeScreenState extends State<PracticeScreen>
           ),
         );
       },
+    );
+  }
+}
+
+// Ported verbatim from multiplayer_screen.dart's _ComboBadge — same combo
+// mechanic (_comboBoost), same >=2 visibility threshold, so a streak reads
+// identically whether you're in a match or practicing alone.
+class _ComboBadge extends StatelessWidget {
+  const _ComboBadge({required this.combo});
+
+  final int combo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: AppPalette.mutedGold,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: AppPalette.shadowInk,
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(Icons.local_fire_department,
+              color: AppPalette.ink, size: 16),
+          const SizedBox(width: 4),
+          Text(
+            AppLocalizations.of(context)!.mpComboX(combo),
+            style: const TextStyle(
+                color: AppPalette.ink, fontWeight: FontWeight.w800, fontSize: 12),
+          ),
+        ],
+      ),
     );
   }
 }
