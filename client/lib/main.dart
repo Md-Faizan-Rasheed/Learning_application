@@ -22,6 +22,7 @@ import 'screens/teacher/teacher_home_screen.dart';
 import 'screens/find_my_ayah_screen.dart';
 import 'screens/names_on_water_screen.dart';
 import 'screens/word_search_screen.dart';
+import 'services/tap_through_logger.dart';
 import 'theme/app_theme.dart';
 import 'utils/daily_content.dart';
 import 'utils/level.dart';
@@ -613,6 +614,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildJourney(BuildContext context, AppLocalizations t) {
     final options = categoryOptions(t);
+    final token = widget.auth.current?.token;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -625,7 +627,13 @@ class _HomeScreenState extends State<HomeScreen>
               separatorBuilder: (_, __) => const SizedBox(width: 12),
               itemBuilder: (context, i) => _JourneyStopCard(
                   option: options[i],
-                  onTap: () => _openPractice(options[i].value)),
+                  onTap: () {
+                    TapThroughLogger.log(
+                        section: 'journey',
+                        cardId: options[i].value,
+                        token: token);
+                    _openPractice(options[i].value);
+                  }),
             ),
           ),
         ),
@@ -890,30 +898,46 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildQuickPlay(BuildContext context, AppLocalizations t) {
+    final token = widget.auth.current?.token;
+    void logTap(String cardId) => TapThroughLogger.log(
+        section: 'quick_play', cardId: cardId, token: token);
+
     final items = <_QuickPlayItem>[
       _QuickPlayItem(
         icon: Icons.assignment_turned_in_rounded,
         title: t.cardAssignedQuizzesTitle,
         subtitle: t.cardAssignedQuizzesSubtitle,
-        onTap: _openAssignedQuizzes,
+        onTap: () {
+          logTap('assigned_quizzes');
+          _openAssignedQuizzes();
+        },
       ),
       _QuickPlayItem(
         icon: Icons.grid_on_rounded,
         title: t.wsQuickPlayTitle,
         subtitle: t.wsQuickPlaySubtitle,
-        onTap: _openWordSearch,
+        onTap: () {
+          logTap('word_search');
+          _openWordSearch();
+        },
       ),
       _QuickPlayItem(
         icon: Icons.water_rounded,
         title: t.namesOnWaterQuickPlayTitle,
         subtitle: t.namesOnWaterQuickPlaySubtitle,
-        onTap: _openNamesOnWater,
+        onTap: () {
+          logTap('names_on_water');
+          _openNamesOnWater();
+        },
       ),
       _QuickPlayItem(
         icon: Icons.auto_awesome_rounded,
         title: t.fmaQuickPlayTitle,
         subtitle: t.fmaQuickPlaySubtitle,
-        onTap: _openFindMyAyah,
+        onTap: () {
+          logTap('find_my_ayah');
+          _openFindMyAyah();
+        },
       ),
     ];
 

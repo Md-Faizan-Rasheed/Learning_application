@@ -17,6 +17,7 @@ from .quests.routes import router as quests_router
 from .realtime.server import sio
 from .social.routes import router as social_router
 from .teacher.routes import router as teacher_router
+from .telemetry.routes import router as telemetry_router
 
 # A None DSN disables the SDK, but a blank or malformed one makes
 # sentry_sdk raise instead of no-op — crash/error reporting is optional and
@@ -76,6 +77,7 @@ app.include_router(quests_router)
 app.include_router(social_router)
 app.include_router(teacher_router)
 app.include_router(classroom_router)
+app.include_router(telemetry_router)
 
 
 @app.get("/")
