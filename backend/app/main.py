@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from .auth.routes import router as auth_router
+from .campaign.routes import router as campaign_router
 from .classroom.routes import router as classroom_router
 from .config import settings
 from .content.routes import public_router as content_public_router, router as content_router
@@ -63,6 +64,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(campaign_router)
 app.include_router(health_router)
 app.include_router(legal_router)
 app.include_router(auth_router)

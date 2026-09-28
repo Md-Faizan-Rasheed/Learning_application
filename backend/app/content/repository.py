@@ -6,7 +6,12 @@ from uuid import UUID
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from .schemas import CategoryCreate, CategoryUpdate, QuestionCreate, QuestionUpdate
+from .schemas import SUPPORTED_LANGS, CategoryCreate, CategoryUpdate, QuestionCreate, QuestionUpdate
+
+# AI-extracted text can't reliably judge difficulty — same fixed default
+# teacher/repository.py's create_ai_question uses; an admin reviewer can
+# still change it per-question via the editor before publishing.
+_AI_IMPORT_DIFFICULTY = "medium"
 
 
 async def create_category(db: AsyncSession, data: CategoryCreate) -> dict:
@@ -89,6 +94,16 @@ async def category_exists(db: AsyncSession, category_id: UUID) -> bool:
     return row is not None
 
 
+async def event_exists(db: AsyncSession, event_id: UUID) -> bool:
+    row = (
+        await db.execute(
+            text("SELECT 1 FROM seerah_events WHERE id = :id"),
+            {"id": str(event_id)},
+        )
+    ).first()
+    return row is not None
+
+
 async def create_question(db: AsyncSession, data: QuestionCreate) -> dict:
     """Insert a question. It starts in review_state='draft' (schema default) —
     it will NOT be served to players until a reviewer promotes it to 'live'."""
@@ -97,13 +112,13 @@ async def create_question(db: AsyncSession, data: QuestionCreate) -> dict:
             text(
                 """
                 INSERT INTO questions
-                    (category_id, difficulty, prompt, options, correct_index, source)
+                    (category_id, difficulty, prompt, options, correct_index, source, event_id)
                 VALUES
                     (:category_id, CAST(:difficulty AS difficulty_level),
                      CAST(:prompt AS jsonb), CAST(:options AS jsonb),
-                     :correct_index, :source)
+                     :correct_index, :source, :event_id)
                 RETURNING id, category_id, difficulty, review_state,
-                          prompt, options, correct_index, source
+                          prompt, options, correct_index, source, event_id
                 """
             ),
             {
@@ -113,6 +128,51 @@ async def create_question(db: AsyncSession, data: QuestionCreate) -> dict:
                 "options": json.dumps(data.options),
                 "correct_index": data.correct_index,
                 "source": data.source,
+                "event_id": str(data.event_id) if data.event_id else None,
+            },
+        )
+    ).mappings().one()
+    return dict(row)
+
+
+async def create_ai_question(
+    db: AsyncSession,
+    *,
+    category_id: UUID,
+    prompt: str,
+    options: list[str],
+    correct_index: int,
+    event_id: UUID | None,
+) -> dict:
+    """Insert one AI-extracted question. Single-language text (the AI only
+    ever sees one language of source text) is duplicated across every
+    SUPPORTED_LANGS key — same shortcut teacher/repository.py's
+    create_ai_question uses — so it satisfies the trilingual storage shape
+    and is immediately visible, but a reviewer should still translate the
+    ur/ar copies before promoting it out of 'draft' (schema default)."""
+    prompt_map = {lang: prompt for lang in SUPPORTED_LANGS}
+    options_map = {lang: options for lang in SUPPORTED_LANGS}
+    row = (
+        await db.execute(
+            text(
+                """
+                INSERT INTO questions
+                    (category_id, difficulty, prompt, options, correct_index, event_id)
+                VALUES
+                    (:category_id, CAST(:difficulty AS difficulty_level),
+                     CAST(:prompt AS jsonb), CAST(:options AS jsonb),
+                     :correct_index, :event_id)
+                RETURNING id, category_id, difficulty, review_state,
+                          prompt, options, correct_index, source, event_id
+                """
+            ),
+            {
+                "category_id": str(category_id),
+                "difficulty": _AI_IMPORT_DIFFICULTY,
+                "prompt": json.dumps(prompt_map),
+                "options": json.dumps(options_map),
+                "correct_index": correct_index,
+                "event_id": str(event_id) if event_id else None,
             },
         )
     ).mappings().one()
@@ -152,16 +212,42 @@ async def set_review_state(db: AsyncSession, question_id: UUID, state: str) -> d
     return dict(row) if row else None
 
 
-async def list_questions(
-    db: AsyncSession,
-    category_id: UUID | None = None,
-    review_state: str | None = None,
-    search: str | None = None,
-    limit: int = 50,
-    offset: int = 0,
-) -> list[dict]:
+# A question's event_id being set only means campaign mode's
+# pick_live_question *could* serve it — it only actually does when that
+# event also carries a movement_stage tag (see the join in
+# game/repository.py:pick_live_question). "orphaned" names a question
+# tagged to an event with no such stage link — it looks tagged in a plain
+# event_id IS NOT NULL check but is exactly as invisible to campaign play
+# as an untagged question.
+_ORPHANED_EVENT_CHECK = """
+    NOT EXISTS (
+        SELECT 1 FROM event_framework_tags eft
+        WHERE eft.event_id = questions.event_id AND eft.framework = 'movement_stage'
+    )
+"""
+
+_TAG_STATUS_EXPR = f"""
+    CASE
+        WHEN questions.event_id IS NULL THEN 'untagged'
+        WHEN {_ORPHANED_EVENT_CHECK} THEN 'orphaned'
+        ELSE 'linked'
+    END
+"""
+
+
+def _question_filter_clause(
+    *,
+    category_id: UUID | None,
+    review_state: str | None,
+    search: str | None,
+    tag_status: str | None,
+    params: dict,
+) -> str:
+    """Shared WHERE-clause builder for list_questions and count_questions —
+    keeping these two in sync matters, since a count that used different
+    filters than the list it describes would silently lie about how many
+    more rows are left to page through."""
     clauses = []
-    params: dict = {"limit": limit, "offset": offset}
     if category_id is not None:
         clauses.append("category_id = :category_id")
         params["category_id"] = str(category_id)
@@ -171,17 +257,67 @@ async def list_questions(
     if search:
         clauses.append("prompt->>'en' ILIKE :search")
         params["search"] = f"%{search}%"
-    where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+    if tag_status == "untagged":
+        clauses.append("questions.event_id IS NULL")
+    elif tag_status == "orphaned":
+        clauses.append(f"questions.event_id IS NOT NULL AND {_ORPHANED_EVENT_CHECK}")
+    elif tag_status == "linked":
+        clauses.append(f"questions.event_id IS NOT NULL AND NOT {_ORPHANED_EVENT_CHECK}")
+    return f"WHERE {' AND '.join(clauses)}" if clauses else ""
+
+
+async def count_questions(
+    db: AsyncSession,
+    category_id: UUID | None = None,
+    review_state: str | None = None,
+    search: str | None = None,
+    tag_status: str | None = None,
+) -> int:
+    params: dict = {}
+    where = _question_filter_clause(
+        category_id=category_id,
+        review_state=review_state,
+        search=search,
+        tag_status=tag_status,
+        params=params,
+    )
+    return (
+        await db.execute(text(f"SELECT count(*) FROM questions {where}"), params)
+    ).scalar_one()
+
+
+async def list_questions(
+    db: AsyncSession,
+    category_id: UUID | None = None,
+    review_state: str | None = None,
+    search: str | None = None,
+    tag_status: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+) -> list[dict]:
+    params: dict = {"limit": limit, "offset": offset}
+    where = _question_filter_clause(
+        category_id=category_id,
+        review_state=review_state,
+        search=search,
+        tag_status=tag_status,
+        params=params,
+    )
     rows = (
         await db.execute(
             text(
                 f"""
-                SELECT id, category_id, difficulty, review_state,
-                       prompt->>'en' AS prompt_preview,
-                       to_char(updated_at, 'YYYY-MM-DD"T"HH24:MI:SS"Z"') AS updated_at
+                SELECT questions.id, questions.category_id, questions.difficulty,
+                       questions.review_state, questions.event_id,
+                       {_TAG_STATUS_EXPR} AS tag_status,
+                       eft.tag_value AS stage_slug,
+                       questions.prompt->>'en' AS prompt_preview,
+                       to_char(questions.updated_at, 'YYYY-MM-DD"T"HH24:MI:SS"Z"') AS updated_at
                 FROM questions
+                LEFT JOIN event_framework_tags eft
+                       ON eft.event_id = questions.event_id AND eft.framework = 'movement_stage'
                 {where}
-                ORDER BY updated_at DESC
+                ORDER BY questions.updated_at DESC
                 LIMIT :limit OFFSET :offset
                 """
             ),
@@ -196,10 +332,14 @@ async def get_question(db: AsyncSession, question_id: UUID) -> dict | None:
         await db.execute(
             text(
                 """
-                SELECT id, category_id, difficulty, review_state,
-                       prompt, options, correct_index, source
+                SELECT questions.id, questions.category_id, questions.difficulty,
+                       questions.review_state, questions.prompt, questions.options,
+                       questions.correct_index, questions.source, questions.event_id,
+                       eft.tag_value AS stage_slug
                 FROM questions
-                WHERE id = :id
+                LEFT JOIN event_framework_tags eft
+                       ON eft.event_id = questions.event_id AND eft.framework = 'movement_stage'
+                WHERE questions.id = :id
                 """
             ),
             {"id": str(question_id)},
@@ -219,10 +359,11 @@ async def update_question(db: AsyncSession, question_id: UUID, data: QuestionUpd
                     prompt = COALESCE(CAST(:prompt AS jsonb), prompt),
                     options = COALESCE(CAST(:options AS jsonb), options),
                     correct_index = COALESCE(:correct_index, correct_index),
-                    source = COALESCE(:source, source)
+                    source = COALESCE(:source, source),
+                    event_id = COALESCE(:event_id, event_id)
                 WHERE id = :id
                 RETURNING id, category_id, difficulty, review_state,
-                          prompt, options, correct_index, source
+                          prompt, options, correct_index, source, event_id
                 """
             ),
             {
@@ -233,6 +374,7 @@ async def update_question(db: AsyncSession, question_id: UUID, data: QuestionUpd
                 "options": json.dumps(data.options) if data.options is not None else None,
                 "correct_index": data.correct_index,
                 "source": data.source,
+                "event_id": str(data.event_id) if data.event_id else None,
             },
         )
     ).mappings().first()

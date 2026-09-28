@@ -1,0 +1,486 @@
+# ============================================================
+# Quizic — Seerah master event list (38 chapters), tagged across
+# all 7 division frameworks in one pass.
+#
+# Feeds: seerah_events + event_framework_tags (see 0015_add_campaign_map.py)
+# order_no here = the chapter's global chronological position (1-38) —
+# independent of campaign_stages.order_no, which only numbers the 9
+# movement-stage rows.
+#
+# `category_slug` assumes a "seerah" row already exists in `categories` —
+# change it if your actual slug differs.
+#
+# Under `tags`, a framework key is present only when that chapter
+# genuinely belongs to one of its buckets — an upsert script should
+# insert one event_framework_tags row per present key and skip the rest.
+# Some chapters (mostly Phase 1, before revelation) simply don't fit
+# frameworks like movement_stage or revelation_based, and that's correct,
+# not a gap — they'll still show up in Origin Ladder / plain chronological
+# practice via order_no, just not in modes built on those frameworks.
+#
+# year_hijri is left blank except where dating is essentially undisputed
+# (the well-known battle/expedition years) — don't treat blanks as errors.
+#
+# A handful of chapters cover more ground than one tag can capture
+# (e.g. Hudaybiyyah reads as both "defense_consolidation" and arguably
+# "expansion_dominance" since it enabled everything after it; Ta'if reads
+# as both "patience" and "forgiveness"). The schema takes one tag per
+# framework per event, so I picked the more defining lens each time —
+# these are editorial calls, not settled fact, so re-tag anything you'd
+# place differently; nothing downstream breaks if you do.
+# ============================================================
+
+category_slug: seerah
+
+events:
+
+  # ---------- Phase 1 — Before Prophethood ----------
+
+  - slug: arabia_before_islam
+    name: "Arabia Before Islam"
+    order_no: 1
+    summary: "The tribal, religious, and political landscape of Arabia before revelation."
+    tags:
+      two_period: pre_prophethood
+      geographic: makkah
+
+  - slug: lineage_rebuilding_kabah
+    name: "Lineage and the Rebuilding of the Ka'bah"
+    order_no: 2
+    summary: "His ancestry, and Abdul Muttalib's rediscovery of Zamzam and stewardship of the Ka'bah."
+    tags:
+      two_period: pre_prophethood
+      geographic: makkah
+
+  - slug: year_of_the_elephant
+    name: "The Year of the Elephant"
+    order_no: 3
+    summary: "Abraha's failed march on the Ka'bah, the year traditionally marking his birth."
+    tags:
+      two_period: pre_prophethood
+      geographic: makkah
+
+  - slug: birth_and_early_signs
+    name: "Birth and Early Signs"
+    order_no: 4
+    summary: "His birth in Makkah and the reported signs accompanying it."
+    tags:
+      two_period: pre_prophethood
+      age_based: infancy
+      geographic: makkah
+
+  - slug: infancy_with_halimah
+    name: "Infancy with Halimah (and Shaqq as-Sadr)"
+    order_no: 5
+    summary: "Being nursed by Halimah among Bani Sa'd, and the incident known as Shaqq as-Sadr."
+    tags:
+      two_period: pre_prophethood
+      age_based: infancy
+      geographic: bani_saad_desert
+
+  - slug: childhood_loss_of_parents
+    name: "Childhood — Loss of Mother and Grandfather"
+    order_no: 6
+    summary: "The deaths of his mother Aminah and grandfather Abdul Muttalib in his early childhood."
+    tags:
+      two_period: pre_prophethood
+      age_based: childhood
+      geographic: makkah
+      trial_based: loss
+
+  - slug: under_care_of_abu_talib
+    name: "Under the Care of Abu Talib"
+    order_no: 7
+    summary: "Raised by his uncle Abu Talib after his grandfather's death."
+    tags:
+      two_period: pre_prophethood
+      age_based: childhood
+      geographic: makkah
+
+  - slug: youth_trading_journeys
+    name: "Youth and Early Trading Journeys"
+    order_no: 8
+    summary: "Working as a shepherd and travelling with trade caravans, including to Syria."
+    tags:
+      two_period: pre_prophethood
+      age_based: youth
+      geographic: syria_trade_route
+      trial_based: poverty_hardship
+      role_based: employer_trader
+
+  - slug: marriage_to_khadijah
+    name: "Marriage to Khadijah (RA)"
+    order_no: 9
+    summary: "His marriage to Khadijah bint Khuwaylid."
+    tags:
+      two_period: pre_prophethood
+      age_based: adulthood_pre_revelation
+      geographic: makkah
+      role_based: husband
+
+  - slug: hilf_al_fudul
+    name: "Hilf al-Fudul and Rebuilding the Ka'bah's Walls"
+    order_no: 10
+    summary: "Joining a pact among Makkan clans to defend the wronged, and helping rebuild the Ka'bah's structure."
+    tags:
+      two_period: pre_prophethood
+      age_based: youth
+      geographic: makkah
+      role_based: judge_lawgiver
+
+  - slug: contemplation_cave_of_hira
+    name: "Life of Contemplation — Retreats to the Cave of Hira"
+    order_no: 11
+    summary: "Periods of solitary reflection at the Cave of Hira in the years before revelation."
+    tags:
+      two_period: pre_prophethood
+      age_based: adulthood_pre_revelation
+      geographic: cave_of_hira
+      movement_stage: tazkiyah
+
+  # ---------- Phase 2 — Makkan Period (Prophethood begins) ----------
+
+  - slug: first_revelation
+    name: "The First Revelation"
+    order_no: 12
+    summary: "The first revelation received at the Cave of Hira."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: cave_of_hira
+      movement_stage: secret_dawah
+      revelation_based: early_makkan
+
+  - slug: secret_dawah
+    name: "The Secret Phase of Dawah"
+    order_no: 13
+    summary: "Preaching privately to close family and trusted individuals."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: makkah
+      movement_stage: secret_dawah
+      role_based: messenger_teacher
+      revelation_based: early_makkan
+
+  - slug: public_declaration
+    name: "Public Declaration of Islam"
+    order_no: 14
+    summary: "The move from private to open, public preaching."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: makkah
+      movement_stage: open_dawah
+      role_based: messenger_teacher
+      revelation_based: early_makkan
+
+  - slug: persecution_of_early_muslims
+    name: "Persecution of the Early Muslims"
+    order_no: 15
+    summary: "Torture and social pressure faced by early converts to Islam."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: makkah
+      movement_stage: open_dawah
+      trial_based: patience
+      role_based: mentor_to_companions
+      revelation_based: early_makkan
+
+  - slug: migration_to_abyssinia
+    name: "Migration to Abyssinia"
+    order_no: 16
+    summary: "Early Muslims migrating to Abyssinia under the protection of the Negus."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: abyssinia
+      movement_stage: open_dawah
+      trial_based: fear_danger
+      role_based: mentor_to_companions
+      revelation_based: early_makkan
+
+  - slug: boycott_of_banu_hashim
+    name: "The Boycott of Banu Hashim"
+    order_no: 17
+    summary: "The Makkan clans' social and economic boycott of Banu Hashim and Banu Muttalib."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: makkah
+      movement_stage: open_dawah
+      trial_based: poverty_hardship
+      role_based: mentor_to_companions
+      revelation_based: middle_makkan
+
+  - slug: year_of_sorrow
+    name: "The Year of Sorrow (deaths of Khadijah and Abu Talib)"
+    order_no: 18
+    summary: "The deaths of Khadijah (RA) and Abu Talib within the same year."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: makkah
+      movement_stage: open_dawah
+      trial_based: loss
+      role_based: husband
+      revelation_based: middle_makkan
+
+  - slug: journey_to_taif
+    name: "The Journey to Ta'if"
+    order_no: 19
+    summary: "Seeking support from the tribe of Ta'if and being rejected."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: taif
+      movement_stage: search_for_a_base
+      trial_based: patience
+      role_based: messenger_teacher
+      revelation_based: middle_makkan
+
+  - slug: isra_and_miraj
+    name: "Isra and Mi'raj (the Night Journey and Ascension)"
+    order_no: 20
+    summary: "The Night Journey to Al-Aqsa and the Ascension."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: al_aqsa_jerusalem
+      movement_stage: search_for_a_base
+      role_based: messenger_teacher
+      revelation_based: late_makkan
+
+  - slug: pledges_of_aqabah
+    name: "The Pledges of Aqabah"
+    order_no: 21
+    summary: "Madinan converts pledging support at Aqabah, laying groundwork for the Hijrah."
+    tags:
+      two_period: makkan
+      age_based: early_prophethood
+      geographic: makkah
+      movement_stage: search_for_a_base
+      role_based: diplomat_negotiator
+      revelation_based: late_makkan
+
+  # ---------- Phase 3 — Madinan Period ----------
+
+  - slug: hijrah_to_madinah
+    name: "The Hijrah (Migration to Madinah)"
+    order_no: 22
+    year_hijri: 1
+    summary: "The migration from Makkah to Madinah, including the Cave of Thawr episode."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: madinah
+      movement_stage: hijrah_relocation
+      trial_based: fear_danger
+      role_based: statesman
+      revelation_based: early_madani
+
+  - slug: mosque_and_brotherhood
+    name: "Building the Mosque and the Bond of Brotherhood"
+    order_no: 23
+    year_hijri: 1
+    summary: "Constructing the mosque in Madinah and pairing Muhajirun with Ansar as brothers."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: madinah
+      movement_stage: state_building
+      role_based: statesman
+      revelation_based: early_madani
+
+  - slug: constitution_of_madinah
+    name: "The Charter (Constitution) of Madinah"
+    order_no: 24
+    year_hijri: 1
+    summary: "The agreement establishing rights and responsibilities among Madinah's communities."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: madinah
+      movement_stage: state_building
+      role_based: judge_lawgiver
+      revelation_based: early_madani
+
+  - slug: battle_of_badr
+    name: "The Battle of Badr"
+    order_no: 25
+    year_hijri: 2
+    summary: "The first major battle between the Muslims of Madinah and the Quraysh of Makkah."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: badr
+      movement_stage: defense_consolidation
+      role_based: military_commander
+      revelation_based: early_madani
+
+  - slug: battle_of_uhud
+    name: "The Battle of Uhud"
+    order_no: 26
+    year_hijri: 3
+    summary: "The battle near Madinah in which the Muslims suffered heavy losses."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: uhud
+      movement_stage: defense_consolidation
+      trial_based: loss
+      role_based: military_commander
+      revelation_based: early_madani
+
+  - slug: battle_of_the_trench
+    name: "The Battle of the Trench (Khandaq)"
+    order_no: 27
+    year_hijri: 5
+    summary: "The defense of Madinah during the siege by the confederate tribes."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: khandaq
+      movement_stage: defense_consolidation
+      trial_based: patience
+      role_based: military_commander
+      revelation_based: later_madani
+
+  - slug: treaty_of_hudaybiyyah
+    name: "The Treaty of Hudaybiyyah"
+    order_no: 28
+    year_hijri: 6
+    summary: "The truce agreed with the Quraysh at Hudaybiyyah."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: hudaybiyyah
+      movement_stage: defense_consolidation
+      trial_based: patience
+      role_based: diplomat_negotiator
+      revelation_based: later_madani
+
+  - slug: battle_of_khaybar
+    name: "The Battle of Khaybar"
+    order_no: 29
+    year_hijri: 7
+    summary: "The campaign against the fortified settlements of Khaybar."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: khaybar
+      movement_stage: expansion_dominance
+      role_based: military_commander
+      revelation_based: later_madani
+
+  - slug: letters_to_kings
+    name: "Letters to the Kings and Emperors"
+    order_no: 30
+    year_hijri: 7
+    summary: "Letters inviting the rulers of neighboring empires to Islam."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: foreign_courts
+      movement_stage: expansion_dominance
+      role_based: diplomat_negotiator
+      revelation_based: later_madani
+
+  - slug: conquest_of_makkah
+    name: "The Conquest of Makkah"
+    order_no: 31
+    year_hijri: 8
+    summary: "The largely bloodless return to and conquest of Makkah."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: makkah
+      movement_stage: expansion_dominance
+      trial_based: forgiveness
+      role_based: military_commander
+      revelation_based: later_madani
+
+  - slug: battle_of_hunayn_and_taif
+    name: "The Battle of Hunayn and Ta'if"
+    order_no: 32
+    year_hijri: 8
+    summary: "The battle at Hunayn following the conquest of Makkah, and the subsequent siege of Ta'if."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: hunayn_taif
+      movement_stage: completion
+      trial_based: victory_power
+      role_based: military_commander
+      revelation_based: later_madani
+
+  - slug: expedition_of_tabuk
+    name: "The Expedition of Tabuk"
+    order_no: 33
+    year_hijri: 9
+    summary: "The difficult northward expedition to Tabuk."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: tabuk
+      movement_stage: completion
+      trial_based: poverty_hardship
+      role_based: military_commander
+      revelation_based: later_madani
+
+  - slug: farewell_pilgrimage
+    name: "The Farewell Pilgrimage (Hajjat-ul-Wida)"
+    order_no: 34
+    year_hijri: 10
+    summary: "His final pilgrimage and farewell sermon."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: makkah
+      movement_stage: completion
+      role_based: messenger_teacher
+      revelation_based: final_revelations
+
+  # ---------- Phase 4 — Personal Life and Final Years ----------
+
+  - slug: household_and_marital_life
+    name: "Household and Marital Life"
+    order_no: 35
+    summary: "His household and relationships with his wives."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: madinah
+      role_based: husband
+
+  - slug: character_and_daily_conduct
+    name: "Character and Daily Conduct"
+    order_no: 36
+    summary: "His everyday manners and conduct toward family, companions, and neighbors."
+    tags:
+      geographic: madinah
+      role_based: neighbor_friend
+
+  - slug: final_illness_and_passing
+    name: "Final Illness and Passing"
+    order_no: 37
+    year_hijri: 11
+    summary: "His final illness and death in Madinah."
+    tags:
+      two_period: madinan
+      age_based: later_prophethood
+      geographic: madinah
+      movement_stage: completion
+      trial_based: loss
+      role_based: messenger_teacher
+      revelation_based: final_revelations
+
+  - slug: legacy_after_death
+    name: "Legacy — Impact After His Death"
+    order_no: 38
+    summary: "His impact on the companions and generations that followed."
+    tags:
+      age_based: legacy
+      movement_stage: completion
+      role_based: mentor_to_companions

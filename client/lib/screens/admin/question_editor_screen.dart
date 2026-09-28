@@ -56,6 +56,8 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
 
   String? _categoryId;
   String _difficulty = 'medium';
+  List<SeerahEvent> _events = [];
+  String? _eventId;
   final Map<String, TextEditingController> _promptControllers = {
     for (final l in _langs) l.$1: TextEditingController(),
   };
@@ -72,11 +74,29 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
   void initState() {
     super.initState();
     _categoryId = widget.initialCategoryId;
+    _loadEvents();
     if (_isEditing) {
       _load();
     } else {
       _loading = false;
     }
+  }
+
+  Future<void> _loadEvents() async {
+    try {
+      final events = await _api.listSeerahEvents(widget.token);
+      if (mounted) setState(() => _events = events);
+    } catch (_) {
+      // Non-fatal: the event picker just won't show any options. The rest
+      // of the editor (prompt/options/difficulty/category) still works.
+    }
+  }
+
+  String? get _selectedCategorySlug {
+    for (final c in widget.categories) {
+      if (c.id == _categoryId) return c.slug;
+    }
+    return null;
   }
 
   @override
@@ -105,6 +125,7 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
         _difficulty = q.difficulty;
         _reviewState = q.reviewState;
         _correctIndex = q.correctIndex;
+        _eventId = q.eventId;
         for (final l in _langs) {
           _promptControllers[l.$1]!.text = q.prompt[l.$1] ?? '';
           final opts = q.options[l.$1] ?? const <String>[];
@@ -186,6 +207,7 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
           prompt: prompt,
           options: options,
           correctIndex: _correctIndex,
+          eventId: _eventId,
         );
       } else {
         await _api.createQuestion(
@@ -195,6 +217,7 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
           prompt: prompt,
           options: options,
           correctIndex: _correctIndex,
+          eventId: _eventId,
         );
       }
       if (mounted) Navigator.of(context).pop();
@@ -410,8 +433,47 @@ class _QuestionEditorScreenState extends State<QuestionEditorScreen> {
                                 .map((c) => DropdownMenuItem(
                                     value: c.id, child: Text(c.displayName)))
                                 .toList(),
-                            onChanged: (v) => setState(() => _categoryId = v),
+                            onChanged: (v) => setState(() {
+                              _categoryId = v;
+                              // A stale event tag from a different category
+                              // should never silently ride along.
+                              if (_selectedCategorySlug != 'seerah') {
+                                _eventId = null;
+                              }
+                            }),
                           ),
+                          if (_selectedCategorySlug == 'seerah') ...[
+                            const SizedBox(height: 14),
+                            DropdownButtonFormField<String?>(
+                              initialValue: _eventId,
+                              decoration: _fieldDecoration(context,
+                                  label: t.adminSeerahEventLabel,
+                                  icon: Icons.auto_stories_rounded),
+                              items: [
+                                DropdownMenuItem<String?>(
+                                  value: null,
+                                  child: Text(t.adminSeerahEventNone),
+                                ),
+                                for (final (i, e) in _events.indexed)
+                                  DropdownMenuItem<String?>(
+                                    value: e.id,
+                                    child: Text(
+                                      '${i + 1}. ${e.nameFor(Localizations.localeOf(context).languageCode)}',
+                                    ),
+                                  ),
+                              ],
+                              onChanged: (v) => setState(() => _eventId = v),
+                            ),
+                            const SizedBox(height: 4),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 4),
+                              child: Text(
+                                t.adminSeerahEventHelp,
+                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: colors.onSurfaceVariant),
+                              ),
+                            ),
+                          ],
                           const SizedBox(height: 14),
                           Text(t.teacherDifficulty,
                               style: Theme.of(context).textTheme.labelLarge),

@@ -123,6 +123,7 @@ class MatchSocket {
     required String name,
     String difficulty = 'easy',
     String category = 'mixed',
+    String? stageSlug,
   }) {
     _socket?.emitWithAck(
       'find_match',
@@ -130,6 +131,7 @@ class MatchSocket {
         'name': name,
         'difficulty': difficulty,
         'category': category,
+        if (stageSlug != null) 'stage_slug': stageSlug,
       },
       ack: (resp) {
         if (resp is Map) {
@@ -151,12 +153,14 @@ class MatchSocket {
     String difficulty = 'easy',
     String category = 'mixed',
     required int maxSeats,
+    String? stageSlug,
   }) async {
     final resp = await _emitWithAck('create_room', {
       'name': name,
       'difficulty': difficulty,
       'category': category,
       'max_seats': maxSeats,
+      if (stageSlug != null) 'stage_slug': stageSlug,
     });
     if (resp['ok'] == true) {
       _matchId = resp['match_id'] as String? ?? _matchId;

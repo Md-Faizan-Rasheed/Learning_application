@@ -95,6 +95,8 @@ async def create_match(
     category: str | None = None,
     match_id: str | None = None,
     max_seats: int = MAX_SEATS,
+    campaign_stage_id: str | None = None,
+    campaign_stage_slug: str | None = None,
 ) -> str:
     match_id = match_id or str(uuid.uuid4())
     await redis_client.hset(
@@ -105,10 +107,63 @@ async def create_match(
             "category": category or "",
             "max_seats": str(max_seats),
             "created_at": str(int(time.time())),
+            # Campaign mode only — both empty for every ordinary match.
+            # The id (a campaign_stages.id) is what _end_match writes
+            # progress against; the slug is what pick_live_question filters
+            # on, kept alongside so a mid-match question pick never needs a
+            # Postgres round-trip just to resolve id -> slug.
+            "campaign_stage_id": campaign_stage_id or "",
+            "campaign_stage_slug": campaign_stage_slug or "",
         },
     )
     await redis_client.expire(_meta_key(match_id), _TTL_SECONDS)
     return match_id
+
+
+# ---- campaign mode: live per-match momentum (Redis-only, no DB round-trip) ----
+# Additive alongside the existing `scores` hash — untouched by ordinary matches,
+# which never call these because get_campaign_stage() returns None for them.
+
+
+def _campaign_key(match_id: str) -> str:
+    return f"match:{match_id}:campaign"
+
+
+async def get_campaign_stage(match_id: str) -> str | None:
+    """Reads campaign_stage_id back out of the meta hash set at creation.
+    None for every ordinary match."""
+    value = await redis_client.hget(_meta_key(match_id), "campaign_stage_id")
+    return value or None
+
+
+async def get_campaign_stage_slug(match_id: str) -> str | None:
+    """Companion to get_campaign_stage — the slug pick_live_question filters
+    on, not the DB id."""
+    value = await redis_client.hget(_meta_key(match_id), "campaign_stage_slug")
+    return value or None
+
+
+async def increment_campaign_momentum(
+    match_id: str, delta: int, streak_broken: bool
+) -> dict:
+    key = _campaign_key(match_id)
+    await redis_client.hincrby(key, "momentum", delta)
+    if streak_broken:
+        await redis_client.hset(key, "streak", 0)
+    else:
+        await redis_client.hincrby(key, "streak", 1)
+    await redis_client.expire(key, _TTL_SECONDS)
+    momentum = int(await redis_client.hget(key, "momentum") or 0)
+    streak = int(await redis_client.hget(key, "streak") or 0)
+    return {"momentum": min(momentum, 100), "streak": streak}
+
+
+async def get_campaign_momentum(match_id: str) -> dict:
+    """Final-value read at match end — doesn't increment anything."""
+    key = _campaign_key(match_id)
+    momentum = int(await redis_client.hget(key, "momentum") or 0)
+    streak = int(await redis_client.hget(key, "streak") or 0)
+    return {"momentum": min(momentum, 100), "streak": streak}
 
 
 async def set_meta_fields(match_id: str, **fields) -> None:
@@ -277,22 +332,34 @@ async def get_scores(match_id: str) -> dict[int, int]:
     raw = await redis_client.hgetall(_scores_key(match_id))
     return {int(seat): int(v) for seat, v in raw.items()}
 
-def _open_key(difficulty: str, category: str = "mixed") -> str:
-    return f"open:{category}:{difficulty}"
+def _open_key(difficulty: str, category: str = "mixed", stage_slug: str | None = None) -> str:
+    # Campaign lobbies get their own key (open:{cat}:{diff}:{stage}) so a
+    # quick-match player on a campaign stage only pools with other players
+    # on that SAME stage, never with the general lobby. Ordinary matches
+    # never pass stage_slug, so their key is byte-identical to before.
+    base = f"open:{category}:{difficulty}"
+    return f"{base}:{stage_slug}" if stage_slug else base
 
 
-async def find_open_match(difficulty: str, category: str = "mixed") -> str | None:
-    return await redis_client.get(_open_key(difficulty, category))
+async def find_open_match(
+    difficulty: str, category: str = "mixed", stage_slug: str | None = None
+) -> str | None:
+    return await redis_client.get(_open_key(difficulty, category, stage_slug))
 
 
-async def set_open_match(difficulty: str, match_id: str, category: str = "mixed") -> None:
-    await redis_client.set(_open_key(difficulty, category), match_id, ex=_TTL_SECONDS)
+async def set_open_match(
+    difficulty: str, match_id: str, category: str = "mixed", stage_slug: str | None = None
+) -> None:
+    await redis_client.set(_open_key(difficulty, category, stage_slug), match_id, ex=_TTL_SECONDS)
 
 
-async def clear_open_match(difficulty: str, match_id: str, category: str = "mixed") -> None:
-    current = await redis_client.get(_open_key(difficulty, category))
+async def clear_open_match(
+    difficulty: str, match_id: str, category: str = "mixed", stage_slug: str | None = None
+) -> None:
+    key = _open_key(difficulty, category, stage_slug)
+    current = await redis_client.get(key)
     if current == match_id:
-        await redis_client.delete(_open_key(difficulty, category))
+        await redis_client.delete(key)
 
 
 def _room_key(code: str) -> str:

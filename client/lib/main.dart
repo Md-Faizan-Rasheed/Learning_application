@@ -12,6 +12,7 @@ import 'auth/auth_service.dart';
 import 'l10n/app_localizations.dart';
 import 'screens/achievements_screen.dart';
 import 'screens/admin/admin_home_screen.dart';
+import 'screens/campaign_map_screen.dart';
 import 'screens/leaderboard_screen.dart';
 import 'screens/multiplayer_choice_screen.dart';
 import 'screens/practice_screen.dart';
@@ -43,6 +44,13 @@ import 'widgets/word_search_difficulty_sheet.dart';
 //   flutter build appbundle --dart-define=SENTRY_DSN=https://...
 const String _kSentryDsn =
     String.fromEnvironment('SENTRY_DSN', defaultValue: '');
+
+// Temporary rollout gate for Campaign Mode — there's no feature-flag system
+// in this codebase, so this one hardcoded constant is standing in for one.
+// Flip to false to hide the nav entry (e.g. before a release) without
+// removing any of the feature's code; remove this constant entirely once
+// Campaign Mode is a permanent, unconditional part of the nav.
+const bool kCampaignModeEnabled = true;
 
 Future<void> main() async {
   await SentryFlutter.init(
@@ -316,6 +324,17 @@ class _HomeScreenState extends State<HomeScreen>
         .then((_) => _loadProfileAndQuests());
   }
 
+  void _openCampaign() {
+    if (widget.auth.current == null) return;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => CampaignMapScreen(
+        token: widget.auth.current!.token,
+        name: widget.auth.current?.displayName ?? 'You',
+        lang: widget.currentLang,
+      ),
+    ));
+  }
+
   void _openAssignedQuizzes() {
     if (widget.auth.current == null) return;
     Navigator.of(context).push(
@@ -389,6 +408,9 @@ class _HomeScreenState extends State<HomeScreen>
       case 4:
         _openProfile();
         break;
+      case 5:
+        _openCampaign();
+        break;
     }
   }
 
@@ -418,6 +440,9 @@ class _HomeScreenState extends State<HomeScreen>
               label: t.navLeaderboard),
           NavigationDestination(
               icon: const Icon(Icons.person_rounded), label: t.navProfile),
+          if (kCampaignModeEnabled)
+            NavigationDestination(
+                icon: const Icon(Icons.map_rounded), label: t.navCampaign),
         ],
       ),
       body: Stack(

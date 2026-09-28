@@ -37,6 +37,7 @@ async def pick_live_question(
     difficulty: str | None,
     category_slug: str | None = None,
     recent_questions: list[str] | None = None,
+    stage_slug: str | None = None,
 ) -> dict | None:
 
     recent_questions = recent_questions or []
@@ -51,6 +52,19 @@ async def pick_live_question(
         FROM questions q
         JOIN categories c
             ON c.id = q.category_id
+    """
+
+    # Campaign mode only: restrict to questions tagged against the event(s)
+    # that belong to this movement-stage. Skipped entirely when stage_slug
+    # is absent, so every existing (non-campaign) caller is unaffected.
+    if stage_slug:
+        q += """
+        JOIN event_framework_tags eft
+            ON eft.event_id = q.event_id
+           AND eft.framework = 'movement_stage'
+        """
+
+    q += """
         WHERE q.review_state = 'live'
           AND c.is_active = TRUE
     """
@@ -71,6 +85,13 @@ async def pick_live_question(
         """
         params["cslug"] = category_slug.lower()
 
+    # Campaign stage filter
+    if stage_slug:
+        q += """
+            AND eft.tag_value = :stage_slug
+        """
+        params["stage_slug"] = stage_slug
+
     # Don't repeat recently-used questions
     if recent_questions:
         q += """
@@ -84,15 +105,6 @@ async def pick_live_question(
         ORDER BY random()
         LIMIT 1
     """
-
-    print("\n========== PICK LIVE QUESTION DEBUG ==========")
-    print("SQL:")
-    print(q)
-    print("PARAMS:")
-    print(params)
-    print("PARAM TYPE:")
-    print(type(params))
-    print("==============================================\n")
 
     result = await db.execute(
         text(q),
@@ -200,18 +212,22 @@ async def insert_attempt(
     )
 
 
-async def create_db_match(db: AsyncSession, difficulty: str) -> str:
-    """Create a real matches row (durable record) and return its id."""
+async def create_db_match(
+    db: AsyncSession, difficulty: str, campaign_stage_id: str | None = None
+) -> str:
+    """Create a real matches row (durable record) and return its id.
+    campaign_stage_id is None for every ordinary match (the column is
+    nullable) and only set when this match was started from the campaign map."""
     row = (
         await db.execute(
             text(
                 """
-                INSERT INTO matches (difficulty, status, started_at)
-                VALUES (CAST(:d AS difficulty_level), 'active', now())
+                INSERT INTO matches (difficulty, status, started_at, campaign_stage_id)
+                VALUES (CAST(:d AS difficulty_level), 'active', now(), :csi)
                 RETURNING id
                 """
             ),
-            {"d": difficulty},
+            {"d": difficulty, "csi": campaign_stage_id},
         )
     ).first()
     return str(row[0])

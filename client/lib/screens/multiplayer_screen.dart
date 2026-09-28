@@ -26,6 +26,7 @@ import '../widgets/reward_card.dart';
 import '../widgets/seat_marker.dart';
 import 'multiplayer_choice_screen.dart';
 import 'multiplayer_match_report_screen.dart';
+import 'stage_cleared_screen.dart';
 
 const kQuestionTimeMs = 30000;
 // Mirrors match_store.MAX_SEATS server-side — used only for the lobby's
@@ -47,6 +48,7 @@ class MultiplayerScreen extends StatefulWidget {
     this.difficulty = 'easy',
     this.maxSeats = kMultiplayerMaxSeats,
     this.roomCode,
+    this.campaignStageId,
   });
 
   final String lang;
@@ -57,6 +59,18 @@ class MultiplayerScreen extends StatefulWidget {
   final String difficulty;
   final int maxSeats;
   final String? roomCode; // required when mode == joinRoom
+
+  /// Campaign mode only — every existing call site omits this, in which
+  /// case this screen's behavior is identical to before campaign mode
+  /// existed: no momentum bar, no stage_momentum/campaign_progress
+  /// handlers, no stage_slug sent when creating the match.
+  ///
+  /// Despite the name, this carries the stage's `slug` (e.g. "tazkiyah"),
+  /// not its database id — that's what the server's find_match/create_room
+  /// and pick_live_question actually key on (see campaign_stages.slug /
+  /// event_framework_tags.tag_value), and what CampaignMapScreen has on
+  /// hand for each stage it lists.
+  final String? campaignStageId;
 
   @override
   State<MultiplayerScreen> createState() => _MultiplayerScreenState();
@@ -75,6 +89,12 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
   RoundResult? _roundResult;
   int _questionNumber = 0;
   int _combo = 0;
+
+  // Campaign mode only — stay at their initial values (never read) for
+  // every non-campaign match.
+  int _campaignMomentum = 0;
+  int _campaignStreak = 0;
+  bool _campaignStageClearedShown = false;
 
   List<RosterPlayer> _roster = [];
   final Set<int> _answeredSeats = {};
@@ -154,6 +174,10 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
     _socket.on('roster', _handleRoster);
     _socket.on('player_answered', _handlePlayerAnswered);
     _socket.on('no_questions', _handleNoQuestions);
+    if (widget.campaignStageId != null) {
+      _socket.on('stage_momentum', _handleStageMomentum);
+      _socket.on('campaign_progress', _handleCampaignProgress);
+    }
 
     switch (widget.mode) {
       case MultiplayerMode.quickMatch:
@@ -161,6 +185,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
           name: widget.name,
           category: widget.category,
           difficulty: widget.difficulty,
+          stageSlug: widget.campaignStageId,
         );
         break;
 
@@ -170,6 +195,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
           category: widget.category,
           difficulty: widget.difficulty,
           maxSeats: widget.maxSeats,
+          stageSlug: widget.campaignStageId,
         );
         if (!mounted) return;
         if (ack['ok'] != true) {
@@ -255,6 +281,37 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
   void _handleNoQuestions(Map<String, dynamic> data) {
     if (!mounted) return;
     _failAndLeave(AppLocalizations.of(context)!.mpNoQuestionsAvailable);
+  }
+
+  /// Campaign mode only — only ever registered (see _connect) when
+  /// widget.campaignStageId is set, so this never fires for an ordinary
+  /// match. Drives the momentum bar in _buildQuestionView.
+  void _handleStageMomentum(Map<String, dynamic> data) {
+    if (!mounted) return;
+    setState(() {
+      _campaignMomentum = (data['momentum'] as num?)?.toInt() ?? _campaignMomentum;
+      _campaignStreak = (data['streak'] as num?)?.toInt() ?? _campaignStreak;
+    });
+  }
+
+  /// Campaign mode only. Fires once, at match end, only for the player(s)
+  /// this event was addressed to. When the stage just completed, push
+  /// StageClearedScreen — claiming the reward happens there, on "Continue",
+  /// not automatically here.
+  void _handleCampaignProgress(Map<String, dynamic> data) {
+    if (!mounted || _campaignStageClearedShown) return;
+    if (data['completed'] != true) return;
+    _campaignStageClearedShown = true;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => StageClearedScreen(
+          token: widget.token,
+          stageId: data['stage_id'] as String,
+          progress: (data['progress'] as num?)?.toInt() ?? 0,
+          target: (data['target'] as num?)?.toInt() ?? 100,
+        ),
+      ),
+    );
   }
 
   void _handleRoster(Map<String, dynamic> data) {
@@ -657,6 +714,10 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
     _socket.off('roster');
     _socket.off('player_answered');
     _socket.off('no_questions');
+    if (widget.campaignStageId != null) {
+      _socket.off('stage_momentum');
+      _socket.off('campaign_progress');
+    }
 
     _socket.disconnect();
 
@@ -826,6 +887,13 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
                     remainingTime: _remainingTimeMs,
                     totalTime: question.timeMs,
                   ),
+                  if (widget.campaignStageId != null) ...[
+                    const SizedBox(height: 12),
+                    _CampaignMomentumBar(
+                      momentum: _campaignMomentum,
+                      streak: _campaignStreak,
+                    ),
+                  ],
                   if (_roundResult == null && _roster.length > 1) ...[
                     const SizedBox(height: 12),
                     _OpponentPresenceRow(
@@ -1343,6 +1411,60 @@ class _ComboBadge extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Campaign mode only — shown when MultiplayerScreen.campaignStageId is
+/// set. Reuses the same visual language as the rest of this screen
+/// (AppPalette tokens, the same row/badge shapes as _ComboBadge) rather
+/// than introducing a new look for one screen.
+class _CampaignMomentumBar extends StatelessWidget {
+  const _CampaignMomentumBar({required this.momentum, required this.streak});
+
+  final int momentum; // 0-100
+  final int streak;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                t.campaignMomentumLabel,
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontSize: 11.5,
+                    fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 4),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: TweenAnimationBuilder<double>(
+                  tween: Tween(begin: 0, end: (momentum / 100).clamp(0.0, 1.0)),
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.easeOutCubic,
+                  builder: (context, value, _) => LinearProgressIndicator(
+                    value: value,
+                    minHeight: 8,
+                    backgroundColor: AppPalette.borderTaupe.withValues(alpha: 0.5),
+                    valueColor:
+                        const AlwaysStoppedAnimation<Color>(AppPalette.deepTeal),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        if (streak >= 2) ...[
+          const SizedBox(width: 10),
+          _ComboBadge(combo: streak),
+        ],
+      ],
     );
   }
 }

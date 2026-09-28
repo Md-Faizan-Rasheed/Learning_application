@@ -12,6 +12,7 @@ import random
 
 import socketio
 
+from ..campaign import repository as campaign_repo
 from ..config import settings
 from ..db import SessionLocal
 from ..game import repository as game_repo
@@ -22,6 +23,13 @@ from .match_store import ROUNDS_PER_MATCH
 
 # Pause between a round resolving and the next question appearing (ms).
 INTER_ROUND_MS = 3500
+
+# Campaign mode: momentum awarded per correctly-answered round, purely for
+# the live in-match momentum bar (_resolve_round's stage_momentum event) —
+# cosmetic feedback only. Unlocking the next stage no longer depends on this
+# score; see _end_match's campaign_repo.complete_stage call, which completes
+# a stage just for finishing its match, any score.
+CAMPAIGN_MOMENTUM_PER_CORRECT = 13
 
 # CORS for the socket handshake: same localhost-only policy as the REST app.
 _cors = "*" if settings.env != "development" else [
@@ -134,18 +142,21 @@ async def find_match(sid: str, data: dict) -> dict:
     fills (4 seats) it starts immediately; otherwise a timer starts it with bots
     filling the empty seats.
 
-    data: { name, difficulty? }
+    data: { name, difficulty?, category?, stage_slug? }
     """
     name = (data or {}).get("name") or "Player"
     difficulty = (data or {}).get("difficulty") or "easy"
     category = (data or {}).get("category") or "mixed"
+    # Campaign mode only — absent for every ordinary quick-match call, in
+    # which case every branch below behaves exactly as it did before this.
+    stage_slug = (data or {}).get("stage_slug")
 
     # Prefer the authenticated identity attached at connect-time.
     session = await sio.get_session(sid)
     auth_user_id = session.get("user_id") if session else None
 
     async with _lobby_lock:
-        match_id = await match_store.find_open_match(difficulty, category)
+        match_id = await match_store.find_open_match(difficulty, category, stage_slug)
 
         if match_id is not None and auth_user_id:
             # Don't pool a blocked pair together — only checkable for a real
@@ -163,7 +174,13 @@ async def find_match(sid: str, data: dict) -> dict:
         if match_id is None:
             # No open lobby -> create one (durable DB match).
             async with SessionLocal() as db:
-                match_id = await game_repo.create_db_match(db, difficulty)
+                campaign_stage_id = (
+                    await campaign_repo.get_stage_id_by_slug(db, stage_slug)
+                    if stage_slug else None
+                )
+                match_id = await game_repo.create_db_match(
+                    db, difficulty, campaign_stage_id=campaign_stage_id
+                )
                 if auth_user_id:
                     db_user_id = auth_user_id  # real account
                     await game_repo.set_user_display_name(db, db_user_id, name)
@@ -172,9 +189,13 @@ async def find_match(sid: str, data: dict) -> dict:
                 await game_repo.add_match_player(db, match_id, db_user_id)
                 await db.commit()
             await match_store.create_match(
-                difficulty=difficulty, category=category, match_id=match_id
+                difficulty=difficulty,
+                category=category,
+                match_id=match_id,
+                campaign_stage_id=campaign_stage_id,
+                campaign_stage_slug=stage_slug,
             )
-            await match_store.set_open_match(difficulty, match_id, category)
+            await match_store.set_open_match(difficulty, match_id, category, stage_slug)
             opened_new = True
         else:
             # Attach to the existing lobby.
@@ -198,10 +219,10 @@ async def find_match(sid: str, data: dict) -> dict:
 
     # If the lobby is now full of humans, start immediately.
     if player is not None and humans >= match_store.MAX_SEATS:
-        await match_store.clear_open_match(difficulty, match_id, category)
+        await match_store.clear_open_match(difficulty, match_id, category, stage_slug)
         await _begin_match(match_id, difficulty)
     elif opened_new:
-        asyncio.create_task(_lobby_timer(match_id, difficulty, category))
+        asyncio.create_task(_lobby_timer(match_id, difficulty, category, stage_slug))
 
     return {
         "ok": True,
@@ -211,13 +232,15 @@ async def find_match(sid: str, data: dict) -> dict:
     }
 
 
-async def _lobby_timer(match_id: str, difficulty: str, category: str = "mixed") -> None:
+async def _lobby_timer(
+    match_id: str, difficulty: str, category: str = "mixed", stage_slug: str | None = None
+) -> None:
     """After the wait window, close the lobby and start with bot backfill."""
     await asyncio.sleep(LOBBY_WAIT_SECONDS)
     meta = await match_store.get_meta(match_id)
     if not meta or meta.get("status") != "waiting":
         return  # already started (filled early) or gone
-    await match_store.clear_open_match(difficulty, match_id, category)
+    await match_store.clear_open_match(difficulty, match_id, category, stage_slug)
     await _begin_match(match_id, difficulty)
 
 
@@ -258,19 +281,26 @@ async def create_room(sid: str, data: dict) -> dict:
     backfill, no lobby timer — it waits indefinitely (bounded only by Redis's
     usual match TTL) for the host to invite real friends by code and press Start.
 
-    data: { name, difficulty?, category?, max_seats }
+    data: { name, difficulty?, category?, max_seats, stage_slug? }
     """
     name = (data or {}).get("name") or "Player"
     difficulty = (data or {}).get("difficulty") or "easy"
     category = (data or {}).get("category") or "mixed"
     max_seats = (data or {}).get("max_seats")
     max_seats = max_seats if max_seats in _ROOM_SEAT_CHOICES else 4
+    # Campaign mode only — absent for every ordinary party room.
+    stage_slug = (data or {}).get("stage_slug")
 
     session = await sio.get_session(sid)
     auth_user_id = session.get("user_id") if session else None
 
     async with SessionLocal() as db:
-        match_id = await game_repo.create_db_match(db, difficulty)
+        campaign_stage_id = (
+            await campaign_repo.get_stage_id_by_slug(db, stage_slug) if stage_slug else None
+        )
+        match_id = await game_repo.create_db_match(
+            db, difficulty, campaign_stage_id=campaign_stage_id
+        )
         if auth_user_id:
             db_user_id = auth_user_id
             await game_repo.set_user_display_name(db, db_user_id, name)
@@ -280,7 +310,12 @@ async def create_room(sid: str, data: dict) -> dict:
         await db.commit()
 
     await match_store.create_match(
-        difficulty=difficulty, category=category, match_id=match_id, max_seats=max_seats
+        difficulty=difficulty,
+        category=category,
+        match_id=match_id,
+        max_seats=max_seats,
+        campaign_stage_id=campaign_stage_id,
+        campaign_stage_slug=stage_slug,
     )
     await match_store.set_meta_fields(match_id, is_private=1, host_seat=0)
     room_code = await match_store.generate_room_code(match_id)
@@ -397,10 +432,43 @@ async def _start_and_broadcast_question(
 
     meta = await match_store.get_meta(match_id)
     category = meta.get("category", "mixed") if meta else "mixed"
+    # Campaign mode only — "" (not set) for every ordinary match, in which
+    # case pick_live_question's stage_slug filter is skipped entirely.
+    stage_slug = (meta.get("campaign_stage_slug") or None) if meta else None
     recent_questions = await match_store.get_recent_questions(match_id)
+    # Campaign mode only: pool every difficulty within the stage's tagged
+    # events instead of filtering to the match's nominal difficulty. Stages
+    # are the content bucket here, not difficulty tiers — and the tagged
+    # bank skews heavily to 'medium', so filtering by 'easy' (the client's
+    # default for every campaign stage today) starved most stages after 1-2
+    # rounds. Ordinary matches are unaffected: stage_slug is None there, so
+    # difficulty is passed through exactly as before.
+    question_difficulty = None if stage_slug else difficulty
     async with SessionLocal() as db:
-           q = await game_repo.pick_live_question(db, difficulty, category, recent_questions)
-           await match_store.add_recent_question(match_id, str(q["id"]))
+           q = await game_repo.pick_live_question(
+               db, question_difficulty, category, recent_questions, stage_slug=stage_slug
+           )
+           # Campaign mode only: some stages' tagged question pool (e.g. 5
+           # questions) is smaller than ROUNDS_PER_MATCH (8) — without this,
+           # such a stage's match always dies of "no live questions" a few
+           # rounds early and can never reach _end_match, which is what now
+           # completes the stage. Repeating a question is an acceptable
+           # trade-off here (campaign matches are solo-vs-bots); ordinary
+           # matches never take this path since stage_slug is None there.
+           if q is None and stage_slug:
+               q = await game_repo.pick_live_question(
+                   db, question_difficulty, category, [], stage_slug=stage_slug
+               )
+           # Pre-existing bug, exposed (not introduced) by campaign mode:
+           # this used to run unconditionally, crashing with a TypeError
+           # instead of reaching the "no live questions" branch below,
+           # whenever pick_live_question found nothing — previously a rare
+           # edge case, now the common case for any stage_slug with no
+           # tagged questions yet. Guarding it changes nothing for the
+           # q-is-not-None path (see test_realtime_regression.py's
+           # byte-for-byte event-sequence assertion for ordinary matches).
+           if q is not None:
+               await match_store.add_recent_question(match_id, str(q["id"]))
     if q is None:
         await sio.emit(
             "no_questions",
@@ -627,6 +695,32 @@ async def _resolve_round(match_id: str, round_no: int) -> None:
             },
             room=match_id,
         )
+
+        # Campaign mode only — additive, runs only when this match was
+        # started from the campaign map (get_campaign_stage returns None
+        # for every ordinary match, and this whole block is skipped).
+        # stage_momentum is a new, separate event; round_result above is
+        # completely untouched by this.
+        #
+        # Momentum is tracked per MATCH, not per seat: a campaign match is
+        # architecturally a solo run against bots (see _end_match below,
+        # which applies the same final momentum to every non-bot player),
+        # so "was_correct" here is read off the first non-bot player's
+        # result as the campaign player's answer.
+        campaign_stage_id = await match_store.get_campaign_stage(match_id)
+        if campaign_stage_id:
+            campaign_player_result = next((r for r in results if not r["is_bot"]), None)
+            was_correct = bool(campaign_player_result and campaign_player_result["is_correct"])
+            momentum_result = await match_store.increment_campaign_momentum(
+                match_id,
+                delta=(CAMPAIGN_MOMENTUM_PER_CORRECT if was_correct else 0),
+                streak_broken=not was_correct,
+            )
+            await sio.emit(
+                "stage_momentum",
+                {"match_id": match_id, **momentum_result},
+                room=match_id,
+            )
     finally:
         _resolving.discard(guard)
 
@@ -724,6 +818,43 @@ async def _end_match(match_id: str) -> None:
                 import traceback
                 print(f"[ws] progression/quests error (seat {s['seat']}): {e}")
                 traceback.print_exc()
+
+        # Campaign mode only — additive, and a no-op whenever this match has
+        # no campaign_stage_id (every ordinary match). Deliberately its own
+        # loop/event, separate from match_over above: that event's payload
+        # stays literally unchanged for every match, campaign or not.
+        campaign_stage_id = await match_store.get_campaign_stage(match_id)
+        if campaign_stage_id:
+            for s in standings:
+                player = players[s["seat"]]
+                if player["is_bot"]:
+                    continue
+                try:
+                    # Unlocking the next stage means finishing this stage's
+                    # match to the end — not hitting a momentum score, which
+                    # used to require several replays per stage. The
+                    # in-round stage_momentum bar (_resolve_round) still
+                    # tracks a live streak for on-screen feedback during
+                    # play; it just no longer gates the unlock.
+                    stage_result = await campaign_repo.complete_stage(
+                        db,
+                        user_id=player["user_id"],
+                        stage_id=campaign_stage_id,
+                    )
+                    if player["sid"]:
+                        await sio.emit(
+                            "campaign_progress",
+                            {
+                                "stage_id": campaign_stage_id,
+                                "progress": stage_result["progress"],
+                                "target": stage_result["target"],
+                                "completed": stage_result["completed_at"] is not None,
+                            },
+                            to=player["sid"],
+                        )
+                except Exception as e:  # noqa: BLE001
+                    print(f"[ws] campaign progress error (seat {s['seat']}): {e}")
+
         await db.commit()
 
     # attach each player's rewards to their standings row

@@ -6,6 +6,7 @@ import '../../widgets/ambient_backdrop.dart';
 import '../../widgets/app_header.dart';
 import '../../widgets/loading_view.dart';
 import '../../widgets/status_pill.dart';
+import 'campaign_content_screen.dart';
 import 'question_list_screen.dart';
 import 'reports_screen.dart';
 
@@ -195,6 +196,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                 ? null
                 : _scrollController,
         actions: [
+          IconButton(
+            icon: const Icon(Icons.map_rounded),
+            tooltip: t.adminCampaignContentTitle,
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (_) => CampaignContentScreen(token: widget.token)),
+            ),
+          ),
           IconButton(
             icon: const Icon(Icons.flag_outlined),
             tooltip: t.adminReportsTitle,

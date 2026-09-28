@@ -13,6 +13,7 @@ email-validator
 openai
 httpx
 sentry-sdk
+pyyaml
 
 # test-only, not needed at runtime
 pytest
