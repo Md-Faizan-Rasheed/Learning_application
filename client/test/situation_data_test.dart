@@ -5,7 +5,8 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('loadSituationCategories', () {
-    test('parses the bundled dataset into exactly the 5 root categories the canopy expects', () async {
+    test('parses the bundled dataset into exactly the 5 root categories the canopy expects',
+        () async {
       final categories = await loadSituationCategories();
       expect(categories.length, 5);
       expect(categories.map((c) => c.id).toSet().length, 5,
@@ -43,7 +44,8 @@ void main() {
     test('situation ids are unique across the whole dataset', () async {
       final categories = await loadSituationCategories();
       final allIds = [
-        for (final c in categories) for (final s in c.situations) s.id,
+        for (final c in categories)
+          for (final s in c.situations) s.id,
       ];
       expect(allIds.toSet().length, allIds.length);
     });

@@ -44,7 +44,8 @@ void main() {
       expect(again.first.word, first.first.word);
     });
 
-    test('batchForChapter returns a fixed chapter and never touches the sequential pointer', () async {
+    test('batchForChapter returns a fixed chapter and never touches the sequential pointer',
+        () async {
       final chapterBatch = NamesOnWaterProgress.instance.batchForChapter(2);
       expect(chapterBatch.length, 9);
       expect(chapterBatch.first.word, kNamesOfAllah[18].word);

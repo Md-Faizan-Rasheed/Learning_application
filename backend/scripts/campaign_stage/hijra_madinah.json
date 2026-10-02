@@ -1,0 +1,1250 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which tribes of Madinah invited the Prophet ﷺ?",
+      "ar": "أي قبائل المدينة دعت النبي ﷺ؟",
+      "ur": "مدینہ کے کن قبائل نے نبی ﷺ کو دعوت دی؟"
+    },
+    "options": {
+      "en": [
+        "Quraysh and Banu Hashim",
+        "Ghatafan and Hawazin",
+        "Banu Taym and Banu Adi",
+        "Aws and Khazraj"
+      ],
+      "ar": [
+        "قريش وبنو هاشم",
+        "غطفان وهوازن",
+        "بنو تيم وبنو عدي",
+        "الأوس والخزرج"
+      ],
+      "ur": [
+        "قریش اور بنو ہاشم",
+        "غطفان اور ہوازن",
+        "بنو تیم اور بنو عدی",
+        "اوس اور خزرج"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ make sleep in his bed on the night of the Hijra?",
+      "ar": "من الذي نام في فراش النبي ﷺ ليلة الهجرة؟",
+      "ur": "ہجرت کی رات نبی ﷺ نے اپنے بستر پر کس کو سلایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr",
+        "Hazrat Umar",
+        "Hazrat Ali",
+        "Hazrat Bilal"
+      ],
+      "ar": [
+        "أبو بكر",
+        "عمر",
+        "علي",
+        "بلال"
+      ],
+      "ur": [
+        "حضرت ابو بکر",
+        "حضرت عمر",
+        "حضرت علی",
+        "حضرت بلال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What instruction did the Prophet ﷺ give Hazrat Ali before leaving?",
+      "ar": "ما الوصية التي أوصى بها النبي ﷺ عليًّا قبل رحيله؟",
+      "ur": "نبی ﷺ نے روانگی سے پہلے حضرت علی کو کیا ہدایت دی؟"
+    },
+    "options": {
+      "en": [
+        "Return the deposits of the people of Makkah and then follow",
+        "Guard the Kaaba forever",
+        "Fight the Quraysh",
+        "Stay in Makkah for ten years"
+      ],
+      "ar": [
+        "أن يردّ الودائع إلى أهل مكة ثم يلحق به",
+        "أن يحرس الكعبة دائمًا",
+        "أن يقاتل قريشًا",
+        "أن يبقى في مكة عشر سنين"
+      ],
+      "ur": [
+        "اہلِ مکہ کی امانتیں لوٹا کر پھر پیچھے آ جانا",
+        "ہمیشہ کعبہ کی حفاظت کرنا",
+        "قریش سے لڑنا",
+        "دس سال مکہ میں رہنا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ do when he saw the men waiting outside to kill him?",
+      "ar": "ماذا فعل النبي ﷺ حين رأى الرجال الذين ينتظرون لقتله؟",
+      "ur": "باہر قتل کے ارادے سے کھڑے لوگوں کو دیکھ کر نبی ﷺ نے کیا کیا؟"
+    },
+    "options": {
+      "en": [
+        "He took a handful of dust and threw it at their faces",
+        "He fought them with a sword",
+        "He ran back inside",
+        "He called the neighbours"
+      ],
+      "ar": [
+        "أخذ حفنة من التراب ونثرها على وجوههم",
+        "قاتلهم بالسيف",
+        "رجع إلى البيت",
+        "نادى الجيران"
+      ],
+      "ur": [
+        "مٹھی بھر مٹی ان کے چہروں پر ڈال دی",
+        "تلوار سے لڑے",
+        "واپس گھر میں چلے گئے",
+        "پڑوسیوں کو بلایا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which surah's verses did the Prophet ﷺ recite as he left the house on the night of the Hijra?",
+      "ar": "آيات أي سورة تلاها النبي ﷺ وهو يخرج من بيته ليلة الهجرة؟",
+      "ur": "ہجرت کی رات گھر سے نکلتے وقت نبی ﷺ نے کس سورت کی آیات پڑھیں؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Kawthar",
+        "Surah al-Asr",
+        "Surah Ya-Sin"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الكوثر",
+        "سورة العصر",
+        "سورة يس"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الکوثر",
+        "سورۃ العصر",
+        "سورۂ یٰسین"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of the Hijra?",
+      "ar": "كم كان عمر النبي ﷺ وقت الهجرة؟",
+      "ur": "ہجرت کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "33 years",
+        "53 years",
+        "43 years",
+        "63 years"
+      ],
+      "ar": [
+        "33 سنة",
+        "53 سنة",
+        "43 سنة",
+        "63 سنة"
+      ],
+      "ur": [
+        "33 سال",
+        "53 سال",
+        "43 سال",
+        "63 سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who accompanied the Prophet ﷺ on the night of the Hijra?",
+      "ar": "من رافق النبي ﷺ ليلة الهجرة؟",
+      "ur": "ہجرت کی رات نبی ﷺ کے ساتھ کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar",
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Abu Bakr Siddiq"
+      ],
+      "ar": [
+        "عمر",
+        "علي",
+        "عثمان",
+        "أبو بكر الصديق"
+      ],
+      "ur": [
+        "حضرت عمر",
+        "حضرت علی",
+        "حضرت عثمان",
+        "حضرت ابو بکر صدیق"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which cave did the Prophet ﷺ and Hazrat Abu Bakr stay during the Hijra?",
+      "ar": "في أي غار مكث النبي ﷺ وأبو بكر أثناء الهجرة؟",
+      "ur": "ہجرت کے دوران نبی ﷺ اور حضرت ابو بکر کس غار میں ٹھہرے؟"
+    },
+    "options": {
+      "en": [
+        "Cave of Hira",
+        "Cave of Uhud",
+        "Cave of Thawr",
+        "Cave of Badr"
+      ],
+      "ar": [
+        "غار حراء",
+        "غار أحد",
+        "غار ثور",
+        "غار بدر"
+      ],
+      "ur": [
+        "غارِ حرا",
+        "غارِ احد",
+        "غارِ ثور",
+        "غارِ بدر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who entered the Cave of Thawr first?",
+      "ar": "من دخل غار ثور أولًا؟",
+      "ur": "غارِ ثور میں سب سے پہلے کون داخل ہوا؟"
+    },
+    "options": {
+      "en": [
+        "The Prophet ﷺ",
+        "Hazrat Abu Bakr Siddiq",
+        "Hazrat Ali",
+        "Amir ibn Fuhayra"
+      ],
+      "ar": [
+        "النبي ﷺ",
+        "أبو بكر الصديق",
+        "علي",
+        "عامر بن فهيرة"
+      ],
+      "ur": [
+        "نبی ﷺ",
+        "حضرت ابو بکر صدیق",
+        "حضرت علی",
+        "عامر بن فہیرہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What bit Hazrat Abu Bakr in the cave?",
+      "ar": "ما الذي لدغ أبا بكر في الغار؟",
+      "ur": "غار میں حضرت ابو بکر کو کس نے ڈسا؟"
+    },
+    "options": {
+      "en": [
+        "A scorpion",
+        "A spider",
+        "A snake",
+        "A bee"
+      ],
+      "ar": [
+        "عقرب",
+        "عنكبوت",
+        "ثعبان",
+        "نحلة"
+      ],
+      "ur": [
+        "بچھو",
+        "مکڑی",
+        "سانپ",
+        "شہد کی مکھی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Prophet ﷺ give relief to Hazrat Abu Bakr after the bite?",
+      "ar": "كيف خفف النبي ﷺ عن أبي بكر بعد اللدغة؟",
+      "ur": "ڈسنے کے بعد نبی ﷺ نے حضرت ابو بکر کو کیسے آرام پہنچایا؟"
+    },
+    "options": {
+      "en": [
+        "He gave him milk",
+        "He bandaged it with cloth only",
+        "He applied his blessed saliva",
+        "He sent for a doctor"
+      ],
+      "ar": [
+        "سقاه لبنًا",
+        "ضمّده بالقماش فقط",
+        "وضع عليه من ريقه الشريف",
+        "استدعى طبيبًا"
+      ],
+      "ur": [
+        "دودھ پلایا",
+        "صرف کپڑے سے پٹی باندھی",
+        "اپنا مبارک لعابِ دہن لگایا",
+        "طبیب کو بلوایا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who kept bringing food to the Prophet ﷺ and Abu Bakr in the cave?",
+      "ar": "من كان يحمل الطعام للنبي ﷺ وأبي بكر في الغار؟",
+      "ur": "غار میں نبی ﷺ اور ابو بکر کے لیے کھانا کون لاتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Asma bint Abu Bakr",
+        "Hazrat Fatima",
+        "Hazrat Aisha",
+        "Hazrat Hafsa"
+      ],
+      "ar": [
+        "أسماء بنت أبي بكر",
+        "فاطمة",
+        "عائشة",
+        "حفصة"
+      ],
+      "ur": [
+        "حضرت اسماء بنت ابو بکر",
+        "حضرت فاطمہ",
+        "حضرت عائشہ",
+        "حضرت حفصہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who offered milk to the Prophet ﷺ and Abu Bakr near the cave?",
+      "ar": "من كان يقدّم اللبن للنبي ﷺ وأبي بكر قرب الغار؟",
+      "ur": "غار کے قریب نبی ﷺ اور ابو بکر کو دودھ کون پیش کرتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Amir ibn Fuhayra, Abu Bakr's slave",
+        "Bilal",
+        "Zayd ibn Haritha",
+        "Anas"
+      ],
+      "ar": [
+        "عامر بن فهيرة مولى أبي بكر",
+        "بلال",
+        "زيد بن حارثة",
+        "أنس"
+      ],
+      "ur": [
+        "عامر بن فہیرہ، ابو بکر کے غلام",
+        "بلال",
+        "زید بن حارثہ",
+        "انس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What reward did the disbelievers set for capturing the Prophet ﷺ?",
+      "ar": "ما الجائزة التي وضعها الكفار لمن يأسر النبي ﷺ؟",
+      "ur": "کفار نے نبی ﷺ کو پکڑنے پر کیا انعام مقرر کیا؟"
+    },
+    "options": {
+      "en": [
+        "Ten camels",
+        "One thousand dinars",
+        "One hundred camels",
+        "A house in Makkah"
+      ],
+      "ar": [
+        "عشرة جمال",
+        "ألف دينار",
+        "مئة ناقة",
+        "بيت في مكة"
+      ],
+      "ur": [
+        "دس اونٹ",
+        "ہزار دینار",
+        "سو اونٹ",
+        "مکہ میں ایک گھر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who chased after the Prophet ﷺ to capture him for the reward?",
+      "ar": "من الذي لحق بالنبي ﷺ ليأسره طمعًا في الجائزة؟",
+      "ur": "انعام کی لالچ میں نبی ﷺ کو پکڑنے کے لیے کس نے تعاقب کیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Abu Lahab",
+        "Uqba",
+        "Suraqa ibn Ju'shum"
+      ],
+      "ar": [
+        "أبو جهل",
+        "أبو لهب",
+        "عقبة",
+        "سراقة بن جعشم"
+      ],
+      "ur": [
+        "ابو جہل",
+        "ابو لہب",
+        "عقبہ",
+        "سراقہ بن جعشم"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What happened to Suraqa when he came near the Prophet ﷺ?",
+      "ar": "ماذا حدث لسراقة حين اقترب من النبي ﷺ؟",
+      "ur": "جب سراقہ نبی ﷺ کے قریب آیا تو اس کے ساتھ کیا ہوا؟"
+    },
+    "options": {
+      "en": [
+        "His sword broke",
+        "His horse's legs sank into the ground",
+        "He fell asleep",
+        "He lost his way"
+      ],
+      "ar": [
+        "انكسر سيفه",
+        "غاصت قوائم فرسه في الأرض",
+        "نام",
+        "ضلّ الطريق"
+      ],
+      "ur": [
+        "اس کی تلوار ٹوٹ گئی",
+        "اس کے گھوڑے کے پاؤں زمین میں دھنس گئے",
+        "وہ سو گیا",
+        "وہ راستہ بھول گیا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many days did the Prophet ﷺ stay in the Cave of Thawr?",
+      "ar": "كم يومًا مكث النبي ﷺ في غار ثور؟",
+      "ur": "نبی ﷺ غارِ ثور میں کتنے دن ٹھہرے؟"
+    },
+    "options": {
+      "en": [
+        "Three days",
+        "One day",
+        "Ten days",
+        "One month"
+      ],
+      "ar": [
+        "ثلاثة أيام",
+        "يوم واحد",
+        "عشرة أيام",
+        "شهر"
+      ],
+      "ur": [
+        "تین دن",
+        "ایک دن",
+        "دس دن",
+        "ایک مہینہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Cave of Thawr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which well-known place did the Prophet ﷺ arrive first on his way to Madinah?",
+      "ar": "في أي موضع مشهور وصل النبي ﷺ أولًا في طريقه إلى المدينة؟",
+      "ur": "مدینہ کی طرف سفر میں نبی ﷺ سب سے پہلے کس مشہور مقام پر پہنچے؟"
+    },
+    "options": {
+      "en": [
+        "Uhud",
+        "Badr",
+        "Quba",
+        "Khaybar"
+      ],
+      "ar": [
+        "أحد",
+        "بدر",
+        "قباء",
+        "خيبر"
+      ],
+      "ur": [
+        "احد",
+        "بدر",
+        "قبا",
+        "خیبر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What special work did the Prophet ﷺ do at Quba?",
+      "ar": "ما العمل المميز الذي قام به النبي ﷺ في قباء؟",
+      "ur": "نبی ﷺ نے قبا میں کون سا خاص کام کیا؟"
+    },
+    "options": {
+      "en": [
+        "He built a fort",
+        "He built a mosque",
+        "He dug a well",
+        "He opened a market"
+      ],
+      "ar": [
+        "بنى حصنًا",
+        "بنى مسجدًا",
+        "حفر بئرًا",
+        "افتتح سوقًا"
+      ],
+      "ur": [
+        "قلعہ بنایا",
+        "مسجد تعمیر کی",
+        "کنواں کھودا",
+        "بازار کھولا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How does the Quran describe the mosque built at Quba?",
+      "ar": "كيف وصف القرآن المسجد الذي بُني في قباء؟",
+      "ur": "قرآن نے قبا میں بننے والی مسجد کو کس طرح بیان کیا؟"
+    },
+    "options": {
+      "en": [
+        "A mosque of gold",
+        "A mosque founded on piety (taqwa)",
+        "A mosque of the Quraysh",
+        "A mosque of the idols"
+      ],
+      "ar": [
+        "مسجد من ذهب",
+        "مسجد أُسس على التقوى",
+        "مسجد قريش",
+        "مسجد الأصنام"
+      ],
+      "ur": [
+        "سونے کی مسجد",
+        "وہ مسجد جس کی بنیاد تقویٰ پر رکھی گئی",
+        "قریش کی مسجد",
+        "بتوں کی مسجد"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the people of Madinah do every day while waiting for the Prophet ﷺ?",
+      "ar": "ماذا كان أهل المدينة يفعلون كل يوم وهم ينتظرون النبي ﷺ؟",
+      "ur": "نبی ﷺ کے انتظار میں اہلِ مدینہ روزانہ کیا کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "They closed their doors",
+        "They travelled to Makkah",
+        "They slept in the mosque",
+        "They went out to the outskirts of Madinah and then went back"
+      ],
+      "ar": [
+        "كانوا يغلقون أبوابهم",
+        "كانوا يسافرون إلى مكة",
+        "كانوا ينامون في المسجد",
+        "كانوا يخرجون إلى ضواحي المدينة ثم يعودون"
+      ],
+      "ur": [
+        "دروازے بند کر لیتے",
+        "مکہ کا سفر کرتے",
+        "مسجد میں سوتے",
+        "مدینہ کے مضافات تک نکلتے پھر واپس آ جاتے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who saw the Prophet ﷺ approaching Madinah and informed the people?",
+      "ar": "من رأى النبي ﷺ قادمًا نحو المدينة فأخبر الناس؟",
+      "ur": "مدینہ کی طرف آتے ہوئے نبی ﷺ کو دیکھ کر لوگوں کو کس نے خبر دی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Ali",
+        "A Roman merchant",
+        "A Jewish man"
+      ],
+      "ar": [
+        "بلال",
+        "علي",
+        "تاجر رومي",
+        "رجل يهودي"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت علی",
+        "ایک رومی تاجر",
+        "ایک یہودی شخص"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where did the women of Madinah stand to welcome the Prophet ﷺ?",
+      "ar": "أين وقفت نساء المدينة لاستقبال النبي ﷺ؟",
+      "ur": "اہلِ مدینہ کی عورتیں نبی ﷺ کے استقبال کے لیے کہاں کھڑی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "In the market",
+        "On the rooftops",
+        "At the city gate",
+        "In the mosque"
+      ],
+      "ar": [
+        "في السوق",
+        "على السطوح",
+        "عند باب المدينة",
+        "في المسجد"
+      ],
+      "ur": [
+        "بازار میں",
+        "چھتوں پر",
+        "شہر کے دروازے پر",
+        "مسجد میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the people of Madinah mistake for the Prophet ﷺ and move toward?",
+      "ar": "من ظنّ أهل المدينة أنه النبي ﷺ فتوجهوا إليه؟",
+      "ur": "اہلِ مدینہ نے کس کو نبی ﷺ سمجھ کر اس کی طرف رخ کیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Abu Bakr Siddiq",
+        "Hazrat Umar",
+        "Hazrat Bilal"
+      ],
+      "ar": [
+        "علي",
+        "أبو بكر الصديق",
+        "عمر",
+        "بلال"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت ابو بکر صدیق",
+        "حضرت عمر",
+        "حضرت بلال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the little girls of Madinah sing when the Prophet ﷺ entered?",
+      "ar": "ماذا أنشدت بنات المدينة حين دخل النبي ﷺ؟",
+      "ur": "نبی ﷺ کے داخل ہونے پر مدینہ کی بچیاں کیا گا رہی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "A war chant",
+        "A lullaby",
+        "A song about trade",
+        "A song saying the full moon has risen over them from the valley of Wada'"
+      ],
+      "ar": [
+        "نشيد حرب",
+        "تهويدة",
+        "أغنية عن التجارة",
+        "نشيدًا يقول إن البدر طلع عليهم من ثنيات الوداع"
+      ],
+      "ur": [
+        "جنگی نعرہ",
+        "لوری",
+        "تجارت کا گیت",
+        "ایک ترانہ کہ ثنیۃ الوداع سے ہم پر چودھویں کا چاند طلوع ہوا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the name of the Prophet's ﷺ she-camel?",
+      "ar": "ما اسم ناقة النبي ﷺ؟",
+      "ur": "نبی ﷺ کی اونٹنی کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Al-Buraq",
+        "Al-Jamal",
+        "Al-Qaswa",
+        "Al-Adba' only"
+      ],
+      "ar": [
+        "البراق",
+        "الجمل",
+        "القصواء",
+        "العضباء فقط"
+      ],
+      "ur": [
+        "براق",
+        "جمل",
+        "قصواء",
+        "صرف عضباء"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say to the Madinans who each wanted him as a guest?",
+      "ar": "ماذا قال النبي ﷺ لأهل المدينة الذين أراد كل منهم استضافته؟",
+      "ur": "مدینہ کے ان لوگوں سے نبی ﷺ نے کیا فرمایا جو ہر ایک آپ ﷺ کو مہمان بنانا چاہتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "We will stay wherever our she-camel stops",
+        "We will stay in the largest house",
+        "We will stay in a tent",
+        "We will return to Makkah"
+      ],
+      "ar": [
+        "سننزل حيث تبرك ناقتنا",
+        "سننزل في أكبر بيت",
+        "سننزل في خيمة",
+        "سنعود إلى مكة"
+      ],
+      "ur": [
+        "جہاں ہماری اونٹنی رکے گی وہیں ہم مہمان ہوں گے",
+        "سب سے بڑے گھر میں ٹھہریں گے",
+        "خیمے میں ٹھہریں گے",
+        "مکہ لوٹ جائیں گے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At the house of which companion did the Prophet's ﷺ she-camel stop?",
+      "ar": "عند بيت أي صحابي بركت ناقة النبي ﷺ؟",
+      "ur": "نبی ﷺ کی اونٹنی کس صحابی کے گھر کے سامنے رکی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Ayyub al-Ansari",
+        "Hazrat Sa'd ibn Mu'adh",
+        "Hazrat Mus'ab",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "أبو أيوب الأنصاري",
+        "سعد بن معاذ",
+        "مصعب",
+        "علي"
+      ],
+      "ur": [
+        "حضرت ابو ایوب انصاری",
+        "حضرت سعد بن معاذ",
+        "حضرت مصعب",
+        "حضرت علی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where did the Prophet ﷺ stay in Hazrat Abu Ayyub's house?",
+      "ar": "أين أقام النبي ﷺ في بيت أبي أيوب؟",
+      "ur": "حضرت ابو ایوب کے گھر میں نبی ﷺ کہاں ٹھہرے؟"
+    },
+    "options": {
+      "en": [
+        "On the roof",
+        "In the courtyard tent",
+        "On the lower floor",
+        "In the basement"
+      ],
+      "ar": [
+        "على السطح",
+        "في خيمة بالفناء",
+        "في الطابق الأسفل",
+        "في القبو"
+      ],
+      "ur": [
+        "چھت پر",
+        "صحن کے خیمے میں",
+        "نچلی منزل میں",
+        "تہہ خانے میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How long did the Prophet ﷺ stay in Hazrat Abu Ayyub's house?",
+      "ar": "كم مكث النبي ﷺ في بيت أبي أيوب؟",
+      "ur": "نبی ﷺ حضرت ابو ایوب کے گھر کتنا عرصہ ٹھہرے؟"
+    },
+    "options": {
+      "en": [
+        "Seven days",
+        "Seven years",
+        "One day",
+        "Seven months"
+      ],
+      "ar": [
+        "سبعة أيام",
+        "سبع سنوات",
+        "يومًا واحدًا",
+        "سبعة أشهر"
+      ],
+      "ur": [
+        "سات دن",
+        "سات سال",
+        "ایک دن",
+        "سات مہینے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Arrival in Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the first thing the Prophet ﷺ did in Madinah?",
+      "ar": "ما أول عمل قام به النبي ﷺ في المدينة؟",
+      "ur": "مدینہ میں نبی ﷺ نے سب سے پہلا کام کیا کیا؟"
+    },
+    "options": {
+      "en": [
+        "Built a fort",
+        "Built the Prophet's Mosque",
+        "Opened a market",
+        "Called an army"
+      ],
+      "ar": [
+        "بنى حصنًا",
+        "بنى المسجد النبوي",
+        "افتتح سوقًا",
+        "جمع جيشًا"
+      ],
+      "ur": [
+        "قلعہ بنایا",
+        "مسجدِ نبوی کی تعمیر",
+        "بازار کھولا",
+        "لشکر جمع کیا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was at the site before the Prophet's Mosque was built?",
+      "ar": "ماذا كان في موضع المسجد النبوي قبل بنائه؟",
+      "ur": "مسجدِ نبوی بننے سے پہلے اس جگہ کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Date-palm trees and a few graves of polytheists",
+        "A market",
+        "A palace",
+        "A river"
+      ],
+      "ar": [
+        "نخيل وقبور لبعض المشركين",
+        "سوق",
+        "قصر",
+        "نهر"
+      ],
+      "ur": [
+        "کھجور کے درخت اور چند مشرکوں کی قبریں",
+        "بازار",
+        "محل",
+        "دریا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "From whom did the Prophet ﷺ buy the site of the mosque?",
+      "ar": "ممّن اشترى النبي ﷺ أرض المسجد؟",
+      "ur": "نبی ﷺ نے مسجد کی جگہ کس سے خریدی؟"
+    },
+    "options": {
+      "en": [
+        "Two orphan boys",
+        "A rich merchant",
+        "The Aws chief",
+        "A Jewish tribe"
+      ],
+      "ar": [
+        "غلامين يتيمين",
+        "تاجر غني",
+        "زعيم الأوس",
+        "قبيلة يهودية"
+      ],
+      "ur": [
+        "دو یتیم لڑکوں سے",
+        "ایک مالدار تاجر سے",
+        "اوس کے سردار سے",
+        "ایک یہودی قبیلے سے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the roof of the Prophet's Mosque made of?",
+      "ar": "مم كان سقف المسجد النبوي؟",
+      "ur": "مسجدِ نبوی کی چھت کس چیز کی بنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Gold",
+        "Marble",
+        "Date-palm leaves",
+        "Iron sheets"
+      ],
+      "ar": [
+        "الذهب",
+        "الرخام",
+        "سعف النخيل",
+        "صفائح الحديد"
+      ],
+      "ur": [
+        "سونے کی",
+        "سنگِ مرمر کی",
+        "کھجور کے پتوں کی",
+        "لوہے کی چادروں کی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Prophet ﷺ take part in building the mosque?",
+      "ar": "كيف شارك النبي ﷺ في بناء المسجد؟",
+      "ur": "نبی ﷺ نے مسجد کی تعمیر میں کیسے حصہ لیا؟"
+    },
+    "options": {
+      "en": [
+        "He only watched",
+        "He carried materials himself alongside the companions",
+        "He paid workers",
+        "He stayed away"
+      ],
+      "ar": [
+        "اكتفى بالمشاهدة",
+        "حمل المواد بنفسه مع الصحابة",
+        "دفع أجور العمال",
+        "ابتعد عنها"
+      ],
+      "ur": [
+        "صرف دیکھتے رہے",
+        "خود صحابہ کے ساتھ مل کر سامان اٹھایا",
+        "مزدوروں کو اجرت دی",
+        "دور رہے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what name are the Muslims of Madinah remembered?",
+      "ar": "بأي اسم يُعرف مسلمو المدينة؟",
+      "ur": "مدینہ کے مسلمانوں کو کس نام سے یاد کیا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Muhajirun",
+        "Ansar (the Helpers)",
+        "Quraysh",
+        "Banu Hashim"
+      ],
+      "ar": [
+        "المهاجرون",
+        "الأنصار",
+        "قريش",
+        "بنو هاشم"
+      ],
+      "ur": [
+        "مہاجرین",
+        "انصار",
+        "قریش",
+        "بنو ہاشم"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what name are the Muslims who came from Makkah to Madinah remembered?",
+      "ar": "بأي اسم يُعرف المسلمون الذين جاؤوا من مكة إلى المدينة؟",
+      "ur": "مکہ سے مدینہ آنے والے مسلمانوں کو کس نام سے یاد کیا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Ansar",
+        "Ahl al-Suffa",
+        "Banu Aws",
+        "Muhajirun (the Emigrants)"
+      ],
+      "ar": [
+        "الأنصار",
+        "أهل الصفة",
+        "بنو أوس",
+        "المهاجرون"
+      ],
+      "ur": [
+        "انصار",
+        "اہلِ صفہ",
+        "بنو اوس",
+        "مہاجرین"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Ansar and the Muhajirun treat one another?",
+      "ar": "كيف عامل الأنصار والمهاجرون بعضهم بعضًا؟",
+      "ur": "انصار اور مہاجرین نے ایک دوسرے کے ساتھ کیسا برتاؤ کیا؟"
+    },
+    "options": {
+      "en": [
+        "As rivals",
+        "As strangers",
+        "As brothers, with great kindness and love",
+        "As enemies"
+      ],
+      "ar": [
+        "كمتنافسين",
+        "كغرباء",
+        "كإخوة بكل لطف ومحبة",
+        "كأعداء"
+      ],
+      "ur": [
+        "حریفوں کی طرح",
+        "اجنبیوں کی طرح",
+        "بھائیوں کی طرح، نہایت محبت اور مہربانی سے",
+        "دشمنوں کی طرح"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the platform beside the Prophet's Mosque where the Prophet ﷺ taught the Muslims called?",
+      "ar": "ما اسم الصُّفّة بجوار المسجد النبوي التي كان النبي ﷺ يعلّم فيها المسلمين؟",
+      "ur": "مسجدِ نبوی کے پاس وہ چبوترہ جہاں نبی ﷺ مسلمانوں کو تعلیم دیتے تھے، کیا کہلاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Suffa",
+        "Minbar",
+        "Mihrab",
+        "Minaret"
+      ],
+      "ar": [
+        "الصفة",
+        "المنبر",
+        "المحراب",
+        "المنارة"
+      ],
+      "ur": [
+        "صفہ",
+        "منبر",
+        "محراب",
+        "مینار"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Building of Madinah",
+    "event_id": null
+  }
+]

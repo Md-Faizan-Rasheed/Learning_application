@@ -12,8 +12,7 @@ double _halfDiagonal(Size size) => 0.5 * sqrt(size.width * size.width + size.hei
 void main() {
   group('layoutRadial', () {
     test('places ring 0 fixed at center, pointing straight up, no rotation', () {
-      final placements =
-          layoutRadial([const RadialNode(label: 'Root', ring: 0)]);
+      final placements = layoutRadial([const RadialNode(label: 'Root', ring: 0)]);
       expect(placements, hasLength(1));
       expect(placements.single.center, const Offset(0.5, 0.5));
       expect(placements.single.rotation, 0);
@@ -25,8 +24,7 @@ void main() {
       expect(placements, hasLength(5));
 
       // Every node should sit the same distance from center (0.5, 0.5).
-      final distances =
-          placements.map((p) => (p.center - const Offset(0.5, 0.5)).distance).toSet();
+      final distances = placements.map((p) => (p.center - const Offset(0.5, 0.5)).distance).toSet();
       for (final d in distances) {
         expect(d, closeTo(distances.first, 0.001));
       }

@@ -1,0 +1,2754 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which colour did the Prophet ﷺ like?",
+      "ar": "أي لون كان النبي ﷺ يحب؟",
+      "ur": "نبی ﷺ کو کون سا رنگ پسند تھا؟"
+    },
+    "options": {
+      "en": [
+        "Red",
+        "Yellow",
+        "Purple",
+        "White"
+      ],
+      "ar": [
+        "الأحمر",
+        "الأصفر",
+        "الأرجواني",
+        "الأبيض"
+      ],
+      "ur": [
+        "سرخ",
+        "زرد",
+        "جامنی",
+        "سفید"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which fruit did the Prophet ﷺ like?",
+      "ar": "أي فاكهة كان النبي ﷺ يحب؟",
+      "ur": "نبی ﷺ کو کون سا پھل پسند تھا؟"
+    },
+    "options": {
+      "en": [
+        "Mangoes",
+        "Dates",
+        "Bananas",
+        "Apples only"
+      ],
+      "ar": [
+        "المانجو",
+        "التمر",
+        "الموز",
+        "التفاح فقط"
+      ],
+      "ur": [
+        "آم",
+        "کھجور",
+        "کیلا",
+        "صرف سیب"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "With which hand did the Prophet ﷺ eat?",
+      "ar": "بأي يد كان النبي ﷺ يأكل؟",
+      "ur": "نبی ﷺ کس ہاتھ سے کھاتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Left hand",
+        "Either hand",
+        "Both hands together",
+        "Right hand"
+      ],
+      "ar": [
+        "اليسرى",
+        "أي يد",
+        "اليدين معًا",
+        "اليمنى"
+      ],
+      "ur": [
+        "بائیں ہاتھ سے",
+        "کسی بھی ہاتھ سے",
+        "دونوں ہاتھوں سے",
+        "دائیں ہاتھ سے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Prophet ﷺ begin every task?",
+      "ar": "كيف كان النبي ﷺ يبدأ كل عمل؟",
+      "ur": "نبی ﷺ ہر کام کا آغاز کیسے فرماتے؟"
+    },
+    "options": {
+      "en": [
+        "Without any words",
+        "With the left hand",
+        "With Bismillah and the right hand",
+        "After sunset only"
+      ],
+      "ar": [
+        "بلا كلام",
+        "باليسار",
+        "بالبسملة وباليمين",
+        "بعد الغروب فقط"
+      ],
+      "ur": [
+        "بغیر کچھ کہے",
+        "بائیں ہاتھ سے",
+        "بسم اللہ اور دائیں ہاتھ سے",
+        "صرف غروبِ آفتاب کے بعد"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Prophet ﷺ usually smile?",
+      "ar": "كيف كان تبسم النبي ﷺ غالبًا؟",
+      "ur": "نبی ﷺ عموماً کس طرح مسکراتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "He laughed loudly",
+        "He never smiled",
+        "He would smile gently",
+        "He smiled only at night"
+      ],
+      "ar": [
+        "يضحك بصوت عالٍ",
+        "لا يبتسم أبدًا",
+        "يتبسم برفق",
+        "يبتسم ليلًا فقط"
+      ],
+      "ur": [
+        "بلند قہقہہ لگاتے",
+        "کبھی نہ مسکراتے",
+        "نرمی سے مسکراتے",
+        "صرف رات کو مسکراتے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When did the Prophet ﷺ get angry?",
+      "ar": "متى كان النبي ﷺ يغضب؟",
+      "ur": "نبی ﷺ کو غصہ کب آتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "When he lost a debate",
+        "When it was hot",
+        "When someone disobeyed God's command",
+        "When he was hungry"
+      ],
+      "ar": [
+        "إذا خسر نقاشًا",
+        "إذا اشتد الحر",
+        "إذا خُولف أمر الله",
+        "إذا جاع"
+      ],
+      "ur": [
+        "جب بحث ہار جاتے",
+        "جب گرمی ہوتی",
+        "جب اللہ کے حکم کی خلاف ورزی ہوتی",
+        "جب بھوک لگتی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ use to clean his teeth?",
+      "ar": "بماذا كان النبي ﷺ ينظف أسنانه؟",
+      "ur": "نبی ﷺ دانت کس چیز سے صاف کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "A metal pick",
+        "Miswak",
+        "Salt only",
+        "A cloth"
+      ],
+      "ar": [
+        "عود معدني",
+        "السواك",
+        "الملح فقط",
+        "قطعة قماش"
+      ],
+      "ur": [
+        "دھات کی سلائی",
+        "مسواک",
+        "صرف نمک",
+        "کپڑا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What kind of food did the Prophet ﷺ mostly use?",
+      "ar": "أي طعام كان النبي ﷺ يستعمل غالبًا؟",
+      "ur": "نبی ﷺ زیادہ تر کیسا کھانا استعمال فرماتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Very rich food",
+        "Only sweets",
+        "Only fried food",
+        "Simple food"
+      ],
+      "ar": [
+        "طعامًا فاخرًا",
+        "الحلوى فقط",
+        "المقلي فقط",
+        "طعامًا بسيطًا"
+      ],
+      "ur": [
+        "بہت مرغن کھانا",
+        "صرف میٹھا",
+        "صرف تلا ہوا",
+        "سادہ کھانا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What kind of bread did the Prophet ﷺ eat?",
+      "ar": "أي خبز كان يأكل النبي ﷺ؟",
+      "ur": "نبی ﷺ کس آٹے کی روٹی کھاتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Fine white flour bread only",
+        "Rice bread",
+        "Corn bread only",
+        "Barley bread"
+      ],
+      "ar": [
+        "خبز الدقيق الأبيض الناعم فقط",
+        "خبز الأرز",
+        "خبز الذرة فقط",
+        "خبز الشعير"
+      ],
+      "ur": [
+        "صرف میدے کی روٹی",
+        "چاول کی روٹی",
+        "صرف مکئی کی روٹی",
+        "جَو کی روٹی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In how many breaths did the Prophet ﷺ drink water?",
+      "ar": "في كم نفس كان النبي ﷺ يشرب الماء؟",
+      "ur": "نبی ﷺ پانی کتنے سانسوں میں پیتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Two",
+        "Ten",
+        "Three"
+      ],
+      "ar": [
+        "نفس واحد",
+        "نفسين",
+        "عشرة",
+        "ثلاثة أنفاس"
+      ],
+      "ur": [
+        "ایک",
+        "دو",
+        "دس",
+        "تین"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which drinks did the Prophet ﷺ like?",
+      "ar": "أي المشروبات كان النبي ﷺ يحب؟",
+      "ur": "نبی ﷺ کو کون سے مشروبات پسند تھے؟"
+    },
+    "options": {
+      "en": [
+        "Milk and honey",
+        "Coffee and tea",
+        "Juice only",
+        "Soda"
+      ],
+      "ar": [
+        "اللبن والعسل",
+        "القهوة والشاي",
+        "العصير فقط",
+        "المياه الغازية"
+      ],
+      "ur": [
+        "دودھ اور شہد",
+        "کافی اور چائے",
+        "صرف جوس",
+        "سوڈا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which shoe did the Prophet ﷺ put on first?",
+      "ar": "أي نعل كان النبي ﷺ يلبس أولًا؟",
+      "ur": "نبی ﷺ پہلے کون سا جوتا پہنتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "The left",
+        "Both at once",
+        "The right",
+        "It did not matter"
+      ],
+      "ar": [
+        "اليسرى",
+        "كلاهما معًا",
+        "اليمنى",
+        "لا فرق"
+      ],
+      "ur": [
+        "بایاں",
+        "دونوں ساتھ",
+        "دایاں",
+        "کوئی فرق نہ تھا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On which side did the Prophet ﷺ lie down to sleep?",
+      "ar": "على أي جنب كان النبي ﷺ ينام؟",
+      "ur": "نبی ﷺ کس کروٹ پر لیٹتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Left side",
+        "Back",
+        "Stomach",
+        "Right side"
+      ],
+      "ar": [
+        "الأيسر",
+        "الظهر",
+        "البطن",
+        "الأيمن"
+      ],
+      "ur": [
+        "بائیں کروٹ",
+        "پیٹھ کے بل",
+        "پیٹ کے بل",
+        "دائیں کروٹ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was the seal of prophethood on the Prophet ﷺ?",
+      "ar": "أين كان خاتم النبوة على النبي ﷺ؟",
+      "ur": "نبی ﷺ پر مہرِ نبوت کہاں تھی؟"
+    },
+    "options": {
+      "en": [
+        "On the forehead",
+        "On the hand",
+        "Between the two shoulders",
+        "On the foot"
+      ],
+      "ar": [
+        "على الجبهة",
+        "على اليد",
+        "بين الكتفين",
+        "على القدم"
+      ],
+      "ur": [
+        "پیشانی پر",
+        "ہاتھ پر",
+        "دونوں کندھوں کے درمیان",
+        "پاؤں پر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was engraved on the Prophet's ﷺ ring?",
+      "ar": "ماذا كان منقوشًا على خاتم النبي ﷺ؟",
+      "ur": "نبی ﷺ کی انگوٹھی پر کیا کندہ تھا؟"
+    },
+    "options": {
+      "en": [
+        "Bismillah",
+        "Muhammad Rasul Allah",
+        "Allahu Akbar",
+        "La ilaha illa Allah"
+      ],
+      "ar": [
+        "بسم الله",
+        "محمد رسول الله",
+        "الله أكبر",
+        "لا إله إلا الله"
+      ],
+      "ur": [
+        "بسم اللہ",
+        "محمد رسول اللہ",
+        "اللہ اکبر",
+        "لا الٰہ الا اللہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What does the Quran say of the Prophet's ﷺ character?",
+      "ar": "ماذا يقول القرآن عن خلق النبي ﷺ؟",
+      "ur": "قرآن نبی ﷺ کے اخلاق کے بارے میں کیا فرماتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "That he was of a great character",
+        "That he was harsh",
+        "That he was ordinary",
+        "That he was silent"
+      ],
+      "ar": [
+        "أنه على خلق عظيم",
+        "أنه قاسٍ",
+        "أنه عادي",
+        "أنه صامت"
+      ],
+      "ur": [
+        "کہ آپ ﷺ عظیم اخلاق پر ہیں",
+        "کہ آپ ﷺ سخت ہیں",
+        "کہ آپ ﷺ عام ہیں",
+        "کہ آپ ﷺ خاموش ہیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say about the purpose of his mission regarding character?",
+      "ar": "ماذا قال النبي ﷺ عن غاية بعثته في شأن الأخلاق؟",
+      "ur": "اخلاق کے بارے میں اپنی بعثت کے مقصد کی بابت نبی ﷺ نے کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "I was sent to collect taxes",
+        "I was sent to rule",
+        "I was sent to trade",
+        "I was sent to perfect noble character"
+      ],
+      "ar": [
+        "بُعثت لجمع الضرائب",
+        "بُعثت لأحكم",
+        "بُعثت لأتاجر",
+        "بُعثت لأتمم مكارم الأخلاق"
+      ],
+      "ur": [
+        "مجھے ٹیکس وصول کرنے بھیجا گیا",
+        "مجھے حکومت کے لیے بھیجا گیا",
+        "مجھے تجارت کے لیے بھیجا گیا",
+        "مجھے اچھے اخلاق کی تکمیل کے لیے بھیجا گیا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What has the Quran declared the Prophet ﷺ to be for all the worlds?",
+      "ar": "بماذا وصف القرآن النبي ﷺ للعالمين؟",
+      "ur": "قرآن نے نبی ﷺ کو تمام جہانوں کے لیے کیا قرار دیا؟"
+    },
+    "options": {
+      "en": [
+        "A warrior",
+        "A mercy",
+        "A king",
+        "A merchant"
+      ],
+      "ar": [
+        "محاربًا",
+        "رحمة",
+        "ملكًا",
+        "تاجرًا"
+      ],
+      "ur": [
+        "جنگجو",
+        "رحمت",
+        "بادشاہ",
+        "تاجر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "From which companion (servant of the Prophet ﷺ) are very many hadiths narrated?",
+      "ar": "عن أي صحابي خادم للنبي ﷺ رُويت أحاديث كثيرة؟",
+      "ur": "نبی ﷺ کے خادم صحابیوں میں سے کس سے بہت سی احادیث مروی ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Zayd",
+        "Hazrat Ali only",
+        "Hazrat Anas ibn Malik"
+      ],
+      "ar": [
+        "بلال",
+        "زيد",
+        "علي فقط",
+        "أنس بن مالك"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت زید",
+        "صرف حضرت علی",
+        "حضرت انس بن مالک"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "From which of the Prophet's ﷺ wives are the most hadiths narrated?",
+      "ar": "عن أي زوجات النبي ﷺ رُوي أكثر الأحاديث؟",
+      "ur": "نبی ﷺ کی کس زوجہ سے سب سے زیادہ احادیث مروی ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Khadija",
+        "Hazrat Sawda",
+        "Hazrat Aisha",
+        "Hazrat Zaynab"
+      ],
+      "ar": [
+        "خديجة",
+        "سودة",
+        "عائشة",
+        "زينب"
+      ],
+      "ur": [
+        "حضرت خدیجہ",
+        "حضرت سودہ",
+        "حضرت عائشہ",
+        "حضرت زینب"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ do before going on a journey?",
+      "ar": "ماذا كان النبي ﷺ يفعل قبل السفر؟",
+      "ur": "سفر پر روانہ ہونے سے پہلے نبی ﷺ کیا کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Slept a day",
+        "Prayed two rak'ahs",
+        "Fasted a month",
+        "Called a meeting"
+      ],
+      "ar": [
+        "ينام يومًا",
+        "يصلي ركعتين",
+        "يصوم شهرًا",
+        "يعقد اجتماعًا"
+      ],
+      "ur": [
+        "ایک دن سوتے",
+        "دو رکعت نماز پڑھتے",
+        "ایک مہینہ روزے رکھتے",
+        "مجلس بلاتے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the command to send blessings upon the Prophet ﷺ?",
+      "ar": "في أي سورة الأمر بالصلاة على النبي ﷺ؟",
+      "ur": "نبی ﷺ پر درود بھیجنے کا حکم کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Ahzab",
+        "Surah al-Kawthar",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الأحزاب",
+        "سورة الكوثر",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الاحزاب",
+        "سورۃ الکوثر",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What are the Prophet's ﷺ wives to the believers?",
+      "ar": "ماذا تكون زوجات النبي ﷺ للمؤمنين؟",
+      "ur": "نبی ﷺ کی ازواج مومنوں کے لیے کیا ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Sisters",
+        "Mothers (Ummahat al-Mu'minin)",
+        "Aunts",
+        "Daughters"
+      ],
+      "ar": [
+        "أخوات",
+        "أمهات المؤمنين",
+        "عمات",
+        "بنات"
+      ],
+      "ur": [
+        "بہنیں",
+        "مائیں (امہات المومنین)",
+        "پھوپھیاں",
+        "بیٹیاں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion did the Prophet ﷺ address with the kunya Abu Turab?",
+      "ar": "أي صحابي كنّاه النبي ﷺ بأبي تراب؟",
+      "ur": "نبی ﷺ نے کس صحابی کو ابو تراب کی کنیت دی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar",
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Uthman"
+      ],
+      "ar": [
+        "عمر",
+        "علي",
+        "بلال",
+        "عثمان"
+      ],
+      "ur": [
+        "حضرت عمر",
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت عثمان"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "About which companion did the Prophet ﷺ say that even the angels are shy of him?",
+      "ar": "عن أي صحابي قال النبي ﷺ إن الملائكة تستحي منه؟",
+      "ur": "نبی ﷺ نے کس صحابی کے بارے میں فرمایا کہ فرشتے بھی ان سے حیا کرتے ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Uthman",
+        "Hazrat Ali",
+        "Hazrat Umar",
+        "Hazrat Bilal"
+      ],
+      "ar": [
+        "عثمان",
+        "علي",
+        "عمر",
+        "بلال"
+      ],
+      "ur": [
+        "حضرت عثمان",
+        "حضرت علی",
+        "حضرت عمر",
+        "حضرت بلال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "About which companion did the Prophet ﷺ say, \"If there were to be a prophet after me, it would be him\"?",
+      "ar": "عن أي صحابي قال النبي ﷺ: «لو كان بعدي نبي لكان عمر»؟",
+      "ur": "نبی ﷺ نے کس صحابی کے بارے میں فرمایا: \"میرے بعد نبی ہوتا تو وہ عمر ہوتے\"؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Umar",
+        "Hazrat Uthman",
+        "Hazrat Abu Bakr"
+      ],
+      "ar": [
+        "علي",
+        "عمر",
+        "عثمان",
+        "أبو بكر"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عمر",
+        "حضرت عثمان",
+        "حضرت ابو بکر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what name are the ten companions given glad tidings of Paradise remembered?",
+      "ar": "بأي اسم يُعرف الصحابة العشرة المبشرون بالجنة؟",
+      "ur": "جنت کی بشارت پانے والے دس صحابہ کو کس نام سے یاد کیا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Ahl al-Suffa",
+        "Ashara Mubashshara",
+        "Ansar",
+        "Muhajirun"
+      ],
+      "ar": [
+        "أهل الصفة",
+        "العشرة المبشرة",
+        "الأنصار",
+        "المهاجرون"
+      ],
+      "ur": [
+        "اہلِ صفہ",
+        "عشرہ مبشرہ",
+        "انصار",
+        "مہاجرین"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom did the Prophet ﷺ give the title Sayf Allah (Sword of God)?",
+      "ar": "لمن منح النبي ﷺ لقب سيف الله؟",
+      "ur": "نبی ﷺ نے کس کو سیف اللہ (اللہ کی تلوار) کا لقب دیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Umar",
+        "Hazrat Khalid ibn al-Walid",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "علي",
+        "عمر",
+        "خالد بن الوليد",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عمر",
+        "حضرت خالد بن ولید",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion did the Prophet ﷺ appoint as muezzin?",
+      "ar": "أي صحابي عيّنه النبي ﷺ مؤذنًا؟",
+      "ur": "نبی ﷺ نے کس صحابی کو مؤذن مقرر فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Anas",
+        "Hazrat Ali",
+        "Hazrat Zayd",
+        "Hazrat Bilal"
+      ],
+      "ar": [
+        "أنس",
+        "علي",
+        "زيد",
+        "بلال"
+      ],
+      "ur": [
+        "حضرت انس",
+        "حضرت علی",
+        "حضرت زید",
+        "حضرت بلال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which people of which place invited the Prophet ﷺ to mubahala but later backed out?",
+      "ar": "أي أهل مكان دعاهم النبي ﷺ إلى المباهلة ثم تراجعوا؟",
+      "ur": "کس مقام کے عیسائیوں نے مباہلے کی دعوت دی مگر بعد میں پیچھے ہٹ گئے؟"
+    },
+    "options": {
+      "en": [
+        "Taif",
+        "Khaybar",
+        "Yemen",
+        "Najran"
+      ],
+      "ar": [
+        "الطائف",
+        "خيبر",
+        "اليمن",
+        "نجران"
+      ],
+      "ur": [
+        "طائف",
+        "خیبر",
+        "یمن",
+        "نجران"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is mubahala?",
+      "ar": "ما هي المباهلة؟",
+      "ur": "مباہلہ کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Invoking a curse on one another",
+        "A trade agreement",
+        "A prayer for rain",
+        "A peace treaty"
+      ],
+      "ar": [
+        "الدعاء باللعن على المخطئ منهما",
+        "اتفاق تجاري",
+        "صلاة الاستسقاء",
+        "معاهدة سلام"
+      ],
+      "ur": [
+        "ایک دوسرے پر لعنت کی دعا کرنا",
+        "تجارتی معاہدہ",
+        "بارش کی دعا",
+        "صلح نامہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where did the Prophet ﷺ teach the religion to the jinn?",
+      "ar": "أين علّم النبي ﷺ الجن الدين؟",
+      "ur": "نبی ﷺ نے جنوں کو دین کہاں سکھایا؟"
+    },
+    "options": {
+      "en": [
+        "Badr",
+        "Uhud",
+        "Nakhla",
+        "Quba"
+      ],
+      "ar": [
+        "بدر",
+        "أحد",
+        "نخلة",
+        "قباء"
+      ],
+      "ur": [
+        "بدر",
+        "احد",
+        "نخلہ",
+        "قبا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "About which mountain did the Prophet ﷺ say, \"It loves us and we love it\"?",
+      "ar": "عن أي جبل قال النبي ﷺ: «يحبنا ونحبه»؟",
+      "ur": "نبی ﷺ نے کس پہاڑ کے بارے میں فرمایا: \"یہ ہم سے محبت کرتا ہے اور ہم اس سے\"؟"
+    },
+    "options": {
+      "en": [
+        "Mount Thawr",
+        "Mount Safa",
+        "Mount Uhud",
+        "Mount Hira"
+      ],
+      "ar": [
+        "جبل ثور",
+        "جبل الصفا",
+        "جبل أحد",
+        "جبل حراء"
+      ],
+      "ur": [
+        "ثور پہاڑ",
+        "کوہِ صفا",
+        "احد پہاڑ",
+        "حرا پہاڑ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was in the mubahala group from the Prophet's ﷺ household?",
+      "ar": "من كان في المباهلة من أهل بيت النبي ﷺ؟",
+      "ur": "مباہلے میں نبی ﷺ کے اہلِ خانہ میں سے کون شریک تھے؟"
+    },
+    "options": {
+      "en": [
+        "Ali, Fatima, Hasan and Husayn",
+        "Abu Bakr and Umar",
+        "Bilal and Zayd",
+        "Khadija and Aisha"
+      ],
+      "ar": [
+        "علي وفاطمة والحسن والحسين",
+        "أبو بكر وعمر",
+        "بلال وزيد",
+        "خديجة وعائشة"
+      ],
+      "ur": [
+        "علی، فاطمہ، حسن اور حسین",
+        "ابو بکر اور عمر",
+        "بلال اور زید",
+        "خدیجہ اور عائشہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which surahs did the Prophet ﷺ recite in the witr prayer (in the three rak'ahs)?",
+      "ar": "أي سور كان يقرأ النبي ﷺ في ركعات الوتر؟",
+      "ur": "نبی ﷺ وتر کی تین رکعتوں میں کون سی سورتیں پڑھتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "al-Fil, al-Asr, al-Nas",
+        "al-Kawthar, al-Fatiha, al-Nasr",
+        "al-A'la, al-Kafirun, al-Ikhlas",
+        "Yasin, Mulk, Waqi'a"
+      ],
+      "ar": [
+        "الفيل والعصر والناس",
+        "الكوثر والفاتحة والنصر",
+        "الأعلى والكافرون والإخلاص",
+        "يس والملك والواقعة"
+      ],
+      "ur": [
+        "الفیل، العصر، الناس",
+        "الکوثر، الفاتحہ، النصر",
+        "الاعلیٰ، الکافرون، الاخلاص",
+        "یٰسین، ملک، واقعہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion asked the Prophet ﷺ to pray for the strength of his memory?",
+      "ar": "أي صحابي سأل النبي ﷺ أن يدعو له بقوة الحفظ؟",
+      "ur": "کس صحابی نے نبی ﷺ سے حافظے کی قوت کی دعا کروائی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Ali",
+        "Hazrat Zubayr",
+        "Hazrat Abu Hurayra"
+      ],
+      "ar": [
+        "بلال",
+        "علي",
+        "الزبير",
+        "أبو هريرة"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت علی",
+        "حضرت زبیر",
+        "حضرت ابو ہریرہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of these was a non-Arab companion of the Prophet ﷺ?",
+      "ar": "أي من هؤلاء صحابي غير عربي؟",
+      "ur": "ان میں سے کون نبی ﷺ کے غیر عرب صحابی تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Salman al-Farisi",
+        "Hazrat Umar",
+        "Hazrat Ali",
+        "Hazrat Abu Bakr"
+      ],
+      "ar": [
+        "سلمان الفارسي",
+        "عمر",
+        "علي",
+        "أبو بكر"
+      ],
+      "ur": [
+        "حضرت سلمان فارسی",
+        "حضرت عمر",
+        "حضرت علی",
+        "حضرت ابو بکر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which rightly-guided caliph is buried in Jannat al-Baqi?",
+      "ar": "أي الخلفاء الراشدين دُفن في البقيع؟",
+      "ur": "کون سے خلیفۂ راشد جنت البقیع میں دفن ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Uthman",
+        "Hazrat Abu Bakr",
+        "Hazrat Umar",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "عثمان",
+        "أبو بكر",
+        "عمر",
+        "علي"
+      ],
+      "ur": [
+        "حضرت عثمان",
+        "حضرت ابو بکر",
+        "حضرت عمر",
+        "حضرت علی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which term is well known for the Prophet ﷺ being the last prophet?",
+      "ar": "أي لقب مشهور لكون النبي ﷺ آخر الأنبياء؟",
+      "ur": "نبی ﷺ کے آخری نبی ہونے کے لیے کون سا لقب مشہور ہے؟"
+    },
+    "options": {
+      "en": [
+        "Sayyid al-Shuhada",
+        "Ghawth",
+        "Qutb",
+        "Khatam al-Nabiyyin"
+      ],
+      "ar": [
+        "سيد الشهداء",
+        "الغوث",
+        "القطب",
+        "خاتم النبيين"
+      ],
+      "ur": [
+        "سید الشہداء",
+        "غوث",
+        "قطب",
+        "خاتم النبیین"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which false prophet claimed prophethood in the era of the Prophet ﷺ?",
+      "ar": "أي مدعٍ للنبوة ظهر في عهد النبي ﷺ؟",
+      "ur": "نبی ﷺ کے زمانے میں کس نے جھوٹی نبوت کا دعویٰ کیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Aswad al-Ansi",
+        "Abu Lahab",
+        "Waraqa"
+      ],
+      "ar": [
+        "أبو جهل",
+        "الأسود العنسي",
+        "أبو لهب",
+        "ورقة"
+      ],
+      "ur": [
+        "ابو جہل",
+        "اسود عنسی",
+        "ابو لہب",
+        "ورقہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion is called Amin al-Umma (Trustworthy of the Community)?",
+      "ar": "أي صحابي يُلقب بأمين الأمة؟",
+      "ur": "کس صحابی کو امین الامت کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Ubayda ibn al-Jarrah",
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Zayd"
+      ],
+      "ar": [
+        "أبو عبيدة بن الجراح",
+        "علي",
+        "بلال",
+        "زيد"
+      ],
+      "ur": [
+        "حضرت ابو عبیدہ بن جراح",
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت زید"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion is called Tarjuman al-Quran (Interpreter of the Quran)?",
+      "ar": "أي صحابي يُلقب بترجمان القرآن؟",
+      "ur": "کس صحابی کو ترجمان القرآن کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abdullah ibn Abbas",
+        "Hazrat Bilal",
+        "Hazrat Ali only",
+        "Hazrat Anas"
+      ],
+      "ar": [
+        "عبد الله بن عباس",
+        "بلال",
+        "علي فقط",
+        "أنس"
+      ],
+      "ur": [
+        "حضرت عبداللہ بن عباس",
+        "حضرت بلال",
+        "صرف حضرت علی",
+        "حضرت انس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion is called Jami' al-Quran (Compiler of the Quran)?",
+      "ar": "أي صحابي يُلقب بجامع القرآن؟",
+      "ur": "کس صحابی کو جامع القرآن کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Uthman Ghani",
+        "Hazrat Bilal",
+        "Hazrat Anas",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "عثمان بن عفان",
+        "بلال",
+        "أنس",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت عثمان غنی",
+        "حضرت بلال",
+        "حضرت انس",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is meant by wahy jali (manifest revelation)?",
+      "ar": "ما المقصود بالوحي الجلي؟",
+      "ur": "وحیِ جلی سے کیا مراد ہے؟"
+    },
+    "options": {
+      "en": [
+        "The hadith",
+        "A dream",
+        "The Quran",
+        "A vision"
+      ],
+      "ar": [
+        "الحديث",
+        "رؤيا",
+        "القرآن",
+        "كشف"
+      ],
+      "ur": [
+        "حدیث",
+        "خواب",
+        "قرآن",
+        "کشف"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is meant by wahy khafi (hidden revelation)?",
+      "ar": "ما المقصود بالوحي الخفي؟",
+      "ur": "وحیِ خفی سے کیا مراد ہے؟"
+    },
+    "options": {
+      "en": [
+        "The hadith",
+        "The Quran",
+        "The Torah",
+        "The Psalms"
+      ],
+      "ar": [
+        "الحديث",
+        "القرآن",
+        "التوراة",
+        "الزبور"
+      ],
+      "ur": [
+        "حدیث",
+        "قرآن",
+        "تورات",
+        "زبور"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many times does the name Muhammad appear in the Quran?",
+      "ar": "كم مرة ورد اسم محمد في القرآن؟",
+      "ur": "قرآن میں نام \"محمد\" کتنی بار آیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Ten",
+        "Four",
+        "Twenty"
+      ],
+      "ar": [
+        "مرة واحدة",
+        "عشر مرات",
+        "أربع مرات",
+        "عشرون مرة"
+      ],
+      "ur": [
+        "ایک بار",
+        "دس بار",
+        "چار بار",
+        "بیس بار"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah does the name Ahmad appear in the Quran?",
+      "ar": "في أي سورة ورد اسم أحمد في القرآن؟",
+      "ur": "قرآن میں نام \"احمد\" کس سورت میں آیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Saff",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الصف",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الصف",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the miracle of the splitting of the moon mentioned?",
+      "ar": "في أي سورة ذُكرت معجزة انشقاق القمر؟",
+      "ur": "چاند کے دو ٹکڑے ہونے کا معجزہ کس سورت میں مذکور ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Kawthar",
+        "Surah al-Qamar"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة الكوثر",
+        "سورة القمر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ الکوثر",
+        "سورۃ القمر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah does God say \"Did We not open your chest?\"",
+      "ar": "في أي سورة قال الله: «ألم نشرح لك صدرك»؟",
+      "ur": "کس سورت میں اللہ نے فرمایا: \"کیا ہم نے آپ کا سینہ نہیں کھول دیا؟\""
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah Alam Nashrah",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الشرح",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الم نشرح",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah was the Prophet ﷺ given the glad tidings of Kawthar?",
+      "ar": "في أي سورة بُشّر النبي ﷺ بالكوثر؟",
+      "ur": "کس سورت میں نبی ﷺ کو کوثر کی خوشخبری دی گئی؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Kawthar",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الكوثر",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الکوثر",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah does God say your Lord will give you so much that you will be pleased?",
+      "ar": "في أي سورة قال الله: «ولسوف يعطيك ربك فترضى»؟",
+      "ur": "کس سورت میں اللہ نے فرمایا: \"عنقریب آپ کا رب آپ کو اتنا دے گا کہ آپ راضی ہو جائیں گے\"؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Duha",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة الضحى",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ الضحیٰ",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which prophet did the Prophet ﷺ resemble?",
+      "ar": "أي نبي أشبهه النبي ﷺ؟",
+      "ur": "نبی ﷺ کی صورت کس نبی سے ملتی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ibrahim",
+        "Hazrat Nuh",
+        "Hazrat Yunus",
+        "Hazrat Yusuf"
+      ],
+      "ar": [
+        "إبراهيم",
+        "نوح",
+        "يونس",
+        "يوسف"
+      ],
+      "ur": [
+        "حضرت ابراہیم",
+        "حضرت نوح",
+        "حضرت یونس",
+        "حضرت یوسف"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Beneath whose feet did the Prophet ﷺ say Paradise lies?",
+      "ar": "تحت أقدام من قال النبي ﷺ إن الجنة؟",
+      "ur": "نبی ﷺ نے فرمایا کہ جنت کس کے قدموں تلے ہے؟"
+    },
+    "options": {
+      "en": [
+        "The father's",
+        "The teacher's",
+        "The ruler's",
+        "The mother's"
+      ],
+      "ar": [
+        "الأب",
+        "المعلم",
+        "الحاكم",
+        "الأم"
+      ],
+      "ur": [
+        "باپ کے",
+        "استاد کے",
+        "حاکم کے",
+        "ماں کے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "With whom did the Prophet ﷺ urge the greatest good treatment?",
+      "ar": "مع من حثّ النبي ﷺ على أعظم الإحسان؟",
+      "ur": "نبی ﷺ نے سب سے زیادہ حسنِ سلوک کی تلقین کس کے ساتھ فرمائی؟"
+    },
+    "options": {
+      "en": [
+        "Neighbours only",
+        "Strangers",
+        "Traders",
+        "Parents"
+      ],
+      "ar": [
+        "الجيران فقط",
+        "الغرباء",
+        "التجار",
+        "الوالدين"
+      ],
+      "ur": [
+        "صرف پڑوسیوں کے ساتھ",
+        "اجنبیوں کے ساتھ",
+        "تاجروں کے ساتھ",
+        "والدین کے ساتھ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ declare the coolness of his eyes?",
+      "ar": "ما الذي جعله النبي ﷺ قرة عينه؟",
+      "ur": "نبی ﷺ نے کس عمل کو اپنی آنکھوں کی ٹھنڈک قرار دیا؟"
+    },
+    "options": {
+      "en": [
+        "Trade",
+        "Travel",
+        "Prayer",
+        "Hunting"
+      ],
+      "ar": [
+        "التجارة",
+        "السفر",
+        "الصلاة",
+        "الصيد"
+      ],
+      "ur": [
+        "تجارت",
+        "سفر",
+        "نماز",
+        "شکار"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ teach Hazrat Fatima to recite (33, 33 and 34 times)?",
+      "ar": "ما الذي علّمه النبي ﷺ لفاطمة لتقوله (33 و33 و34)؟",
+      "ur": "نبی ﷺ نے حضرت فاطمہ کو کیا پڑھنا سکھایا (33، 33 اور 34 بار)؟"
+    },
+    "options": {
+      "en": [
+        "Subhan Allah, Alhamdulillah, Allahu Akbar",
+        "Only Bismillah",
+        "Only Astaghfirullah",
+        "Only Durood"
+      ],
+      "ar": [
+        "سبحان الله والحمد لله والله أكبر",
+        "بسم الله فقط",
+        "استغفر الله فقط",
+        "الصلاة على النبي فقط"
+      ],
+      "ur": [
+        "سبحان اللہ، الحمدللہ، اللہ اکبر",
+        "صرف بسم اللہ",
+        "صرف استغفار",
+        "صرف درود"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which surah did the Prophet ﷺ say to recite over the dying?",
+      "ar": "أي سورة قال النبي ﷺ اقرؤوها على موتاكم؟",
+      "ur": "نبی ﷺ نے فرمایا کہ مرنے والوں پر کون سی سورت پڑھو؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah Ya-Sin",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة يس",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۂ یٰسین",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which surah saves its reciter from the punishment of the grave, according to the Prophet ﷺ?",
+      "ar": "أي سورة تنجي قارئها من عذاب القبر كما قال النبي ﷺ؟",
+      "ur": "نبی ﷺ کے فرمان کے مطابق کون سی سورت پڑھنے والے کو عذابِ قبر سے بچاتی ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Mulk",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الملك",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الملک",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which verse protects its reciter and leads to Paradise according to the Prophet ﷺ?",
+      "ar": "أي آية تحفظ قارئها وتوصله إلى الجنة كما قال النبي ﷺ؟",
+      "ur": "نبی ﷺ کے فرمان کے مطابق کون سی آیت پڑھنے والے کی حفاظت کرتی اور جنت میں پہنچاتی ہے؟"
+    },
+    "options": {
+      "en": [
+        "Ayat al-Nur only",
+        "Ayat al-Ikhlas",
+        "Ayat al-Kursi",
+        "Ayat of Bismillah only"
+      ],
+      "ar": [
+        "آية النور فقط",
+        "آية الإخلاص",
+        "آية الكرسي",
+        "البسملة فقط"
+      ],
+      "ur": [
+        "صرف آیتِ نور",
+        "آیتِ اخلاص",
+        "آیت الکرسی",
+        "صرف بسم اللہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which surah did the Prophet ﷺ call the heart of the Quran?",
+      "ar": "أي سورة سماها النبي ﷺ قلب القرآن؟",
+      "ur": "نبی ﷺ نے کس سورت کو قرآن کا دل فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah Ya-Sin",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة يس",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۂ یٰسین",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was the first woman martyr in Islam?",
+      "ar": "من أول شهيدة في الإسلام؟",
+      "ur": "اسلام کی پہلی شہیدہ کون تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Khadija",
+        "Hazrat Sumayya",
+        "Hazrat Fatima",
+        "Hazrat Aisha"
+      ],
+      "ar": [
+        "خديجة",
+        "سمية",
+        "فاطمة",
+        "عائشة"
+      ],
+      "ur": [
+        "حضرت خدیجہ",
+        "حضرت سمیہ",
+        "حضرت فاطمہ",
+        "حضرت عائشہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion is called \"Hawari-e-Rasul\" (Disciple of the Messenger)?",
+      "ar": "أي صحابي يُلقب بحواريّ الرسول؟",
+      "ur": "کس صحابی کو حواریِ رسول کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Zubayr ibn al-Awwam",
+        "Hazrat Anas",
+        "Hazrat Abu Dharr"
+      ],
+      "ar": [
+        "بلال",
+        "الزبير بن العوام",
+        "أنس",
+        "أبو ذر"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت زبیر بن العوام",
+        "حضرت انس",
+        "حضرت ابو ذر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion's funeral did angels attend?",
+      "ar": "في جنازة أي صحابي حضرت الملائكة؟",
+      "ur": "کس صحابی کے جنازے میں فرشتے شریک ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Anas",
+        "Hazrat Sa'd ibn Mu'adh",
+        "Hazrat Zayd"
+      ],
+      "ar": [
+        "بلال",
+        "أنس",
+        "سعد بن معاذ",
+        "زيد"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت انس",
+        "حضرت سعد بن معاذ",
+        "حضرت زید"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did God call a manifest victory for the Muslims?",
+      "ar": "ماذا سمى الله فتحًا مبينًا للمسلمين؟",
+      "ur": "اللہ نے مسلمانوں کے لیے کس کو کھلی فتح قرار دیا؟"
+    },
+    "options": {
+      "en": [
+        "The Battle of Badr",
+        "The Treaty of Hudaybiyya",
+        "The Battle of Uhud",
+        "The Battle of Tabuk"
+      ],
+      "ar": [
+        "غزوة بدر",
+        "صلح الحديبية",
+        "غزوة أحد",
+        "غزوة تبوك"
+      ],
+      "ur": [
+        "غزوۂ بدر",
+        "صلحِ حدیبیہ",
+        "غزوۂ احد",
+        "غزوۂ تبوک"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion is called Ghasil al-Mala'ika (the one washed by angels)?",
+      "ar": "أي صحابي يُلقب بغسيل الملائكة؟",
+      "ur": "کس صحابی کو غسیل الملائکہ کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hamza",
+        "Hazrat Hanzala",
+        "Hazrat Bilal",
+        "Hazrat Zayd"
+      ],
+      "ar": [
+        "حمزة",
+        "حنظلة",
+        "بلال",
+        "زيد"
+      ],
+      "ur": [
+        "حضرت حمزہ",
+        "حضرت حنظلہ",
+        "حضرت بلال",
+        "حضرت زید"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which wife of the Prophet ﷺ is buried in Makkah?",
+      "ar": "أي زوجات النبي ﷺ دُفنت في مكة؟",
+      "ur": "نبی ﷺ کی کون سی زوجہ مکہ میں دفن ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Khadija",
+        "Hazrat Hafsa",
+        "Hazrat Sawda"
+      ],
+      "ar": [
+        "عائشة",
+        "خديجة",
+        "حفصة",
+        "سودة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت خدیجہ",
+        "حضرت حفصہ",
+        "حضرت سودہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose funeral prayer in absentia did the Prophet ﷺ lead?",
+      "ar": "على من صلّى النبي ﷺ صلاة الغائب؟",
+      "ur": "نبی ﷺ نے کس کی غائبانہ نمازِ جنازہ پڑھائی؟"
+    },
+    "options": {
+      "en": [
+        "Abu Talib",
+        "The Negus, king of Abyssinia",
+        "Abu Bakr",
+        "Hazrat Khadija"
+      ],
+      "ar": [
+        "أبو طالب",
+        "النجاشي ملك الحبشة",
+        "أبو بكر",
+        "خديجة"
+      ],
+      "ur": [
+        "ابو طالب",
+        "نجاشی، حبشہ کا بادشاہ",
+        "ابو بکر",
+        "حضرت خدیجہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the adhan begin?",
+      "ar": "في أي سنة بدأ الأذان؟",
+      "ur": "اذان کا آغاز کس سال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "1 AH",
+        "5 AH",
+        "8 AH",
+        "10 AH"
+      ],
+      "ar": [
+        "1 هـ",
+        "5 هـ",
+        "8 هـ",
+        "10 هـ"
+      ],
+      "ur": [
+        "1 ہجری",
+        "5 ہجری",
+        "8 ہجری",
+        "10 ہجری"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ declare the pillar of the religion?",
+      "ar": "ما الذي جعله النبي ﷺ عماد الدين؟",
+      "ur": "نبی ﷺ نے کس چیز کو دین کا ستون قرار دیا؟"
+    },
+    "options": {
+      "en": [
+        "Trade",
+        "Prayer (salat)",
+        "Travel",
+        "Poetry"
+      ],
+      "ar": [
+        "التجارة",
+        "الصلاة",
+        "السفر",
+        "الشعر"
+      ],
+      "ur": [
+        "تجارت",
+        "نماز",
+        "سفر",
+        "شاعری"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the title Habib Allah?",
+      "ar": "ما معنى لقب حبيب الله؟",
+      "ur": "حبیب اللہ لقب کا کیا مطلب ہے؟"
+    },
+    "options": {
+      "en": [
+        "Servant of God",
+        "Sword of God",
+        "Beloved of God",
+        "Friend of the poor"
+      ],
+      "ar": [
+        "عبد الله",
+        "سيف الله",
+        "حبيب الله",
+        "صديق الفقراء"
+      ],
+      "ur": [
+        "اللہ کا بندہ",
+        "اللہ کی تلوار",
+        "اللہ کا محبوب",
+        "غریبوں کا دوست"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What does Shafi' al-Mahshar mean?",
+      "ar": "ما معنى شفيع المحشر؟",
+      "ur": "شافعِ محشر کا کیا مطلب ہے؟"
+    },
+    "options": {
+      "en": [
+        "One who leads armies",
+        "One who intercedes on the Day of Gathering",
+        "One who builds mosques",
+        "One who collects zakat"
+      ],
+      "ar": [
+        "قائد الجيوش",
+        "الشافع يوم الحشر",
+        "بانِي المساجد",
+        "جامع الزكاة"
+      ],
+      "ur": [
+        "لشکروں کا قائد",
+        "میدانِ حشر میں شفاعت کرنے والا",
+        "مسجدیں بنانے والا",
+        "زکوٰۃ جمع کرنے والا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what sign will the Prophet ﷺ recognise his followers on the Day of Gathering?",
+      "ar": "بأي علامة سيعرف النبي ﷺ أمته يوم الحشر؟",
+      "ur": "قیامت کے دن نبی ﷺ اپنے امتیوں کو کس نشانی سے پہچانیں گے؟"
+    },
+    "options": {
+      "en": [
+        "Their clothing",
+        "Their language",
+        "Their height",
+        "The shining of the limbs of wudu"
+      ],
+      "ar": [
+        "ملابسهم",
+        "لغتهم",
+        "طولهم",
+        "غرة وتحجيل أعضاء الوضوء"
+      ],
+      "ur": [
+        "ان کے لباس",
+        "ان کی زبان",
+        "ان کا قد",
+        "وضو کے اعضا کی چمک"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Status of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which freed slave of the Prophet ﷺ was known as his beloved companion?",
+      "ar": "أي مولى للنبي ﷺ عُرف بحِبّ رسول الله؟",
+      "ur": "نبی ﷺ کے کون سے آزاد کردہ غلام \"حِبّ رسول\" (رسول کے محبوب) کہلاتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zayd ibn Haritha",
+        "Hazrat Anas",
+        "Hazrat Abu Hurayra",
+        "Hazrat Ka'b"
+      ],
+      "ar": [
+        "زيد بن حارثة",
+        "أنس",
+        "أبو هريرة",
+        "كعب"
+      ],
+      "ur": [
+        "حضرت زید بن حارثہ",
+        "حضرت انس",
+        "حضرت ابو ہریرہ",
+        "حضرت کعب"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which battle (8 AH) were Zayd, Ja'far and Abdullah ibn Rawaha martyred?",
+      "ar": "في أي غزوة (8 هـ) استشهد زيد وجعفر وعبد الله بن رواحة؟",
+      "ur": "کس جنگ (8 ہجری) میں زید، جعفر اور عبداللہ بن رواحہ شہید ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Battle of Badr",
+        "Battle of Uhud",
+        "Battle of Tabuk",
+        "Battle of Mu'ta"
+      ],
+      "ar": [
+        "غزوة بدر",
+        "غزوة أحد",
+        "غزوة تبوك",
+        "غزوة مؤتة"
+      ],
+      "ur": [
+        "غزوۂ بدر",
+        "غزوۂ احد",
+        "غزوۂ تبوک",
+        "غزوۂ موتہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which battle did the Prophet ﷺ say \"I am the Prophet, this is no lie\"?",
+      "ar": "في أي معركة قال النبي ﷺ: «أنا النبي لا كذب»؟",
+      "ur": "نبی ﷺ نے کس جنگ میں فرمایا: \"میں نبی ہوں، یہ جھوٹ نہیں\"؟"
+    },
+    "options": {
+      "en": [
+        "Battle of Badr",
+        "Battle of Tabuk",
+        "Battle of Hunayn",
+        "Battle of Khaybar"
+      ],
+      "ar": [
+        "غزوة بدر",
+        "غزوة تبوك",
+        "غزوة حنين",
+        "غزوة خيبر"
+      ],
+      "ur": [
+        "غزوۂ بدر",
+        "غزوۂ تبوک",
+        "غزوۂ حنین",
+        "غزوۂ خیبر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom did the Prophet ﷺ hand the keys of the Kaaba at the Conquest of Makkah?",
+      "ar": "لمن سلّم النبي ﷺ مفتاح الكعبة عند فتح مكة؟",
+      "ur": "فتحِ مکہ کے دن نبی ﷺ نے کعبہ کی چابیاں کس کے حوالے کیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Abu Sufyan",
+        "Hazrat Abbas",
+        "Uthman ibn Talha"
+      ],
+      "ar": [
+        "علي",
+        "أبو سفيان",
+        "العباس",
+        "عثمان بن طلحة"
+      ],
+      "ur": [
+        "حضرت علی",
+        "ابو سفیان",
+        "حضرت عباس",
+        "عثمان بن طلحہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which year is called the Year of the Delegations?",
+      "ar": "أي عام يُسمى عام الوفود؟",
+      "ur": "کس سال کو عام الوفود (وفود کا سال) کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "1 AH",
+        "5 AH",
+        "9 AH",
+        "11 AH"
+      ],
+      "ar": [
+        "1 هـ",
+        "5 هـ",
+        "9 هـ",
+        "11 هـ"
+      ],
+      "ur": [
+        "1 ہجری",
+        "5 ہجری",
+        "9 ہجری",
+        "11 ہجری"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Later Events",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is it stated that the Prophet ﷺ does not speak from his own desire?",
+      "ar": "في أي سورة أن النبي ﷺ لا ينطق عن الهوى؟",
+      "ur": "کس سورت میں ہے کہ نبی ﷺ اپنی خواہش سے نہیں بولتے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Najm",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة النجم",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ النجم",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the command \"Take what the Messenger gives you and refrain from what he forbids\"?",
+      "ar": "في أي سورة: «وما آتاكم الرسول فخذوه وما نهاكم عنه فانتهوا»؟",
+      "ur": "\"رسول جو دیں وہ لے لو اور جس سے روکیں رک جاؤ\" کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Asr",
+        "Surah al-Hashr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة العصر",
+        "سورة الحشر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ العصر",
+        "سورۃ الحشر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah did God refute the slander (Ifk) against Hazrat Aisha?",
+      "ar": "في أي سورة برّأ الله عائشة من الإفك؟",
+      "ur": "حضرت عائشہ پر بہتان (افک) کی تردید اللہ نے کس سورت میں فرمائی؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Nur",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة النور",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ النور",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Prophet in the Quran",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When companions asked the Prophet ﷺ to curse the polytheists, what did he say?",
+      "ar": "حين طلب الصحابة من النبي ﷺ أن يلعن المشركين، ماذا قال؟",
+      "ur": "جب صحابہ نے مشرکوں پر لعنت کرنے کو کہا تو نبی ﷺ نے کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "I was sent as a mercy, not a curse",
+        "Yes, curse them",
+        "Leave them alone",
+        "Fight them"
+      ],
+      "ar": [
+        "إنما بُعثت رحمة ولم أُبعث لعّانًا",
+        "نعم، العنوهم",
+        "اتركوهم",
+        "قاتلوهم"
+      ],
+      "ur": [
+        "مجھے رحمت بنا کر بھیجا گیا ہے، لعنت کرنے والا بنا کر نہیں",
+        "ہاں، لعنت کرو",
+        "انہیں چھوڑ دو",
+        "ان سے لڑو"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many signs of a hypocrite did the Prophet ﷺ describe in a well-known hadith?",
+      "ar": "كم علامة للمنافق ذكرها النبي ﷺ في الحديث المشهور؟",
+      "ur": "مشہور حدیث میں نبی ﷺ نے منافق کی کتنی نشانیاں بیان فرمائیں؟"
+    },
+    "options": {
+      "en": [
+        "Three",
+        "One",
+        "Ten",
+        "Twenty"
+      ],
+      "ar": [
+        "ثلاث",
+        "واحدة",
+        "عشر",
+        "عشرون"
+      ],
+      "ur": [
+        "تین",
+        "ایک",
+        "دس",
+        "بیس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Character and Habits of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which two rightly-guided caliphs were the Prophet's ﷺ fathers-in-law?",
+      "ar": "أي الخلفاء كانا حَمَوَي النبي ﷺ؟",
+      "ur": "کون سے دو خلفاء نبی ﷺ کے سسر تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr and Hazrat Umar",
+        "Hazrat Uthman and Hazrat Ali",
+        "Hazrat Abu Bakr and Hazrat Uthman",
+        "Hazrat Umar and Hazrat Ali"
+      ],
+      "ar": [
+        "أبو بكر وعمر",
+        "عثمان وعلي",
+        "أبو بكر وعثمان",
+        "عمر وعلي"
+      ],
+      "ur": [
+        "حضرت ابو بکر اور حضرت عمر",
+        "حضرت عثمان اور حضرت علی",
+        "حضرت ابو بکر اور حضرت عثمان",
+        "حضرت عمر اور حضرت علی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What title does Hazrat Fatima hold (Batul)?",
+      "ar": "ما لقب فاطمة (البتول) الذي تحمله؟",
+      "ur": "حضرت فاطمہ کا کون سا لقب بتول ہے؟"
+    },
+    "options": {
+      "en": [
+        "Tahira",
+        "Siddiqa",
+        "Umm al-Masakin",
+        "Batul"
+      ],
+      "ar": [
+        "الطاهرة",
+        "الصديقة",
+        "أم المساكين",
+        "البتول"
+      ],
+      "ur": [
+        "طاہرہ",
+        "صدیقہ",
+        "ام المساکین",
+        "بتول"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion of the Prophet ﷺ received the title \"Fayyad\" (Generous)?",
+      "ar": "أي صحابي لقّبه النبي ﷺ بالفيّاض؟",
+      "ur": "نبی ﷺ نے کس صحابی کو \"فیاض\" کا لقب دیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Zayd",
+        "Hazrat Talha",
+        "Hazrat Anas"
+      ],
+      "ar": [
+        "بلال",
+        "زيد",
+        "طلحة",
+        "أنس"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت زید",
+        "حضرت طلحہ",
+        "حضرت انس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion was appointed teacher in Makkah after its conquest?",
+      "ar": "أي صحابي عيّنه النبي ﷺ معلمًا في مكة بعد الفتح؟",
+      "ur": "فتحِ مکہ کے بعد نبی ﷺ نے مکہ میں معلم کس کو مقرر فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Anas",
+        "Hazrat Zayd",
+        "Hazrat Mu'adh ibn Jabal"
+      ],
+      "ar": [
+        "بلال",
+        "أنس",
+        "زيد",
+        "معاذ بن جبل"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت انس",
+        "حضرت زید",
+        "حضرت معاذ بن جبل"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions of the Prophet",
+    "event_id": null
+  }
+]

@@ -1,0 +1,2818 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, on which day of the week was Prophet Muhammad ﷺ born?",
+      "ar": "وفقًا للمصدر، في أي يوم من أيام الأسبوع وُلد النبي محمد ﷺ؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ ہفتے کے کس دن پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Monday",
+        "Friday",
+        "Sunday",
+        "Wednesday"
+      ],
+      "ar": [
+        "الاثنين",
+        "الجمعة",
+        "الأحد",
+        "الأربعاء"
+      ],
+      "ur": [
+        "پیر",
+        "جمعہ",
+        "اتوار",
+        "بدھ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, in which month was Prophet Muhammad ﷺ born?",
+      "ar": "وفقًا للمصدر، في أي شهر وُلد النبي محمد ﷺ؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کس مہینے میں پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Rabi al-Awwal",
+        "Muharram",
+        "Rajab",
+        "Ramadan"
+      ],
+      "ar": [
+        "ربيع الأول",
+        "محرم",
+        "رجب",
+        "رمضان"
+      ],
+      "ur": [
+        "ربیع الاول",
+        "محرم",
+        "رجب",
+        "رمضان"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, at what time of day was Prophet Muhammad ﷺ born?",
+      "ar": "وفقًا للمصدر، في أي وقت من اليوم وُلد النبي محمد ﷺ؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ دن کے کس وقت پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "True dawn (subh sadiq)",
+        "Midnight",
+        "Sunset",
+        "Midday"
+      ],
+      "ar": [
+        "الفجر الصادق",
+        "منتصف الليل",
+        "غروب الشمس",
+        "وقت الظهر"
+      ],
+      "ur": [
+        "صبح صادق",
+        "آدھی رات",
+        "غروب آفتاب",
+        "دوپہر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which city was Prophet Muhammad ﷺ born?",
+      "ar": "في أي مدينة وُلد النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کس شہر میں پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Makkah al-Mukarramah",
+        "Madinah al-Munawwarah",
+        "Ta'if",
+        "Jerusalem"
+      ],
+      "ar": [
+        "مكة المكرمة",
+        "المدينة المنورة",
+        "الطائف",
+        "القدس"
+      ],
+      "ur": [
+        "مکہ مکرمہ",
+        "مدینہ منورہ",
+        "طائف",
+        "یروشلم"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, at which place in Makkah was Prophet Muhammad ﷺ born?",
+      "ar": "وفقًا للمصدر، في أي مكان من مكة وُلد النبي محمد ﷺ؟",
+      "ur": "دیے گئے ماخذ کے مطابق مکہ میں نبی محمد ﷺ کس مقام پر پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Suq al-Layl",
+        "Mount Uhud",
+        "Mina",
+        "Arafat"
+      ],
+      "ar": [
+        "سوق الليل",
+        "جبل أحد",
+        "منى",
+        "عرفات"
+      ],
+      "ur": [
+        "سوق اللیل",
+        "جبل احد",
+        "منیٰ",
+        "عرفات"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, which two events occurred around the birth of Prophet Muhammad ﷺ?",
+      "ar": "وفقًا للمصدر، ما الحدثان اللذان وقعا عند ولادة النبي محمد ﷺ؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کی ولادت کے وقت کون سے دو واقعات پیش آئے؟"
+    },
+    "options": {
+      "en": [
+        "The Persian fire-temple fire went out and the idols of the Kaaba fell face-down",
+        "The Kaaba was rebuilt and the Zamzam well disappeared",
+        "A flood struck Makkah and the Kaaba was damaged",
+        "The people of Makkah migrated to Madinah and the Kaaba was closed"
+      ],
+      "ar": [
+        "انطفأت نار المعبد الفارسي وسقطت أصنام الكعبة على وجوهها",
+        "وقع غزوة بدر وفتح مكة",
+        "بُني المسجد النبوي وبدأت الهجرة",
+        "وقعت غزوة أحد وحنين"
+      ],
+      "ur": [
+        "فارسی آتش کدے کی آگ بجھ گئی اور کعبہ کے بت اوندھے منہ گر گئے",
+        "غزوۂ بدر اور فتح مکہ ہوئی",
+        "مسجد نبوی بنائی گئی اور ہجرت شروع ہوئی",
+        "غزوۂ احد اور حنین ہوئی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which important event took place before the birth of Prophet Muhammad ﷺ, according to the source?",
+      "ar": "ما الحدث المهم الذي وقع قبل ولادة النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کی ولادت سے پہلے کون سا اہم واقعہ پیش آیا؟"
+    },
+    "options": {
+      "en": [
+        "The Incident of the Elephant",
+        "The Battle of Badr",
+        "The Conquest of Makkah",
+        "The Battle of Hunayn"
+      ],
+      "ar": [
+        "حادثة الفيل",
+        "غزوة بدر",
+        "فتح مكة",
+        "غزوة حنين"
+      ],
+      "ur": [
+        "واقعۂ فیل",
+        "غزوۂ بدر",
+        "فتح مکہ",
+        "غزوۂ حنین"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Hazrat Amina see at the time of the birth of Prophet Muhammad ﷺ, according to the source?",
+      "ar": "ماذا رأت السيدة آمنة رضي الله عنها عند ولادة النبي محمد ﷺ؟",
+      "ur": "حضرت آمنہ رضی اللہ عنہا نے نبی محمد ﷺ کی ولادت کے وقت کیا دیکھا؟"
+    },
+    "options": {
+      "en": [
+        "A light came from her by whose radiance she saw the palaces of Syria",
+        "A rainstorm over Makkah",
+        "The moon split into two",
+        "The Kaaba covered in green light"
+      ],
+      "ar": [
+        "رأت نورًا أضاءت به قصور الشام",
+        "رأت المطر ينزل في مكة",
+        "رأت الكعبة تنتقل من مكانها",
+        "رأت جبل أحد يضيء"
+      ],
+      "ur": [
+        "ایک نور دیکھا جس کی روشنی سے شام کے محلات نظر آئے",
+        "مکہ میں بارش دیکھی",
+        "کعبہ کو اپنی جگہ بدلتے دیکھا",
+        "جبل احد کو روشن دیکھا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the grandfather of Prophet Muhammad ﷺ see at the moment of his birth, according to the source?",
+      "ar": "ماذا رأى جد النبي محمد ﷺ عند ولادته؟",
+      "ur": "نبی محمد ﷺ کی ولادت کے وقت ان کے دادا نے کیا دیکھا؟"
+    },
+    "options": {
+      "en": [
+        "The House of the Kaaba was bowing toward their house",
+        "The doors of the Kaaba were closed",
+        "A flock of birds circled the house",
+        "The moon descended over Makkah"
+      ],
+      "ar": [
+        "رأى الكعبة تنحني نحو بيتهم",
+        "رأى جيشًا يدخل مكة",
+        "رأى المطر يهطل على الكعبة",
+        "رأى جبلًا يتحرك"
+      ],
+      "ur": [
+        "کعبہ کو اپنے گھر کی طرف جھکتے دیکھا",
+        "ایک لشکر کو مکہ میں داخل ہوتے دیکھا",
+        "کعبہ پر بارش دیکھی",
+        "ایک پہاڑ کو حرکت کرتے دیکھا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was the grandfather of Prophet Muhammad ﷺ at the time of his birth?",
+      "ar": "أين كان جد النبي محمد ﷺ وقت ولادة النبي ﷺ؟",
+      "ur": "نبی محمد ﷺ کی ولادت کے وقت ان کے دادا کہاں تھے؟"
+    },
+    "options": {
+      "en": [
+        "Makkah al-Mukarramah",
+        "Madinah al-Munawwarah",
+        "Syria",
+        "Ta'if"
+      ],
+      "ar": [
+        "مكة",
+        "المدينة",
+        "الطائف",
+        "الشام"
+      ],
+      "ur": [
+        "مکہ",
+        "مدینہ",
+        "طائف",
+        "شام"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How long before the birth of Prophet Muhammad ﷺ had his father passed away?",
+      "ar": "متى توفي والد النبي محمد ﷺ بالنسبة إلى ولادته؟",
+      "ur": "نبی محمد ﷺ کے والد ان کی ولادت سے کتنے عرصے پہلے وفات پا گئے تھے؟"
+    },
+    "options": {
+      "en": [
+        "A few months earlier",
+        "Several years earlier",
+        "One year earlier",
+        "On the day of his birth"
+      ],
+      "ar": [
+        "قبل الولادة ببضعة أشهر",
+        "بعد الولادة بعام",
+        "بعد الولادة بست سنوات",
+        "في يوم الولادة نفسه"
+      ],
+      "ur": [
+        "ولادت سے چند ماہ پہلے",
+        "ولادت کے ایک سال بعد",
+        "چھ سال بعد",
+        "اسی دن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which tribe did the father of Prophet Muhammad ﷺ belong to?",
+      "ar": "إلى أي قبيلة كان ينتمي والد النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کے والد کس قبیلے سے تعلق رکھتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Banu Hashim",
+        "Banu Zuhra",
+        "Banu Sa'd",
+        "Banu Umayyah"
+      ],
+      "ar": [
+        "بنو هاشم",
+        "بنو أمية",
+        "بنو تميم",
+        "بنو ثقيف"
+      ],
+      "ur": [
+        "بنو ہاشم",
+        "بنو امیہ",
+        "بنو تمیم",
+        "بنو ثقیف"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which tribe did the mother of Prophet Muhammad ﷺ belong to?",
+      "ar": "إلى أي قبيلة كانت تنتمي أم النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کی والدہ کس قبیلے سے تعلق رکھتی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Banu Zuhra",
+        "Banu Hashim",
+        "Banu Sa'd",
+        "Banu Thaqif"
+      ],
+      "ar": [
+        "بنو زهرة",
+        "بنو مخزوم",
+        "بنو أسد",
+        "بنو حنيفة"
+      ],
+      "ur": [
+        "بنو زہرہ",
+        "بنو مخزوم",
+        "بنو اسد",
+        "بنو حنیفہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In what condition was Prophet Muhammad ﷺ born, according to the provided source?",
+      "ar": "كيف كانت حالة النبي محمد ﷺ عند ولادته، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کی ولادت کے وقت ان کی حالت کیسی تھی؟"
+    },
+    "options": {
+      "en": [
+        "With the navel already cut, clean and pure, with fragrance coming from his blessed body",
+        "With his eyes closed and wrapped in a cloth",
+        "With a mark on his forehead and wearing a garment",
+        "With his hands tied and wrapped in wool"
+      ],
+      "ar": [
+        "وُلد مختونًا ونظيفًا طاهرًا، وكانت منه رائحة طيبة",
+        "وُلد وهو يحمل سيفًا",
+        "وُلد في ثياب بيضاء",
+        "وُلد في المسجد الحرام"
+      ],
+      "ur": [
+        "ناف کٹی ہوئی، پاک صاف اور جسم مبارک سے خوشبو آ رہی تھی",
+        "ہاتھ میں تلوار تھی",
+        "سفید لباس پہنے ہوئے تھے",
+        "مسجد حرام میں پیدا ہوئے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, what words were on the tongue of Prophet Muhammad ﷺ upon coming into the world?",
+      "ar": "ما الكلمات التي كانت على لسان النبي محمد ﷺ عند ولادته، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کی زبان پر ولادت کے وقت کیا الفاظ تھے؟"
+    },
+    "options": {
+      "en": [
+        "\"O God, forgive my ummah.\"",
+        "Praise be to God, Lord of the worlds.",
+        "There is no god but Allah.",
+        "O God, guide my people."
+      ],
+      "ar": [
+        "اللهم اغفر لأمتي",
+        "اللهم ارزقني المال",
+        "اللهم افتح لي الشام",
+        "اللهم زدني قوة"
+      ],
+      "ur": [
+        "اے اللہ! میری امت کو بخش دے",
+        "اے اللہ! مجھے مال دے",
+        "اے اللہ! شام کھول دے",
+        "اے اللہ! مجھے طاقت دے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which region did the maternal relatives of Prophet Muhammad ﷺ live?",
+      "ar": "أين كان أقارب النبي محمد ﷺ من جهة أمه يعيشون؟",
+      "ur": "نبی محمد ﷺ کے ننھیال کے رشتہ دار کہاں رہتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Yathrib (Madinah)",
+        "Makkah",
+        "Ta'if",
+        "Syria"
+      ],
+      "ar": [
+        "يثرب (المدينة المنورة)",
+        "الطائف",
+        "القدس",
+        "اليمن"
+      ],
+      "ur": [
+        "یثرب (مدینہ منورہ)",
+        "طائف",
+        "یروشلم",
+        "یمن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, how old was the father of Prophet Muhammad ﷺ when he died?",
+      "ar": "كم كان عمر والد النبي محمد ﷺ عند وفاته، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کے والد کی وفات کے وقت ان کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Twenty-four years",
+        "Thirty years",
+        "Forty years",
+        "Twenty years"
+      ],
+      "ar": [
+        "24 سنة",
+        "30 سنة",
+        "40 سنة",
+        "60 سنة"
+      ],
+      "ur": [
+        "24 سال",
+        "30 سال",
+        "40 سال",
+        "60 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which uncle of Prophet Muhammad ﷺ freed a slave-woman out of joy at his birth?",
+      "ar": "من الذي أعتق جارية فرحًا بولادة النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کی ولادت کی خوشی میں کس نے ایک لونڈی آزاد کی؟"
+    },
+    "options": {
+      "en": [
+        "Abu Lahab",
+        "Abu Talib",
+        "Hamza ibn Abd al-Muttalib",
+        "Al-Abbas ibn Abd al-Muttalib"
+      ],
+      "ar": [
+        "أبو لهب",
+        "أبو طالب",
+        "العباس",
+        "حمزة"
+      ],
+      "ur": [
+        "ابو لہب",
+        "ابو طالب",
+        "عباس",
+        "حمزہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which uncle of Prophet Muhammad ﷺ was also his foster brother?",
+      "ar": "من كان أخًا للنبي محمد ﷺ من الرضاعة؟",
+      "ur": "نبی محمد ﷺ کے رضاعی بھائی کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hamza (may Allah be pleased with him)",
+        "Abu Talib",
+        "Abu Lahab",
+        "Al-Abbas"
+      ],
+      "ar": [
+        "حمزة رضي الله عنه",
+        "أبو بكر رضي الله عنه",
+        "عمر رضي الله عنه",
+        "عثمان رضي الله عنه"
+      ],
+      "ur": [
+        "حضرت حمزہ رضی اللہ عنہ",
+        "حضرت ابو بکر رضی اللہ عنہ",
+        "حضرت عمر رضی اللہ عنہ",
+        "حضرت عثمان رضی اللہ عنہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For approximately how long did Prophet Muhammad ﷺ stay with his mother after his birth?",
+      "ar": "كم بقي النبي محمد ﷺ مع أمه بعد ولادته، وفقًا للمصدر؟",
+      "ur": "ولادت کے بعد نبی محمد ﷺ اپنی والدہ کے پاس تقریباً کتنے عرصے رہے؟"
+    },
+    "options": {
+      "en": [
+        "About one week",
+        "About one month",
+        "About one year",
+        "About three days"
+      ],
+      "ar": [
+        "نحو أسبوع",
+        "نحو شهر",
+        "نحو سنة",
+        "نحو أربع سنوات"
+      ],
+      "ur": [
+        "تقریباً ایک ہفتہ",
+        "تقریباً ایک ماہ",
+        "تقریباً ایک سال",
+        "تقریباً چار سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On which day after the birth of Prophet Muhammad ﷺ did his grandfather perform his aqiqah?",
+      "ar": "في أي يوم أُقيمت عقيقة النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کی عقیقہ کس دن کی گئی؟"
+    },
+    "options": {
+      "en": [
+        "The seventh day",
+        "The third day",
+        "The tenth day",
+        "The fortieth day"
+      ],
+      "ar": [
+        "اليوم السابع",
+        "اليوم الثالث",
+        "اليوم العاشر",
+        "اليوم الأربعون"
+      ],
+      "ur": [
+        "ساتواں دن",
+        "تیسرا دن",
+        "دسواں دن",
+        "چالیسواں دن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did Prophet Muhammad ﷺ observe the day of his birth, according to the provided source?",
+      "ar": "كيف كان النبي محمد ﷺ يعبر عن صيام يوم مولده، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ اپنی ولادت کے دن کو کیسے یاد کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "He used to fast",
+        "He used to give charity only",
+        "He used to travel",
+        "He used to hold a feast"
+      ],
+      "ar": [
+        "بالصيام",
+        "بالصدقة فقط",
+        "بالحج",
+        "بالاعتكاف"
+      ],
+      "ur": [
+        "روزہ رکھ کر",
+        "صرف صدقہ دے کر",
+        "حج کر کے",
+        "اعتکاف کر کے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which tribe did the wet-nurse of Prophet Muhammad ﷺ, Hazrat Halima Sa'diyya, belong to?",
+      "ar": "إلى أي قبيلة كانت تنتمي حليمة السعدية رضي الله عنها؟",
+      "ur": "حضرت حلیمہ سعدیہ رضی اللہ عنہا کس قبیلے سے تعلق رکھتی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Banu Sa'd",
+        "Banu Hashim",
+        "Banu Zuhra",
+        "Banu Thaqif"
+      ],
+      "ar": [
+        "بنو سعد",
+        "بنو هاشم",
+        "بنو زهرة",
+        "بنو قريش"
+      ],
+      "ur": [
+        "بنو سعد",
+        "بنو ہاشم",
+        "بنو زہرہ",
+        "قریش"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the slave-woman who was one of the foster mothers of Prophet Muhammad ﷺ?",
+      "ar": "من كانت المرأة التي أرضعت النبي محمد ﷺ وكانت جارية؟",
+      "ur": "وہ کون سی لونڈی تھیں جنہوں نے نبی محمد ﷺ کو دودھ پلایا؟"
+    },
+    "options": {
+      "en": [
+        "Thuwaiba",
+        "Umm Ayman",
+        "Safiyya",
+        "Shayma"
+      ],
+      "ar": [
+        "ثُوَيْبَة",
+        "آمنة",
+        "صفية",
+        "أم أيمن"
+      ],
+      "ur": [
+        "ثویبہ",
+        "آمنہ",
+        "صفیہ",
+        "ام ایمن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Hazrat Halima Sa'diyya riding when she set out taking Prophet Muhammad ﷺ with her?",
+      "ar": "ما الدابة التي كانت تركبها حليمة السعدية رضي الله عنها؟",
+      "ur": "حضرت حلیمہ سعدیہ رضی اللہ عنہا کس سواری پر سوار ہوتی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "A she-donkey",
+        "A camel",
+        "A horse",
+        "A mule"
+      ],
+      "ar": [
+        "أتان",
+        "جمل",
+        "حصان",
+        "بقرة"
+      ],
+      "ur": [
+        "گدھی",
+        "اونٹ",
+        "گھوڑا",
+        "گائے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What blessing did Hazrat Halima Sa'diyya notice as soon as she reached home with Prophet Muhammad ﷺ?",
+      "ar": "ما البركة التي ظهرت في حليب الماعز في بيت حليمة السعدية رضي الله عنها؟",
+      "ur": "حضرت حلیمہ سعدیہ رضی اللہ عنہا کے گھر بکریوں کے دودھ میں کیا برکت ظاہر ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "The goats gave plenty of milk",
+        "The sheep stopped eating",
+        "The well became dry",
+        "The crops began to fail"
+      ],
+      "ar": [
+        "كانت الماعز تعطي لبنًا كثيرًا",
+        "جفت الماعز من اللبن",
+        "مرضت الماعز",
+        "اختفت الماعز"
+      ],
+      "ur": [
+        "بکریاں بہت زیادہ دودھ دینے لگیں",
+        "بکریوں کا دودھ خشک ہوگیا",
+        "بکریاں بیمار ہوگئیں",
+        "بکریاں غائب ہوگئیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many foster siblings did Prophet Muhammad ﷺ have, according to the provided source?",
+      "ar": "كم كان عدد إخوة النبي محمد ﷺ من الرضاعة، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کے کتنے رضاعی بہن بھائی تھے؟"
+    },
+    "options": {
+      "en": [
+        "Four",
+        "Two",
+        "Three",
+        "Six"
+      ],
+      "ar": [
+        "أربعة",
+        "اثنان",
+        "ستة",
+        "ثمانية"
+      ],
+      "ur": [
+        "چار",
+        "دو",
+        "چھ",
+        "آٹھ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Approximately how long did Prophet Muhammad ﷺ stay with Hazrat Halima Sa'diyya?",
+      "ar": "كم سنة تقريبًا بقي النبي محمد ﷺ عند حليمة السعدية رضي الله عنها؟",
+      "ur": "نبی محمد ﷺ حضرت حلیمہ سعدیہ رضی اللہ عنہا کے پاس تقریباً کتنے سال رہے؟"
+    },
+    "options": {
+      "en": [
+        "About four years",
+        "About two years",
+        "About six years",
+        "About one year"
+      ],
+      "ar": [
+        "نحو أربع سنوات",
+        "نحو سنة",
+        "نحو ست سنوات",
+        "نحو عشر سنوات"
+      ],
+      "ur": [
+        "تقریباً چار سال",
+        "تقریباً ایک سال",
+        "تقریباً چھ سال",
+        "تقریباً دس سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which extraordinary incident happened to Prophet Muhammad ﷺ while he was staying with Hazrat Halima Sa'diyya?",
+      "ar": "ما الحادثة الخاصة التي وقعت للنبي محمد ﷺ في طفولته عند حليمة؟",
+      "ur": "حضرت حلیمہ سعدیہ رضی اللہ عنہا کے پاس نبی محمد ﷺ کے بچپن میں کون سا خاص واقعہ پیش آیا؟"
+    },
+    "options": {
+      "en": [
+        "The blessed chest was opened",
+        "The Kaaba was rebuilt",
+        "The moon split",
+        "The Zamzam well appeared"
+      ],
+      "ar": [
+        "شُق صدره الشريف",
+        "هاجر إلى المدينة",
+        "شارك في بدر",
+        "بنى الكعبة"
+      ],
+      "ur": [
+        "آپ ﷺ کا سینہ مبارک چاک کیا گیا",
+        "مدینہ ہجرت کی",
+        "بدر میں شریک ہوئے",
+        "کعبہ بنایا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What work did Prophet Muhammad ﷺ do together with his foster brothers during childhood, according to the source?",
+      "ar": "ماذا كان النبي محمد ﷺ يفعل مع إخوته من الرضاعة؟",
+      "ur": "نبی محمد ﷺ اپنے رضاعی بھائیوں کے ساتھ کیا کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "He grazed goats",
+        "He traded in Syria",
+        "He built houses",
+        "He worked as a blacksmith"
+      ],
+      "ar": [
+        "رعي الغنم",
+        "التجارة",
+        "الزراعة",
+        "صيد السمك"
+      ],
+      "ur": [
+        "بکریاں چرانا",
+        "تجارت کرنا",
+        "کھیتی کرنا",
+        "مچھلی پکڑنا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When Prophet Muhammad ﷺ was lying on his bed as a child, according to the source, where were his gaze and blessed finger directed?",
+      "ar": "إلى ماذا كان النبي محمد ﷺ ينظر، وإلى ماذا كان يشير بإصبعه؟",
+      "ur": "نبی محمد ﷺ کس طرف دیکھتے اور انگلی سے کس طرف اشارہ کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "His gaze was toward the sky and his finger toward the moon",
+        "His gaze was toward the ground and his finger toward the Kaaba",
+        "His gaze was toward the door and his finger toward the sun",
+        "His gaze was toward the mountains and his finger toward the stars"
+      ],
+      "ar": [
+        "إلى السماء ويشير إلى القمر",
+        "إلى الأرض ويشير إلى الجبال",
+        "إلى البحر ويشير إلى السفن",
+        "إلى الكعبة ويشير إلى الباب"
+      ],
+      "ur": [
+        "آسمان کی طرف دیکھتے اور چاند کی طرف انگلی سے اشارہ کرتے",
+        "زمین کی طرف دیکھتے اور پہاڑوں کی طرف اشارہ کرتے",
+        "سمندر کی طرف دیکھتے",
+        "کعبہ کی طرف دیکھتے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the foster father of Prophet Muhammad ﷺ, the husband of Hazrat Halima Sa'diyya?",
+      "ar": "من كان والد النبي محمد ﷺ من الرضاعة؟",
+      "ur": "نبی محمد ﷺ کے رضاعی والد کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Harith ibn Abi al-Uzza",
+        "Abu Talib ibn Abd al-Muttalib",
+        "Abdullah ibn Abd al-Muttalib",
+        "Wahb ibn Abd Manaf"
+      ],
+      "ar": [
+        "الحارث بن عبد العزى",
+        "عبد الله بن عبد المطلب",
+        "أبو طالب",
+        "العباس"
+      ],
+      "ur": [
+        "حارث بن عبد العزیٰ",
+        "عبداللہ بن عبدالمطلب",
+        "ابو طالب",
+        "عباس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "From the descendants of which son of Prophet Ibrahim (peace be upon him) was Prophet Muhammad ﷺ?",
+      "ar": "من أي نسل كان النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کس نبی کی نسل سے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Isma'il (peace be upon him)",
+        "Ishaq (peace be upon him)",
+        "Ya'qub (peace be upon him)",
+        "Yusuf (peace be upon him)"
+      ],
+      "ar": [
+        "إسماعيل عليه السلام",
+        "إسحاق عليه السلام",
+        "يعقوب عليه السلام",
+        "موسى عليه السلام"
+      ],
+      "ur": [
+        "حضرت اسماعیل علیہ السلام",
+        "حضرت اسحاق علیہ السلام",
+        "حضرت یعقوب علیہ السلام",
+        "حضرت موسیٰ علیہ السلام"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which set of books is listed in the provided source as containing detailed accounts of the birth of Prophet Muhammad ﷺ?",
+      "ar": "ما الكتب التي يذكرها المصدر ضمن الكتب التي تناولت سيرة مولد النبي محمد ﷺ وطفولته؟",
+      "ur": "دیے گئے ماخذ میں نبی محمد ﷺ کی ولادت اور بچپن کے بارے میں کن کتابوں کا ذکر ہے؟"
+    },
+    "options": {
+      "en": [
+        "Al-Sira al-Halabiyya, Subul al-Huda, Al-Khasa'is al-Kubra, Madarij al-Nubuwwat, and Diya al-Nabi",
+        "Sahih al-Bukhari, Sunan Abi Dawud, Jami' al-Tirmidhi, and Muwatta",
+        "Tarikh al-Tabari, Muqaddimah, Al-Kamil, and Futuh al-Buldan",
+        "Riyad al-Salihin, Bulugh al-Maram, Al-Adab al-Mufrad, and Mishkat"
+      ],
+      "ar": [
+        "السيرة الحلبية وسبل الهدى والخصائص الكبرى ومدارج النبوات وضياء النبي",
+        "صحيح البخاري فقط",
+        "كتب الشعر الجاهلي فقط",
+        "كتب الطب القديمة فقط"
+      ],
+      "ur": [
+        "السیرۃ الحلبیہ، سبل الہدیٰ، الخصائص الکبریٰ، مدارج النبوۃ اور ضیاء النبی",
+        "صرف صحیح بخاری",
+        "صرف جاہلی شاعری کی کتابیں",
+        "صرف قدیم طب کی کتابیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the maternal grandfather of Prophet Muhammad ﷺ?",
+      "ar": "من كان جد النبي محمد ﷺ من جهة أمه؟",
+      "ur": "نبی محمد ﷺ کے ننھیالی دادا کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Wahb",
+        "Abd al-Muttalib",
+        "Harith",
+        "Abdullah"
+      ],
+      "ar": [
+        "وهب",
+        "عبد المطلب",
+        "عبد الله",
+        "الحارث"
+      ],
+      "ur": [
+        "وہب",
+        "عبدالمطلب",
+        "عبداللہ",
+        "حارث"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the maternal grandmother of Prophet Muhammad ﷺ?",
+      "ar": "من كانت جدة النبي محمد ﷺ من جهة أمه؟",
+      "ur": "نبی محمد ﷺ کی ننھیالی دادی کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Barra",
+        "Fatima",
+        "Amina",
+        "Halima"
+      ],
+      "ar": [
+        "برة",
+        "خديجة",
+        "فاطمة",
+        "صفية"
+      ],
+      "ur": [
+        "برہ",
+        "خدیجہ",
+        "فاطمہ",
+        "صفیہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, what was the full and original name of the paternal grandfather of Prophet Muhammad ﷺ?",
+      "ar": "من كان جد النبي محمد ﷺ من جهة أبيه؟",
+      "ur": "نبی محمد ﷺ کے دادا کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abd al-Muttalib; Amir, with the epithet Shayba",
+        "Abu Talib; Abd Manaf, with the epithet Hashim",
+        "Abdullah; Wahb, with the epithet Al-Amin",
+        "Al-Abbas; Shayba, with the epithet Al-Mustafa"
+      ],
+      "ar": [
+        "عبد المطلب",
+        "أبو طالب",
+        "عبد الله",
+        "حمزة"
+      ],
+      "ur": [
+        "عبدالمطلب",
+        "ابو طالب",
+        "عبداللہ",
+        "حمزہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the paternal grandmother of Prophet Muhammad ﷺ?",
+      "ar": "من كانت جدة النبي محمد ﷺ من جهة أبيه؟",
+      "ur": "نبی محمد ﷺ کی دادی کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Fatima",
+        "Barra",
+        "Amina",
+        "Hind"
+      ],
+      "ar": [
+        "فاطمة",
+        "آمنة",
+        "برة",
+        "صفية"
+      ],
+      "ur": [
+        "فاطمہ",
+        "آمنہ",
+        "برہ",
+        "صفیہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many paternal aunts did Prophet Muhammad ﷺ have, according to the provided source?",
+      "ar": "كم عدد عمات النبي محمد ﷺ من جهة أبيه، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کی پھوپھیاں کتنی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Six",
+        "Four",
+        "Eight",
+        "Three"
+      ],
+      "ar": [
+        "ست عمات",
+        "عمتان",
+        "أربع عمات",
+        "ثماني عمات"
+      ],
+      "ur": [
+        "چھ پھوپھیاں",
+        "دو پھوپھیاں",
+        "چار پھوپھیاں",
+        "آٹھ پھوپھیاں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which paternal aunt of Prophet Muhammad ﷺ took part with him in battles?",
+      "ar": "أي عمة للنبي محمد ﷺ شاركت في المعارك؟",
+      "ur": "نبی محمد ﷺ کی کون سی پھوپھی جنگوں میں شریک ہوئیں؟"
+    },
+    "options": {
+      "en": [
+        "Safiyya (may Allah be pleased with her)",
+        "Amina",
+        "Atika",
+        "Arwa"
+      ],
+      "ar": [
+        "صفية",
+        "عاتكة",
+        "أروى",
+        "أميمة"
+      ],
+      "ur": [
+        "صفیہ",
+        "عاتکہ",
+        "ارویٰ",
+        "امیمہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which uncle of Prophet Muhammad ﷺ remained alive after his passing, according to the provided source?",
+      "ar": "أي عم للنبي محمد ﷺ بقي حيًا بعد وفاة النبي ﷺ؟",
+      "ur": "نبی محمد ﷺ کے کون سے چچا آپ ﷺ کی وفات کے بعد بھی زندہ رہے؟"
+    },
+    "options": {
+      "en": [
+        "Al-Abbas (may Allah be pleased with him)",
+        "Abu Talib",
+        "Hamza",
+        "Abu Lahab"
+      ],
+      "ar": [
+        "العباس",
+        "أبو لهب",
+        "أبو طالب",
+        "حمزة"
+      ],
+      "ur": [
+        "عباس",
+        "ابو لہب",
+        "ابو طالب",
+        "حمزہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who gave Prophet Muhammad ﷺ the name Muhammad?",
+      "ar": "من سمّى النبي محمد ﷺ بهذا الاسم؟",
+      "ur": "نبی محمد ﷺ کا نام محمد کس نے رکھا؟"
+    },
+    "options": {
+      "en": [
+        "His grandfather",
+        "His father",
+        "His mother",
+        "His foster mother"
+      ],
+      "ar": [
+        "جده عبد المطلب",
+        "أمه آمنة",
+        "عمه أبو طالب",
+        "حليمة"
+      ],
+      "ur": [
+        "دادا عبدالمطلب",
+        "والدہ آمنہ",
+        "چچا ابو طالب",
+        "حلیمہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who gave Prophet Muhammad ﷺ the name Ahmad, according to the provided source?",
+      "ar": "من سمّت النبي محمد ﷺ باسم أحمد؟",
+      "ur": "نبی محمد ﷺ کا نام احمد کس نے رکھا؟"
+    },
+    "options": {
+      "en": [
+        "His mother, Hazrat Amina",
+        "His grandfather, Abd al-Muttalib",
+        "His foster mother, Hazrat Halima",
+        "His uncle, Abu Talib"
+      ],
+      "ar": [
+        "أمه آمنة",
+        "جده عبد المطلب",
+        "حليمة",
+        "أم أيمن"
+      ],
+      "ur": [
+        "والدہ آمنہ",
+        "دادا عبدالمطلب",
+        "حلیمہ",
+        "ام ایمن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was Prophet Muhammad ﷺ when his aqiqah was performed?",
+      "ar": "متى أُقيمت عقيقة النبي محمد ﷺ بالنسبة إلى يوم ولادته؟",
+      "ur": "نبی محمد ﷺ کی عقیقہ ولادت کے کتنے دن بعد کی گئی؟"
+    },
+    "options": {
+      "en": [
+        "Six days old, on the seventh day",
+        "Seven days old, on the eighth day",
+        "Three days old",
+        "Forty days old"
+      ],
+      "ar": [
+        "في اليوم السابع، وكان عمره ستة أيام",
+        "في اليوم الثاني",
+        "في اليوم الأربعين",
+        "بعد سنة"
+      ],
+      "ur": [
+        "ساتویں دن، یعنی چھ دن کی عمر میں",
+        "دوسرے دن",
+        "چالیسویں دن",
+        "ایک سال بعد"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At approximately what age did the grandfather of Prophet Muhammad ﷺ, Abd al-Muttalib, pass away?",
+      "ar": "كم كان عمر عبد المطلب تقريبًا عند وفاته، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق عبدالمطلب کی وفات کے وقت ان کی عمر تقریباً کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About 85 years",
+        "About 60 years",
+        "About 70 years",
+        "About 95 years"
+      ],
+      "ar": [
+        "نحو 85 سنة",
+        "نحو 50 سنة",
+        "نحو 60 سنة",
+        "نحو 100 سنة"
+      ],
+      "ur": [
+        "تقریباً 85 سال",
+        "تقریباً 50 سال",
+        "تقریباً 60 سال",
+        "تقریباً 100 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was Hazrat Amina, the mother of Prophet Muhammad ﷺ, buried after her death?",
+      "ar": "أين دُفنت آمنة بنت وهب رضي الله عنها؟",
+      "ur": "حضرت آمنہ بنت وہب رضی اللہ عنہا کو کہاں دفن کیا گیا؟"
+    },
+    "options": {
+      "en": [
+        "Abwa",
+        "Makkah",
+        "Madinah",
+        "Ta'if"
+      ],
+      "ar": [
+        "الأبواء",
+        "مكة",
+        "المدينة",
+        "الطائف"
+      ],
+      "ur": [
+        "ابواء",
+        "مکہ",
+        "مدینہ",
+        "طائف"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which maidservant of Hazrat Amina brought Prophet Muhammad ﷺ to Makkah after his mother's death?",
+      "ar": "من التي أخذت النبي محمد ﷺ إلى مكة بعد وفاة أمه؟",
+      "ur": "والدہ کی وفات کے بعد نبی محمد ﷺ کو کون مکہ واپس لائیں؟"
+    },
+    "options": {
+      "en": [
+        "Umm Ayman",
+        "Thuwaiba",
+        "Shayma",
+        "Safiyya"
+      ],
+      "ar": [
+        "أم أيمن",
+        "حليمة",
+        "صفية",
+        "برة"
+      ],
+      "ur": [
+        "ام ایمن",
+        "حلیمہ",
+        "صفیہ",
+        "برہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, what do the names Muhammad and Ahmad mean?",
+      "ar": "ماذا يعني اسما محمد وأحمد وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق محمد اور احمد ناموں کے کیا معنی ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Muhammad means one who is praised very much; Ahmad means one who praises very much",
+        "Muhammad means brave; Ahmad means wise",
+        "Muhammad means truthful; Ahmad means trustworthy",
+        "Muhammad means leader; Ahmad means helper"
+      ],
+      "ar": [
+        "محمد: كثير الحمد، وأحمد: كثير الحمد لله",
+        "محمد: الشجاع، وأحمد: القوي",
+        "محمد: المسافر، وأحمد: التاجر",
+        "محمد: الكريم، وأحمد: الغني"
+      ],
+      "ur": [
+        "محمد: بہت زیادہ تعریف کیا گیا، احمد: بہت زیادہ حمد کرنے والا",
+        "محمد: بہادر، احمد: طاقتور",
+        "محمد: مسافر، احمد: تاجر",
+        "محمد: سخی، احمد: مالدار"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, how long after Hazrat Isa (Jesus) did the birth of Prophet Muhammad ﷺ take place?",
+      "ar": "بعد كم سنة من زمن عيسى عليه السلام وُلد النبي محمد ﷺ، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق حضرت عیسیٰ علیہ السلام کے زمانے کے کتنے سال بعد نبی محمد ﷺ پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "571 years later",
+        "500 years later",
+        "610 years later",
+        "632 years later"
+      ],
+      "ar": [
+        "571 سنة",
+        "100 سنة",
+        "300 سنة",
+        "700 سنة"
+      ],
+      "ur": [
+        "571 سال",
+        "100 سال",
+        "300 سال",
+        "700 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who gave the grandfather of Prophet Muhammad ﷺ the news of his birth?",
+      "ar": "من أخبر عبد المطلب بخبر ولادة النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کی ولادت کی خبر عبدالمطلب کو کس نے دی؟"
+    },
+    "options": {
+      "en": [
+        "Umm Ayman",
+        "Hazrat Amina",
+        "Hazrat Halima",
+        "Thuwaiba"
+      ],
+      "ar": [
+        "أم أيمن",
+        "أبو طالب",
+        "حليمة",
+        "آمنة"
+      ],
+      "ur": [
+        "ام ایمن",
+        "ابو طالب",
+        "حلیمہ",
+        "آمنہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where did the grandfather of Prophet Muhammad ﷺ take him after his birth?",
+      "ar": "إلى أين أخذ عبد المطلب النبي محمد ﷺ بعد ولادته؟",
+      "ur": "ولادت کے بعد عبدالمطلب نبی محمد ﷺ کو کہاں لے گئے؟"
+    },
+    "options": {
+      "en": [
+        "To the House of the Kaaba",
+        "To the house of Hazrat Halima",
+        "To Madinah",
+        "To Mount Hira"
+      ],
+      "ar": [
+        "بيت الله الحرام",
+        "المدينة",
+        "بيت المقدس",
+        "الطائف"
+      ],
+      "ur": [
+        "بیت اللہ",
+        "مدینہ",
+        "بیت المقدس",
+        "طائف"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, how many women's milk did Prophet Muhammad ﷺ drink?",
+      "ar": "كم عدد النساء اللاتي شرب النبي محمد ﷺ من ألبانهن، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ نے کتنی عورتوں کا دودھ پیا؟"
+    },
+    "options": {
+      "en": [
+        "Eight or six",
+        "Two",
+        "Three or four",
+        "Ten"
+      ],
+      "ar": [
+        "ثمان أو ست نساء",
+        "امرأتان",
+        "أربع نساء",
+        "عشر نساء"
+      ],
+      "ur": [
+        "آٹھ یا چھ عورتوں کا",
+        "دو عورتوں کا",
+        "چار عورتوں کا",
+        "دس عورتوں کا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For approximately how long did Prophet Muhammad ﷺ drink the milk of Hazrat Halima Sa'diyya?",
+      "ar": "كم سنة تقريبًا شرب النبي محمد ﷺ من لبن حليمة السعدية رضي الله عنها؟",
+      "ur": "نبی محمد ﷺ نے حضرت حلیمہ سعدیہ رضی اللہ عنہا کا دودھ تقریباً کتنے سال پیا؟"
+    },
+    "options": {
+      "en": [
+        "About two years",
+        "About four years",
+        "About six months",
+        "About three years"
+      ],
+      "ar": [
+        "نحو سنتين",
+        "نحو ستة أشهر",
+        "نحو أربع سنوات",
+        "نحو سبع سنوات"
+      ],
+      "ur": [
+        "تقریباً دو سال",
+        "تقریباً چھ ماہ",
+        "تقریباً چار سال",
+        "تقریباً سات سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At the time of the birth of Prophet Muhammad ﷺ, which region's famous fire-temple fire went out?",
+      "ar": "في أي منطقة انطفأت نار المعبد الفارسي عند ولادة النبي محمد ﷺ؟",
+      "ur": "نبی محمد ﷺ کی ولادت کے وقت فارسی آتش کدے کی آگ کس علاقے میں بجھی؟"
+    },
+    "options": {
+      "en": [
+        "Persia (Fars)",
+        "Syria (Sham)",
+        "Egypt",
+        "Yemen"
+      ],
+      "ar": [
+        "فارس (بلاد فارس)",
+        "الشام",
+        "مصر",
+        "اليمن"
+      ],
+      "ur": [
+        "فارس",
+        "شام",
+        "مصر",
+        "یمن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, why did Prophet Muhammad ﷺ not permanently drink his mother's milk?",
+      "ar": "لماذا لم يرضع النبي محمد ﷺ من أمه بشكل دائم، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ نے اپنی والدہ کا دودھ مستقل طور پر کیوں نہیں پیا؟"
+    },
+    "options": {
+      "en": [
+        "It was the custom in Arabia for children to be nursed by a wet-nurse",
+        "His mother had no milk",
+        "He was ill",
+        "His family moved to Syria"
+      ],
+      "ar": [
+        "لأن من عادة العرب إرسال الأطفال إلى المراضع",
+        "لأن أمه لم يكن لديها لبن",
+        "لأنه كان مريضًا",
+        "لأنه رفض الرضاعة"
+      ],
+      "ur": [
+        "کیونکہ عربوں میں بچوں کو دایاؤں کے سپرد کرنے کا رواج تھا",
+        "کیونکہ والدہ کے پاس دودھ نہیں تھا",
+        "کیونکہ آپ ﷺ بیمار تھے",
+        "کیونکہ آپ ﷺ نے دودھ پینے سے انکار کیا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many battlements of the Persian emperor's palace broke and fell due to an earthquake at the time of the birth of Prophet Muhammad ﷺ, according to the source?",
+      "ar": "كم عدد شُرَف قصر كسرى التي سقطت، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق کس بادشاہ کے محل کی کتنی کنگوریاں گر گئیں؟"
+    },
+    "options": {
+      "en": [
+        "Fourteen",
+        "Seven",
+        "Ten",
+        "Twelve"
+      ],
+      "ar": [
+        "أربع عشرة شرفة",
+        "سبع شرفات",
+        "عشر شرفات",
+        "عشرون شرفة"
+      ],
+      "ur": [
+        "چودہ کنگوریاں",
+        "سات کنگوریاں",
+        "دس کنگوریاں",
+        "بیس کنگوریاں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What change came to Makkah along with the birth of Prophet Muhammad ﷺ, according to the source?",
+      "ar": "ما الذي حدث للجوع في مكة عند ولادة النبي محمد ﷺ، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کی ولادت کے وقت مکہ کے قحط کا کیا ہوا؟"
+    },
+    "options": {
+      "en": [
+        "The famine in Makkah was lifted",
+        "The city was abandoned",
+        "A new marketplace was built",
+        "The Kaaba was rebuilt"
+      ],
+      "ar": [
+        "رُفع عن مكة الجوع",
+        "اشتد الجوع",
+        "حدث زلزال",
+        "هُدمت الكعبة"
+      ],
+      "ur": [
+        "مکہ سے قحط اٹھ گیا",
+        "قحط بڑھ گیا",
+        "زلزلہ آیا",
+        "کعبہ منہدم ہوگیا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which foster sister of Prophet Muhammad ﷺ loved him very much?",
+      "ar": "أي أخت للنبي محمد ﷺ من الرضاعة كانت تحبه؟",
+      "ur": "نبی محمد ﷺ کی کون سی رضاعی بہن آپ ﷺ سے محبت کرتی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Shayma",
+        "Thuwaiba",
+        "Safiyya",
+        "Umm Ayman"
+      ],
+      "ar": [
+        "شيماء",
+        "صفية",
+        "برة",
+        "عاتكة"
+      ],
+      "ur": [
+        "شماء",
+        "صفیہ",
+        "برہ",
+        "عاتکہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Hazrat Shayma sing in her lullaby for Prophet Muhammad ﷺ, according to the provided source?",
+      "ar": "ماذا كانت تقول شيماء في تهويدتها للنبي محمد ﷺ؟",
+      "ur": "شماء رضی اللہ عنہا نبی محمد ﷺ کے لیے اپنی لوری میں کیا دعا کرتی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "She prayed that Muhammad ﷺ would be kept safe until he grew up and became a leader",
+        "She asked that Muhammad ﷺ become a merchant in Syria",
+        "She sang about the rebuilding of the Kaaba",
+        "She prayed that Muhammad ﷺ would never leave Makkah"
+      ],
+      "ar": [
+        "كانت تدعو أن يُحفظ محمد ﷺ حتى يكبر ويصبح قائدًا",
+        "كانت تدعوه إلى السفر",
+        "كانت تعلمه التجارة",
+        "كانت تحثه على الحرب"
+      ],
+      "ur": [
+        "وہ دعا کرتی تھیں کہ محمد ﷺ بڑے ہو کر محفوظ رہیں اور قائد بنیں",
+        "وہ سفر کی دعا کرتی تھیں",
+        "وہ تجارت سکھاتی تھیں",
+        "وہ جنگ کی ترغیب دیتی تھیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did Prophet Muhammad ﷺ show respect to his foster mother, Hazrat Halima Sa'diyya?",
+      "ar": "كيف كان النبي محمد ﷺ يعامل حليمة السعدية رضي الله عنها عندما كبر؟",
+      "ur": "بڑے ہونے کے بعد نبی محمد ﷺ حضرت حلیمہ سعدیہ رضی اللہ عنہا کے ساتھ کیسے پیش آتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "He would stand up for her and fulfil whatever need she had",
+        "He would avoid speaking to her",
+        "He would give her food only on Fridays",
+        "He would travel with her to Syria"
+      ],
+      "ar": [
+        "كان يقوم لها ويقضي حاجاتها",
+        "كان يتجنبها",
+        "كان يسافر عنها",
+        "كان يطلب منها المال"
+      ],
+      "ur": [
+        "آپ ﷺ ان کے لیے کھڑے ہوتے اور ان کی حاجتیں پوری کرتے",
+        "آپ ﷺ ان سے دور رہتے",
+        "آپ ﷺ ان سے سفر کرتے",
+        "آپ ﷺ ان سے مال مانگتے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where is the blessed grave of Hazrat Halima Sa'diyya, according to the provided source?",
+      "ar": "أين يوجد قبر حليمة السعدية رضي الله عنها، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق حضرت حلیمہ سعدیہ رضی اللہ عنہا کی قبر کہاں ہے؟"
+    },
+    "options": {
+      "en": [
+        "In Jannat al-Baqi in Madinah al-Munawwarah",
+        "In Makkah near the Kaaba",
+        "In Abwa",
+        "In Ta'if"
+      ],
+      "ar": [
+        "جنة البقيع في المدينة",
+        "مقبرة المعلاة في مكة",
+        "الأبواء",
+        "الطائف"
+      ],
+      "ur": [
+        "جنت البقیع، مدینہ",
+        "مقبرہ معلیٰ، مکہ",
+        "ابواء",
+        "طائف"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many times did Hazrat Halima Sa'diyya meet Prophet Muhammad ﷺ again after his nursing and childhood period?",
+      "ar": "كم مرة التقت حليمة السعدية رضي الله عنها بالنبي محمد ﷺ بعد فترة الرضاعة، وفقًا للمصدر؟",
+      "ur": "رضاعت کے بعد حضرت حلیمہ سعدیہ رضی اللہ عنہا نبی محمد ﷺ سے کتنی بار ملیں؟"
+    },
+    "options": {
+      "en": [
+        "Twice",
+        "Once",
+        "Three times",
+        "Four times"
+      ],
+      "ar": [
+        "مرتين",
+        "مرة واحدة",
+        "ثلاث مرات",
+        "أربع مرات"
+      ],
+      "ur": [
+        "دو مرتبہ",
+        "ایک مرتبہ",
+        "تین مرتبہ",
+        "چار مرتبہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was Prophet Muhammad ﷺ when Hazrat Halima Sa'diyya handed him back to his mother, Hazrat Amina?",
+      "ar": "متى أعادت حليمة السعدية رضي الله عنها النبي محمد ﷺ إلى أمه؟",
+      "ur": "حضرت حلیمہ سعدیہ رضی اللہ عنہا نے نبی محمد ﷺ کو والدہ کے پاس کب واپس کیا؟"
+    },
+    "options": {
+      "en": [
+        "About four years old",
+        "About two years old",
+        "About six years old",
+        "About eight years old"
+      ],
+      "ar": [
+        "عندما بلغ نحو أربع سنوات",
+        "عندما بلغ سنة واحدة",
+        "عندما بلغ سبع سنوات",
+        "عندما بلغ عشر سنوات"
+      ],
+      "ur": [
+        "تقریباً چار سال کی عمر میں",
+        "ایک سال کی عمر میں",
+        "سات سال کی عمر میں",
+        "دس سال کی عمر میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was Prophet Muhammad ﷺ when his mother, Hazrat Amina, passed away?",
+      "ar": "كم كان عمر النبي محمد ﷺ عندما توفيت أمه آمنة رضي الله عنها؟",
+      "ur": "حضرت آمنہ رضی اللہ عنہا کی وفات کے وقت نبی محمد ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Six years old",
+        "Four years old",
+        "Eight years old",
+        "Ten years old"
+      ],
+      "ar": [
+        "ست سنوات",
+        "أربع سنوات",
+        "ثماني سنوات",
+        "اثنتا عشرة سنة"
+      ],
+      "ur": [
+        "چھ سال",
+        "چار سال",
+        "آٹھ سال",
+        "بارہ سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which place was Prophet Muhammad ﷺ with Hazrat Amina when she passed away?",
+      "ar": "أين توفيت آمنة بنت وهب رضي الله عنها؟",
+      "ur": "حضرت آمنہ بنت وہب رضی اللہ عنہا کی وفات کہاں ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Abwa",
+        "Makkah",
+        "Madinah",
+        "Syria"
+      ],
+      "ar": [
+        "الأبواء",
+        "مكة",
+        "المدينة",
+        "الطائف"
+      ],
+      "ur": [
+        "ابواء",
+        "مکہ",
+        "مدینہ",
+        "طائف"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who raised Prophet Muhammad ﷺ after the passing of his mother, Hazrat Amina?",
+      "ar": "من تولى رعاية النبي محمد ﷺ بعد وفاة أمه؟",
+      "ur": "والدہ کی وفات کے بعد نبی محمد ﷺ کی پرورش کس نے کی؟"
+    },
+    "options": {
+      "en": [
+        "His grandfather, Abd al-Muttalib",
+        "His uncle Abu Talib",
+        "His foster mother Halima",
+        "His maternal grandfather Wahb"
+      ],
+      "ar": [
+        "جده عبد المطلب",
+        "عمه أبو طالب",
+        "حليمة",
+        "أبو بكر"
+      ],
+      "ur": [
+        "دادا عبدالمطلب",
+        "چچا ابو طالب",
+        "حلیمہ",
+        "ابو بکر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was Prophet Muhammad ﷺ when his grandfather, Abd al-Muttalib, died?",
+      "ar": "كم كان عمر النبي محمد ﷺ عندما توفي جده عبد المطلب؟",
+      "ur": "دادا عبدالمطلب کی وفات کے وقت نبی محمد ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Eight years old",
+        "Six years old",
+        "Ten years old",
+        "Twelve years old"
+      ],
+      "ar": [
+        "ثماني سنوات",
+        "ست سنوات",
+        "عشر سنوات",
+        "اثنتا عشرة سنة"
+      ],
+      "ur": [
+        "آٹھ سال",
+        "چھ سال",
+        "دس سال",
+        "بارہ سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who took responsibility for raising Prophet Muhammad ﷺ after the death of his grandfather?",
+      "ar": "من تولى رعاية النبي محمد ﷺ بعد وفاة جده؟",
+      "ur": "دادا کی وفات کے بعد نبی محمد ﷺ کی پرورش کس نے کی؟"
+    },
+    "options": {
+      "en": [
+        "His uncle Abu Talib",
+        "His uncle Abu Lahab",
+        "His grandfather Wahb",
+        "His foster father Harith"
+      ],
+      "ar": [
+        "عمه أبو طالب",
+        "عمه العباس",
+        "أبو بكر",
+        "حمزة"
+      ],
+      "ur": [
+        "چچا ابو طالب",
+        "چچا عباس",
+        "ابو بکر",
+        "حمزہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where did Prophet Muhammad ﷺ make his first journey with his uncle Abu Talib?",
+      "ar": "إلى أين كانت أول رحلة للنبي محمد ﷺ مع عمه؟",
+      "ur": "نبی محمد ﷺ اپنے چچا کے ساتھ پہلی مرتبہ کہاں سفر پر گئے؟"
+    },
+    "options": {
+      "en": [
+        "Syria (Sham)",
+        "Yemen",
+        "Madinah",
+        "Iraq"
+      ],
+      "ar": [
+        "الشام",
+        "اليمن",
+        "مصر",
+        "الحبشة"
+      ],
+      "ur": [
+        "شام",
+        "یمن",
+        "مصر",
+        "حبشہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was Prophet Muhammad ﷺ at the time of his first journey with his uncle?",
+      "ar": "كم كان عمر النبي محمد ﷺ في أول رحلة له إلى الشام؟",
+      "ur": "شام کے پہلے سفر کے وقت نبی محمد ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Twelve years old",
+        "Ten years old",
+        "Fourteen years old",
+        "Eight years old"
+      ],
+      "ar": [
+        "12 سنة",
+        "6 سنوات",
+        "18 سنة",
+        "25 سنة"
+      ],
+      "ur": [
+        "12 سال",
+        "6 سال",
+        "18 سال",
+        "25 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the nature of Prophet Muhammad's ﷺ first journey with his uncle?",
+      "ar": "ما طبيعة رحلة النبي محمد ﷺ الأولى إلى الشام؟",
+      "ur": "نبی محمد ﷺ کا پہلا شام کا سفر کس مقصد کے لیے تھا؟"
+    },
+    "options": {
+      "en": [
+        "It was a trade journey",
+        "It was a military journey",
+        "It was a pilgrimage journey",
+        "It was a migration journey"
+      ],
+      "ar": [
+        "رحلة تجارة",
+        "رحلة حج",
+        "رحلة هجرة",
+        "رحلة حرب"
+      ],
+      "ur": [
+        "تجارتی سفر",
+        "حج کا سفر",
+        "ہجرت کا سفر",
+        "جنگ کا سفر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What feature most set Prophet Muhammad ﷺ apart during his first journey to Syria, according to the source?",
+      "ar": "ما العلامة التي كان الناس يرونها في وجه النبي محمد ﷺ من بعيد، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق دور سے نبی محمد ﷺ کے چہرہ مبارک کے بارے میں کیا نظر آتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "His blessed face could be seen shining from afar",
+        "He was always surrounded by soldiers",
+        "He carried a large merchant's banner",
+        "He wore a distinctive crown"
+      ],
+      "ar": [
+        "كان وجهه الشريف يضيء ويُرى من بعيد",
+        "كان يلبس تاجًا",
+        "كان يحمل راية",
+        "كان يركب حصانًا"
+      ],
+      "ur": [
+        "آپ ﷺ کا چہرہ مبارک دور سے روشن نظر آتا تھا",
+        "آپ ﷺ تاج پہنتے تھے",
+        "آپ ﷺ جھنڈا اٹھاتے تھے",
+        "آپ ﷺ گھوڑے پر سوار ہوتے تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which monk expressed a wish to meet Prophet Muhammad ﷺ during his journey to Syria?",
+      "ar": "من هو الراهب الذي أراد لقاء النبي محمد ﷺ في رحلته إلى الشام؟",
+      "ur": "شام کے سفر میں نبی محمد ﷺ سے ملاقات کرنے والا راہب کون تھا؟"
+    },
+    "options": {
+      "en": [
+        "Bahira",
+        "Waraqah ibn Nawfal",
+        "Salman al-Farisi",
+        "Abu Talib"
+      ],
+      "ar": [
+        "بحيرا",
+        "ورقة بن نوفل",
+        "النجاشي",
+        "قيصر"
+      ],
+      "ur": [
+        "بحیرا",
+        "ورقہ بن نوفل",
+        "نجاشی",
+        "قیصر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the monk Bahira say to Abu Talib after seeing Prophet Muhammad ﷺ, according to the provided source?",
+      "ar": "ماذا قال الراهب بحيرا لأبي طالب عن النبي محمد ﷺ؟",
+      "ur": "راہب بحیرا نے ابو طالب کو نبی محمد ﷺ کے بارے میں کیا بتایا؟"
+    },
+    "options": {
+      "en": [
+        "The signs of the final prophet were present in Muhammad ﷺ and Abu Talib should take him back and protect him",
+        "Muhammad ﷺ should continue immediately to Syria",
+        "Muhammad ﷺ should remain with the caravan in Jerusalem",
+        "Muhammad ﷺ should become a monk"
+      ],
+      "ar": [
+        "ظهرت عليه علامات النبي الخاتم، وطلب أن يعيده ويحميه",
+        "طلب أن يتركه في الشام",
+        "طلب أن يذهب إلى المدينة",
+        "قال إنه تاجر"
+      ],
+      "ur": [
+        "ان میں آخری نبی کی نشانیاں ہیں، انہیں واپس لے جائیں اور ان کی حفاظت کریں",
+        "انہیں شام میں چھوڑ دیں",
+        "انہیں مدینہ بھیج دیں",
+        "وہ تاجر ہیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Abu Talib do after hearing the words of the monk Bahira?",
+      "ar": "ماذا فعل أبو طالب بعد كلام الراهب بحيرا؟",
+      "ur": "راہب بحیرا کی بات سن کر ابو طالب نے کیا کیا؟"
+    },
+    "options": {
+      "en": [
+        "He sent Prophet Muhammad ﷺ back to Makkah",
+        "He sent Prophet Muhammad ﷺ to Madinah",
+        "He continued the journey to Egypt",
+        "He left Prophet Muhammad ﷺ with the monk"
+      ],
+      "ar": [
+        "أعاده إلى مكة",
+        "تركه في الشام",
+        "أرسله إلى المدينة",
+        "أخذه إلى القدس"
+      ],
+      "ur": [
+        "انہیں مکہ واپس لے گئے",
+        "انہیں شام میں چھوڑ دیا",
+        "انہیں مدینہ بھیج دیا",
+        "انہیں بیت المقدس لے گئے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did Prophet Muhammad ﷺ live in his uncle Abu Talib's house, according to the source?",
+      "ar": "كيف كانت حياة النبي محمد ﷺ في بيت عمه أبي طالب، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق ابو طالب کے گھر نبی محمد ﷺ کی زندگی کیسی تھی؟"
+    },
+    "options": {
+      "en": [
+        "With great calm and without troubling anyone",
+        "By frequently leaving the house",
+        "By refusing to work",
+        "By spending most of his time travelling"
+      ],
+      "ar": [
+        "كان هادئًا ولا يزعج أحدًا",
+        "كان كثير الخصام",
+        "كان كثير السفر",
+        "كان يرفض العمل"
+      ],
+      "ur": [
+        "آپ ﷺ پُرسکون رہتے اور کسی کو تکلیف نہیں دیتے تھے",
+        "آپ ﷺ بہت جھگڑتے تھے",
+        "آپ ﷺ بہت سفر کرتے تھے",
+        "آپ ﷺ کام سے انکار کرتے تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the provided source, in what state would Prophet Muhammad ﷺ appear when he woke in the morning during childhood?",
+      "ar": "كيف كان يبدو وجه النبي محمد ﷺ عندما يستيقظ في طفولته، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق بچپن میں نبی محمد ﷺ بیدار ہوتے تو ان کا چہرہ کیسا معلوم ہوتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "It was as if his face had already been washed",
+        "His clothes were always wet",
+        "He would immediately leave the house",
+        "He would be covered in dust"
+      ],
+      "ar": [
+        "كأن وجهه قد غُسل من قبل",
+        "كان متعبًا دائمًا",
+        "كان وجهه مغطى بالغبار",
+        "كان ينام بثيابه"
+      ],
+      "ur": [
+        "ایسا معلوم ہوتا جیسے چہرہ پہلے ہی دھویا گیا ہو",
+        "آپ ﷺ ہمیشہ تھکے ہوئے لگتے",
+        "چہرہ گرد سے ڈھکا ہوتا",
+        "آپ ﷺ کپڑوں سمیت سوتے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did Prophet Muhammad ﷺ spend much of his day during childhood, according to the source?",
+      "ar": "أين كان النبي محمد ﷺ يجلس كثيرًا في طفولته؟",
+      "ur": "نبی محمد ﷺ بچپن میں اکثر کہاں بیٹھتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "He often sat in the Haram Sharif",
+        "He travelled to Syria",
+        "He worked in the marketplace",
+        "He stayed in the desert alone"
+      ],
+      "ar": [
+        "الحرم الشريف",
+        "السوق",
+        "البيت فقط",
+        "جبل أحد"
+      ],
+      "ur": [
+        "حرم شریف",
+        "بازار",
+        "صرف گھر",
+        "جبل احد"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What happened to the food when Prophet Muhammad ﷺ sat down to eat at the dining cloth, according to the source?",
+      "ar": "ماذا كان يحدث للطعام عندما يجلس النبي محمد ﷺ ليأكل، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق نبی محمد ﷺ کے ساتھ بیٹھ کر کھانا کھانے سے کھانے میں کیا ہوتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "There was blessing in the food",
+        "The food became less",
+        "The food disappeared",
+        "The food changed into milk"
+      ],
+      "ar": [
+        "كانت فيه بركة",
+        "كان ينقص دائمًا",
+        "كان يحترق",
+        "كان يفسد"
+      ],
+      "ur": [
+        "اس میں برکت ہوتی تھی",
+        "ہمیشہ کم ہوجاتا تھا",
+        "جل جاتا تھا",
+        "خراب ہوجاتا تھا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What would shade Prophet Muhammad ﷺ when he walked in the sun during childhood, according to the source?",
+      "ar": "ما الذي كان يظلّل النبي محمد ﷺ من الشمس في طفولته، وفقًا للمصدر؟",
+      "ur": "بچپن میں نبی محمد ﷺ کو دھوپ سے کون سی چیز سایہ دیتی تھی؟"
+    },
+    "options": {
+      "en": [
+        "A cloud",
+        "A tree",
+        "A tent",
+        "A mountain"
+      ],
+      "ar": [
+        "سحابة",
+        "جبل",
+        "شجرة",
+        "جدار"
+      ],
+      "ur": [
+        "ایک بادل",
+        "پہاڑ",
+        "درخت",
+        "دیوار"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Did Prophet Muhammad ﷺ ever act stubborn like ordinary children during childhood, according to the source?",
+      "ar": "هل كان النبي محمد ﷺ يتصرف بعناد مثل الأطفال العاديين، وفقًا للمصدر؟",
+      "ur": "کیا نبی محمد ﷺ عام بچوں کی طرح ضدی تھے؟"
+    },
+    "options": {
+      "en": [
+        "Never",
+        "Frequently",
+        "Only on Fridays",
+        "Only when he was hungry"
+      ],
+      "ar": [
+        "لا، لم يكن عنيدًا",
+        "نعم، كان شديد العناد",
+        "كان لا يتكلم",
+        "كان كثير البكاء"
+      ],
+      "ur": [
+        "نہیں، آپ ﷺ ضدی نہیں تھے",
+        "ہاں، آپ ﷺ بہت ضدی تھے",
+        "آپ ﷺ بات نہیں کرتے تھے",
+        "آپ ﷺ بہت روتے تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the grandfather of Prophet Muhammad ﷺ say when he saw him, according to the source?",
+      "ar": "ماذا قال عبد المطلب عن هيئة النبي محمد ﷺ ومكانته المستقبلية؟",
+      "ur": "عبدالمطلب نے نبی محمد ﷺ کے قد و قامت اور مستقبل کی شان کے بارے میں کیا کہا؟"
+    },
+    "options": {
+      "en": [
+        "He would attain an honour unlike that of anyone before or after him",
+        "He would become a merchant in Syria",
+        "He would become a tribal chief immediately",
+        "He would leave Makkah permanently"
+      ],
+      "ar": [
+        "أن هيئته مميزة وأنه سيبلغ شرفًا لا مثيل له",
+        "أنه سيكون تاجرًا فقط",
+        "أنه سيعيش في الشام",
+        "أنه سيكون جنديًا"
+      ],
+      "ur": [
+        "آپ ﷺ کی ہیئت منفرد ہے اور آپ ﷺ بے مثال عزت حاصل کریں گے",
+        "آپ ﷺ صرف تاجر بنیں گے",
+        "آپ ﷺ شام میں رہیں گے",
+        "آپ ﷺ سپاہی بنیں گے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which set of events is listed in the source as special events from the childhood of Prophet Muhammad ﷺ?",
+      "ar": "ما الأحداث الخاصة التي يذكرها المصدر ضمن أحداث طفولة النبي محمد ﷺ؟",
+      "ur": "دیے گئے ماخذ میں نبی محمد ﷺ کے بچپن کے کون سے خاص واقعات ذکر ہوئے ہیں؟"
+    },
+    "options": {
+      "en": [
+        "The opening of the chest, the journey toward Syria, and a Christian monk speaking of his being the final prophet",
+        "The Battle of Badr, the Conquest of Makkah, and the Treaty of Hudaybiyyah",
+        "The migration to Madinah, the Battle of Uhud, and the Battle of Hunayn",
+        "The rebuilding of the Kaaba, the first revelation, and the Conquest of Ta'if"
+      ],
+      "ar": [
+        "شق الصدر ورحلة الشام وكلام الراهب المسيحي عن النبوة الخاتمة",
+        "غزوة بدر وفتح مكة",
+        "الهجرة وغزوة أحد",
+        "بناء المسجد النبوي"
+      ],
+      "ur": [
+        "شق صدر، شام کا سفر، اور آخری نبوت کے بارے میں عیسائی راہب کا بیان",
+        "غزوۂ بدر اور فتح مکہ",
+        "ہجرت اور غزوۂ احد",
+        "مسجد نبوی کی تعمیر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was a close friend of Prophet Muhammad ﷺ during childhood, according to the source?",
+      "ar": "من كان الصديق المقرب للنبي محمد ﷺ في طفولته؟",
+      "ur": "بچپن میں نبی محمد ﷺ کے قریبی دوست کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr Siddiq (may Allah be pleased with him)",
+        "Umar ibn al-Khattab",
+        "Uthman ibn Affan",
+        "Ali ibn Abi Talib"
+      ],
+      "ar": [
+        "أبو بكر الصديق رضي الله عنه",
+        "عمر بن الخطاب رضي الله عنه",
+        "عثمان بن عفان رضي الله عنه",
+        "علي بن أبي طالب رضي الله عنه"
+      ],
+      "ur": [
+        "حضرت ابو بکر صدیق رضی اللہ عنہ",
+        "حضرت عمر رضی اللہ عنہ",
+        "حضرت عثمان رضی اللہ عنہ",
+        "حضرت علی رضی اللہ عنہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Prophet Muhammad's ﷺ reaction when he saw most people engaged in idol-worship during childhood, according to the source?",
+      "ar": "كيف كان موقف النبي محمد ﷺ من عبادة الأصنام في طفولته؟",
+      "ur": "بچپن میں نبی محمد ﷺ کا بت پرستی کے بارے میں کیا رویہ تھا؟"
+    },
+    "options": {
+      "en": [
+        "He felt aversion",
+        "He joined them",
+        "He ignored it completely",
+        "He approved of it"
+      ],
+      "ar": [
+        "كان ينفر من عبادة الأصنام",
+        "كان يعبد الأصنام",
+        "كان لا يهتم بها",
+        "كان يدعو الناس إليها"
+      ],
+      "ur": [
+        "آپ ﷺ بت پرستی سے نفرت کرتے تھے",
+        "آپ ﷺ بتوں کی عبادت کرتے تھے",
+        "آپ ﷺ کو اس سے کوئی فرق نہیں پڑتا تھا",
+        "آپ ﷺ لوگوں کو بت پرستی کی دعوت دیتے تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At what age did the first incident of the opening of the chest occur for Prophet Muhammad ﷺ, according to the source?",
+      "ar": "كم كان عمر النبي محمد ﷺ عند أول حادثة شق الصدر، وفقًا للمصدر؟",
+      "ur": "دیے گئے ماخذ کے مطابق پہلی مرتبہ شق صدر کے واقعے کے وقت نبی محمد ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Four years old",
+        "Six years old",
+        "Eight years old",
+        "Twelve years old"
+      ],
+      "ar": [
+        "أربع سنوات",
+        "سنتان",
+        "ست سنوات",
+        "ثماني سنوات"
+      ],
+      "ur": [
+        "چار سال",
+        "دو سال",
+        "چھ سال",
+        "آٹھ سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Prophet Muhammad ﷺ doing when the first incident of the opening of the chest occurred, according to the source?",
+      "ar": "ماذا كان النبي محمد ﷺ يفعل عند وقوع أول حادثة شق الصدر؟",
+      "ur": "پہلی مرتبہ شق صدر کے واقعے کے وقت نبی محمد ﷺ کیا کر رہے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Grazing goats",
+        "Travelling to Syria",
+        "Praying in the Kaaba",
+        "Eating with his family"
+      ],
+      "ar": [
+        "كان يرعى الغنم",
+        "كان يتاجر",
+        "كان يصلي في الكعبة",
+        "كان يسافر"
+      ],
+      "ur": [
+        "آپ ﷺ بکریاں چرا رہے تھے",
+        "آپ ﷺ تجارت کر رہے تھے",
+        "آپ ﷺ کعبہ میں نماز پڑھ رہے تھے",
+        "آپ ﷺ سفر کر رہے تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was with Prophet Muhammad ﷺ when the first incident of the opening of the chest occurred?",
+      "ar": "من كان مع النبي محمد ﷺ عند وقوع أول حادثة شق الصدر؟",
+      "ur": "پہلی مرتبہ شق صدر کے واقعے کے وقت نبی محمد ﷺ کے ساتھ کون تھا؟"
+    },
+    "options": {
+      "en": [
+        "His foster brother",
+        "His grandfather",
+        "His mother",
+        "His uncle Abu Talib"
+      ],
+      "ar": [
+        "أخوه من الرضاعة",
+        "جده",
+        "عمه أبو طالب",
+        "أبو بكر"
+      ],
+      "ur": [
+        "آپ ﷺ کے رضاعی بھائی",
+        "آپ ﷺ کے دادا",
+        "آپ ﷺ کے چچا ابو طالب",
+        "ابو بکر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Prophet Muhammad ﷺ: Birth and Childhood (provided source)",
+    "event_id": null
+  }
+]

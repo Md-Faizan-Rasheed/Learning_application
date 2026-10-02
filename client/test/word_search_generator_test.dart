@@ -53,8 +53,7 @@ void main() {
       expect(puzzle.grid[0].length, 4);
     });
 
-    test('placed word cell paths stay within grid bounds with no duplicates',
-        () {
+    test('placed word cell paths stay within grid bounds with no duplicates', () {
       final puzzle = generateWordSearch(
         words: kProphetNames,
         size: 8,

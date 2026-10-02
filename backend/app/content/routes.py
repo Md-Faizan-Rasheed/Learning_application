@@ -7,6 +7,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..campaign import repository as campaign_repo
+from ..common.audit_log import log_admin_action
 from ..common.deps import CurrentUser, get_current_user, get_db, require_admin_user
 from ..config import settings
 from ..contributions.repository import award_approval_xp
@@ -58,15 +59,23 @@ async def list_public_categories(
 
 
 @router.post("/categories", response_model=CategoryOut, status_code=status.HTTP_201_CREATED)
-async def create_category(data: CategoryCreate, db: AsyncSession = Depends(get_db)) -> dict:
+async def create_category(
+    data: CategoryCreate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
     try:
-        return await repo.create_category(db, data)
+        result = await repo.create_category(db, data)
     except IntegrityError:
         await db.rollback()
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail=f"category slug '{data.slug}' already exists",
         )
+    await log_admin_action(
+        db, current.user_id, "category.create", target_type="category", target_id=str(result["id"])
+    )
+    return result
 
 
 @router.get("/categories", response_model=list[CategoryOut])
@@ -76,11 +85,22 @@ async def list_categories(db: AsyncSession = Depends(get_db)) -> list[dict]:
 
 @router.patch("/categories/{category_id}", response_model=CategoryOut)
 async def update_category(
-    category_id: UUID, data: CategoryUpdate, db: AsyncSession = Depends(get_db)
+    category_id: UUID,
+    data: CategoryUpdate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> dict:
     result = await repo.update_category(db, category_id, data)
     if result is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="category not found")
+    await log_admin_action(
+        db,
+        current.user_id,
+        "category.update",
+        target_type="category",
+        target_id=str(category_id),
+        detail=data.model_dump(exclude_unset=True),
+    )
     return result
 
 
@@ -93,9 +113,13 @@ async def list_seerah_events(db: AsyncSession = Depends(get_db)) -> list[dict]:
 
 
 @router.post("/seerah-events", response_model=SeerahEventOut, status_code=status.HTTP_201_CREATED)
-async def create_seerah_event(data: SeerahEventCreate, db: AsyncSession = Depends(get_db)) -> dict:
+async def create_seerah_event(
+    data: SeerahEventCreate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
     try:
-        return await campaign_repo.create_event(
+        result = await campaign_repo.create_event(
             db, slug=data.slug, name=data.name, year_hijri=data.year_hijri, summary=data.summary
         )
     except IntegrityError:
@@ -103,11 +127,18 @@ async def create_seerah_event(data: SeerahEventCreate, db: AsyncSession = Depend
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT, detail=f"event slug '{data.slug}' already exists"
         )
+    await log_admin_action(
+        db, current.user_id, "event.create", target_type="seerah_event", target_id=str(result["id"])
+    )
+    return result
 
 
 @router.patch("/seerah-events/{event_id}", response_model=SeerahEventOut)
 async def update_seerah_event(
-    event_id: UUID, data: SeerahEventUpdate, db: AsyncSession = Depends(get_db)
+    event_id: UUID,
+    data: SeerahEventUpdate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> dict:
     try:
         result = await campaign_repo.update_event(
@@ -125,11 +156,23 @@ async def update_seerah_event(
         )
     if result is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="event not found")
+    await log_admin_action(
+        db,
+        current.user_id,
+        "event.update",
+        target_type="seerah_event",
+        target_id=str(event_id),
+        detail=data.model_dump(exclude_unset=True),
+    )
     return result
 
 
 @router.delete("/seerah-events/{event_id}", status_code=status.HTTP_204_NO_CONTENT)
-async def delete_seerah_event(event_id: UUID, db: AsyncSession = Depends(get_db)) -> None:
+async def delete_seerah_event(
+    event_id: UUID,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
+) -> None:
     try:
         deleted = await campaign_repo.delete_event(db, str(event_id))
     except IntegrityError:
@@ -140,6 +183,9 @@ async def delete_seerah_event(event_id: UUID, db: AsyncSession = Depends(get_db)
         )
     if not deleted:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="event not found")
+    await log_admin_action(
+        db, current.user_id, "event.delete", target_type="seerah_event", target_id=str(event_id)
+    )
 
 
 @router.get("/campaign-stages", response_model=list[CampaignStageOption])
@@ -151,10 +197,12 @@ async def list_campaign_stages(db: AsyncSession = Depends(get_db)) -> list[dict]
 
 @router.post("/campaign-stages", response_model=CampaignStageOption, status_code=status.HTTP_201_CREATED)
 async def create_campaign_stage(
-    data: CampaignStageCreate, db: AsyncSession = Depends(get_db)
+    data: CampaignStageCreate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> dict:
     try:
-        return await campaign_repo.create_stage(
+        result = await campaign_repo.create_stage(
             db, slug=data.slug, name=data.name, description=data.description
         )
     except IntegrityError:
@@ -162,11 +210,18 @@ async def create_campaign_stage(
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT, detail=f"stage slug '{data.slug}' already exists"
         )
+    await log_admin_action(
+        db, current.user_id, "stage.create", target_type="campaign_stage", target_id=str(result["id"])
+    )
+    return result
 
 
 @router.patch("/campaign-stages/{stage_id}", response_model=CampaignStageOption)
 async def update_campaign_stage(
-    stage_id: UUID, data: CampaignStageUpdate, db: AsyncSession = Depends(get_db)
+    stage_id: UUID,
+    data: CampaignStageUpdate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> dict:
     try:
         result = await campaign_repo.update_stage(
@@ -179,11 +234,23 @@ async def update_campaign_stage(
         )
     if result is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="stage not found")
+    await log_admin_action(
+        db,
+        current.user_id,
+        "stage.update",
+        target_type="campaign_stage",
+        target_id=str(stage_id),
+        detail=data.model_dump(exclude_unset=True),
+    )
     return result
 
 
 @router.delete("/campaign-stages/{stage_id}", status_code=status.HTTP_204_NO_CONTENT)
-async def delete_campaign_stage(stage_id: UUID, db: AsyncSession = Depends(get_db)) -> None:
+async def delete_campaign_stage(
+    stage_id: UUID,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
+) -> None:
     stage = await campaign_repo.get_stage_by_id(db, str(stage_id))
     if stage is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="stage not found")
@@ -203,11 +270,21 @@ async def delete_campaign_stage(stage_id: UUID, db: AsyncSession = Depends(get_d
         )
     if not deleted:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="stage not found")
+    await log_admin_action(
+        db,
+        current.user_id,
+        "stage.delete",
+        target_type="campaign_stage",
+        target_id=str(stage_id),
+        detail={"slug": stage["slug"]},
+    )
 
 
 @router.post("/campaign-stages/reorder", response_model=list[CampaignStageOption])
 async def reorder_campaign_stages(
-    data: StageReorderRequest, db: AsyncSession = Depends(get_db)
+    data: StageReorderRequest,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> list[dict]:
     existing = await campaign_repo.list_stages(db)
     existing_ids = {str(s["id"]) for s in existing}
@@ -217,12 +294,23 @@ async def reorder_campaign_stages(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail="stage_ids must include every existing stage exactly once",
         )
-    return await campaign_repo.reorder_stages(db, requested_ids)
+    result = await campaign_repo.reorder_stages(db, requested_ids)
+    await log_admin_action(
+        db,
+        current.user_id,
+        "stage.reorder",
+        target_type="campaign_stage",
+        detail={"order": requested_ids},
+    )
+    return result
 
 
 @router.put("/events/{event_id}/stage-tag", response_model=StageLinkResult)
 async def set_event_stage_tag(
-    event_id: UUID, data: StageLinkRequest, db: AsyncSession = Depends(get_db)
+    event_id: UUID,
+    data: StageLinkRequest,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> dict:
     """Links (or, with stage_slug=None, unlinks) a Seerah event to a
     campaign stage. This is the one action that turns every question
@@ -234,6 +322,14 @@ async def set_event_stage_tag(
     if data.stage_slug is not None and await campaign_repo.get_stage_id_by_slug(db, data.stage_slug) is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="stage not found")
     await campaign_repo.set_event_stage_tag(db, event_id=str(event_id), stage_slug=data.stage_slug)
+    await log_admin_action(
+        db,
+        current.user_id,
+        "event.stage_tag",
+        target_type="seerah_event",
+        target_id=str(event_id),
+        detail={"stage_slug": data.stage_slug},
+    )
     return {"event_id": event_id, "stage_slug": data.stage_slug}
 
 
@@ -311,7 +407,10 @@ async def get_question(question_id: UUID, db: AsyncSession = Depends(get_db)) ->
 
 @router.patch("/questions/{question_id}", response_model=QuestionOut)
 async def update_question(
-    question_id: UUID, data: QuestionUpdate, db: AsyncSession = Depends(get_db)
+    question_id: UUID,
+    data: QuestionUpdate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> dict:
     if data.category_id is not None and not await repo.category_exists(db, data.category_id):
         raise HTTPException(
@@ -326,11 +425,23 @@ async def update_question(
     result = await repo.update_question(db, question_id, data)
     if result is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="question not found")
+    await log_admin_action(
+        db,
+        current.user_id,
+        "question.update",
+        target_type="question",
+        target_id=str(question_id),
+        detail=data.model_dump(exclude_unset=True),
+    )
     return result
 
 
 @router.delete("/questions/{question_id}", status_code=status.HTTP_204_NO_CONTENT)
-async def delete_question(question_id: UUID, db: AsyncSession = Depends(get_db)) -> None:
+async def delete_question(
+    question_id: UUID,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
+) -> None:
     try:
         deleted = await repo.delete_question(db, question_id)
     except IntegrityError:
@@ -342,10 +453,17 @@ async def delete_question(question_id: UUID, db: AsyncSession = Depends(get_db))
         )
     if not deleted:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="question not found")
+    await log_admin_action(
+        db, current.user_id, "question.delete", target_type="question", target_id=str(question_id)
+    )
 
 
 @router.post("/questions", response_model=QuestionOut, status_code=status.HTTP_201_CREATED)
-async def create_question(data: QuestionCreate, db: AsyncSession = Depends(get_db)) -> dict:
+async def create_question(
+    data: QuestionCreate,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
     if not await repo.category_exists(db, data.category_id):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -356,11 +474,19 @@ async def create_question(data: QuestionCreate, db: AsyncSession = Depends(get_d
             status_code=status.HTTP_404_NOT_FOUND,
             detail="event_id does not exist",
         )
-    return await repo.create_question(db, data)
+    result = await repo.create_question(db, data)
+    await log_admin_action(
+        db, current.user_id, "question.create", target_type="question", target_id=str(result["id"])
+    )
+    return result
 
 
 @router.post("/questions/bulk-import", response_model=BulkImportResult)
-async def bulk_import_questions(data: BulkImportRequest, db: AsyncSession = Depends(get_db)) -> BulkImportResult:
+async def bulk_import_questions(
+    data: BulkImportRequest,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
+) -> BulkImportResult:
     try:
         raw_rows = (
             bulk_import.parse_json_rows(data.content)
@@ -369,12 +495,22 @@ async def bulk_import_questions(data: BulkImportRequest, db: AsyncSession = Depe
         )
     except ValueError as e:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(e))
-    return await bulk_import.import_rows(db, raw_rows)
+    result = await bulk_import.import_rows(db, raw_rows)
+    await log_admin_action(
+        db,
+        current.user_id,
+        "question.bulk_import",
+        target_type="question",
+        detail={"format": data.format, "created": result.created, "error_count": len(result.errors)},
+    )
+    return result
 
 
 @router.post("/questions/ai-import", response_model=AdminAiImportResult)
 async def ai_import_questions(
-    data: AdminAiImportRequest, db: AsyncSession = Depends(get_db)
+    data: AdminAiImportRequest,
+    current: CurrentUser = Depends(require_admin_user),
+    db: AsyncSession = Depends(get_db),
 ) -> AdminAiImportResult:
     """Paste freeform text (a worksheet, Q&A pairs, plain notes) and an LLM
     extracts multiple-choice questions from it. Each one lands as a public
@@ -406,6 +542,13 @@ async def ai_import_questions(
             event_id=data.event_id,
         )
         created.append({**row, "note": q.note})
+    await log_admin_action(
+        db,
+        current.user_id,
+        "question.ai_import",
+        target_type="question",
+        detail={"category_id": str(data.category_id), "created": len(created)},
+    )
     return AdminAiImportResult(questions=created)
 
 
@@ -413,6 +556,7 @@ async def ai_import_questions(
 async def review_question(
     question_id: UUID,
     state: str,
+    current: CurrentUser = Depends(require_admin_user),
     db: AsyncSession = Depends(get_db),
 ) -> dict:
     """Promote a question through the scholar-review workflow.
@@ -433,4 +577,12 @@ async def review_question(
         and before["created_by"] is not None
     ):
         await award_approval_xp(db, str(before["created_by"]))
+    await log_admin_action(
+        db,
+        current.user_id,
+        "question.review",
+        target_type="question",
+        target_id=str(question_id),
+        detail={"state": state},
+    )
     return result

@@ -55,8 +55,7 @@ void main() {
       }
     });
 
-    test('pad size shrinks as the batch grows, but never below the 48px minimum tap target',
-        () {
+    test('pad size shrinks as the batch grows, but never below the 48px minimum tap target', () {
       const area = Size(296, 500);
       final five = padSizeFor(5, area);
       final seven = padSizeFor(7, area);

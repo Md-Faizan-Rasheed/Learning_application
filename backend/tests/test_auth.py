@@ -141,3 +141,34 @@ async def test_admin_endpoints_reject_fake_x_admin_key_header(client):
     used to be a valid bypass must now be fully ignored."""
     res = await client.get("/admin/categories", headers={"X-Admin-Key": "anything"})
     assert res.status_code == 403
+
+
+async def test_login_is_rate_limited_after_repeated_attempts(client, monkeypatch):
+    """Every other test in this file gets the rate limiter monkeypatched to a
+    no-op (see conftest.py's autouse fixture) so the suite can register/login
+    freely — this test restores the real thing to actually exercise it. The
+    limiter keys by caller IP, which httpx's ASGITransport reports as the
+    same fixed value for every test, so any leftover counter from a previous
+    run is cleared first and cleaned up after."""
+    from app.common.rate_limit import rate_limit as real_rate_limit
+    from app.redis_client import redis_client
+
+    monkeypatch.setattr("app.auth.routes.rate_limit", real_rate_limit)
+
+    async def _clear():
+        keys = [k async for k in redis_client.scan_iter("ratelimit:login:*")]
+        if keys:
+            await redis_client.delete(*keys)
+
+    await _clear()
+    try:
+        email = _unique_email()
+        for _ in range(5):
+            res = await client.post("/auth/login", json={"email": email, "password": "wrong"})
+            assert res.status_code == 401
+
+        blocked = await client.post("/auth/login", json={"email": email, "password": "wrong"})
+        assert blocked.status_code == 429
+        assert "retry-after" in blocked.headers
+    finally:
+        await _clear()

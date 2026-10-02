@@ -9,6 +9,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..common.deps import CurrentUser, get_current_user, get_db
+from ..common.rate_limit import rate_limit
 from . import schemas
 from .email import send_reset_email
 from .security import create_access_token, hash_password, verify_password
@@ -17,9 +18,26 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 
 _RESET_TOKEN_TTL = dt.timedelta(hours=1)
 
+# Brute-force guard for the auth endpoints below — keyed by caller IP, same
+# limit/window on all four since none of them need to be more permissive.
+# See common/rate_limit.py.
+_AUTH_RATE_LIMIT = 5
+_AUTH_RATE_WINDOW_SECONDS = 60
+
+
+def _client_ip(request: Request) -> str:
+    return request.client.host if request.client else "unknown"
+
 
 @router.post("/register", response_model=schemas.TokenOut, status_code=status.HTTP_201_CREATED)
-async def register(data: schemas.RegisterIn, db: AsyncSession = Depends(get_db)) -> schemas.TokenOut:
+async def register(
+    data: schemas.RegisterIn, request: Request, db: AsyncSession = Depends(get_db)
+) -> schemas.TokenOut:
+    await rate_limit(
+        key=f"register:{_client_ip(request)}",
+        limit=_AUTH_RATE_LIMIT,
+        window_seconds=_AUTH_RATE_WINDOW_SECONDS,
+    )
     if not data.gender_ok:
         raise HTTPException(status_code=422, detail="gender must be 'male' or 'female'")
     if not data.role_ok:
@@ -92,6 +110,11 @@ async def forgot_password(
     """Always responds the same way regardless of whether the email is
     registered, so this can't be used to enumerate accounts. Silently no-ops
     (still returns success) if the email doesn't match anyone."""
+    await rate_limit(
+        key=f"forgot-password:{_client_ip(request)}",
+        limit=_AUTH_RATE_LIMIT,
+        window_seconds=_AUTH_RATE_WINDOW_SECONDS,
+    )
     token = secrets.token_urlsafe(32)
     expires_at = dt.datetime.now(dt.timezone.utc) + _RESET_TOKEN_TTL
     matched = await schemas.set_reset_token(db, data.email, token, expires_at)
@@ -150,8 +173,14 @@ document.getElementById('f').addEventListener('submit', async (e) => {{
 @router.post("/reset-password")
 async def reset_password(
     data: schemas.ResetPasswordIn,
+    request: Request,
     db: AsyncSession = Depends(get_db),
 ) -> dict:
+    await rate_limit(
+        key=f"reset-password:{_client_ip(request)}",
+        limit=_AUTH_RATE_LIMIT,
+        window_seconds=_AUTH_RATE_WINDOW_SECONDS,
+    )
     user = await schemas.get_user_by_reset_token(db, data.token)
     expires_at = user["password_reset_expires_at"] if user else None
     if not user or expires_at is None or expires_at < dt.datetime.now(dt.timezone.utc):
@@ -178,7 +207,14 @@ async def me(
 
 
 @router.post("/login", response_model=schemas.TokenOut)
-async def login(data: schemas.LoginIn, db: AsyncSession = Depends(get_db)) -> schemas.TokenOut:
+async def login(
+    data: schemas.LoginIn, request: Request, db: AsyncSession = Depends(get_db)
+) -> schemas.TokenOut:
+    await rate_limit(
+        key=f"login:{_client_ip(request)}",
+        limit=_AUTH_RATE_LIMIT,
+        window_seconds=_AUTH_RATE_WINDOW_SECONDS,
+    )
     user = await schemas.get_user_by_email(db, data.email)
     # Same generic error whether the email is unknown or the password is wrong,
     # so we don't leak which emails are registered.

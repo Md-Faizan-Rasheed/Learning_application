@@ -43,8 +43,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('renders without overflowing even with the continuation row present',
-      (tester) async {
+  testWidgets('renders without overflowing even with the continuation row present', (tester) async {
     await pumpCard(tester, category.situations[0]);
 
     // A RenderFlex overflow surfaces as a FlutterError during the test;

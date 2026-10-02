@@ -37,15 +37,19 @@ void main() {
     });
 
     test('crossing a milestone threshold weighs more', () {
-      expect(findMyAyahMilestoneWeight(visitedCountBefore: 9, visitedCountAfter: 10), greaterThan(1));
-      expect(findMyAyahMilestoneWeight(visitedCountBefore: 19, visitedCountAfter: 20), greaterThan(1));
-      expect(findMyAyahMilestoneWeight(visitedCountBefore: 39, visitedCountAfter: 40), greaterThan(1));
+      expect(
+          findMyAyahMilestoneWeight(visitedCountBefore: 9, visitedCountAfter: 10), greaterThan(1));
+      expect(
+          findMyAyahMilestoneWeight(visitedCountBefore: 19, visitedCountAfter: 20), greaterThan(1));
+      expect(
+          findMyAyahMilestoneWeight(visitedCountBefore: 39, visitedCountAfter: 40), greaterThan(1));
     });
 
     test('landing exactly on a milestone from further below still counts as crossing it', () {
       // e.g. a milestone situation reached via search/saved rather than
       // one-at-a-time sequential discovery.
-      expect(findMyAyahMilestoneWeight(visitedCountBefore: 5, visitedCountAfter: 10), greaterThan(1));
+      expect(
+          findMyAyahMilestoneWeight(visitedCountBefore: 5, visitedCountAfter: 10), greaterThan(1));
     });
   });
 }

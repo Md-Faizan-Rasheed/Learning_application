@@ -1,0 +1,1058 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is meant by the Mu'akhat (brotherhood) of Madinah?",
+      "ar": "ما المقصود بالمؤاخاة في المدينة؟",
+      "ur": "مدینہ کی مواخات سے کیا مراد ہے؟"
+    },
+    "options": {
+      "en": [
+        "A trade agreement with the Jews",
+        "The brotherhood established between the Ansar and the Muhajirun",
+        "A treaty with the Quraysh",
+        "A military alliance with Yemen"
+      ],
+      "ar": [
+        "اتفاقية تجارية مع اليهود",
+        "الأخوّة التي عُقدت بين الأنصار والمهاجرين",
+        "معاهدة مع قريش",
+        "تحالف عسكري مع اليمن"
+      ],
+      "ur": [
+        "یہودیوں کے ساتھ تجارتی معاہدہ",
+        "انصار اور مہاجرین کے درمیان قائم کیا گیا بھائی چارہ",
+        "قریش کے ساتھ صلح",
+        "یمن کے ساتھ فوجی اتحاد"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Brotherhood of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the benefit of the Mu'akhat of Madinah?",
+      "ar": "ما فائدة المؤاخاة في المدينة؟",
+      "ur": "مواخاتِ مدینہ کا کیا فائدہ ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Trade with Makkah increased",
+        "The Jews left Madinah",
+        "Taxes were removed",
+        "Muslims became companions to one another in joy and sorrow"
+      ],
+      "ar": [
+        "زادت التجارة مع مكة",
+        "غادر اليهود المدينة",
+        "أُلغيت الضرائب",
+        "صار المسلمون رفقاء لبعضهم في الفرح والحزن"
+      ],
+      "ur": [
+        "مکہ سے تجارت بڑھ گئی",
+        "یہودی مدینہ چھوڑ گئے",
+        "ٹیکس ختم ہو گئے",
+        "مسلمان خوشی اور غم میں ایک دوسرے کے ساتھی بن گئے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Brotherhood of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In the bond of brotherhood, whom did the Prophet ﷺ make his own brother?",
+      "ar": "في المؤاخاة، من اتخذه النبي ﷺ أخًا له؟",
+      "ur": "مواخات میں نبی ﷺ نے کس کو اپنا بھائی بنایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Abu Bakr",
+        "Hazrat Umar",
+        "Hazrat Uthman"
+      ],
+      "ar": [
+        "علي",
+        "أبو بكر",
+        "عمر",
+        "عثمان"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت ابو بکر",
+        "حضرت عمر",
+        "حضرت عثمان"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Brotherhood of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is meant by the Charter (Mithaq) of Madinah?",
+      "ar": "ما المقصود بميثاق المدينة؟",
+      "ur": "میثاقِ مدینہ سے کیا مراد ہے؟"
+    },
+    "options": {
+      "en": [
+        "A list of prayer times",
+        "A trade tax law",
+        "A peace treaty with Makkah",
+        "An agreement organising relations with non-Muslims and making Madinah secure"
+      ],
+      "ar": [
+        "جدول لأوقات الصلاة",
+        "قانون ضريبة تجارية",
+        "معاهدة سلام مع مكة",
+        "اتفاق لتنظيم العلاقات مع غير المسلمين وتأمين المدينة"
+      ],
+      "ur": [
+        "نماز کے اوقات کی فہرست",
+        "تجارتی ٹیکس کا قانون",
+        "مکہ کے ساتھ صلح نامہ",
+        "غیر مسلموں سے تعلقات منظم کرنے اور مدینہ کو محفوظ بنانے کا معاہدہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Charter of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which groups were parties to the Charter of Madinah?",
+      "ar": "من الأطراف التي شملها ميثاق المدينة؟",
+      "ur": "میثاقِ مدینہ میں کون سے گروہ شریک تھے؟"
+    },
+    "options": {
+      "en": [
+        "Only the Quraysh",
+        "Muslims and Jews (and others in Madinah)",
+        "Only the Ansar",
+        "Persians and Romans"
+      ],
+      "ar": [
+        "قريش فقط",
+        "المسلمون واليهود (وغيرهم في المدينة)",
+        "الأنصار فقط",
+        "الفرس والروم"
+      ],
+      "ur": [
+        "صرف قریش",
+        "مسلمان اور یہودی (اور مدینہ کے دیگر لوگ)",
+        "صرف انصار",
+        "ایرانی اور رومی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Charter of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which quality of the Prophet ﷺ is seen in the Charter of Madinah?",
+      "ar": "أي صفة للنبي ﷺ تظهر في ميثاق المدينة؟",
+      "ur": "میثاقِ مدینہ سے نبی ﷺ کی کون سی خوبی ظاہر ہوتی ہے؟"
+    },
+    "options": {
+      "en": [
+        "Love of travel",
+        "Skill in poetry",
+        "Political insight",
+        "Interest in trade only"
+      ],
+      "ar": [
+        "حب السفر",
+        "البراعة في الشعر",
+        "البصيرة السياسية",
+        "الاهتمام بالتجارة فقط"
+      ],
+      "ur": [
+        "سفر کا شوق",
+        "شاعری میں مہارت",
+        "سیاسی بصیرت",
+        "صرف تجارت میں دلچسپی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Charter of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of these is a clause of the Charter of Madinah?",
+      "ar": "أي مما يلي بند من بنود ميثاق المدينة؟",
+      "ur": "ان میں سے میثاقِ مدینہ کی کون سی شق ہے؟"
+    },
+    "options": {
+      "en": [
+        "No one may trade",
+        "All must leave Madinah",
+        "The wronged will be helped",
+        "Only Muslims may live in Madinah"
+      ],
+      "ar": [
+        "يُمنع التجارة",
+        "على الجميع مغادرة المدينة",
+        "يُنصر المظلوم",
+        "لا يسكن المدينة إلا المسلمون"
+      ],
+      "ur": [
+        "کسی کو تجارت کی اجازت نہیں",
+        "سب مدینہ چھوڑ دیں",
+        "مظلوم کی مدد کی جائے گی",
+        "مدینہ میں صرف مسلمان رہیں گے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Charter of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What right was given to non-Muslims in the Charter of Madinah?",
+      "ar": "أي حق مُنح لغير المسلمين في ميثاق المدينة؟",
+      "ur": "میثاقِ مدینہ میں غیر مسلموں کو کون سا حق دیا گیا؟"
+    },
+    "options": {
+      "en": [
+        "The right to rule Madinah",
+        "Religious freedom",
+        "Exemption from all laws",
+        "The right to attack Muslims"
+      ],
+      "ar": [
+        "حق حكم المدينة",
+        "حرية الدين",
+        "الإعفاء من كل القوانين",
+        "حق مهاجمة المسلمين"
+      ],
+      "ur": [
+        "مدینہ پر حکومت کا حق",
+        "مذہبی آزادی",
+        "تمام قوانین سے استثنا",
+        "مسلمانوں پر حملے کا حق"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Charter of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the Charter of Madinah called?",
+      "ar": "بماذا يوصف ميثاق المدينة؟",
+      "ur": "میثاقِ مدینہ کو کیا کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "The first mosque of Islam",
+        "The first battle of Islam",
+        "The first market of Islam",
+        "The first constitutional charter of Islam"
+      ],
+      "ar": [
+        "أول مسجد في الإسلام",
+        "أول معركة في الإسلام",
+        "أول سوق في الإسلام",
+        "أول وثيقة دستورية في الإسلام"
+      ],
+      "ur": [
+        "اسلام کی پہلی مسجد",
+        "اسلام کی پہلی جنگ",
+        "اسلام کا پہلا بازار",
+        "اسلام کا پہلا آئینی میثاق"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Charter of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year was the Charter of Madinah made?",
+      "ar": "في أي سنة أُبرم ميثاق المدينة؟",
+      "ur": "میثاقِ مدینہ کس سال طے پایا؟"
+    },
+    "options": {
+      "en": [
+        "1 AH",
+        "5 AH",
+        "8 AH",
+        "10 AH"
+      ],
+      "ar": [
+        "1 هـ",
+        "5 هـ",
+        "8 هـ",
+        "10 هـ"
+      ],
+      "ur": [
+        "1 ہجری",
+        "5 ہجری",
+        "8 ہجری",
+        "10 ہجری"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Charter of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which tribe was the first to break the Charter of Madinah?",
+      "ar": "أي قبيلة كانت أول من نقض ميثاق المدينة؟",
+      "ur": "میثاقِ مدینہ کو سب سے پہلے کس قبیلے نے توڑا؟"
+    },
+    "options": {
+      "en": [
+        "Aws",
+        "Khazraj",
+        "Quraysh",
+        "Banu Qaynuqa"
+      ],
+      "ar": [
+        "الأوس",
+        "الخزرج",
+        "قريش",
+        "بنو قينقاع"
+      ],
+      "ur": [
+        "اوس",
+        "خزرج",
+        "قریش",
+        "بنو قینقاع"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What punishment did the Prophet ﷺ give Banu Qaynuqa?",
+      "ar": "ما العقوبة التي أنزلها النبي ﷺ ببني قينقاع؟",
+      "ur": "نبی ﷺ نے بنو قینقاع کو کیا سزا دی؟"
+    },
+    "options": {
+      "en": [
+        "They were exiled",
+        "They were made rulers",
+        "They were paid",
+        "They were ignored"
+      ],
+      "ar": [
+        "أُجلوا عن المدينة",
+        "نُصّبوا حكامًا",
+        "أُعطوا مالًا",
+        "تُركوا"
+      ],
+      "ur": [
+        "انہیں جلاوطن کیا گیا",
+        "انہیں حاکم بنایا گیا",
+        "انہیں مال دیا گیا",
+        "انہیں نظر انداز کیا گیا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of these Jewish tribes lived in Madinah?",
+      "ar": "أي من هذه القبائل اليهودية سكنت المدينة؟",
+      "ur": "ان میں سے کون سا یہودی قبیلہ مدینہ میں رہتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Banu Taym",
+        "Banu Qurayza",
+        "Banu Hashim",
+        "Banu Makhzum"
+      ],
+      "ar": [
+        "بنو تيم",
+        "بنو قريظة",
+        "بنو هاشم",
+        "بنو مخزوم"
+      ],
+      "ur": [
+        "بنو تیم",
+        "بنو قریظہ",
+        "بنو ہاشم",
+        "بنو مخزوم"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which Jewish scholar recognised the Prophet ﷺ from earlier scriptures and accepted Islam?",
+      "ar": "أي عالم يهودي عرف النبي ﷺ من الكتب السابقة وأسلم؟",
+      "ur": "کس یہودی عالم نے پچھلی کتابوں کی نشانیوں سے نبی ﷺ کو پہچان کر اسلام قبول کیا؟"
+    },
+    "options": {
+      "en": [
+        "Ka'b ibn al-Ashraf",
+        "Abdullah ibn Ubayy",
+        "Abu Jahl",
+        "Hazrat Abdullah ibn Salam"
+      ],
+      "ar": [
+        "كعب بن الأشرف",
+        "عبد الله بن أبي",
+        "أبو جهل",
+        "عبد الله بن سلام"
+      ],
+      "ur": [
+        "کعب بن اشرف",
+        "عبداللہ بن ابی",
+        "ابو جہل",
+        "حضرت عبداللہ بن سلام"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why did most of the Jews not accept Islam?",
+      "ar": "لماذا لم يُسلم أكثر اليهود؟",
+      "ur": "اکثر یہودیوں نے اسلام کیوں قبول نہیں کیا؟"
+    },
+    "options": {
+      "en": [
+        "Because they had never heard of it",
+        "Because they were far from Madinah",
+        "Because of envy and hatred",
+        "Because Islam was forbidden"
+      ],
+      "ar": [
+        "لأنهم لم يسمعوا به",
+        "لأنهم بعيدون عن المدينة",
+        "بسبب الحسد والبغض",
+        "لأن الإسلام كان ممنوعًا"
+      ],
+      "ur": [
+        "کیونکہ انہوں نے اس کا سنا ہی نہ تھا",
+        "کیونکہ وہ مدینہ سے دور تھے",
+        "حسد اور نفرت کی وجہ سے",
+        "کیونکہ اسلام ممنوع تھا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Besides the Jews, which other non-Muslims lived in Madinah?",
+      "ar": "من غير اليهود، أي غير المسلمين كانوا يسكنون المدينة؟",
+      "ur": "یہودیوں کے علاوہ مدینہ میں اور کون سے غیر مسلم رہتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Christians",
+        "Buddhists",
+        "Hindus",
+        "Zoroastrians only"
+      ],
+      "ar": [
+        "النصارى",
+        "البوذيون",
+        "الهندوس",
+        "المجوس فقط"
+      ],
+      "ur": [
+        "عیسائی",
+        "بدھ مت والے",
+        "ہندو",
+        "صرف مجوسی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who were the hypocrites (munafiqin) of Madinah?",
+      "ar": "من هم المنافقون في المدينة؟",
+      "ur": "مدینہ کے منافقین کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "People who left Madinah",
+        "People who lived in caves",
+        "People who outwardly accepted Islam but were enemies of the Muslims",
+        "People who traded with Makkah"
+      ],
+      "ar": [
+        "من غادروا المدينة",
+        "من سكنوا الكهوف",
+        "من أظهروا الإسلام وأبطنوا العداوة للمسلمين",
+        "من تاجروا مع مكة"
+      ],
+      "ur": [
+        "جو مدینہ چھوڑ گئے",
+        "جو غاروں میں رہتے تھے",
+        "جو ظاہری طور پر مسلمان تھے مگر دل سے مسلمانوں کے دشمن تھے",
+        "جو مکہ سے تجارت کرتے تھے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the chief of the hypocrites?",
+      "ar": "ما اسم رأس المنافقين؟",
+      "ur": "منافقین کے سردار کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abdullah ibn Salam",
+        "Abdullah ibn Mas'ud",
+        "Abdullah ibn Rawaha",
+        "Abdullah ibn Ubayy"
+      ],
+      "ar": [
+        "عبد الله بن سلام",
+        "عبد الله بن مسعود",
+        "عبد الله بن رواحة",
+        "عبد الله بن أبي"
+      ],
+      "ur": [
+        "عبداللہ بن سلام",
+        "عبداللہ بن مسعود",
+        "عبداللہ بن رواحہ",
+        "عبداللہ بن ابی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which Jewish chief was the worst enemy of the Muslims?",
+      "ar": "أي زعيم يهودي كان أشد أعداء المسلمين؟",
+      "ur": "کون سا یہودی سردار مسلمانوں کا سب سے بڑا دشمن تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abdullah ibn Salam",
+        "Hazrat Ka'b al-Ahbar",
+        "Ka'b ibn al-Ashraf",
+        "Waraqa"
+      ],
+      "ar": [
+        "عبد الله بن سلام",
+        "كعب الأحبار",
+        "كعب بن الأشرف",
+        "ورقة"
+      ],
+      "ur": [
+        "عبداللہ بن سلام",
+        "حضرت کعب احبار",
+        "کعب بن اشرف",
+        "ورقہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Jews and Hypocrites of Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For about how long did the Prophet ﷺ pray facing Bayt al-Maqdis (Jerusalem) in Madinah?",
+      "ar": "كم من الوقت صلّى النبي ﷺ نحو بيت المقدس في المدينة تقريبًا؟",
+      "ur": "مدینہ میں نبی ﷺ نے تقریباً کتنی مدت بیت المقدس کی طرف رخ کر کے نماز پڑھی؟"
+    },
+    "options": {
+      "en": [
+        "About sixteen or seventeen months",
+        "About one week",
+        "About ten years",
+        "About one day"
+      ],
+      "ar": [
+        "نحو ستة عشر أو سبعة عشر شهرًا",
+        "نحو أسبوع",
+        "نحو عشر سنين",
+        "نحو يوم"
+      ],
+      "ur": [
+        "تقریباً سولہ یا سترہ مہینے",
+        "تقریباً ایک ہفتہ",
+        "تقریباً دس سال",
+        "تقریباً ایک دن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Change of Qibla",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the change of qibla mentioned?",
+      "ar": "في أي سورة ذُكر تحويل القبلة؟",
+      "ur": "تحویلِ قبلہ کا ذکر کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Kawthar",
+        "Surah al-Baqara",
+        "Surah al-Nas"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الكوثر",
+        "سورة البقرة",
+        "سورة الناس"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الکوثر",
+        "سورۃ البقرہ",
+        "سورۃ الناس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Change of Qibla",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which month was the command to change the qibla revealed?",
+      "ar": "في أي شهر نزل الأمر بتحويل القبلة؟",
+      "ur": "تحویلِ قبلہ کا حکم کس مہینے میں نازل ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Ramadan",
+        "Muharram",
+        "Dhul-Hijja",
+        "Sha'ban"
+      ],
+      "ar": [
+        "رمضان",
+        "محرم",
+        "ذو الحجة",
+        "شعبان"
+      ],
+      "ur": [
+        "رمضان",
+        "محرم",
+        "ذوالحجہ",
+        "شعبان"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Change of Qibla",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the change of qibla take place?",
+      "ar": "في أي سنة حُوّلت القبلة؟",
+      "ur": "تحویلِ قبلہ کس سال ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "2 AH",
+        "5 AH",
+        "8 AH",
+        "10 AH"
+      ],
+      "ar": [
+        "2 هـ",
+        "5 هـ",
+        "8 هـ",
+        "10 هـ"
+      ],
+      "ur": [
+        "2 ہجری",
+        "5 ہجری",
+        "8 ہجری",
+        "10 ہجری"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Change of Qibla",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the mosque where the qibla change occurred during prayer known as?",
+      "ar": "ما اسم المسجد الذي نزل فيه تحويل القبلة أثناء الصلاة؟",
+      "ur": "وہ مسجد جس میں نماز کے دوران قبلہ بدلا، کس نام سے مشہور ہے؟"
+    },
+    "options": {
+      "en": [
+        "Masjid Quba",
+        "Masjid al-Qiblatayn",
+        "Masjid al-Haram",
+        "Masjid al-Aqsa"
+      ],
+      "ar": [
+        "مسجد قباء",
+        "مسجد القبلتين",
+        "المسجد الحرام",
+        "المسجد الأقصى"
+      ],
+      "ur": [
+        "مسجدِ قبا",
+        "مسجدِ قبلتین",
+        "مسجدِ حرام",
+        "مسجدِ اقصیٰ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Change of Qibla",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Madinah called before the Prophet's ﷺ arrival?",
+      "ar": "بماذا كانت تُسمى المدينة قبل قدوم النبي ﷺ؟",
+      "ur": "نبی ﷺ کی آمد سے پہلے مدینہ کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Bakka",
+        "Yathrib",
+        "Taif",
+        "Quba"
+      ],
+      "ar": [
+        "بكة",
+        "يثرب",
+        "الطائف",
+        "قباء"
+      ],
+      "ur": [
+        "بکہ",
+        "یثرب",
+        "طائف",
+        "قبا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What prayer did the Prophet ﷺ make about Madinah?",
+      "ar": "ما الدعاء الذي دعا به النبي ﷺ للمدينة؟",
+      "ur": "نبی ﷺ نے مدینہ کے لیے کیا دعا فرمائی؟"
+    },
+    "options": {
+      "en": [
+        "That it become a great trading city",
+        "That it be free of visitors",
+        "That it become a place of healing and its love be instilled in hearts",
+        "That it be moved to Syria"
+      ],
+      "ar": [
+        "أن تصبح مدينة تجارية كبرى",
+        "أن تخلو من الزوار",
+        "أن تكون مكان شفاء وأن يُحبَّب إليهم",
+        "أن تنتقل إلى الشام"
+      ],
+      "ur": [
+        "کہ یہ بڑا تجارتی شہر بنے",
+        "کہ زائرین سے خالی ہو جائے",
+        "کہ یہ شفا کی جگہ بنے اور دلوں میں اس کی محبت ڈال دی جائے",
+        "کہ شام منتقل ہو جائے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which trees were found in abundance in Madinah?",
+      "ar": "أي الأشجار كانت وفيرة في المدينة؟",
+      "ur": "مدینہ میں کون سے درخت بکثرت تھے؟"
+    },
+    "options": {
+      "en": [
+        "Pine trees",
+        "Olive trees only",
+        "Date palms",
+        "Apple trees"
+      ],
+      "ar": [
+        "الصنوبر",
+        "الزيتون فقط",
+        "النخيل",
+        "التفاح"
+      ],
+      "ur": [
+        "صنوبر",
+        "صرف زیتون",
+        "کھجور",
+        "سیب"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the nature of the people of Madinah before the Prophet's ﷺ arrival?",
+      "ar": "ما طبيعة أهل المدينة قبل قدوم النبي ﷺ؟",
+      "ur": "نبی ﷺ کی آمد سے پہلے اہلِ مدینہ کا مزاج کیسا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Hospitable",
+        "Unwelcoming",
+        "Isolated",
+        "Uneducated only"
+      ],
+      "ar": [
+        "كرماء مضيافون",
+        "غير مرحّبين",
+        "منعزلون",
+        "أميّون فقط"
+      ],
+      "ur": [
+        "مہمان نواز",
+        "اجنبیوں سے بیزار",
+        "الگ تھلگ",
+        "صرف ان پڑھ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which long war was going on among the people of Madinah before the Prophet's ﷺ arrival?",
+      "ar": "أي حرب طويلة كانت بين أهل المدينة قبل قدوم النبي ﷺ؟",
+      "ur": "نبی ﷺ کی آمد سے پہلے اہلِ مدینہ میں کون سی طویل جنگ جاری تھی؟"
+    },
+    "options": {
+      "en": [
+        "The War of Bu'ath",
+        "The Battle of Badr",
+        "The Battle of Uhud",
+        "The War of Fijar"
+      ],
+      "ar": [
+        "حرب بعاث",
+        "غزوة بدر",
+        "غزوة أحد",
+        "حرب الفجار"
+      ],
+      "ur": [
+        "جنگِ بعاث",
+        "غزوۂ بدر",
+        "غزوۂ احد",
+        "جنگِ فجار"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom did the Prophet ﷺ first send any charity or gift he received?",
+      "ar": "إلى من كان النبي ﷺ يرسل أولًا ما يصله من صدقة أو هدية؟",
+      "ur": "نبی ﷺ کو جو صدقہ یا ہدیہ ملتا وہ سب سے پہلے کس کو بھیجتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "The Quraysh",
+        "The People of the Suffa",
+        "The wealthy",
+        "The travellers only"
+      ],
+      "ar": [
+        "قريش",
+        "أهل الصفة",
+        "الأغنياء",
+        "المسافرين فقط"
+      ],
+      "ur": [
+        "قریش کو",
+        "اہلِ صفہ کو",
+        "مالداروں کو",
+        "صرف مسافروں کو"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion of the People of the Suffa remembered more hadith than any other?",
+      "ar": "أي صحابي من أهل الصفة حفظ من الحديث أكثر من غيره؟",
+      "ur": "اہلِ صفہ میں سے کس صحابی کو دوسرے صحابہ سے زیادہ احادیث یاد تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Zubayr",
+        "Hazrat Abu Hurayra"
+      ],
+      "ar": [
+        "علي",
+        "عثمان",
+        "الزبير",
+        "أبو هريرة"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عثمان",
+        "حضرت زبیر",
+        "حضرت ابو ہریرہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many doors did the Prophet ﷺ set for the Prophet's Mosque?",
+      "ar": "كم بابًا جعل النبي ﷺ للمسجد النبوي؟",
+      "ur": "نبی ﷺ نے مسجدِ نبوی کے کتنے دروازے رکھے؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Three",
+        "Ten",
+        "Twenty"
+      ],
+      "ar": [
+        "واحدًا",
+        "ثلاثة",
+        "عشرة",
+        "عشرين"
+      ],
+      "ur": [
+        "ایک",
+        "تین",
+        "دس",
+        "بیس"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Had the Prophet ﷺ visited Madinah before the Hijra?",
+      "ar": "هل زار النبي ﷺ المدينة قبل الهجرة؟",
+      "ur": "کیا نبی ﷺ ہجرت سے پہلے مدینہ آ چکے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Yes, as a child with his mother",
+        "No, never",
+        "Yes, as a soldier",
+        "Yes, with Abu Bakr"
+      ],
+      "ar": [
+        "نعم، طفلًا مع والدته",
+        "لا، أبدًا",
+        "نعم، جنديًا",
+        "نعم، مع أبي بكر"
+      ],
+      "ur": [
+        "ہاں، بچپن میں اپنی والدہ کے ساتھ",
+        "نہیں، کبھی نہیں",
+        "ہاں، ایک سپاہی کی حیثیت سے",
+        "ہاں، ابو بکر کے ساتھ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Madinah Society",
+    "event_id": null
+  }
+]

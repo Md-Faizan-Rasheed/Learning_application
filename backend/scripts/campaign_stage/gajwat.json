@@ -1,0 +1,2306 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is a ghazwa?",
+      "ar": "ما هي الغزوة؟",
+      "ur": "غزوہ کسے کہتے ہیں؟"
+    },
+    "options": {
+      "en": [
+        "A battle in which he did not take part",
+        "A trade caravan",
+        "A peace treaty",
+        "A battle in which the Prophet ﷺ himself took part"
+      ],
+      "ar": [
+        "معركة لم يشارك فيها",
+        "قافلة تجارية",
+        "معاهدة سلام",
+        "معركة شارك فيها النبي ﷺ بنفسه"
+      ],
+      "ur": [
+        "وہ جنگ جس میں آپ ﷺ شریک نہ ہوئے",
+        "تجارتی قافلہ",
+        "صلح نامہ",
+        "وہ جنگ جس میں نبی ﷺ خود شریک ہوئے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the Prophet's ﷺ first battle?",
+      "ar": "ما اسم أول غزوة للنبي ﷺ؟",
+      "ur": "نبی ﷺ کی پہلی جنگ کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abwa",
+        "Uhud",
+        "Tabuk",
+        "Hunayn"
+      ],
+      "ar": [
+        "الأبواء",
+        "أحد",
+        "تبوك",
+        "حنين"
+      ],
+      "ur": [
+        "ابواء",
+        "احد",
+        "تبوک",
+        "حنین"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which was the Prophet's ﷺ last battle?",
+      "ar": "ما آخر غزوات النبي ﷺ؟",
+      "ur": "نبی ﷺ کی آخری جنگ کون سی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Badr",
+        "Tabuk",
+        "Khaybar",
+        "Uhud"
+      ],
+      "ar": [
+        "بدر",
+        "تبوك",
+        "خيبر",
+        "أحد"
+      ],
+      "ur": [
+        "بدر",
+        "تبوک",
+        "خیبر",
+        "احد"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which battle was the Prophet ﷺ wounded?",
+      "ar": "في أي معركة جُرح النبي ﷺ؟",
+      "ur": "کس جنگ میں نبی ﷺ زخمی ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Badr",
+        "Tabuk",
+        "Uhud",
+        "Conquest of Makkah"
+      ],
+      "ar": [
+        "بدر",
+        "تبوك",
+        "أحد",
+        "فتح مكة"
+      ],
+      "ur": [
+        "بدر",
+        "تبوک",
+        "احد",
+        "فتحِ مکہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which battle did the Muslims use the different strategy of digging a trench?",
+      "ar": "في أي معركة استخدم المسلمون أسلوبًا مختلفًا بحفر الخندق؟",
+      "ur": "کس جنگ میں مسلمانوں نے خندق کھود کر مختلف حکمتِ عملی اپنائی؟"
+    },
+    "options": {
+      "en": [
+        "Battle of Badr",
+        "Battle of Hunayn",
+        "Battle of Tabuk",
+        "Battle of the Trench (Khandaq)"
+      ],
+      "ar": [
+        "غزوة بدر",
+        "غزوة حنين",
+        "غزوة تبوك",
+        "غزوة الخندق"
+      ],
+      "ur": [
+        "غزوۂ بدر",
+        "غزوۂ حنین",
+        "غزوۂ تبوک",
+        "غزوۂ خندق"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year and month did the Battle of Badr take place?",
+      "ar": "في أي سنة وشهر وقعت غزوة بدر؟",
+      "ur": "غزوۂ بدر کس سال اور مہینے میں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "5 AH, Shawwal",
+        "2 AH, Ramadan",
+        "8 AH, Ramadan",
+        "1 AH, Rajab"
+      ],
+      "ar": [
+        "5 هـ، شوال",
+        "2 هـ، رمضان",
+        "8 هـ، رمضان",
+        "1 هـ، رجب"
+      ],
+      "ur": [
+        "5 ہجری، شوال",
+        "2 ہجری، رمضان",
+        "8 ہجری، رمضان",
+        "1 ہجری، رجب"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of Badr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What does \"badr\" literally mean?",
+      "ar": "ما المعنى الحرفي لكلمة «بدر»؟",
+      "ur": "لفظ \"بدر\" کا لغوی معنی کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "The sun",
+        "The full moon",
+        "A valley",
+        "A well only"
+      ],
+      "ar": [
+        "الشمس",
+        "البدر (القمر المكتمل)",
+        "وادٍ",
+        "بئر فقط"
+      ],
+      "ur": [
+        "سورج",
+        "چودھویں کا چاند",
+        "وادی",
+        "صرف کنواں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of Badr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many Muslims were there in the Battle of Badr?",
+      "ar": "كم كان عدد المسلمين في غزوة بدر؟",
+      "ur": "غزوۂ بدر میں مسلمانوں کی تعداد کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "1,000",
+        "3,000",
+        "313",
+        "10,000"
+      ],
+      "ar": [
+        "1000",
+        "3000",
+        "313",
+        "10000"
+      ],
+      "ur": [
+        "1,000",
+        "3,000",
+        "313",
+        "10,000"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Badr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "About how many disbelievers were there in the Battle of Badr?",
+      "ar": "كم كان عدد الكفار تقريبًا في غزوة بدر؟",
+      "ur": "غزوۂ بدر میں کفار کی تعداد تقریباً کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "313",
+        "1,000",
+        "5,000",
+        "30,000"
+      ],
+      "ar": [
+        "313",
+        "1000",
+        "5000",
+        "30000"
+      ],
+      "ur": [
+        "313",
+        "1,000",
+        "5,000",
+        "30,000"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of Badr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was the leader of the disbelievers at Badr?",
+      "ar": "من كان قائد الكفار في بدر؟",
+      "ur": "غزوۂ بدر میں کفار کا سردار کون تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr",
+        "Hazrat Abbas",
+        "Abu Jahl",
+        "Abu Talib"
+      ],
+      "ar": [
+        "أبو بكر",
+        "العباس",
+        "أبو جهل",
+        "أبو طالب"
+      ],
+      "ur": [
+        "ابو بکر",
+        "حضرت عباس",
+        "ابو جہل",
+        "ابو طالب"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Badr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many Muslims were martyred at Badr?",
+      "ar": "كم استشهد من المسلمين في بدر؟",
+      "ur": "بدر میں کتنے مسلمان شہید ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Seventy",
+        "Three hundred",
+        "One",
+        "Fourteen"
+      ],
+      "ar": [
+        "سبعون",
+        "ثلاثمئة",
+        "واحد",
+        "أربعة عشر"
+      ],
+      "ur": [
+        "ستر",
+        "تین سو",
+        "ایک",
+        "چودہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Badr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what name does the Quran remember the Battle of Badr?",
+      "ar": "بأي اسم يذكر القرآن غزوة بدر؟",
+      "ur": "قرآن نے غزوۂ بدر کو کس نام سے یاد کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Yawm al-Furqan (the Day of Criterion)",
+        "Yawm al-Hisab",
+        "Yawm al-Fath",
+        "Yawm al-Jumu'a"
+      ],
+      "ar": [
+        "يوم الفرقان",
+        "يوم الحساب",
+        "يوم الفتح",
+        "يوم الجمعة"
+      ],
+      "ur": [
+        "یومِ فرقان",
+        "یومِ حساب",
+        "یومِ فتح",
+        "یومِ جمعہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Battle of Badr",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Battle of Uhud take place?",
+      "ar": "في أي سنة وقعت غزوة أحد؟",
+      "ur": "غزوۂ احد کس سال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "3 AH",
+        "1 AH",
+        "6 AH",
+        "9 AH"
+      ],
+      "ar": [
+        "3 هـ",
+        "1 هـ",
+        "6 هـ",
+        "9 هـ"
+      ],
+      "ur": [
+        "3 ہجری",
+        "1 ہجری",
+        "6 ہجری",
+        "9 ہجری"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many Muslims were there at Uhud?",
+      "ar": "كم كان عدد المسلمين في أحد؟",
+      "ur": "غزوۂ احد میں مسلمان کتنے تھے؟"
+    },
+    "options": {
+      "en": [
+        "313",
+        "700",
+        "3,000",
+        "12,000"
+      ],
+      "ar": [
+        "313",
+        "700",
+        "3000",
+        "12000"
+      ],
+      "ur": [
+        "313",
+        "700",
+        "3,000",
+        "12,000"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many disbelievers were there at Uhud?",
+      "ar": "كم كان عدد الكفار في أحد؟",
+      "ur": "غزوۂ احد میں کفار کتنے تھے؟"
+    },
+    "options": {
+      "en": [
+        "3,000",
+        "313",
+        "700",
+        "30,000"
+      ],
+      "ar": [
+        "3000",
+        "313",
+        "700",
+        "30000"
+      ],
+      "ur": [
+        "3,000",
+        "313",
+        "700",
+        "30,000"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who commanded the disbelievers at Uhud?",
+      "ar": "من قاد الكفار في أحد؟",
+      "ur": "غزوۂ احد میں کفار کی قیادت کس نے کی؟"
+    },
+    "options": {
+      "en": [
+        "Abu Talib",
+        "Abu Lahab",
+        "Hazrat Abbas",
+        "Abu Sufyan"
+      ],
+      "ar": [
+        "أبو طالب",
+        "أبو لهب",
+        "العباس",
+        "أبو سفيان"
+      ],
+      "ur": [
+        "ابو طالب",
+        "ابو لہب",
+        "حضرت عباس",
+        "ابو سفیان"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which person, who later became a Muslim, caused the Muslims great loss at Uhud?",
+      "ar": "من الذي ألحق بالمسلمين خسارة كبيرة في أحد وأسلم لاحقًا؟",
+      "ur": "کس شخص نے احد میں مسلمانوں کو بڑا نقصان پہنچایا اور بعد میں مسلمان ہو گیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Abu Lahab",
+        "Khalid ibn al-Walid",
+        "Utba"
+      ],
+      "ar": [
+        "أبو جهل",
+        "أبو لهب",
+        "خالد بن الوليد",
+        "عتبة"
+      ],
+      "ur": [
+        "ابو جہل",
+        "ابو لہب",
+        "خالد بن ولید",
+        "عتبہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ appoint as commander of the archers at Uhud?",
+      "ar": "من عيّن النبي ﷺ قائدًا للرماة في أحد؟",
+      "ur": "احد میں نبی ﷺ نے تیر اندازوں کا امیر کس کو بنایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Hamza",
+        "Hazrat Umar",
+        "Hazrat Abdullah ibn Jubayr"
+      ],
+      "ar": [
+        "علي",
+        "حمزة",
+        "عمر",
+        "عبد الله بن جبير"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت حمزہ",
+        "حضرت عمر",
+        "حضرت عبداللہ بن جبیر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What instruction did the Prophet ﷺ give the archers?",
+      "ar": "ما التعليمات التي أعطاها النبي ﷺ للرماة؟",
+      "ur": "نبی ﷺ نے تیر اندازوں کو کیا ہدایت دی؟"
+    },
+    "options": {
+      "en": [
+        "Come down after the first victory",
+        "Do not leave your place, whether victory or defeat",
+        "Retreat if the enemy advances",
+        "Join the main army"
+      ],
+      "ar": [
+        "انزلوا بعد أول نصر",
+        "لا تبرحوا أماكنكم نصرًا أو هزيمة",
+        "انسحبوا إذا تقدم العدو",
+        "التحقوا بالجيش الرئيس"
+      ],
+      "ur": [
+        "پہلی فتح کے بعد نیچے آ جانا",
+        "فتح ہو یا شکست اپنی جگہ نہ چھوڑنا",
+        "دشمن بڑھے تو پیچھے ہٹ جانا",
+        "مرکزی لشکر سے مل جانا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why did the Muslims suffer loss at Uhud?",
+      "ar": "لماذا خسر المسلمون في أحد؟",
+      "ur": "احد میں مسلمانوں کو نقصان کیوں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "They ran out of water",
+        "They had no swords",
+        "The archers left their post to collect spoils",
+        "They were too few to fight"
+      ],
+      "ar": [
+        "نفد الماء",
+        "لم تكن لديهم سيوف",
+        "ترك الرماة موقعهم لجمع الغنائم",
+        "كانوا أقل من أن يقاتلوا"
+      ],
+      "ur": [
+        "پانی ختم ہو گیا",
+        "تلواریں نہ تھیں",
+        "تیر انداز غنیمت جمع کرنے کے لیے اپنی جگہ چھوڑ گئے",
+        "لڑنے کے لیے بہت کم تھے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which uncle of the Prophet ﷺ was martyred at Uhud?",
+      "ar": "أي أعمام النبي ﷺ استشهد في أحد؟",
+      "ur": "احد میں نبی ﷺ کے کون سے چچا شہید ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abbas",
+        "Abu Talib",
+        "Abu Lahab",
+        "Hazrat Hamza"
+      ],
+      "ar": [
+        "العباس",
+        "أبو طالب",
+        "أبو لهب",
+        "حمزة"
+      ],
+      "ur": [
+        "حضرت عباس",
+        "ابو طالب",
+        "ابو لہب",
+        "حضرت حمزہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who martyred Hazrat Hamza at Uhud?",
+      "ar": "من قتل حمزة رضي الله عنه في أحد؟",
+      "ur": "احد میں حضرت حمزہ کو کس نے شہید کیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Abu Sufyan",
+        "Wahshi (who later became a Muslim)",
+        "Khalid"
+      ],
+      "ar": [
+        "أبو جهل",
+        "أبو سفيان",
+        "وحشي (الذي أسلم لاحقًا)",
+        "خالد"
+      ],
+      "ur": [
+        "ابو جہل",
+        "ابو سفیان",
+        "وحشی (جو بعد میں مسلمان ہوا)",
+        "خالد"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What rumour caused confusion among the Muslims at Uhud?",
+      "ar": "أي إشاعة سببت اضطرابًا بين المسلمين في أحد؟",
+      "ur": "احد میں کس افواہ سے مسلمانوں میں انتشار پھیلا؟"
+    },
+    "options": {
+      "en": [
+        "That Makkah had fallen",
+        "That reinforcements had come",
+        "That the battle was over",
+        "That the Prophet ﷺ had been martyred"
+      ],
+      "ar": [
+        "أن مكة سقطت",
+        "أن المدد وصل",
+        "أن المعركة انتهت",
+        "أن النبي ﷺ قد استشهد"
+      ],
+      "ur": [
+        "کہ مکہ فتح ہو گیا",
+        "کہ مدد آ گئی",
+        "کہ جنگ ختم ہو گئی",
+        "کہ نبی ﷺ شہید ہو گئے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was the Prophet ﷺ wounded at Uhud?",
+      "ar": "أين جُرح النبي ﷺ في أحد؟",
+      "ur": "احد میں نبی ﷺ کہاں زخمی ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "On the foot",
+        "On the hand only",
+        "On the blessed face",
+        "He was not wounded"
+      ],
+      "ar": [
+        "في قدمه",
+        "في يده فقط",
+        "في وجهه الشريف",
+        "لم يُجرح"
+      ],
+      "ur": [
+        "پاؤں میں",
+        "صرف ہاتھ میں",
+        "مبارک چہرے پر",
+        "زخمی نہیں ہوئے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who dressed the Prophet's ﷺ wounds after Uhud?",
+      "ar": "من داوت جراح النبي ﷺ بعد أحد؟",
+      "ur": "احد کے بعد نبی ﷺ کے زخموں کی مرہم پٹی کس نے کی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Hafsa",
+        "Hazrat Sawda",
+        "Hazrat Fatima"
+      ],
+      "ar": [
+        "عائشة",
+        "حفصة",
+        "سودة",
+        "فاطمة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت حفصہ",
+        "حضرت سودہ",
+        "حضرت فاطمہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which brave Muslim woman took part in the Battle of Uhud?",
+      "ar": "أي امرأة مسلمة شجاعة شاركت في غزوة أحد؟",
+      "ur": "کس بہادر مسلمان خاتون نے غزوۂ احد میں حصہ لیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Khadija",
+        "Hazrat Nusayba bint Ka'b (Umm Umara)",
+        "Hazrat Ruqayya",
+        "Hazrat Halima"
+      ],
+      "ar": [
+        "خديجة",
+        "نسيبة بنت كعب (أم عمارة)",
+        "رقية",
+        "حليمة"
+      ],
+      "ur": [
+        "حضرت خدیجہ",
+        "حضرت نسیبہ بنت کعب (ام عمارہ)",
+        "حضرت رقیہ",
+        "حضرت حلیمہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of Uhud",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Battle of the Trench (Ahzab) take place?",
+      "ar": "في أي سنة وقعت غزوة الخندق (الأحزاب)؟",
+      "ur": "غزوۂ خندق (احزاب) کس سال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "2 AH",
+        "7 AH",
+        "9 AH",
+        "5 AH"
+      ],
+      "ar": [
+        "2 هـ",
+        "7 هـ",
+        "9 هـ",
+        "5 هـ"
+      ],
+      "ur": [
+        "2 ہجری",
+        "7 ہجری",
+        "9 ہجری",
+        "5 ہجری"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On whose advice was the trench dug?",
+      "ar": "بمشورة من حُفر الخندق؟",
+      "ur": "خندق کس کے مشورے سے کھودی گئی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Abu Bakr",
+        "Hazrat Ali",
+        "Hazrat Salman al-Farisi"
+      ],
+      "ar": [
+        "بلال",
+        "أبو بكر",
+        "علي",
+        "سلمان الفارسي"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت ابو بکر",
+        "حضرت علی",
+        "حضرت سلمان فارسی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many Muslims were there in the Battle of the Trench?",
+      "ar": "كم كان عدد المسلمين في غزوة الخندق؟",
+      "ur": "غزوۂ خندق میں مسلمان کتنے تھے؟"
+    },
+    "options": {
+      "en": [
+        "3,000",
+        "313",
+        "10,000",
+        "30,000"
+      ],
+      "ar": [
+        "3000",
+        "313",
+        "10000",
+        "30000"
+      ],
+      "ur": [
+        "3,000",
+        "313",
+        "10,000",
+        "30,000"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Approximately how many disbelievers came against Madinah in the Battle of the Trench?",
+      "ar": "كم كان عدد الكفار الذين جاؤوا لمحاربة المدينة في الخندق تقريبًا؟",
+      "ur": "غزوۂ خندق میں مدینہ پر چڑھ آنے والے کفار کتنے تھے؟"
+    },
+    "options": {
+      "en": [
+        "313",
+        "10,000",
+        "700",
+        "100"
+      ],
+      "ar": [
+        "313",
+        "10000",
+        "700",
+        "100"
+      ],
+      "ur": [
+        "313",
+        "10,000",
+        "700",
+        "100"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which Jewish tribe broke its covenant with the Muslims during the Trench battle?",
+      "ar": "أي قبيلة يهودية نقضت عهدها مع المسلمين في الخندق؟",
+      "ur": "غزوۂ خندق میں کس یہودی قبیلے نے مسلمانوں سے عہد توڑا؟"
+    },
+    "options": {
+      "en": [
+        "Banu Taym",
+        "Banu Hashim",
+        "Banu Adi",
+        "Banu Qurayza"
+      ],
+      "ar": [
+        "بنو تيم",
+        "بنو هاشم",
+        "بنو عدي",
+        "بنو قريظة"
+      ],
+      "ur": [
+        "بنو تیم",
+        "بنو ہاشم",
+        "بنو عدی",
+        "بنو قریظہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which famous Quraysh wrestler was killed in the Battle of the Trench by Hazrat Ali?",
+      "ar": "أي فارس قرشي مشهور قتله علي في الخندق؟",
+      "ur": "غزوۂ خندق میں حضرت علی کے ہاتھوں کون سا مشہور قریشی پہلوان مارا گیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Amr ibn Abd Wudd",
+        "Walid",
+        "Utba"
+      ],
+      "ar": [
+        "أبو جهل",
+        "عمرو بن عبد ود",
+        "الوليد",
+        "عتبة"
+      ],
+      "ur": [
+        "ابو جہل",
+        "عمرو بن عبدِ ود",
+        "ولید",
+        "عتبہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the Battle of the Trench mentioned?",
+      "ar": "في أي سورة ذُكرت غزوة الخندق؟",
+      "ur": "غزوۂ خندق کا ذکر کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Ahzab",
+        "Surah al-Fil",
+        "Surah al-Kawthar",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الأحزاب",
+        "سورة الفيل",
+        "سورة الكوثر",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الاحزاب",
+        "سورۃ الفیل",
+        "سورۃ الکوثر",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which paternal aunt of the Prophet ﷺ showed unmatched bravery in the Trench battle?",
+      "ar": "أي عمات النبي ﷺ أظهرت شجاعة فائقة في الخندق؟",
+      "ur": "غزوۂ خندق میں نبی ﷺ کی کس پھوپھی نے بے مثال بہادری دکھائی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Halima",
+        "Umm Jamil",
+        "Hazrat Safiyya",
+        "Hazrat Khadija"
+      ],
+      "ar": [
+        "حليمة",
+        "أم جميل",
+        "صفية",
+        "خديجة"
+      ],
+      "ur": [
+        "حضرت حلیمہ",
+        "ام جمیل",
+        "حضرت صفیہ",
+        "حضرت خدیجہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of the Trench",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Treaty of Hudaybiyya take place?",
+      "ar": "في أي سنة كان صلح الحديبية؟",
+      "ur": "صلحِ حدیبیہ کس سال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "2 AH",
+        "6 AH",
+        "4 AH",
+        "9 AH"
+      ],
+      "ar": [
+        "2 هـ",
+        "6 هـ",
+        "4 هـ",
+        "9 هـ"
+      ],
+      "ur": [
+        "2 ہجری",
+        "6 ہجری",
+        "4 ہجری",
+        "9 ہجری"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For what purpose did the Muslims set out from Madinah before Hudaybiyya?",
+      "ar": "لأي غرض خرج المسلمون من المدينة قبل الحديبية؟",
+      "ur": "حدیبیہ سے پہلے مسلمان مدینہ سے کس مقصد کے لیے نکلے؟"
+    },
+    "options": {
+      "en": [
+        "War",
+        "Umrah",
+        "Trade",
+        "Migration"
+      ],
+      "ar": [
+        "الحرب",
+        "العمرة",
+        "التجارة",
+        "الهجرة"
+      ],
+      "ur": [
+        "جنگ",
+        "عمرہ",
+        "تجارت",
+        "ہجرت"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which pledge was taken at Hudaybiyya?",
+      "ar": "أي بيعة كانت في الحديبية؟",
+      "ur": "حدیبیہ میں کون سی بیعت ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Bay'at al-Aqaba",
+        "Bay'at al-Ridwan",
+        "Bay'at al-Nisa",
+        "Bay'at al-Hijra"
+      ],
+      "ar": [
+        "بيعة العقبة",
+        "بيعة الرضوان",
+        "بيعة النساء",
+        "بيعة الهجرة"
+      ],
+      "ur": [
+        "بیعتِ عقبہ",
+        "بیعتِ رضوان",
+        "بیعتِ نساء",
+        "بیعتِ ہجرت"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why was the Pledge of Ridwan taken?",
+      "ar": "لماذا أُخذت بيعة الرضوان؟",
+      "ur": "بیعتِ رضوان کیوں لی گئی؟"
+    },
+    "options": {
+      "en": [
+        "The Quraysh attacked Madinah",
+        "A rumour spread that Hazrat Uthman had been martyred",
+        "The Prophet ﷺ fell ill",
+        "Food ran out"
+      ],
+      "ar": [
+        "هاجمت قريش المدينة",
+        "شاعت إشاعة أن عثمان قُتل",
+        "مرض النبي ﷺ",
+        "نفد الطعام"
+      ],
+      "ur": [
+        "قریش نے مدینہ پر حملہ کیا",
+        "افواہ پھیلی کہ حضرت عثمان شہید ہو گئے",
+        "نبی ﷺ بیمار ہو گئے",
+        "کھانا ختم ہو گیا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah are the Treaty of Hudaybiyya and the Pledge of Ridwan mentioned?",
+      "ar": "في أي سورة ذُكر صلح الحديبية وبيعة الرضوان؟",
+      "ur": "صلحِ حدیبیہ اور بیعتِ رضوان کا ذکر کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fath",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Ikhlas"
+      ],
+      "ar": [
+        "سورة الفتح",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة الإخلاص"
+      ],
+      "ur": [
+        "سورۃ الفتح",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ الاخلاص"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion wrote the Treaty of Hudaybiyya?",
+      "ar": "أي صحابي كتب صلح الحديبية؟",
+      "ur": "صلحِ حدیبیہ کس صحابی نے تحریر کیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr",
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "أبو بكر",
+        "علي",
+        "بلال",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت ابو بکر",
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion was troubled by the terms of the treaty, a worry that later went away?",
+      "ar": "أي صحابي ضاق صدره من شروط الصلح ثم زال ذلك؟",
+      "ur": "کس صحابی کو صلح کی شرائط پر پریشانی ہوئی جو بعد میں دور ہو گئی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Hamza",
+        "Hazrat Zayd",
+        "Hazrat Umar Faruq"
+      ],
+      "ar": [
+        "بلال",
+        "حمزة",
+        "زيد",
+        "عمر الفاروق"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت حمزہ",
+        "حضرت زید",
+        "حضرت عمر فاروق"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of these was a condition of the Treaty of Hudaybiyya?",
+      "ar": "أي مما يلي كان من شروط صلح الحديبية؟",
+      "ur": "ان میں سے صلحِ حدیبیہ کی شرط کون سی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Muslims return this year and come next year for three days",
+        "Muslims pay tribute",
+        "Muslims leave Madinah",
+        "Muslims give up prayer"
+      ],
+      "ar": [
+        "يعود المسلمون هذا العام ويأتون العام القادم ثلاثة أيام",
+        "يدفع المسلمون جزية",
+        "يغادر المسلمون المدينة",
+        "يترك المسلمون الصلاة"
+      ],
+      "ur": [
+        "مسلمان اس سال لوٹ جائیں اور اگلے سال آ کر تین دن ٹھہریں",
+        "مسلمان خراج دیں",
+        "مسلمان مدینہ چھوڑ دیں",
+        "مسلمان نماز چھوڑ دیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Treaty of Hudaybiyya",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Conquest of Makkah take place?",
+      "ar": "في أي سنة كان فتح مكة؟",
+      "ur": "فتحِ مکہ کس سال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "6 AH",
+        "8 AH",
+        "9 AH",
+        "10 AH"
+      ],
+      "ar": [
+        "6 هـ",
+        "8 هـ",
+        "9 هـ",
+        "10 هـ"
+      ],
+      "ur": [
+        "6 ہجری",
+        "8 ہجری",
+        "9 ہجری",
+        "10 ہجری"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many Muslims took part in the Conquest of Makkah?",
+      "ar": "كم كان عدد المسلمين في فتح مكة؟",
+      "ur": "فتحِ مکہ میں کتنے مسلمان شریک تھے؟"
+    },
+    "options": {
+      "en": [
+        "10,000",
+        "313",
+        "1,400",
+        "30,000"
+      ],
+      "ar": [
+        "10000",
+        "313",
+        "1400",
+        "30000"
+      ],
+      "ur": [
+        "10,000",
+        "313",
+        "1,400",
+        "30,000"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the main cause of the Conquest of Makkah?",
+      "ar": "ما السبب الرئيس لفتح مكة؟",
+      "ur": "فتحِ مکہ کا بنیادی سبب کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "The Quraysh had broken the Treaty of Hudaybiyya",
+        "The Quraysh asked for a visit",
+        "Trade disputes",
+        "A famine"
+      ],
+      "ar": [
+        "نقضت قريش صلح الحديبية",
+        "طلبت قريش زيارة",
+        "خلافات تجارية",
+        "مجاعة"
+      ],
+      "ur": [
+        "قریش نے صلحِ حدیبیہ توڑ دیا تھا",
+        "قریش نے ملاقات مانگی",
+        "تجارتی جھگڑے",
+        "قحط"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which Quraysh chief accepted Islam at the Conquest of Makkah?",
+      "ar": "أي زعماء قريش أسلم عند فتح مكة؟",
+      "ur": "فتحِ مکہ کے موقع پر قریش کے کس سردار نے اسلام قبول کیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Abu Lahab",
+        "Uqba",
+        "Abu Sufyan"
+      ],
+      "ar": [
+        "أبو جهل",
+        "أبو لهب",
+        "عقبة",
+        "أبو سفيان"
+      ],
+      "ur": [
+        "ابو جہل",
+        "ابو لہب",
+        "عقبہ",
+        "ابو سفیان"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the Conquest of Makkah mentioned?",
+      "ar": "في أي سورة ذُكر فتح مكة؟",
+      "ur": "فتحِ مکہ کا ذکر کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Asr",
+        "Surah al-Nasr",
+        "Surah al-Kawthar"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة العصر",
+        "سورة النصر",
+        "سورة الكوثر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ العصر",
+        "سورۃ النصر",
+        "سورۃ الکوثر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Prophet ﷺ treat his enemies in Makkah at the conquest?",
+      "ar": "كيف عامل النبي ﷺ أعداءه في مكة عند الفتح؟",
+      "ur": "فتحِ مکہ کے دن نبی ﷺ نے اپنے دشمنوں کے ساتھ کیسا سلوک کیا؟"
+    },
+    "options": {
+      "en": [
+        "He exiled them",
+        "He punished them all",
+        "He forgave them",
+        "He ignored them"
+      ],
+      "ar": [
+        "نفاهم",
+        "عاقبهم جميعًا",
+        "عفا عنهم",
+        "تجاهلهم"
+      ],
+      "ur": [
+        "سب کو جلاوطن کیا",
+        "سب کو سزا دی",
+        "سب کو معاف فرما دیا",
+        "نظر انداز کر دیا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "The Prophet ﷺ gave the example of which prophet when forgiving the Makkans?",
+      "ar": "بمثال أي نبي استشهد النبي ﷺ حين عفا عن أهل مكة؟",
+      "ur": "اہلِ مکہ کو معاف کرتے وقت نبی ﷺ نے کس نبی کی مثال دی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Yusuf",
+        "Hazrat Nuh",
+        "Hazrat Dawud",
+        "Hazrat Yunus"
+      ],
+      "ar": [
+        "يوسف",
+        "نوح",
+        "داود",
+        "يونس"
+      ],
+      "ur": [
+        "حضرت یوسف",
+        "حضرت نوح",
+        "حضرت داود",
+        "حضرت یونس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the Prophet ﷺ touching the idols with in the Kaaba?",
+      "ar": "بماذا كان النبي ﷺ يمسّ الأصنام في الكعبة؟",
+      "ur": "کعبہ میں نبی ﷺ بتوں کو کس چیز سے چھو رہے تھے؟"
+    },
+    "options": {
+      "en": [
+        "A stick",
+        "A sword",
+        "A spear",
+        "A rope"
+      ],
+      "ar": [
+        "عصا",
+        "سيف",
+        "رمح",
+        "حبل"
+      ],
+      "ur": [
+        "چھڑی سے",
+        "تلوار سے",
+        "نیزے سے",
+        "رسی سے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which verse did the Prophet ﷺ recite as the idols fell?",
+      "ar": "أي آية تلاها النبي ﷺ عند سقوط الأصنام؟",
+      "ur": "بت گرتے وقت نبی ﷺ نے کون سی آیت تلاوت فرمائی؟"
+    },
+    "options": {
+      "en": [
+        "\"Say: He is Allah, the One\"",
+        "\"Read in the name of your Lord\"",
+        "\"Truth has come and falsehood has vanished\"",
+        "\"By the time\""
+      ],
+      "ar": [
+        "«قل هو الله أحد»",
+        "«اقرأ باسم ربك»",
+        "«جاء الحق وزهق الباطل»",
+        "«والعصر»"
+      ],
+      "ur": [
+        "\"کہہ دو اللہ ایک ہے\"",
+        "\"اپنے رب کے نام سے پڑھو\"",
+        "\"حق آ گیا اور باطل مٹ گیا\"",
+        "\"زمانے کی قسم\""
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Conquest of Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After Makkah, toward which battle did the Prophet ﷺ set out?",
+      "ar": "بعد مكة، نحو أي غزوة خرج النبي ﷺ؟",
+      "ur": "مکہ کے بعد نبی ﷺ کس جنگ کے لیے روانہ ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Badr",
+        "Uhud",
+        "Khaybar",
+        "Hunayn"
+      ],
+      "ar": [
+        "بدر",
+        "أحد",
+        "خيبر",
+        "حنين"
+      ],
+      "ur": [
+        "بدر",
+        "احد",
+        "خیبر",
+        "حنین"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hunayn and Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many Muslims were in the army at Hunayn?",
+      "ar": "كم كان عدد جيش المسلمين في حنين؟",
+      "ur": "غزوۂ حنین میں مسلمان لشکر کتنا تھا؟"
+    },
+    "options": {
+      "en": [
+        "313",
+        "700",
+        "12,000",
+        "100"
+      ],
+      "ar": [
+        "313",
+        "700",
+        "12000",
+        "100"
+      ],
+      "ur": [
+        "313",
+        "700",
+        "12,000",
+        "100"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hunayn and Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the Battle of Hunayn mentioned?",
+      "ar": "في أي سورة ذُكرت غزوة حنين؟",
+      "ur": "غزوۂ حنین کا ذکر کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Tawba",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Kawthar"
+      ],
+      "ar": [
+        "سورة التوبة",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة الكوثر"
+      ],
+      "ur": [
+        "سورۃ التوبہ",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ الکوثر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hunayn and Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where did the remaining disbelievers flee after Hunayn?",
+      "ar": "أين فرّ بقية الكفار بعد حنين؟",
+      "ur": "حنین کے بعد باقی کفار کہاں بھاگ گئے؟"
+    },
+    "options": {
+      "en": [
+        "To Yemen",
+        "Into the forts of Ta'if",
+        "To Syria",
+        "To Abyssinia"
+      ],
+      "ar": [
+        "إلى اليمن",
+        "إلى حصون الطائف",
+        "إلى الشام",
+        "إلى الحبشة"
+      ],
+      "ur": [
+        "یمن",
+        "طائف کے قلعوں میں",
+        "شام",
+        "حبشہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hunayn and Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which place did the Prophet ﷺ distribute the spoils of war on the return from Ta'if?",
+      "ar": "في أي موضع وزّع النبي ﷺ الغنائم عند العودة من الطائف؟",
+      "ur": "طائف سے واپسی پر نبی ﷺ نے مالِ غنیمت کہاں تقسیم کیا؟"
+    },
+    "options": {
+      "en": [
+        "Quba",
+        "Uhud",
+        "Badr",
+        "Ji'rana"
+      ],
+      "ar": [
+        "قباء",
+        "أحد",
+        "بدر",
+        "الجعرانة"
+      ],
+      "ur": [
+        "قبا",
+        "احد",
+        "بدر",
+        "جعرانہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hunayn and Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom did the Prophet ﷺ give the larger share of wealth after Hunayn?",
+      "ar": "لمن أعطى النبي ﷺ النصيب الأكبر من المال بعد حنين؟",
+      "ur": "حنین کے بعد نبی ﷺ نے مال کا بڑا حصہ کسے دیا؟"
+    },
+    "options": {
+      "en": [
+        "The new Muslims",
+        "The Ansar only",
+        "His family only",
+        "The poor of Madinah only"
+      ],
+      "ar": [
+        "حديثي العهد بالإسلام",
+        "الأنصار فقط",
+        "أهله فقط",
+        "فقراء المدينة فقط"
+      ],
+      "ur": [
+        "نئے مسلمانوں کو",
+        "صرف انصار کو",
+        "صرف اپنے گھر والوں کو",
+        "صرف مدینہ کے غریبوں کو"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hunayn and Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Ansar say after the Prophet's ﷺ address?",
+      "ar": "ماذا قال الأنصار بعد خطاب النبي ﷺ؟",
+      "ur": "نبی ﷺ کے خطاب کے بعد انصار نے کیا کہا؟"
+    },
+    "options": {
+      "en": [
+        "We are content with the Prophet's ﷺ pleasure",
+        "We want more wealth",
+        "We will leave Madinah",
+        "We reject this"
+      ],
+      "ar": [
+        "رضينا برسول الله ﷺ",
+        "نريد مالًا أكثر",
+        "سنغادر المدينة",
+        "نرفض هذا"
+      ],
+      "ur": [
+        "ہم رسول اللہ ﷺ کی رضا پر راضی ہیں",
+        "ہمیں مزید مال چاہیے",
+        "ہم مدینہ چھوڑ دیں گے",
+        "ہم اسے نہیں مانتے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hunayn and Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what other name is the Battle of Tabuk remembered?",
+      "ar": "بأي اسم آخر تُعرف غزوة تبوك؟",
+      "ur": "غزوۂ تبوک کو کس دوسرے نام سے یاد کیا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Jaysh al-'Usra (the Army of Hardship)",
+        "Yawm al-Furqan",
+        "Ghazwat al-Khandaq",
+        "Ghazwat al-Fath"
+      ],
+      "ar": [
+        "جيش العسرة",
+        "يوم الفرقان",
+        "غزوة الخندق",
+        "غزوة الفتح"
+      ],
+      "ur": [
+        "جیشِ عسرت",
+        "یومِ فرقان",
+        "غزوۂ خندق",
+        "غزوۂ فتح"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why was the Battle of Tabuk undertaken?",
+      "ar": "لماذا كانت غزوة تبوك؟",
+      "ur": "غزوۂ تبوک کیوں پیش آیا؟"
+    },
+    "options": {
+      "en": [
+        "The Quraysh attacked Madinah",
+        "A tribe broke a treaty",
+        "To collect taxes",
+        "The Prophet ﷺ learned the Romans were about to attack Madinah"
+      ],
+      "ar": [
+        "هاجمت قريش المدينة",
+        "نقضت قبيلة عهدها",
+        "لجمع الضرائب",
+        "علم النبي ﷺ أن الروم يستعدون لغزو المدينة"
+      ],
+      "ur": [
+        "قریش نے مدینہ پر حملہ کیا",
+        "ایک قبیلے نے عہد توڑا",
+        "ٹیکس وصول کرنے کے لیے",
+        "نبی ﷺ کو خبر ملی کہ رومی مدینہ پر حملہ کرنے والے ہیں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How much wealth did Hazrat Abu Bakr offer for the Tabuk expedition?",
+      "ar": "كم من المال قدّم أبو بكر لغزوة تبوك؟",
+      "ur": "حضرت ابو بکر نے غزوۂ تبوک کے لیے کتنا مال پیش کیا؟"
+    },
+    "options": {
+      "en": [
+        "One tenth",
+        "Half",
+        "All the wealth of his house",
+        "Nothing"
+      ],
+      "ar": [
+        "العُشر",
+        "النصف",
+        "كل مال بيته",
+        "لا شيء"
+      ],
+      "ur": [
+        "دسواں حصہ",
+        "آدھا مال",
+        "گھر کا سارا مال",
+        "کچھ نہیں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Hazrat Abu Bakr reply when asked what he had left for his family?",
+      "ar": "بماذا أجاب أبو بكر حين سُئل ماذا أبقى لأهله؟",
+      "ur": "جب پوچھا گیا کہ گھر والوں کے لیے کیا چھوڑا تو حضرت ابو بکر نے کیا جواب دیا؟"
+    },
+    "options": {
+      "en": [
+        "\"I left camels\"",
+        "\"I left gold\"",
+        "\"I left God and His Messenger\"",
+        "\"I left nothing to say\""
+      ],
+      "ar": [
+        "«تركت لهم إبلًا»",
+        "«تركت لهم ذهبًا»",
+        "«تركت لهم الله ورسوله»",
+        "«لم أترك شيئًا»"
+      ],
+      "ur": [
+        "\"اونٹ چھوڑ آیا ہوں\"",
+        "\"سونا چھوڑ آیا ہوں\"",
+        "\"اللہ اور اس کے رسول کو چھوڑ آیا ہوں\"",
+        "\"کچھ نہیں چھوڑا\""
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How much of his wealth did Hazrat Umar offer for Tabuk?",
+      "ar": "كم من ماله قدّم عمر لغزوة تبوك؟",
+      "ur": "حضرت عمر نے غزوۂ تبوک کے لیے اپنا کتنا مال پیش کیا؟"
+    },
+    "options": {
+      "en": [
+        "All of it",
+        "Half of his household wealth",
+        "One tenth",
+        "None"
+      ],
+      "ar": [
+        "كله",
+        "نصف مال بيته",
+        "العُشر",
+        "لا شيء"
+      ],
+      "ur": [
+        "سارا مال",
+        "گھر کا آدھا مال",
+        "دسواں حصہ",
+        "کچھ نہیں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many Muslims were there in the Battle of Tabuk?",
+      "ar": "كم كان عدد المسلمين في غزوة تبوك؟",
+      "ur": "غزوۂ تبوک میں مسلمانوں کی تعداد کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "30,000",
+        "313",
+        "3,000",
+        "100,000"
+      ],
+      "ar": [
+        "30000",
+        "313",
+        "3000",
+        "100000"
+      ],
+      "ur": [
+        "30,000",
+        "313",
+        "3,000",
+        "1,00,000"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Did fighting take place at Tabuk?",
+      "ar": "هل وقع قتال في تبوك؟",
+      "ur": "کیا تبوک میں لڑائی ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Yes, a great battle",
+        "Yes, but only for one day",
+        "Yes, for twenty days",
+        "No, the enemy army did not come"
+      ],
+      "ar": [
+        "نعم، معركة كبرى",
+        "نعم، ليوم واحد فقط",
+        "نعم، لعشرين يومًا",
+        "لا، لم يأتِ جيش العدو"
+      ],
+      "ur": [
+        "ہاں، بڑی جنگ ہوئی",
+        "ہاں، صرف ایک دن",
+        "ہاں، بیس دن",
+        "نہیں، دشمن کا لشکر سامنے نہ آیا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion who missed the Battle of Tabuk is named in the account of those left behind?",
+      "ar": "أي صحابي تخلّف عن غزوة تبوك وذُكر في قصة المخلَّفين؟",
+      "ur": "غزوۂ تبوک سے پیچھے رہ جانے والوں میں کس صحابی کا ذکر ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Abu Bakr",
+        "Ka'b ibn Malik",
+        "Hazrat Umar"
+      ],
+      "ar": [
+        "علي",
+        "أبو بكر",
+        "كعب بن مالك",
+        "عمر"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت ابو بکر",
+        "حضرت کعب بن مالک",
+        "حضرت عمر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which mosque built by the hypocrites did the Prophet ﷺ have demolished on returning from Tabuk?",
+      "ar": "أي مسجد بناه المنافقون أمر النبي ﷺ بهدمه عند عودته من تبوك؟",
+      "ur": "تبوک سے واپسی پر نبی ﷺ نے منافقین کی بنائی ہوئی کون سی مسجد گروا دی؟"
+    },
+    "options": {
+      "en": [
+        "Masjid Quba",
+        "Masjid al-Qiblatayn",
+        "Masjid Dirar",
+        "Masjid al-Nabawi"
+      ],
+      "ar": [
+        "مسجد قباء",
+        "مسجد القبلتين",
+        "مسجد الضرار",
+        "المسجد النبوي"
+      ],
+      "ur": [
+        "مسجدِ قبا",
+        "مسجدِ قبلتین",
+        "مسجدِ ضرار",
+        "مسجدِ نبوی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Battle of Tabuk",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why is the Ghazwa of Sawiq so named?",
+      "ar": "لماذا سُميت غزوة السويق بهذا الاسم؟",
+      "ur": "غزوۂ سویق کو یہ نام کیوں دیا گیا؟"
+    },
+    "options": {
+      "en": [
+        "A river named Sawiq was there",
+        "The Prophet ﷺ ate sawiq",
+        "The disbelievers threw away their barley meal (sawiq) and the Muslims picked it up",
+        "It was fought in a market"
+      ],
+      "ar": [
+        "بسبب نهر اسمه السويق",
+        "لأن النبي ﷺ أكل السويق",
+        "لأن الكفار ألقوا سويقهم فالتقطه المسلمون",
+        "لأنها وقعت في سوق"
+      ],
+      "ur": [
+        "وہاں سویق نامی دریا تھا",
+        "نبی ﷺ نے ستو کھایا",
+        "کفار نے اپنا ستو پھینک دیا اور مسلمانوں نے اٹھا لیا",
+        "یہ بازار میں لڑی گئی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why is the Ghazwa of Dhat al-Riqa' so named?",
+      "ar": "لماذا سُميت غزوة ذات الرقاع بهذا الاسم؟",
+      "ur": "غزوۂ ذات الرقاع کو یہ نام کیوں دیا گیا؟"
+    },
+    "options": {
+      "en": [
+        "It was fought near a river",
+        "Companions bandaged their feet with cloths",
+        "It was named after a tribe",
+        "It was fought at night"
+      ],
+      "ar": [
+        "لأنها وقعت قرب نهر",
+        "لأن الصحابة لفّوا أقدامهم بالخرق",
+        "لأنها سُميت على اسم قبيلة",
+        "لأنها وقعت ليلًا"
+      ],
+      "ur": [
+        "یہ دریا کے پاس ہوئی",
+        "صحابہ نے اپنے پاؤں پر کپڑوں کی پٹیاں باندھیں",
+        "یہ ایک قبیلے کے نام پر ہے",
+        "یہ رات کو لڑی گئی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of Hazrat Ali's famous sword?",
+      "ar": "ما اسم سيف علي المشهور؟",
+      "ur": "حضرت علی کی مشہور تلوار کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Dhu al-Fiqar",
+        "Al-Battar",
+        "Al-Qaswa",
+        "Hayzum"
+      ],
+      "ar": [
+        "ذو الفقار",
+        "البتار",
+        "القصواء",
+        "حيزوم"
+      ],
+      "ur": [
+        "ذوالفقار",
+        "بتار",
+        "قصواء",
+        "حیزوم"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On the return from which battle did the hypocrites slander Hazrat Aisha?",
+      "ar": "عند العودة من أي غزوة اتّهم المنافقون عائشة؟",
+      "ur": "کس جنگ سے واپسی پر منافقین نے حضرت عائشہ پر بہتان لگایا؟"
+    },
+    "options": {
+      "en": [
+        "Battle of Badr",
+        "Battle of Tabuk",
+        "Battle of Banu al-Mustaliq",
+        "Battle of Uhud"
+      ],
+      "ar": [
+        "غزوة بدر",
+        "غزوة تبوك",
+        "غزوة بني المصطلق",
+        "غزوة أحد"
+      ],
+      "ur": [
+        "غزوۂ بدر",
+        "غزوۂ تبوک",
+        "غزوۂ بنو المصطلق",
+        "غزوۂ احد"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which battle is also called Badr al-Sughra (the Lesser Badr), where no one came to face the Prophet ﷺ?",
+      "ar": "أي غزوة تُسمى بدر الصغرى حيث لم يأتِ أحد لمواجهة النبي ﷺ؟",
+      "ur": "بدرِ صغریٰ میں نبی ﷺ کے مقابلے پر کوئی نہ آیا، اس کا ذکر کس موقع پر ہے؟"
+    },
+    "options": {
+      "en": [
+        "Uhud in 3 AH",
+        "Khandaq in 5 AH",
+        "Tabuk in 9 AH",
+        "Badr al-Sughra in 4 AH"
+      ],
+      "ar": [
+        "أحد سنة 3 هـ",
+        "الخندق سنة 5 هـ",
+        "تبوك سنة 9 هـ",
+        "بدر الصغرى سنة 4 هـ"
+      ],
+      "ur": [
+        "احد، 3 ہجری",
+        "خندق، 5 ہجری",
+        "تبوک، 9 ہجری",
+        "بدرِ صغریٰ، 4 ہجری"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Ghazawat (Battles)",
+    "event_id": null
+  }
+]

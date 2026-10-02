@@ -47,6 +47,15 @@ async def _delete_account(client, token: str, password: str):
     )
 
 
+async def _any_stage_id(db) -> str:
+    """Picks any real seeded stage rather than assuming a specific slug or
+    total count — this DB's campaign_stages seed content (names, count) is
+    expected to change independently of this test."""
+    stages = await campaign_repo.list_stages(db)
+    assert stages, "campaign_stages must be seeded for this test to run"
+    return str(stages[0]["id"])
+
+
 async def test_pick_live_question_without_stage_slug_never_touches_event_framework_tags():
     """The exact requirement: 'when absent (default), skip this join to leave
     existing behavior unchanged.' Proven by inspecting the actual SQL sent to
@@ -98,8 +107,7 @@ async def test_campaign_endpoints_end_to_end(client):
         stages_res = await client.get("/campaign/stages", headers=headers)
         assert stages_res.status_code == 200
         stages = stages_res.json()
-        assert len(stages) == 9
-        assert [s["slug"] for s in stages][:2] == ["tazkiyah", "secret_dawah"]
+        assert len(stages) >= 2, "need at least 2 seeded stages to test progression"
         assert stages[0]["state"] == "current"
         assert all(s["state"] == "locked" for s in stages[1:])
 
@@ -145,8 +153,7 @@ async def test_complete_stage_completes_regardless_of_score(client):
     token, user_id = await _register(client)
     try:
         async with SessionLocal() as db:
-            stage_id = await campaign_repo.get_stage_id_by_slug(db, "tazkiyah")
-            assert stage_id is not None
+            stage_id = await _any_stage_id(db)
 
             first = await campaign_repo.complete_stage(db, user_id=user_id, stage_id=stage_id)
             await db.commit()
@@ -176,8 +183,7 @@ async def test_claim_stage_reward_is_idempotent(client):
     token, user_id = await _register(client)
     try:
         async with SessionLocal() as db:
-            stage_id = await campaign_repo.get_stage_id_by_slug(db, "tazkiyah")
-            assert stage_id is not None
+            stage_id = await _any_stage_id(db)
 
             # Push momentum straight to the 100-point target so the stage
             # completes on this single call (same shape a real match-end

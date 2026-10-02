@@ -20,6 +20,7 @@ import 'screens/profile_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/student/assigned_quizzes_screen.dart';
 import 'screens/teacher/teacher_home_screen.dart';
+import 'features/seerah_maze/ui/level_select_screen.dart';
 import 'screens/find_my_ayah_screen.dart';
 import 'screens/names_on_water_screen.dart';
 import 'screens/word_search_screen.dart';
@@ -367,6 +368,12 @@ class _HomeScreenState extends State<HomeScreen>
     Navigator.of(context).push(
       buildTreeRoute(
           (_) => FindMyAyahScreen(token: widget.auth.current?.token)),
+    );
+  }
+
+  void _openSeerahMaze() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const SeerahMazeLevelSelectScreen()),
     );
   }
 
@@ -962,6 +969,15 @@ class _HomeScreenState extends State<HomeScreen>
         onTap: () {
           logTap('find_my_ayah');
           _openFindMyAyah();
+        },
+      ),
+      _QuickPlayItem(
+        icon: Icons.explore_rounded,
+        title: t.mazeScreenTitle,
+        subtitle: t.mazeQuickPlaySubtitle,
+        onTap: () {
+          logTap('seerah_maze');
+          _openSeerahMaze();
         },
       ),
     ];

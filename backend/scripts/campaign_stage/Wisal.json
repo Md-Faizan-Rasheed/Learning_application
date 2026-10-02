@@ -1,0 +1,770 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the illness the Prophet ﷺ suffered in his last days?",
+      "ar": "ما المرض الذي أصاب النبي ﷺ في أيامه الأخيرة؟",
+      "ur": "نبی ﷺ کو آخری دنوں میں کون سی بیماری لاحق ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Headache and fever",
+        "A broken leg",
+        "Blindness",
+        "A snake bite"
+      ],
+      "ar": [
+        "صداع وحمى",
+        "كسر في الساق",
+        "العمى",
+        "لدغة أفعى"
+      ],
+      "ur": [
+        "سر درد اور بخار",
+        "ٹانگ ٹوٹنا",
+        "اندھاپن",
+        "سانپ کا ڈسنا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ tell to lead the prayer during his illness?",
+      "ar": "من أمره النبي ﷺ أن يصلي بالناس في مرضه؟",
+      "ur": "بیماری میں نبی ﷺ نے نماز پڑھانے کا حکم کسے دیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Anas",
+        "Hazrat Abu Bakr Siddiq"
+      ],
+      "ar": [
+        "علي",
+        "بلال",
+        "أنس",
+        "أبو بكر الصديق"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت انس",
+        "حضرت ابو بکر صدیق"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of his final words emphasised prayer?",
+      "ar": "أي من وصاياه الأخيرة أكدت على الصلاة؟",
+      "ur": "آخری وصیتوں میں کس بات پر نماز کی تاکید تھی؟"
+    },
+    "options": {
+      "en": [
+        "\"Trade well\"",
+        "\"Travel far\"",
+        "\"Build tall houses\"",
+        "\"Prayer, prayer, and those under your care\""
+      ],
+      "ar": [
+        "«أحسنوا التجارة»",
+        "«سافروا بعيدًا»",
+        "«شيّدوا الدور العالية»",
+        "«الصلاة الصلاة وما ملكت أيمانكم»"
+      ],
+      "ur": [
+        "\"تجارت اچھی کرو\"",
+        "\"دور سفر کرو\"",
+        "\"اونچے گھر بناؤ\"",
+        "\"نماز، نماز اور اپنے ماتحتوں کا خیال\""
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On which day of the week did the Prophet ﷺ pass away?",
+      "ar": "في أي يوم من الأسبوع توفي النبي ﷺ؟",
+      "ur": "نبی ﷺ کا وصال ہفتے کے کس دن ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Friday",
+        "Monday",
+        "Sunday",
+        "Thursday"
+      ],
+      "ar": [
+        "الجمعة",
+        "الاثنين",
+        "الأحد",
+        "الخميس"
+      ],
+      "ur": [
+        "جمعہ",
+        "پیر",
+        "اتوار",
+        "جمعرات"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which month did the Prophet ﷺ pass away?",
+      "ar": "في أي شهر توفي النبي ﷺ؟",
+      "ur": "نبی ﷺ کا وصال کس مہینے میں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Ramadan",
+        "Muharram",
+        "Rabi al-Awwal",
+        "Rajab"
+      ],
+      "ar": [
+        "رمضان",
+        "محرم",
+        "ربيع الأول",
+        "رجب"
+      ],
+      "ur": [
+        "رمضان",
+        "محرم",
+        "ربیع الاول",
+        "رجب"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Prophet ﷺ pass away?",
+      "ar": "في أي سنة توفي النبي ﷺ؟",
+      "ur": "نبی ﷺ کا وصال کس سال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "8 AH",
+        "9 AH",
+        "11 AH",
+        "10 AH"
+      ],
+      "ar": [
+        "8 هـ",
+        "9 هـ",
+        "11 هـ",
+        "10 هـ"
+      ],
+      "ur": [
+        "8 ہجری",
+        "9 ہجری",
+        "11 ہجری",
+        "10 ہجری"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In whose room did the Prophet ﷺ pass away?",
+      "ar": "في حجرة من توفي النبي ﷺ؟",
+      "ur": "نبی ﷺ کا وصال کس کے حجرے میں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hafsa",
+        "Hazrat Sawda",
+        "Hazrat Aisha",
+        "Hazrat Umm Salama"
+      ],
+      "ar": [
+        "حفصة",
+        "سودة",
+        "عائشة",
+        "أم سلمة"
+      ],
+      "ur": [
+        "حضرت حفصہ",
+        "حضرت سودہ",
+        "حضرت عائشہ",
+        "حضرت ام سلمہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ when he passed away?",
+      "ar": "كم كان عمر النبي ﷺ عند وفاته؟",
+      "ur": "وصال کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "63",
+        "53",
+        "73",
+        "83"
+      ],
+      "ar": [
+        "63",
+        "53",
+        "73",
+        "83"
+      ],
+      "ur": [
+        "63 سال",
+        "53 سال",
+        "73 سال",
+        "83 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was the Prophet ﷺ buried?",
+      "ar": "أين دُفن النبي ﷺ؟",
+      "ur": "نبی ﷺ کہاں دفن ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "In Jannat al-Baqi",
+        "In Makkah",
+        "In Quba",
+        "In the room of Hazrat Aisha"
+      ],
+      "ar": [
+        "في البقيع",
+        "في مكة",
+        "في قباء",
+        "في حجرة عائشة"
+      ],
+      "ur": [
+        "جنت البقیع میں",
+        "مکہ میں",
+        "قبا میں",
+        "حضرت عائشہ کے حجرے میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many pieces of cloth were in the Prophet's ﷺ shroud?",
+      "ar": "كم قطعة قماش كانت في كفن النبي ﷺ؟",
+      "ur": "نبی ﷺ کے کفن میں کتنے کپڑے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Three",
+        "One",
+        "Two",
+        "Five"
+      ],
+      "ar": [
+        "ثلاث",
+        "واحدة",
+        "اثنتان",
+        "خمس"
+      ],
+      "ur": [
+        "تین",
+        "ایک",
+        "دو",
+        "پانچ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who dug the Prophet's ﷺ blessed grave?",
+      "ar": "من حفر قبر النبي ﷺ؟",
+      "ur": "نبی ﷺ کی مبارک قبر کس نے کھودی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Anas",
+        "Hazrat Zubayr",
+        "Hazrat Abu Talha"
+      ],
+      "ar": [
+        "بلال",
+        "أنس",
+        "الزبير",
+        "أبو طلحة"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت انس",
+        "حضرت زبیر",
+        "حضرت ابو طلحہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which child of the Prophet ﷺ was alive at the time of his passing?",
+      "ar": "أي أبناء النبي ﷺ كان حيًّا عند وفاته؟",
+      "ur": "نبی ﷺ کے وصال کے وقت آپ کی کون سی اولاد حیات تھی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zaynab",
+        "Hazrat Fatima",
+        "Hazrat Qasim",
+        "Hazrat Ibrahim"
+      ],
+      "ar": [
+        "زينب",
+        "فاطمة",
+        "القاسم",
+        "إبراهيم"
+      ],
+      "ur": [
+        "حضرت زینب",
+        "حضرت فاطمہ",
+        "حضرت قاسم",
+        "حضرت ابراہیم"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the inheritance of the prophets?",
+      "ar": "ما ميراث الأنبياء؟",
+      "ur": "انبیاء کی وراثت کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Knowledge",
+        "Gold",
+        "Land",
+        "Camels"
+      ],
+      "ar": [
+        "العلم",
+        "الذهب",
+        "الأرض",
+        "الإبل"
+      ],
+      "ur": [
+        "علم",
+        "سونا",
+        "زمین",
+        "اونٹ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was the first of the Prophet's ﷺ family to pass away after him?",
+      "ar": "من أول أهل بيت النبي ﷺ لحاقًا به بعد وفاته؟",
+      "ur": "نبی ﷺ کے بعد آپ کے اہلِ خانہ میں سب سے پہلے کس کا وصال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Fatima",
+        "Hazrat Hafsa",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "عائشة",
+        "فاطمة",
+        "حفصة",
+        "علي"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت فاطمہ",
+        "حضرت حفصہ",
+        "حضرت علی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — After the Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which two companions are buried with the Prophet ﷺ in the Rawda?",
+      "ar": "أي صحابيين دُفنا مع النبي ﷺ في الروضة؟",
+      "ur": "روضۂ مبارک میں نبی ﷺ کے ساتھ کون سے دو صحابہ دفن ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Uthman and Hazrat Ali",
+        "Hazrat Bilal and Hazrat Anas",
+        "Hazrat Abu Bakr and Hazrat Umar",
+        "Hazrat Hamza and Hazrat Abbas"
+      ],
+      "ar": [
+        "عثمان وعلي",
+        "بلال وأنس",
+        "أبو بكر وعمر",
+        "حمزة والعباس"
+      ],
+      "ur": [
+        "حضرت عثمان اور حضرت علی",
+        "حضرت بلال اور حضرت انس",
+        "حضرت ابو بکر اور حضرت عمر",
+        "حضرت حمزہ اور حضرت عباس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — After the Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was made caliph after the Prophet ﷺ?",
+      "ar": "من صار خليفة بعد النبي ﷺ؟",
+      "ur": "نبی ﷺ کے بعد خلیفہ کون بنے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar",
+        "Hazrat Uthman",
+        "Hazrat Ali",
+        "Hazrat Abu Bakr Siddiq"
+      ],
+      "ar": [
+        "عمر",
+        "عثمان",
+        "علي",
+        "أبو بكر الصديق"
+      ],
+      "ur": [
+        "حضرت عمر",
+        "حضرت عثمان",
+        "حضرت علی",
+        "حضرت ابو بکر صدیق"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — After the Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion gave the calming address after the Prophet's ﷺ passing?",
+      "ar": "أي صحابي ألقى الخطبة المهدّئة بعد وفاة النبي ﷺ؟",
+      "ur": "نبی ﷺ کے وصال کے بعد کس صحابی نے تسلی بخش خطاب فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr Siddiq",
+        "Hazrat Bilal",
+        "Hazrat Anas",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "أبو بكر الصديق",
+        "بلال",
+        "أنس",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت ابو بکر صدیق",
+        "حضرت بلال",
+        "حضرت انس",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — After the Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Hazrat Abu Bakr say about God in that address?",
+      "ar": "ماذا قال أبو بكر عن الله في ذلك الخطاب؟",
+      "ur": "اس خطاب میں حضرت ابو بکر نے اللہ کے بارے میں کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "That God is far",
+        "That God is ever-living and never dies",
+        "That God is sleeping",
+        "That God is a king only"
+      ],
+      "ar": [
+        "أن الله بعيد",
+        "أن الله حي لا يموت",
+        "أن الله نائم",
+        "أن الله ملك فقط"
+      ],
+      "ur": [
+        "کہ اللہ دور ہے",
+        "کہ اللہ ہمیشہ زندہ ہے اور کبھی نہیں مرے گا",
+        "کہ اللہ سویا ہوا ہے",
+        "کہ اللہ صرف بادشاہ ہے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — After the Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which famous companion left Madinah for Syria after the Prophet's ﷺ passing?",
+      "ar": "أي صحابي مشهور غادر المدينة إلى الشام بعد وفاة النبي ﷺ؟",
+      "ur": "نبی ﷺ کے وصال کے بعد کون سے مشہور صحابی مدینہ چھوڑ کر شام چلے گئے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Ali",
+        "Hazrat Anas",
+        "Hazrat Abu Bakr"
+      ],
+      "ar": [
+        "بلال",
+        "علي",
+        "أنس",
+        "أبو بكر"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت علی",
+        "حضرت انس",
+        "حضرت ابو بکر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — After the Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After the revelation of which surah did the Prophet ﷺ know his time in the world was near?",
+      "ar": "بعد نزول أي سورة علم النبي ﷺ باقتراب أجله؟",
+      "ur": "کس سورت کے نزول کے بعد نبی ﷺ نے جان لیا کہ دنیا سے رخصتی قریب ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Kawthar",
+        "Surah al-Nasr",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الكوثر",
+        "سورة النصر",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الکوثر",
+        "سورۃ النصر",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "About how long after the Farewell Pilgrimage did the Prophet ﷺ pass away?",
+      "ar": "بعد حجة الوداع بكم وفي النبي ﷺ تقريبًا؟",
+      "ur": "حجۃ الوداع کے تقریباً کتنے عرصے بعد نبی ﷺ کا وصال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "About three years",
+        "About three months",
+        "About one week",
+        "About ten years"
+      ],
+      "ar": [
+        "نحو ثلاث سنين",
+        "نحو ثلاثة أشهر",
+        "نحو أسبوع",
+        "نحو عشر سنين"
+      ],
+      "ur": [
+        "تقریباً تین سال",
+        "تقریباً تین مہینے",
+        "تقریباً ایک ہفتہ",
+        "تقریباً دس سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ wives lived the longest after him?",
+      "ar": "أي زوجات النبي ﷺ عاشت أطول بعده؟",
+      "ur": "نبی ﷺ کے بعد آپ کی کون سی زوجہ سب سے زیادہ عرصہ زندہ رہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Hafsa",
+        "Hazrat Sawda",
+        "Hazrat Umm Salama"
+      ],
+      "ar": [
+        "عائشة",
+        "حفصة",
+        "سودة",
+        "أم سلمة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت حفصہ",
+        "حضرت سودہ",
+        "حضرت ام سلمہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — After the Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many of the Pure Wives were alive at the time of the Prophet's ﷺ passing?",
+      "ar": "كم من أمهات المؤمنين كنّ على قيد الحياة عند وفاة النبي ﷺ؟",
+      "ur": "نبی ﷺ کے وصال کے وقت کتنی ازواجِ مطہرات حیات تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Two",
+        "Nine",
+        "Four",
+        "Twelve"
+      ],
+      "ar": [
+        "اثنتان",
+        "تسع",
+        "أربع",
+        "اثنتا عشرة"
+      ],
+      "ur": [
+        "دو",
+        "نو",
+        "چار",
+        "بارہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Hazrat Fatima's reaction when the Prophet ﷺ whispered to her during his illness?",
+      "ar": "ما رد فعل فاطمة حين أسرّ إليها النبي ﷺ في مرضه؟",
+      "ur": "بیماری میں نبی ﷺ نے حضرت فاطمہ سے سرگوشی کی تو ان کا کیا حال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "She was silent",
+        "She left the room",
+        "First she wept, then she laughed",
+        "She fell asleep"
+      ],
+      "ar": [
+        "صمتت",
+        "غادرت الحجرة",
+        "بكت أولًا ثم ضحكت",
+        "نامت"
+      ],
+      "ur": [
+        "خاموش رہیں",
+        "کمرے سے چلی گئیں",
+        "پہلے رو پڑیں پھر مسکرائیں",
+        "سو گئیں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Last Illness and Passing of the Prophet",
+    "event_id": null
+  }
+]

@@ -9,11 +9,17 @@ Usage (from the backend/ directory, with your venv active and .env present):
     python -m scripts.import_content my_seerah_bank.json --live      # auto-promote to live
     python -m scripts.import_content my_bank.json --dry-run          # validate only, no DB writes
 
-JSON shape:
+JSON shape — either a bare array of question objects (same shape the admin
+panel's bulk-import API accepts):
+[ {"category_slug","difficulty","prompt{en,ur,ar}",
+   "options{en,ur,ar}","correct_index","source?","event_id?"} ]
+
+...or an object with an optional categories list alongside the questions,
+when the bank also needs to create categories that don't exist yet:
 {
   "categories": [ {"slug","display_name","description?"} ],
   "questions":  [ {"category_slug","difficulty","prompt{en,ur,ar}",
-                   "options{en,ur,ar}","correct_index","source?"} ]
+                   "options{en,ur,ar}","correct_index","source?","event_id?"} ]
 }
 
 Questions load as 'draft' by default (respecting the scholar-review workflow).
@@ -131,8 +137,12 @@ async def _import_batch(
 async def run(path: str, *, live: bool, dry_run: bool) -> ImportReport:
     report = ImportReport()
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
-    cats = payload.get("categories", [])
-    questions = payload.get("questions", [])
+    if isinstance(payload, list):
+        cats = []
+        questions = payload
+    else:
+        cats = payload.get("categories", [])
+        questions = payload.get("questions", [])
 
     async with SessionLocal() as db:
         slug_to_id = await _resolve_categories(db, cats, report)
@@ -162,6 +172,7 @@ async def run(path: str, *, live: bool, dry_run: bool) -> ImportReport:
                     options=raw["options"],
                     correct_index=raw["correct_index"],
                     source=raw.get("source"),
+                    event_id=raw.get("event_id"),
                 )
             )
         except (ValidationError, KeyError) as e:

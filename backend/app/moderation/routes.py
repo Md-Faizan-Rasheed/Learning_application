@@ -3,6 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from ..common.audit_log import log_admin_action
 from ..common.deps import CurrentUser, get_current_user, get_db, require_admin_user
 from . import repository as repo
 from .schemas import (
@@ -86,9 +87,18 @@ async def list_reports(
 async def update_report_status(
     report_id: str,
     data: ReportStatusUpdate,
+    current: CurrentUser = Depends(require_admin_user),
     db: AsyncSession = Depends(get_db),
 ) -> dict:
     result = await repo.set_report_status(db, report_id, data.status)
     if result is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="report not found")
+    await log_admin_action(
+        db,
+        current.user_id,
+        "report.status_update",
+        target_type="report",
+        target_id=str(report_id),
+        detail={"status": data.status},
+    )
     return result

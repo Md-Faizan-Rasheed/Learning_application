@@ -1,0 +1,994 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ when he began going to the Cave of Hira?",
+      "ar": "كم كان عمر النبي ﷺ حين بدأ يذهب إلى غار حراء؟",
+      "ur": "نبی ﷺ کی عمر کتنی تھی جب آپ ﷺ نے غارِ حرا جانا شروع کیا؟"
+    },
+    "options": {
+      "en": [
+        "About 15 years",
+        "About 25 years",
+        "About 60 years",
+        "About 37 or 38 years"
+      ],
+      "ar": [
+        "نحو 15 سنة",
+        "نحو 25 سنة",
+        "نحو 60 سنة",
+        "نحو 37 أو 38 سنة"
+      ],
+      "ur": [
+        "تقریباً 15 سال",
+        "تقریباً 25 سال",
+        "تقریباً 60 سال",
+        "تقریباً 37 یا 38 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Cave of Hira",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ take with him to the Cave of Hira?",
+      "ar": "ماذا كان النبي ﷺ يأخذ معه إلى غار حراء؟",
+      "ur": "نبی ﷺ غارِ حرا میں اپنے ساتھ کیا لے جاتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Weapons",
+        "Food and drink",
+        "Books",
+        "Animals"
+      ],
+      "ar": [
+        "السلاح",
+        "الطعام والشراب",
+        "الكتب",
+        "الحيوانات"
+      ],
+      "ur": [
+        "ہتھیار",
+        "کھانا پینا",
+        "کتابیں",
+        "جانور"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Cave of Hira",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "About how far is the Cave of Hira from Makkah?",
+      "ar": "كم تبعد غار حراء عن مكة تقريبًا؟",
+      "ur": "غارِ حرا مکہ سے تقریباً کتنی دور ہے؟"
+    },
+    "options": {
+      "en": [
+        "About thirty miles",
+        "About three miles",
+        "About three hundred miles",
+        "Inside Makkah"
+      ],
+      "ar": [
+        "نحو ثلاثين ميلًا",
+        "نحو ثلاثة أميال",
+        "نحو ثلاثمئة ميل",
+        "داخل مكة"
+      ],
+      "ur": [
+        "تقریباً تیس میل",
+        "تقریباً تین میل",
+        "تقریباً تین سو میل",
+        "مکہ کے اندر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Cave of Hira",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did revelation begin for the Prophet ﷺ?",
+      "ar": "كيف بدأ الوحي للنبي ﷺ؟",
+      "ur": "نبی ﷺ پر وحی کا آغاز کیسے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "While he was reflecting on God's being and attributes in the Cave of Hira",
+        "While he was trading in Syria",
+        "While he was in the Kaaba with the Quraysh",
+        "While he was travelling to Madinah"
+      ],
+      "ar": [
+        "وهو يتأمل في ذات الله وصفاته في غار حراء",
+        "وهو يتاجر في الشام",
+        "وهو في الكعبة مع قريش",
+        "وهو مسافر إلى المدينة"
+      ],
+      "ur": [
+        "جب آپ ﷺ غارِ حرا میں اللہ کی ذات و صفات پر غور فرما رہے تھے",
+        "جب آپ ﷺ شام میں تجارت کر رہے تھے",
+        "جب آپ ﷺ کعبہ میں قریش کے ساتھ تھے",
+        "جب آپ ﷺ مدینہ کی طرف سفر میں تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ when the angel first came with revelation?",
+      "ar": "كم كان عمر النبي ﷺ حين جاءه الملك بالوحي أول مرة؟",
+      "ur": "جب فرشتہ پہلی بار وحی لے کر آیا تو نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "25 years",
+        "30 years",
+        "40 years",
+        "63 years"
+      ],
+      "ar": [
+        "25 سنة",
+        "30 سنة",
+        "40 سنة",
+        "63 سنة"
+      ],
+      "ur": [
+        "25 سال",
+        "30 سال",
+        "40 سال",
+        "63 سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On which day was the first revelation sent down to the Prophet ﷺ?",
+      "ar": "في أي يوم نزل الوحي الأول على النبي ﷺ؟",
+      "ur": "نبی ﷺ پر پہلی وحی کس دن نازل ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Friday",
+        "Sunday",
+        "Saturday",
+        "Monday"
+      ],
+      "ar": [
+        "الجمعة",
+        "الأحد",
+        "السبت",
+        "الاثنين"
+      ],
+      "ur": [
+        "جمعہ",
+        "اتوار",
+        "ہفتہ",
+        "پیر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of the angel who brought the revelation?",
+      "ar": "ما اسم الملك الذي جاء بالوحي؟",
+      "ur": "وحی لانے والے فرشتے کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Jibra'il",
+        "Mika'il",
+        "Israfil",
+        "Malik"
+      ],
+      "ar": [
+        "جبريل",
+        "ميكائيل",
+        "إسرافيل",
+        "مالك"
+      ],
+      "ur": [
+        "جبرائیل",
+        "میکائیل",
+        "اسرافیل",
+        "مالک"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the first word the angel said to the Prophet ﷺ?",
+      "ar": "ما أول كلمة قالها الملك للنبي ﷺ؟",
+      "ur": "فرشتے نے نبی ﷺ سے سب سے پہلے کون سا لفظ کہا؟"
+    },
+    "options": {
+      "en": [
+        "Qum (Stand)",
+        "Ishhad (Witness)",
+        "Uskut (Be silent)",
+        "Iqra (Read)"
+      ],
+      "ar": [
+        "قم",
+        "اشهد",
+        "اسكت",
+        "اقرأ"
+      ],
+      "ur": [
+        "قم (کھڑے ہو جاؤ)",
+        "اشہد (گواہی دو)",
+        "اسکت (خاموش رہو)",
+        "اقرأ (پڑھو)"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ reply to the angel's command \"Iqra\"?",
+      "ar": "بماذا ردّ النبي ﷺ على أمر الملك \"اقرأ\"؟",
+      "ur": "فرشتے کے \"اقرأ\" کہنے پر نبی ﷺ نے کیا جواب دیا؟"
+    },
+    "options": {
+      "en": [
+        "\"I will read tomorrow\"",
+        "\"I am not one who reads\"",
+        "\"Who are you?\"",
+        "\"Leave me alone\""
+      ],
+      "ar": [
+        "«سأقرأ غدًا»",
+        "«ما أنا بقارئ»",
+        "«من أنت؟»",
+        "«اتركني»"
+      ],
+      "ur": [
+        "\"میں کل پڑھوں گا\"",
+        "\"میں پڑھنے والا نہیں ہوں\"",
+        "\"تم کون ہو؟\"",
+        "\"مجھے چھوڑ دو\""
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many times did the angel repeat the command before the Prophet ﷺ read?",
+      "ar": "كم مرة كرر الملك الأمر قبل أن يقرأ النبي ﷺ؟",
+      "ur": "نبی ﷺ کے پڑھنے سے پہلے فرشتے نے یہ حکم کتنی بار دہرایا؟"
+    },
+    "options": {
+      "en": [
+        "Three times",
+        "Once",
+        "Twice",
+        "Seven times"
+      ],
+      "ar": [
+        "ثلاث مرات",
+        "مرة واحدة",
+        "مرتين",
+        "سبع مرات"
+      ],
+      "ur": [
+        "تین بار",
+        "ایک بار",
+        "دو بار",
+        "سات بار"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which surah's verses did Jibra'il recite in the first revelation?",
+      "ar": "آيات أي سورة تلاها جبريل في الوحي الأول؟",
+      "ur": "پہلی وحی میں جبرائیل نے کس سورت کی آیات پڑھیں؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fatiha",
+        "Surah al-Ikhlas",
+        "Surah al-Alaq (Iqra)",
+        "Surah al-Baqara"
+      ],
+      "ar": [
+        "سورة الفاتحة",
+        "سورة الإخلاص",
+        "سورة العلق (اقرأ)",
+        "سورة البقرة"
+      ],
+      "ur": [
+        "سورۃ الفاتحہ",
+        "سورۃ الاخلاص",
+        "سورۃ العلق (اقرأ)",
+        "سورۃ البقرہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many verses were revealed in the first revelation?",
+      "ar": "كم آية نزلت في الوحي الأول؟",
+      "ur": "پہلی وحی میں کتنی آیات نازل ہوئیں؟"
+    },
+    "options": {
+      "en": [
+        "Five",
+        "Two",
+        "Ten",
+        "Twenty"
+      ],
+      "ar": [
+        "خمس آيات",
+        "آيتان",
+        "عشر آيات",
+        "عشرون آية"
+      ],
+      "ur": [
+        "پانچ",
+        "دو",
+        "دس",
+        "بیس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say to Hazrat Khadija in his distress?",
+      "ar": "ماذا قال النبي ﷺ للسيدة خديجة وهو في شدة الخوف؟",
+      "ur": "پریشانی کے عالم میں نبی ﷺ نے حضرت خدیجہ سے کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "\"Bring me water\"",
+        "\"Cover me with a blanket\"",
+        "\"Call the Quraysh\"",
+        "\"Let us leave Makkah\""
+      ],
+      "ar": [
+        "«ائتني بماء»",
+        "«زمّلوني»",
+        "«ادعي قريشًا»",
+        "«لنغادر مكة»"
+      ],
+      "ur": [
+        "\"مجھے پانی لاؤ\"",
+        "\"مجھے چادر اوڑھا دو\"",
+        "\"قریش کو بلاؤ\"",
+        "\"چلو مکہ چھوڑ دیں\""
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did Hazrat Khadija console the Prophet ﷺ?",
+      "ar": "كيف واست السيدة خديجة النبي ﷺ؟",
+      "ur": "حضرت خدیجہ نے نبی ﷺ کو کیسے تسلی دی؟"
+    },
+    "options": {
+      "en": [
+        "She told him to stop going to Hira",
+        "She told him to ask the Quraysh for help",
+        "She said God would never grieve him, as he maintains family ties, helps people and is hospitable",
+        "She told him to hide in her house forever"
+      ],
+      "ar": [
+        "أمرته بترك الذهاب إلى حراء",
+        "أمرته أن يستنجد بقريش",
+        "قالت إن الله لن يحزنه لأنه يصل الرحم ويعين الناس ويكرم الضيف",
+        "أمرته أن يختبئ في بيتها دائمًا"
+      ],
+      "ur": [
+        "کہا کہ غارِ حرا جانا چھوڑ دیں",
+        "کہا کہ قریش سے مدد مانگیں",
+        "فرمایا کہ اللہ آپ کو غمگین نہ کرے گا کیونکہ آپ صلہ رحمی کرتے، لوگوں کی مدد کرتے اور مہمان نوازی کرتے ہیں",
+        "کہا کہ ہمیشہ میرے گھر میں چھپے رہیں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did Hazrat Khadija bring to meet the Prophet ﷺ after the first revelation?",
+      "ar": "من الذي أتت به السيدة خديجة ليلقى النبي ﷺ بعد الوحي الأول؟",
+      "ur": "پہلی وحی کے بعد حضرت خدیجہ نبی ﷺ کو کس کے پاس لے گئیں؟"
+    },
+    "options": {
+      "en": [
+        "Waraqa ibn Nawfal",
+        "Abu Talib",
+        "Abu Bakr",
+        "Hazrat Abbas"
+      ],
+      "ar": [
+        "ورقة بن نوفل",
+        "أبو طالب",
+        "أبو بكر",
+        "العباس"
+      ],
+      "ur": [
+        "ورقہ بن نوفل",
+        "ابو طالب",
+        "ابو بکر",
+        "حضرت عباس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Waraqa ibn Nawfal say after hearing the Prophet ﷺ?",
+      "ar": "ماذا قال ورقة بن نوفل بعد أن سمع النبي ﷺ؟",
+      "ur": "ورقہ بن نوفل نے نبی ﷺ کی بات سن کر کیا کہا؟"
+    },
+    "options": {
+      "en": [
+        "This is only a dream",
+        "This is magic",
+        "This is the same Namus (angel of revelation) who came to Hazrat Musa",
+        "This is a passing illness"
+      ],
+      "ar": [
+        "هذا مجرد حلم",
+        "هذا سحر",
+        "هذا هو الناموس نفسه الذي كان ينزل على موسى",
+        "هذا مرض عابر"
+      ],
+      "ur": [
+        "یہ صرف ایک خواب ہے",
+        "یہ جادو ہے",
+        "یہ وہی ناموس (وحی کا فرشتہ) ہے جو حضرت موسیٰ کے پاس آتا تھا",
+        "یہ عارضی بیماری ہے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In the second revelation, in what condition did the Prophet ﷺ see Jibra'il?",
+      "ar": "في الوحي الثاني، على أي حال رأى النبي ﷺ جبريل؟",
+      "ur": "دوسری وحی میں نبی ﷺ نے جبرائیل کو کس حالت میں دیکھا؟"
+    },
+    "options": {
+      "en": [
+        "Walking in the desert",
+        "Standing on a mountain",
+        "Riding a horse",
+        "Seated on a chair between the earth and the sky"
+      ],
+      "ar": [
+        "يمشي في الصحراء",
+        "واقفًا على جبل",
+        "راكبًا فرسًا",
+        "جالسًا على كرسي بين السماء والأرض"
+      ],
+      "ur": [
+        "صحرا میں چلتے ہوئے",
+        "پہاڑ پر کھڑے ہوئے",
+        "گھوڑے پر سوار",
+        "زمین و آسمان کے درمیان کرسی پر بیٹھے ہوئے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which surah was revealed in the second revelation?",
+      "ar": "أي سورة نزلت في الوحي الثاني؟",
+      "ur": "دوسری وحی میں کون سی سورت نازل ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Muddaththir",
+        "Surah al-Fil",
+        "Surah al-Kawthar",
+        "Surah al-Nas"
+      ],
+      "ar": [
+        "سورة المدثر",
+        "سورة الفيل",
+        "سورة الكوثر",
+        "سورة الناس"
+      ],
+      "ur": [
+        "سورۃ المدثر",
+        "سورۃ الفیل",
+        "سورۃ الکوثر",
+        "سورۃ الناس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For about how long did the Prophet ﷺ preach secretly?",
+      "ar": "كم استمرت الدعوة السرية تقريبًا؟",
+      "ur": "نبی ﷺ نے تقریباً کتنی مدت خفیہ تبلیغ فرمائی؟"
+    },
+    "options": {
+      "en": [
+        "About one month",
+        "About ten years",
+        "About one day",
+        "About three years"
+      ],
+      "ar": [
+        "نحو شهر",
+        "نحو عشر سنوات",
+        "نحو يوم",
+        "نحو ثلاث سنوات"
+      ],
+      "ur": [
+        "تقریباً ایک مہینہ",
+        "تقریباً دس سال",
+        "تقریباً ایک دن",
+        "تقریباً تین سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of these accepted Islam during the secret preaching?",
+      "ar": "أي من هؤلاء أسلم في الدعوة السرية؟",
+      "ur": "خفیہ تبلیغ کے دوران ان میں سے کس نے اسلام قبول کیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Abu Lahab",
+        "Walid ibn Mughira",
+        "Hazrat Abu Bakr"
+      ],
+      "ar": [
+        "أبو جهل",
+        "أبو لهب",
+        "الوليد بن المغيرة",
+        "أبو بكر"
+      ],
+      "ur": [
+        "ابو جہل",
+        "ابو لہب",
+        "ولید بن مغیرہ",
+        "حضرت ابو بکر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which command of God started the open preaching?",
+      "ar": "أي أمر من الله بدأت به الدعوة الجهرية؟",
+      "ur": "کس حکمِ الٰہی سے کھلی تبلیغ شروع ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "\"Fast for thirty days\"",
+        "\"Declare openly what you have been commanded\"",
+        "\"Leave Makkah\"",
+        "\"Fight the Quraysh\""
+      ],
+      "ar": [
+        "«صم ثلاثين يومًا»",
+        "«فاصدع بما تؤمر»",
+        "«اترك مكة»",
+        "«قاتل قريشًا»"
+      ],
+      "ur": [
+        "\"تیس دن روزے رکھو\"",
+        "\"جو حکم دیا گیا ہے اسے کھول کر بیان کرو\"",
+        "\"مکہ چھوڑ دو\"",
+        "\"قریش سے جنگ کرو\""
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "From which place did the Prophet ﷺ begin open preaching?",
+      "ar": "من أي مكان بدأ النبي ﷺ الدعوة الجهرية؟",
+      "ur": "نبی ﷺ نے کھلی تبلیغ کا آغاز کس مقام سے کیا؟"
+    },
+    "options": {
+      "en": [
+        "Mount Uhud",
+        "Cave of Thawr",
+        "Mount Safa",
+        "Mina"
+      ],
+      "ar": [
+        "جبل أحد",
+        "غار ثور",
+        "جبل الصفا",
+        "منى"
+      ],
+      "ur": [
+        "جبلِ احد",
+        "غارِ ثور",
+        "کوہِ صفا",
+        "منیٰ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who said \"Ruin on you! Did you gather us for this?\" when the Prophet ﷺ preached at Safa?",
+      "ar": "من الذي قال «تبًّا لك، ألهذا جمعتنا؟» حين دعا النبي ﷺ على الصفا؟",
+      "ur": "کوہِ صفا پر نبی ﷺ کی بات سن کر \"تم پر ہلاکت ہو! کیا ہمیں اسی لیے جمع کیا؟\" کس نے کہا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr",
+        "Abu Talib",
+        "Abu Lahab",
+        "Hazrat Abbas"
+      ],
+      "ar": [
+        "أبو بكر",
+        "أبو طالب",
+        "أبو لهب",
+        "العباس"
+      ],
+      "ur": [
+        "ابو بکر",
+        "ابو طالب",
+        "ابو لہب",
+        "حضرت عباس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was the Prophet's ﷺ greatest enemy among his relatives?",
+      "ar": "من كان أشد أعداء النبي ﷺ من أقاربه؟",
+      "ur": "نبی ﷺ کے رشتہ داروں میں سب سے بڑا دشمن کون تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Lahab",
+        "Abu Talib",
+        "Hazrat Hamza",
+        "Hazrat Abbas"
+      ],
+      "ar": [
+        "أبو لهب",
+        "أبو طالب",
+        "حمزة",
+        "العباس"
+      ],
+      "ur": [
+        "ابو لہب",
+        "ابو طالب",
+        "حضرت حمزہ",
+        "حضرت عباس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the disbelievers of Makkah do when the Prophet ﷺ prayed at the Kaaba?",
+      "ar": "ماذا كان يفعل كفار مكة حين يصلي النبي ﷺ عند الكعبة؟",
+      "ur": "جب نبی ﷺ کعبہ میں نماز پڑھتے تو کفارِ مکہ کیا کرتے؟"
+    },
+    "options": {
+      "en": [
+        "They prayed with him",
+        "They mocked him and caused him hardship",
+        "They brought him gifts",
+        "They left the Kaaba"
+      ],
+      "ar": [
+        "كانوا يصلون معه",
+        "كانوا يسخرون منه ويؤذونه",
+        "كانوا يقدمون له الهدايا",
+        "كانوا يغادرون الكعبة"
+      ],
+      "ur": [
+        "وہ آپ ﷺ کے ساتھ نماز پڑھتے",
+        "وہ آپ ﷺ کا مذاق اڑاتے اور تکلیف دیتے",
+        "وہ آپ ﷺ کو تحفے دیتے",
+        "وہ کعبہ چھوڑ جاتے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why did the Quraysh come to oppose the Prophet ﷺ?",
+      "ar": "لماذا عادت قريش النبي ﷺ؟",
+      "ur": "قریش نے نبی ﷺ کی مخالفت کیوں کی؟"
+    },
+    "options": {
+      "en": [
+        "Because he asked for their wealth",
+        "Because he wanted to rule Makkah",
+        "Because he forbade idol-worship and called them to God's commands",
+        "Because he stopped trade"
+      ],
+      "ar": [
+        "لأنه طلب أموالهم",
+        "لأنه أراد حكم مكة",
+        "لأنه نهاهم عن عبادة الأصنام ودعاهم إلى أوامر الله",
+        "لأنه منع التجارة"
+      ],
+      "ur": [
+        "کیونکہ آپ ﷺ نے ان سے مال مانگا",
+        "کیونکہ آپ ﷺ مکہ پر حکومت چاہتے تھے",
+        "کیونکہ آپ ﷺ نے انہیں بت پرستی سے روکا اور اللہ کے احکام کی طرف بلایا",
+        "کیونکہ آپ ﷺ نے تجارت بند کروا دی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many idols were in the Kaaba?",
+      "ar": "كم كان عدد الأصنام في الكعبة؟",
+      "ur": "کعبہ میں کتنے بت تھے؟"
+    },
+    "options": {
+      "en": [
+        "360",
+        "3",
+        "36",
+        "3,600"
+      ],
+      "ar": [
+        "360",
+        "3",
+        "36",
+        "3600"
+      ],
+      "ur": [
+        "360",
+        "3",
+        "36",
+        "3600"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the literal meaning of wahy (revelation)?",
+      "ar": "ما المعنى اللغوي للوحي؟",
+      "ur": "وحی کا لغوی معنی کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "To write",
+        "To signal; to put a matter secretly into the heart",
+        "To travel",
+        "To fight"
+      ],
+      "ar": [
+        "الكتابة",
+        "الإشارة وإلقاء الأمر خفيةً في القلب",
+        "السفر",
+        "القتال"
+      ],
+      "ur": [
+        "لکھنا",
+        "اشارہ کرنا؛ کسی بات کو چپکے سے دل میں ڈالنا",
+        "سفر کرنا",
+        "لڑنا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When the Prophet ﷺ declared prophethood, what astonishing thing happened as he passed trees and stones?",
+      "ar": "عندما أعلن النبي ﷺ نبوته، ما الأمر العجيب الذي حدث حين كان يمر بالأشجار والأحجار؟",
+      "ur": "اعلانِ نبوت کے بعد جب نبی ﷺ درختوں اور پتھروں کے پاس سے گزرتے تو کیا حیرت انگیز بات ہوتی؟"
+    },
+    "options": {
+      "en": [
+        "They would fall down",
+        "They would greet him",
+        "They would move away",
+        "They would turn to gold"
+      ],
+      "ar": [
+        "كانت تسقط",
+        "كانت تسلّم عليه",
+        "كانت تبتعد",
+        "كانت تتحول إلى ذهب"
+      ],
+      "ur": [
+        "وہ گر جاتے",
+        "وہ آپ ﷺ کو سلام کرتے",
+        "وہ دور ہٹ جاتے",
+        "وہ سونا بن جاتے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — First Revelation",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After the descent of revelation, which act of worship was first commanded?",
+      "ar": "بعد نزول الوحي، ما أول عبادة أُمر بها النبي ﷺ؟",
+      "ur": "وحی کے نزول کے بعد سب سے پہلے کون سی عبادت کا حکم ملا؟"
+    },
+    "options": {
+      "en": [
+        "Hajj",
+        "Fasting",
+        "Zakat",
+        "Prayer (salat)"
+      ],
+      "ar": [
+        "الحج",
+        "الصيام",
+        "الزكاة",
+        "الصلاة"
+      ],
+      "ur": [
+        "حج",
+        "روزہ",
+        "زکوٰۃ",
+        "نماز"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who served the Prophet ﷺ and Islam the most in the early days?",
+      "ar": "من الذي خدم النبي ﷺ والإسلام أكثر في الأيام الأولى؟",
+      "ur": "اسلام کے ابتدائی دنوں میں نبی ﷺ اور اسلام کی سب سے زیادہ خدمت کس نے کی؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl and Abu Lahab",
+        "Walid and Utba",
+        "Hazrat Abu Bakr Siddiq and Hazrat Khadija",
+        "Umayya and Ubayy"
+      ],
+      "ar": [
+        "أبو جهل وأبو لهب",
+        "الوليد وعتبة",
+        "أبو بكر الصديق وخديجة",
+        "أمية وأبي"
+      ],
+      "ur": [
+        "ابو جہل اور ابو لہب",
+        "ولید اور عتبہ",
+        "حضرت ابو بکر صدیق اور حضرت خدیجہ",
+        "امیہ اور ابی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Secret and Open Preaching",
+    "event_id": null
+  }
+]

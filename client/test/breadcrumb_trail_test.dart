@@ -18,7 +18,8 @@ void main() {
     expect(find.byIcon(Icons.chevron_right_rounded), findsOneWidget);
   });
 
-  testWidgets('tapping an ancestor crumb fires its onTap; the current crumb has none', (tester) async {
+  testWidgets('tapping an ancestor crumb fires its onTap; the current crumb has none',
+      (tester) async {
     var tapped = false;
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(

@@ -6,7 +6,8 @@ import 'package:islamic_game/widgets/constellation_card_grid.dart';
 void main() {
   Future<void> pumpGrid(WidgetTester tester, List<RadialNode> nodes) async {
     await tester.pumpWidget(MaterialApp(
-      home: Scaffold(body: SizedBox(width: 360, height: 640, child: ConstellationCardGrid(nodes: nodes))),
+      home: Scaffold(
+          body: SizedBox(width: 360, height: 640, child: ConstellationCardGrid(nodes: nodes))),
     ));
     await tester.pumpAndSettle();
   }

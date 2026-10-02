@@ -12,8 +12,7 @@ void main() {
     test('advances on the next calendar day', () {
       final today = DateTime(2026, 3, 10);
       final tomorrow = DateTime(2026, 3, 11);
-      expect(dailyIndexFor(12, now: tomorrow),
-          (dailyIndexFor(12, now: today) + 1) % 12);
+      expect(dailyIndexFor(12, now: tomorrow), (dailyIndexFor(12, now: today) + 1) % 12);
     });
 
     test('wraps around once the pool length is exceeded', () {

@@ -1,0 +1,1378 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At what age did the Prophet ﷺ make his first marriage?",
+      "ar": "في أي عمر تزوج النبي ﷺ زواجه الأول؟",
+      "ur": "نبی ﷺ نے پہلا نکاح کس عمر میں کیا؟"
+    },
+    "options": {
+      "en": [
+        "15",
+        "35",
+        "45",
+        "25"
+      ],
+      "ar": [
+        "15",
+        "35",
+        "45",
+        "25"
+      ],
+      "ur": [
+        "15 سال",
+        "35 سال",
+        "45 سال",
+        "25 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ marry the first time?",
+      "ar": "من تزوج النبي ﷺ أول مرة؟",
+      "ur": "نبی ﷺ نے پہلی بار کس سے نکاح کیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Khadija",
+        "Hazrat Sawda",
+        "Hazrat Hafsa"
+      ],
+      "ar": [
+        "عائشة",
+        "خديجة",
+        "سودة",
+        "حفصة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت خدیجہ",
+        "حضرت سودہ",
+        "حضرت حفصہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Hazrat Khadija's title?",
+      "ar": "ما لقب السيدة خديجة؟",
+      "ur": "حضرت خدیجہ کا لقب کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Siddiqa",
+        "Tahira (the Pure)",
+        "Umm al-Masakin",
+        "Umm al-Mu'minin only"
+      ],
+      "ar": [
+        "الصديقة",
+        "الطاهرة",
+        "أم المساكين",
+        "أم المؤمنين فقط"
+      ],
+      "ur": [
+        "صدیقہ",
+        "طاہرہ",
+        "ام المساکین",
+        "صرف ام المومنین"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say about Hazrat Khadija?",
+      "ar": "ماذا قال النبي ﷺ عن خديجة؟",
+      "ur": "نبی ﷺ نے حضرت خدیجہ کے بارے میں کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "She never spoke to me",
+        "When people denied me, Khadija believed me",
+        "She left me alone",
+        "She opposed me at first"
+      ],
+      "ar": [
+        "لم تكلمني أبدًا",
+        "آمنت بي إذ كذّبني الناس",
+        "تركتني وحدي",
+        "عارضتني في البداية"
+      ],
+      "ur": [
+        "وہ مجھ سے کبھی نہ بولیں",
+        "جب لوگوں نے مجھے جھٹلایا تو خدیجہ نے میری تصدیق کی",
+        "انہوں نے مجھے تنہا چھوڑ دیا",
+        "پہلے انہوں نے مخالفت کی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many children of the Prophet ﷺ were born to Hazrat Khadija?",
+      "ar": "كم ولدًا للنبي ﷺ وُلد من خديجة؟",
+      "ur": "حضرت خدیجہ سے نبی ﷺ کی کتنی اولاد ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Six",
+        "Two",
+        "Ten",
+        "None"
+      ],
+      "ar": [
+        "ستة",
+        "اثنان",
+        "عشرة",
+        "لا أحد"
+      ],
+      "ur": [
+        "چھ",
+        "دو",
+        "دس",
+        "کوئی نہیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For how long did the Prophet ﷺ remain married to Hazrat Khadija?",
+      "ar": "كم مدة بقاء النبي ﷺ مع خديجة؟",
+      "ur": "نبی ﷺ حضرت خدیجہ کے ساتھ کتنا عرصہ رہے؟"
+    },
+    "options": {
+      "en": [
+        "25 years",
+        "5 years",
+        "15 years",
+        "45 years"
+      ],
+      "ar": [
+        "25 سنة",
+        "5 سنوات",
+        "15 سنة",
+        "45 سنة"
+      ],
+      "ur": [
+        "25 سال",
+        "5 سال",
+        "15 سال",
+        "45 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year of prophethood did Hazrat Khadija pass away?",
+      "ar": "في أي سنة من النبوة توفيت خديجة؟",
+      "ur": "حضرت خدیجہ کا انتقال نبوت کے کس سال ہوا؟"
+    },
+    "options": {
+      "en": [
+        "3rd",
+        "10th",
+        "5th",
+        "13th"
+      ],
+      "ar": [
+        "الثالثة",
+        "العاشرة",
+        "الخامسة",
+        "الثالثة عشرة"
+      ],
+      "ur": [
+        "تیسرے",
+        "دسویں",
+        "پانچویں",
+        "تیرھویں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What honour does Hazrat Khadija hold?",
+      "ar": "ما الشرف الذي تحظى به خديجة؟",
+      "ur": "حضرت خدیجہ کو کون سا اعزاز حاصل ہے؟"
+    },
+    "options": {
+      "en": [
+        "The first woman martyr",
+        "The first to perform Hajj",
+        "The first woman to accept Islam",
+        "The first to migrate to Madinah"
+      ],
+      "ar": [
+        "أول شهيدة",
+        "أول من حجّت",
+        "أول امرأة أسلمت",
+        "أول من هاجر إلى المدينة"
+      ],
+      "ur": [
+        "پہلی شہیدہ",
+        "پہلی حج کرنے والی",
+        "اسلام لانے والی پہلی خاتون",
+        "مدینہ ہجرت کرنے والی پہلی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Did the Prophet ﷺ make a second marriage while Hazrat Khadija was alive?",
+      "ar": "هل تزوج النبي ﷺ زواجًا ثانيًا في حياة خديجة؟",
+      "ur": "کیا نبی ﷺ نے حضرت خدیجہ کی زندگی میں دوسرا نکاح کیا؟"
+    },
+    "options": {
+      "en": [
+        "Yes, with Sawda",
+        "Yes, with Aisha",
+        "Yes, with Hafsa",
+        "No"
+      ],
+      "ar": [
+        "نعم، بسودة",
+        "نعم، بعائشة",
+        "نعم، بحفصة",
+        "لا"
+      ],
+      "ur": [
+        "ہاں، سودہ سے",
+        "ہاں، عائشہ سے",
+        "ہاں، حفصہ سے",
+        "نہیں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ wives placed all her wealth at his feet after accepting Islam?",
+      "ar": "أي زوجات النبي ﷺ وضعت مالها كله بين يديه بعد إسلامها؟",
+      "ur": "نبی ﷺ کی کس زوجہ نے اسلام لانے کے بعد اپنا سارا مال آپ ﷺ کے قدموں میں رکھ دیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Khadija",
+        "Hazrat Hafsa",
+        "Hazrat Juwayriyya"
+      ],
+      "ar": [
+        "عائشة",
+        "خديجة",
+        "حفصة",
+        "جويرية"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت خدیجہ",
+        "حضرت حفصہ",
+        "حضرت جویریہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What glad tidings did Jibra'il convey for Hazrat Khadija?",
+      "ar": "ما البشرى التي حملها جبريل لخديجة؟",
+      "ur": "جبرائیل نے حضرت خدیجہ کے لیے کیا خوشخبری پہنچائی؟"
+    },
+    "options": {
+      "en": [
+        "A garden in Makkah",
+        "A caravan of gold",
+        "A palace of pearls in Paradise",
+        "A long life"
+      ],
+      "ar": [
+        "بستان في مكة",
+        "قافلة من ذهب",
+        "قصر من لؤلؤ في الجنة",
+        "عمر طويل"
+      ],
+      "ur": [
+        "مکہ میں باغ",
+        "سونے کا قافلہ",
+        "جنت میں موتیوں کا محل",
+        "لمبی عمر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ marry after Hazrat Khadija?",
+      "ar": "من تزوج النبي ﷺ بعد خديجة؟",
+      "ur": "حضرت خدیجہ کے بعد نبی ﷺ نے کس سے نکاح کیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Umm Salama",
+        "Hazrat Sawda",
+        "Hazrat Safiyya"
+      ],
+      "ar": [
+        "عائشة",
+        "أم سلمة",
+        "سودة",
+        "صفية"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت ام سلمہ",
+        "حضرت سودہ",
+        "حضرت صفیہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Aisha?",
+      "ar": "ابنة من كانت عائشة؟",
+      "ur": "حضرت عائشہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar",
+        "Hazrat Uthman",
+        "Hazrat Ali",
+        "Hazrat Abu Bakr Siddiq"
+      ],
+      "ar": [
+        "عمر",
+        "عثمان",
+        "علي",
+        "أبي بكر الصديق"
+      ],
+      "ur": [
+        "حضرت عمر",
+        "حضرت عثمان",
+        "حضرت علی",
+        "حضرت ابو بکر صدیق"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What quality distinguishes Hazrat Aisha among the Prophet's ﷺ wives?",
+      "ar": "ما الصفة التي تميّز عائشة بين زوجات النبي ﷺ؟",
+      "ur": "نبی ﷺ کی ازواج میں حضرت عائشہ کی کیا خوبی نمایاں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Wealth",
+        "Knowledge and excellence",
+        "Travelling",
+        "Trade"
+      ],
+      "ar": [
+        "الثروة",
+        "العلم والفضل",
+        "السفر",
+        "التجارة"
+      ],
+      "ur": [
+        "دولت",
+        "علم اور فضل",
+        "سفر",
+        "تجارت"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who slandered Hazrat Aisha?",
+      "ar": "من الذي افترى على عائشة؟",
+      "ur": "حضرت عائشہ پر بہتان کس نے لگایا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr",
+        "Hazrat Ali",
+        "Abdullah ibn Ubayy, chief of the hypocrites",
+        "Waraqa"
+      ],
+      "ar": [
+        "أبو بكر",
+        "علي",
+        "عبد الله بن أبي رأس المنافقين",
+        "ورقة"
+      ],
+      "ur": [
+        "ابو بکر",
+        "حضرت علی",
+        "عبداللہ بن ابی، منافقین کا سردار",
+        "ورقہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was Hazrat Aisha buried?",
+      "ar": "أين دُفنت عائشة؟",
+      "ur": "حضرت عائشہ کہاں دفن ہوئیں؟"
+    },
+    "options": {
+      "en": [
+        "Makkah",
+        "Jannat al-Baqi",
+        "Uhud",
+        "Quba"
+      ],
+      "ar": [
+        "مكة",
+        "البقيع",
+        "أحد",
+        "قباء"
+      ],
+      "ur": [
+        "مکہ",
+        "جنت البقیع",
+        "احد",
+        "قبا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the wife of the Prophet ﷺ who was the daughter of Hazrat Umar.",
+      "ar": "سمِّ زوجة النبي ﷺ التي هي ابنة عمر.",
+      "ur": "نبی ﷺ کی وہ زوجہ کون ہیں جو حضرت عمر کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Sawda",
+        "Hazrat Maymuna",
+        "Hazrat Hafsa"
+      ],
+      "ar": [
+        "عائشة",
+        "سودة",
+        "ميمونة",
+        "حفصة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت سودہ",
+        "حضرت میمونہ",
+        "حضرت حفصہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which wife of the Prophet ﷺ was called Umm al-Masakin (Mother of the Poor)?",
+      "ar": "أي زوجات النبي ﷺ لُقّبت بأم المساكين؟",
+      "ur": "نبی ﷺ کی کس زوجہ کو ام المساکین کہا جاتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Hafsa",
+        "Hazrat Zaynab bint Khuzayma",
+        "Hazrat Safiyya"
+      ],
+      "ar": [
+        "عائشة",
+        "حفصة",
+        "زينب بنت خزيمة",
+        "صفية"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت حفصہ",
+        "حضرت زینب بنت خزیمہ",
+        "حضرت صفیہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why is Hazrat Umm Salama called \"Umm Salama\"?",
+      "ar": "لماذا سُميت أم سلمة بهذا الاسم؟",
+      "ur": "حضرت ام سلمہ کو ام سلمہ کیوں کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "She was born in Salama",
+        "Salama was the name of her son",
+        "It was her father's name",
+        "It was her tribe's name"
+      ],
+      "ar": [
+        "لأنها وُلدت في سلمة",
+        "لأن سلمة اسم ابنها",
+        "لأنه اسم أبيها",
+        "لأنه اسم قبيلتها"
+      ],
+      "ur": [
+        "وہ سلمہ میں پیدا ہوئیں",
+        "کیونکہ سلمہ ان کے بیٹے کا نام تھا",
+        "یہ ان کے والد کا نام تھا",
+        "یہ ان کے قبیلے کا نام تھا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which wife of the Prophet ﷺ was his paternal-aunt's daughter (a cousin)?",
+      "ar": "أي زوجات النبي ﷺ كانت ابنة عمته؟",
+      "ur": "نبی ﷺ کی کون سی زوجہ آپ ﷺ کی پھوپھی زاد بہن تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Hafsa",
+        "Hazrat Zaynab bint Jahsh",
+        "Hazrat Maymuna"
+      ],
+      "ar": [
+        "عائشة",
+        "حفصة",
+        "زينب بنت جحش",
+        "ميمونة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت حفصہ",
+        "حضرت زینب بنت جحش",
+        "حضرت میمونہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Before marrying the Prophet ﷺ, Hazrat Zaynab bint Jahsh was married to whom?",
+      "ar": "بمن كانت زينب بنت جحش متزوجة قبل النبي ﷺ؟",
+      "ur": "نبی ﷺ سے نکاح سے پہلے حضرت زینب بنت جحش کس کے نکاح میں تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Bilal",
+        "Hazrat Zayd ibn Haritha"
+      ],
+      "ar": [
+        "علي",
+        "عثمان",
+        "بلال",
+        "زيد بن حارثة"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عثمان",
+        "حضرت بلال",
+        "حضرت زید بن حارثہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the marriage of Hazrat Zaynab bint Jahsh mentioned?",
+      "ar": "في أي سورة ذُكر زواج زينب بنت جحش؟",
+      "ur": "حضرت زینب بنت جحش کے نکاح کا ذکر کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Ahzab",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الأحزاب",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الاحزاب",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Juwayriyya?",
+      "ar": "ابنة من كانت جويرية؟",
+      "ur": "حضرت جویریہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Sufyan",
+        "Huyayy ibn Akhtab",
+        "Harith ibn Abi Dirar, chief of Banu al-Mustaliq",
+        "Abu Bakr"
+      ],
+      "ar": [
+        "أبي سفيان",
+        "حيي بن أخطب",
+        "الحارث بن أبي ضرار سيد بني المصطلق",
+        "أبي بكر"
+      ],
+      "ur": [
+        "ابو سفیان",
+        "حیی بن اخطب",
+        "حارث بن ابی ضرار، بنو المصطلق کے سردار",
+        "ابو بکر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Hazrat Umm Habiba was the sister of which companion?",
+      "ar": "أم حبيبة أخت أي صحابي؟",
+      "ur": "حضرت ام حبیبہ کس صحابی کی بہن تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Umar",
+        "Hazrat Bilal",
+        "Hazrat Mu'awiya"
+      ],
+      "ar": [
+        "علي",
+        "عمر",
+        "بلال",
+        "معاوية"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عمر",
+        "حضرت بلال",
+        "حضرت معاویہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Umm Habiba?",
+      "ar": "ابنة من كانت أم حبيبة؟",
+      "ur": "حضرت ام حبیبہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Sufyan",
+        "Abu Talib",
+        "Abu Lahab",
+        "Abu Bakr"
+      ],
+      "ar": [
+        "أبي سفيان",
+        "أبي طالب",
+        "أبي لهب",
+        "أبي بكر"
+      ],
+      "ur": [
+        "ابو سفیان",
+        "ابو طالب",
+        "ابو لہب",
+        "ابو بکر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After which battle did the Prophet ﷺ marry Hazrat Safiyya?",
+      "ar": "بعد أي غزوة تزوج النبي ﷺ صفية؟",
+      "ur": "نبی ﷺ نے حضرت صفیہ سے کس جنگ کے بعد نکاح کیا؟"
+    },
+    "options": {
+      "en": [
+        "Battle of Badr",
+        "Battle of Uhud",
+        "Battle of Khaybar",
+        "Battle of Tabuk"
+      ],
+      "ar": [
+        "غزوة بدر",
+        "غزوة أحد",
+        "غزوة خيبر",
+        "غزوة تبوك"
+      ],
+      "ur": [
+        "غزوۂ بدر",
+        "غزوۂ احد",
+        "غزوۂ خیبر",
+        "غزوۂ تبوک"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Safiyya?",
+      "ar": "ابنة من كانت صفية؟",
+      "ur": "حضرت صفیہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Sufyan",
+        "Abu Bakr",
+        "Huyayy ibn Akhtab",
+        "Harith ibn Huzn"
+      ],
+      "ar": [
+        "أبي سفيان",
+        "أبي بكر",
+        "حيي بن أخطب",
+        "الحارث بن حزن"
+      ],
+      "ur": [
+        "ابو سفیان",
+        "ابو بکر",
+        "حیی بن اخطب",
+        "حارث بن حزن"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "From the descendants of which prophet was Hazrat Safiyya?",
+      "ar": "من نسل أي نبي كانت صفية؟",
+      "ur": "حضرت صفیہ کس نبی کی اولاد میں سے تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Harun (Aaron)",
+        "Hazrat Nuh",
+        "Hazrat Yusuf",
+        "Hazrat Dawud"
+      ],
+      "ar": [
+        "هارون",
+        "نوح",
+        "يوسف",
+        "داود"
+      ],
+      "ur": [
+        "حضرت ہارون",
+        "حضرت نوح",
+        "حضرت یوسف",
+        "حضرت داود"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Maymuna?",
+      "ar": "ابنة من كانت ميمونة؟",
+      "ur": "حضرت میمونہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Sufyan",
+        "Abu Bakr",
+        "Huyayy ibn Akhtab",
+        "Harith ibn Huzn"
+      ],
+      "ar": [
+        "أبي سفيان",
+        "أبي بكر",
+        "حيي بن أخطب",
+        "الحارث بن حزن"
+      ],
+      "ur": [
+        "ابو سفیان",
+        "ابو بکر",
+        "حیی بن اخطب",
+        "حارث بن حزن"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which son of the Prophet ﷺ was born of Hazrat Maria Qibtiyya?",
+      "ar": "أي أبناء النبي ﷺ وُلد من مارية القبطية؟",
+      "ur": "حضرت ماریہ قبطیہ سے نبی ﷺ کے کون سے صاحبزادے پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Qasim",
+        "Hazrat Abdullah",
+        "Hazrat Ibrahim",
+        "Hazrat Hasan"
+      ],
+      "ar": [
+        "القاسم",
+        "عبد الله",
+        "إبراهيم",
+        "الحسن"
+      ],
+      "ur": [
+        "حضرت قاسم",
+        "حضرت عبداللہ",
+        "حضرت ابراہیم",
+        "حضرت حسن"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the name of the Prophet's ﷺ eldest daughter?",
+      "ar": "ما اسم كبرى بنات النبي ﷺ؟",
+      "ur": "نبی ﷺ کی سب سے بڑی صاحبزادی کا نام کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Fatima",
+        "Hazrat Ruqayya",
+        "Hazrat Umm Kulthum",
+        "Hazrat Zaynab"
+      ],
+      "ar": [
+        "فاطمة",
+        "رقية",
+        "أم كلثوم",
+        "زينب"
+      ],
+      "ur": [
+        "حضرت فاطمہ",
+        "حضرت رقیہ",
+        "حضرت ام کلثوم",
+        "حضرت زینب"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Zaynab (the Prophet's daughter) married?",
+      "ar": "بمن تزوجت زينب بنت النبي ﷺ؟",
+      "ur": "نبی ﷺ کی صاحبزادی حضرت زینب کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Zubayr",
+        "Abu al-As ibn al-Rabi'"
+      ],
+      "ar": [
+        "علي",
+        "عثمان",
+        "الزبير",
+        "أبي العاص بن الربيع"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عثمان",
+        "حضرت زبیر",
+        "ابو العاص بن ربیع"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Ruqayya married?",
+      "ar": "بمن تزوجت رقية؟",
+      "ur": "حضرت رقیہ کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Umar",
+        "Hazrat Abu Bakr"
+      ],
+      "ar": [
+        "علي",
+        "عثمان",
+        "عمر",
+        "أبي بكر"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عثمان",
+        "حضرت عمر",
+        "حضرت ابو بکر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which battle was Hazrat Uthman unable to take part because he was nursing Hazrat Ruqayya?",
+      "ar": "في أي غزوة لم يشارك عثمان لتمريضه رقية؟",
+      "ur": "حضرت رقیہ کی تیمارداری کی وجہ سے حضرت عثمان کس جنگ میں شریک نہ ہو سکے؟"
+    },
+    "options": {
+      "en": [
+        "Battle of Badr",
+        "Battle of Uhud",
+        "Battle of Tabuk",
+        "Battle of Khaybar"
+      ],
+      "ar": [
+        "غزوة بدر",
+        "غزوة أحد",
+        "غزوة تبوك",
+        "غزوة خيبر"
+      ],
+      "ur": [
+        "غزوۂ بدر",
+        "غزوۂ احد",
+        "غزوۂ تبوک",
+        "غزوۂ خیبر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Umm Kulthum married?",
+      "ar": "بمن تزوجت أم كلثوم؟",
+      "ur": "حضرت ام کلثوم کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Umar",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "علي",
+        "عثمان",
+        "عمر",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عثمان",
+        "حضرت عمر",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Fatima married?",
+      "ar": "بمن تزوجت فاطمة؟",
+      "ur": "حضرت فاطمہ کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Uthman",
+        "Hazrat Umar",
+        "Hazrat Ali",
+        "Hazrat Abu Bakr"
+      ],
+      "ar": [
+        "عثمان",
+        "عمر",
+        "علي",
+        "أبي بكر"
+      ],
+      "ur": [
+        "حضرت عثمان",
+        "حضرت عمر",
+        "حضرت علی",
+        "حضرت ابو بکر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What honour did the Prophet ﷺ bestow on Hazrat Fatima?",
+      "ar": "أي شرف خصّ به النبي ﷺ فاطمة؟",
+      "ur": "نبی ﷺ نے حضرت فاطمہ کو کس اعزاز سے نوازا؟"
+    },
+    "options": {
+      "en": [
+        "Leader of the women of Paradise",
+        "Queen of Makkah",
+        "Chief of Banu Hashim",
+        "Keeper of the Kaaba"
+      ],
+      "ar": [
+        "سيدة نساء أهل الجنة",
+        "ملكة مكة",
+        "سيدة بني هاشم",
+        "حارسة الكعبة"
+      ],
+      "ur": [
+        "جنتی عورتوں کی سردار",
+        "مکہ کی ملکہ",
+        "بنو ہاشم کی سردار",
+        "کعبہ کی نگران"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many sons did the Prophet ﷺ have?",
+      "ar": "كم كان عدد أبناء النبي ﷺ؟",
+      "ur": "نبی ﷺ کے کتنے صاحبزادے تھے؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Three",
+        "Seven",
+        "Ten"
+      ],
+      "ar": [
+        "واحد",
+        "ثلاثة",
+        "سبعة",
+        "عشرة"
+      ],
+      "ur": [
+        "ایک",
+        "تین",
+        "سات",
+        "دس"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After which son's name is the Prophet's ﷺ kunya?",
+      "ar": "على اسم أي أبنائه كانت كنية النبي ﷺ؟",
+      "ur": "نبی ﷺ کی کنیت کس صاحبزادے کے نام پر ہے؟"
+    },
+    "options": {
+      "en": [
+        "Qasim (Abu al-Qasim)",
+        "Ibrahim",
+        "Abdullah",
+        "Hasan"
+      ],
+      "ar": [
+        "القاسم (أبو القاسم)",
+        "إبراهيم",
+        "عبد الله",
+        "الحسن"
+      ],
+      "ur": [
+        "قاسم (ابو القاسم)",
+        "ابراہیم",
+        "عبداللہ",
+        "حسن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which two grandsons did the Prophet ﷺ love very much?",
+      "ar": "أي حفيدين أحبهما النبي ﷺ كثيرًا؟",
+      "ur": "نبی ﷺ کن دو نواسوں سے بہت محبت فرماتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Imam Hasan and Imam Husayn",
+        "Imam Ali and Imam Umar",
+        "Ibrahim and Qasim",
+        "Zayd and Usama"
+      ],
+      "ar": [
+        "الحسن والحسين",
+        "علي وعمر",
+        "إبراهيم والقاسم",
+        "زيد وأسامة"
+      ],
+      "ur": [
+        "امام حسن اور امام حسین",
+        "علی اور عمر",
+        "ابراہیم اور قاسم",
+        "زید اور اسامہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ call Hasan and Husayn?",
+      "ar": "بماذا وصف النبي ﷺ الحسن والحسين؟",
+      "ur": "نبی ﷺ نے حسن اور حسین کو کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "\"These are my soldiers\"",
+        "\"These are my judges\"",
+        "\"These are my servants\"",
+        "\"These are my flowers\""
+      ],
+      "ar": [
+        "«هما جنديّاي»",
+        "«هما قاضياي»",
+        "«هما خادماي»",
+        "«هما ريحانتاي»"
+      ],
+      "ur": [
+        "\"یہ میرے سپاہی ہیں\"",
+        "\"یہ میرے قاضی ہیں\"",
+        "\"یہ میرے خادم ہیں\"",
+        "\"یہ میرے پھول ہیں\""
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What honour did the Prophet ﷺ give to Hasan and Husayn?",
+      "ar": "أي شرف منحه النبي ﷺ للحسن والحسين؟",
+      "ur": "نبی ﷺ نے حسن اور حسین کو کون سا اعزاز عطا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Leaders of the youth of Paradise",
+        "Kings of Makkah",
+        "Keepers of the Kaaba",
+        "Commanders of the army"
+      ],
+      "ar": [
+        "سيدا شباب أهل الجنة",
+        "ملكا مكة",
+        "حارسا الكعبة",
+        "قائدا الجيش"
+      ],
+      "ur": [
+        "جنتی نوجوانوں کے سردار",
+        "مکہ کے بادشاہ",
+        "کعبہ کے نگران",
+        "لشکر کے سپہ سالار"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which grandson of the Prophet ﷺ would sit on his shoulders, causing him to prolong his prostration?",
+      "ar": "أي أحفاد النبي ﷺ كان يركب على كتفيه فيطيل سجوده؟",
+      "ur": "نبی ﷺ کے کس نواسے کے کندھوں پر سوار ہو جانے کی وجہ سے آپ ﷺ سجدہ لمبا فرماتے؟"
+    },
+    "options": {
+      "en": [
+        "Imam Husayn",
+        "Imam Ali",
+        "Ibrahim",
+        "Qasim"
+      ],
+      "ar": [
+        "الحسين",
+        "علي",
+        "إبراهيم",
+        "القاسم"
+      ],
+      "ur": [
+        "امام حسین",
+        "علی",
+        "ابراہیم",
+        "قاسم"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  }
+]

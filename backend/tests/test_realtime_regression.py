@@ -68,6 +68,41 @@ async def _noop(*args, **kwargs):
     return None
 
 
+async def _virgin_stage_and_event(db) -> tuple[str, str]:
+    """A campaign stage with no linked events, paired with a Seerah event
+    with no tagged questions — lets a test build an exactly-sized, fully
+    isolated question pool without depending on (or disturbing) whatever
+    stages/events/tagging this DB happens to be seeded with right now."""
+    from sqlalchemy import text
+
+    stage_row = (
+        await db.execute(
+            text(
+                """
+                SELECT cs.slug FROM campaign_stages cs
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM event_framework_tags eft
+                    WHERE eft.tag_value = cs.slug AND eft.framework = 'movement_stage'
+                )
+                LIMIT 1
+                """
+            )
+        )
+    ).first()
+    assert stage_row, "need at least one campaign_stage with no linked events for this test"
+
+    event_row = (
+        await db.execute(
+            text(
+                "SELECT se.id FROM seerah_events se "
+                "WHERE NOT EXISTS (SELECT 1 FROM questions q WHERE q.event_id = se.id) LIMIT 1"
+            )
+        )
+    ).first()
+    assert event_row, "need at least one seerah_event with no questions tagged to it for this test"
+    return stage_row[0], str(event_row[0])
+
+
 async def test_ordinary_match_emits_the_exact_same_event_sequence_as_before(fake_sio):
     sid = f"test-sid-{uuid.uuid4().hex[:8]}"
 
@@ -143,15 +178,11 @@ async def test_campaign_match_emits_momentum_and_progress_events(fake_sio):
     campaign_stage_id, the new hook points actually fire — not just that
     they stay silent for ordinary matches.
 
-    Most of the live question bank is now tagged to real Seerah events (see
-    scripts/tag_questions_to_events.py), but tazkiyah's own event
-    (contemplation_cave_of_hira) only has 5 real tagged questions — one
-    short of ROUNDS_PER_MATCH. This test borrows extra untagged questions on
-    top of the real ones to guarantee enough no-repeat rounds, and untags
-    them again in `finally` — a test fixture, not a permanent content
-    change. Campaign mode pools every difficulty for a stage (see
-    _start_and_broadcast_question), so the borrowed questions don't need to
-    match any particular difficulty.
+    Rather than assuming any particular stage/event is already tagged with
+    enough real questions (this DB's seed content changes independently of
+    this test), this picks a stage+event pair with no existing links (see
+    _virgin_stage_and_event) and borrows real untagged questions onto it
+    for the test's duration, undoing both in `finally`.
     """
     from sqlalchemy import text
 
@@ -162,11 +193,8 @@ async def test_campaign_match_emits_momentum_and_progress_events(fake_sio):
     # filter across all 8 rounds — one question alone would starve after
     # round 1 (it becomes its own only "recently used" exclusion).
     async with SessionLocal() as db:
-        tazkiyah_event_id = (
-            await db.execute(
-                text("SELECT id FROM seerah_events WHERE slug = 'contemplation_cave_of_hira'")
-            )
-        ).scalar_one()
+        stage_slug, event_id = await _virgin_stage_and_event(db)
+        await campaign_repo.set_event_stage_tag(db, event_id=event_id, stage_slug=stage_slug)
         tagged_question_ids = [
             row[0]
             for row in (
@@ -188,13 +216,13 @@ async def test_campaign_match_emits_momentum_and_progress_events(fake_sio):
         for qid in tagged_question_ids:
             await db.execute(
                 text("UPDATE questions SET event_id = :e WHERE id = :q"),
-                {"e": str(tazkiyah_event_id), "q": str(qid)},
+                {"e": event_id, "q": str(qid)},
             )
         await db.commit()
 
     sid = f"test-sid-{uuid.uuid4().hex[:8]}"
     try:
-        await _run_campaign_match(fake_sio, sid)
+        await _run_campaign_match(fake_sio, sid, stage_slug)
     finally:
         async with SessionLocal() as db:
             for qid in tagged_question_ids:
@@ -202,10 +230,11 @@ async def test_campaign_match_emits_momentum_and_progress_events(fake_sio):
                     text("UPDATE questions SET event_id = NULL WHERE id = :q"),
                     {"q": str(qid)},
                 )
+            await campaign_repo.set_event_stage_tag(db, event_id=event_id, stage_slug=None)
             await db.commit()
 
 
-async def _run_campaign_match(fake_sio, sid):
+async def _run_campaign_match(fake_sio, sid, stage_slug):
     from app.campaign import repository as campaign_repo
     from app.db import SessionLocal
 
@@ -217,7 +246,7 @@ async def _run_campaign_match(fake_sio, sid):
             "name": "PytestCampaignPlayer",
             "difficulty": "easy",
             "category": "seerah",
-            "stage_slug": "tazkiyah",
+            "stage_slug": stage_slug,
         },
     )
     assert result["ok"] is True
@@ -225,7 +254,7 @@ async def _run_campaign_match(fake_sio, sid):
     human_seat = result["seat"]
     human_user_id = result["user_id"]
 
-    await match_store.clear_open_match("easy", match_id, "seerah", "tazkiyah")
+    await match_store.clear_open_match("easy", match_id, "seerah", stage_slug)
     await server._begin_match(match_id, "easy", fill_bots=True)
 
     assert await match_store.get_campaign_stage(match_id) is not None
@@ -270,66 +299,113 @@ async def _run_campaign_match(fake_sio, sid):
 
     # And it's durably persisted, not just broadcast.
     async with SessionLocal() as db:
-        stage_id = await campaign_repo.get_stage_id_by_slug(db, "tazkiyah")
+        stage_id = await campaign_repo.get_stage_id_by_slug(db, stage_slug)
         stages = await campaign_repo.get_stages_for_user(db, human_user_id)
-    tazkiyah_row = next(s for s in stages if str(s["id"]) == stage_id)
-    assert tazkiyah_row["progress"] == 100
+    stage_row = next(s for s in stages if str(s["id"]) == stage_id)
+    assert stage_row["progress"] == 100
 
 
 async def test_campaign_stage_completes_despite_a_small_question_pool_and_wrong_answers(fake_sio):
     """Unlocking a stage now means finishing its match, any score — not a
-    momentum threshold (see campaign_repo.complete_stage). tazkiyah's real
-    tagged pool is only 5 questions, fewer than ROUNDS_PER_MATCH (8); no
-    borrowed/temporary tagging here, unlike the test above. This proves two
-    things at once: the repeat-fallback in _start_and_broadcast_question lets
-    the match reach all 8 rounds despite the small pool, and answering every
-    round wrong still completes the stage."""
-    sid = f"test-sid-{uuid.uuid4().hex[:8]}"
-    await server.connect(sid, environ={}, auth=None)
+    momentum threshold (see campaign_repo.complete_stage). Rather than
+    assuming some stage in this DB happens to have a naturally small tagged
+    pool, this builds one deliberately: a virgin stage+event pair (see
+    _virgin_stage_and_event) given exactly _SMALL_POOL_SIZE questions,
+    fewer than ROUNDS_PER_MATCH (8). This proves two things at once: the
+    repeat-fallback in _start_and_broadcast_question lets the match reach
+    all 8 rounds despite the small pool, and answering every round wrong
+    still completes the stage."""
+    from sqlalchemy import text
 
-    result = await server.find_match(
-        sid,
-        {
-            "name": "PytestWrongAnswerPlayer",
-            "difficulty": "easy",
-            "category": "seerah",
-            "stage_slug": "tazkiyah",
-        },
-    )
-    assert result["ok"] is True
-    match_id = result["match_id"]
+    from app.campaign import repository as campaign_repo
+    from app.db import SessionLocal
 
-    await match_store.clear_open_match("easy", match_id, "seerah", "tazkiyah")
-    await server._begin_match(match_id, "easy", fill_bots=True)
+    _SMALL_POOL_SIZE = 3
 
-    for round_no in range(ROUNDS_PER_MATCH):
-        players = await match_store.get_players(match_id)
-        rnd = await match_store.get_round(match_id)
-        assert rnd is not None, (
-            "round should never come back empty — the repeat-fallback must "
-            "kick in once tazkiyah's 5-question pool is exhausted"
+    async with SessionLocal() as db:
+        stage_slug, event_id = await _virgin_stage_and_event(db)
+        await campaign_repo.set_event_stage_tag(db, event_id=event_id, stage_slug=stage_slug)
+        borrowed_ids = [
+            row[0]
+            for row in (
+                await db.execute(
+                    text(
+                        """
+                        SELECT q.id FROM questions q JOIN categories c ON c.id = q.category_id
+                        WHERE c.slug = 'seerah' AND q.review_state = 'live' AND q.event_id IS NULL
+                        LIMIT :n
+                        """
+                    ),
+                    {"n": _SMALL_POOL_SIZE},
+                )
+            ).all()
+        ]
+        assert len(borrowed_ids) == _SMALL_POOL_SIZE, (
+            "not enough live untagged 'seerah' questions in this DB to run this test"
         )
-        correct = rnd["correct_index"]
-        wrong = (correct + 1) % len(rnd["options"]["en"])
-        for p in players:
-            await server._handle_answer(
-                match_id, round_no, p["seat"], wrong, 1000, is_bot=p["is_bot"]
+        for qid in borrowed_ids:
+            await db.execute(
+                text("UPDATE questions SET event_id = :e WHERE id = :q"),
+                {"e": event_id, "q": str(qid)},
             )
-        if round_no < ROUNDS_PER_MATCH - 1:
-            await server._start_and_broadcast_question(
-                match_id, difficulty="easy", index=round_no + 1
+        await db.commit()
+
+    try:
+        sid = f"test-sid-{uuid.uuid4().hex[:8]}"
+        await server.connect(sid, environ={}, auth=None)
+
+        result = await server.find_match(
+            sid,
+            {
+                "name": "PytestWrongAnswerPlayer",
+                "difficulty": "easy",
+                "category": "seerah",
+                "stage_slug": stage_slug,
+            },
+        )
+        assert result["ok"] is True
+        match_id = result["match_id"]
+
+        await match_store.clear_open_match("easy", match_id, "seerah", stage_slug)
+        await server._begin_match(match_id, "easy", fill_bots=True)
+
+        for round_no in range(ROUNDS_PER_MATCH):
+            players = await match_store.get_players(match_id)
+            rnd = await match_store.get_round(match_id)
+            assert rnd is not None, (
+                "round should never come back empty — the repeat-fallback must "
+                "kick in once this stage's small question pool is exhausted"
             )
+            correct = rnd["correct_index"]
+            wrong = (correct + 1) % len(rnd["options"]["en"])
+            for p in players:
+                await server._handle_answer(
+                    match_id, round_no, p["seat"], wrong, 1000, is_bot=p["is_bot"]
+                )
+            if round_no < ROUNDS_PER_MATCH - 1:
+                await server._start_and_broadcast_question(
+                    match_id, difficulty="easy", index=round_no + 1
+                )
 
-    names = [event for event, _, _ in fake_sio.emitted]
-    assert "match_over" in names, "the match must reach its natural end despite the small pool"
-    assert "no_questions" not in names
+        names = [event for event, _, _ in fake_sio.emitted]
+        assert "match_over" in names, "the match must reach its natural end despite the small pool"
+        assert "no_questions" not in names
 
-    progress_events = [
-        (data, kwargs) for name, data, kwargs in fake_sio.emitted if name == "campaign_progress"
-    ]
-    assert len(progress_events) == 1
-    progress_data, _ = progress_events[0]
-    assert progress_data["progress"] == 100
-    assert progress_data["completed"] is True, (
-        "any finished match completes the stage, regardless of score"
-    )
+        progress_events = [
+            (data, kwargs) for name, data, kwargs in fake_sio.emitted if name == "campaign_progress"
+        ]
+        assert len(progress_events) == 1
+        progress_data, _ = progress_events[0]
+        assert progress_data["progress"] == 100
+        assert progress_data["completed"] is True, (
+            "any finished match completes the stage, regardless of score"
+        )
+    finally:
+        async with SessionLocal() as db:
+            for qid in borrowed_ids:
+                await db.execute(
+                    text("UPDATE questions SET event_id = NULL WHERE id = :q"),
+                    {"q": str(qid)},
+                )
+            await campaign_repo.set_event_stage_tag(db, event_id=event_id, stage_slug=None)
+            await db.commit()

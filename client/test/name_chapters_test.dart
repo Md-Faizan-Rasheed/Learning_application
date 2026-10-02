@@ -4,8 +4,7 @@ import 'package:islamic_game/utils/names_of_allah.dart';
 
 void main() {
   group('kNameChapters', () {
-    test('splits all 99 names into 11 chapters of 9 with no gaps or overlaps',
-        () {
+    test('splits all 99 names into 11 chapters of 9 with no gaps or overlaps', () {
       expect(kNameChapters.length, 11);
       for (final chapter in kNameChapters) {
         expect(chapter.names.length, 9);
@@ -30,8 +29,7 @@ void main() {
 
     test('chapter names match the source list in the same order', () {
       final flattened = [for (final c in kNameChapters) ...c.names];
-      expect(flattened.map((e) => e.word).toList(),
-          kNamesOfAllah.map((e) => e.word).toList());
+      expect(flattened.map((e) => e.word).toList(), kNamesOfAllah.map((e) => e.word).toList());
     });
   });
 }
