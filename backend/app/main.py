@@ -43,22 +43,17 @@ class UTF8JSONResponse(JSONResponse):
 
 app = FastAPI(title="Islamic Learning Game API", default_response_class=UTF8JSONResponse)
 
-# CORS: browsers block cross-origin calls, so the Flutter web app (served
-# from a localhost dev port) can't reach this API unless we allow it.
-# In development we allow any localhost origin; production locks this down.
-if settings.env == "development":
-    allow_origins = []
-    allow_origin_regex = r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$"
-else:
-    allow_origins = [
-        "https://learning-application-1.onrender.com",
-    ]
-    allow_origin_regex = None
-
+# CORS: browsers block cross-origin calls, so the Flutter web app can't
+# reach this API unless we allow its origin. The deployed production
+# frontend and any localhost dev port (a developer's own browser running
+# the Flutter web build, often pointed at this very deployed backend) are
+# both always allowed — these aren't mutually exclusive by environment, so
+# don't branch on settings.env here. Arbitrary third-party origins are
+# still rejected either way.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allow_origins,
-    allow_origin_regex=allow_origin_regex,
+    allow_origins=["https://learning-application-1.onrender.com"],
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
