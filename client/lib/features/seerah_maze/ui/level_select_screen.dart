@@ -9,10 +9,16 @@ import '../data/maze_audio_service.dart';
 import '../data/maze_chapters.dart';
 import '../data/maze_levels.dart';
 import '../data/maze_progress_repository.dart';
+import '../logic/achievements/achievement_inputs_loader.dart';
+import '../logic/achievements/explorer_level.dart';
+import '../models/maze_achievement.dart';
 import '../models/maze_level.dart';
 import '../models/maze_progress.dart';
+import 'achievements_screen.dart';
+import 'customize_sheet.dart';
 import 'library_screen.dart';
 import 'maze_game_screen.dart';
+import 'mode_picker_screen.dart';
 import 'responsive/maze_breakpoints.dart';
 import 'story_intro_sheet.dart';
 
@@ -37,10 +43,17 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
   MazeProgress _progress = const MazeProgress();
   bool _loading = true;
 
+  /// D2 — everything the Explorer Level badge needs besides [_progress]
+  /// itself (which is already live here, so it's combined with this at
+  /// build time rather than re-loaded as a second, staler copy — see
+  /// logic/achievements/achievement_inputs_loader.dart).
+  MazeAchievementSideData? _achievementSideData;
+
   @override
   void initState() {
     super.initState();
     _loadProgress();
+    _loadAchievementSideData();
   }
 
   Future<void> _loadProgress() async {
@@ -51,6 +64,38 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
       _loading = false;
     });
     MazeAudioService.instance.enabled = loaded.soundEnabled;
+  }
+
+  Future<void> _loadAchievementSideData() async {
+    final data = await loadMazeAchievementSideData();
+    if (!mounted) return;
+    setState(() => _achievementSideData = data);
+  }
+
+  /// D2 — null until the side-data load resolves (a brief async gap, not
+  /// a loading state this screen otherwise blocks on).
+  ExplorerLevelInfo? get _levelInfo {
+    final side = _achievementSideData;
+    if (side == null) return null;
+    return explorerLevelInfoForXp(explorerXpFor(MazeAchievementInputs(
+      progress: _progress,
+      daily: side.daily,
+      endless: side.endless,
+      ghostLevelsRecorded: side.ghostLevelsRecorded,
+      totalLevels: side.totalLevels,
+    )));
+  }
+
+  Future<void> _openCustomizeSheet() async {
+    MazeAudioService.instance.playButtonTap();
+    final updated = await showMazeCustomizeSheet(
+      context,
+      progress: _progress,
+      explorerLevel: _levelInfo?.level ?? 1,
+    );
+    if (!mounted) return;
+    setState(() => _progress = updated);
+    _repository.save(_progress);
   }
 
   void _onLevelCompleted(int levelId, int stars, int timeSeconds) {
@@ -102,6 +147,8 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
         ),
       ),
     );
+    // A level played a ghost, which only that side-data load knows about.
+    _loadAchievementSideData();
   }
 
   @override
@@ -143,6 +190,21 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
                         ),
                         Semantics(
                           button: true,
+                          label: t.mazeModePickerButtonSemantics,
+                          child: IconButton(
+                            icon: const Icon(Icons.grid_view_rounded, color: Colors.white),
+                            onPressed: () {
+                              MazeAudioService.instance.playButtonTap();
+                              Navigator.of(context)
+                                  .push(
+                                    MaterialPageRoute(builder: (_) => const MazeModePickerScreen()),
+                                  )
+                                  .then((_) => _loadAchievementSideData());
+                            },
+                          ),
+                        ),
+                        Semantics(
+                          button: true,
                           label: t.mazeLibraryButtonSemantics,
                           child: IconButton(
                             icon: const Icon(Icons.auto_stories_rounded, color: Colors.white),
@@ -158,23 +220,28 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
                             },
                           ),
                         ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withValues(alpha: 0.28),
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(Icons.star_rounded, color: MazeColors.star, size: 16),
-                              const SizedBox(width: 4),
-                              Text('$totalStars/${kMazeLevels.length * 3}',
-                                  style: const TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700)),
-                            ],
+                        Semantics(
+                          button: true,
+                          label: t.mazeAchievementsButtonSemantics,
+                          child: IconButton(
+                            icon: const Icon(Icons.emoji_events_rounded, color: Colors.white),
+                            onPressed: () {
+                              MazeAudioService.instance.playButtonTap();
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const MazeAchievementsScreen()),
+                              );
+                            },
                           ),
                         ),
+                        Semantics(
+                          button: true,
+                          label: t.mazeCustomizeButtonSemantics,
+                          child: IconButton(
+                            icon: const Icon(Icons.palette_rounded, color: Colors.white),
+                            onPressed: _openCustomizeSheet,
+                          ),
+                        ),
+                        _ExplorerLevelAndStarsPill(totalStars: totalStars, levelInfo: _levelInfo),
                       ],
                     ),
                   ),
@@ -186,6 +253,80 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// D2 — one pill, two readouts: the Explorer Level (with a thin
+/// progress-to-next-level bar) and the existing total-stars count,
+/// combined rather than added as a second header element so the row
+/// doesn't grow any more crowded than it already is. Tapping it opens
+/// Achievements (D1), since that's what most directly feeds the level.
+class _ExplorerLevelAndStarsPill extends StatelessWidget {
+  const _ExplorerLevelAndStarsPill({required this.totalStars, required this.levelInfo});
+
+  final int totalStars;
+  final ExplorerLevelInfo? levelInfo;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final info = levelInfo;
+
+    return Semantics(
+      button: true,
+      label: info == null
+          ? t.mazeAchievementsButtonSemantics
+          : t.mazeExplorerLevelSemantics(info.level),
+      excludeSemantics: true,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(999),
+        onTap: () {
+          MazeAudioService.instance.playButtonTap();
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const MazeAchievementsScreen()),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            color: Colors.black.withValues(alpha: 0.28),
+            borderRadius: BorderRadius.circular(999),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (info != null) ...[
+                Text(t.mazeExplorerLevelLabel(info.level),
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+                const SizedBox(width: 5),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(999),
+                  child: SizedBox(
+                    width: 28,
+                    height: 5,
+                    child: LinearProgressIndicator(
+                      value: info.progressToNext,
+                      backgroundColor: Colors.white.withValues(alpha: 0.15),
+                      color: MazeColors.star,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 8),
+                  width: 1,
+                  height: 14,
+                  color: Colors.white.withValues(alpha: 0.25),
+                ),
+              ],
+              const Icon(Icons.star_rounded, color: MazeColors.star, size: 16),
+              const SizedBox(width: 4),
+              Text('$totalStars/${kMazeLevels.length * 3}',
+                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+            ],
           ),
         ),
       ),

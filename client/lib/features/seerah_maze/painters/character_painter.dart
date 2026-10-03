@@ -19,6 +19,9 @@ class CharacterPainter extends CustomPainter {
     required this.scale,
     required this.trail,
     required this.shakeOffset,
+    this.opacity = 1.0,
+    this.fillColor,
+    this.trailColor,
   });
 
   final Offset center;
@@ -39,8 +42,26 @@ class CharacterPainter extends CustomPainter {
   /// Horizontal shake offset while bumping into a wall; 0 otherwise.
   final double shakeOffset;
 
+  /// C1 — 1.0 for the real player; a ghost replay passes something lower
+  /// so it reads as translucent while reusing every shape this painter
+  /// already draws, rather than a second, duplicated character renderer.
+  final double opacity;
+
+  /// D3 — the selected cosmetic skin's colors, or null for the default
+  /// look. Deliberately only ever reaches [_paintSilhouette]/[_paintTrail]
+  /// — a usesLightMarker level's glow keeps its own fixed colors
+  /// regardless of skin, since that marker represents the Prophet ﷺ, not
+  /// a player avatar a skin is meant to restyle.
+  final Color? fillColor;
+  final Color? trailColor;
+
   @override
   void paint(Canvas canvas, Size size) {
+    if (opacity <= 0) return;
+    final layerNeeded = opacity < 1.0;
+    if (layerNeeded) {
+      canvas.saveLayer(Rect.largest, Paint()..color = Color.fromRGBO(0, 0, 0, opacity));
+    }
     _paintTrail(canvas);
     final drawCenter = center + Offset(shakeOffset, bobOffset);
     _paintGroundShadow(canvas, drawCenter);
@@ -49,6 +70,7 @@ class CharacterPainter extends CustomPainter {
     } else {
       _paintSilhouette(canvas, drawCenter);
     }
+    if (layerNeeded) canvas.restore();
   }
 
   void _paintTrail(Canvas canvas) {
@@ -59,7 +81,7 @@ class CharacterPainter extends CustomPainter {
       canvas.drawCircle(
         trail[i],
         dotRadius * (0.5 + 0.5 * fraction),
-        Paint()..color = MazeColors.trail.withValues(alpha: 0.28 * fraction),
+        Paint()..color = (trailColor ?? MazeColors.trail).withValues(alpha: 0.28 * fraction),
       );
     }
   }
@@ -73,7 +95,7 @@ class CharacterPainter extends CustomPainter {
   }
 
   void _paintSilhouette(Canvas canvas, Offset drawCenter) {
-    final bodyPaint = Paint()..color = MazeColors.characterFill;
+    final bodyPaint = Paint()..color = fillColor ?? MazeColors.characterFill;
     final headRadius = cellSize * 0.15 * scale;
     final bodyWidth = cellSize * 0.26 * scale;
     final bodyHeight = cellSize * 0.34 * scale;
@@ -126,5 +148,7 @@ class CharacterPainter extends CustomPainter {
       oldDelegate.bobOffset != bobOffset ||
       oldDelegate.scale != scale ||
       oldDelegate.shakeOffset != shakeOffset ||
-      oldDelegate.trail != trail;
+      oldDelegate.trail != trail ||
+      oldDelegate.fillColor != fillColor ||
+      oldDelegate.trailColor != trailColor;
 }

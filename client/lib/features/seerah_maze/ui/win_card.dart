@@ -1,3 +1,4 @@
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -20,6 +21,8 @@ Future<MazeWinAction?> showMazeWinCard(
   required MazeLevel level,
   required GameController controller,
   required bool isLastLevel,
+  bool noHintsClear = false,
+  bool isNewBestTime = false,
 }) {
   return showModalBottomSheet<MazeWinAction>(
     context: context,
@@ -31,6 +34,8 @@ Future<MazeWinAction?> showMazeWinCard(
       level: level,
       controller: controller,
       isLastLevel: isLastLevel,
+      noHintsClear: noHintsClear,
+      isNewBestTime: isNewBestTime,
     ),
   );
 }
@@ -40,11 +45,22 @@ class _WinCardContent extends StatefulWidget {
     required this.level,
     required this.controller,
     required this.isLastLevel,
+    required this.noHintsClear,
+    required this.isNewBestTime,
   });
 
   final MazeLevel level;
   final GameController controller;
   final bool isLastLevel;
+
+  /// C4 — true when this win happened with the No-Hints Challenge active
+  /// (so with zero hints used).
+  final bool noHintsClear;
+
+  /// E2 — true when this finish beat (or set) the level's previously
+  /// stored best time, highlighting the time stat rather than adding a
+  /// separate toast — the moment is already on screen right here.
+  final bool isNewBestTime;
 
   @override
   State<_WinCardContent> createState() => _WinCardContentState();
@@ -54,6 +70,12 @@ class _WinCardContentState extends State<_WinCardContent> with TickerProviderSta
   late final AnimationController _starsController;
   int _lastHapticStarIndex = -1;
 
+  /// E1 — a genuinely perfect clear (all 3 stars) gets a burst, the same
+  /// ConfettiController/ConfettiWidget shape and duration
+  /// widgets/session_complete_card.dart already uses elsewhere in the
+  /// app, so this doesn't introduce a second celebration language.
+  late final ConfettiController _confetti;
+
   @override
   void initState() {
     super.initState();
@@ -62,11 +84,16 @@ class _WinCardContentState extends State<_WinCardContent> with TickerProviderSta
       duration: const Duration(milliseconds: 900),
     )..addListener(_onStarsTick);
     _starsController.forward();
+    _confetti = ConfettiController(duration: const Duration(seconds: 2));
+    if (widget.controller.rating == MazeRating.three) {
+      _confetti.play();
+    }
   }
 
   @override
   void dispose() {
     _starsController.dispose();
+    _confetti.dispose();
     super.dispose();
   }
 
@@ -103,6 +130,32 @@ class _WinCardContentState extends State<_WinCardContent> with TickerProviderSta
     final colors = Theme.of(context).colorScheme;
     final t = AppLocalizations.of(context)!;
     final levelText = mazeLevelTextFor(t, widget.level.id);
+    return Stack(
+      alignment: Alignment.topCenter,
+      children: [
+        _buildCard(context, colors, t, levelText),
+        ConfettiWidget(
+          confettiController: _confetti,
+          blastDirectionality: BlastDirectionality.explosive,
+          numberOfParticles: 24,
+          gravity: 0.3,
+          shouldLoop: false,
+          colors: const [
+            MazeColors.characterFill,
+            MazeColors.wall,
+            MazeColors.boardPanel,
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCard(
+    BuildContext context,
+    ColorScheme colors,
+    AppLocalizations t,
+    MazeLevelText levelText,
+  ) {
     return SafeArea(
       child: MazeResponsiveSheet(
         child: Container(
@@ -115,6 +168,31 @@ class _WinCardContentState extends State<_WinCardContent> with TickerProviderSta
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              if (widget.noHintsClear) ...[
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: MazeColors.star.withValues(alpha: 0.18),
+                      borderRadius: BorderRadius.circular(999),
+                      border: Border.all(color: MazeColors.star),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.military_tech_rounded, color: MazeColors.star, size: 18),
+                        const SizedBox(width: 6),
+                        Text(
+                          t.mazeNoHintsChallengeClearedBadge,
+                          style:
+                              const TextStyle(fontWeight: FontWeight.w700, color: MazeColors.star),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
               Text(
                 levelText.winLine,
                 textAlign: TextAlign.center,
@@ -143,8 +221,9 @@ class _WinCardContentState extends State<_WinCardContent> with TickerProviderSta
                 children: [
                   _StatBadge(
                     icon: Icons.timer_rounded,
-                    label: t.mazeTimeStat,
+                    label: widget.isNewBestTime ? t.mazeNewBestTimeBadge : t.mazeTimeStat,
                     value: _formatElapsed(widget.controller.elapsed),
+                    highlight: widget.isNewBestTime,
                   ),
                   _StatBadge(
                     icon: Icons.lightbulb_rounded,
@@ -195,21 +274,44 @@ class _WinCardContentState extends State<_WinCardContent> with TickerProviderSta
 }
 
 class _StatBadge extends StatelessWidget {
-  const _StatBadge({required this.icon, required this.label, required this.value});
+  const _StatBadge({
+    required this.icon,
+    required this.label,
+    required this.value,
+    this.highlight = false,
+  });
 
   final IconData icon;
   final String label;
   final String value;
+
+  /// E2 — a new best time swaps the usual muted styling for gold, same
+  /// token the stars/achievements already use for "this one's special".
+  final bool highlight;
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return Column(
       children: [
-        Icon(icon, color: colors.primary),
+        Icon(icon, color: highlight ? MazeColors.star : colors.primary),
         const SizedBox(height: 4),
-        Text(value, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
-        Text(label, style: TextStyle(fontSize: 11, color: colors.onSurfaceVariant)),
+        Text(
+          value,
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 16,
+            color: highlight ? MazeColors.star : null,
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: highlight ? FontWeight.w700 : null,
+            color: highlight ? MazeColors.star : colors.onSurfaceVariant,
+          ),
+        ),
       ],
     );
   }

@@ -96,6 +96,39 @@ void main() {
     expect(controller.playerPosition, maze.start);
   });
 
+  testWidgets('E3: bumping a closed wall briefly shakes the whole board', (tester) async {
+    final maze = generator.generate(size: 6, seed: 1);
+    final controller = GameController(maze: maze, level: _testLevel());
+    await _pumpBoard(tester, controller, solver);
+
+    final closedDirection =
+        MazeDirection.values.firstWhere((d) => !maze.cellAt(maze.start).isOpen(d));
+
+    final boardTransform = find.descendant(
+      of: find.byType(MazeBoardWidget),
+      matching: find.byType(Transform),
+    );
+    double boardOffsetX() => tester.widget<Transform>(boardTransform).transform.getTranslation().x;
+
+    expect(boardOffsetX(), 0, reason: 'no shake before any bump');
+
+    // Not the halfway point: the shake curve is sin(t*4*pi)*(1-t), which
+    // crosses exactly zero at every quarter of the duration (0, .25, .5,
+    // .75, 1) — 30% lands clear of all of those.
+    await tester.sendKeyDownEvent(_keyFor(closedDirection));
+    await tester.pump(); // flushes the key event itself, starting the bump
+    await tester.pump(
+      Duration(milliseconds: (MazeConstants.bumpShakeDuration.inMilliseconds * 0.3).round()),
+    );
+
+    expect(boardOffsetX(), isNot(0), reason: 'mid-shake, the board should be offset');
+
+    await tester.pump(MazeConstants.bumpShakeDuration);
+    await tester.sendKeyUpEvent(_keyFor(closedDirection));
+
+    expect(boardOffsetX(), 0, reason: 'the shake settles back to zero once it finishes');
+  });
+
   testWidgets('a drag toward a nearby open cell moves the player via BFS-follow', (tester) async {
     final maze = generator.generate(size: 6, seed: 1);
     final controller = GameController(maze: maze, level: _testLevel());

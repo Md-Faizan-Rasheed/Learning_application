@@ -8,6 +8,7 @@ import '../../../l10n/app_localizations.dart';
 import '../constants/maze_colors.dart';
 import '../constants/maze_constants.dart';
 import '../logic/game_controller.dart';
+import '../logic/ghost/ghost_player.dart';
 import '../logic/maze_solver.dart';
 import '../logic/mechanics/cave_lantern.dart';
 import '../logic/mechanics/fog_of_discovery.dart';
@@ -55,6 +56,11 @@ class MazeBoardWidget extends StatefulWidget {
     this.fogEnabled = false,
     this.hintCells = const [],
     this.environmentTheme,
+    this.ghostPlayer,
+    this.reverseControlsEnabled = false,
+    this.onMoveRequesterReady,
+    this.characterFillColor,
+    this.characterTrailColor,
   });
 
   final GameController controller;
@@ -86,6 +92,30 @@ class MazeBoardWidget extends StatefulWidget {
   /// B2 — tints this level's wall/glow color. Null (any level not yet
   /// migrated to a theme) keeps the plain MazeColors.wall/wallGlow look.
   final MazeEnvironmentTheme? environmentTheme;
+
+  /// C1 — this level's ghost, loaded and racing only when the player's
+  /// "race my best" setting is on and a best run exists. Null means no
+  /// ghost layer is built at all, so a non-racing level pays nothing.
+  final GhostPlayer? ghostPlayer;
+
+  /// C5 — every keyboard/WASD move resolves to its opposite before
+  /// reaching the board, when true. Only affects directional input;
+  /// drag-to-point and tap-to-step aim at an absolute location, which has
+  /// no "direction" of its own to invert.
+  final bool reverseControlsEnabled;
+
+  /// C6 — lets an external control surface (the 2-player race screen's
+  /// own on-screen D-pad) drive this exact board through the same path a
+  /// keypress or drag would — same animation, sound and win detection —
+  /// without this board needing to hold keyboard focus. Called once,
+  /// right after this board's State exists, with a function the caller
+  /// can invoke per direction from then on.
+  final ValueChanged<void Function(MazeDirection)>? onMoveRequesterReady;
+
+  /// D3 — the selected cosmetic skin's colors, or null for this feature's
+  /// original look. See models/maze_character_skin.dart.
+  final Color? characterFillColor;
+  final Color? characterTrailColor;
 
   @override
   State<MazeBoardWidget> createState() => _MazeBoardWidgetState();
@@ -186,6 +216,8 @@ class _MazeBoardWidgetState extends State<MazeBoardWidget>
 
     _buildController.forward();
     _dropController.forward();
+
+    widget.onMoveRequesterReady?.call(_attemptMove);
   }
 
   /// Fog comes from one of three places: a cave level (A2, which is fog
@@ -318,9 +350,9 @@ class _MazeBoardWidgetState extends State<MazeBoardWidget>
 
   KeyEventResult _handleKey(FocusNode node, KeyEvent event) {
     if (event is! KeyDownEvent && event is! KeyRepeatEvent) return KeyEventResult.ignored;
-    final direction = _directionForKey(event.logicalKey);
-    if (direction == null) return KeyEventResult.ignored;
-    _attemptMove(direction);
+    final pressed = _directionForKey(event.logicalKey);
+    if (pressed == null) return KeyEventResult.ignored;
+    _attemptMove(widget.reverseControlsEnabled ? pressed.opposite : pressed);
     return KeyEventResult.handled;
   }
 
@@ -540,6 +572,15 @@ class _MazeBoardWidgetState extends State<MazeBoardWidget>
     return math.sin(t * math.pi * 4) * (1 - t) * amplitude;
   }
 
+  /// E3 — the same curve as [_bumpShakeOffset], gentler, for the board
+  /// itself rather than the character.
+  double get _boardShakeOffset {
+    final t = _bumpController.value;
+    if (t == 0 || t == 1) return 0;
+    const amplitude = 2.5;
+    return math.sin(t * math.pi * 4) * (1 - t) * amplitude;
+  }
+
   double _bobOffsetFor(double cellSize) {
     if (!_isAnimatingMove) return 0;
     final t = _moveController.value;
@@ -584,12 +625,25 @@ class _MazeBoardWidgetState extends State<MazeBoardWidget>
         _ensureWallsPicture(_geometry);
 
         final renderedExtent = cellSize * maze.size;
-        final board = RepaintBoundary(
+        final boardContent = RepaintBoundary(
           child: SizedBox(
             width: renderedExtent,
             height: renderedExtent,
             child: _buildLayers(renderedExtent),
           ),
+        );
+        // E3 — the whole board (not just the character) nudges on a bump,
+        // same decaying-shake curve as the character's own
+        // _bumpShakeOffset, just gentler — the bump already reads clearly
+        // on the character, so the board only needs to back it up, not
+        // repeat it at full strength.
+        final board = AnimatedBuilder(
+          animation: _bumpController,
+          builder: (context, child) => Transform.translate(
+            offset: Offset(_boardShakeOffset, 0),
+            child: child,
+          ),
+          child: boardContent,
         );
 
         final content = _useZoom
@@ -752,6 +806,37 @@ class _MazeBoardWidgetState extends State<MazeBoardWidget>
               ),
             ),
           ),
+        // C1 — the ghost sits just behind the real character, drawn as a
+        // step function at the ghost's exact recorded cell rather than
+        // tweened between cells: it's a secondary racing aid, not the
+        // focal point, and the recorded run is itself a sequence of
+        // discrete cell arrivals. Refreshes whenever this widget rebuilds
+        // (every move, and every 200ms game tick from the parent screen)
+        // rather than owning a dedicated ticker of its own.
+        if (widget.ghostPlayer != null)
+          Builder(
+            builder: (context) {
+              final ghostCell = widget.ghostPlayer!.positionAt(widget.controller.elapsed);
+              if (ghostCell == null) return const SizedBox.shrink();
+              return RepaintBoundary(
+                child: CustomPaint(
+                  size: size,
+                  painter: CharacterPainter(
+                    center: _geometry.centerOf(ghostCell),
+                    cellSize: _geometry.cellSize,
+                    usesLightMarker: widget.controller.level.usesLightMarker,
+                    bobOffset: 0,
+                    scale: 1,
+                    trail: const [],
+                    shakeOffset: 0,
+                    opacity: MazeConstants.ghostOpacity,
+                    fillColor: widget.characterFillColor,
+                    trailColor: widget.characterTrailColor,
+                  ),
+                ),
+              );
+            },
+          ),
         RepaintBoundary(
           child: AnimatedBuilder(
             animation: Listenable.merge(
@@ -777,6 +862,8 @@ class _MazeBoardWidgetState extends State<MazeBoardWidget>
                   scale: _idleScale() * dropScale * teleportScale,
                   trail: List.of(_trail),
                   shakeOffset: _bumpShakeOffset,
+                  fillColor: widget.characterFillColor,
+                  trailColor: widget.characterTrailColor,
                 ),
               );
             },

@@ -25,6 +25,10 @@ class MazeHud extends StatelessWidget {
     this.hintsRemaining = MazeConstants.maxHintsPerLevel,
     this.axis = Axis.horizontal,
     this.heldKeys = const {},
+    this.ghostDeltaSeconds,
+    this.bankRemaining,
+    this.hintsLocked = false,
+    this.reverseControlsActive = false,
   });
 
   final String levelName;
@@ -36,9 +40,29 @@ class MazeHud extends StatelessWidget {
   final VoidCallback onPause;
   final Axis axis;
 
+  /// C1 — seconds ahead (negative) or behind (positive) the ghost's
+  /// recorded run at the player's current cell. Null hides the pill
+  /// entirely — no ghost racing, or the ghost never visited this cell.
+  final double? ghostDeltaSeconds;
+
   /// A3 — keys picked up on this level, shown as an inventory. Empty on
   /// levels without doors, where the inventory isn't rendered at all.
   final Set<MazeKeyKind> heldKeys;
+
+  /// C3 — Endless mode's shared time bank, counting down. Null hides the
+  /// pill entirely (every non-Endless screen).
+  final Duration? bankRemaining;
+
+  /// C4 — true while the No-Hints Challenge is active: the hint button
+  /// shows as locked (dimmed, outline icon, no remaining-uses badge)
+  /// rather than simply being hidden, so it still reads as "there on
+  /// purpose, just switched off" rather than a missing feature.
+  final bool hintsLocked;
+
+  /// C5 — shown as a quiet reminder pill whenever reverse controls are on,
+  /// since nothing else on screen otherwise signals that every keypress
+  /// now lands opposite to what was pressed.
+  final bool reverseControlsActive;
 
   String _formatElapsed() {
     final minutes = elapsed.inMinutes.remainder(60).toString().padLeft(2, '0');
@@ -112,17 +136,65 @@ class MazeHud extends StatelessWidget {
         ),
       );
 
+  /// C1 — "-1.2s" (ahead of the ghost) or "+0.8s" (behind), hidden
+  /// entirely when there's nothing to compare (see [ghostDeltaSeconds]).
+  Widget? _ghostDeltaPill(AppLocalizations t) {
+    final delta = ghostDeltaSeconds;
+    if (delta == null) return null;
+    final seconds = delta.abs().toStringAsFixed(1);
+    final text = delta <= 0 ? t.mazeGhostDeltaAhead(seconds) : t.mazeGhostDeltaBehind(seconds);
+    return Semantics(
+      label: t.mazeGhostHudSemantics(text),
+      child: _Pill(
+        icon: Icons.timer_outlined,
+        iconColor: delta <= 0 ? MazeColors.star : Colors.white,
+        label: text,
+      ),
+    );
+  }
+
+  /// C3 — the Endless time bank, red-tinted once it's running low so the
+  /// warning reads at a glance rather than only from the number itself.
+  Widget? _bankPill(AppLocalizations t) {
+    final bank = bankRemaining;
+    if (bank == null) return null;
+    final seconds = bank.inSeconds.clamp(0, 999);
+    final low = bank <= const Duration(seconds: 10);
+    return Semantics(
+      label: t.mazeEndlessBankSemantics(seconds),
+      child: _Pill(
+        icon: Icons.hourglass_bottom_rounded,
+        iconColor: low ? MazeColors.stormWarning : Colors.white,
+        label: '${seconds}s',
+      ),
+    );
+  }
+
+  /// C5 — a plain reminder, not a stat: no value to read, just "this is
+  /// on right now".
+  Widget? _reverseBadge(AppLocalizations t) {
+    if (!reverseControlsActive) return null;
+    return Semantics(
+      label: t.mazeReverseActiveSemantics,
+      child: _Pill(icon: Icons.swap_horiz_rounded, label: t.mazeReverseActiveLabel),
+    );
+  }
+
   Widget _hintButton(AppLocalizations t) => Semantics(
         button: true,
-        label: t.mazeHudHintSemantics(hintsRemaining),
+        label: hintsLocked ? t.mazeHintLockedSemantics : t.mazeHudHintSemantics(hintsRemaining),
         child: Stack(
           clipBehavior: Clip.none,
           children: [
             IconButton(
-              icon: const Icon(Icons.lightbulb_rounded, color: Colors.white),
-              onPressed: hintsRemaining > 0 ? onHint : null,
+              icon: Icon(
+                hintsLocked ? Icons.lightbulb_outline_rounded : Icons.lightbulb_rounded,
+                color: hintsLocked ? Colors.white.withValues(alpha: 0.35) : Colors.white,
+              ),
+              onPressed: hintsLocked ? null : (hintsRemaining > 0 ? onHint : null),
             ),
-            Positioned(right: 4, top: 4, child: _Pill(label: '$hintsRemaining', dense: true)),
+            if (!hintsLocked)
+              Positioned(right: 4, top: 4, child: _Pill(label: '$hintsRemaining', dense: true)),
           ],
         ),
       );
@@ -139,6 +211,18 @@ class MazeHud extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    final rawGhostPill = _ghostDeltaPill(t);
+    // The delta text's length varies with the run (and with locale), so
+    // this shrinks it rather than overflowing the narrow vertical side
+    // panel on a longer reading — costs nothing when it already fits.
+    final ghostPill =
+        rawGhostPill == null ? null : FittedBox(fit: BoxFit.scaleDown, child: rawGhostPill);
+    final rawBankPill = _bankPill(t);
+    final bankPill =
+        rawBankPill == null ? null : FittedBox(fit: BoxFit.scaleDown, child: rawBankPill);
+    final rawReversePill = _reverseBadge(t);
+    final reversePill =
+        rawReversePill == null ? null : FittedBox(fit: BoxFit.scaleDown, child: rawReversePill);
     final content = axis == Axis.vertical
         ? SafeArea(
             child: Padding(
@@ -153,6 +237,18 @@ class MazeHud extends StatelessWidget {
                   if (heldKeys.isNotEmpty) ...[
                     const SizedBox(height: 8),
                     _keyInventory(t),
+                  ],
+                  if (ghostPill != null) ...[
+                    const SizedBox(height: 8),
+                    ghostPill,
+                  ],
+                  if (bankPill != null) ...[
+                    const SizedBox(height: 8),
+                    bankPill,
+                  ],
+                  if (reversePill != null) ...[
+                    const SizedBox(height: 8),
+                    reversePill,
                   ],
                   const Spacer(),
                   _hintButton(t),
@@ -170,6 +266,9 @@ class MazeHud extends StatelessWidget {
                 children: [
                   _backButton(t, context),
                   Expanded(child: _levelAndTimer(t)),
+                  if (ghostPill != null) ...[ghostPill, const SizedBox(width: 6)],
+                  if (bankPill != null) ...[bankPill, const SizedBox(width: 6)],
+                  if (reversePill != null) ...[reversePill, const SizedBox(width: 6)],
                   if (heldKeys.isNotEmpty) _keyInventory(t),
                   _starsPill(t),
                   const SizedBox(width: 6),

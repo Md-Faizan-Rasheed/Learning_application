@@ -17,11 +17,16 @@ import '../logic/mechanics/obstacle_field.dart';
 import '../logic/mechanics/teleport_network.dart';
 import '../models/maze_cell.dart';
 import '../models/maze_direction.dart';
+import '../data/ghost_run_repository.dart';
 import '../data/maze_environments.dart';
 import '../logic/environment/ambient_particle_field.dart';
+import '../logic/ghost/ghost_player.dart';
+import '../logic/ghost/ghost_recorder.dart';
+import '../models/ghost_sample.dart';
 import '../models/maze_environment.dart';
 import '../models/maze_level.dart';
 import '../models/maze_mechanics.dart';
+import '../models/maze_character_skin.dart';
 import '../models/maze_progress.dart';
 import '../painters/background_pattern_painter.dart';
 import '../painters/environment_painter.dart';
@@ -84,6 +89,17 @@ class _MazeGameScreenState extends State<MazeGameScreen>
   bool _wonHandled = false;
   late bool _showControlHint;
   late List<MazeMechanicTooltip> _pendingTooltips;
+
+  /// C1 — ghost time trial. [_ghostRecorder] records the current
+  /// playthrough regardless of the "race my best" setting (so a best run
+  /// always builds up over time); [_bestGhostSamples] is this level's
+  /// already-stored best, loaded once at level start; [_ghostPlayer] is
+  /// only non-null when racing is actually turned on and a best exists —
+  /// that's what the board renders and the HUD compares against.
+  static const _ghostRepository = GhostRunRepository();
+  late GhostRecorder _ghostRecorder;
+  List<GhostSample> _bestGhostSamples = const [];
+  GhostPlayer? _ghostPlayer;
 
   /// B2 — this level's atmosphere, and the ambient particle field +
   /// drifting clock behind it. Both are fixed for the level's lifetime
@@ -171,6 +187,36 @@ class _MazeGameScreenState extends State<MazeGameScreen>
       _controller.tick(const Duration(milliseconds: 200));
       if (mounted) setState(() {});
     });
+
+    // C1 — a fresh recorder every playthrough (replay or next-level both
+    // call _startLevel again), seeded with the start cell at t=0 so a
+    // ghost replay always has somewhere to begin.
+    _ghostRecorder = GhostRecorder()..record(elapsed: Duration.zero, cell: _maze.start);
+    _ghostPlayer = null;
+    _loadBestGhost();
+  }
+
+  Future<void> _loadBestGhost() async {
+    final samples = await _ghostRepository.loadBest(widget.level.id);
+    if (!mounted) return;
+    _bestGhostSamples = samples;
+    // Only actually race it if the setting is on — recording/saving the
+    // best run always happens regardless, per the spec's own framing of
+    // this as a background "best run" feature with an opt-in race view.
+    if (_progress.raceGhostEnabled && samples.isNotEmpty) {
+      setState(() => _ghostPlayer = GhostPlayer(samples: samples));
+    }
+  }
+
+  /// Overwrites the stored best only if this run actually finished
+  /// faster (or there was no best yet) — never a worse run.
+  void _saveGhostIfBest() {
+    if (_ghostRecorder.samples.isEmpty) return;
+    final newFinish = _ghostRecorder.samples.last.elapsed;
+    final previousBest = _bestGhostSamples.isEmpty ? null : _bestGhostSamples.last.elapsed;
+    if (previousBest == null || newFinish < previousBest) {
+      _ghostRepository.save(widget.level.id, _ghostRecorder.samples);
+    }
   }
 
   /// A3 — doors are placed from the level's own solution path, and
@@ -352,6 +398,7 @@ class _MazeGameScreenState extends State<MazeGameScreen>
   }
 
   void _onHint() {
+    if (_progress.noHintsChallengeEnabled) return;
     final cells = _controller.useHint(_solver);
     if (cells.isEmpty) return;
     MazeAudioService.instance.playHint();
@@ -364,6 +411,7 @@ class _MazeGameScreenState extends State<MazeGameScreen>
 
   void _onStep() {
     MazeAudioService.instance.playStep();
+    _ghostRecorder.record(elapsed: _controller.elapsed, cell: _controller.playerPosition);
     if (_showControlHint) {
       setState(() => _showControlHint = false);
       final updated = _progress.copyWith(firstPlayHintShown: true);
@@ -444,10 +492,30 @@ class _MazeGameScreenState extends State<MazeGameScreen>
     if (_wonHandled) return;
     _wonHandled = true;
     _tickTimer?.cancel();
+    _saveGhostIfBest();
     if (_progress.hapticsEnabled) HapticFeedback.heavyImpact();
     MazeAudioService.instance.playWin();
     final stars = _controller.rating.index + 1;
-    widget.onLevelCompleted(widget.level.id, stars, _controller.elapsed.inSeconds);
+    final finishSeconds = _controller.elapsed.inSeconds;
+    // E2 — read before onLevelCompleted, which only ever updates the
+    // *parent* screen's own separate MazeProgress copy; this screen's
+    // _progress never sees that write, so it still holds whatever the
+    // previous best was when this level started.
+    final previousBestSeconds = _progress.bestTimeSecondsByLevel[widget.level.id];
+    final isNewBestTime = previousBestSeconds == null || finishSeconds < previousBestSeconds;
+    widget.onLevelCompleted(widget.level.id, stars, finishSeconds);
+
+    // C4 — the hint button is locked whenever the toggle is on, so
+    // hintsUsed == 0 is implied; checked anyway as a defense-in-depth
+    // belt-and-suspenders against the toggle somehow having been bypassed.
+    final noHintsClear = _progress.noHintsChallengeEnabled && _controller.hintsUsed == 0;
+    if (noHintsClear && !_progress.noHintsClearedLevelIds.contains(widget.level.id)) {
+      final updated = _progress.copyWith(
+        noHintsClearedLevelIds: {..._progress.noHintsClearedLevelIds, widget.level.id},
+      );
+      _progress = updated;
+      widget.onProgressChanged(updated);
+    }
 
     // Gives the board's own win-moment particle burst a beat to read before
     // the card slides up and covers it.
@@ -459,6 +527,8 @@ class _MazeGameScreenState extends State<MazeGameScreen>
       level: widget.level,
       controller: _controller,
       isLastLevel: widget.isLastLevel,
+      noHintsClear: noHintsClear,
+      isNewBestTime: isNewBestTime,
     );
     if (!mounted) return;
 
@@ -494,6 +564,9 @@ class _MazeGameScreenState extends State<MazeGameScreen>
       hintsRemaining: _controller.hintsRemaining,
       axis: axis,
       heldKeys: _controller.heldKeys,
+      ghostDeltaSeconds: _ghostDeltaSeconds(),
+      hintsLocked: _progress.noHintsChallengeEnabled,
+      reverseControlsActive: _progress.reverseControlsEnabled,
       onBack: () {
         MazeAudioService.instance.playButtonTap();
         Navigator.of(context).pop();
@@ -501,6 +574,19 @@ class _MazeGameScreenState extends State<MazeGameScreen>
       onHint: _onHint,
       onPause: _onPause,
     );
+  }
+
+  /// C1 — seconds ahead (negative) or behind (positive) the ghost at the
+  /// player's current cell, or null when there's nothing to show (no
+  /// ghost racing, or the ghost's own recorded run never reached this
+  /// exact cell — a shortcut the player found that the ghost didn't).
+  double? _ghostDeltaSeconds() {
+    final ghost = _ghostPlayer;
+    if (ghost == null) return null;
+    final ghostElapsed = ghost.elapsedToReach(_controller.playerPosition);
+    if (ghostElapsed == null) return null;
+    final deltaMs = _controller.elapsed.inMilliseconds - ghostElapsed.inMilliseconds;
+    return deltaMs / 1000;
   }
 
   Widget _boardArea() {
@@ -517,6 +603,8 @@ class _MazeGameScreenState extends State<MazeGameScreen>
             environmentTheme: _environment,
             fogEnabled: _progress.fogEnabled,
             hintCells: _hintCells,
+            characterFillColor: mazeCharacterSkinDefFor(_progress.selectedSkin).fillColor,
+            characterTrailColor: mazeCharacterSkinDefFor(_progress.selectedSkin).trailColor,
             onMoved: _onStep,
             onBumped: _onBumped,
             onStarCollected: _onStarCollected,
@@ -526,6 +614,8 @@ class _MazeGameScreenState extends State<MazeGameScreen>
             onCaravanBump: _onCaravanBump,
             onFactCollected: _onFactCollected,
             onWon: _onWon,
+            ghostPlayer: _ghostPlayer,
+            reverseControlsEnabled: _progress.reverseControlsEnabled,
           ),
         ),
         if (_pendingTooltips.isNotEmpty)

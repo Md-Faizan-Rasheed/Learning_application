@@ -85,6 +85,11 @@ class MazeConstants {
   /// Dust puffed up where a sand slide skids to a stop.
   static const int slideDustParticleCount = 8;
 
+  // ---- Ghost time trial (C1) ----
+  /// How translucent the ghost avatar is — low enough to clearly read as
+  /// "not the real player" without disappearing entirely.
+  static const double ghostOpacity = 0.4;
+
   // ---- Story intro scene (B3) ----
   /// Per-character reveal delay for the typewriter story text.
   static const Duration introTypewriterCharDelay = Duration(milliseconds: 22);

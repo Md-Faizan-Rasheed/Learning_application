@@ -1,3 +1,4 @@
+import 'maze_character_skin.dart';
 import 'maze_mechanics.dart';
 
 /// Local, per-device save state for Seerah Maze — the pure-data shape a
@@ -16,9 +17,14 @@ class MazeProgress {
     this.joystickEnabled = false,
     this.fogEnabled = false,
     this.reduceMotionEnabled = false,
+    this.raceGhostEnabled = false,
+    this.noHintsChallengeEnabled = false,
+    this.reverseControlsEnabled = false,
     this.firstPlayHintShown = false,
     this.seenMechanicTooltips = const {},
     this.collectedFactLevelIds = const {},
+    this.noHintsClearedLevelIds = const {},
+    this.selectedSkin = MazeCharacterSkinId.traveler,
   });
 
   final int highestUnlockedLevel;
@@ -42,6 +48,21 @@ class MazeProgress {
   /// something to persist here.
   final bool reduceMotionEnabled;
 
+  /// C1 — whether to load and race against this level's best recorded
+  /// ghost run, when one exists.
+  final bool raceGhostEnabled;
+
+  /// C4 — when on, the hint button is locked for the rest of the
+  /// playthrough. A level finished with this on (and so, necessarily, with
+  /// zero hints used) is recorded in [noHintsClearedLevelIds].
+  final bool noHintsChallengeEnabled;
+
+  /// C5 — when on, every directional move (keyboard/WASD) resolves to its
+  /// opposite before reaching the board. An alternate-control challenge
+  /// like the ghost race or no-hints toggle, not an achievement — there's
+  /// nothing of this one worth persisting past the current playthrough.
+  final bool reverseControlsEnabled;
+
   /// Whether the one-line "Drag to guide ..." control hint has already
   /// been shown once — it only ever shows on a player's very first level.
   final bool firstPlayHintShown;
@@ -55,6 +76,17 @@ class MazeProgress {
   /// Library screen's unlocked/locked grid and its "X/10 found" count.
   final Set<int> collectedFactLevelIds;
 
+  /// C4 — levels cleared at least once with [noHintsChallengeEnabled] on
+  /// (so with zero hints used). Kept as its own set, like
+  /// [collectedFactLevelIds], rather than folding it into [starsByLevel],
+  /// since it's a separate achievement, not a rating.
+  final Set<int> noHintsClearedLevelIds;
+
+  /// D3 — the cosmetic character/trail recolor currently in use. Purely
+  /// visual; never affects gameplay. See models/maze_character_skin.dart
+  /// for what each one unlocks at.
+  final MazeCharacterSkinId selectedSkin;
+
   MazeProgress copyWith({
     int? highestUnlockedLevel,
     Map<int, int>? starsByLevel,
@@ -64,9 +96,14 @@ class MazeProgress {
     bool? joystickEnabled,
     bool? fogEnabled,
     bool? reduceMotionEnabled,
+    bool? raceGhostEnabled,
+    bool? noHintsChallengeEnabled,
+    bool? reverseControlsEnabled,
     bool? firstPlayHintShown,
     Set<MazeMechanicTooltip>? seenMechanicTooltips,
     Set<int>? collectedFactLevelIds,
+    Set<int>? noHintsClearedLevelIds,
+    MazeCharacterSkinId? selectedSkin,
   }) {
     return MazeProgress(
       highestUnlockedLevel: highestUnlockedLevel ?? this.highestUnlockedLevel,
@@ -77,9 +114,14 @@ class MazeProgress {
       joystickEnabled: joystickEnabled ?? this.joystickEnabled,
       fogEnabled: fogEnabled ?? this.fogEnabled,
       reduceMotionEnabled: reduceMotionEnabled ?? this.reduceMotionEnabled,
+      raceGhostEnabled: raceGhostEnabled ?? this.raceGhostEnabled,
+      noHintsChallengeEnabled: noHintsChallengeEnabled ?? this.noHintsChallengeEnabled,
+      reverseControlsEnabled: reverseControlsEnabled ?? this.reverseControlsEnabled,
       firstPlayHintShown: firstPlayHintShown ?? this.firstPlayHintShown,
       seenMechanicTooltips: seenMechanicTooltips ?? this.seenMechanicTooltips,
       collectedFactLevelIds: collectedFactLevelIds ?? this.collectedFactLevelIds,
+      noHintsClearedLevelIds: noHintsClearedLevelIds ?? this.noHintsClearedLevelIds,
+      selectedSkin: selectedSkin ?? this.selectedSkin,
     );
   }
 
@@ -92,9 +134,14 @@ class MazeProgress {
         'joystickEnabled': joystickEnabled,
         'fogEnabled': fogEnabled,
         'reduceMotionEnabled': reduceMotionEnabled,
+        'raceGhostEnabled': raceGhostEnabled,
+        'noHintsChallengeEnabled': noHintsChallengeEnabled,
+        'reverseControlsEnabled': reverseControlsEnabled,
         'firstPlayHintShown': firstPlayHintShown,
         'seenMechanicTooltips': seenMechanicTooltips.map((t) => t.name).toList(),
         'collectedFactLevelIds': collectedFactLevelIds.toList(),
+        'noHintsClearedLevelIds': noHintsClearedLevelIds.toList(),
+        'selectedSkin': selectedSkin.name,
       };
 
   /// Never throws: any parse failure (corrupted or unexpectedly-shaped
@@ -111,9 +158,14 @@ class MazeProgress {
         joystickEnabled: json['joystickEnabled'] as bool? ?? false,
         fogEnabled: json['fogEnabled'] as bool? ?? false,
         reduceMotionEnabled: json['reduceMotionEnabled'] as bool? ?? false,
+        raceGhostEnabled: json['raceGhostEnabled'] as bool? ?? false,
+        noHintsChallengeEnabled: json['noHintsChallengeEnabled'] as bool? ?? false,
+        reverseControlsEnabled: json['reverseControlsEnabled'] as bool? ?? false,
         firstPlayHintShown: json['firstPlayHintShown'] as bool? ?? false,
         seenMechanicTooltips: _tooltipSetFrom(json['seenMechanicTooltips']),
         collectedFactLevelIds: _intSetFrom(json['collectedFactLevelIds']),
+        noHintsClearedLevelIds: _intSetFrom(json['noHintsClearedLevelIds']),
+        selectedSkin: _skinFrom(json['selectedSkin']),
       );
     } catch (_) {
       return const MazeProgress();
@@ -143,6 +195,15 @@ class MazeProgress {
       }
     }
     return result;
+  }
+
+  /// An unknown name (an older save, or corrupted data) falls back to the
+  /// default skin rather than failing the whole parse.
+  static MazeCharacterSkinId _skinFrom(Object? raw) {
+    for (final skin in MazeCharacterSkinId.values) {
+      if (skin.name == raw) return skin;
+    }
+    return MazeCharacterSkinId.traveler;
   }
 
   static Map<int, int> _intMapFrom(Object? raw) {

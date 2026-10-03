@@ -97,6 +97,27 @@ class _PauseMenuContentState extends State<_PauseMenuContent> {
                 onChanged: (v) =>
                     setState(() => _progress = _progress.copyWith(reduceMotionEnabled: v)),
               ),
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(t.mazeRaceGhostToggle),
+                value: _progress.raceGhostEnabled,
+                onChanged: (v) =>
+                    setState(() => _progress = _progress.copyWith(raceGhostEnabled: v)),
+              ),
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(t.mazeNoHintsChallengeToggle),
+                value: _progress.noHintsChallengeEnabled,
+                onChanged: (v) =>
+                    setState(() => _progress = _progress.copyWith(noHintsChallengeEnabled: v)),
+              ),
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(t.mazeReverseControlsToggle),
+                value: _progress.reverseControlsEnabled,
+                onChanged: (v) =>
+                    setState(() => _progress = _progress.copyWith(reverseControlsEnabled: v)),
+              ),
               const SizedBox(height: 16),
               SizedBox(
                 height: 48,

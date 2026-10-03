@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:islamic_game/features/seerah_maze/data/maze_levels.dart';
+import 'package:islamic_game/features/seerah_maze/data/maze_progress_repository.dart';
+import 'package:islamic_game/features/seerah_maze/models/maze_character_skin.dart';
+import 'package:islamic_game/features/seerah_maze/models/maze_progress.dart';
+import 'package:islamic_game/features/seerah_maze/ui/achievements_screen.dart';
 import 'package:islamic_game/features/seerah_maze/ui/level_select_screen.dart';
 import 'package:islamic_game/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,5 +108,78 @@ void main() {
       await tester.pump();
       expect(node, findsOneWidget, reason: 'level ${level.id}');
     }
+  });
+
+  testWidgets('the achievements button navigates to MazeAchievementsScreen', (tester) async {
+    await pumpScreen(tester);
+
+    await tester.tap(find.byIcon(Icons.emoji_events_rounded));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.byType(MazeAchievementsScreen), findsOneWidget);
+  });
+
+  testWidgets('a fresh install shows Explorer Level 1 in the header pill', (tester) async {
+    final t = await AppLocalizations.delegate.load(const Locale('en'));
+    await pumpScreen(tester);
+
+    expect(find.text(t.mazeExplorerLevelLabel(1)), findsOneWidget);
+  });
+
+  testWidgets('earned stars raise the Explorer Level shown in the header pill', (tester) async {
+    final t = await AppLocalizations.delegate.load(const Locale('en'));
+    await const MazeProgressRepository().save(
+      const MazeProgress(starsByLevel: {1: 3, 2: 3, 3: 3}),
+    );
+
+    await pumpScreen(tester);
+
+    // 9 stars * 10 = 90, plus firstSteps unlocked (+50) = 140 XP -> level 2
+    // (past level 2's 50-XP threshold, short of level 3's 200).
+    expect(find.text(t.mazeExplorerLevelLabel(2)), findsOneWidget);
+  });
+
+  testWidgets('tapping the level pill navigates to MazeAchievementsScreen', (tester) async {
+    await pumpScreen(tester);
+
+    final t = await AppLocalizations.delegate.load(const Locale('en'));
+    await tester.tap(find.text(t.mazeExplorerLevelLabel(1)));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.byType(MazeAchievementsScreen), findsOneWidget);
+  });
+
+  testWidgets('the customize button opens the skin sheet and a choice persists', (tester) async {
+    final t = await AppLocalizations.delegate.load(const Locale('en'));
+    await const MazeProgressRepository().save(
+      MazeProgress(
+        // A fully-completed campaign comfortably clears Explorer Level 5
+        // (Ink's unlock level) — see explorer_level_test.dart for the XP
+        // formula this relies on.
+        starsByLevel: {for (var i = 1; i <= kMazeLevels.length; i++) i: 3},
+        collectedFactLevelIds: {for (var i = 1; i <= kMazeLevels.length; i++) i},
+        noHintsClearedLevelIds: {for (var i = 1; i <= kMazeLevels.length; i++) i},
+      ),
+    );
+    await pumpScreen(tester);
+
+    // Not pumpAndSettle: the journey map underneath keeps its own
+    // repeating pulse/traveling-dot animations going even with the sheet
+    // open, so pumpAndSettle would never see "no more frames scheduled".
+    await tester.tap(find.byIcon(Icons.palette_rounded));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text(t.mazeCustomizeScreenTitle), findsOneWidget);
+
+    await tester.tap(find.text(t.mazeSkinInkName));
+    await tester.pump();
+    await tester.tap(find.text(t.mazeLibraryCloseButton));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    final saved = await const MazeProgressRepository().load();
+    expect(saved.selectedSkin, MazeCharacterSkinId.ink);
   });
 }
