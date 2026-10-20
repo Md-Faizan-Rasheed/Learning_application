@@ -43,22 +43,6 @@ class UTF8JSONResponse(JSONResponse):
 
 app = FastAPI(title="Islamic Learning Game API", default_response_class=UTF8JSONResponse)
 
-# CORS: browsers block cross-origin calls, so the Flutter web app can't
-# reach this API unless we allow its origin. The deployed production
-# frontend and any localhost dev port (a developer's own browser running
-# the Flutter web build, often pointed at this very deployed backend) are
-# both always allowed — these aren't mutually exclusive by environment, so
-# don't branch on settings.env here. Arbitrary third-party origins are
-# still rejected either way.
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://learning-application-1.onrender.com"],
-    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 app.include_router(campaign_router)
 app.include_router(health_router)
 app.include_router(legal_router)
@@ -82,8 +66,22 @@ async def root() -> dict:
     return {"service": "islamic-learning-game", "status": "running"}
 
 
-# Wrap FastAPI so Socket.IO owns "/socket.io/*" and delegates everything else
-# (REST routes) to FastAPI. Run with:  uvicorn app.main:asgi_app --reload
+# CORS wraps the REST app at the ASGI boundary. Besides preflight and normal
+# responses, this keeps CORS headers on FastAPI's generated 500 responses so
+# the browser can show the actual backend error instead of reporting a
+# misleading CORS failure. Local Flutter web ports are intentionally variable.
+cors_app = CORSMiddleware(
+    app,
+    allow_origins=["https://learning-application-1.onrender.com"],
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Socket.IO owns "/socket.io/*" and delegates all REST traffic through CORS.
+# Its own handshake CORS configuration remains in realtime/server.py.
+# Run with: uvicorn app.main:asgi_app --reload
 import socketio  # noqa: E402
 
-asgi_app = socketio.ASGIApp(sio, other_asgi_app=app)
+asgi_app = socketio.ASGIApp(sio, other_asgi_app=cors_app)

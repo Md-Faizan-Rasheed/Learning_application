@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'local_progress_preferences.dart';
+
 /// One saved reference — enough to both show it in a "Saved" list and to
 /// re-open the exact same card (category/situation/ref index) from there.
 class SavedReference {
@@ -29,8 +31,7 @@ class SavedReference {
         'refIndex': refIndex,
       };
 
-  factory SavedReference.fromJson(Map<String, dynamic> json) =>
-      SavedReference(
+  factory SavedReference.fromJson(Map<String, dynamic> json) => SavedReference(
         categoryId: json['categoryId'] as String,
         categoryLabel: json['categoryLabel'] as String,
         situationId: json['situationId'] as String,
@@ -52,7 +53,8 @@ class AyahBookmarks {
 
   Future<List<SavedReference>> all() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_key);
+    final key = await LocalProgressPreferences.keyFor(_key);
+    final raw = prefs.getString(key);
     if (raw == null) return [];
     try {
       final list = jsonDecode(raw) as List;
@@ -72,6 +74,7 @@ class AyahBookmarks {
   /// Toggles [ref]'s saved state and returns the new state (true = now saved).
   Future<bool> toggle(SavedReference ref) async {
     final prefs = await SharedPreferences.getInstance();
+    final key = await LocalProgressPreferences.keyFor(_key);
     final saved = await all();
     final existingIndex = saved.indexWhere((s) => s._key == ref._key);
     bool nowSaved;
@@ -83,7 +86,7 @@ class AyahBookmarks {
       nowSaved = true;
     }
     await prefs.setString(
-        _key, jsonEncode(saved.map((s) => s.toJson()).toList()));
+        key, jsonEncode(saved.map((s) => s.toJson()).toList()));
     return nowSaved;
   }
 }

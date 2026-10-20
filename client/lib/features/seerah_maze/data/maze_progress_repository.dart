@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../services/local_progress_preferences.dart';
 import '../models/maze_progress.dart';
 
 /// Local, per-device persistence for [MazeProgress] — same
@@ -18,7 +19,8 @@ class MazeProgressRepository {
 
   Future<MazeProgress> load() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_key);
+    final key = await LocalProgressPreferences.keyFor(_key);
+    final raw = prefs.getString(key);
     if (raw == null) return const MazeProgress();
     try {
       return MazeProgress.fromJson(jsonDecode(raw) as Map<String, dynamic>);
@@ -29,6 +31,7 @@ class MazeProgressRepository {
 
   Future<void> save(MazeProgress progress) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_key, jsonEncode(progress.toJson()));
+    final key = await LocalProgressPreferences.keyFor(_key);
+    await prefs.setString(key, jsonEncode(progress.toJson()));
   }
 }

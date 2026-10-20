@@ -7,40 +7,61 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.sql import bindparam
 
 
-async def get_or_create_practice_user(db: AsyncSession) -> str:
-    """A single shared practice user for Sprint 1 (before real auth/matches).
-    TODO(auth-epic): replace with the authenticated user."""
-    row = (
-        await db.execute(
-            text("SELECT id FROM users WHERE display_name = 'practice-user' LIMIT 1")
-        )
-    ).first()
-    if row:
-        return str(row[0])
-    row = (
-        await db.execute(
-            text(
-                """
-                INSERT INTO users (role, display_name, gender)
-                VALUES ('player', 'practice-user', 'male')
-                RETURNING id
-                """
-            )
-        )
-    ).first()
-    return str(row[0])
-
-
-
 async def pick_live_question(
     db: AsyncSession,
     difficulty: str | None,
     category_slug: str | None = None,
     recent_questions: list[str] | None = None,
     stage_slug: str | None = None,
+    stage_question_start: int | None = None,
+    stage_question_end: int | None = None,
 ) -> dict | None:
 
     recent_questions = recent_questions or []
+
+    # A Campaign range is a stable slice of that stage's live question bank.
+    # Rank in creation order so the chosen lower/upper limits always refer to
+    # the same questions during a match; randomize only within the slice.
+    if stage_slug and (stage_question_start is not None or stage_question_end is not None):
+        if stage_question_start is None or stage_question_end is None:
+            raise ValueError("both Campaign question range limits are required")
+        range_query = """
+            SELECT id, difficulty, prompt, options, correct_index
+            FROM (
+                SELECT q.id,
+                       q.difficulty::text AS difficulty,
+                       q.prompt,
+                       q.options,
+                       q.correct_index,
+                       row_number() OVER (ORDER BY q.created_at, q.id) AS question_no
+                FROM questions q
+                JOIN categories c ON c.id = q.category_id AND c.is_active = TRUE
+                JOIN event_framework_tags eft
+                  ON eft.event_id = q.event_id AND eft.framework = 'movement_stage'
+                WHERE q.review_state = 'live'
+                  AND q.is_private = FALSE
+                  AND c.slug = :category_slug
+                  AND eft.tag_value = :stage_slug
+            ) AS campaign_questions
+            WHERE question_no BETWEEN :question_start AND :question_end
+        """
+        range_params = {
+            "category_slug": (category_slug or "seerah").lower(),
+            "stage_slug": stage_slug,
+            "question_start": stage_question_start,
+            "question_end": stage_question_end,
+        }
+        if recent_questions:
+            range_query += """
+                AND id NOT IN (
+                    SELECT unnest(CAST(:recent_questions AS uuid[]))
+                )
+            """
+            range_params["recent_questions"] = recent_questions
+        range_query += " ORDER BY random() LIMIT 1"
+        result = await db.execute(text(range_query), range_params)
+        row = result.mappings().first()
+        return dict(row) if row else None
 
     q = """
         SELECT
@@ -66,6 +87,7 @@ async def pick_live_question(
 
     q += """
         WHERE q.review_state = 'live'
+          AND q.is_private = FALSE
           AND c.is_active = TRUE
     """
 
@@ -115,41 +137,14 @@ async def pick_live_question(
 
     return dict(row) if row else None
 
-async def create_practice_match(db: AsyncSession, difficulty: str) -> str:
-    row = (
-        await db.execute(
-            text(
-                """
-                INSERT INTO matches (difficulty, status, started_at)
-                VALUES (CAST(:difficulty AS difficulty_level), 'active', now())
-                RETURNING id
-                """
-            ),
-            {"difficulty": difficulty},
-        )
-    ).first()
-    match_id = str(row[0])
-    user_id = await get_or_create_practice_user(db)
-    await db.execute(
-        text(
-            """
-            INSERT INTO match_players (match_id, user_id)
-            VALUES (:m, :u)
-            ON CONFLICT (match_id, user_id) DO NOTHING
-            """
-        ),
-        {"m": match_id, "u": user_id},
-    )
-    return match_id
-
-
 async def get_question_for_grading(db: AsyncSession, question_id: UUID) -> dict | None:
     row = (
         await db.execute(
             text(
                 """
                 SELECT id, difficulty::text AS difficulty, options, correct_index
-                FROM questions WHERE id = :id AND review_state = 'live'
+                FROM questions
+                WHERE id = :id AND review_state = 'live' AND is_private = FALSE
                 """
             ),
             {"id": str(question_id)},

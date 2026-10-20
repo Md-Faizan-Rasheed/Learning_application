@@ -145,6 +145,26 @@ async def test_campaign_endpoints_end_to_end(client):
         await _delete_account(client, token, "TestPass123!")
 
 
+async def test_deleting_user_with_campaign_progress_cascades(client):
+    token, user_id = await _register(client)
+    async with SessionLocal() as db:
+        stage_id = await _any_stage_id(db)
+        await campaign_repo.apply_stage_momentum(
+            db, user_id=user_id, stage_id=stage_id, delta=5
+        )
+        await db.commit()
+
+    deleted = await _delete_account(client, token, "TestPass123!")
+    assert deleted.status_code == 204
+
+    async with SessionLocal() as db:
+        remaining = await db.execute(
+            text("SELECT count(*) FROM campaign_stage_progress WHERE user_id = :u"),
+            {"u": user_id},
+        )
+        assert remaining.scalar_one() == 0
+
+
 async def test_complete_stage_completes_regardless_of_score(client):
     """complete_stage is the unlock primitive for 'finish this stage's match,
     any score' — unlike apply_stage_momentum, it never takes a delta and

@@ -1,0 +1,448 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ when Halima returned him to his mother, Amina?",
+      "ar": "كم كان عمر النبي ﷺ حين أعادته حليمة إلى أمه آمنة؟",
+      "ur": "نبی ﷺ کی عمر کتنی تھی جب حلیمہ نے آپ کو آپ کی والدہ آمنہ کے سپرد کیا؟"
+    },
+    "options": {
+      "en": ["Two years", "About four years", "Six years", "Eight years"],
+      "ar": ["سنتان", "نحو أربع سنوات", "ست سنوات", "ثماني سنوات"],
+      "ur": ["دو سال", "تقریباً چار سال", "چھ سال", "آٹھ سال"]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ when his mother Amina passed away?",
+      "ar": "كم كان عمر النبي ﷺ حين توفيت أمه آمنة؟",
+      "ur": "نبی ﷺ کی عمر کتنی تھی جب آپ کی والدہ آمنہ کا انتقال ہوا؟"
+    },
+    "options": {
+      "en": ["Eight years", "Four years", "Ten years", "Six years"],
+      "ar": ["ثماني سنوات", "أربع سنوات", "عشر سنوات", "ست سنوات"],
+      "ur": ["آٹھ سال", "چار سال", "دس سال", "چھ سال"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which place was the Prophet ﷺ with his mother Amina when she passed away?",
+      "ar": "في أي مكان توفيت آمنة أم النبي ﷺ وهو معها؟",
+      "ur": "نبی ﷺ اپنی والدہ آمنہ کے ساتھ کس مقام پر تھے جب ان کا انتقال ہوا؟"
+    },
+    "options": {
+      "en": ["Makkah", "Madinah", "Abwa", "Taif"],
+      "ar": ["مكة", "المدينة", "الأبواء", "الطائف"],
+      "ur": ["مکہ", "مدینہ", "ابواء", "طائف"]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who raised the Prophet ﷺ after his mother's passing?",
+      "ar": "من كفل النبي ﷺ بعد وفاة أمه؟",
+      "ur": "والدہ کے انتقال کے بعد نبی ﷺ کی پرورش کس نے کی؟"
+    },
+    "options": {
+      "en": ["His uncle Abu Talib", "His grandfather Abd al-Muttalib", "His uncle Hamza", "His uncle Abbas"],
+      "ar": ["عمه أبو طالب", "جده عبد المطلب", "عمه حمزة", "عمه العباس"],
+      "ur": ["ان کے چچا ابو طالب", "ان کے دادا عبدالمطلب", "ان کے چچا حمزہ", "ان کے چچا عباس"]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ when his grandfather Abd al-Muttalib died?",
+      "ar": "كم كان عمر النبي ﷺ حين توفي جده عبد المطلب؟",
+      "ur": "نبی ﷺ کی عمر کتنی تھی جب آپ کے دادا عبدالمطلب کا انتقال ہوا؟"
+    },
+    "options": {
+      "en": ["Six years", "Ten years", "Twelve years", "Eight years"],
+      "ar": ["ست سنوات", "عشر سنوات", "اثنتا عشرة سنة", "ثماني سنوات"],
+      "ur": ["چھ سال", "دس سال", "بارہ سال", "آٹھ سال"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who took responsibility for raising the Prophet ﷺ after his grandfather's death?",
+      "ar": "من تولى كفالة النبي ﷺ بعد وفاة جده؟",
+      "ur": "دادا کے انتقال کے بعد نبی ﷺ کی پرورش کی ذمہ داری کس نے لی؟"
+    },
+    "options": {
+      "en": ["His uncle Abu Lahab", "His uncle Abbas", "His uncle Abu Talib", "His uncle Hamza"],
+      "ar": ["عمه أبو لهب", "عمه العباس", "عمه أبو طالب", "عمه حمزة"],
+      "ur": ["ان کے چچا ابو لہب", "ان کے چچا عباس", "ان کے چچا ابو طالب", "ان کے چچا حمزہ"]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where did the Prophet ﷺ make his first journey with his uncle?",
+      "ar": "إلى أين كانت أول رحلة للنبي ﷺ مع عمه؟",
+      "ur": "نبی ﷺ نے اپنے چچا کے ساتھ پہلا سفر کہاں کا کیا؟"
+    },
+    "options": {
+      "en": ["Yemen", "Syria (Sham)", "Egypt", "Abyssinia"],
+      "ar": ["اليمن", "الشام", "مصر", "الحبشة"],
+      "ur": ["یمن", "شام", "مصر", "حبشہ"]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of his first journey to Syria?",
+      "ar": "كم كان عمر النبي ﷺ في رحلته الأولى إلى الشام؟",
+      "ur": "شام کے پہلے سفر کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": ["Eight years", "Ten years", "Fourteen years", "Twelve years"],
+      "ar": ["ثماني سنوات", "عشر سنوات", "أربع عشرة سنة", "اثنتا عشرة سنة"],
+      "ur": ["آٹھ سال", "دس سال", "چودہ سال", "بارہ سال"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the nature of the Prophet's ﷺ first journey to Syria?",
+      "ar": "ما طبيعة رحلة النبي ﷺ الأولى إلى الشام؟",
+      "ur": "نبی ﷺ کے شام کے پہلے سفر کی نوعیت کیا تھی؟"
+    },
+    "options": {
+      "en": ["A military expedition", "A pilgrimage", "A trade journey", "A migration"],
+      "ar": ["غزوة عسكرية", "رحلة حج", "رحلة تجارية", "هجرة"],
+      "ur": ["ایک فوجی مہم", "حج کا سفر", "تجارتی سفر", "ہجرت"]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "During the journey to Syria, what set the Prophet ﷺ apart the most?",
+      "ar": "في أثناء الرحلة إلى الشام، ما الذي ميّز النبي ﷺ أكثر من غيره؟",
+      "ur": "شام کے سفر کے دوران نبی ﷺ کو سب سے زیادہ کس چیز نے ممتاز کیا؟"
+    },
+    "options": {
+      "en": ["His fine clothing", "His blessed face could be seen shining from afar", "His great wealth", "His loud voice"],
+      "ar": ["ثيابه الفاخرة", "كان وجهه المبارك يُرى مشرقًا من بعيد", "ثروته الكبيرة", "صوته العالي"],
+      "ur": ["ان کا عمدہ لباس", "ان کا مبارک چہرہ دور سے چمکتا ہوا نظر آتا تھا", "ان کی بڑی دولت", "ان کی بلند آواز"]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which monk expressed a wish to meet the Prophet ﷺ during the journey?",
+      "ar": "أي راهب أبدى رغبته في لقاء النبي ﷺ خلال الرحلة؟",
+      "ur": "سفر کے دوران کس راہب نے نبی ﷺ سے ملنے کی خواہش ظاہر کی؟"
+    },
+    "options": {
+      "en": ["Waraqa ibn Nawfal", "The monk Bahira", "Najashi", "Heraclius"],
+      "ar": ["ورقة بن نوفل", "الراهب بحيرى", "النجاشي", "هرقل"],
+      "ur": ["ورقہ بن نوفل", "راہب بحیرا", "نجاشی", "ہرقل"]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "On seeing the Prophet ﷺ, what did the monk Bahira say to his uncle?",
+      "ar": "ماذا قال الراهب بحيرى لعم النبي ﷺ حين رآه؟",
+      "ur": "نبی ﷺ کو دیکھ کر راہب بحیرا نے ان کے چچا سے کیا کہا؟"
+    },
+    "options": {
+      "en": [
+        "Take him to Yemen to study with the scholars there",
+        "Leave him with me so I may teach him",
+        "He is an ordinary boy, so there is no need to worry",
+        "All the signs of the final prophet are in him; take him back and protect him from the evil of the Jews"
+      ],
+      "ar": [
+        "خذه إلى اليمن ليتعلم عند العلماء هناك",
+        "اتركه عندي لأعلّمه",
+        "إنه غلام عادي فلا داعي للقلق",
+        "فيه جميع علامات النبي الخاتم، فارجع به واحذر عليه من شر اليهود"
+      ],
+      "ur": [
+        "اسے یمن لے جاؤ تاکہ وہاں کے علما سے سیکھے",
+        "اسے میرے پاس چھوڑ دو تاکہ میں اسے سکھاؤں",
+        "یہ ایک عام لڑکا ہے، فکر کی کوئی بات نہیں",
+        "اس میں آخری نبی کی تمام نشانیاں موجود ہیں؛ اسے واپس لے جاؤ اور یہود کے شر سے اس کی حفاظت کرو"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood (p. 17)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Abu Talib do after hearing the monk's words?",
+      "ar": "ماذا فعل أبو طالب بعد أن سمع كلام الراهب؟",
+      "ur": "راہب کی بات سن کر ابو طالب نے کیا کیا؟"
+    },
+    "options": {
+      "en": ["He continued the journey to Syria", "He left the Prophet ﷺ with the monk", "He took him on to Yemen", "He sent him back to Makkah"],
+      "ar": ["أكمل الرحلة إلى الشام", "ترك النبي ﷺ عند الراهب", "أخذه إلى اليمن", "أعاده إلى مكة"],
+      "ur": ["سفر شام جاری رکھا", "نبی ﷺ کو راہب کے پاس چھوڑ دیا", "انہیں یمن لے گئے", "انہیں مکہ واپس بھیج دیا"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Prophet ﷺ live in his uncle's house?",
+      "ar": "كيف كانت حياة النبي ﷺ في بيت عمه؟",
+      "ur": "نبی ﷺ نے اپنے چچا کے گھر میں کیسے زندگی گزاری؟"
+    },
+    "options": {
+      "en": ["With great calm, without troubling anyone", "Demanding things from the household", "Always crying for his parents", "Constantly arguing with the other children"],
+      "ar": ["في هدوء تام ولم يكن يزعج أحدًا", "كان يطلب الأشياء من أهل البيت", "كان يبكي دائمًا على والديه", "كان يتشاجر باستمرار مع الأطفال"],
+      "ur": ["بڑے سکون سے، کسی کو تنگ نہیں کرتے تھے", "گھر والوں سے چیزوں کی ضد کرتے تھے", "ہمیشہ اپنے والدین کے لیے روتے رہتے تھے", "دوسرے بچوں سے مسلسل جھگڑتے تھے"]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In childhood, in what state would the Prophet ﷺ be when he woke in the morning?",
+      "ar": "في طفولته، كيف كان يبدو النبي ﷺ حين يستيقظ في الصباح؟",
+      "ur": "بچپن میں نبی ﷺ صبح جاگتے تو کس حالت میں ہوتے تھے؟"
+    },
+    "options": {
+      "en": ["Still sleepy and needing to be woken", "Crying for food", "As if his face had already been washed", "Asking for his mother"],
+      "ar": ["ما زال ناعسًا ويحتاج إلى من يوقظه", "يبكي طلبًا للطعام", "كأن وجهه قد غُسل من قبل", "يسأل عن أمه"],
+      "ur": ["ابھی نیند میں ہوتے اور جگانے کی ضرورت پڑتی", "کھانے کے لیے روتے", "گویا چہرہ پہلے ہی دھلا ہوا ہو", "اپنی والدہ کو پوچھتے"]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did the Prophet ﷺ often spend the day in childhood?",
+      "ar": "كيف كان النبي ﷺ يقضي نهاره غالبًا في طفولته؟",
+      "ur": "بچپن میں نبی ﷺ اکثر دن کیسے گزارتے تھے؟"
+    },
+    "options": {
+      "en": ["Trading in the market", "Playing games with other children", "Wandering alone in the desert", "Often sitting in the Haram Sharif"],
+      "ar": ["يتاجر في السوق", "يلعب مع الأطفال", "يتجول وحده في الصحراء", "يجلس كثيرًا في الحرم الشريف"],
+      "ur": ["بازار میں تجارت کرتے", "دوسرے بچوں کے ساتھ کھیلتے", "تنہا صحرا میں گھومتے", "اکثر حرم شریف میں بیٹھتے"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When the Prophet ﷺ sat down to eat at the dining cloth, what would happen because of him?",
+      "ar": "حين كان النبي ﷺ يجلس إلى مائدة الطعام، ماذا كان يحدث بسببه؟",
+      "ur": "جب نبی ﷺ دسترخوان پر کھانے بیٹھتے تو آپ کی وجہ سے کیا ہوتا؟"
+    },
+    "options": {
+      "en": ["The food would increase in taste only", "The food would be finished quickly", "There was blessing in the food", "The food would become cold"],
+      "ar": ["يزداد الطعام لذة فقط", "ينفد الطعام بسرعة", "كانت البركة تحل في الطعام", "يبرد الطعام"],
+      "ur": ["کھانا صرف ذائقے میں بڑھ جاتا", "کھانا جلدی ختم ہو جاتا", "کھانے میں برکت ہوتی", "کھانا ٹھنڈا ہو جاتا"]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When the Prophet ﷺ walked in the sun, what would shade him?",
+      "ar": "حين كان النبي ﷺ يمشي تحت الشمس، ما الذي كان يظلله؟",
+      "ur": "جب نبی ﷺ دھوپ میں چلتے تو آپ پر کیا سایہ کرتا تھا؟"
+    },
+    "options": {
+      "en": ["A tree", "A cloud", "An angel's wing", "A tent"],
+      "ar": ["شجرة", "غمامة", "جناح ملك", "خيمة"],
+      "ur": ["ایک درخت", "ایک بادل", "فرشتے کا پر", "ایک خیمہ"]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In childhood, did the Prophet ﷺ ever act stubborn like ordinary children?",
+      "ar": "هل كان النبي ﷺ في طفولته يعاند كسائر الأطفال؟",
+      "ur": "کیا نبی ﷺ بچپن میں عام بچوں کی طرح کبھی ضد کرتے تھے؟"
+    },
+    "options": {
+      "en": ["Often", "Sometimes", "Only when hungry", "Never"],
+      "ar": ["كثيرًا", "أحيانًا", "عند الجوع فقط", "أبدًا"],
+      "ur": ["اکثر", "کبھی کبھی", "صرف بھوک کے وقت", "کبھی نہیں"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What would the Prophet's ﷺ grandfather say on seeing him?",
+      "ar": "ماذا كان يقول جد النبي ﷺ حين يراه؟",
+      "ur": "نبی ﷺ کو دیکھ کر ان کے دادا کیا فرماتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "He will become the wealthiest man in Makkah",
+        "By God! His stature is unique; he will attain an honour that no one has had before nor will anyone have in the future",
+        "He will become the greatest warrior of the Arabs",
+        "He will inherit the keys of the Kaaba from me"
+      ],
+      "ar": [
+        "سيصبح أغنى رجل في مكة",
+        "والله إن لابني هذا شأنًا عظيمًا؛ سينال شرفًا لم ينله أحد قبله ولن ينله أحد بعده",
+        "سيصبح أعظم محارب عند العرب",
+        "سيرث مني مفاتيح الكعبة"
+      ],
+      "ur": [
+        "یہ مکہ کا سب سے مالدار آدمی بنے گا",
+        "خدا کی قسم! اس کی شان نرالی ہے؛ یہ ایسا مقام پائے گا جو نہ پہلے کسی کو ملا اور نہ آئندہ کسی کو ملے گا",
+        "یہ عربوں کا سب سے بڑا جنگجو بنے گا",
+        "یہ مجھ سے کعبہ کی کنجیاں وراثت میں پائے گا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of these special events took place in the Prophet's ﷺ childhood?",
+      "ar": "أي من هذه الأحداث الخاصة وقع في طفولة النبي ﷺ؟",
+      "ur": "ان میں سے کون سا خاص واقعہ نبی ﷺ کے بچپن میں پیش آیا؟"
+    },
+    "options": {
+      "en": ["The opening of the chest", "The first revelation in the Cave of Hira", "The Migration to Madinah", "The Battle of Badr"],
+      "ar": ["شق الصدر", "نزول الوحي الأول في غار حراء", "الهجرة إلى المدينة", "غزوة بدر"],
+      "ur": ["شقِ صدر", "غارِ حرا میں پہلی وحی", "ہجرتِ مدینہ", "غزوۂ بدر"]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was a close friend of the Prophet ﷺ in childhood?",
+      "ar": "من كان صديقًا مقربًا للنبي ﷺ في طفولته؟",
+      "ur": "بچپن میں نبی ﷺ کے قریبی دوست کون تھے؟"
+    },
+    "options": {
+      "en": ["Hazrat Umar", "Hazrat Uthman", "Hazrat Khalid ibn al-Walid", "Hazrat Abu Bakr Siddiq"],
+      "ar": ["عمر بن الخطاب", "عثمان بن عفان", "خالد بن الوليد", "أبو بكر الصديق"],
+      "ur": ["حضرت عمر", "حضرت عثمان", "حضرت خالد بن ولید", "حضرت ابو بکر صدیق"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In childhood, when the Prophet ﷺ saw most people engaged in idol-worship, what was his reaction?",
+      "ar": "في طفولته، حين رأى النبي ﷺ أكثر الناس يعبدون الأصنام، ما كان موقفه؟",
+      "ur": "بچپن میں جب نبی ﷺ نے اکثر لوگوں کو بت پرستی کرتے دیکھا تو آپ کا ردعمل کیا تھا؟"
+    },
+    "options": {
+      "en": ["He joined them", "He felt aversion", "He was indifferent", "He was afraid of them"],
+      "ar": ["شاركهم في ذلك", "كان ينفر منها", "كان غير مبالٍ", "كان يخاف منها"],
+      "ur": ["ان کے ساتھ شامل ہو گئے", "آپ کو نفرت محسوس ہوتی", "بے پروا رہتے", "ان سے ڈرتے"]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "At what age did the first incident of the opening of the chest occur?",
+      "ar": "في أي عمر وقعت حادثة شق الصدر الأولى؟",
+      "ur": "شقِ صدر کا پہلا واقعہ کس عمر میں پیش آیا؟"
+    },
+    "options": {
+      "en": ["At the age of two", "At the age of seven", "At the age of ten", "At the age of four"],
+      "ar": ["في عمر سنتين", "في عمر سبع سنوات", "في عمر عشر سنوات", "في عمر أربع سنوات"],
+      "ur": ["دو سال کی عمر میں", "سات سال کی عمر میں", "دس سال کی عمر میں", "چار سال کی عمر میں"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood (p. 18)"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the Prophet ﷺ doing at the time of the opening of the chest?",
+      "ar": "ماذا كان النبي ﷺ يفعل وقت شق الصدر؟",
+      "ur": "شقِ صدر کے وقت نبی ﷺ کیا کر رہے تھے؟"
+    },
+    "options": {
+      "en": ["Praying in the Haram", "Sitting with his grandfather", "Travelling to Syria", "Grazing goats"],
+      "ar": ["يصلي في الحرم", "يجلس مع جده", "يسافر إلى الشام", "يرعى الغنم"],
+      "ur": ["حرم میں نماز پڑھ رہے تھے", "اپنے دادا کے پاس بیٹھے تھے", "شام کا سفر کر رہے تھے", "بکریاں چرا رہے تھے"]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Childhood"
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was with the Prophet ﷺ at the time of the opening of the chest?",
+      "ar": "من كان مع النبي ﷺ وقت شق الصدر؟",
+      "ur": "شقِ صدر کے وقت نبی ﷺ کے ساتھ کون تھا؟"
+    },
+    "options": {
+      "en": ["His foster brother", "His uncle Abu Talib", "Hazrat Abu Bakr", "His grandfather"],
+      "ar": ["أخوه من الرضاعة", "عمه أبو طالب", "أبو بكر", "جده"],
+      "ur": ["ان کا رضاعی بھائی", "ان کے چچا ابو طالب", "حضرت ابو بکر", "ان کے دادا"]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Childhood"
+  }
+]

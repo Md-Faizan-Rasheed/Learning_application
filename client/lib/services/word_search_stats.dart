@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'local_progress_preferences.dart';
 import '../utils/word_search_generator.dart';
 
 /// Local-only best-time/completion tracking for the Word Search game — it
@@ -20,7 +21,8 @@ class WordSearchStats {
 
   Future<Map<String, dynamic>> _read() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_key);
+    final key = await LocalProgressPreferences.keyFor(_key);
+    final raw = prefs.getString(key);
     if (raw == null) return {};
     try {
       return jsonDecode(raw) as Map<String, dynamic>;
@@ -31,7 +33,8 @@ class WordSearchStats {
 
   Future<void> _write(Map<String, dynamic> data) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_key, jsonEncode(data));
+    final key = await LocalProgressPreferences.keyFor(_key);
+    await prefs.setString(key, jsonEncode(data));
   }
 
   /// Best completion time in seconds for [category]/[difficulty], or null
@@ -55,8 +58,8 @@ class WordSearchStats {
     required int seconds,
   }) async {
     final data = await _read();
-    final categoryData =
-        Map<String, dynamic>.from(data[category.name] as Map<String, dynamic>? ?? {});
+    final categoryData = Map<String, dynamic>.from(
+        data[category.name] as Map<String, dynamic>? ?? {});
     final entry = Map<String, dynamic>.from(
         categoryData[difficulty.name] as Map<String, dynamic>? ?? {});
     final currentBest = entry['bestSeconds'] as int?;

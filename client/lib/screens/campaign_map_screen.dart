@@ -72,7 +72,73 @@ class _CampaignMapScreenState extends State<CampaignMapScreen> {
     }
   }
 
-  void _playStage(CampaignStage stage) {
+  Future<void> _playStage(CampaignStage stage) async {
+    if (stage.questionCount < 1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!.campaignNoQuestions)),
+      );
+      return;
+    }
+
+    final selectedRange = await showDialog<RangeValues>(
+      context: context,
+      builder: (dialogContext) {
+        var selected = RangeValues(
+          1,
+          (stage.questionCount < 8 ? stage.questionCount : 8).toDouble(),
+        );
+        return StatefulBuilder(
+          builder: (context, setDialogState) => AlertDialog(
+            title:
+                Text(AppLocalizations.of(context)!.campaignChooseQuestionCount),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(AppLocalizations.of(context)!
+                    .campaignQuestionCount(stage.questionCount)),
+                const SizedBox(height: 12),
+                Text(
+                  AppLocalizations.of(context)!.campaignQuestionRange(
+                    selected.start.round(),
+                    selected.end.round(),
+                    stage.questionCount,
+                  ),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                RangeSlider(
+                  values: selected,
+                  min: 1,
+                  max: stage.questionCount.toDouble(),
+                  divisions:
+                      stage.questionCount > 1 ? stage.questionCount - 1 : null,
+                  labels: RangeLabels(
+                    '${selected.start.round()}',
+                    '${selected.end.round()}',
+                  ),
+                  onChanged: (value) => setDialogState(() => selected = value),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(),
+                child:
+                    Text(MaterialLocalizations.of(context).cancelButtonLabel),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.of(dialogContext).pop(selected),
+                child: Text(AppLocalizations.of(context)!.campaignPlayStage),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+    if (selectedRange == null || !mounted) return;
+
     Navigator.of(context)
         .push(MaterialPageRoute(
           builder: (_) => MultiplayerScreen(
@@ -81,6 +147,8 @@ class _CampaignMapScreenState extends State<CampaignMapScreen> {
             token: widget.token,
             category: 'seerah',
             campaignStageId: stage.slug,
+            campaignQuestionStart: selectedRange.start.round(),
+            campaignQuestionEnd: selectedRange.end.round(),
           ),
         ))
         .then((_) => _load());
@@ -100,8 +168,9 @@ class _CampaignMapScreenState extends State<CampaignMapScreen> {
     return Scaffold(
       appBar: AppHeader(
         title: t.campaignMapTitle,
-        scrollController:
-            (_loading || _error != null || _stages.isEmpty) ? null : _scrollController,
+        scrollController: (_loading || _error != null || _stages.isEmpty)
+            ? null
+            : _scrollController,
       ),
       body: Stack(
         children: [
@@ -117,7 +186,8 @@ class _CampaignMapScreenState extends State<CampaignMapScreen> {
                           children: [
                             Text(_error!, textAlign: TextAlign.center),
                             const SizedBox(height: 12),
-                            FilledButton(onPressed: _load, child: Text(t.retry)),
+                            FilledButton(
+                                onPressed: _load, child: Text(t.retry)),
                           ],
                         ),
                       )
@@ -177,7 +247,8 @@ const Map<String, IconData> _kStageIcons = {
   'completion': Icons.emoji_events_rounded,
 };
 
-IconData _iconForStage(String slug) => _kStageIcons[slug] ?? Icons.auto_stories_rounded;
+IconData _iconForStage(String slug) =>
+    _kStageIcons[slug] ?? Icons.auto_stories_rounded;
 
 /// The winding vertical path: stage nodes at alternating x-positions
 /// (left/right/center, cycling every 3), connected by a curved line that's
@@ -219,7 +290,8 @@ class _CampaignPath extends StatefulWidget {
   State<_CampaignPath> createState() => _CampaignPathState();
 }
 
-class _CampaignPathState extends State<_CampaignPath> with TickerProviderStateMixin {
+class _CampaignPathState extends State<_CampaignPath>
+    with TickerProviderStateMixin {
   late final AnimationController _pulseController;
   late final AnimationController _dotController;
   late final Animation<double> _pulseScale;
@@ -243,8 +315,8 @@ class _CampaignPathState extends State<_CampaignPath> with TickerProviderStateMi
       vsync: this,
       duration: const Duration(milliseconds: 2400),
     )..repeat(reverse: true);
-    _pulseScale = Tween<double>(begin: 1.0, end: 1.05)
-        .animate(CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut));
+    _pulseScale = Tween<double>(begin: 1.0, end: 1.05).animate(
+        CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut));
     _dotController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 6000),
@@ -268,11 +340,13 @@ class _CampaignPathState extends State<_CampaignPath> with TickerProviderStateMi
         constraints: const BoxConstraints(maxWidth: 640),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final pathWidth = constraints.maxWidth - widget.horizontalPadding * 2;
+            final pathWidth =
+                constraints.maxWidth - widget.horizontalPadding * 2;
             final centers = <Offset>[];
             for (var i = 0; i < stages.length; i++) {
-              final diameter =
-                  stages[i].state == 'current' ? _currentNodeDiameter : _nodeDiameter;
+              final diameter = stages[i].state == 'current'
+                  ? _currentNodeDiameter
+                  : _nodeDiameter;
               final radius = diameter / 2;
               final x = (pathWidth * _xFractions[i % _xFractions.length])
                   .clamp(radius, pathWidth - radius);
@@ -281,7 +355,9 @@ class _CampaignPathState extends State<_CampaignPath> with TickerProviderStateMi
             }
             final totalHeight = stages.isEmpty
                 ? 0.0
-                : centers.last.dy + _currentNodeDiameter / 2 + widget.bottomReserve;
+                : centers.last.dy +
+                    _currentNodeDiameter / 2 +
+                    widget.bottomReserve;
 
             final segments = <CampaignPathSegment>[
               for (var i = 0; i < stages.length - 1; i++)
@@ -294,8 +370,8 @@ class _CampaignPathState extends State<_CampaignPath> with TickerProviderStateMi
 
             return SingleChildScrollView(
               controller: widget.scrollController,
-              padding:
-                  EdgeInsets.fromLTRB(widget.horizontalPadding, 0, widget.horizontalPadding, 0),
+              padding: EdgeInsets.fromLTRB(
+                  widget.horizontalPadding, 0, widget.horizontalPadding, 0),
               child: SizedBox(
                 height: totalHeight,
                 width: pathWidth,
@@ -331,7 +407,8 @@ class _CampaignPathState extends State<_CampaignPath> with TickerProviderStateMi
                           icon: _iconForStage(stages[i].slug),
                           previousStageName:
                               i > 0 ? stages[i - 1].nameFor(widget.lang) : null,
-                          pulseScale: stages[i].state == 'current' ? _pulseScale : null,
+                          pulseScale:
+                              stages[i].state == 'current' ? _pulseScale : null,
                           onTap: () => widget.onPlayStage(stages[i]),
                         ),
                       ),
@@ -399,7 +476,9 @@ class _StageNodeState extends State<_StageNode> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final colors = Theme.of(context).colorScheme;
-    final pct = stage.target == 0 ? 0.0 : (stage.progress / stage.target).clamp(0.0, 1.0);
+    final pct = stage.target == 0
+        ? 0.0
+        : (stage.progress / stage.target).clamp(0.0, 1.0);
 
     Widget circle;
     Color labelColor;
@@ -434,7 +513,9 @@ class _StageNodeState extends State<_StageNode> {
     }
 
     final semanticsExtra = stage.isLocked
-        ? (previousStageName != null ? t.campaignUnlocksAfter(previousStageName!) : '')
+        ? (previousStageName != null
+            ? t.campaignUnlocksAfter(previousStageName!)
+            : '')
         : stage.state == 'current'
             ? t.campaignYouAreHere
             : '';
@@ -476,11 +557,13 @@ class _StageNodeState extends State<_StageNode> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.quiz_outlined, size: 10, color: colors.onSurfaceVariant),
+                  Icon(Icons.quiz_outlined,
+                      size: 10, color: colors.onSurfaceVariant),
                   const SizedBox(width: 3),
                   Text(
                     t.campaignQuestionCount(stage.questionCount),
-                    style: TextStyle(fontSize: 9, color: colors.onSurfaceVariant),
+                    style:
+                        TextStyle(fontSize: 9, color: colors.onSurfaceVariant),
                   ),
                 ],
               ),
@@ -533,7 +616,8 @@ class _StageNodeState extends State<_StageNode> {
           Container(
             width: diameter,
             height: diameter,
-            decoration: BoxDecoration(shape: BoxShape.circle, color: fill, border: border),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: fill, border: border),
             alignment: Alignment.center,
             child: Icon(icon, color: glyphColor, size: 22),
           ),
@@ -585,7 +669,8 @@ class _StageNodeState extends State<_StageNode> {
           Container(
             width: _currentInner,
             height: _currentInner,
-            decoration: BoxDecoration(shape: BoxShape.circle, color: colors.primary),
+            decoration:
+                BoxDecoration(shape: BoxShape.circle, color: colors.primary),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -613,7 +698,8 @@ class _StageNodeState extends State<_StageNode> {
 /// stage's progress and the Play action — replaces the inline progress bar
 /// + button that used to sit under that stage's card.
 class _CurrentStageCard extends StatelessWidget {
-  const _CurrentStageCard({required this.stage, required this.lang, required this.onPlay});
+  const _CurrentStageCard(
+      {required this.stage, required this.lang, required this.onPlay});
 
   final CampaignStage stage;
   final String lang;
@@ -623,7 +709,9 @@ class _CurrentStageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final colors = Theme.of(context).colorScheme;
-    final pct = stage.target == 0 ? 0.0 : (stage.progress / stage.target).clamp(0.0, 1.0);
+    final pct = stage.target == 0
+        ? 0.0
+        : (stage.progress / stage.target).clamp(0.0, 1.0);
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -632,7 +720,10 @@ class _CurrentStageCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: colors.outlineVariant),
         boxShadow: [
-          BoxShadow(color: colors.shadow.withValues(alpha: 0.12), blurRadius: 16, offset: const Offset(0, 6)),
+          BoxShadow(
+              color: colors.shadow.withValues(alpha: 0.12),
+              blurRadius: 16,
+              offset: const Offset(0, 6)),
         ],
       ),
       child: Row(
@@ -644,7 +735,10 @@ class _CurrentStageCard extends StatelessWidget {
               children: [
                 Text(
                   stage.nameFor(lang),
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(fontWeight: FontWeight.w700),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -654,7 +748,8 @@ class _CurrentStageCard extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: pct,
                     minHeight: 8,
-                    backgroundColor: colors.outlineVariant.withValues(alpha: 0.4),
+                    backgroundColor:
+                        colors.outlineVariant.withValues(alpha: 0.4),
                     valueColor: AlwaysStoppedAnimation<Color>(colors.primary),
                   ),
                 ),

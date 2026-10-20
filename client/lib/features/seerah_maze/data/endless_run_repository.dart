@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../services/local_progress_preferences.dart';
 import '../models/endless_best_run.dart';
 
 /// C3 — local persistence for [EndlessBestRun], same SharedPreferences +
@@ -13,7 +14,8 @@ class EndlessRunRepository {
 
   Future<EndlessBestRun> load() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_key);
+    final key = await LocalProgressPreferences.keyFor(_key);
+    final raw = prefs.getString(key);
     if (raw == null) return const EndlessBestRun();
     try {
       return EndlessBestRun.fromJson(jsonDecode(raw) as Map<String, dynamic>);
@@ -24,6 +26,7 @@ class EndlessRunRepository {
 
   Future<void> save(EndlessBestRun run) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_key, jsonEncode(run.toJson()));
+    final key = await LocalProgressPreferences.keyFor(_key);
+    await prefs.setString(key, jsonEncode(run.toJson()));
   }
 }

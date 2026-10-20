@@ -3,31 +3,63 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "By what names did the people of Makkah call the Prophet ﷺ before prophethood?",
-      "ar": "بأي اسمين كان أهل مكة يدعون النبي ﷺ قبل البعثة؟",
-      "ur": "نبوت سے پہلے اہلِ مکہ نبی ﷺ کو کن ناموں سے پکارتے تھے؟"
+      "en": "What was the Prophet ﷺ like in his youth?",
+      "ar": "كيف كان النبي ﷺ في شبابه؟",
+      "ur": "نبی ﷺ جوانی میں کیسے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Weak and often ill",
+        "Harsh and quick-tempered",
+        "Very handsome and dignified",
+        "Shy and unknown to the people"
+      ],
+      "ar": [
+        "ضعيفًا كثير المرض",
+        "قاسيًا سريع الغضب",
+        "في غاية الجمال والوقار",
+        "خجولًا غير معروف بين الناس"
+      ],
+      "ur": [
+        "کمزور اور اکثر بیمار",
+        "سخت مزاج اور تیز غصے والے",
+        "بہت خوبصورت اور باوقار",
+        "شرمیلے اور لوگوں میں غیر معروف"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Life Before Prophethood",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what names did even the disbelievers of Makkah call the Prophet ﷺ before prophethood?",
+      "ar": "بأي اسمين كان كفار مكة يدعون النبي ﷺ قبل البعثة؟",
+      "ur": "نبوت سے پہلے کفارِ مکہ بھی نبی ﷺ کو کن ناموں سے پکارتے تھے؟"
     },
     "options": {
       "en": [
         "Al-Faruq and Al-Siddiq",
-        "The Truthful (Sadiq) and the Trustworthy (Amin)",
         "Al-Mustafa and Al-Murtada",
-        "Al-Karim and Al-Rahim"
+        "Al-Karim and Al-Rahim",
+        "The Truthful (Sadiq) and the Trustworthy (Amin)"
       ],
       "ar": [
         "الفاروق والصدّيق",
-        "الصادق والأمين",
         "المصطفى والمرتضى",
-        "الكريم والرحيم"
+        "الكريم والرحيم",
+        "الصادق والأمين"
       ],
       "ur": [
         "فاروق اور صدیق",
-        "صادق اور امین",
         "مصطفیٰ اور مرتضیٰ",
-        "کریم اور رحیم"
+        "کریم اور رحیم",
+        "صادق اور امین"
       ]
     },
-    "correct_index": 1,
+    "correct_index": 3,
     "source": "Seerah — Life Before Prophethood",
     "event_id": null
   },
@@ -35,28 +67,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "On what qualities of the Prophet ﷺ did all the people of Makkah agree?",
-      "ar": "على أي صفات للنبي ﷺ أجمع أهل مكة؟",
-      "ur": "نبی ﷺ کی کن صفات پر اہلِ مکہ سب متفق تھے؟"
+      "en": "On what point about the Prophet ﷺ did all the people of Makkah agree?",
+      "ar": "على أي أمر في النبي ﷺ أجمع أهل مكة كلهم؟",
+      "ur": "نبی ﷺ کی کس بات پر اہلِ مکہ سب متفق تھے؟"
     },
     "options": {
       "en": [
-        "His wealth and land",
+        "His wealth",
         "His truthfulness, honesty and nobility",
-        "His skill in poetry",
-        "His strength in wrestling"
+        "His poetry",
+        "His command of an army"
       ],
       "ar": [
-        "ثروته وأراضيه",
+        "ثروته",
         "صدقه وأمانته ونبله",
-        "براعته في الشعر",
-        "قوته في المصارعة"
+        "شعره",
+        "قيادته للجيش"
       ],
       "ur": [
-        "آپ ﷺ کی دولت اور زمین",
+        "آپ ﷺ کی دولت",
         "آپ ﷺ کی سچائی، امانت داری اور شرافت",
-        "آپ ﷺ کی شاعری میں مہارت",
-        "آپ ﷺ کی پہلوانی"
+        "آپ ﷺ کی شاعری",
+        "آپ ﷺ کی فوجی قیادت"
       ]
     },
     "correct_index": 1,
@@ -67,7 +99,7 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What was the profession of the Prophet ﷺ in his youth?",
+      "en": "What was the Prophet's ﷺ profession in his youth?",
       "ar": "ما كانت مهنة النبي ﷺ في شبابه؟",
       "ur": "نبی ﷺ کا جوانی میں پیشہ کیا تھا؟"
     },
@@ -75,55 +107,55 @@
       "en": [
         "Trade",
         "Farming",
-        "Blacksmithing",
+        "Medicine",
         "Teaching"
       ],
       "ar": [
         "التجارة",
         "الزراعة",
-        "الحدادة",
+        "الطب",
         "التعليم"
       ],
       "ur": [
         "تجارت",
         "کھیتی باڑی",
-        "لوہاری",
+        "طب",
         "تدریس"
       ]
     },
     "correct_index": 0,
-    "source": "Seerah — Life Before Prophethood",
+    "source": "Seerah — Trade Journeys",
     "event_id": null
   },
   {
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "To which land did the Prophet ﷺ travel for trade?",
-      "ar": "إلى أي بلد سافر النبي ﷺ للتجارة؟",
-      "ur": "نبی ﷺ تجارت کے لیے کس ملک تشریف لے گئے؟"
+      "en": "Where did the Prophet ﷺ travel for the purpose of trade?",
+      "ar": "إلى أين سافر النبي ﷺ لغرض التجارة؟",
+      "ur": "نبی ﷺ تجارت کی غرض سے کہاں تشریف لے گئے؟"
     },
     "options": {
       "en": [
         "Yemen",
-        "Syria (Sham)",
         "Egypt",
-        "Iraq"
+        "Syria (Sham)",
+        "Abyssinia"
       ],
       "ar": [
         "اليمن",
-        "الشام",
         "مصر",
-        "العراق"
+        "الشام",
+        "الحبشة"
       ],
       "ur": [
         "یمن",
-        "شام",
         "مصر",
-        "عراق"
+        "شام",
+        "حبشہ"
       ]
     },
-    "correct_index": 1,
+    "correct_index": 2,
     "source": "Seerah — Trade Journeys",
     "event_id": null
   },
@@ -137,25 +169,25 @@
     },
     "options": {
       "en": [
+        "Hazrat Khadija",
         "Hazrat Hafsa",
-        "Hazrat Aisha",
-        "Hazrat Zaynab",
-        "Hazrat Khadija"
+        "Hazrat Sawda",
+        "Hazrat Zaynab"
       ],
       "ar": [
+        "السيدة خديجة",
         "السيدة حفصة",
-        "السيدة عائشة",
-        "السيدة زينب",
-        "السيدة خديجة"
+        "السيدة سودة",
+        "السيدة زينب"
       ],
       "ur": [
+        "حضرت خدیجہ",
         "حضرت حفصہ",
-        "حضرت عائشہ",
-        "حضرت زینب",
-        "حضرت خدیجہ"
+        "حضرت سودہ",
+        "حضرت زینب"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 0,
     "source": "Seerah — Trade Journeys",
     "event_id": null
   },
@@ -169,22 +201,54 @@
     },
     "options": {
       "en": [
-        "Mudaraba (profit-sharing partnership)",
+        "Fixed wages",
         "Interest-based loan",
-        "Fixed rent",
-        "Gift"
+        "Mudaraba (profit-sharing partnership)",
+        "Outright purchase"
       ],
       "ar": [
-        "المضاربة (شراكة في الربح)",
+        "أجر ثابت",
         "قرض بفائدة",
-        "إيجار ثابت",
-        "هبة"
+        "المضاربة (شراكة في الربح)",
+        "الشراء المباشر"
       ],
       "ur": [
-        "مضاربت (منافع میں شراکت)",
+        "مقررہ اجرت",
         "سود پر قرض",
-        "مقررہ کرایہ",
-        "تحفہ"
+        "مضاربت (منافع میں شراکت)",
+        "سیدھی خرید و فروخت"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Trade Journeys",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To which country did the Prophet ﷺ take Hazrat Khadija's trade goods?",
+      "ar": "إلى أي بلد حمل النبي ﷺ بضاعة السيدة خديجة؟",
+      "ur": "نبی ﷺ حضرت خدیجہ کا تجارتی مال لے کر کس ملک گئے؟"
+    },
+    "options": {
+      "en": [
+        "Syria (Sham)",
+        "Yemen",
+        "Egypt",
+        "Persia"
+      ],
+      "ar": [
+        "الشام",
+        "اليمن",
+        "مصر",
+        "فارس"
+      ],
+      "ur": [
+        "شام",
+        "یمن",
+        "مصر",
+        "فارس"
       ]
     },
     "correct_index": 0,
@@ -195,31 +259,31 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who was sent by Hazrat Khadija with the Prophet ﷺ on the trade journey?",
-      "ar": "من الذي أرسلته السيدة خديجة مع النبي ﷺ في رحلة التجارة؟",
-      "ur": "حضرت خدیجہ نے تجارتی سفر میں نبی ﷺ کے ساتھ کس کو بھیجا؟"
+      "en": "Whom did Hazrat Khadija send with the Prophet ﷺ on this trade journey?",
+      "ar": "من الذي أرسلته السيدة خديجة مع النبي ﷺ في رحلة التجارة هذه؟",
+      "ur": "حضرت خدیجہ نے اس تجارتی سفر میں نبی ﷺ کے ساتھ کس کو بھیجا؟"
     },
     "options": {
       "en": [
-        "Maysara",
         "Bilal",
-        "Zayd",
-        "Anas"
+        "Maysara, the slave of Hazrat Khadija",
+        "Anas",
+        "Abu Jahl"
       ],
       "ar": [
-        "ميسرة",
         "بلال",
-        "زيد",
-        "أنس"
+        "ميسرة، غلام السيدة خديجة",
+        "أنس",
+        "أبو جهل"
       ],
       "ur": [
-        "میسرہ",
         "بلال",
-        "زید",
-        "انس"
+        "میسرہ، حضرت خدیجہ کا غلام",
+        "انس",
+        "ابو جہل"
       ]
     },
-    "correct_index": 0,
+    "correct_index": 1,
     "source": "Seerah — Trade Journeys",
     "event_id": null
   },
@@ -227,31 +291,31 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What did Maysara tell Hazrat Khadija about the Prophet ﷺ?",
-      "ar": "ماذا أخبر ميسرة السيدة خديجة عن النبي ﷺ؟",
-      "ur": "میسرہ نے حضرت خدیجہ کو نبی ﷺ کے بارے میں کیا بتایا؟"
+      "en": "What did Hazrat Khadija's slave Maysara tell her about the Prophet ﷺ after the journey?",
+      "ar": "ماذا أخبر ميسرة غلام السيدة خديجة سيدته عن النبي ﷺ بعد الرحلة؟",
+      "ur": "سفر کے بعد حضرت خدیجہ کے غلام میسرہ نے انہیں نبی ﷺ کے بارے میں کیا بتایا؟"
     },
     "options": {
       "en": [
-        "That he was honest and there was blessing in his business",
         "That he was tired of trading",
-        "That he lost the goods",
-        "That he refused to trade"
+        "That he had lost the goods",
+        "That he refused to trade",
+        "That he was honest and there was blessing in his business"
       ],
       "ar": [
-        "أنه صادق وأن في تجارته بركة",
         "أنه مل من التجارة",
-        "أنه أضاع البضائع",
-        "أنه رفض التجارة"
+        "أنه أضاع البضاعة",
+        "أنه رفض التجارة",
+        "أنه صادق وأن في تجارته بركة"
       ],
       "ur": [
-        "کہ آپ ﷺ دیانت دار ہیں اور ان کی تجارت میں برکت ہے",
         "کہ آپ ﷺ تجارت سے تھک گئے",
         "کہ آپ ﷺ نے مال گم کر دیا",
-        "کہ آپ ﷺ نے تجارت سے انکار کر دیا"
+        "کہ آپ ﷺ نے تجارت سے انکار کر دیا",
+        "کہ آپ ﷺ دیانت دار ہیں اور ان کی تجارت میں برکت ہے"
       ]
     },
-    "correct_index": 0,
+    "correct_index": 3,
     "source": "Seerah — Trade Journeys",
     "event_id": null
   },
@@ -265,54 +329,22 @@
     },
     "options": {
       "en": [
+        "A double profit",
         "Half the usual profit",
         "No profit",
-        "A loss",
-        "Double profit"
+        "A loss"
       ],
       "ar": [
+        "ربح مضاعف",
         "نصف الربح المعتاد",
         "لا ربح",
-        "خسارة",
-        "ربح مضاعف"
+        "خسارة"
       ],
       "ur": [
+        "دوگنا نفع",
         "معمول کا آدھا نفع",
         "کوئی نفع نہیں",
-        "نقصان",
-        "دوگنا نفع"
-      ]
-    },
-    "correct_index": 3,
-    "source": "Seerah — Trade Journeys",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "How many foreign trade journeys did the Prophet ﷺ make before prophethood?",
-      "ar": "كم رحلة تجارية خارجية قام بها النبي ﷺ قبل البعثة؟",
-      "ur": "نبوت سے پہلے نبی ﷺ نے کتنے بیرونی تجارتی سفر کیے؟"
-    },
-    "options": {
-      "en": [
-        "Two",
-        "One",
-        "Five",
-        "Ten"
-      ],
-      "ar": [
-        "رحلتان",
-        "رحلة واحدة",
-        "خمس رحلات",
-        "عشر رحلات"
-      ],
-      "ur": [
-        "دو",
-        "ایک",
-        "پانچ",
-        "دس"
+        "نقصان"
       ]
     },
     "correct_index": 0,
@@ -323,9 +355,169 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
+      "en": "How many foreign trade journeys did the Prophet ﷺ make before prophethood?",
+      "ar": "كم رحلة خارجية قام بها النبي ﷺ قبل البعثة؟",
+      "ur": "نبوت سے پہلے نبی ﷺ نے کتنے بیرونی سفر کیے؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Two",
+        "Five",
+        "Ten"
+      ],
+      "ar": [
+        "رحلة واحدة",
+        "رحلتان",
+        "خمس رحلات",
+        "عشر رحلات"
+      ],
+      "ur": [
+        "ایک",
+        "دو",
+        "پانچ",
+        "دس"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Trade Journeys",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For what purpose did the Prophet ﷺ make these foreign journeys before prophethood?",
+      "ar": "لأي غرض قام النبي ﷺ بهذه الرحلات الخارجية قبل البعثة؟",
+      "ur": "نبوت سے پہلے نبی ﷺ نے یہ بیرونی سفر کس مقصد کے لیے کیے؟"
+    },
+    "options": {
+      "en": [
+        "Seeking knowledge",
+        "Visiting relatives",
+        "Trade",
+        "Hunting"
+      ],
+      "ar": [
+        "طلب العلم",
+        "زيارة الأقارب",
+        "التجارة",
+        "الصيد"
+      ],
+      "ur": [
+        "علم حاصل کرنے کے لیے",
+        "رشتہ داروں سے ملنے کے لیے",
+        "تجارت کے لیے",
+        "شکار کے لیے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Trade Journeys",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ aunts (the wife of one of his uncles) took great care of him?",
+      "ar": "أي زوجات أعمام النبي ﷺ اعتنت به عناية كبيرة؟",
+      "ur": "نبی ﷺ کی کس چچی نے آپ ﷺ کا بہت خیال رکھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Fatima bint Asad",
+        "Umm Jamil",
+        "Halima al-Sa'diyya",
+        "Hazrat Sawda"
+      ],
+      "ar": [
+        "السيدة فاطمة بنت أسد",
+        "أم جميل",
+        "حليمة السعدية",
+        "السيدة سودة"
+      ],
+      "ur": [
+        "حضرت فاطمہ بنت اسد",
+        "ام جمیل",
+        "حلیمہ سعدیہ",
+        "حضرت سودہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose wife was Hazrat Fatima bint Asad, the Prophet's ﷺ aunt who took great care of him?",
+      "ar": "زوجة من كانت السيدة فاطمة بنت أسد، عمة النبي ﷺ التي اعتنت به؟",
+      "ur": "حضرت فاطمہ بنت اسد، جنہوں نے نبی ﷺ کا بہت خیال رکھا، کس کی بیوی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Lahab",
+        "Abu Talib",
+        "Hazrat Hamza",
+        "Hazrat Abbas"
+      ],
+      "ar": [
+        "أبي لهب",
+        "أبي طالب",
+        "حمزة",
+        "العباس"
+      ],
+      "ur": [
+        "ابو لہب",
+        "ابو طالب",
+        "حضرت حمزہ",
+        "حضرت عباس"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose mother was Hazrat Fatima bint Asad, the Prophet's ﷺ aunt?",
+      "ar": "أم من كانت السيدة فاطمة بنت أسد، عمة النبي ﷺ؟",
+      "ur": "حضرت فاطمہ بنت اسد، نبی ﷺ کی چچی، کس کی والدہ تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar",
+        "Hazrat Uthman",
+        "Hazrat Abu Bakr",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "عمر",
+        "عثمان",
+        "أبي بكر",
+        "علي"
+      ],
+      "ur": [
+        "حضرت عمر",
+        "حضرت عثمان",
+        "حضرت ابو بکر",
+        "حضرت علی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
       "en": "In which war did the Prophet ﷺ take part for the first time?",
       "ar": "في أي حرب شارك النبي ﷺ لأول مرة؟",
-      "ur": "نبی ﷺ نے پہلی بار کس جنگ میں شرکت فرمائی؟"
+      "ur": "نبی ﷺ نے پہلی بار کس جنگ میں شرکت کی؟"
     },
     "options": {
       "en": [
@@ -361,22 +553,278 @@
     },
     "options": {
       "en": [
-        "10 years",
-        "25 years",
-        "15 years",
-        "40 years"
+        "Ten years",
+        "Fifteen years",
+        "Twenty years",
+        "Twenty-five years"
       ],
       "ar": [
-        "10 سنوات",
-        "25 سنة",
-        "15 سنة",
-        "40 سنة"
+        "عشر سنوات",
+        "خمس عشرة سنة",
+        "عشرون سنة",
+        "خمس وعشرون سنة"
       ],
       "ur": [
-        "10 سال",
-        "25 سال",
-        "15 سال",
-        "40 سال"
+        "دس سال",
+        "پندرہ سال",
+        "بیس سال",
+        "پچیس سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Harb al-Fijar",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Did the Prophet ﷺ fight (in combat) in the Harb al-Fijar?",
+      "ar": "هل قاتل النبي ﷺ في حرب الفجار؟",
+      "ur": "کیا نبی ﷺ نے حربِ فجار میں لڑائی کی؟"
+    },
+    "options": {
+      "en": [
+        "Yes, he led a charge against the enemy",
+        "Yes, he fought only on the last day",
+        "No, he did not fight; he only helped his uncles",
+        "Yes, he killed the enemy commander"
+      ],
+      "ar": [
+        "نعم، قاد هجومًا على العدو",
+        "نعم، قاتل في اليوم الأخير فقط",
+        "لا، لم يقاتل وإنما أعان أعمامه",
+        "نعم، قتل قائد العدو"
+      ],
+      "ur": [
+        "ہاں، آپ ﷺ نے دشمن پر حملے کی قیادت کی",
+        "ہاں، آپ ﷺ صرف آخری دن لڑے",
+        "نہیں، آپ ﷺ نے لڑائی نہیں کی بلکہ صرف اپنے چچاؤں کی مدد کی",
+        "ہاں، آپ ﷺ نے دشمن کے سردار کو قتل کیا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Harb al-Fijar",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How long did the Harb al-Fijar last?",
+      "ar": "كم استمرت حرب الفجار؟",
+      "ur": "حربِ فجار کتنے دن جاری رہی؟"
+    },
+    "options": {
+      "en": [
+        "One day",
+        "Ten to fifteen days",
+        "Six months",
+        "Four years"
+      ],
+      "ar": [
+        "يومًا واحدًا",
+        "من عشرة إلى خمسة عشر يومًا",
+        "ستة أشهر",
+        "أربع سنوات"
+      ],
+      "ur": [
+        "ایک دن",
+        "دس سے پندرہ دن",
+        "چھ ماہ",
+        "چار سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Harb al-Fijar",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the treaty that took place during the Prophet's ﷺ youth.",
+      "ar": "سمِّ المعاهدة التي وقعت في شباب النبي ﷺ.",
+      "ur": "نبی ﷺ کی جوانی میں ہونے والے معاہدے کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Treaty of Hudaybiyyah",
+        "Pledge of Aqabah",
+        "Treaty of Najran",
+        "Hilf al-Fudul"
+      ],
+      "ar": [
+        "صلح الحديبية",
+        "بيعة العقبة",
+        "معاهدة نجران",
+        "حلف الفضول"
+      ],
+      "ur": [
+        "صلحِ حدیبیہ",
+        "بیعتِ عقبہ",
+        "معاہدۂ نجران",
+        "حلف الفضول"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hilf al-Fudul",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the purpose of the Hilf al-Fudul treaty?",
+      "ar": "ما الغرض من حلف الفضول؟",
+      "ur": "حلف الفضول کا مقصد کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "To maintain peace and order",
+        "To declare war on other tribes",
+        "To collect taxes",
+        "To rebuild the Kaaba"
+      ],
+      "ar": [
+        "حفظ السلام والنظام",
+        "إعلان الحرب على القبائل",
+        "جمع الضرائب",
+        "إعادة بناء الكعبة"
+      ],
+      "ur": [
+        "امن و امان قائم رکھنا",
+        "دوسرے قبائل سے جنگ کا اعلان",
+        "ٹیکس وصول کرنا",
+        "کعبہ کی تعمیرِ نو"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hilf al-Fudul",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Why is the treaty called Hilf al-Fudul?",
+      "ar": "لماذا سُمّي هذا الحلف بحلف الفضول؟",
+      "ur": "اس معاہدے کو حلف الفضول کیوں کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Because it was signed in a place called Fudul",
+        "Because it was about generosity to the poor only",
+        "Because most of the people who took part had 'Fadl' as the first word of their names",
+        "Because it was signed by women"
+      ],
+      "ar": [
+        "لأنه عُقد في مكان يسمى الفضول",
+        "لأنه كان للإحسان إلى الفقراء فقط",
+        "لأن أكثر المشاركين فيه كان اسم أحدهم يبدأ بكلمة «الفضل»",
+        "لأنه وقّعته النساء"
+      ],
+      "ur": [
+        "کیونکہ یہ فضول نامی جگہ پر ہوا",
+        "کیونکہ یہ صرف غریبوں پر احسان کے لیے تھا",
+        "کیونکہ معاہدے میں شریک اکثر لوگوں کے نام کا پہلا لفظ «فضل» تھا",
+        "کیونکہ اس پر عورتوں نے دستخط کیے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hilf al-Fudul",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who were at the forefront in bringing about the Hilf al-Fudul treaty?",
+      "ar": "من كان في مقدمة من سعى لإبرام حلف الفضول؟",
+      "ur": "حلف الفضول کو وجود میں لانے میں پیش پیش کون لوگ تھے؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl, Abu Lahab and Utba",
+        "Fadl ibn Fudala, Fadl ibn Wada'a and Fadl ibn Harith",
+        "Abu Bakr, Umar and Uthman",
+        "Hamza, Abbas and Abu Talib"
+      ],
+      "ar": [
+        "أبو جهل وأبو لهب وعتبة",
+        "الفضل بن فضالة والفضل بن وداعة والفضل بن الحارث",
+        "أبو بكر وعمر وعثمان",
+        "حمزة والعباس وأبو طالب"
+      ],
+      "ur": [
+        "ابو جہل، ابو لہب اور عتبہ",
+        "فضل بن فضالہ، فضل بن وداعہ اور فضل بن حارث",
+        "ابو بکر، عمر اور عثمان",
+        "حمزہ، عباس اور ابو طالب"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hilf al-Fudul",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the reason for the name of the Fijar (Sacrilegious) war?",
+      "ar": "ما سبب تسمية حرب الفجار بهذا الاسم؟",
+      "ur": "جنگِ فجار کا یہ نام کیوں پڑا؟"
+    },
+    "options": {
+      "en": [
+        "It was fought at a place called Fijar",
+        "It was fought over a stolen idol",
+        "It was fought to win gold",
+        "Some forbidden acts (such as fighting in the sacred months) had been declared lawful"
+      ],
+      "ar": [
+        "لأنها وقعت في مكان يسمى الفجار",
+        "لأنها كانت بسبب صنم مسروق",
+        "لأنها كانت للحصول على الذهب",
+        "لأن بعض المحرمات (كالقتال في الأشهر الحرم) استُحلّت فيها"
+      ],
+      "ur": [
+        "کیونکہ یہ فجار نامی جگہ پر ہوئی",
+        "کیونکہ یہ ایک چوری شدہ بت پر ہوئی",
+        "کیونکہ یہ سونا حاصل کرنے کے لیے ہوئی",
+        "کیونکہ اس میں بعض حرام کام (جیسے حرمت والے مہینوں میں لڑائی) حلال ٹھہرا لیے گئے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Harb al-Fijar",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At what age did the Prophet ﷺ take part in the Harb al-Fijar?",
+      "ar": "في أي عمر شارك النبي ﷺ في حرب الفجار؟",
+      "ur": "نبی ﷺ نے حربِ فجار میں کس عمر میں شرکت کی؟"
+    },
+    "options": {
+      "en": [
+        "Twelve years",
+        "Eighteen years",
+        "Fifteen years",
+        "Thirty years"
+      ],
+      "ar": [
+        "اثنتا عشرة سنة",
+        "ثماني عشرة سنة",
+        "خمس عشرة سنة",
+        "ثلاثون سنة"
+      ],
+      "ur": [
+        "بارہ سال",
+        "اٹھارہ سال",
+        "پندرہ سال",
+        "تیس سال"
       ]
     },
     "correct_index": 2,
@@ -393,122 +841,26 @@
     },
     "options": {
       "en": [
+        "He picked up arrows and handed them to his uncles",
         "He led the army",
         "He guarded the city gates",
-        "He picked up arrows and handed them to his uncles",
         "He stayed away from Makkah"
       ],
       "ar": [
+        "كان يلتقط السهام ويناولها أعمامه",
         "قاد الجيش",
         "حرس أبواب المدينة",
-        "كان يلتقط السهام ويناولها أعمامه",
         "ابتعد عن مكة"
       ],
       "ur": [
+        "آپ ﷺ تیر اٹھا اٹھا کر اپنے چچاؤں کو دیتے تھے",
         "آپ ﷺ نے لشکر کی قیادت کی",
         "آپ ﷺ نے شہر کے دروازوں کی حفاظت کی",
-        "آپ ﷺ تیر اٹھا اٹھا کر اپنے چچاؤں کو دیتے تھے",
         "آپ ﷺ مکہ سے دور رہے"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 0,
     "source": "Seerah — Harb al-Fijar",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which treaty took place during the Prophet's ﷺ youth?",
-      "ar": "ما الحلف الذي وقع في شباب النبي ﷺ؟",
-      "ur": "نبی ﷺ کی جوانی میں کون سا معاہدہ ہوا؟"
-    },
-    "options": {
-      "en": [
-        "Treaty of Hudaybiyyah",
-        "Pledge of Aqabah",
-        "Hilf al-Fudul",
-        "Treaty of Najran"
-      ],
-      "ar": [
-        "صلح الحديبية",
-        "بيعة العقبة",
-        "حلف الفضول",
-        "معاهدة نجران"
-      ],
-      "ur": [
-        "صلحِ حدیبیہ",
-        "بیعتِ عقبہ",
-        "حلف الفضول",
-        "معاہدۂ نجران"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Hilf al-Fudul",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "What was the purpose of the Hilf al-Fudul treaty?",
-      "ar": "ما الغرض من حلف الفضول؟",
-      "ur": "حلف الفضول کا مقصد کیا تھا؟"
-    },
-    "options": {
-      "en": [
-        "To declare war on other tribes",
-        "To maintain peace and order",
-        "To collect taxes",
-        "To rebuild the Kaaba"
-      ],
-      "ar": [
-        "إعلان الحرب على القبائل",
-        "حفظ السلام والنظام",
-        "جمع الضرائب",
-        "إعادة بناء الكعبة"
-      ],
-      "ur": [
-        "دوسرے قبائل سے جنگ کا اعلان",
-        "امن و امان قائم رکھنا",
-        "ٹیکس وصول کرنا",
-        "کعبہ کی تعمیرِ نو"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Hilf al-Fudul",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "After the declaration of prophethood, which earlier event did the Prophet ﷺ approve of?",
-      "ar": "أي حدث سابق للبعثة أقرّه النبي ﷺ بعد البعثة؟",
-      "ur": "اعلانِ نبوت کے بعد نبی ﷺ نے پہلے کے کس واقعے کی تائید فرمائی؟"
-    },
-    "options": {
-      "en": [
-        "Harb al-Fijar",
-        "Worship of idols",
-        "Hilf al-Fudul",
-        "Burying girls alive"
-      ],
-      "ar": [
-        "حرب الفجار",
-        "عبادة الأصنام",
-        "حلف الفضول",
-        "وأد البنات"
-      ],
-      "ur": [
-        "حربِ فجار",
-        "بتوں کی پوجا",
-        "حلف الفضول",
-        "بیٹیوں کو زندہ دفن کرنا"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Hilf al-Fudul",
     "event_id": null
   },
   {
@@ -522,7 +874,7 @@
     "options": {
       "en": [
         "A mountain near Makkah",
-        "The largest market in Arabia in the days of ignorance",
+        "The largest market in Arabia in the days of ignorance (Jahiliyya)",
         "A well in Madinah",
         "A mosque in Taif"
       ],
@@ -547,9 +899,9 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "How old was the Prophet ﷺ when the Quraysh rebuilt the Kaaba?",
-      "ar": "كم كان عمر النبي ﷺ عندما أعادت قريش بناء الكعبة؟",
-      "ur": "قریش نے جب کعبہ کی تعمیرِ نو کی تو نبی ﷺ کی عمر کتنی تھی؟"
+      "en": "How old was the Prophet ﷺ when the Quraysh began the reconstruction of the Kaaba?",
+      "ar": "كم كان عمر النبي ﷺ عندما بدأت قريش إعادة بناء الكعبة؟",
+      "ur": "قریش نے جب کعبہ کی تعمیرِ نو شروع کی تو نبی ﷺ کی عمر کتنی تھی؟"
     },
     "options": {
       "en": [
@@ -579,25 +931,25 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Why did the Quraysh rebuild the Kaaba?",
-      "ar": "لماذا أعادت قريش بناء الكعبة؟",
-      "ur": "قریش نے کعبہ کو دوبارہ کیوں تعمیر کیا؟"
+      "en": "What was the purpose of rebuilding the Kaaba anew?",
+      "ar": "ما الغرض من إعادة بناء الكعبة من جديد؟",
+      "ur": "کعبہ کو نئے سرے سے بنانے کا مقصد کیا تھا؟"
     },
     "options": {
       "en": [
-        "A crack had appeared in the old building",
+        "A crack had appeared in the old building, so it was demolished and rebuilt",
         "To make it smaller",
         "To move it to another city",
         "To add more idols"
       ],
       "ar": [
-        "لأن شقًا ظهر في البناء القديم",
+        "ظهر شق في البناء القديم فهُدم وأُعيد بناؤه",
         "لتصغيرها",
         "لنقلها إلى مدينة أخرى",
         "لإضافة أصنام أكثر"
       ],
       "ur": [
-        "پرانی عمارت میں شگاف پڑ گیا تھا",
+        "پرانی عمارت میں شگاف پڑ گیا تھا، اس لیے اسے گرا کر دوبارہ بنایا گیا",
         "اسے چھوٹا کرنے کے لیے",
         "اسے دوسرے شہر منتقل کرنے کے لیے",
         "مزید بت رکھنے کے لیے"
@@ -618,7 +970,7 @@
     "options": {
       "en": [
         "The cost of the building",
-        "Who would place the Black Stone",
+        "Who would place the Black Stone (Hajar al-Aswad)",
         "The direction of the door",
         "Who would lead the prayer"
       ],
@@ -641,33 +993,97 @@
   },
   {
     "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "For how many days did the dispute over placing the Black Stone continue?",
+      "ar": "كم يومًا استمر الخلاف حول وضع الحجر الأسود؟",
+      "ur": "حجرِ اسود رکھنے کا یہ اختلاف کتنے دن جاری رہا؟"
+    },
+    "options": {
+      "en": [
+        "1 day",
+        "3 days",
+        "5 days",
+        "10 days"
+      ],
+      "ar": [
+        "يوم واحد",
+        "3 أيام",
+        "5 أيام",
+        "10 أيام"
+      ],
+      "ur": [
+        "1 دن",
+        "3 دن",
+        "5 دن",
+        "10 دن"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Rebuilding the Kaaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who arbitrated the dispute over the Black Stone?",
-      "ar": "من الذي حكم في الخلاف حول الحجر الأسود؟",
-      "ur": "حجرِ اسود کے جھگڑے میں فیصلہ کس نے کیا؟"
+      "en": "Who performed the duty of arbitration in the dispute over the Black Stone?",
+      "ar": "من الذي تولّى التحكيم في الخلاف حول الحجر الأسود؟",
+      "ur": "حجرِ اسود کے جھگڑے میں فیصلے کی ذمہ داری کس نے انجام دی؟"
     },
     "options": {
       "en": [
         "Abu Talib",
-        "The Prophet ﷺ",
         "Abu Jahl",
-        "Abd al-Muttalib"
+        "Abd al-Muttalib",
+        "The Prophet ﷺ"
       ],
       "ar": [
         "أبو طالب",
-        "النبي ﷺ",
         "أبو جهل",
-        "عبد المطلب"
+        "عبد المطلب",
+        "النبي ﷺ"
       ],
       "ur": [
         "ابو طالب",
-        "نبی ﷺ",
         "ابو جہل",
-        "عبدالمطلب"
+        "عبدالمطلب",
+        "نبی ﷺ"
       ]
     },
-    "correct_index": 1,
+    "correct_index": 3,
+    "source": "Seerah — Rebuilding the Kaaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who installed the Black Stone in its place with his own hand?",
+      "ar": "من الذي وضع الحجر الأسود في مكانه بيده؟",
+      "ur": "حجرِ اسود کو اپنے ہاتھ سے اس کی جگہ پر کس نے رکھا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Talib",
+        "Hazrat Abu Bakr",
+        "The Prophet ﷺ",
+        "Walid ibn Mughira"
+      ],
+      "ar": [
+        "أبو طالب",
+        "أبو بكر",
+        "النبي ﷺ",
+        "الوليد بن المغيرة"
+      ],
+      "ur": [
+        "ابو طالب",
+        "حضرت ابو بکر",
+        "نبی ﷺ",
+        "ولید بن مغیرہ"
+      ]
+    },
+    "correct_index": 2,
     "source": "Seerah — Rebuilding the Kaaba",
     "event_id": null
   },
@@ -682,19 +1098,19 @@
     "options": {
       "en": [
         "He asked the strongest man to lift it",
-        "He placed it on a cloth and each tribe held a corner",
+        "He placed it on a cloth and had each of the four main tribes hold a corner",
         "He drew lots among the chiefs",
         "He gave it to one tribe only"
       ],
       "ar": [
         "طلب من أقوى رجل أن يرفعه",
-        "وضعه على ثوب وأمسكت كل قبيلة بطرف منه",
+        "وضعه على ثوب وجعل كل قبيلة من القبائل الأربع الكبرى تمسك بطرف منه",
         "أجرى قرعة بين الزعماء",
         "أعطاه لقبيلة واحدة فقط"
       ],
       "ur": [
         "سب سے طاقتور آدمی سے اٹھوایا",
-        "اسے چادر میں رکھا اور ہر قبیلے نے ایک کونا پکڑا",
+        "اسے چادر میں رکھا اور چاروں بڑے قبیلوں سے کہا کہ ہر ایک چادر کا ایک کونا پکڑے",
         "سرداروں میں قرعہ ڈالا",
         "صرف ایک قبیلے کو دے دیا"
       ]
@@ -713,25 +1129,57 @@
     },
     "options": {
       "en": [
+        "Monday",
         "Friday",
         "Sunday",
-        "Thursday",
-        "Monday"
+        "Thursday"
       ],
       "ar": [
+        "الاثنين",
         "الجمعة",
         "الأحد",
-        "الخميس",
-        "الاثنين"
+        "الخميس"
       ],
       "ur": [
+        "پیر",
         "جمعہ",
         "اتوار",
-        "جمعرات",
-        "پیر"
+        "جمعرات"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 0,
+    "source": "Seerah — Rebuilding the Kaaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How long before the declaration of prophethood (bi'tha) was the rebuilding of the Kaaba and the Black Stone event?",
+      "ar": "قبل كم سنة من إعلان البعثة وقع حدث إعادة بناء الكعبة ووضع الحجر الأسود؟",
+      "ur": "کعبہ کی تعمیر اور حجرِ اسود کا یہ واقعہ اعلانِ نبوت (بعثت) سے کتنا پہلے پیش آیا؟"
+    },
+    "options": {
+      "en": [
+        "1 year",
+        "3 years",
+        "5 years",
+        "10 years"
+      ],
+      "ar": [
+        "سنة واحدة",
+        "3 سنوات",
+        "5 سنوات",
+        "10 سنوات"
+      ],
+      "ur": [
+        "1 سال",
+        "3 سال",
+        "5 سال",
+        "10 سال"
+      ]
+    },
+    "correct_index": 2,
     "source": "Seerah — Rebuilding the Kaaba",
     "event_id": null
   },
@@ -778,21 +1226,53 @@
     "options": {
       "en": [
         "Because it is made of gold",
-        "Because it is a stone from Paradise and the Prophet ﷺ kissed it",
-        "Because it is very old only",
-        "Because the Quraysh did so"
+        "Because it is very old",
+        "Because the Quraysh did so",
+        "Because it is a stone from Paradise and the Prophet ﷺ also kissed it"
       ],
       "ar": [
         "لأنه مصنوع من الذهب",
-        "لأنه حجر من الجنة وقبّله النبي ﷺ",
-        "لأنه قديم فقط",
-        "لأن قريشًا فعلت ذلك"
+        "لأنه قديم جدًا",
+        "لأن قريشًا فعلت ذلك",
+        "لأنه حجر من الجنة وقبّله النبي ﷺ أيضًا"
       ],
       "ur": [
         "کیونکہ یہ سونے کا ہے",
-        "کیونکہ یہ جنت کا پتھر ہے اور نبی ﷺ نے اسے بوسہ دیا",
-        "کیونکہ یہ صرف بہت پرانا ہے",
-        "کیونکہ قریش ایسا کرتے تھے"
+        "کیونکہ یہ بہت پرانا ہے",
+        "کیونکہ قریش ایسا کرتے تھے",
+        "کیونکہ یہ جنت کا پتھر ہے اور نبی ﷺ نے بھی اسے بوسہ دیا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — The Kaaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who first built the Kaaba?",
+      "ar": "من الذي بنى الكعبة أول مرة؟",
+      "ur": "کعبہ سب سے پہلے کس نے بنایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Adam",
+        "The angels, before the creation of Adam",
+        "Hazrat Nuh",
+        "The Quraysh"
+      ],
+      "ar": [
+        "آدم عليه السلام",
+        "الملائكة قبل خلق آدم",
+        "نوح عليه السلام",
+        "قريش"
+      ],
+      "ur": [
+        "حضرت آدم",
+        "فرشتوں نے، آدم کی پیدائش سے پہلے",
+        "حضرت نوح",
+        "قریش"
       ]
     },
     "correct_index": 1,
@@ -803,28 +1283,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who rebuilt the Kaaba after the angels?",
-      "ar": "من أعاد بناء الكعبة بعد الملائكة؟",
-      "ur": "فرشتوں کے بعد کعبہ کی تعمیر کس نے کی؟"
+      "en": "Who built the Kaaba the second time?",
+      "ar": "من الذي بنى الكعبة للمرة الثانية؟",
+      "ur": "کعبہ دوسری مرتبہ کس نے بنایا؟"
     },
     "options": {
       "en": [
         "Musa and Harun",
         "Nuh and Ham",
         "Dawud and Sulayman",
-        "Ibrahim and Isma'il"
+        "Hazrat Ibrahim and Hazrat Isma'il"
       ],
       "ar": [
         "موسى وهارون",
         "نوح وحام",
         "داود وسليمان",
-        "إبراهيم وإسماعيل"
+        "إبراهيم وإسماعيل عليهما السلام"
       ],
       "ur": [
         "موسیٰ اور ہارون",
         "نوح اور حام",
         "داود اور سلیمان",
-        "ابراہیم اور اسماعیل"
+        "حضرت ابراہیم اور حضرت اسماعیل"
       ]
     },
     "correct_index": 3,
@@ -875,23 +1355,23 @@
       "en": [
         "Keeping the keys",
         "Leading the army",
-        "Judging disputes",
-        "Giving water to the visitors of the House of God"
+        "Giving water to the visitors of the House of God",
+        "Judging disputes"
       ],
       "ar": [
         "حفظ المفاتيح",
         "قيادة الجيش",
-        "القضاء بين الناس",
-        "سقاية حجاج بيت الله"
+        "سقاية زوّار بيت الله",
+        "القضاء بين الناس"
       ],
       "ur": [
         "چابیاں رکھنا",
         "لشکر کی قیادت",
-        "جھگڑوں کے فیصلے",
-        "بیت اللہ کے زائرین کو پانی پلانا"
+        "بیت اللہ کے زائرین کو پانی پلانا",
+        "جھگڑوں کے فیصلے"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 2,
     "source": "Seerah — Makkah",
     "event_id": null
   },
@@ -899,31 +1379,127 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who was one of the seekers of truth before the Prophet's ﷺ declaration of prophethood?",
-      "ar": "من كان من الباحثين عن الحق قبل بعثة النبي ﷺ؟",
-      "ur": "اعلانِ نبوت سے پہلے حق کے متلاشیوں میں سے کون تھا؟"
+      "en": "After the declaration of prophethood, which action that had taken place before it did the Prophet ﷺ approve of?",
+      "ar": "بعد إعلان البعثة، أي حدث وقع قبلها أقرّه النبي ﷺ؟",
+      "ur": "اعلانِ نبوت کے بعد نبی ﷺ نے اس سے پہلے ہونے والے کس عمل کی تائید فرمائی؟"
     },
     "options": {
       "en": [
-        "Waraqa ibn Nawfal",
-        "Abu Jahl",
-        "Abu Lahab",
-        "Walid ibn Mughira"
+        "Harb al-Fijar",
+        "The Hilf al-Fudul treaty",
+        "Worship of idols",
+        "Burying girls alive"
       ],
       "ar": [
-        "ورقة بن نوفل",
-        "أبو جهل",
-        "أبو لهب",
-        "الوليد بن المغيرة"
+        "حرب الفجار",
+        "حلف الفضول",
+        "عبادة الأصنام",
+        "وأد البنات"
       ],
       "ur": [
-        "ورقہ بن نوفل",
-        "ابو جہل",
-        "ابو لہب",
-        "ولید بن مغیرہ"
+        "حربِ فجار",
+        "حلف الفضول کا معاہدہ",
+        "بتوں کی پوجا",
+        "بیٹیوں کو زندہ دفن کرنا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hilf al-Fudul",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who were the seekers of truth before the Prophet's ﷺ declaration of prophethood?",
+      "ar": "من كان من الباحثين عن الحق قبل إعلان بعثة النبي ﷺ؟",
+      "ur": "اعلانِ نبوت سے پہلے حق کے متلاشی کون لوگ تھے؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl, Abu Lahab, Utba and Walid",
+        "Abu Sufyan, Suhayl, Hakam and Nadr",
+        "Zayd ibn Amr, Waraqa ibn Nawfal, Ubaydullah ibn Jahsh and Uthman ibn Harith",
+        "Hamza, Abbas, Ali and Ja'far"
+      ],
+      "ar": [
+        "أبو جهل وأبو لهب وعتبة والوليد",
+        "أبو سفيان وسهيل والحكم والنضر",
+        "زيد بن عمرو وورقة بن نوفل وعبيد الله بن جحش وعثمان بن الحارث",
+        "حمزة والعباس وعلي وجعفر"
+      ],
+      "ur": [
+        "ابو جہل، ابو لہب، عتبہ اور ولید",
+        "ابو سفیان، سہیل، حکم اور نضر",
+        "زید بن عمرو، ورقہ بن نوفل، عبیداللہ بن جحش اور عثمان بن حارث",
+        "حمزہ، عباس، علی اور جعفر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Seekers of Truth",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Were some people on the true religion even before the Prophet's ﷺ declaration of prophethood?",
+      "ar": "هل كان بعض الناس على الدين الحق حتى قبل إعلان بعثة النبي ﷺ؟",
+      "ur": "کیا اعلانِ نبوت سے پہلے بھی کچھ لوگ سچے دین پر تھے؟"
+    },
+    "options": {
+      "en": [
+        "Yes, a few seekers of truth followed the pure religion of Ibrahim",
+        "No, everyone in Arabia was an idolater",
+        "Only the Jews of Madinah",
+        "Only the family of Abu Lahab"
+      ],
+      "ar": [
+        "نعم، كان بعض الباحثين عن الحق على ملة إبراهيم الحنيفية",
+        "لا، كان كل أهل الجزيرة مشركين",
+        "اليهود في المدينة فقط",
+        "أسرة أبي لهب فقط"
+      ],
+      "ur": [
+        "ہاں، کچھ حق کے متلاشی ملتِ ابراہیمی پر تھے",
+        "نہیں، پورا عرب مشرک تھا",
+        "صرف مدینہ کے یہودی",
+        "صرف ابو لہب کا خاندان"
       ]
     },
     "correct_index": 0,
+    "source": "Seerah — Seekers of Truth",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name some of the people who were on the true religion before the Prophet's ﷺ declaration of prophethood.",
+      "ar": "اذكر بعض من كانوا على الدين الحق قبل إعلان بعثة النبي ﷺ.",
+      "ur": "اعلانِ نبوت سے پہلے سچے دین پر قائم چند لوگوں کے نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl, Abu Lahab and Utba",
+        "Umayya ibn Khalaf, Walid and Nadr",
+        "Abu Sufyan, Suhayl and Hakam",
+        "Waraqa ibn Nawfal, Zayd ibn Amr ibn Nufayl and Abu Qays Sirma ibn Abi Anas"
+      ],
+      "ar": [
+        "أبو جهل وأبو لهب وعتبة",
+        "أمية بن خلف والوليد والنضر",
+        "أبو سفيان وسهيل والحكم",
+        "ورقة بن نوفل وزيد بن عمرو بن نفيل وأبو قيس صرمة بن أبي أنس"
+      ],
+      "ur": [
+        "ابو جہل، ابو لہب اور عتبہ",
+        "امیہ بن خلف، ولید اور نضر",
+        "ابو سفیان، سہیل اور حکم",
+        "ورقہ بن نوفل، زید بن عمرو بن نفیل اور ابو قیس صرمہ بن ابی انس"
+      ]
+    },
+    "correct_index": 3,
     "source": "Seerah — Seekers of Truth",
     "event_id": null
   },
@@ -963,31 +1539,31 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What are Safa and Marwa?",
-      "ar": "ما هما الصفا والمروة؟",
-      "ur": "صفا اور مروہ کیا ہیں؟"
+      "en": "What is meant by Safa and Marwa?",
+      "ar": "ماذا يُقصد بالصفا والمروة؟",
+      "ur": "صفا اور مروہ سے کیا مراد ہے؟"
     },
     "options": {
       "en": [
         "Two wells",
         "Two gates",
-        "Two hills in Makkah",
-        "Two mosques"
+        "Two mosques",
+        "Two hills in Makkah"
       ],
       "ar": [
         "بئران",
         "بابان",
-        "جبلان في مكة",
-        "مسجدان"
+        "مسجدان",
+        "جبلان صغيران في مكة"
       ],
       "ur": [
         "دو کنویں",
         "دو دروازے",
-        "مکہ کی دو پہاڑیاں",
-        "دو مسجدیں"
+        "دو مسجدیں",
+        "مکہ کی دو پہاڑیاں"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 3,
     "source": "Seerah — Makkah",
     "event_id": null
   },
@@ -1001,22 +1577,22 @@
     },
     "options": {
       "en": [
-        "Because Hazrat Isma'il's mother ran in search of water for him",
-        "Because the Prophet ﷺ ran from his enemies",
-        "Because Ibrahim was chasing his sons",
-        "Because angels ran there"
+        "Because Hazrat Isma'il's mother ran there in search of water for him, and God made this sa'i obligatory on all Muslims in Hajj and Umrah",
+        "Because the Prophet ﷺ ran from his enemies there",
+        "Because Ibrahim was chasing his sons there",
+        "Because the angels ran there"
       ],
       "ar": [
-        "لأن أم إسماعيل سعت بحثًا عن الماء له",
-        "لأن النبي ﷺ ركض هاربًا من أعدائه",
-        "لأن إبراهيم كان يطارد أبناءه",
+        "لأن أم إسماعيل سعت هناك بحثًا عن الماء له، فأحبّ الله ذلك فجعل السعي واجبًا على المسلمين في الحج والعمرة",
+        "لأن النبي ﷺ ركض هناك هاربًا من أعدائه",
+        "لأن إبراهيم كان يطارد أبناءه هناك",
         "لأن الملائكة سعت هناك"
       ],
       "ur": [
-        "کیونکہ حضرت اسماعیل کی والدہ ان کے لیے پانی کی تلاش میں دوڑی تھیں",
-        "کیونکہ نبی ﷺ دشمنوں سے بھاگے تھے",
-        "کیونکہ ابراہیم اپنے بیٹوں کے پیچھے دوڑے تھے",
-        "کیونکہ فرشتے وہاں دوڑے تھے"
+        "کیونکہ وہاں حضرت اسماعیل کی والدہ ان کے لیے پانی کی تلاش میں دوڑی تھیں اور اللہ کو یہ ادا اتنی پسند آئی کہ حج و عمرہ میں سعی سب مسلمانوں پر لازم کر دی",
+        "کیونکہ وہاں نبی ﷺ دشمنوں سے بھاگے تھے",
+        "کیونکہ وہاں ابراہیم اپنے بیٹوں کے پیچھے دوڑے تھے",
+        "کیونکہ وہاں فرشتے دوڑے تھے"
       ]
     },
     "correct_index": 0,
@@ -1034,24 +1610,24 @@
     "options": {
       "en": [
         "It came from a river in Paradise",
+        "It came out of the ground when Hazrat Isma'il (peace be upon him) rubbed his heels, and Jibra'il also struck his wing there",
         "It flows from the Black Stone",
-        "It was brought from Syria",
-        "It gushed out when Isma'il (peace be upon him) rubbed his heels on the ground"
+        "It was brought from Syria"
       ],
       "ar": [
         "لأنه جاء من نهر في الجنة",
+        "لأنه نبع من الأرض حين ضرب إسماعيل عليه السلام الأرض بعقبيه، وضرب جبريل بجناحه هناك",
         "لأنه يجري من الحجر الأسود",
-        "لأنه جُلب من الشام",
-        "لأنه نبع حين ضرب إسماعيل عليه السلام الأرض بعقبيه"
+        "لأنه جُلب من الشام"
       ],
       "ur": [
         "کیونکہ یہ جنت کی نہر سے آیا",
+        "کیونکہ یہ پانی حضرت اسماعیل علیہ السلام کے ایڑیاں رگڑنے سے زمین سے پھوٹا اور جبریل نے بھی وہاں اپنا پر مارا",
         "کیونکہ یہ حجرِ اسود سے بہتا ہے",
-        "کیونکہ یہ شام سے لایا گیا",
-        "کیونکہ حضرت اسماعیل علیہ السلام کے ایڑیاں رگڑنے سے پھوٹا"
+        "کیونکہ یہ شام سے لایا گیا"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 1,
     "source": "Seerah — Makkah",
     "event_id": null
   },
@@ -1067,7 +1643,7 @@
       "en": [
         "The grave of Ibrahim",
         "The house where Ibrahim lived",
-        "The place where Ibrahim stood and built the Kaaba",
+        "The place where Hazrat Ibrahim stood and built the Kaaba",
         "A mountain near Makkah"
       ],
       "ar": [
@@ -1079,7 +1655,7 @@
       "ur": [
         "ابراہیم کی قبر",
         "وہ گھر جہاں ابراہیم رہتے تھے",
-        "وہ جگہ جہاں ابراہیم کھڑے ہو کر کعبہ بناتے تھے",
+        "وہ جگہ جہاں حضرت ابراہیم کھڑے ہو کر کعبہ بناتے تھے",
         "مکہ کے قریب ایک پہاڑ"
       ]
     },
@@ -1091,7 +1667,7 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "With which son did Hazrat Ibrahim build the Kaaba?",
+      "en": "With which of his sons did Hazrat Ibrahim build the Kaaba?",
       "ar": "مع أي أبنائه بنى إبراهيم عليه السلام الكعبة؟",
       "ur": "حضرت ابراہیم نے کعبہ اپنے کس بیٹے کے ساتھ مل کر بنایا؟"
     },
@@ -1099,55 +1675,55 @@
       "en": [
         "Ishaq",
         "Ya'qub",
-        "Isma'il",
-        "Yusuf"
+        "Yusuf",
+        "Isma'il"
       ],
       "ar": [
         "إسحاق",
         "يعقوب",
-        "إسماعيل",
-        "يوسف"
+        "يوسف",
+        "إسماعيل"
       ],
       "ur": [
         "اسحاق",
         "یعقوب",
-        "اسماعیل",
-        "یوسف"
+        "یوسف",
+        "اسماعیل"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 3,
     "source": "Seerah — Makkah",
     "event_id": null
   },
   {
     "category_slug": "seerah",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "prompt": {
-      "en": "What did Hazrat Ibrahim pray for the people of Makkah?",
-      "ar": "ماذا دعا إبراهيم عليه السلام لأهل مكة؟",
-      "ur": "حضرت ابراہیم نے اہلِ مکہ کے لیے کیا دعا کی؟"
+      "en": "What prayers did Hazrat Ibrahim ask of God for the people of Makkah?",
+      "ar": "ما الدعوات التي دعا بها إبراهيم عليه السلام لأهل مكة؟",
+      "ur": "حضرت ابراہیم نے اہلِ مکہ کے لیے اللہ سے کون سی دعائیں مانگیں؟"
     },
     "options": {
       "en": [
-        "That they become kings",
-        "That mountains of gold appear",
-        "That a prophet be sent who teaches the Book and wisdom",
+        "To send among them a prophet who will teach the Book and wisdom, and to enrich the city's inhabitants with all blessings",
+        "That they become kings and rulers of the world",
+        "That mountains of gold appear around them",
         "That they leave Makkah"
       ],
       "ar": [
-        "أن يصبحوا ملوكًا",
-        "أن تظهر جبال من الذهب",
-        "أن يُبعث فيهم نبي يعلّمهم الكتاب والحكمة",
+        "أن يبعث فيهم نبيًا يعلّمهم الكتاب والحكمة، وأن يرزق أهل هذه المدينة من كل الثمرات والبركات",
+        "أن يصبحوا ملوك العالم",
+        "أن تظهر حولهم جبال من الذهب",
         "أن يغادروا مكة"
       ],
       "ur": [
-        "کہ وہ بادشاہ بن جائیں",
-        "کہ سونے کے پہاڑ ظاہر ہوں",
-        "کہ ان میں ایسا نبی بھیجا جائے جو کتاب و حکمت سکھائے",
+        "ان میں ایسا نبی بھیج جو کتاب و حکمت سکھائے، اور اس شہر والوں کو ہر طرح کی برکتوں سے نواز",
+        "کہ وہ دنیا کے بادشاہ بن جائیں",
+        "کہ ان کے گرد سونے کے پہاڑ ظاہر ہوں",
         "کہ وہ مکہ چھوڑ دیں"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 0,
     "source": "Seerah — Makkah",
     "event_id": null
   },
@@ -1155,9 +1731,9 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "In which surah are Hazrat Ibrahim's prayers for Makkah mentioned?",
-      "ar": "في أي سورة ذُكرت دعوات إبراهيم عليه السلام لمكة؟",
-      "ur": "حضرت ابراہیم کی مکہ کے لیے دعائیں کس سورت میں مذکور ہیں؟"
+      "en": "In which surah of the Quran are Hazrat Ibrahim's prayers for Makkah mentioned?",
+      "ar": "في أي سورة من القرآن ذُكرت دعوات إبراهيم عليه السلام لمكة؟",
+      "ur": "حضرت ابراہیم کی مکہ کے لیے دعائیں قرآن کی کس سورت میں مذکور ہیں؟"
     },
     "options": {
       "en": [
@@ -1187,28 +1763,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Why did God swear an oath by Makkah in the Quran?",
-      "ar": "لماذا أقسم الله بمكة في القرآن؟",
-      "ur": "اللہ نے قرآن میں مکہ کی قسم کیوں کھائی؟"
+      "en": "Has God sworn an oath by Makkah in the Quran?",
+      "ar": "هل أقسم الله بمكة في القرآن؟",
+      "ur": "کیا اللہ نے قرآن میں مکہ کی قسم کھائی ہے؟"
     },
     "options": {
       "en": [
-        "Because it is the largest city",
-        "Because the Prophet ﷺ was born and lived there",
-        "Because it has many rivers",
-        "Because it is the capital of Arabia"
+        "No, God never swears by any city",
+        "Yes, God swore an oath by Makkah",
+        "Only by Madinah",
+        "Only by Jerusalem"
       ],
       "ar": [
-        "لأنها أكبر مدينة",
-        "لأن النبي ﷺ وُلد وعاش فيها",
-        "لأن فيها أنهارًا كثيرة",
-        "لأنها عاصمة الجزيرة"
+        "لا، الله لا يقسم بأي مدينة",
+        "نعم، أقسم الله بمكة",
+        "أقسم بالمدينة فقط",
+        "أقسم بالقدس فقط"
       ],
       "ur": [
-        "کیونکہ یہ سب سے بڑا شہر ہے",
-        "کیونکہ نبی ﷺ یہاں پیدا ہوئے اور رہے",
-        "کیونکہ یہاں بہت سی نہریں ہیں",
-        "کیونکہ یہ عرب کا دارالحکومت ہے"
+        "نہیں، اللہ کسی شہر کی قسم نہیں کھاتا",
+        "ہاں، اللہ نے مکہ کی قسم کھائی ہے",
+        "صرف مدینہ کی قسم کھائی ہے",
+        "صرف یروشلم کی قسم کھائی ہے"
       ]
     },
     "correct_index": 1,
@@ -1219,28 +1795,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "In which surah does Allah swear by Makkah?",
-      "ar": "في أي سورة أقسم الله بمكة؟",
-      "ur": "کس سورت میں اللہ نے مکہ کی قسم کھائی ہے؟"
+      "en": "Why did God swear an oath by Makkah?",
+      "ar": "لماذا أقسم الله بمكة؟",
+      "ur": "اللہ نے مکہ کی قسم کیوں کھائی؟"
     },
     "options": {
       "en": [
-        "Surah al-Nas",
-        "Surah al-Asr",
-        "Surah al-Balad",
-        "Surah al-Fatiha"
+        "Because it is the largest city",
+        "Because it has many rivers",
+        "Because the Prophet ﷺ was born in this city and lived here",
+        "Because it is the capital of Arabia"
       ],
       "ar": [
-        "سورة الناس",
-        "سورة العصر",
-        "سورة البلد",
-        "سورة الفاتحة"
+        "لأنها أكبر مدينة",
+        "لأن فيها أنهارًا كثيرة",
+        "لأن النبي ﷺ وُلد في هذه المدينة وعاش فيها",
+        "لأنها عاصمة الجزيرة"
       ],
       "ur": [
-        "سورۃ الناس",
-        "سورۃ العصر",
-        "سورۃ البلد",
-        "سورۃ الفاتحہ"
+        "کیونکہ یہ سب سے بڑا شہر ہے",
+        "کیونکہ یہاں بہت سی نہریں ہیں",
+        "کیونکہ نبی ﷺ اسی شہر میں پیدا ہوئے اور یہیں رہے",
+        "کیونکہ یہ عرب کا دارالحکومت ہے"
       ]
     },
     "correct_index": 2,
@@ -1251,28 +1827,124 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "How many were the Prophet's ﷺ most prominent friends before prophethood?",
-      "ar": "كم كان عدد أبرز أصدقاء النبي ﷺ قبل البعثة؟",
-      "ur": "نبوت سے پہلے نبی ﷺ کے نمایاں دوست کتنے تھے؟"
+      "en": "In which surah of the Quran does Allah swear by Makkah?",
+      "ar": "في أي سورة من القرآن أقسم الله بمكة؟",
+      "ur": "قرآن کی کس سورت میں اللہ نے مکہ کی قسم کھائی ہے؟"
     },
     "options": {
       "en": [
-        "Four",
-        "Two",
-        "Seven",
-        "Ten"
+        "Surah al-Balad",
+        "Surah al-Nas",
+        "Surah al-Asr",
+        "Surah al-Fatiha"
       ],
       "ar": [
-        "أربعة",
-        "اثنان",
-        "سبعة",
-        "عشرة"
+        "سورة البلد",
+        "سورة الناس",
+        "سورة العصر",
+        "سورة الفاتحة"
       ],
       "ur": [
-        "چار",
+        "سورۃ البلد",
+        "سورۃ الناس",
+        "سورۃ العصر",
+        "سورۃ الفاتحہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which events from before the declaration of prophethood did the Prophet ﷺ himself narrate afterwards?",
+      "ar": "أي أحداث قبل إعلان البعثة حدّث بها النبي ﷺ بنفسه فيما بعد؟",
+      "ur": "اعلانِ نبوت سے پہلے کے وہ کون سے واقعات ہیں جنہیں نبی ﷺ نے خود بیان فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "The Battle of Badr, the Battle of Uhud and the Conquest of Makkah",
+        "The rebuilding of the Kaaba, the Harb al-Fijar and the Hilf al-Fudul",
+        "The Hijra, the Treaty of Hudaybiyyah and the Farewell Hajj",
+        "The Year of the Elephant, the Night Journey and the Battle of the Trench"
+      ],
+      "ar": [
+        "غزوة بدر وغزوة أحد وفتح مكة",
+        "إعادة بناء الكعبة وحرب الفجار وحلف الفضول",
+        "الهجرة وصلح الحديبية وحجة الوداع",
+        "عام الفيل والإسراء وغزوة الخندق"
+      ],
+      "ur": [
+        "غزوۂ بدر، غزوۂ احد اور فتحِ مکہ",
+        "کعبہ کی تعمیرِ نو، حربِ فجار اور حلف الفضول",
+        "ہجرت، صلحِ حدیبیہ اور حجۃ الوداع",
+        "عامُ الفیل، معراج اور غزوۂ خندق"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Life Before Prophethood",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Before the declaration of prophethood, how many were the Prophet's ﷺ most prominent friends?",
+      "ar": "قبل إعلان البعثة، كم كان عدد أبرز أصدقاء النبي ﷺ؟",
+      "ur": "اعلانِ نبوت سے پہلے نبی ﷺ کے نمایاں دوست کتنے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Two",
+        "Seven",
+        "Ten",
+        "Four"
+      ],
+      "ar": [
+        "اثنان",
+        "سبعة",
+        "عشرة",
+        "أربعة"
+      ],
+      "ur": [
         "دو",
         "سات",
-        "دس"
+        "دس",
+        "چار"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Friends of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who were the Prophet's ﷺ most prominent friends before prophethood?",
+      "ar": "من كان أبرز أصدقاء النبي ﷺ قبل البعثة؟",
+      "ur": "نبوت سے پہلے نبی ﷺ کے نمایاں دوست کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr Siddiq, Hakim ibn Hizam, Dimad ibn Tha'laba and Qays ibn Sa'ib Makhzumi",
+        "Abu Jahl, Abu Lahab, Utba and Walid",
+        "Umar, Uthman, Ali and Talha",
+        "Hamza, Abbas, Ja'far and Aqil"
+      ],
+      "ar": [
+        "أبو بكر الصديق وحكيم بن حزام وضماد بن ثعلبة وقيس بن السائب المخزومي",
+        "أبو جهل وأبو لهب وعتبة والوليد",
+        "عمر وعثمان وعلي وطلحة",
+        "حمزة والعباس وجعفر وعقيل"
+      ],
+      "ur": [
+        "حضرت ابو بکر صدیق، حکیم بن حزام، ضماد بن ثعلبہ اور قیس بن سائب مخزومی",
+        "ابو جہل، ابو لہب، عتبہ اور ولید",
+        "عمر، عثمان، علی اور طلحہ",
+        "حمزہ، عباس، جعفر اور عقیل"
       ]
     },
     "correct_index": 0,
@@ -1283,9 +1955,9 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who was a close friend of the Prophet ﷺ before prophethood and served him greatly after accepting Islam?",
-      "ar": "من كان صديقًا مقربًا للنبي ﷺ قبل البعثة وخدمه كثيرًا بعد إسلامه؟",
-      "ur": "نبوت سے پہلے نبی ﷺ کے قریبی دوست کون تھے جنہوں نے اسلام لانے کے بعد بہت خدمت کی؟"
+      "en": "Name the friend of the Prophet ﷺ from before the declaration of prophethood who, after accepting Islam, served him very much.",
+      "ar": "سمِّ صديق النبي ﷺ قبل البعثة الذي خدمه كثيرًا بعد إسلامه.",
+      "ur": "نبوت سے پہلے نبی ﷺ کے اس دوست کا نام بتائیے جنہوں نے اسلام لانے کے بعد آپ ﷺ کی بہت خدمت کی۔"
     },
     "options": {
       "en": [
@@ -1323,19 +1995,19 @@
       "en": [
         "Abu Talib",
         "Abu Lahab",
-        "Abu Quhafa",
+        "Abu Quhafa (Amir)",
         "Abu Sufyan"
       ],
       "ar": [
         "أبي طالب",
         "أبي لهب",
-        "أبي قحافة",
+        "أبي قحافة (عامر)",
         "أبي سفيان"
       ],
       "ur": [
         "ابو طالب",
         "ابو لہب",
-        "ابو قحافہ",
+        "ابو قحافہ (عامر)",
         "ابو سفیان"
       ]
     },
@@ -1347,9 +2019,9 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which tribe did Hazrat Abu Bakr belong to?",
-      "ar": "إلى أي قبيلة ينتمي أبو بكر؟",
-      "ur": "حضرت ابو بکر کس قبیلے سے تھے؟"
+      "en": "Which tribe did Hazrat Abu Bakr Siddiq belong to?",
+      "ar": "إلى أي قبيلة ينتمي أبو بكر الصديق؟",
+      "ur": "حضرت ابو بکر صدیق کس قبیلے سے تھے؟"
     },
     "options": {
       "en": [
@@ -1411,8 +2083,8 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which was the biggest of the idols set up inside the Kaaba?",
-      "ar": "ما أكبر الأصنام التي وُضعت داخل الكعبة؟",
+      "en": "Of the idols set up inside the Kaaba, which was the biggest?",
+      "ar": "من بين الأصنام التي وُضعت داخل الكعبة، أيها كان أكبر؟",
       "ur": "کعبہ کے اندر رکھے گئے بتوں میں سب سے بڑا کون سا تھا؟"
     },
     "options": {
@@ -1443,9 +2115,9 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which mountain near Makkah did the Prophet ﷺ visit for worship and devotion?",
-      "ar": "أي جبل قرب مكة كان النبي ﷺ يتعبد فيه؟",
-      "ur": "مکہ کے قریب کس پہاڑ پر نبی ﷺ عبادت اور یکسوئی کے لیے جاتے تھے؟"
+      "en": "Which mountain near Makkah was it where the Prophet ﷺ worshipped and practised devotion?",
+      "ar": "أي جبل قرب مكة كان النبي ﷺ يتعبد فيه ويخلو بنفسه؟",
+      "ur": "مکہ کے قریب وہ کون سا پہاڑ تھا جہاں نبی ﷺ عبادت اور یکسوئی اختیار فرماتے تھے؟"
     },
     "options": {
       "en": [
@@ -1473,16 +2145,144 @@
   },
   {
     "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Before the rise of Islam, by what name are the ancient Arab tribes that had perished remembered?",
+      "ar": "قبل ظهور الإسلام، بأي اسم تُذكر القبائل العربية القديمة التي هلكت؟",
+      "ur": "اسلام کے ظہور سے پہلے کے ہلاک شدہ قدیم عرب قبائل کو کس نام سے یاد کیا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Arab Muta'arriba",
+        "Arab 'Ariba",
+        "Arab Ba'ida (the 'lost Arabs')",
+        "Arab Quraysh"
+      ],
+      "ar": [
+        "العرب المتعربة",
+        "العرب العاربة",
+        "العرب البائدة",
+        "عرب قريش"
+      ],
+      "ur": [
+        "عرب متعربہ",
+        "عرب عاربہ",
+        "عرب بائدہ (گم شدہ عرب)",
+        "عربِ قریش"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Arabia Before Islam",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What is the event of the Christians being thrown into fire-filled trenches called in the Quran?",
-      "ar": "ماذا يُسمى في القرآن حدث إلقاء النصارى في الأخدود المشتعل بالنار؟",
-      "ur": "قرآن میں نصرانیوں کو آگ کی خندقوں میں ڈالنے کا واقعہ کس نام سے مذکور ہے؟"
+      "en": "On what special occasion did the Arabs enter the house through the window instead of the door?",
+      "ar": "في أي مناسبة خاصة كان العرب يدخلون البيت من النافذة لا من الباب؟",
+      "ur": "عرب کس خاص موقع پر دروازے کے بجائے کھڑکی سے گھر میں داخل ہوتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "At weddings",
+        "In the days of Hajj, after putting on ihram",
+        "At funerals",
+        "During the month of Ramadan"
+      ],
+      "ar": [
+        "في الأعراس",
+        "في أيام الحج بعد الإحرام",
+        "في الجنائز",
+        "في شهر رمضان"
+      ],
+      "ur": [
+        "شادیوں کے موقع پر",
+        "حج کے دنوں میں احرام باندھنے کے بعد",
+        "جنازوں کے موقع پر",
+        "رمضان کے مہینے میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Arabia Before Islam",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which three ancient peoples lived in Arabia?",
+      "ar": "ما الأقوام القديمة الثلاثة التي سكنت جزيرة العرب؟",
+      "ur": "عرب میں آباد تین قدیم اقوام کون سی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Ba'ida, Muta'arriba and 'Ariba",
+        "Quraysh, Aws and Khazraj",
+        "Banu Hashim, Banu Taym and Banu Makhzum",
+        "Ad, Thamud and Madyan only"
+      ],
+      "ar": [
+        "البائدة والمتعربة والعاربة",
+        "قريش والأوس والخزرج",
+        "بنو هاشم وبنو تيم وبنو مخزوم",
+        "عاد وثمود ومدين فقط"
+      ],
+      "ur": [
+        "بائدہ، متعربہ اور عاربہ",
+        "قریش، اوس اور خزرج",
+        "بنو ہاشم، بنو تیم اور بنو مخزوم",
+        "صرف عاد، ثمود اور مدین"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Arabia Before Islam",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What cruelty did the Jewish king of Yemen commit against the Christians of Najran?",
+      "ar": "ما القسوة التي ارتكبها ملك اليمن اليهودي بحق نصارى نجران؟",
+      "ur": "یمن کے یہودی بادشاہ نے نجران کے نصرانیوں پر کون سا ظلم کیا؟"
+    },
+    "options": {
+      "en": [
+        "He exiled them to Syria",
+        "He seized all their wealth",
+        "He destroyed their church only",
+        "He dug trenches, lit fires in them, and threw those Christians into the fire-filled trenches"
+      ],
+      "ar": [
+        "نفاهم إلى الشام",
+        "استولى على كل أموالهم",
+        "هدم كنيستهم فقط",
+        "حفر أخاديد وأشعل فيها النار وألقى أولئك النصارى فيها"
+      ],
+      "ur": [
+        "انہیں شام جلا وطن کر دیا",
+        "ان کا سارا مال چھین لیا",
+        "صرف ان کا گرجا گرا دیا",
+        "خندقیں کھودیں، ان میں آگ بھڑکائی اور ان نصرانیوں کو آگ والی خندقوں میں ڈال دیا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Arabia Before Islam",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what name is the event of the Christians being thrown into fire-filled trenches described in the Holy Quran?",
+      "ar": "بأي اسم وُصف حدث إلقاء النصارى في الأخاديد المشتعلة في القرآن الكريم؟",
+      "ur": "نصرانیوں کو آگ کی خندقوں میں ڈالنے کا واقعہ قرآن مجید میں کس نام سے بیان ہوا ہے؟"
     },
     "options": {
       "en": [
         "Ashab al-Fil",
-        "Ashab al-Ukhdud (People of the Trench)",
+        "Ashab al-Ukhdud (the People of the Trench)",
         "Ashab al-Kahf",
         "Ashab al-Rass"
       ],
@@ -1515,55 +2315,55 @@
       "en": [
         "Knowledge and piety",
         "Age only",
-        "Loudness of voice",
-        "Wealth and family standing"
+        "Wealth and family standing",
+        "Loudness of voice"
       ],
       "ar": [
         "العلم والتقوى",
         "السن فقط",
-        "ارتفاع الصوت",
-        "الثروة والمكانة العائلية"
+        "الثروة والمكانة العائلية",
+        "ارتفاع الصوت"
       ],
       "ur": [
         "علم اور تقویٰ",
         "صرف عمر",
-        "آواز کی بلندی",
-        "دولت اور خاندانی حیثیت"
+        "دولت اور خاندانی حیثیت",
+        "آواز کی بلندی"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 2,
     "source": "Seerah — Arabia Before Islam",
     "event_id": null
   },
   {
     "category_slug": "seerah",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "prompt": {
-      "en": "Which of these was NOT a sacred month in Arabia?",
-      "ar": "أي من هذه الأشهر لم يكن شهرًا حرامًا عند العرب؟",
-      "ur": "ان میں سے کون سا مہینہ عرب میں حرمت والا نہیں تھا؟"
+      "en": "Which were the four sacred months in Arabia?",
+      "ar": "ما الأشهر الحرم الأربعة عند العرب؟",
+      "ur": "عرب میں حرمت والے چار مہینے کون سے تھے؟"
     },
     "options": {
       "en": [
-        "Muharram",
-        "Ramadan",
-        "Rajab",
-        "Dhul-Hijja"
+        "Safar, Rabi al-Awwal, Rajab and Sha'ban",
+        "Ramadan, Shawwal, Muharram and Rajab",
+        "Muharram, Safar, Ramadan and Dhul-Hijja",
+        "Dhul-Qi'da, Dhul-Hijja, Muharram and Rajab"
       ],
       "ar": [
-        "محرم",
-        "رمضان",
-        "رجب",
-        "ذو الحجة"
+        "صفر وربيع الأول ورجب وشعبان",
+        "رمضان وشوال ومحرم ورجب",
+        "محرم وصفر ورمضان وذو الحجة",
+        "ذو القعدة وذو الحجة ومحرم ورجب"
       ],
       "ur": [
-        "محرم",
-        "رمضان",
-        "رجب",
-        "ذوالحجہ"
+        "صفر، ربیع الاول، رجب اور شعبان",
+        "رمضان، شوال، محرم اور رجب",
+        "محرم، صفر، رمضان اور ذوالحجہ",
+        "ذوالقعدہ، ذوالحجہ، محرم اور رجب"
       ]
     },
-    "correct_index": 1,
+    "correct_index": 3,
     "source": "Seerah — Arabia Before Islam",
     "event_id": null
   },
@@ -1578,7 +2378,7 @@
     "options": {
       "en": [
         "Highly honoured",
-        "Very bad; they suffered great oppression and cruelty",
+        "Very bad; they were subjected to great oppression and cruelty",
         "Ruling the tribes",
         "Equal to men in everything"
       ],
@@ -1609,10 +2409,10 @@
     },
     "options": {
       "en": [
-        "They buried them alive",
-        "They made them queens",
-        "They gave them large inheritances",
-        "They sent them to study"
+        "They were buried alive",
+        "They were made queens",
+        "They were given large inheritances",
+        "They were sent to study"
       ],
       "ar": [
         "كانوا يدفنونهن أحياء",
@@ -1633,6 +2433,38 @@
   },
   {
     "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What was the economic condition of the Arabs before Islam?",
+      "ar": "ما الحالة الاقتصادية للعرب قبل الإسلام؟",
+      "ur": "اسلام سے پہلے عربوں کی معاشی حالت کیسی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Very rich, with great wealth everywhere",
+        "Equal prosperity for settled people and Bedouins",
+        "Not good; the settled people were better off, and the Bedouins were quite low economically",
+        "Bedouins were richer than the settled people"
+      ],
+      "ar": [
+        "غنية جدًا والثروة في كل مكان",
+        "ازدهار متساوٍ للحضر والبدو",
+        "لم تكن جيدة؛ فالحضر أحسن حالًا والبدو في مستوى اقتصادي متدنٍّ",
+        "البدو أغنى من الحضر"
+      ],
+      "ur": [
+        "بہت خوشحال، ہر جگہ دولت تھی",
+        "شہری اور بدو دونوں برابر خوشحال تھے",
+        "اچھی نہ تھی؛ شہری آبادی مالی لحاظ سے بہتر تھی اور بدو معاشی طور پر کافی پست تھے",
+        "بدو شہریوں سے زیادہ مالدار تھے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Arabia Before Islam",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
       "en": "What were the means of livelihood of the Arabs?",
@@ -1643,23 +2475,23 @@
       "en": [
         "Factories and mining",
         "Printing and banking",
-        "Farming, herding and trade",
-        "Only fishing"
+        "Only fishing",
+        "Farming, herding and trade"
       ],
       "ar": [
         "المصانع والتعدين",
         "الطباعة والمصارف",
-        "الزراعة والرعي والتجارة",
-        "الصيد فقط"
+        "الصيد فقط",
+        "الزراعة والرعي والتجارة"
       ],
       "ur": [
         "کارخانے اور کان کنی",
         "چھاپہ خانہ اور بینک",
-        "کھیتی باڑی، گلہ بانی اور تجارت",
-        "صرف ماہی گیری"
+        "صرف ماہی گیری",
+        "کھیتی باڑی، گلہ بانی اور تجارت"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 3,
     "source": "Seerah — Arabia Before Islam",
     "event_id": null
   },
@@ -1673,25 +2505,25 @@
     },
     "options": {
       "en": [
+        "No regular law or political system; the rule of 'might is right' prevailed",
         "A strong central government with fair laws",
         "Ruled by a single king",
-        "Governed by elected councils",
-        "No regular law; the rule of might is right prevailed"
+        "Governed by elected councils"
       ],
       "ar": [
+        "لا نظام سياسي ولا قانون منظم؛ سادت شريعة الغاب",
         "حكومة مركزية قوية بقوانين عادلة",
         "يحكمهم ملك واحد",
-        "تحكمهم مجالس منتخبة",
-        "لا قانون منظم؛ سادت شريعة الغاب"
+        "تحكمهم مجالس منتخبة"
       ],
       "ur": [
+        "کوئی باقاعدہ سیاسی نظام اور قانون نہ تھا؛ جس کی لاٹھی اس کی بھینس کا اصول چلتا تھا",
         "مضبوط مرکزی حکومت اور منصفانہ قوانین",
         "ایک ہی بادشاہ کی حکومت",
-        "منتخب کونسلوں کی حکمرانی",
-        "کوئی باقاعدہ قانون نہ تھا؛ جس کی لاٹھی اس کی بھینس کا اصول چلتا تھا"
+        "منتخب کونسلوں کی حکمرانی"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 0,
     "source": "Seerah — Arabia Before Islam",
     "event_id": null
   },
@@ -1705,25 +2537,25 @@
     },
     "options": {
       "en": [
-        "Hazrat Ibrahim",
         "Hazrat Musa",
         "Hazrat Nuh",
+        "Hazrat Ibrahim",
         "Hazrat Yusuf"
       ],
       "ar": [
-        "إبراهيم عليه السلام",
         "موسى عليه السلام",
         "نوح عليه السلام",
+        "إبراهيم عليه السلام",
         "يوسف عليه السلام"
       ],
       "ur": [
-        "حضرت ابراہیم",
         "حضرت موسیٰ",
         "حضرت نوح",
+        "حضرت ابراہیم",
         "حضرت یوسف"
       ]
     },
-    "correct_index": 0,
+    "correct_index": 2,
     "source": "Seerah — Glad Tidings of the Prophet",
     "event_id": null
   },
@@ -1737,26 +2569,122 @@
     },
     "options": {
       "en": [
-        "Musa and Isa",
         "Nuh and Hud",
+        "Hazrat Musa (Moses) and Hazrat Isa (Jesus)",
         "Yusuf and Yunus",
         "Salih and Shu'ayb"
       ],
       "ar": [
-        "موسى وعيسى",
         "نوح وهود",
+        "موسى وعيسى عليهما السلام",
         "يوسف ويونس",
         "صالح وشعيب"
       ],
       "ur": [
-        "موسیٰ اور عیسیٰ",
         "نوح اور ہود",
+        "حضرت موسیٰ اور حضرت عیسیٰ",
         "یوسف اور یونس",
         "صالح اور شعیب"
       ]
     },
+    "correct_index": 1,
+    "source": "Seerah — Glad Tidings of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "By what name is the Prophet ﷺ mentioned in the Injil (in the Hebrew language)?",
+      "ar": "بأي اسم ذُكر النبي ﷺ في الإنجيل (باللغة العبرية)؟",
+      "ur": "انجیل میں (عبرانی زبان میں) نبی ﷺ کا ذکر کس نام سے آیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Fariqlit (Paraclete)",
+        "Hallelujah",
+        "Emmanuel",
+        "Messiah"
+      ],
+      "ar": [
+        "فارقليط",
+        "هللويا",
+        "عمانوئيل",
+        "المسيح"
+      ],
+      "ur": [
+        "فارقلیط",
+        "ہلّلویاہ",
+        "عمانوایل",
+        "مسیح"
+      ]
+    },
     "correct_index": 0,
     "source": "Seerah — Glad Tidings of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "At what age did the Prophet's ﷺ noble ancestor Hazrat Ibrahim (peace be upon him) pass away?",
+      "ar": "في أي عمر توفي جد النبي ﷺ الكريم إبراهيم عليه السلام؟",
+      "ur": "نبی ﷺ کے جدِ امجد حضرت ابراہیم علیہ السلام کا انتقال کتنی عمر میں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "100 years",
+        "120 years",
+        "150 years",
+        "175 years"
+      ],
+      "ar": [
+        "100 سنة",
+        "120 سنة",
+        "150 سنة",
+        "175 سنة"
+      ],
+      "ur": [
+        "100 سال",
+        "120 سال",
+        "150 سال",
+        "175 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Glad Tidings of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the name of the Prophet's ﷺ youngest uncle?",
+      "ar": "ما اسم أصغر أعمام النبي ﷺ؟",
+      "ur": "نبی ﷺ کے سب سے چھوٹے چچا کا نام کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Abu Talib",
+        "Abu Lahab",
+        "Hazrat Hamza",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "أبو طالب",
+        "أبو لهب",
+        "حمزة",
+        "الزبير"
+      ],
+      "ur": [
+        "ابو طالب",
+        "ابو لہب",
+        "حضرت حمزہ",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Family of the Prophet",
     "event_id": null
   },
   {
@@ -1802,85 +2730,21 @@
     "options": {
       "en": [
         "Hazrat Abbas",
-        "Hazrat Hamza",
         "Abu Talib",
+        "Hazrat Hamza",
         "Abu Lahab"
       ],
       "ar": [
         "العباس",
-        "حمزة",
         "أبو طالب",
+        "حمزة",
         "أبو لهب"
       ],
       "ur": [
         "حضرت عباس",
-        "حضرت حمزہ",
         "ابو طالب",
-        "ابو لہب"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Family of the Prophet",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which son of Abu Talib did the Prophet ﷺ raise in his care?",
-      "ar": "أي أبناء أبي طالب ربّاه النبي ﷺ في كنفه؟",
-      "ur": "ابو طالب کے کس بیٹے کی نبی ﷺ نے پرورش فرمائی؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Abbas",
-        "Hazrat Hamza",
-        "Hazrat Zubayr",
-        "Hazrat Ali"
-      ],
-      "ar": [
-        "العباس",
-        "حمزة",
-        "الزبير",
-        "علي"
-      ],
-      "ur": [
-        "حضرت عباس",
         "حضرت حمزہ",
-        "حضرت زبیر",
-        "حضرت علی"
-      ]
-    },
-    "correct_index": 3,
-    "source": "Seerah — Family of the Prophet",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "For which aunt of the Prophet ﷺ has the Quran used very harsh words?",
-      "ar": "أي عمّات النبي ﷺ ذمّها القرآن بشدة؟",
-      "ur": "نبی ﷺ کی کس چچی کے بارے میں قرآن نے سخت الفاظ استعمال کیے؟"
-    },
-    "options": {
-      "en": [
-        "Halima",
-        "Umm Jamil, wife of Abu Lahab",
-        "Fatima bint Asad",
-        "Umm al-Fadl"
-      ],
-      "ar": [
-        "حليمة",
-        "أم جميل زوجة أبي لهب",
-        "فاطمة بنت أسد",
-        "أم الفضل"
-      ],
-      "ur": [
-        "حلیمہ",
-        "ام جمیل، زوجۂ ابو لہب",
-        "فاطمہ بنت اسد",
-        "ام الفضل"
+        "ابو لہب"
       ]
     },
     "correct_index": 1,
@@ -1891,28 +2755,124 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who was the wife of Hazrat Zubayr ibn al-Awwam?",
-      "ar": "من كانت زوجة الزبير بن العوام؟",
-      "ur": "حضرت زبیر بن العوام کی بیوی کون تھیں؟"
+      "en": "Which son of his uncle Abu Talib did the Prophet ﷺ raise in his care?",
+      "ar": "أي أبناء عمه أبي طالب ربّاه النبي ﷺ في كنفه؟",
+      "ur": "نبی ﷺ نے اپنے چچا ابو طالب کے کس بیٹے کی پرورش فرمائی؟"
     },
     "options": {
       "en": [
-        "Hazrat Aisha",
-        "Hazrat Hafsa",
-        "Hazrat Sawda",
-        "Hazrat Asma bint Abu Bakr"
+        "Hazrat Ali",
+        "Hazrat Abbas",
+        "Hazrat Hamza",
+        "Hazrat Zubayr"
       ],
       "ar": [
-        "عائشة",
-        "حفصة",
-        "سودة",
-        "أسماء بنت أبي بكر"
+        "علي",
+        "العباس",
+        "حمزة",
+        "الزبير"
       ],
       "ur": [
-        "حضرت عائشہ",
-        "حضرت حفصہ",
-        "حضرت سودہ",
-        "حضرت اسماء بنت ابو بکر"
+        "حضرت علی",
+        "حضرت عباس",
+        "حضرت حمزہ",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which aunt (wife of an uncle) of the Prophet ﷺ was the first to accept Islam?",
+      "ar": "أي زوجات أعمام النبي ﷺ كانت أول من أسلم؟",
+      "ur": "نبی ﷺ کی کون سی چچی (چچا کی بیوی) سب سے پہلے اسلام لائیں؟"
+    },
+    "options": {
+      "en": [
+        "Umm Jamil, wife of Abu Lahab",
+        "Hazrat Fatima bint Asad, wife of Abu Talib, or Umm al-Fadl, wife of Abbas",
+        "Halima al-Sa'diyya",
+        "Hazrat Sawda"
+      ],
+      "ar": [
+        "أم جميل زوجة أبي لهب",
+        "السيدة فاطمة بنت أسد زوجة أبي طالب، أو أم الفضل زوجة العباس",
+        "حليمة السعدية",
+        "السيدة سودة"
+      ],
+      "ur": [
+        "ام جمیل، زوجۂ ابو لہب",
+        "حضرت فاطمہ بنت اسد، زوجۂ ابو طالب، یا ام الفضل، زوجۂ عباس",
+        "حلیمہ سعدیہ",
+        "حضرت سودہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For which aunt of the Prophet ﷺ has the Holy Quran used very harsh words?",
+      "ar": "أي زوجات أعمام النبي ﷺ استخدم القرآن الكريم في حقها ألفاظًا شديدة؟",
+      "ur": "نبی ﷺ کی کس چچی کے بارے میں قرآنِ کریم نے سخت الفاظ استعمال کیے؟"
+    },
+    "options": {
+      "en": [
+        "Halima",
+        "Fatima bint Asad",
+        "Umm Jamil, wife of Abu Lahab",
+        "Umm al-Fadl"
+      ],
+      "ar": [
+        "حليمة",
+        "فاطمة بنت أسد",
+        "أم جميل زوجة أبي لهب",
+        "أم الفضل"
+      ],
+      "ur": [
+        "حلیمہ",
+        "فاطمہ بنت اسد",
+        "ام جمیل، زوجۂ ابو لہب",
+        "ام الفضل"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which son of the Prophet's ﷺ paternal aunt (his father's sister) was also his brother-in-law, married to the sister of one of the Prophet's wives?",
+      "ar": "أي أبناء عمّات النبي ﷺ (أخوات أبيه) كان نسيبه، متزوجًا من أخت إحدى زوجات النبي ﷺ؟",
+      "ur": "نبی ﷺ کی پھوپھی کے بیٹوں میں سے کون آپ ﷺ کے ہم زلف تھے، یعنی آپ ﷺ کی ایک زوجہ کی بہن سے ان کا نکاح تھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Ja'far",
+        "Hazrat Hamza",
+        "Hazrat Zubayr ibn al-Awwam"
+      ],
+      "ar": [
+        "علي",
+        "جعفر",
+        "حمزة",
+        "الزبير بن العوام"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت جعفر",
+        "حضرت حمزہ",
+        "حضرت زبیر بن العوام"
       ]
     },
     "correct_index": 3,
@@ -1923,9 +2883,41 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Hazrat Asma was the sister of which Mother of the Believers?",
-      "ar": "أسماء رضي الله عنها أخت أي أمهات المؤمنين؟",
-      "ur": "حضرت اسماء کس ام المومنین کی بہن تھیں؟"
+      "en": "What is the name of the wife of Hazrat Zubayr ibn al-Awwam?",
+      "ar": "ما اسم زوجة الزبير بن العوام؟",
+      "ur": "حضرت زبیر بن العوام کی بیوی کا نام کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Asma bint Abu Bakr Siddiq",
+        "Hazrat Hafsa",
+        "Hazrat Sawda",
+        "Hazrat Zaynab"
+      ],
+      "ar": [
+        "أسماء بنت أبي بكر الصديق",
+        "حفصة",
+        "سودة",
+        "زينب"
+      ],
+      "ur": [
+        "حضرت اسماء بنت ابو بکر صدیق",
+        "حضرت حفصہ",
+        "حضرت سودہ",
+        "حضرت زینب"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Hazrat Asma bint Abu Bakr was the sister of which Mother of the Believers?",
+      "ar": "أسماء بنت أبي بكر رضي الله عنهما أخت أي أمهات المؤمنين؟",
+      "ur": "حضرت اسماء بنت ابو بکر کس ام المومنین کی بہن تھیں؟"
     },
     "options": {
       "en": [
@@ -1955,31 +2947,31 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which uncle of the Prophet ﷺ was martyred during the Prophet's lifetime?",
-      "ar": "أي أعمام النبي ﷺ استشهد في حياته؟",
-      "ur": "نبی ﷺ کے کس چچا نے آپ ﷺ کی حیاتِ مبارکہ میں شہادت پائی؟"
+      "en": "Which uncle of the Prophet ﷺ was martyred during the Prophet's physical life?",
+      "ar": "أي أعمام النبي ﷺ استشهد في حياته الدنيوية؟",
+      "ur": "نبی ﷺ کے کس چچا نے آپ ﷺ کی ظاہری حیات میں شہادت پائی؟"
     },
     "options": {
       "en": [
         "Hazrat Abbas",
-        "Abu Talib",
         "Hazrat Hamza",
+        "Abu Talib",
         "Abu Lahab"
       ],
       "ar": [
         "العباس",
-        "أبو طالب",
         "حمزة",
+        "أبو طالب",
         "أبو لهب"
       ],
       "ur": [
         "حضرت عباس",
-        "ابو طالب",
         "حضرت حمزہ",
+        "ابو طالب",
         "ابو لہب"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 1,
     "source": "Seerah — Family of the Prophet",
     "event_id": null
   },
@@ -1994,53 +2986,21 @@
     "options": {
       "en": [
         "Hazrat Uthman",
-        "Hazrat Ali",
         "Hazrat Abu Bakr",
-        "Hazrat Umar"
+        "Hazrat Umar",
+        "Hazrat Ali"
       ],
       "ar": [
         "عثمان",
-        "علي",
         "أبو بكر",
-        "عمر"
+        "عمر",
+        "علي"
       ],
       "ur": [
         "حضرت عثمان",
-        "حضرت علی",
         "حضرت ابو بکر",
-        "حضرت عمر"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Family of the Prophet",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Who was a Muslim brother of Hazrat Ali?",
-      "ar": "من كان أخًا مسلمًا لعلي رضي الله عنه؟",
-      "ur": "حضرت علی کے مسلمان بھائیوں میں سے کون تھے؟"
-    },
-    "options": {
-      "en": [
-        "Abu Jahl",
-        "Abu Lahab",
-        "Utba",
-        "Hazrat Ja'far"
-      ],
-      "ar": [
-        "أبو جهل",
-        "أبو لهب",
-        "عتبة",
-        "جعفر"
-      ],
-      "ur": [
-        "ابو جہل",
-        "ابو لہب",
-        "عتبہ",
-        "حضرت جعفر"
+        "حضرت عمر",
+        "حضرت علی"
       ]
     },
     "correct_index": 3,
@@ -2049,11 +3009,75 @@
   },
   {
     "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name two Muslim brothers of Hazrat Ali.",
+      "ar": "اذكر اسمي أخوين مسلمين لعلي رضي الله عنه.",
+      "ur": "حضرت علی کے دو مسلمان بھائیوں کے نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aqil and Hazrat Ja'far",
+        "Abu Jahl and Abu Lahab",
+        "Hazrat Hamza and Hazrat Abbas",
+        "Utba and Walid"
+      ],
+      "ar": [
+        "عقيل وجعفر",
+        "أبو جهل وأبو لهب",
+        "حمزة والعباس",
+        "عتبة والوليد"
+      ],
+      "ur": [
+        "حضرت عقیل اور حضرت جعفر",
+        "ابو جہل اور ابو لہب",
+        "حضرت حمزہ اور حضرت عباس",
+        "عتبہ اور ولید"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which uncle, acting as guardian, had the Prophet's ﷺ marriage with Hazrat Khadija performed?",
-      "ar": "أي أعمام النبي ﷺ تولّى عقد زواجه من خديجة بصفته وليّه؟",
-      "ur": "کس چچا نے سرپرست کی حیثیت سے نبی ﷺ کا نکاح حضرت خدیجہ سے کروایا؟"
+      "en": "At the time of the Prophet's ﷺ declaration of prophethood, which of his uncles was the oldest?",
+      "ar": "وقت إعلان بعثة النبي ﷺ، أي أعمامه كان أكبرهم سنًا؟",
+      "ur": "اعلانِ نبوت کے وقت نبی ﷺ کے چچاؤں میں سب سے بڑے کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hamza",
+        "Hazrat Abbas",
+        "Abu Talib",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "حمزة",
+        "العباس",
+        "أبو طالب",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت حمزہ",
+        "حضرت عباس",
+        "ابو طالب",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which uncle of the Prophet ﷺ, acting as his guardian, had his first marriage with Hazrat Khadija performed?",
+      "ar": "أي أعمام النبي ﷺ تولّى بصفته وليّه عقد زواجه الأول من السيدة خديجة؟",
+      "ur": "کس چچا نے سرپرست کی حیثیت سے نبی ﷺ کا پہلا نکاح حضرت خدیجہ سے کروایا؟"
     },
     "options": {
       "en": [
@@ -2083,7 +3107,7 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which uncle of the Prophet ﷺ had the kunya Abu al-Fadl?",
+      "en": "Which of the Prophet's ﷺ uncles had the kunya Abu al-Fadl?",
       "ar": "أي أعمام النبي ﷺ كانت كنيته أبا الفضل؟",
       "ur": "نبی ﷺ کے کس چچا کی کنیت ابو الفضل تھی؟"
     },
@@ -2115,31 +3139,31 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Why did Abraha attack the House of the Kaaba?",
-      "ar": "لماذا هاجم أبرهة الكعبة؟",
-      "ur": "ابرہہ نے کعبہ پر حملہ کیوں کیا؟"
+      "en": "For what reason did Abraha attack the House of the Kaaba?",
+      "ar": "لأي سبب هاجم أبرهة الكعبة؟",
+      "ur": "ابرہہ نے کعبہ پر حملہ کس وجہ سے کیا؟"
     },
     "options": {
       "en": [
-        "He had built a church and wanted people to come there instead",
         "He wanted its treasure",
+        "He had built a church and wanted people to come to his church instead of the Kaaba",
         "He wanted to capture Madinah",
         "He was invited by the Quraysh"
       ],
       "ar": [
-        "لأنه بنى كنيسة وأراد أن يحجّ الناس إليها بدل الكعبة",
         "أراد كنوزها",
+        "لأنه بنى كنيسة وأراد أن يحجّ الناس إلى كنيسته بدل الكعبة",
         "أراد الاستيلاء على المدينة",
         "دعته قريش"
       ],
       "ur": [
-        "اس نے کلیسا بنایا تھا اور چاہتا تھا کہ لوگ کعبہ کے بجائے وہاں آئیں",
         "وہ اس کا خزانہ چاہتا تھا",
+        "اس نے کلیسا بنایا تھا اور چاہتا تھا کہ لوگ کعبہ کے بجائے اس کے کلیسا میں آئیں",
         "وہ مدینہ پر قبضہ چاہتا تھا",
         "قریش نے اسے بلایا تھا"
       ]
     },
-    "correct_index": 0,
+    "correct_index": 1,
     "source": "Seerah — Year of the Elephant",
     "event_id": null
   },
@@ -2147,9 +3171,9 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "In which surah of the Quran is the event of Abraha mentioned?",
-      "ar": "في أي سورة ذُكر حدث أبرهة؟",
-      "ur": "قرآن کی کس سورت میں ابرہہ کے واقعے کا ذکر ہے؟"
+      "en": "In which surah of the Quran is the event of Abraha's attack on the Kaaba mentioned?",
+      "ar": "في أي سورة من القرآن ذُكر حدث هجوم أبرهة على الكعبة؟",
+      "ur": "ابرہہ کے کعبہ پر حملے کا واقعہ قرآن کی کس سورت میں مذکور ہے؟"
     },
     "options": {
       "en": [
@@ -2179,31 +3203,63 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What did Abraha seize when he besieged the House of God?",
-      "ar": "ماذا استولى عليه أبرهة عند محاصرته بيت الله؟",
-      "ur": "ابرہہ نے بیت اللہ کے محاصرے کے وقت کیا چھینا؟"
+      "en": "Why did Abraha want to demolish the House of God (the Kaaba)?",
+      "ar": "لماذا أراد أبرهة هدم بيت الله (الكعبة)؟",
+      "ur": "ابرہہ بیت اللہ (کعبہ) کو کیوں گرانا چاہتا تھا؟"
     },
     "options": {
       "en": [
-        "The horses of Abu Talib",
-        "The sheep of Halima",
-        "The camels of Abd al-Muttalib",
-        "The goats of Amina"
+        "Because it was too small",
+        "Because it blocked the trade routes",
+        "Because people held it in great honour and respect, and he wanted people to give the same honour to his church",
+        "Because the Quraysh insulted him"
       ],
       "ar": [
-        "خيل أبي طالب",
-        "غنم حليمة",
-        "إبل عبد المطلب",
-        "ماعز آمنة"
+        "لأنها صغيرة جدًا",
+        "لأنها تعيق طرق التجارة",
+        "لأن الناس كانوا يعظّمونها ويحترمونها كثيرًا، وأراد أن يمنحوا كنيسته التعظيم نفسه",
+        "لأن قريشًا أهانته"
       ],
       "ur": [
-        "ابو طالب کے گھوڑے",
-        "حلیمہ کی بکریاں",
-        "عبدالمطلب کے اونٹ",
-        "آمنہ کی بکریاں"
+        "کیونکہ وہ بہت چھوٹا تھا",
+        "کیونکہ وہ تجارتی راستوں میں رکاوٹ تھا",
+        "کیونکہ لوگ اس کی بہت عزت و تعظیم کرتے تھے اور وہ چاہتا تھا کہ لوگ اس کے کلیسا کو بھی وہی عزت دیں",
+        "کیونکہ قریش نے اس کی توہین کی تھی"
       ]
     },
     "correct_index": 2,
+    "source": "Seerah — Year of the Elephant",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did Abraha do at the time of besieging the House of God?",
+      "ar": "ماذا فعل أبرهة عند محاصرته بيت الله؟",
+      "ur": "ابرہہ نے بیت اللہ کے محاصرے کے وقت کیا کیا؟"
+    },
+    "options": {
+      "en": [
+        "He seized the camels of Hazrat Abd al-Muttalib",
+        "He seized the horses of Abu Talib",
+        "He seized the sheep of Halima",
+        "He seized the goats of Amina"
+      ],
+      "ar": [
+        "استولى على إبل عبد المطلب",
+        "استولى على خيل أبي طالب",
+        "استولى على غنم حليمة",
+        "استولى على ماعز آمنة"
+      ],
+      "ur": [
+        "اس نے حضرت عبدالمطلب کے اونٹ چھین لیے",
+        "اس نے ابو طالب کے گھوڑے چھین لیے",
+        "اس نے حلیمہ کی بکریاں چھین لیں",
+        "اس نے آمنہ کی بکریاں چھین لیں"
+      ]
+    },
+    "correct_index": 0,
     "source": "Seerah — Year of the Elephant",
     "event_id": null
   },
@@ -2217,25 +3273,25 @@
     },
     "options": {
       "en": [
-        "Madinah",
         "Makkah",
         "Taif",
-        "Damascus"
+        "Damascus",
+        "Madinah Sharif"
       ],
       "ar": [
-        "المدينة المنورة",
         "مكة",
         "الطائف",
-        "دمشق"
+        "دمشق",
+        "المدينة المنورة"
       ],
       "ur": [
-        "مدینہ",
         "مکہ",
         "طائف",
-        "دمشق"
+        "دمشق",
+        "مدینہ شریف"
       ]
     },
-    "correct_index": 0,
+    "correct_index": 3,
     "source": "Seerah — Family of the Prophet",
     "event_id": null
   },
@@ -2244,59 +3300,27 @@
     "difficulty": "easy",
     "prompt": {
       "en": "To which country did Hazrat Abdullah go for trade after marrying Hazrat Amina?",
-      "ar": "إلى أي بلد سافر عبد الله للتجارة بعد زواجه من آمنة؟",
+      "ar": "إلى أي بلد سافر عبد الله للتجارة بعد زواجه من السيدة آمنة؟",
       "ur": "حضرت آمنہ سے نکاح کے بعد حضرت عبداللہ تجارت کے لیے کس ملک گئے؟"
     },
     "options": {
       "en": [
-        "Syria (Sham)",
         "Egypt",
+        "Syria (Sham)",
         "Yemen",
         "Iraq"
       ],
       "ar": [
-        "الشام",
         "مصر",
+        "الشام",
         "اليمن",
         "العراق"
       ],
       "ur": [
-        "شام",
         "مصر",
+        "شام",
         "یمن",
         "عراق"
-      ]
-    },
-    "correct_index": 0,
-    "source": "Seerah — Family of the Prophet",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "What is the literal meaning of the name \"Amina\"?",
-      "ar": "ما المعنى الحرفي لاسم \"آمنة\"؟",
-      "ur": "\"آمنہ\" نام کا لغوی معنی کیا ہے؟"
-    },
-    "options": {
-      "en": [
-        "The brave one",
-        "One who has peace and safety",
-        "The generous one",
-        "The beautiful one"
-      ],
-      "ar": [
-        "الشجاعة",
-        "التي تنعم بالأمن والسلام",
-        "الكريمة",
-        "الجميلة"
-      ],
-      "ur": [
-        "بہادر",
-        "امن و سلامتی والی",
-        "سخی",
-        "خوبصورت"
       ]
     },
     "correct_index": 1,
@@ -2307,28 +3331,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "After prophethood, what was the Prophet's ﷺ state when he visited his mother's grave?",
-      "ar": "بعد البعثة، كيف كان حال النبي ﷺ عندما زار قبر أمه؟",
-      "ur": "نبوت کے بعد جب نبی ﷺ اپنی والدہ کی قبر پر گئے تو آپ ﷺ کی کیا حالت تھی؟"
+      "en": "What is the literal meaning of the name 'Amina' (the Prophet's ﷺ mother)?",
+      "ar": "ما المعنى الحرفي لاسم «آمنة» (والدة النبي ﷺ)؟",
+      "ur": "«آمنہ» (نبی ﷺ کی والدہ) نام کا لغوی معنی کیا ہے؟"
     },
     "options": {
       "en": [
-        "He was laughing",
-        "He was angry",
-        "He was weeping in remembrance of his mother",
-        "He was fast asleep"
+        "The brave one",
+        "The generous one",
+        "One who has peace and safety",
+        "The beautiful one"
       ],
       "ar": [
-        "كان يضحك",
-        "كان غاضبًا",
-        "كان يبكي تذكّرًا لأمه",
-        "كان نائمًا"
+        "الشجاعة",
+        "الكريمة",
+        "التي تنعم بالأمن والسلامة",
+        "الجميلة"
       ],
       "ur": [
-        "آپ ﷺ ہنس رہے تھے",
-        "آپ ﷺ ناراض تھے",
-        "آپ ﷺ والدہ کی یاد میں رو رہے تھے",
-        "آپ ﷺ گہری نیند میں تھے"
+        "بہادر",
+        "سخی",
+        "امن و سلامتی والی",
+        "خوبصورت"
       ]
     },
     "correct_index": 2,
@@ -2339,32 +3363,96 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "By what sign did the monk Bahira recognise the Prophet ﷺ on the journey to Syria?",
-      "ar": "بأي علامة عرف الراهب بحيرى النبي ﷺ في رحلة الشام؟",
-      "ur": "شام کے سفر میں راہب بحیرا نے نبی ﷺ کو کس نشانی سے پہچانا؟"
+      "en": "After the declaration of prophethood, when the Prophet ﷺ went to his mother's grave, what was his state?",
+      "ar": "بعد إعلان البعثة، عندما ذهب النبي ﷺ إلى قبر أمه، كيف كان حاله؟",
+      "ur": "نبوت کے بعد جب نبی ﷺ اپنی والدہ کی قبر پر گئے تو آپ ﷺ کی کیا حالت تھی؟"
+    },
+    "options": {
+      "en": [
+        "He was weeping in remembrance of his mother",
+        "He was laughing",
+        "He was angry",
+        "He was fast asleep"
+      ],
+      "ar": [
+        "كان يبكي تذكّرًا لأمه",
+        "كان يضحك",
+        "كان غاضبًا",
+        "كان نائمًا"
+      ],
+      "ur": [
+        "آپ ﷺ والدہ کی یاد میں رو رہے تھے",
+        "آپ ﷺ ہنس رہے تھے",
+        "آپ ﷺ ناراض تھے",
+        "آپ ﷺ گہری نیند میں تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Family of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When the Prophet ﷺ went on the journey to Syria with his uncle, by what sign did the monk Bahira recognise him?",
+      "ar": "عندما سافر النبي ﷺ إلى الشام مع عمه، بأي علامة عرفه الراهب بحيرى؟",
+      "ur": "جب نبی ﷺ اپنے چچا کے ساتھ شام کے سفر پر گئے تو راہب بحیرا نے آپ ﷺ کو کس نشانی سے پہچانا؟"
     },
     "options": {
       "en": [
         "He carried a golden staff",
         "He wore a royal crown",
-        "Shade appeared where he sat, though there had been none before",
-        "He rode a white horse"
+        "He rode a white horse",
+        "Shade appeared where he sat, although there had been no shade there before"
       ],
       "ar": [
         "كان يحمل عصا من ذهب",
         "كان يلبس تاجًا ملكيًا",
-        "ظهر ظل حيث جلس رغم أنه لم يكن هناك ظل من قبل",
-        "كان يركب فرسًا أبيض"
+        "كان يركب فرسًا أبيض",
+        "ظهر ظل حيث جلس النبي ﷺ رغم أنه لم يكن هناك ظل من قبل"
       ],
       "ur": [
         "آپ ﷺ کے پاس سونے کا عصا تھا",
         "آپ ﷺ نے شاہی تاج پہنا تھا",
-        "جہاں آپ ﷺ بیٹھے وہاں سایہ ہو گیا حالانکہ پہلے وہاں سایہ نہ تھا",
-        "آپ ﷺ سفید گھوڑے پر سوار تھے"
+        "آپ ﷺ سفید گھوڑے پر سوار تھے",
+        "جہاں آپ ﷺ بیٹھے وہاں سایہ ہو گیا حالانکہ پہلے وہاں سایہ نہ تھا"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 3,
     "source": "Seerah — Life Before Prophethood",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When the Prophet ﷺ was in the prime of youth, what was the most important work carried out in Makkah?",
+      "ar": "عندما كان النبي ﷺ في ريعان الشباب، ما أهم عمل جرى في مكة؟",
+      "ur": "جب نبی ﷺ عنفوانِ شباب میں تھے تو مکہ میں سب سے اہم کام کون سا ہوا؟"
+    },
+    "options": {
+      "en": [
+        "The digging of the well of Zamzam",
+        "He took part in the rebuilding of the Kaaba",
+        "The construction of the Prophet's Mosque",
+        "The Treaty of Hudaybiyyah"
+      ],
+      "ar": [
+        "حفر بئر زمزم",
+        "شاركه النبي ﷺ في إعادة بناء الكعبة",
+        "بناء المسجد النبوي",
+        "صلح الحديبية"
+      ],
+      "ur": [
+        "چاہِ زمزم کی کھدائی",
+        "آپ ﷺ نے کعبہ کی تعمیرِ نو میں حصہ لیا",
+        "مسجدِ نبوی کی تعمیر",
+        "صلحِ حدیبیہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Rebuilding the Kaaba",
     "event_id": null
   },
   {
@@ -2403,31 +3491,31 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which Quranic name of the Prophet ﷺ means \"warner\"?",
-      "ar": "أي اسم قرآني للنبي ﷺ يعني \"المنذر\"؟",
-      "ur": "نبی ﷺ کا کون سا قرآنی نام \"ڈرانے والا\" کے معنی رکھتا ہے؟"
+      "en": "Give two Quranic names of the Prophet ﷺ, one meaning 'bearer of glad tidings' and the other 'warner'.",
+      "ar": "اذكر اسمين قرآنيين للنبي ﷺ، أحدهما بمعنى «المبشِّر» والآخر بمعنى «المنذِر».",
+      "ur": "نبی ﷺ کے دو قرآنی نام بتائیے، ایک کا مطلب «خوشخبری دینے والا» اور دوسرے کا «ڈرانے والا» ہے۔"
     },
     "options": {
       "en": [
-        "Bashir",
-        "Nadhir",
-        "Shahid",
-        "Siraj"
+        "Shahid and Siraj",
+        "Rauf and Rahim",
+        "Bashir (bearer of glad tidings) and Nadhir (warner)",
+        "Sadiq and Amin"
       ],
       "ar": [
-        "بشير",
-        "نذير",
-        "شاهد",
-        "سراج"
+        "شاهد وسراج",
+        "رؤوف ورحيم",
+        "بشير ونذير",
+        "صادق وأمين"
       ],
       "ur": [
-        "بشیر",
-        "نذیر",
-        "شاہد",
-        "سراج"
+        "شاہد اور سراج",
+        "رؤف اور رحیم",
+        "بشیر (خوشخبری دینے والا) اور نذیر (ڈرانے والا)",
+        "صادق اور امین"
       ]
     },
-    "correct_index": 1,
+    "correct_index": 2,
     "source": "Seerah — Names of the Prophet",
     "event_id": null
   }

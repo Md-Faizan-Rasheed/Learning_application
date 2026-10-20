@@ -67,10 +67,63 @@ async def register(
     )
 
 
+@router.post("/signup", response_model=schemas.TokenOut, status_code=status.HTTP_201_CREATED)
+async def signup(
+    data: schemas.SignupIn, request: Request, db: AsyncSession = Depends(get_db)
+) -> schemas.TokenOut:
+    """Create a student or teacher account through the current signup flow.
+
+    Student is the UI-facing name for the existing persisted ``player`` role.
+    The legacy /auth/register endpoint remains available with its old contract.
+    """
+    await rate_limit(
+        key=f"signup:{_client_ip(request)}",
+        limit=_AUTH_RATE_LIMIT,
+        window_seconds=_AUTH_RATE_WINDOW_SECONDS,
+    )
+    if not data.gender_ok:
+        raise HTTPException(status_code=422, detail="gender must be 'male' or 'female'")
+    if not data.role_ok:
+        raise HTTPException(status_code=422, detail="role must be 'student' or 'teacher'")
+
+    stored_role = "player" if data.role == "student" else "teacher"
+    try:
+        user = await schemas.create_user(
+            db,
+            email=data.email,
+            display_name=data.display_name,
+            gender=data.gender,
+            password_hash=hash_password(data.password),
+            role=stored_role,
+        )
+    except IntegrityError:
+        await db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT, detail="email already registered"
+        )
+
+    token = create_access_token(user_id=str(user["id"]), role=user["role"])
+    return schemas.TokenOut(
+        access_token=token,
+        user_id=str(user["id"]),
+        display_name=user["display_name"],
+        role=user["role"],
+    )
+
+
 @router.post("/guest", response_model=schemas.TokenOut, status_code=status.HTTP_201_CREATED)
-async def guest(data: schemas.GuestIn, db: AsyncSession = Depends(get_db)) -> schemas.TokenOut:
+async def guest(
+    data: schemas.GuestIn,
+    request: Request,
+    db: AsyncSession = Depends(get_db),
+) -> schemas.TokenOut:
     """Create a passwordless guest account and hand back a token. Lets a player
     play (and keep progress) before committing to email/password."""
+    await rate_limit(
+        key=f"guest:{_client_ip(request)}",
+        limit=_AUTH_RATE_LIMIT,
+        window_seconds=_AUTH_RATE_WINDOW_SECONDS,
+    )
     if data.gender not in ("male", "female"):
         raise HTTPException(status_code=422, detail="gender must be 'male' or 'female'")
     user = await schemas.create_guest(db, display_name=data.display_name, gender=data.gender)

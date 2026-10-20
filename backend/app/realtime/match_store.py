@@ -97,6 +97,9 @@ async def create_match(
     max_seats: int = MAX_SEATS,
     campaign_stage_id: str | None = None,
     campaign_stage_slug: str | None = None,
+    rounds_total: int = ROUNDS_PER_MATCH,
+    campaign_question_start: int | None = None,
+    campaign_question_end: int | None = None,
 ) -> str:
     match_id = match_id or str(uuid.uuid4())
     await redis_client.hset(
@@ -106,6 +109,9 @@ async def create_match(
             "difficulty": difficulty,
             "category": category or "",
             "max_seats": str(max_seats),
+            "rounds_total": str(rounds_total),
+            "campaign_question_start": str(campaign_question_start or ""),
+            "campaign_question_end": str(campaign_question_end or ""),
             "created_at": str(int(time.time())),
             # Campaign mode only — both empty for every ordinary match.
             # The id (a campaign_stages.id) is what _end_match writes
@@ -332,31 +338,51 @@ async def get_scores(match_id: str) -> dict[int, int]:
     raw = await redis_client.hgetall(_scores_key(match_id))
     return {int(seat): int(v) for seat, v in raw.items()}
 
-def _open_key(difficulty: str, category: str = "mixed", stage_slug: str | None = None) -> str:
+def _open_key(
+    difficulty: str,
+    category: str = "mixed",
+    stage_slug: str | None = None,
+    rounds_total: int | None = None,
+) -> str:
     # Campaign lobbies get their own key (open:{cat}:{diff}:{stage}) so a
     # quick-match player on a campaign stage only pools with other players
     # on that SAME stage, never with the general lobby. Ordinary matches
     # never pass stage_slug, so their key is byte-identical to before.
     base = f"open:{category}:{difficulty}"
-    return f"{base}:{stage_slug}" if stage_slug else base
+    if stage_slug:
+        return f"{base}:{stage_slug}:{rounds_total or ROUNDS_PER_MATCH}"
+    return base
 
 
 async def find_open_match(
-    difficulty: str, category: str = "mixed", stage_slug: str | None = None
+    difficulty: str,
+    category: str = "mixed",
+    stage_slug: str | None = None,
+    rounds_total: int | None = None,
 ) -> str | None:
-    return await redis_client.get(_open_key(difficulty, category, stage_slug))
+    return await redis_client.get(_open_key(difficulty, category, stage_slug, rounds_total))
 
 
 async def set_open_match(
-    difficulty: str, match_id: str, category: str = "mixed", stage_slug: str | None = None
+    difficulty: str,
+    match_id: str,
+    category: str = "mixed",
+    stage_slug: str | None = None,
+    rounds_total: int | None = None,
 ) -> None:
-    await redis_client.set(_open_key(difficulty, category, stage_slug), match_id, ex=_TTL_SECONDS)
+    await redis_client.set(
+        _open_key(difficulty, category, stage_slug, rounds_total), match_id, ex=_TTL_SECONDS
+    )
 
 
 async def clear_open_match(
-    difficulty: str, match_id: str, category: str = "mixed", stage_slug: str | None = None
+    difficulty: str,
+    match_id: str,
+    category: str = "mixed",
+    stage_slug: str | None = None,
+    rounds_total: int | None = None,
 ) -> None:
-    key = _open_key(difficulty, category, stage_slug)
+    key = _open_key(difficulty, category, stage_slug, rounds_total)
     current = await redis_client.get(key)
     if current == match_id:
         await redis_client.delete(key)
@@ -386,6 +412,11 @@ async def match_id_for_room_code(code: str) -> str | None:
 async def get_recent_questions(match_id: str) -> list[str]:
     return await redis_client.lrange(f"{match_id}:recent_questions", 0, -1)
 
-async def add_recent_question(match_id: str, question_id: str) -> None:
-    await redis_client.rpush(f"{match_id}:recent_questions", question_id)
-    await redis_client.ltrim(f"{match_id}:recent_questions", -10, -1)
+async def add_recent_question(
+    match_id: str, question_id: str, *, keep_all: bool = False
+) -> None:
+    key = f"{match_id}:recent_questions"
+    await redis_client.rpush(key, question_id)
+    if not keep_all:
+        await redis_client.ltrim(key, -10, -1)
+    await redis_client.expire(key, _TTL_SECONDS)

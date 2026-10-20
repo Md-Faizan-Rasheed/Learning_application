@@ -17,12 +17,14 @@ class AuthScreen extends StatefulWidget {
     required this.onSignedIn,
     required this.currentLang,
     required this.onLocaleChange,
+    this.startInRegister = false,
   });
 
   final AuthService auth;
   final void Function(Session) onSignedIn;
   final String currentLang;
   final void Function(Locale) onLocaleChange;
+  final bool startInRegister;
 
   @override
   State<AuthScreen> createState() => _AuthScreenState();
@@ -42,7 +44,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _nameFocus = FocusNode();
 
   String _gender = 'male';
-  bool _asTeacher = false;
+  String _signupRole = 'student';
   bool _busy = false;
   String? _error;
   int _registerStep = 0;
@@ -51,6 +53,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   void initState() {
     super.initState();
+    if (widget.startInRegister) _mode = _Mode.register;
     for (final f in [_emailFocus, _passwordFocus, _nameFocus]) {
       f.addListener(() => setState(() {}));
     }
@@ -92,7 +95,7 @@ class _AuthScreenState extends State<AuthScreen> {
             password: _password.text,
             displayName: _name.text.trim(),
             gender: _gender,
-            role: _asTeacher ? 'teacher' : 'player',
+            role: _signupRole,
           );
           break;
 
@@ -209,7 +212,8 @@ class _AuthScreenState extends State<AuthScreen> {
                     children: [
                       _buildHero(context, t),
                       const SizedBox(height: 32),
-                      BrandMark(size: 180, busy: _busy, burstSignal: _burstSignal),
+                      BrandMark(
+                          size: 180, busy: _busy, burstSignal: _burstSignal),
                     ],
                   ),
                 ),
@@ -360,12 +364,10 @@ class _AuthScreenState extends State<AuthScreen> {
             visualDensity: VisualDensity.compact,
             textStyle: WidgetStateProperty.all(
               TextStyle(
-                  fontSize: compact ? 12.5 : 14,
-                  fontWeight: FontWeight.w700),
+                  fontSize: compact ? 12.5 : 14, fontWeight: FontWeight.w700),
             ),
             padding: WidgetStateProperty.all(
-              EdgeInsets.symmetric(
-                  horizontal: compact ? 2 : 6, vertical: 12),
+              EdgeInsets.symmetric(horizontal: compact ? 2 : 6, vertical: 12),
             ),
           ),
         );
@@ -521,9 +523,7 @@ class _AuthScreenState extends State<AuthScreen> {
         Text(
           titles[_registerStep],
           style: const TextStyle(
-              color: AppPalette.ink,
-              fontWeight: FontWeight.w800,
-              fontSize: 15),
+              color: AppPalette.ink, fontWeight: FontWeight.w800, fontSize: 15),
         ),
       ],
     );
@@ -552,7 +552,7 @@ class _AuthScreenState extends State<AuthScreen> {
           children: [
             _buildGenderSelector(context, t),
             const SizedBox(height: 12),
-            _buildTeacherToggle(context, t),
+            _buildRoleSelector(context, t),
           ],
         );
       default:
@@ -627,47 +627,38 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 
-  Widget _buildTeacherToggle(BuildContext context, AppLocalizations t) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(14),
-      onTap: _busy ? null : () => setState(() => _asTeacher = !_asTeacher),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 160),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-        decoration: BoxDecoration(
-          color: _asTeacher
-              ? AppPalette.deepTealMuted
-              : AppPalette.cardStock,
-          borderRadius: BorderRadius.circular(14),
-          border: Border.all(
-              color: _asTeacher
-                  ? AppPalette.deepTeal.withValues(alpha: 0.6)
-                  : AppPalette.borderTaupe),
+  Widget _buildRoleSelector(BuildContext context, AppLocalizations t) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          t.authChooseRole,
+          style: const TextStyle(
+            color: AppPalette.ink,
+            fontWeight: FontWeight.w700,
+          ),
         ),
-        child: Row(
-          children: [
-            Icon(Icons.school_rounded,
-                size: 20,
-                color:
-                    _asTeacher ? AppPalette.deepTeal : AppPalette.inkMuted),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                t.authRegisterAsTeacher,
-                style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color:
-                        _asTeacher ? AppPalette.deepTeal : AppPalette.ink),
-              ),
+        const SizedBox(height: 8),
+        SegmentedButton<String>(
+          segments: [
+            ButtonSegment(
+              value: 'student',
+              label: Text(t.authRoleStudent),
+              icon: const Icon(Icons.person_outline_rounded),
             ),
-            Switch(
-              value: _asTeacher,
-              activeThumbColor: AppPalette.deepTeal,
-              onChanged: _busy ? null : (v) => setState(() => _asTeacher = v),
+            ButtonSegment(
+              value: 'teacher',
+              label: Text(t.authRoleTeacher),
+              icon: const Icon(Icons.school_outlined),
             ),
           ],
+          selected: {_signupRole},
+          onSelectionChanged: _busy
+              ? null
+              : (selection) => setState(() => _signupRole = selection.first),
+          showSelectedIcon: false,
         ),
-      ),
+      ],
     );
   }
 
@@ -677,12 +668,14 @@ class _AuthScreenState extends State<AuthScreen> {
       decoration: BoxDecoration(
         color: AppPalette.incorrectRed.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppPalette.incorrectRed.withValues(alpha: 0.4)),
+        border:
+            Border.all(color: AppPalette.incorrectRed.withValues(alpha: 0.4)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.error_outline_rounded, color: AppPalette.incorrectRed),
+          const Icon(Icons.error_outline_rounded,
+              color: AppPalette.incorrectRed),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -690,11 +683,11 @@ class _AuthScreenState extends State<AuthScreen> {
               children: [
                 Text(t.authErrorSoft,
                     style: const TextStyle(
-                        color: AppPalette.ink,
-                        fontWeight: FontWeight.w700)),
+                        color: AppPalette.ink, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 2),
                 Text(_error!,
-                    style: TextStyle(color: AppPalette.inkMuted, fontSize: 12.5)),
+                    style:
+                        TextStyle(color: AppPalette.inkMuted, fontSize: 12.5)),
               ],
             ),
           ),
@@ -934,8 +927,8 @@ class _AuthScreenState extends State<AuthScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(t.authForgotPasswordPrompt,
-                          style:
-                              TextStyle(color: AppPalette.inkMuted, fontSize: 13)),
+                          style: TextStyle(
+                              color: AppPalette.inkMuted, fontSize: 13)),
                       const SizedBox(height: 14),
                       TextField(
                         controller: controller,

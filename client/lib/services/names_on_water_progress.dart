@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'local_progress_preferences.dart';
 import '../utils/name_chapters.dart';
 import '../utils/names_of_allah.dart';
 import '../utils/word_bank_entry.dart';
@@ -26,7 +27,8 @@ class NamesOnWaterProgress {
 
   Future<int> _readNextIndex() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_key);
+    final key = await LocalProgressPreferences.keyFor(_key);
+    final raw = prefs.getString(key);
     if (raw == null) return 0;
     try {
       final data = jsonDecode(raw) as Map<String, dynamic>;
@@ -39,7 +41,9 @@ class NamesOnWaterProgress {
 
   Future<void> _writeNextIndex(int index) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_key, jsonEncode({'nextIndex': index % kNamesOfAllah.length}));
+    final key = await LocalProgressPreferences.keyFor(_key);
+    await prefs.setString(
+        key, jsonEncode({'nextIndex': index % kNamesOfAllah.length}));
   }
 
   /// The next round's batch (5-7 names, randomized per round), wrapping
@@ -69,7 +73,8 @@ class NamesOnWaterProgress {
 
   Future<Set<int>> completedChapters() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getStringList(_completedChaptersKey);
+    final key = await LocalProgressPreferences.keyFor(_completedChaptersKey);
+    final raw = prefs.getStringList(key);
     if (raw == null) return {};
     return raw.map(int.parse).toSet();
   }
@@ -79,9 +84,9 @@ class NamesOnWaterProgress {
   /// sequential pointer.
   Future<void> markChapterComplete(int chapterIndex) async {
     final prefs = await SharedPreferences.getInstance();
+    final key = await LocalProgressPreferences.keyFor(_completedChaptersKey);
     final current = await completedChapters();
     current.add(chapterIndex);
-    await prefs.setStringList(
-        _completedChaptersKey, current.map((i) => i.toString()).toList());
+    await prefs.setStringList(key, current.map((i) => i.toString()).toList());
   }
 }

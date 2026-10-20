@@ -3,27 +3,59 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "How long did the Prophet ﷺ remain in Makkah after the declaration of prophethood?",
+      "en": "How long did the Prophet ﷺ live in Makkah, from birth until the Hijra?",
+      "ar": "كم عاش النبي ﷺ في مكة من ولادته حتى الهجرة؟",
+      "ur": "نبی ﷺ پیدائش سے ہجرت تک مکہ میں کتنا عرصہ رہے؟"
+    },
+    "options": {
+      "en": [
+        "A total of 53 years",
+        "40 years",
+        "63 years",
+        "23 years"
+      ],
+      "ar": [
+        "ثلاثًا وخمسين سنة في المجموع",
+        "40 سنة",
+        "63 سنة",
+        "23 سنة"
+      ],
+      "ur": [
+        "کل 53 سال",
+        "40 سال",
+        "63 سال",
+        "23 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After the declaration of prophethood, how long did the Prophet ﷺ remain in Makkah?",
       "ar": "كم مكث النبي ﷺ في مكة بعد إعلان النبوة؟",
       "ur": "اعلانِ نبوت کے بعد نبی ﷺ مکہ میں کتنا عرصہ رہے؟"
     },
     "options": {
       "en": [
         "Three years",
-        "Thirty years",
-        "Forty years",
+        "Ten years",
+        "Twenty-three years",
         "Thirteen years"
       ],
       "ar": [
         "ثلاث سنوات",
-        "ثلاثون سنة",
-        "أربعون سنة",
+        "عشر سنوات",
+        "ثلاث وعشرون سنة",
         "ثلاث عشرة سنة"
       ],
       "ur": [
         "تین سال",
-        "تیس سال",
-        "چالیس سال",
+        "دس سال",
+        "تئیس سال",
         "تیرہ سال"
       ]
     },
@@ -35,28 +67,60 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which of these harmed the Prophet ﷺ the most in Makkah?",
-      "ar": "أي من هؤلاء آذى النبي ﷺ أشد الأذى في مكة؟",
-      "ur": "ان میں سے کس نے مکہ میں نبی ﷺ کو سب سے زیادہ تکلیف دی؟"
+      "en": "After the Hijra, how many times did the Prophet ﷺ come to Makkah?",
+      "ar": "كم مرة جاء النبي ﷺ مكة بعد الهجرة؟",
+      "ur": "ہجرت کے بعد نبی ﷺ کتنی بار مکہ تشریف لائے؟"
     },
     "options": {
       "en": [
-        "Abu Bakr",
-        "Abu Jahl",
-        "Hazrat Hamza",
-        "Hazrat Bilal"
+        "Once",
+        "Five times",
+        "Three times",
+        "Never"
       ],
       "ar": [
-        "أبو بكر",
-        "أبو جهل",
-        "حمزة",
-        "بلال"
+        "مرة واحدة",
+        "خمس مرات",
+        "ثلاث مرات",
+        "لم يأتِ أبدًا"
       ],
       "ur": [
-        "ابو بکر",
-        "ابو جہل",
-        "حضرت حمزہ",
-        "حضرت بلال"
+        "ایک بار",
+        "پانچ بار",
+        "تین بار",
+        "کبھی نہیں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In Makkah, where did the Prophet ﷺ perform prayer?",
+      "ar": "أين كان النبي ﷺ يصلي في مكة؟",
+      "ur": "مکہ میں نبی ﷺ نماز کہاں ادا فرماتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Only in Masjid Quba",
+        "In Dar al-Arqam and in the House of the Kaaba",
+        "Only in the Cave of Thawr",
+        "In the Prophet's Mosque"
+      ],
+      "ar": [
+        "في مسجد قباء فقط",
+        "في دار الأرقم وفي بيت الكعبة",
+        "في غار ثور فقط",
+        "في المسجد النبوي"
+      ],
+      "ur": [
+        "صرف مسجدِ قبا میں",
+        "دارِ ارقم میں اور خانہ کعبہ میں",
+        "صرف غارِ ثور میں",
+        "مسجدِ نبوی میں"
       ]
     },
     "correct_index": 1,
@@ -67,28 +131,60 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which uncle used to protect the Prophet ﷺ from harm in Makkah?",
-      "ar": "أي أعمام النبي ﷺ كان يحميه من الأذى في مكة؟",
-      "ur": "مکہ میں نبی ﷺ کو تکلیف سے کون سے چچا بچاتے تھے؟"
+      "en": "In Makkah, who harmed the Prophet ﷺ the most?",
+      "ar": "من الذين آذوا النبي ﷺ أشد الأذى في مكة؟",
+      "ur": "مکہ میں نبی ﷺ کو سب سے زیادہ تکلیف کس نے دی؟"
     },
     "options": {
       "en": [
-        "Abu Lahab",
-        "Abu Jahl",
-        "Abu Sufyan",
-        "Abu Talib"
+        "Abu Jahl, Abu Lahab and Uqba ibn Abi Mu'ayt",
+        "Abu Bakr, Umar and Uthman",
+        "Hamza, Abbas and Abu Talib",
+        "Bilal, Yasir and Ibn Mas'ud"
       ],
       "ar": [
-        "أبو لهب",
-        "أبو جهل",
-        "أبو سفيان",
-        "أبو طالب"
+        "أبو جهل وأبو لهب وعقبة بن أبي معيط",
+        "أبو بكر وعمر وعثمان",
+        "حمزة والعباس وأبو طالب",
+        "بلال وياسر وابن مسعود"
       ],
       "ur": [
-        "ابو لہب",
-        "ابو جہل",
-        "ابو سفیان",
-        "ابو طالب"
+        "ابو جہل، ابو لہب، عقبہ بن ابی معیط",
+        "ابو بکر، عمر، عثمان",
+        "حمزہ، عباس، ابو طالب",
+        "بلال، یاسر، ابن مسعود"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In Makkah, which of the Prophet's ﷺ companions had to endure the most hardships?",
+      "ar": "أي صحابة النبي ﷺ لاقوا أشد المشقات في مكة؟",
+      "ur": "مکہ میں نبی ﷺ کے کن صحابہ کو سب سے زیادہ مصیبتیں جھیلنی پڑیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr, Hazrat Umar and Hazrat Uthman",
+        "Hazrat Hamza, Hazrat Abbas and Hazrat Ali",
+        "Hazrat Khalid, Hazrat Amr and Hazrat Ikrima",
+        "Hazrat Bilal, Hazrat Yasir and Hazrat Abdullah ibn Mas'ud"
+      ],
+      "ar": [
+        "أبو بكر وعمر وعثمان",
+        "حمزة والعباس وعلي",
+        "خالد وعمرو وعكرمة",
+        "بلال وياسر وعبد الله بن مسعود"
+      ],
+      "ur": [
+        "حضرت ابو بکر، حضرت عمر، حضرت عثمان",
+        "حضرت حمزہ، حضرت عباس، حضرت علی",
+        "حضرت خالد، حضرت عمرو، حضرت عکرمہ",
+        "حضرت بلال، حضرت یاسر، حضرت عبداللہ بن مسعود"
       ]
     },
     "correct_index": 3,
@@ -99,28 +195,92 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "To which land did the first Muslims migrate to escape the Quraysh's persecution?",
-      "ar": "إلى أي أرض هاجر أوائل المسلمين هربًا من أذى قريش؟",
-      "ur": "قریش کے ظلم سے بچنے کے لیے پہلے مسلمانوں نے کس سرزمین کی طرف ہجرت کی؟"
+      "en": "Who used to keep the Prophet ﷺ away from harm and trouble in Makkah?",
+      "ar": "من كان يدفع الأذى والمتاعب عن النبي ﷺ في مكة؟",
+      "ur": "مکہ میں نبی ﷺ کو تکلیف اور پریشانی سے کون بچاتے تھے؟"
     },
     "options": {
       "en": [
-        "Abyssinia",
-        "Yemen",
-        "Syria",
-        "Egypt"
+        "Abu Jahl, Abu Lahab and Uqba",
+        "Utba, Walid and Nadr",
+        "Hazrat Abu Bakr, Abu Talib and Hazrat Hamza",
+        "Umayya, Ubayy and Suhayl"
       ],
       "ar": [
-        "الحبشة",
-        "اليمن",
-        "الشام",
-        "مصر"
+        "أبو جهل وأبو لهب وعقبة",
+        "عتبة والوليد والنضر",
+        "أبو بكر وأبو طالب وحمزة",
+        "أمية وأبي وسهيل"
       ],
       "ur": [
-        "حبشہ",
-        "یمن",
-        "شام",
-        "مصر"
+        "ابو جہل، ابو لہب، عقبہ",
+        "عتبہ، ولید، نضر",
+        "حضرت ابو بکر، ابو طالب، حضرت حمزہ",
+        "امیہ، ابی، سہیل"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did the Prophet ﷺ give the order for the Hijra to Abyssinia?",
+      "ar": "متى أمر النبي ﷺ بالهجرة إلى الحبشة؟",
+      "ur": "نبی ﷺ نے حبشہ کی ہجرت کا حکم کب دیا؟"
+    },
+    "options": {
+      "en": [
+        "Muharram, year 1 of prophethood",
+        "Rajab, year 5 of prophethood",
+        "Ramadan, year 10 of prophethood",
+        "Shawwal, year 13 of prophethood"
+      ],
+      "ar": [
+        "محرم من السنة الأولى للبعثة",
+        "رجب من السنة الخامسة للبعثة",
+        "رمضان من السنة العاشرة للبعثة",
+        "شوال من السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "محرم، نبوت کے پہلے سال",
+        "رجب، نبوت کے پانچویں سال",
+        "رمضان، نبوت کے دسویں سال",
+        "شوال، نبوت کے تیرہویں سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many people made the Hijra to Abyssinia?",
+      "ar": "كم شخصًا هاجر إلى الحبشة؟",
+      "ur": "حبشہ کی طرف کتنے لوگوں نے ہجرت کی؟"
+    },
+    "options": {
+      "en": [
+        "Twelve men and four women",
+        "Seventy men and ten women",
+        "Three men and one woman",
+        "Forty men and forty women"
+      ],
+      "ar": [
+        "اثنا عشر رجلًا وأربع نساء",
+        "سبعون رجلًا وعشر نساء",
+        "ثلاثة رجال وامرأة",
+        "أربعون رجلًا وأربعون امرأة"
+      ],
+      "ur": [
+        "بارہ مرد اور چار عورتیں",
+        "ستر مرد اور دس عورتیں",
+        "تین مرد اور ایک عورت",
+        "چالیس مرد اور چالیس عورتیں"
       ]
     },
     "correct_index": 0,
@@ -131,60 +291,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which daughter of the Prophet ﷺ migrated to Abyssinia with her husband Hazrat Uthman?",
-      "ar": "أي بنات النبي ﷺ هاجرت إلى الحبشة مع زوجها عثمان؟",
-      "ur": "نبی ﷺ کی کون سی صاحبزادی اپنے شوہر حضرت عثمان کے ساتھ حبشہ ہجرت کر گئیں؟"
+      "en": "Which of the Prophet's ﷺ daughters and which son-in-law were also in the Hijra to Abyssinia?",
+      "ar": "أي بنات النبي ﷺ وأي أصهاره كانا في الهجرة إلى الحبشة؟",
+      "ur": "نبی ﷺ کی کون سی صاحبزادی اور کون سے داماد ہجرتِ حبشہ میں شامل تھے؟"
     },
     "options": {
       "en": [
-        "Hazrat Fatima",
-        "Hazrat Zaynab",
-        "Hazrat Ruqayya",
-        "Hazrat Umm Kulthum"
+        "Hazrat Fatima and her husband Hazrat Ali",
+        "Hazrat Zaynab and her husband Abu al-As",
+        "Hazrat Umm Kulthum and her husband Utayba",
+        "Hazrat Ruqayya and her husband Hazrat Uthman"
       ],
       "ar": [
-        "فاطمة",
-        "زينب",
-        "رقية",
-        "أم كلثوم"
+        "السيدة فاطمة وزوجها علي",
+        "السيدة زينب وزوجها أبو العاص",
+        "السيدة أم كلثوم وزوجها عتيبة",
+        "السيدة رقية وزوجها عثمان"
       ],
       "ur": [
-        "حضرت فاطمہ",
-        "حضرت زینب",
-        "حضرت رقیہ",
-        "حضرت ام کلثوم"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Hijra to Abyssinia",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which king of Abyssinia let the Muslims live in peace?",
-      "ar": "أي ملوك الحبشة أتاح للمسلمين العيش بسلام؟",
-      "ur": "حبشہ کے کس بادشاہ نے مسلمانوں کو امن سے رہنے دیا؟"
-    },
-    "options": {
-      "en": [
-        "Abraha",
-        "Heraclius",
-        "Chosroes",
-        "The Negus (Najashi)"
-      ],
-      "ar": [
-        "أبرهة",
-        "هرقل",
-        "كسرى",
-        "النجاشي"
-      ],
-      "ur": [
-        "ابرہہ",
-        "ہرقل",
-        "کسریٰ",
-        "نجاشی"
+        "حضرت فاطمہ اور ان کے شوہر حضرت علی",
+        "حضرت زینب اور ان کے شوہر ابو العاص",
+        "حضرت ام کلثوم اور ان کے شوہر عتیبہ",
+        "حضرت رقیہ اور ان کے شوہر حضرت عثمان"
       ]
     },
     "correct_index": 3,
@@ -195,31 +323,63 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which of these was sent by the Quraysh to Abyssinia to bring the Muslims back?",
-      "ar": "أي من هؤلاء أرسلته قريش إلى الحبشة لاسترداد المسلمين؟",
-      "ur": "قریش نے مسلمانوں کو واپس لانے کے لیے ان میں سے کس کو حبشہ بھیجا؟"
+      "en": "Which king in Abyssinia allowed the Muslims to live in peace and tranquillity?",
+      "ar": "أي ملوك الحبشة أتاح للمسلمين العيش في أمن وطمأنينة؟",
+      "ur": "حبشہ کے کس بادشاہ نے مسلمانوں کو امن و سکون سے رہنے دیا؟"
     },
     "options": {
       "en": [
-        "Amr ibn al-As",
-        "Abu Bakr",
-        "Hazrat Ali",
-        "Bilal"
+        "Abraha",
+        "Heraclius",
+        "The Negus (Najashi)",
+        "Chosroes"
       ],
       "ar": [
-        "عمرو بن العاص",
-        "أبو بكر",
-        "علي",
-        "بلال"
+        "أبرهة",
+        "هرقل",
+        "النجاشي",
+        "كسرى"
       ],
       "ur": [
-        "عمرو بن العاص",
-        "ابو بکر",
-        "حضرت علی",
-        "حضرت بلال"
+        "ابرہہ",
+        "ہرقل",
+        "نجاشی",
+        "کسریٰ"
       ]
     },
-    "correct_index": 0,
+    "correct_index": 2,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Whom did the Quraysh send to Abyssinia as envoys so that the Muslims be brought back?",
+      "ar": "من الذين أرسلتهم قريش سفيرين إلى الحبشة لإعادة المسلمين؟",
+      "ur": "قریش نے مسلمانوں کو واپس لانے کے لیے حبشہ کن کو سفیر بنا کر بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr and Umar",
+        "Abdullah ibn Rabi' and Amr ibn al-As",
+        "Abu Jahl and Abu Lahab",
+        "Utba and Walid"
+      ],
+      "ar": [
+        "أبو بكر وعمر",
+        "عبد الله بن ربيعة وعمرو بن العاص",
+        "أبو جهل وأبو لهب",
+        "عتبة والوليد"
+      ],
+      "ur": [
+        "ابو بکر اور عمر",
+        "عبداللہ بن ربیع اور عمرو بن العاص",
+        "ابو جہل اور ابو لہب",
+        "عتبہ اور ولید"
+      ]
+    },
+    "correct_index": 1,
     "source": "Seerah — Hijra to Abyssinia",
     "event_id": null
   },
@@ -259,31 +419,31 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Through whom did the Quraysh make offers to the Prophet ﷺ to stop his preaching?",
-      "ar": "عن طريق من عرضت قريش على النبي ﷺ عروضها ليترك الدعوة؟",
-      "ur": "قریش نے نبی ﷺ کو تبلیغ چھوڑنے کے لیے پیشکشیں کس کے ذریعے کیں؟"
+      "en": "Through whom did the Quraysh make various offers to the Prophet ﷺ so that he would stop inviting and preaching?",
+      "ar": "عن طريق من عرضت قريش عروضًا مختلفة على النبي ﷺ ليترك الدعوة والتبليغ؟",
+      "ur": "قریش نے نبی ﷺ کو تبلیغ چھوڑنے کے لیے مختلف پیشکشیں کس کے ذریعے کیں؟"
     },
     "options": {
       "en": [
-        "Abu Talib",
         "Abu Bakr",
         "Hazrat Abbas",
-        "Hazrat Hamza"
+        "Hazrat Hamza",
+        "Abu Talib"
       ],
       "ar": [
-        "أبو طالب",
         "أبو بكر",
         "العباس",
-        "حمزة"
+        "حمزة",
+        "أبو طالب"
       ],
       "ur": [
-        "ابو طالب",
         "ابو بکر",
         "حضرت عباس",
-        "حضرت حمزہ"
+        "حضرت حمزہ",
+        "ابو طالب"
       ]
     },
-    "correct_index": 0,
+    "correct_index": 3,
     "source": "Seerah — Makkan Period",
     "event_id": null
   },
@@ -299,23 +459,23 @@
       "en": [
         "He would stop preaching for a year",
         "He would accept if they gave him a kingdom",
-        "He would leave Makkah",
-        "Even if they placed the sun in one hand and the moon in the other, he would not give up calling to the religion"
+        "Even if they placed the sun in one hand and the moon in the other, he would not give up calling to the religion",
+        "He would leave Makkah"
       ],
       "ar": [
         "سيتوقف عن الدعوة سنة",
         "سيقبل إن أعطوه ملكًا",
-        "سيغادر مكة",
-        "لو وضعوا الشمس في يمينه والقمر في يساره ما ترك الدعوة إلى الدين"
+        "لو وضعوا الشمس في يمينه والقمر في يساره ما ترك الدعوة إلى الدين",
+        "سيغادر مكة"
       ],
       "ur": [
-        "ایک سال تبلیغ روک دیں گے",
-        "بادشاہت ملے تو مان لیں گے",
-        "مکہ چھوڑ دیں گے",
-        "اگر وہ سورج ایک ہاتھ میں اور چاند دوسرے میں رکھ دیں تب بھی آپ ﷺ دین کی دعوت نہ چھوڑیں گے"
+        "ایک سال تبلیغ روک دوں گا",
+        "بادشاہت ملے تو مان لوں گا",
+        "اگر وہ سورج میرے ایک ہاتھ میں اور چاند دوسرے میں رکھ دیں تب بھی میں دین کی دعوت نہ چھوڑوں گا",
+        "مکہ چھوڑ دوں گا"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 2,
     "source": "Seerah — Makkan Period",
     "event_id": null
   },
@@ -329,22 +489,54 @@
     },
     "options": {
       "en": [
+        "Three months",
         "Three years",
-        "Three days",
         "Ten years",
-        "Three months"
+        "One year"
       ],
       "ar": [
+        "ثلاثة أشهر",
         "ثلاث سنوات",
-        "ثلاثة أيام",
         "عشر سنوات",
-        "ثلاثة أشهر"
+        "سنة واحدة"
       ],
       "ur": [
+        "تین مہینے",
         "تین سال",
-        "تین دن",
         "دس سال",
-        "تین مہینے"
+        "ایک سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When did the event of Shi'b Abi Talib take place?",
+      "ar": "متى وقع حدث شعب أبي طالب؟",
+      "ur": "شعبِ ابی طالب کا واقعہ کب پیش آیا؟"
+    },
+    "options": {
+      "en": [
+        "In the seventh year of prophethood",
+        "In the first year of prophethood",
+        "In the third year of prophethood",
+        "In the thirteenth year of prophethood"
+      ],
+      "ar": [
+        "في السنة السابعة للبعثة",
+        "في السنة الأولى للبعثة",
+        "في السنة الثالثة للبعثة",
+        "في السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کے ساتویں سال",
+        "نبوت کے پہلے سال",
+        "نبوت کے تیسرے سال",
+        "نبوت کے تیرہویں سال"
       ]
     },
     "correct_index": 0,
@@ -355,60 +547,60 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What agreement did the Quraysh make against Banu Hashim?",
-      "ar": "ما العهد الذي عقدته قريش ضد بني هاشم؟",
-      "ur": "قریش نے بنو ہاشم کے خلاف کیا معاہدہ کیا؟"
+      "en": "What agreement did the Quraysh make by which they confined the Prophet ﷺ and his companions in Shi'b Abi Talib?",
+      "ar": "ما العهد الذي عقدته قريش وحاصرت به النبي ﷺ وأصحابه في شعب أبي طالب؟",
+      "ur": "قریش نے وہ کون سا معاہدہ کیا جس کے تحت نبی ﷺ اور صحابہ کو شعبِ ابی طالب میں محصور کیا؟"
     },
     "options": {
       "en": [
         "To pay them compensation",
         "To make them chiefs",
-        "To boycott them and end every kind of dealing with them",
-        "To make peace with them"
+        "To make peace with them",
+        "That Banu Hashim be boycotted and every kind of dealing with them be ended"
       ],
       "ar": [
         "دفع تعويض لهم",
         "تنصيبهم زعماء",
-        "مقاطعتهم وقطع كل تعامل معهم",
-        "مصالحتهم"
+        "مصالحتهم",
+        "مقاطعة بني هاشم وقطع كل تعامل معهم"
       ],
       "ur": [
         "انہیں معاوضہ دینا",
         "انہیں سردار بنانا",
-        "ان کا بائیکاٹ کرنا اور ہر قسم کا لین دین ختم کرنا",
-        "ان سے صلح کرنا"
+        "ان سے صلح کرنا",
+        "کہ بنو ہاشم کا بائیکاٹ کیا جائے اور ان سے ہر قسم کا لین دین ختم کیا جائے"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 3,
     "source": "Seerah — Shi'b Abi Talib",
     "event_id": null
   },
   {
     "category_slug": "seerah",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "prompt": {
-      "en": "What happened to the boycott document hung in the Kaaba?",
-      "ar": "ماذا حدث لصحيفة المقاطعة المعلقة في الكعبة؟",
-      "ur": "کعبہ میں لٹکائی گئی بائیکاٹ کی دستاویز کے ساتھ کیا ہوا؟"
+      "en": "In Shi'b Abi Talib, who secretly brought food and drink to the Prophet ﷺ?",
+      "ar": "من الذي كان يحمل الطعام والشراب سرًّا إلى النبي ﷺ في شعب أبي طالب؟",
+      "ur": "شعبِ ابی طالب میں نبی ﷺ کے پاس چھپ کر کھانا پانی کون لاتا تھا؟"
     },
     "options": {
       "en": [
-        "It was stolen",
-        "It was burned",
-        "Termites ate it (except the name of God)",
-        "It was washed away by rain"
+        "Abu Jahl and Utba",
+        "Abu Lahab and Umm Jamil",
+        "Hazrat Abu Bakr Siddiq and Hakim ibn Hizam",
+        "Uqba and Nadr"
       ],
       "ar": [
-        "سُرقت",
-        "أُحرقت",
-        "أكلتها الأرضة (إلا اسم الله)",
-        "جرفها المطر"
+        "أبو جهل وعتبة",
+        "أبو لهب وأم جميل",
+        "أبو بكر الصديق وحكيم بن حزام",
+        "عقبة والنضر"
       ],
       "ur": [
-        "چوری ہو گئی",
-        "جلا دی گئی",
-        "دیمک نے چاٹ لی (سوائے اللہ کے نام کے)",
-        "بارش میں بہہ گئی"
+        "ابو جہل اور عتبہ",
+        "ابو لہب اور ام جمیل",
+        "حضرت ابو بکر صدیق اور حکیم بن حزام",
+        "عقبہ اور نضر"
       ]
     },
     "correct_index": 2,
@@ -419,31 +611,191 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What is meant by \"Am al-Huzn\"?",
+      "en": "Where did the Quraysh keep the document of the agreement they had taken from Banu Hashim?",
+      "ar": "أين وضعت قريش صحيفة العهد التي أخذتها على بني هاشم؟",
+      "ur": "قریش نے بنو ہاشم سے لیے گئے معاہدے کی دستاویز کہاں رکھی؟"
+    },
+    "options": {
+      "en": [
+        "In Dar al-Nadwa",
+        "Among the curtains of the House of the Kaaba",
+        "In Abu Jahl's house",
+        "They buried it in the ground"
+      ],
+      "ar": [
+        "في دار الندوة",
+        "بين ستائر بيت الكعبة",
+        "في بيت أبي جهل",
+        "دفنوها في الأرض"
+      ],
+      "ur": [
+        "دارِ ندوہ میں",
+        "خانہ کعبہ کے پردوں کے درمیان",
+        "ابو جہل کے گھر میں",
+        "زمین میں دفن کر دی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What happened to the document of this agreement?",
+      "ar": "ماذا حدث لصحيفة هذا العهد؟",
+      "ur": "اس معاہدے کی دستاویز کے ساتھ کیا ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Termites ate it (except for the name of God)",
+        "It was stolen",
+        "It was burned",
+        "It was washed away by rain"
+      ],
+      "ar": [
+        "أكلتها الأرضة (إلا اسم الله)",
+        "سُرقت",
+        "أُحرقت",
+        "جرفها المطر"
+      ],
+      "ur": [
+        "دیمک نے چاٹ لی (سوائے اللہ کے نام کے)",
+        "چوری ہو گئی",
+        "جلا دی گئی",
+        "بارش میں بہہ گئی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "At the urging of which people did the Shi'b Abi Talib agreement end?",
+      "ar": "بإلحاح من انتهى عهد شعب أبي طالب؟",
+      "ur": "کن لوگوں کے زور دینے پر شعبِ ابی طالب کا معاہدہ ختم ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl, Abu Lahab, Utba and Walid",
+        "Umar, Uthman, Ali and Talha",
+        "Hamza, Abbas, Ja'far and Aqil",
+        "Abu al-Bakhtari ibn Hisham, Adi ibn Qays, Zam'a ibn al-Aswad and Zuhayr ibn Umayya"
+      ],
+      "ar": [
+        "أبو جهل وأبو لهب وعتبة والوليد",
+        "عمر وعثمان وعلي وطلحة",
+        "حمزة والعباس وجعفر وعقيل",
+        "أبو البختري بن هشام وعدي بن قيس وزمعة بن الأسود وزهير بن أمية"
+      ],
+      "ur": [
+        "ابو جہل، ابو لہب، عتبہ، ولید",
+        "عمر، عثمان، علی، طلحہ",
+        "حمزہ، عباس، جعفر، عقیل",
+        "ابو البختری بن ہشام، عدی بن قیس، زمعہ بن اسود، زہیر بن امیہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Prophet ﷺ and his companions come out of Shi'b Abi Talib?",
+      "ar": "في أي سنة خرج النبي ﷺ وأصحابه من شعب أبي طالب؟",
+      "ur": "نبی ﷺ اور صحابہ شعبِ ابی طالب سے کس سال باہر آئے؟"
+    },
+    "options": {
+      "en": [
+        "In the third year of prophethood",
+        "In the seventh year of prophethood",
+        "In the tenth year of prophethood",
+        "In the thirteenth year of prophethood"
+      ],
+      "ar": [
+        "في السنة الثالثة للبعثة",
+        "في السنة السابعة للبعثة",
+        "في السنة العاشرة للبعثة",
+        "في السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کے تیسرے سال",
+        "نبوت کے ساتویں سال",
+        "نبوت کے دسویں سال",
+        "نبوت کے تیرہویں سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is meant by 'Am al-Huzn'?",
       "ar": "ماذا يُقصد بـ «عام الحزن»؟",
-      "ur": "\"عام الحزن\" سے کیا مراد ہے؟"
+      "ur": "«عام الحزن» سے کیا مراد ہے؟"
     },
     "options": {
       "en": [
         "The Year of Joy",
+        "The Year of Sorrow",
         "The Year of the Elephant",
-        "The Year of Victory",
-        "The Year of Sorrow"
+        "The Year of Victory"
       ],
       "ar": [
         "عام الفرح",
+        "عام الحزن",
         "عام الفيل",
-        "عام الفتح",
-        "عام الحزن"
+        "عام الفتح"
       ],
       "ur": [
         "خوشی کا سال",
+        "غم کا سال",
         "ہاتھی کا سال",
-        "فتح کا سال",
-        "غم کا سال"
+        "فتح کا سال"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 1,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which year is called Am al-Huzn (the Year of Sorrow)?",
+      "ar": "أي سنة تُسمى عام الحزن؟",
+      "ur": "کون سا سال «عام الحزن» کہلاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "The tenth year of prophethood",
+        "The fifth year of prophethood",
+        "The seventh year of prophethood",
+        "The thirteenth year of prophethood"
+      ],
+      "ar": [
+        "السنة العاشرة للبعثة",
+        "السنة الخامسة للبعثة",
+        "السنة السابعة للبعثة",
+        "السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کا دسواں سال",
+        "نبوت کا پانچواں سال",
+        "نبوت کا ساتواں سال",
+        "نبوت کا تیرہواں سال"
+      ]
+    },
+    "correct_index": 0,
     "source": "Seerah — Shi'b Abi Talib",
     "event_id": null
   },
@@ -458,25 +810,57 @@
     "options": {
       "en": [
         "The Kaaba was rebuilt",
-        "The Prophet's uncle Abu Talib and wife Hazrat Khadija passed away",
         "The Muslims migrated to Madinah",
-        "Makkah was conquered"
+        "Makkah was conquered",
+        "The Prophet's ﷺ uncle Abu Talib and his wife Hazrat Khadija passed away"
       ],
       "ar": [
         "أُعيد بناء الكعبة",
-        "توفي عمّ النبي أبو طالب وزوجته خديجة",
         "هاجر المسلمون إلى المدينة",
-        "فُتحت مكة"
+        "فُتحت مكة",
+        "توفي عمّ النبي ﷺ أبو طالب وزوجته السيدة خديجة"
       ],
       "ur": [
         "کعبہ کی تعمیرِ نو ہوئی",
-        "نبی ﷺ کے چچا ابو طالب اور زوجہ حضرت خدیجہ کا انتقال ہوا",
         "مسلمانوں نے مدینہ ہجرت کی",
-        "مکہ فتح ہوا"
+        "مکہ فتح ہوا",
+        "نبی ﷺ کے چچا ابو طالب اور زوجہ حضرت خدیجہ کا انتقال ہوا"
       ]
     },
-    "correct_index": 1,
+    "correct_index": 3,
     "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the event of Mi'raj take place?",
+      "ar": "في أي سنة وقعت حادثة المعراج؟",
+      "ur": "معراج کا واقعہ کس سال پیش آیا؟"
+    },
+    "options": {
+      "en": [
+        "In the first year of prophethood",
+        "In the fifth year of prophethood",
+        "In the twelfth year of prophethood",
+        "In the tenth year after the Hijra"
+      ],
+      "ar": [
+        "في السنة الأولى للبعثة",
+        "في السنة الخامسة للبعثة",
+        "في السنة الثانية عشرة للبعثة",
+        "في السنة العاشرة بعد الهجرة"
+      ],
+      "ur": [
+        "نبوت کے پہلے سال",
+        "نبوت کے پانچویں سال",
+        "نبوت کے بارہویں سال",
+        "ہجرت کے دسویں سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Mi'raj",
     "event_id": null
   },
   {
@@ -490,24 +874,24 @@
     "options": {
       "en": [
         "Journey by sea",
-        "Migration",
         "Elevation / ascent",
+        "Migration",
         "Victory"
       ],
       "ar": [
         "رحلة بحرية",
-        "الهجرة",
         "العروج والصعود",
+        "الهجرة",
         "النصر"
       ],
       "ur": [
         "سمندری سفر",
-        "ہجرت",
         "بلندی / چڑھنا",
+        "ہجرت",
         "فتح"
       ]
     },
-    "correct_index": 2,
+    "correct_index": 1,
     "source": "Seerah — Mi'raj",
     "event_id": null
   },
@@ -515,28 +899,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which angel accompanied the Prophet ﷺ during the Mi'raj?",
-      "ar": "أي ملك رافق النبي ﷺ في المعراج؟",
-      "ur": "معراج میں کون سا فرشتہ نبی ﷺ کے ساتھ تھا؟"
+      "en": "Where did the Prophet ﷺ go during the Mi'raj?",
+      "ar": "إلى أين ذهب النبي ﷺ في المعراج؟",
+      "ur": "معراج میں نبی ﷺ کہاں تشریف لے گئے؟"
     },
     "options": {
       "en": [
-        "Jibra'il",
-        "Mika'il",
-        "Israfil",
-        "Malik"
+        "Lamakan (beyond the limits and bounds of time and space)",
+        "Only to Madinah",
+        "Only to Ta'if",
+        "Only to Syria"
       ],
       "ar": [
-        "جبريل",
-        "ميكائيل",
-        "إسرافيل",
-        "مالك"
+        "إلى لا مكان (ما وراء حدود الزمان والمكان)",
+        "إلى المدينة فقط",
+        "إلى الطائف فقط",
+        "إلى الشام فقط"
       ],
       "ur": [
-        "جبرائیل",
-        "میکائیل",
-        "اسرافیل",
-        "مالک"
+        "لامکاں (زمان و مکان کی حدوں سے پرے)",
+        "صرف مدینہ",
+        "صرف طائف",
+        "صرف شام"
       ]
     },
     "correct_index": 0,
@@ -547,9 +931,41 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What did the Prophet ﷺ ride on the Mi'raj journey?",
-      "ar": "على ماذا ركب النبي ﷺ في رحلة المعراج؟",
-      "ur": "معراج کے سفر میں نبی ﷺ کس پر سوار ہوئے؟"
+      "en": "Which angel was with the Prophet ﷺ during the Mi'raj?",
+      "ar": "أي ملك كان مع النبي ﷺ في المعراج؟",
+      "ur": "معراج میں نبی ﷺ کے ساتھ کون سا فرشتہ تھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Mika'il",
+        "Hazrat Israfil",
+        "Hazrat Azra'il",
+        "Hazrat Jibra'il"
+      ],
+      "ar": [
+        "ميكائيل عليه السلام",
+        "إسرافيل عليه السلام",
+        "عزرائيل عليه السلام",
+        "جبريل عليه السلام"
+      ],
+      "ur": [
+        "حضرت میکائیل علیہ السلام",
+        "حضرت اسرافیل علیہ السلام",
+        "حضرت عزرائیل علیہ السلام",
+        "حضرت جبریل علیہ السلام"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the Prophet ﷺ riding on the Mi'raj journey?",
+      "ar": "على ماذا كان النبي ﷺ راكبًا في رحلة المعراج؟",
+      "ur": "معراج کے سفر میں نبی ﷺ کس پر سوار تھے؟"
     },
     "options": {
       "en": [
@@ -586,24 +1002,24 @@
     "options": {
       "en": [
         "Hajj",
+        "The prayer (salat)",
         "Fasting",
-        "Zakat",
-        "Prayer (salat)"
+        "Zakat"
       ],
       "ar": [
         "الحج",
+        "الصلاة",
         "الصيام",
-        "الزكاة",
-        "الصلاة"
+        "الزكاة"
       ],
       "ur": [
         "حج",
+        "نماز",
         "روزہ",
-        "زکوٰۃ",
-        "نماز"
+        "زکوٰۃ"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 1,
     "source": "Seerah — Mi'raj",
     "event_id": null
   },
@@ -611,9 +1027,9 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "In which two surahs is the Mi'raj mentioned?",
-      "ar": "في أي سورتين ذُكر المعراج؟",
-      "ur": "معراج کا ذکر کن دو سورتوں میں ہے؟"
+      "en": "In which two surahs of the Quran is the Mi'raj mentioned?",
+      "ar": "في أي سورتين من القرآن ذُكر المعراج؟",
+      "ur": "قرآن کی کن دو سورتوں میں معراج کا ذکر ہے؟"
     },
     "options": {
       "en": [
@@ -643,30 +1059,126 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
+      "en": "In which month did the Mi'raj take place?",
+      "ar": "في أي شهر وقع المعراج؟",
+      "ur": "معراج کس مہینے میں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Ramadan",
+        "Muharram",
+        "Dhul-Hijja",
+        "Rajab"
+      ],
+      "ar": [
+        "رمضان",
+        "محرم",
+        "ذو الحجة",
+        "رجب"
+      ],
+      "ur": [
+        "رمضان",
+        "محرم",
+        "ذوالحجہ",
+        "رجب"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At what time did the Mi'raj take place?",
+      "ar": "في أي وقت وقع المعراج؟",
+      "ur": "معراج کس وقت ہوا؟"
+    },
+    "options": {
+      "en": [
+        "At dawn",
+        "At noon",
+        "At night",
+        "In the afternoon"
+      ],
+      "ar": [
+        "عند الفجر",
+        "عند الظهيرة",
+        "ليلًا",
+        "في العصر"
+      ],
+      "ur": [
+        "فجر کے وقت",
+        "دوپہر کے وقت",
+        "رات کے وقت",
+        "عصر کے وقت"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
       "en": "Who was the first to confirm the event of the Mi'raj?",
       "ar": "من أول من صدّق حادثة المعراج؟",
       "ur": "معراج کے واقعے کی سب سے پہلے تصدیق کس نے کی؟"
     },
     "options": {
       "en": [
-        "Abu Bakr Siddiq",
         "Abu Jahl",
+        "Hazrat Abu Bakr Siddiq",
         "Abu Lahab",
         "Utba"
       ],
       "ar": [
-        "أبو بكر الصديق",
         "أبو جهل",
+        "أبو بكر الصديق",
         "أبو لهب",
         "عتبة"
       ],
       "ur": [
-        "ابو بکر صدیق",
         "ابو جہل",
+        "حضرت ابو بکر صدیق",
         "ابو لہب",
         "عتبہ"
       ]
     },
+    "correct_index": 1,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Was the Prophet's ﷺ Mi'raj spiritual or bodily?",
+      "ar": "هل كان معراج النبي ﷺ روحيًّا أم جسديًّا؟",
+      "ur": "نبی ﷺ کی معراج روحانی تھی یا جسمانی؟"
+    },
+    "options": {
+      "en": [
+        "Both bodily and spiritual",
+        "Only spiritual",
+        "Only a dream",
+        "Only bodily, without any spiritual aspect"
+      ],
+      "ar": [
+        "بالجسد والروح معًا",
+        "روحيًّا فقط",
+        "مجرد حلم",
+        "جسديًّا فقط دون جانب روحي"
+      ],
+      "ur": [
+        "جسمانی بھی اور روحانی بھی",
+        "صرف روحانی",
+        "محض ایک خواب",
+        "صرف جسمانی، روحانی نہیں"
+      ]
+    },
     "correct_index": 0,
     "source": "Seerah — Mi'raj",
     "event_id": null
@@ -675,160 +1187,128 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which was the first stage in the Mi'raj?",
-      "ar": "ما أول محطة في المعراج؟",
-      "ur": "معراج کا پہلا مرحلہ کون سا تھا؟"
+      "en": "Who narrated the event of the Mi'raj?",
+      "ar": "من الذي روى حادثة المعراج؟",
+      "ur": "معراج کا واقعہ کس نے بیان فرمایا؟"
     },
     "options": {
       "en": [
-        "Masjid al-Aqsa",
-        "Masjid Quba",
-        "Masjid al-Nabawi",
-        "Mount Uhud"
+        "Only Abu Bakr",
+        "Only the Jews",
+        "No one narrated it",
+        "God narrated it in the Quran and the Prophet ﷺ narrated it in the hadith"
       ],
       "ar": [
-        "المسجد الأقصى",
-        "مسجد قباء",
-        "المسجد النبوي",
-        "جبل أحد"
+        "أبو بكر وحده",
+        "اليهود وحدهم",
+        "لم يروِها أحد",
+        "رواها الله في القرآن ورواها النبي ﷺ في الحديث"
       ],
       "ur": [
-        "مسجدِ اقصیٰ",
-        "مسجدِ قبا",
-        "مسجدِ نبوی",
-        "جبلِ احد"
-      ]
-    },
-    "correct_index": 0,
-    "source": "Seerah — Mi'raj",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "At which place on the night of the Mi'raj did Jibra'il refuse to go further?",
-      "ar": "في أي موضع ليلة المعراج امتنع جبريل عن المضي أبعد؟",
-      "ur": "شبِ معراج میں جبرائیل کس مقام سے آگے جانے سے رک گئے؟"
-    },
-    "options": {
-      "en": [
-        "Masjid al-Aqsa",
-        "Sidrat al-Muntaha",
-        "Cave of Hira",
-        "Mount Safa"
-      ],
-      "ar": [
-        "المسجد الأقصى",
-        "سدرة المنتهى",
-        "غار حراء",
-        "جبل الصفا"
-      ],
-      "ur": [
-        "مسجدِ اقصیٰ",
-        "سدرۃ المنتہیٰ",
-        "غارِ حرا",
-        "کوہِ صفا"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Mi'raj",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "At the advice of which prophet did the Prophet ﷺ keep returning to God to have the prayers reduced?",
-      "ar": "بنصيحة أي نبي ظل النبي ﷺ يراجع ربه لتخفيف الصلوات؟",
-      "ur": "کس نبی کے کہنے پر نبی ﷺ نماز میں کمی کے لیے بار بار اللہ کے پاس گئے؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Nuh",
-        "Hazrat Musa",
-        "Hazrat Yusuf",
-        "Hazrat Dawud"
-      ],
-      "ar": [
-        "نوح",
-        "موسى",
-        "يوسف",
-        "داود"
-      ],
-      "ur": [
-        "حضرت نوح",
-        "حضرت موسیٰ",
-        "حضرت یوسف",
-        "حضرت داود"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Mi'raj",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "What is the place the Prophet ﷺ saw in the Mi'raj where angels circle?",
-      "ar": "ما المكان الذي رآه النبي ﷺ في المعراج وتطوف به الملائكة؟",
-      "ur": "معراج میں نبی ﷺ نے وہ جگہ کون سی دیکھی جہاں فرشتے طواف کرتے ہیں؟"
-    },
-    "options": {
-      "en": [
-        "Masjid Quba",
-        "Bayt al-Ma'mur",
-        "Dar al-Arqam",
-        "Dar al-Nadwa"
-      ],
-      "ar": [
-        "مسجد قباء",
-        "البيت المعمور",
-        "دار الأرقم",
-        "دار الندوة"
-      ],
-      "ur": [
-        "مسجدِ قبا",
-        "بیتِ معمور",
-        "دارِ ارقم",
-        "دارِ ندوہ"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Mi'raj",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "In whose house was the Prophet ﷺ staying on the night of the Mi'raj?",
-      "ar": "في بيت من كان النبي ﷺ ليلة المعراج؟",
-      "ur": "شبِ معراج میں نبی ﷺ کس کے گھر میں تھے؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Aisha",
-        "Hazrat Hafsa",
-        "Hazrat Sawda",
-        "Hazrat Umm Hani"
-      ],
-      "ar": [
-        "عائشة",
-        "حفصة",
-        "سودة",
-        "أم هانئ"
-      ],
-      "ur": [
-        "حضرت عائشہ",
-        "حضرت حفصہ",
-        "حضرت سودہ",
-        "حضرت ام ہانی"
+        "صرف ابو بکر نے",
+        "صرف یہودیوں نے",
+        "کسی نے نہیں",
+        "اللہ نے قرآن میں اور نبی ﷺ نے حدیث میں بیان فرمایا"
       ]
     },
     "correct_index": 3,
     "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When did the Prophet ﷺ make the journey to Ta'if?",
+      "ar": "متى سافر النبي ﷺ إلى الطائف؟",
+      "ur": "نبی ﷺ نے طائف کا سفر کب کیا؟"
+    },
+    "options": {
+      "en": [
+        "Rajab, year 12 of prophethood",
+        "Muharram, year 1 of prophethood",
+        "Shawwal, year 10 of prophethood",
+        "Ramadan, year 13 of prophethood"
+      ],
+      "ar": [
+        "رجب من السنة الثانية عشرة للبعثة",
+        "محرم من السنة الأولى للبعثة",
+        "شوال من السنة العاشرة للبعثة",
+        "رمضان من السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "رجب، نبوت کے بارہویں سال",
+        "محرم، نبوت کے پہلے سال",
+        "شوال، نبوت کے دسویں سال",
+        "رمضان، نبوت کے تیرہویں سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For what purpose did the Prophet ﷺ go to Ta'if?",
+      "ar": "لأي غرض ذهب النبي ﷺ إلى الطائف؟",
+      "ur": "نبی ﷺ طائف کس مقصد سے تشریف لے گئے؟"
+    },
+    "options": {
+      "en": [
+        "For trade",
+        "For invitation and preaching",
+        "To settle there permanently",
+        "To visit relatives"
+      ],
+      "ar": [
+        "للتجارة",
+        "للدعوة والتبليغ",
+        "للإقامة الدائمة هناك",
+        "لزيارة الأقارب"
+      ],
+      "ur": [
+        "تجارت کے لیے",
+        "دعوت و تبلیغ کے لیے",
+        "وہاں مستقل سکونت کے لیے",
+        "رشتہ داروں سے ملنے کے لیے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say to the people of Ta'if?",
+      "ar": "ماذا قال النبي ﷺ لأهل الطائف؟",
+      "ur": "نبی ﷺ نے اہلِ طائف سے کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "'Believe in the oneness of God and in my messengership'",
+        "'Give me your wealth'",
+        "'Make me your ruler'",
+        "'Fight the people of Makkah'"
+      ],
+      "ar": [
+        "«آمنوا بوحدانية الله وبرسالتي»",
+        "«أعطوني أموالكم»",
+        "«اجعلوني حاكمًا عليكم»",
+        "«قاتلوا أهل مكة»"
+      ],
+      "ur": [
+        "«اللہ کی وحدانیت اور میری رسالت پر ایمان لاؤ»",
+        "«اپنا مال مجھے دے دو»",
+        "«مجھے اپنا حاکم بنا لو»",
+        "«اہلِ مکہ سے جنگ کرو»"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Journey to Ta'if",
     "event_id": null
   },
   {
@@ -844,19 +1324,19 @@
         "They welcomed him",
         "They gave him gifts",
         "They made him their chief",
-        "They pelted him with stones"
+        "They were disrespectful and pelted him with stones, so that blood began to flow from his body"
       ],
       "ar": [
         "استقبلوه بحفاوة",
         "قدّموا له الهدايا",
         "نصّبوه زعيمًا",
-        "رجموه بالحجارة"
+        "أساؤوا إليه ورجموه بالحجارة حتى سال الدم من جسده"
       ],
       "ur": [
-        "انہوں نے استقبال کیا",
-        "انہوں نے تحفے دیے",
-        "انہوں نے سردار بنا لیا",
-        "انہوں نے پتھر مارے"
+        "استقبال کیا",
+        "تحفے دیے",
+        "سردار بنا لیا",
+        "بے ادبی کی اور پتھر مارے یہاں تک کہ آپ ﷺ کے جسم سے خون بہنے لگا"
       ]
     },
     "correct_index": 3,
@@ -867,28 +1347,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who accompanied the Prophet ﷺ on the journey to Ta'if?",
-      "ar": "من رافق النبي ﷺ في رحلة الطائف؟",
-      "ur": "طائف کے سفر میں نبی ﷺ کے ساتھ کون تھے؟"
+      "en": "What happened to the Prophet's ﷺ blessed body in Ta'if?",
+      "ar": "ماذا أصاب جسد النبي ﷺ الشريف في الطائف؟",
+      "ur": "طائف میں نبی ﷺ کے جسمِ مبارک کا کیا حال ہوا؟"
     },
     "options": {
       "en": [
-        "Hazrat Ali",
-        "Hazrat Bilal",
-        "Hazrat Zayd ibn Haritha",
-        "Hazrat Umar"
+        "He fell ill with fever",
+        "He lost his voice",
+        "Blood flowed from the blessed body into his blessed sandals",
+        "He was imprisoned"
       ],
       "ar": [
-        "علي",
-        "بلال",
-        "زيد بن حارثة",
-        "عمر"
+        "أصابته الحمى",
+        "فقد صوته",
+        "سال الدم من جسده الشريف إلى نعليه",
+        "سُجن"
       ],
       "ur": [
-        "حضرت علی",
-        "حضرت بلال",
-        "حضرت زید بن حارثہ",
-        "حضرت عمر"
+        "آپ ﷺ کو بخار ہو گیا",
+        "آپ ﷺ کی آواز بیٹھ گئی",
+        "جسمِ اطہر سے خون بہہ کر نعلینِ مبارک میں جمع ہو گیا",
+        "آپ ﷺ کو قید کر لیا گیا"
       ]
     },
     "correct_index": 2,
@@ -899,32 +1379,256 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "What did the Prophet ﷺ say when the angel offered to crush the people of Ta'if between mountains?",
-      "ar": "ماذا قال النبي ﷺ حين عرض الملك أن يطبق الجبلين على أهل الطائف؟",
-      "ur": "جب فرشتے نے اہلِ طائف کو پہاڑوں کے درمیان کچلنے کی پیشکش کی تو نبی ﷺ نے کیا فرمایا؟"
+      "en": "Where did the Prophet ﷺ rest in that state at Ta'if?",
+      "ar": "أين استراح النبي ﷺ بتلك الحال في الطائف؟",
+      "ur": "اس حالت میں نبی ﷺ نے طائف میں کہاں آرام فرمایا؟"
     },
     "options": {
       "en": [
-        "\"Yes, punish them\"",
-        "\"Do it tomorrow\"",
-        "\"Leave them and destroy Makkah\"",
-        "\"I was not sent for punishment but as a mercy\""
+        "In a cave",
+        "In a garden",
+        "In a mosque",
+        "In a house in the town"
       ],
       "ar": [
-        "«نعم، عاقبهم»",
-        "«افعل ذلك غدًا»",
-        "«اتركهم وأهلك مكة»",
-        "«لم أُبعث للعذاب بل بُعثت رحمة»"
+        "في غار",
+        "في بستان",
+        "في مسجد",
+        "في بيت في البلدة"
       ],
       "ur": [
-        "\"ہاں، انہیں سزا دو\"",
-        "\"کل کر دینا\"",
-        "\"انہیں چھوڑو اور مکہ کو ہلاک کرو\"",
-        "\"مجھے عذاب کے لیے نہیں، رحمت بنا کر بھیجا گیا ہے\""
+        "ایک غار میں",
+        "ایک باغ میں",
+        "ایک مسجد میں",
+        "شہر کے ایک گھر میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was with the Prophet ﷺ at that time at Ta'if?",
+      "ar": "من كان مع النبي ﷺ في ذلك الوقت في الطائف؟",
+      "ur": "اس وقت طائف میں نبی ﷺ کے ساتھ کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zayd ibn Haritha",
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Umar"
+      ],
+      "ar": [
+        "زيد بن حارثة",
+        "علي",
+        "بلال",
+        "عمر"
+      ],
+      "ur": [
+        "حضرت زید بن حارثہ",
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت عمر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who came and said to the Prophet ﷺ: 'If you permit, I will strike the people of Ta'if with the mountains'?",
+      "ar": "من الذي جاء وقال للنبي ﷺ: «إن شئت أطبقتُ عليهم الأخشبين» (أي الجبلين على أهل الطائف)؟",
+      "ur": "وہ کون تھا جس نے آ کر نبی ﷺ سے کہا: «اگر آپ اجازت دیں تو میں اہلِ طائف کو دو پہاڑوں کے درمیان کچل دوں»؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr",
+        "Zayd ibn Haritha",
+        "Waraqa",
+        "The angel"
+      ],
+      "ar": [
+        "أبو بكر",
+        "زيد بن حارثة",
+        "ورقة",
+        "الملك"
+      ],
+      "ur": [
+        "ابو بکر",
+        "زید بن حارثہ",
+        "ورقہ",
+        "فرشتہ"
       ]
     },
     "correct_index": 3,
     "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say in response to the angel?",
+      "ar": "ماذا قال النبي ﷺ جوابًا للملك؟",
+      "ur": "نبی ﷺ نے فرشتے کو کیا جواب دیا؟"
+    },
+    "options": {
+      "en": [
+        "'Yes, punish them'",
+        "'Do it tomorrow'",
+        "'I was not sent for punishment but as a mercy'",
+        "'Leave them and destroy Makkah'"
+      ],
+      "ar": [
+        "«نعم، عاقبهم»",
+        "«افعل ذلك غدًا»",
+        "«لم أُبعث للعذاب بل بُعثت رحمة»",
+        "«اتركهم وأهلك مكة»"
+      ],
+      "ur": [
+        "«ہاں، انہیں سزا دو»",
+        "«کل کر دینا»",
+        "«مجھے عذاب کے لیے نہیں، رحمت بنا کر بھیجا گیا ہے»",
+        "«انہیں چھوڑو اور مکہ کو ہلاک کرو»"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How far is Ta'if from Makkah?",
+      "ar": "كم تبعد الطائف عن مكة؟",
+      "ur": "طائف مکہ سے کتنے فاصلے پر ہے؟"
+    },
+    "options": {
+      "en": [
+        "10 miles",
+        "60 miles",
+        "200 miles",
+        "500 miles"
+      ],
+      "ar": [
+        "10 أميال",
+        "60 ميلًا",
+        "200 ميل",
+        "500 ميل"
+      ],
+      "ur": [
+        "10 میل",
+        "60 میل",
+        "200 میل",
+        "500 میل"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which fairs did the Prophet ﷺ also go and give sermons and advice?",
+      "ar": "في أي أسواق كان النبي ﷺ يذهب أيضًا ويعظ ويرشد؟",
+      "ur": "نبی ﷺ کن میلوں میں جا کر بھی خطبے اور نصیحت فرماتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Ukaz and others",
+        "Only the fair of Madinah",
+        "Only the fairs of Syria",
+        "None at all"
+      ],
+      "ar": [
+        "عكاظ وغيره",
+        "سوق المدينة فقط",
+        "أسواق الشام فقط",
+        "لم يذهب إلى أي منها"
+      ],
+      "ur": [
+        "عکاظ اور دیگر",
+        "صرف مدینہ کے میلے میں",
+        "صرف شام کے میلوں میں",
+        "کسی میں نہیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In the days of Hajj, when the Prophet ﷺ called various tribes to the true religion, who stuck close to him and denied him in front of people?",
+      "ar": "في أيام الحج، حين دعا النبي ﷺ القبائل إلى الدين الحق، من الذي لازمه وكذّبه أمام الناس؟",
+      "ur": "ایامِ حج میں جب نبی ﷺ مختلف قبائل کو دینِ حق کی دعوت دیتے تو کون آپ ﷺ کے پیچھے لگا رہتا اور لوگوں کے سامنے آپ ﷺ کو جھٹلاتا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Talib",
+        "Hazrat Hamza",
+        "Hazrat Abbas",
+        "Abu Lahab"
+      ],
+      "ar": [
+        "أبو طالب",
+        "حمزة",
+        "العباس",
+        "أبو لهب"
+      ],
+      "ur": [
+        "ابو طالب",
+        "حضرت حمزہ",
+        "حضرت عباس",
+        "ابو لہب"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what titles did the people of Makkah address the Prophet ﷺ?",
+      "ar": "بأي لقبين كان أهل مكة يخاطبون النبي ﷺ؟",
+      "ur": "اہلِ مکہ نبی ﷺ کو کن القاب سے پکارتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Al-Faruq and Al-Siddiq",
+        "Al-Mustafa and Al-Murtada",
+        "The Truthful (Sadiq) and the Trustworthy (Amin)",
+        "Al-Karim and Al-Rahim"
+      ],
+      "ar": [
+        "الفاروق والصدّيق",
+        "المصطفى والمرتضى",
+        "الصادق والأمين",
+        "الكريم والرحيم"
+      ],
+      "ur": [
+        "فاروق اور صدیق",
+        "مصطفیٰ اور مرتضیٰ",
+        "صادق اور امین",
+        "کریم اور رحیم"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkan Period",
     "event_id": null
   },
   {
@@ -938,24 +1642,56 @@
     "options": {
       "en": [
         "Abu Jahl",
+        "Hazrat Umar Faruq",
         "Abu Lahab",
-        "Walid ibn Mughira",
-        "Hazrat Umar Faruq"
+        "Walid ibn Mughira"
       ],
       "ar": [
         "أبو جهل",
+        "عمر الفاروق",
         "أبو لهب",
-        "الوليد بن المغيرة",
-        "عمر الفاروق"
+        "الوليد بن المغيرة"
       ],
       "ur": [
         "ابو جہل",
+        "حضرت عمر فاروق",
         "ابو لہب",
-        "ولید بن مغیرہ",
-        "حضرت عمر فاروق"
+        "ولید بن مغیرہ"
       ]
     },
-    "correct_index": 3,
+    "correct_index": 1,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By the acceptance of Islam by which two companions did the Muslims in Makkah gain strength?",
+      "ar": "بإسلام أي صحابيين قوي المسلمون في مكة؟",
+      "ur": "کن دو صحابہ کے اسلام لانے سے مکہ کے مسلمانوں کو تقویت ملی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hamza and Hazrat Umar Faruq",
+        "Hazrat Bilal and Hazrat Yasir",
+        "Hazrat Ali and Hazrat Zayd",
+        "Hazrat Uthman and Hazrat Zubayr"
+      ],
+      "ar": [
+        "حمزة وعمر الفاروق",
+        "بلال وياسر",
+        "علي وزيد",
+        "عثمان والزبير"
+      ],
+      "ur": [
+        "حضرت حمزہ اور حضرت عمر فاروق",
+        "حضرت بلال اور حضرت یاسر",
+        "حضرت علی اور حضرت زید",
+        "حضرت عثمان اور حضرت زبیر"
+      ]
+    },
+    "correct_index": 0,
     "source": "Seerah — Companions in Makkah",
     "event_id": null
   },
@@ -970,441 +1706,345 @@
     "options": {
       "en": [
         "Abu Lahab",
-        "Hazrat Hamza",
         "Abu Talib",
-        "Abu Jahl"
+        "Abu Jahl",
+        "Hazrat Hamza"
       ],
       "ar": [
         "أبو لهب",
-        "حمزة",
         "أبو طالب",
-        "أبو جهل"
+        "أبو جهل",
+        "حمزة"
       ],
       "ur": [
         "ابو لہب",
-        "حضرت حمزہ",
         "ابو طالب",
-        "ابو جہل"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which of Hazrat Hamza and Hazrat Umar accepted Islam first?",
-      "ar": "أيّهما أسلم أولًا: حمزة أم عمر؟",
-      "ur": "حضرت حمزہ اور حضرت عمر میں پہلے اسلام کس نے قبول کیا؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Umar",
-        "Both on the same day",
-        "Hazrat Hamza",
-        "Neither, they accepted in Madinah"
-      ],
-      "ar": [
-        "عمر",
-        "كلاهما في اليوم نفسه",
-        "حمزة",
-        "لا أحد منهما، أسلما في المدينة"
-      ],
-      "ur": [
-        "حضرت عمر",
-        "دونوں ایک ہی دن",
-        "حضرت حمزہ",
-        "کسی نے نہیں، مدینہ میں مسلمان ہوئے"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Who was the first to raise a sword in defence of Islam?",
-      "ar": "من أول من سلّ سيفه دفاعًا عن الإسلام؟",
-      "ur": "اسلام کے دفاع میں سب سے پہلے تلوار کس نے اٹھائی؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Bilal",
-        "Hazrat Yasir",
-        "Hazrat Zubayr ibn al-Awwam",
-        "Hazrat Abu Dharr"
-      ],
-      "ar": [
-        "بلال",
-        "ياسر",
-        "الزبير بن العوام",
-        "أبو ذر"
-      ],
-      "ur": [
-        "حضرت بلال",
-        "حضرت یاسر",
-        "حضرت زبیر بن العوام",
-        "حضرت ابو ذر"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which companion is called \"Murad-e-Rasul\" (the Messenger's desire)?",
-      "ar": "أي صحابي يُلقب بـ«مراد الرسول»؟",
-      "ur": "کس صحابی کو \"مرادِ رسول\" کہا جاتا ہے؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Umar Faruq",
-        "Hazrat Bilal",
-        "Hazrat Uthman",
-        "Hazrat Zayd"
-      ],
-      "ar": [
-        "عمر الفاروق",
-        "بلال",
-        "عثمان",
-        "زيد"
-      ],
-      "ur": [
-        "حضرت عمر فاروق",
-        "حضرت بلال",
-        "حضرت عثمان",
-        "حضرت زید"
-      ]
-    },
-    "correct_index": 0,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "On hearing verses of which surah did Hazrat Umar announce his acceptance of Islam?",
-      "ar": "عند سماع آيات أي سورة أعلن عمر إسلامه؟",
-      "ur": "کس سورت کی آیات سن کر حضرت عمر نے اسلام قبول کرنے کا اعلان کیا؟"
-    },
-    "options": {
-      "en": [
-        "Surah al-Fil",
-        "Surah Ta-Ha",
-        "Surah al-Ikhlas",
-        "Surah al-Asr"
-      ],
-      "ar": [
-        "سورة الفيل",
-        "سورة طه",
-        "سورة الإخلاص",
-        "سورة العصر"
-      ],
-      "ur": [
-        "سورۃ الفیل",
-        "سورۂ طٰہٰ",
-        "سورۃ الاخلاص",
-        "سورۃ العصر"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Who was the first woman martyr in Islam?",
-      "ar": "من أول شهيدة في الإسلام؟",
-      "ur": "اسلام کی پہلی شہیدہ کون تھیں؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Khadija",
-        "Hazrat Fatima",
-        "Hazrat Asma",
-        "Hazrat Sumayya"
-      ],
-      "ar": [
-        "خديجة",
-        "فاطمة",
-        "أسماء",
-        "سمية"
-      ],
-      "ur": [
-        "حضرت خدیجہ",
-        "حضرت فاطمہ",
-        "حضرت اسماء",
-        "حضرت سمیہ"
-      ]
-    },
-    "correct_index": 3,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which companion, after accepting Islam, recited the kalima and the Quran before the Quraysh at the Kaaba?",
-      "ar": "أي صحابي بعد إسلامه أعلن الشهادة وتلا القرآن أمام قريش عند الكعبة؟",
-      "ur": "کس صحابی نے اسلام لانے کے بعد کعبہ میں قریش کے سامنے کلمہ اور قرآن پڑھا؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Anas",
-        "Hazrat Ali",
-        "Hazrat Zayd",
-        "Hazrat Abu Dharr al-Ghifari"
-      ],
-      "ar": [
-        "أنس",
-        "علي",
-        "زيد",
-        "أبو ذر الغفاري"
-      ],
-      "ur": [
-        "حضرت انس",
-        "حضرت علی",
-        "حضرت زید",
-        "حضرت ابو ذر غفاری"
-      ]
-    },
-    "correct_index": 3,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Whose mother went on a hunger strike when he accepted Islam?",
-      "ar": "أم أي صحابي أضربت عن الطعام حين أسلم؟",
-      "ur": "کس صحابی کی والدہ نے ان کے اسلام لانے پر بھوک ہڑتال کی؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Sa'd ibn Abi Waqqas",
-        "Hazrat Bilal",
-        "Hazrat Umar",
-        "Hazrat Hamza"
-      ],
-      "ar": [
-        "سعد بن أبي وقاص",
-        "بلال",
-        "عمر",
-        "حمزة"
-      ],
-      "ur": [
-        "حضرت سعد بن ابی وقاص",
-        "حضرت بلال",
-        "حضرت عمر",
-        "حضرت حمزہ"
-      ]
-    },
-    "correct_index": 0,
-    "source": "Seerah — Companions in Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Who was the leader of the Muslims in the Negus's court and spoke on their behalf?",
-      "ar": "من تحدث باسم المسلمين في بلاط النجاشي؟",
-      "ur": "نجاشی کے دربار میں مسلمانوں کی طرف سے تقریر کس نے کی؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Ali",
-        "Hazrat Bilal",
-        "Hazrat Ja'far",
-        "Hazrat Hamza"
-      ],
-      "ar": [
-        "علي",
-        "بلال",
-        "جعفر",
-        "حمزة"
-      ],
-      "ur": [
-        "حضرت علی",
-        "حضرت بلال",
-        "حضرت جعفر",
-        "حضرت حمزہ"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Hijra to Abyssinia",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which surah did Hazrat Ja'far recite in the Negus's court?",
-      "ar": "أي سورة تلا جعفر في بلاط النجاشي؟",
-      "ur": "حضرت جعفر نے نجاشی کے دربار میں کون سی سورت تلاوت کی؟"
-    },
-    "options": {
-      "en": [
-        "Surah al-Fil",
-        "Surah Maryam",
-        "Surah al-Nas",
-        "Surah al-Kawthar"
-      ],
-      "ar": [
-        "سورة الفيل",
-        "سورة مريم",
-        "سورة الناس",
-        "سورة الكوثر"
-      ],
-      "ur": [
-        "سورۃ الفیل",
-        "سورۂ مریم",
-        "سورۃ الناس",
-        "سورۃ الکوثر"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Hijra to Abyssinia",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which wonder is called Shaqq al-Qamar?",
-      "ar": "ما المعجزة التي تُسمى شق القمر؟",
-      "ur": "شقّ القمر کس معجزے کو کہتے ہیں؟"
-    },
-    "options": {
-      "en": [
-        "The gushing of Zamzam",
-        "The sun standing still",
-        "Rain from a clear sky",
-        "The splitting of the moon"
-      ],
-      "ar": [
-        "نبع زمزم",
-        "توقف الشمس",
-        "مطر من سماء صافية",
-        "انشقاق القمر"
-      ],
-      "ur": [
-        "زمزم کا پھوٹنا",
-        "سورج کا رک جانا",
-        "صاف آسمان سے بارش",
-        "چاند کا دو ٹکڑے ہونا"
-      ]
-    },
-    "correct_index": 3,
-    "source": "Seerah — Makkan Period",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which of these demanded the miracle of the splitting of the moon?",
-      "ar": "أي من هؤلاء طلب معجزة انشقاق القمر؟",
-      "ur": "چاند کے دو ٹکڑے ہونے کا معجزہ ان میں سے کس نے طلب کیا؟"
-    },
-    "options": {
-      "en": [
-        "Abu Bakr",
-        "Abu Jahl",
-        "Hazrat Umar",
-        "Hazrat Ali"
-      ],
-      "ar": [
-        "أبو بكر",
-        "أبو جهل",
-        "عمر",
-        "علي"
-      ],
-      "ur": [
-        "ابو بکر",
         "ابو جہل",
-        "حضرت عمر",
-        "حضرت علی"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Makkan Period",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "What did the Quraysh and Arab chiefs entrust to the Prophet ﷺ for safekeeping?",
-      "ar": "ماذا كانت قريش تودعه عند النبي ﷺ؟",
-      "ur": "قریش اپنی کیا چیزیں نبی ﷺ کے پاس امانت رکھواتے تھے؟"
-    },
-    "options": {
-      "en": [
-        "Their swords",
-        "Their idols",
-        "Their camels only",
-        "Their deposits (amanat)"
-      ],
-      "ar": [
-        "سيوفهم",
-        "أصنامهم",
-        "إبلهم فقط",
-        "أماناتهم"
-      ],
-      "ur": [
-        "اپنی تلواریں",
-        "اپنے بت",
-        "صرف اونٹ",
-        "اپنی امانتیں"
+        "حضرت حمزہ"
       ]
     },
     "correct_index": 3,
-    "source": "Seerah — Makkan Period",
+    "source": "Seerah — Companions in Makkah",
     "event_id": null
   },
   {
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which was the preaching centre of the Muslims in Makkah?",
-      "ar": "ما المركز الدعوي للمسلمين في مكة؟",
-      "ur": "مکہ میں مسلمانوں کا تبلیغی مرکز کون سا تھا؟"
+      "en": "When did the first pledge of Aqaba take place?",
+      "ar": "متى وقعت بيعة العقبة الأولى؟",
+      "ur": "بیعتِ عقبہ اولیٰ کب ہوئی؟"
     },
     "options": {
       "en": [
-        "Dar al-Arqam",
-        "Dar al-Nadwa",
-        "Masjid Quba",
-        "Cave of Thawr"
+        "In the first year of prophethood",
+        "In the fifth year of prophethood",
+        "In the twelfth year of prophethood",
+        "In the first year after the Hijra"
       ],
       "ar": [
-        "دار الأرقم",
-        "دار الندوة",
-        "مسجد قباء",
-        "غار ثور"
+        "في السنة الأولى للبعثة",
+        "في السنة الخامسة للبعثة",
+        "في السنة الثانية عشرة للبعثة",
+        "في السنة الأولى بعد الهجرة"
       ],
       "ur": [
-        "دارِ ارقم",
-        "دارِ ندوہ",
-        "مسجدِ قبا",
-        "غارِ ثور"
+        "نبوت کے پہلے سال",
+        "نبوت کے پانچویں سال",
+        "نبوت کے بارہویں سال",
+        "ہجرت کے پہلے سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many people took part in the first pledge of Aqaba?",
+      "ar": "كم شخصًا شارك في بيعة العقبة الأولى؟",
+      "ur": "بیعتِ عقبہ اولیٰ میں کتنے افراد شریک ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Two people",
+        "Twelve people",
+        "Seventy people",
+        "One hundred people"
+      ],
+      "ar": [
+        "شخصان",
+        "اثنا عشر شخصًا",
+        "سبعون شخصًا",
+        "مئة شخص"
+      ],
+      "ur": [
+        "دو افراد",
+        "بارہ افراد",
+        "ستر افراد",
+        "سو افراد"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where had the people of the first pledge of Aqaba come from?",
+      "ar": "من أين جاء أصحاب بيعة العقبة الأولى؟",
+      "ur": "بیعتِ عقبہ اولیٰ والے لوگ کہاں سے آئے تھے؟"
+    },
+    "options": {
+      "en": [
+        "From Madinah (whose old name was Yathrib)",
+        "From Ta'if",
+        "From Damascus",
+        "From Jerusalem"
+      ],
+      "ar": [
+        "من المدينة (واسمها القديم يثرب)",
+        "من الطائف",
+        "من دمشق",
+        "من القدس"
+      ],
+      "ur": [
+        "مدینہ سے (جس کا پرانا نام یثرب تھا)",
+        "طائف سے",
+        "دمشق سے",
+        "یروشلم سے"
       ]
     },
     "correct_index": 0,
-    "source": "Seerah — Makkan Period",
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which tribes did these people of Madinah belong to?",
+      "ar": "إلى أي قبيلتين ينتمي هؤلاء الناس من المدينة؟",
+      "ur": "مدینہ کے یہ لوگ کن قبیلوں سے تعلق رکھتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Quraysh and Banu Hashim",
+        "Banu Taym and Banu Adi",
+        "Ghatafan and Hawazin",
+        "Aws and Khazraj"
+      ],
+      "ar": [
+        "قريش وبنو هاشم",
+        "بنو تيم وبنو عدي",
+        "غطفان وهوازن",
+        "الأوس والخزرج"
+      ],
+      "ur": [
+        "قریش اور بنو ہاشم",
+        "بنو تیم اور بنو عدی",
+        "غطفان اور ہوازن",
+        "اوس اور خزرج"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion did the Prophet ﷺ send with these people for the purpose of preaching?",
+      "ar": "أي صحابي أرسله النبي ﷺ مع هؤلاء للدعوة؟",
+      "ur": "نبی ﷺ نے تبلیغ کے لیے ان لوگوں کے ساتھ کس صحابی کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Ali",
+        "Hazrat Mus'ab ibn Umayr",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "بلال",
+        "علي",
+        "مصعب بن عمير",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت علی",
+        "حضرت مصعب بن عمیر",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When did the second pledge of Aqaba take place?",
+      "ar": "متى وقعت بيعة العقبة الثانية؟",
+      "ur": "بیعتِ عقبہ ثانیہ کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In the first year of prophethood",
+        "In the thirteenth year of prophethood",
+        "In the fifth year of prophethood",
+        "In the tenth year after the Hijra"
+      ],
+      "ar": [
+        "في السنة الأولى للبعثة",
+        "في السنة الثالثة عشرة للبعثة",
+        "في السنة الخامسة للبعثة",
+        "في السنة العاشرة بعد الهجرة"
+      ],
+      "ur": [
+        "نبوت کے پہلے سال",
+        "نبوت کے تیرہویں سال",
+        "نبوت کے پانچویں سال",
+        "ہجرت کے دسویں سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On what occasion did the second pledge of Aqaba take place?",
+      "ar": "في أي مناسبة وقعت بيعة العقبة الثانية؟",
+      "ur": "بیعتِ عقبہ ثانیہ کس موقع پر ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "On the occasion of Hajj",
+        "On the occasion of a wedding",
+        "On the occasion of a battle",
+        "On the occasion of a funeral"
+      ],
+      "ar": [
+        "في موسم الحج",
+        "في حفل زفاف",
+        "في معركة",
+        "في جنازة"
+      ],
+      "ur": [
+        "حج کے موقع پر",
+        "شادی کے موقع پر",
+        "جنگ کے موقع پر",
+        "جنازے کے موقع پر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which uncle of the Prophet ﷺ was present at the second pledge of Aqaba?",
+      "ar": "أي أعمام النبي ﷺ حضر بيعة العقبة الثانية؟",
+      "ur": "بیعتِ عقبہ ثانیہ میں نبی ﷺ کے کون سے چچا موجود تھے؟"
+    },
+    "options": {
+      "en": [
+        "Abu Lahab",
+        "Abu Talib",
+        "Hazrat Hamza",
+        "Hazrat Abbas"
+      ],
+      "ar": [
+        "أبو لهب",
+        "أبو طالب",
+        "حمزة",
+        "العباس"
+      ],
+      "ur": [
+        "ابو لہب",
+        "ابو طالب",
+        "حضرت حمزہ",
+        "حضرت عباس"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "The pledge of Aqaba had conditions. What did the Prophet ﷺ say to the pledge-takers as one of them?",
+      "ar": "كانت لبيعة العقبة شروط. ماذا قال النبي ﷺ للمبايعين كأحد هذه الشروط؟",
+      "ur": "بیعتِ عقبہ کی کچھ شرائط تھیں۔ ان میں سے ایک کے طور پر نبی ﷺ نے بیعت کرنے والوں سے کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "'Pledge that you will give me your wealth'",
+        "'Pledge that you will make me your king'",
+        "'Pledge yourselves that you will protect me as you protect your own families'",
+        "'Pledge that you will leave Madinah'"
+      ],
+      "ar": [
+        "«بايعوني على أن تعطوني أموالكم»",
+        "«بايعوني على أن تجعلوني ملككم»",
+        "«بايعوني على أن تحموني كما تحمون أهليكم»",
+        "«بايعوني على أن تتركوا المدينة»"
+      ],
+      "ur": [
+        "«بیعت کرو کہ اپنا مال مجھے دو گے»",
+        "«بیعت کرو کہ مجھے اپنا بادشاہ بناؤ گے»",
+        "«مجھ سے بیعت کرو کہ تم میری حفاظت اسی طرح کرو گے جیسے اپنے اہل و عیال کی کرتے ہو»",
+        "«بیعت کرو کہ مدینہ چھوڑ دو گے»"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Did the disbelievers come to know of the pledge of Aqaba?",
+      "ar": "هل علم الكفار ببيعة العقبة؟",
+      "ur": "کیا کفار کو بیعتِ عقبہ کا علم ہو گیا؟"
+    },
+    "options": {
+      "en": [
+        "No, they never found out",
+        "Yes, they came to know of it",
+        "Only the Jews knew",
+        "Only Abu Talib knew"
+      ],
+      "ar": [
+        "لا، لم يعلموا أبدًا",
+        "نعم، علموا بها",
+        "اليهود فقط علموا",
+        "أبو طالب فقط علم"
+      ],
+      "ur": [
+        "نہیں، انہیں کبھی پتا نہ چلا",
+        "ہاں، انہیں معلوم ہو گیا",
+        "صرف یہودیوں کو معلوم ہوا",
+        "صرف ابو طالب کو معلوم ہوا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Pledges of Aqaba",
     "event_id": null
   },
   {
@@ -1412,7 +2052,7 @@
     "difficulty": "easy",
     "prompt": {
       "en": "In which house did the Quraysh sit and plot against the Muslims?",
-      "ar": "في أي دار كانت قريش تجتمع وتتآمر على المسلمين؟",
+      "ar": "في أي دار كانت قريش تجلس وتتآمر على المسلمين؟",
       "ur": "قریش کس گھر میں بیٹھ کر مسلمانوں کے خلاف سازشیں کرتے تھے؟"
     },
     "options": {
@@ -1443,32 +2083,224 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
+      "en": "Which was the preaching centre of the Muslims in Makkah?",
+      "ar": "ما المركز الدعوي للمسلمين في مكة؟",
+      "ur": "مکہ میں مسلمانوں کا تبلیغی مرکز کون سا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Dar al-Nadwa",
+        "Masjid Quba",
+        "Cave of Thawr",
+        "Dar al-Arqam"
+      ],
+      "ar": [
+        "دار الندوة",
+        "مسجد قباء",
+        "غار ثور",
+        "دار الأرقم"
+      ],
+      "ur": [
+        "دارِ ندوہ",
+        "مسجدِ قبا",
+        "غارِ ثور",
+        "دارِ ارقم"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which place was the preaching centre (Dar al-Arqam) located?",
+      "ar": "في أي موضع كان هذا المركز (دار الأرقم)؟",
+      "ur": "یہ مرکز (دارِ ارقم) کس مقام پر واقع تھا؟"
+    },
+    "options": {
+      "en": [
+        "Mount Uhud",
+        "Jabal al-Nur",
+        "Mount Safa",
+        "Mount Arafat"
+      ],
+      "ar": [
+        "جبل أحد",
+        "جبل النور",
+        "جبل الصفا",
+        "جبل عرفات"
+      ],
+      "ur": [
+        "جبلِ احد",
+        "جبلِ نور",
+        "کوہِ صفا",
+        "جبلِ عرفات"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What kind of commands are mostly found in the Makkan surahs?",
+      "ar": "ما نوع الأحكام الغالبة في السور المكية؟",
+      "ur": "مکی سورتوں میں زیادہ تر کس قسم کے احکام ملتے ہیں؟"
+    },
+    "options": {
+      "en": [
+        "About inheritance and trade laws",
+        "About tawhid (oneness of God), messengership and the Hereafter",
+        "About war and spoils",
+        "About fasting and Hajj rules"
+      ],
+      "ar": [
+        "الميراث وأحكام التجارة",
+        "التوحيد والرسالة والآخرة",
+        "الحرب والغنائم",
+        "أحكام الصيام والحج"
+      ],
+      "ur": [
+        "وراثت اور تجارت کے احکام",
+        "توحید، رسالت اور آخرت کے بارے میں",
+        "جنگ اور مالِ غنیمت",
+        "روزے اور حج کے مسائل"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
       "en": "What was the worst habit of the disbelievers of Makkah?",
       "ar": "ما أسوأ عادة عند كفار مكة؟",
       "ur": "کفارِ مکہ کی سب سے بری عادت کیا تھی؟"
     },
     "options": {
       "en": [
+        "Idol-worship",
         "Farming",
         "Travelling",
-        "Trading",
-        "Idol-worship"
+        "Trading"
       ],
       "ar": [
+        "عبادة الأصنام",
         "الزراعة",
         "السفر",
-        "التجارة",
-        "عبادة الأصنام"
+        "التجارة"
       ],
       "ur": [
+        "بت پرستی",
         "کھیتی باڑی",
         "سفر کرنا",
-        "تجارت",
-        "بت پرستی"
+        "تجارت"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom did the disbelievers of Makkah entrust their deposits?",
+      "ar": "لمن كان كفار مكة يودعون أماناتهم؟",
+      "ur": "کفارِ مکہ اپنی امانتیں کس کے پاس رکھواتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "To Abu Jahl",
+        "To Abu Lahab",
+        "To Walid ibn Mughira",
+        "To the Prophet ﷺ"
+      ],
+      "ar": [
+        "لأبي جهل",
+        "لأبي لهب",
+        "للوليد بن المغيرة",
+        "للنبي ﷺ"
+      ],
+      "ur": [
+        "ابو جہل کے پاس",
+        "ابو لہب کے پاس",
+        "ولید بن مغیرہ کے پاس",
+        "نبی ﷺ کے پاس"
       ]
     },
     "correct_index": 3,
     "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why did the disbelievers entrust their deposits to the Prophet ﷺ?",
+      "ar": "لماذا كان الكفار يودعون أماناتهم عند النبي ﷺ؟",
+      "ur": "کفار اپنی امانتیں نبی ﷺ کے پاس کیوں رکھواتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Because he was the richest man",
+        "Because he was their king",
+        "Because in all of Makkah there was no one more trustworthy than him",
+        "Because he was their chief judge"
+      ],
+      "ar": [
+        "لأنه كان أغنى الناس",
+        "لأنه كان ملكهم",
+        "لأنه لم يكن في مكة كلها أحد أكثر أمانة منه",
+        "لأنه كان قاضيهم الأكبر"
+      ],
+      "ur": [
+        "کیونکہ آپ ﷺ سب سے مالدار تھے",
+        "کیونکہ آپ ﷺ ان کے بادشاہ تھے",
+        "کیونکہ پورے مکہ میں آپ ﷺ سے بڑھ کر کوئی امانت دار نہ تھا",
+        "کیونکہ آپ ﷺ ان کے بڑے قاضی تھے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is now at the place of the Prophet's ﷺ house in Makkah?",
+      "ar": "ماذا يوجد الآن في موضع بيت النبي ﷺ في مكة؟",
+      "ur": "مکہ میں نبی ﷺ کے گھر کی جگہ پر اب کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "A hospital",
+        "A public library",
+        "A hotel",
+        "A school"
+      ],
+      "ar": [
+        "مستشفى",
+        "مكتبة عامة",
+        "فندق",
+        "مدرسة"
+      ],
+      "ur": [
+        "ایک ہسپتال",
+        "ایک عوامی کتب خانہ",
+        "ایک ہوٹل",
+        "ایک اسکول"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Makkah",
     "event_id": null
   },
   {
@@ -1481,22 +2313,86 @@
     },
     "options": {
       "en": [
+        "Hajun",
         "Baqi",
         "Uhud",
-        "Hajun",
         "Badr"
       ],
       "ar": [
+        "الحجون",
         "البقيع",
         "أحد",
-        "الحجون",
         "بدر"
       ],
       "ur": [
+        "حجون",
         "بقیع",
         "احد",
-        "حجون",
         "بدر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the people of Makkah want from the Prophet ﷺ?",
+      "ar": "ماذا أراد أهل مكة من النبي ﷺ؟",
+      "ur": "اہلِ مکہ نبی ﷺ سے کیا چاہتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "That he become their king",
+        "That he give them his wealth",
+        "That he move to Syria",
+        "That he stop speaking ill of their idols"
+      ],
+      "ar": [
+        "أن يصبح ملكهم",
+        "أن يعطيهم ماله",
+        "أن ينتقل إلى الشام",
+        "أن يكف عن ذم أصنامهم"
+      ],
+      "ur": [
+        "کہ آپ ﷺ ان کے بادشاہ بن جائیں",
+        "کہ آپ ﷺ انہیں اپنا مال دے دیں",
+        "کہ آپ ﷺ شام منتقل ہو جائیں",
+        "کہ آپ ﷺ ان کے بتوں کو برا کہنا چھوڑ دیں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What was the biggest reason for the stubbornness of the people of Makkah?",
+      "ar": "ما أكبر سبب لعناد أهل مكة؟",
+      "ur": "اہلِ مکہ کی ضد کی سب سے بڑی وجہ کیا تھی؟"
+    },
+    "options": {
+      "en": [
+        "Their poverty",
+        "Their love of knowledge",
+        "Denial of the religion of their forefathers, moral vices, and the threat to their power and authority",
+        "Their fear of the Romans"
+      ],
+      "ar": [
+        "فقرهم",
+        "حبهم للعلم",
+        "إنكار دين آبائهم والرذائل الأخلاقية والخوف على سلطتهم ونفوذهم",
+        "خوفهم من الروم"
+      ],
+      "ur": [
+        "ان کی غربت",
+        "ان کی علم سے محبت",
+        "آباؤ اجداد کے دین کا انکار، اخلاقی برائیاں، اور اپنے اقتدار و اختیار کو خطرہ",
+        "رومیوں کا خوف"
       ]
     },
     "correct_index": 2,
@@ -1507,28 +2403,988 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "The son of which enemy of the Prophet ﷺ later accepted Islam?",
-      "ar": "ابن أي عدو للنبي ﷺ أسلم لاحقًا؟",
-      "ur": "نبی ﷺ کے کس دشمن کا بیٹا بعد میں مسلمان ہوا؟"
+      "en": "The son of which of the Prophet's ﷺ worst enemies later accepted Islam?",
+      "ar": "ابن أي أشد أعداء النبي ﷺ أسلم لاحقًا؟",
+      "ur": "نبی ﷺ کے کس بڑے دشمن کا بیٹا بعد میں مسلمان ہوا؟"
     },
     "options": {
       "en": [
         "Abu Lahab",
+        "Abu Jahl (his son Ikrima)",
         "Walid ibn Mughira",
-        "Uqba ibn Abi Mu'ayt",
-        "Abu Jahl (his son Ikrima)"
+        "Uqba ibn Abi Mu'ayt"
       ],
       "ar": [
         "أبو لهب",
+        "أبو جهل (ابنه عكرمة)",
         "الوليد بن المغيرة",
-        "عقبة بن أبي معيط",
-        "أبو جهل (ابنه عكرمة)"
+        "عقبة بن أبي معيط"
       ],
       "ur": [
         "ابو لہب",
+        "ابو جہل (بیٹا عکرمہ)",
         "ولید بن مغیرہ",
-        "عقبہ بن ابی معیط",
-        "ابو جہل (بیٹا عکرمہ)"
+        "عقبہ بن ابی معیط"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which people of Makkah, at first severe enemies of Islam, greatly benefited Islam after accepting it?",
+      "ar": "من أهل مكة الذين كانوا أول الأمر أشد أعداء الإسلام ثم نفعوه كثيرًا بعد إسلامهم؟",
+      "ur": "اہلِ مکہ میں سے وہ کون لوگ تھے جو پہلے اسلام کے سخت دشمن تھے مگر مسلمان ہو کر اسلام کو بہت فائدہ پہنچایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Khalid ibn al-Walid, Hazrat Amr ibn al-As, Hazrat Ikrima ibn Abi Jahl and Hazrat Umar Faruq",
+        "Hazrat Bilal, Hazrat Yasir, Hazrat Sumayya and Hazrat Suhayb",
+        "Hazrat Hamza, Hazrat Abbas, Hazrat Ali and Hazrat Ja'far",
+        "Hazrat Abu Bakr, Hazrat Zayd, Hazrat Khadija and Hazrat Ali"
+      ],
+      "ar": [
+        "خالد بن الوليد وعمرو بن العاص وعكرمة بن أبي جهل وعمر الفاروق",
+        "بلال وياسر وسمية وصهيب",
+        "حمزة والعباس وعلي وجعفر",
+        "أبو بكر وزيد وخديجة وعلي"
+      ],
+      "ur": [
+        "حضرت خالد بن ولید، حضرت عمرو بن العاص، حضرت عکرمہ بن ابی جہل اور حضرت عمر فاروق",
+        "حضرت بلال، حضرت یاسر، حضرت سمیہ اور حضرت صہیب",
+        "حضرت حمزہ، حضرت عباس، حضرت علی اور حضرت جعفر",
+        "حضرت ابو بکر، حضرت زید، حضرت خدیجہ اور حضرت علی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When the Prophet ﷺ made the Hijra from Makkah, what were his words?",
+      "ar": "ماذا قال النبي ﷺ حين هاجر من مكة؟",
+      "ur": "جب نبی ﷺ نے مکہ سے ہجرت فرمائی تو آپ ﷺ کے الفاظ کیا تھے؟"
+    },
+    "options": {
+      "en": [
+        "'O Makkah, I will never return to you'",
+        "'O Makkah, I am glad to leave you'",
+        "'O Makkah, I leave you to Abu Jahl'",
+        "'O Makkah, I would never have left you, but your inhabitants do not let me stay here'"
+      ],
+      "ar": [
+        "«يا مكة، لن أعود إليك أبدًا»",
+        "«يا مكة، أنا سعيد بمغادرتك»",
+        "«يا مكة، أتركك لأبي جهل»",
+        "«يا مكة، ما خرجتُ منك لولا أن أهلك لم يدعوني أقيم فيك»"
+      ],
+      "ur": [
+        "«اے مکہ! میں تیری طرف کبھی نہ لوٹوں گا»",
+        "«اے مکہ! تجھے چھوڑ کر مجھے خوشی ہے»",
+        "«اے مکہ! میں تجھے ابو جہل کے حوالے کرتا ہوں»",
+        "«اے مکہ! میں تجھے کبھی نہ چھوڑتا مگر تیرے باشندے مجھے یہاں رہنے نہیں دیتے»"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How long after the Hijra did the Prophet ﷺ come to Makkah, and on what occasion?",
+      "ar": "بعد كم من الهجرة جاء النبي ﷺ مكة، وفي أي مناسبة؟",
+      "ur": "ہجرت کے کتنے عرصے بعد نبی ﷺ مکہ تشریف لائے اور کس موقع پر؟"
+    },
+    "options": {
+      "en": [
+        "In the first year, for trade",
+        "In the third year, for the Battle of Badr",
+        "In the seventh year, on the occasion of the Umrat al-Qada",
+        "In the tenth year, for the Battle of Tabuk"
+      ],
+      "ar": [
+        "في السنة الأولى، للتجارة",
+        "في السنة الثالثة، لغزوة بدر",
+        "في السنة السابعة، في عمرة القضاء",
+        "في السنة العاشرة، لغزوة تبوك"
+      ],
+      "ur": [
+        "پہلے سال، تجارت کے لیے",
+        "تیسرے سال، غزوۂ بدر کے لیے",
+        "ساتویں سال، عمرۃ القضا کے موقع پر",
+        "دسویں سال، غزوۂ تبوک کے لیے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In what manner did the Prophet ﷺ come to Makkah in the seventh year after the Hijra?",
+      "ar": "بأي صفة جاء النبي ﷺ مكة في السنة السابعة بعد الهجرة؟",
+      "ur": "ہجرت کے ساتویں سال نبی ﷺ مکہ کس انداز میں تشریف لائے؟"
+    },
+    "options": {
+      "en": [
+        "Alone, in secret",
+        "With the companions, for Umrah",
+        "With an army, for war",
+        "As an envoy to the Quraysh"
+      ],
+      "ar": [
+        "وحده سرًّا",
+        "مع الصحابة للعمرة",
+        "مع جيش للحرب",
+        "سفيرًا إلى قريش"
+      ],
+      "ur": [
+        "اکیلے، چھپ کر",
+        "صحابہ کے ساتھ، عمرہ کے لیے",
+        "لشکر کے ساتھ، جنگ کے لیے",
+        "قریش کے سفیر کے طور پر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many people were with the Prophet ﷺ in the seventh year, on the occasion of the Umrat al-Qada?",
+      "ar": "كم كان عدد من كانوا مع النبي ﷺ في السنة السابعة في عمرة القضاء؟",
+      "ur": "ساتویں سال عمرۃ القضا کے موقع پر نبی ﷺ کے ساتھ کتنے لوگ تھے؟"
+    },
+    "options": {
+      "en": [
+        "Fourteen hundred",
+        "Two hundred",
+        "Ten thousand",
+        "Seventy"
+      ],
+      "ar": [
+        "ألف وأربعمئة",
+        "مئتان",
+        "عشرة آلاف",
+        "سبعون"
+      ],
+      "ur": [
+        "چودہ سو",
+        "دو سو",
+        "دس ہزار",
+        "ستر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many days did the Prophet ﷺ stay in Makkah when he came for the first time after the Hijra?",
+      "ar": "كم يومًا أقام النبي ﷺ في مكة عندما جاءها أول مرة بعد الهجرة؟",
+      "ur": "ہجرت کے بعد پہلی بار مکہ آنے پر نبی ﷺ کتنے دن ٹھہرے؟"
+    },
+    "options": {
+      "en": [
+        "30 days",
+        "One day",
+        "One year",
+        "3 days"
+      ],
+      "ar": [
+        "30 يومًا",
+        "يومًا واحدًا",
+        "سنة",
+        "3 أيام"
+      ],
+      "ur": [
+        "30 دن",
+        "ایک دن",
+        "ایک سال",
+        "3 دن"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ carry out in Makkah on that first visit after the Hijra?",
+      "ar": "ماذا فعل النبي ﷺ في مكة في زيارته الأولى بعد الهجرة؟",
+      "ur": "ہجرت کے بعد پہلی بار مکہ میں نبی ﷺ نے کیا کام انجام دیا؟"
+    },
+    "options": {
+      "en": [
+        "He fought a battle",
+        "He traded",
+        "He performed Umrah",
+        "He settled there"
+      ],
+      "ar": [
+        "خاض معركة",
+        "تاجر",
+        "أدى العمرة",
+        "استقر فيها"
+      ],
+      "ur": [
+        "جنگ لڑی",
+        "تجارت کی",
+        "عمرہ ادا فرمایا",
+        "وہیں سکونت اختیار کی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ wives was with him on that Umrah?",
+      "ar": "أي زوجات النبي ﷺ كانت معه في تلك العمرة؟",
+      "ur": "اس عمرے میں نبی ﷺ کی کون سی زوجہ مطہرہ آپ ﷺ کے ساتھ تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Khadija",
+        "Hazrat Umm Salama",
+        "Hazrat Sawda only",
+        "Hazrat Hafsa only"
+      ],
+      "ar": [
+        "خديجة",
+        "أم سلمة",
+        "سودة وحدها",
+        "حفصة وحدها"
+      ],
+      "ur": [
+        "حضرت خدیجہ",
+        "حضرت ام سلمہ",
+        "صرف حضرت سودہ",
+        "صرف حضرت حفصہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When did the Prophet ﷺ come to Makkah for the second time after the Hijra?",
+      "ar": "متى جاء النبي ﷺ مكة للمرة الثانية بعد الهجرة؟",
+      "ur": "ہجرت کے بعد نبی ﷺ دوسری بار مکہ کب تشریف لائے؟"
+    },
+    "options": {
+      "en": [
+        "In the year 8 AH",
+        "In the year 2 AH",
+        "In the year 5 AH",
+        "In the year 11 AH"
+      ],
+      "ar": [
+        "في سنة 8 هـ",
+        "في سنة 2 هـ",
+        "في سنة 5 هـ",
+        "في سنة 11 هـ"
+      ],
+      "ur": [
+        "8 ہجری میں",
+        "2 ہجری میں",
+        "5 ہجری میں",
+        "11 ہجری میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On what occasion did the Prophet ﷺ come to Makkah in the year 8 AH?",
+      "ar": "في أي مناسبة جاء النبي ﷺ مكة في سنة 8 هـ؟",
+      "ur": "8 ہجری میں نبی ﷺ کس موقع پر مکہ تشریف لائے؟"
+    },
+    "options": {
+      "en": [
+        "To trade",
+        "To visit relatives",
+        "To pray only",
+        "To conquer Makkah"
+      ],
+      "ar": [
+        "للتجارة",
+        "لزيارة الأقارب",
+        "للصلاة فقط",
+        "لفتح مكة"
+      ],
+      "ur": [
+        "تجارت کے لیے",
+        "رشتہ داروں سے ملنے",
+        "صرف نماز کے لیے",
+        "مکہ فتح کرنے کے لیے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which month did the Prophet ﷺ come to Makkah for the Conquest?",
+      "ar": "في أي شهر جاء النبي ﷺ مكة للفتح؟",
+      "ur": "فتحِ مکہ کے لیے نبی ﷺ کس مہینے میں مکہ تشریف لائے؟"
+    },
+    "options": {
+      "en": [
+        "Muharram",
+        "Rajab",
+        "Ramadan",
+        "Dhul-Hijja"
+      ],
+      "ar": [
+        "محرم",
+        "رجب",
+        "رمضان",
+        "ذو الحجة"
+      ],
+      "ur": [
+        "محرم",
+        "رجب",
+        "رمضان",
+        "ذوالحجہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When the Prophet ﷺ came to Makkah the second time after the Hijra (the Conquest), how many days did he stay?",
+      "ar": "عندما جاء النبي ﷺ مكة للمرة الثانية بعد الهجرة (الفتح)، كم يومًا أقام؟",
+      "ur": "ہجرت کے بعد دوسری بار مکہ (فتحِ مکہ) آنے پر نبی ﷺ کتنے دن ٹھہرے؟"
+    },
+    "options": {
+      "en": [
+        "One day",
+        "15 to twenty days",
+        "One year",
+        "Three months"
+      ],
+      "ar": [
+        "يومًا واحدًا",
+        "من 15 إلى عشرين يومًا",
+        "سنة",
+        "ثلاثة أشهر"
+      ],
+      "ur": [
+        "ایک دن",
+        "15 سے بیس دن",
+        "ایک سال",
+        "تین مہینے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On what date did the Prophet ﷺ give the Farewell Pilgrimage sermon?",
+      "ar": "في أي تاريخ ألقى النبي ﷺ خطبة حجة الوداع؟",
+      "ur": "نبی ﷺ نے خطبۂ حجۃ الوداع کس تاریخ کو دیا؟"
+    },
+    "options": {
+      "en": [
+        "9 Dhul-Hijja",
+        "1 Muharram",
+        "10 Ramadan",
+        "27 Rajab"
+      ],
+      "ar": [
+        "9 ذو الحجة",
+        "1 محرم",
+        "10 رمضان",
+        "27 رجب"
+      ],
+      "ur": [
+        "9 ذوالحجہ",
+        "1 محرم",
+        "10 رمضان",
+        "27 رجب"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which month did the Prophet ﷺ give the Farewell Pilgrimage sermon?",
+      "ar": "في أي شهر ألقى النبي ﷺ خطبة حجة الوداع؟",
+      "ur": "نبی ﷺ نے خطبۂ حجۃ الوداع کس مہینے میں دیا؟"
+    },
+    "options": {
+      "en": [
+        "Muharram",
+        "Ramadan",
+        "Rajab",
+        "Dhul-Hijja"
+      ],
+      "ar": [
+        "محرم",
+        "رمضان",
+        "رجب",
+        "ذو الحجة"
+      ],
+      "ur": [
+        "محرم",
+        "رمضان",
+        "رجب",
+        "ذوالحجہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Prophet ﷺ give the Farewell Pilgrimage sermon?",
+      "ar": "في أي سنة ألقى النبي ﷺ خطبة حجة الوداع؟",
+      "ur": "نبی ﷺ نے خطبۂ حجۃ الوداع کس سال دیا؟"
+    },
+    "options": {
+      "en": [
+        "In the year 2 AH",
+        "In the year 8 AH",
+        "In the year 10 AH",
+        "In the year 13 AH"
+      ],
+      "ar": [
+        "في سنة 2 هـ",
+        "في سنة 8 هـ",
+        "في سنة 10 هـ",
+        "في سنة 13 هـ"
+      ],
+      "ur": [
+        "2 ہجری میں",
+        "8 ہجری میں",
+        "10 ہجری میں",
+        "13 ہجری میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which place did the Prophet ﷺ give the magnificent Farewell Pilgrimage sermon?",
+      "ar": "في أي مكان ألقى النبي ﷺ خطبة حجة الوداع العظيمة؟",
+      "ur": "نبی ﷺ نے یہ عظیم خطبۂ حجۃ الوداع کس مقام پر دیا؟"
+    },
+    "options": {
+      "en": [
+        "At Mina",
+        "At Arafat",
+        "At Muzdalifah",
+        "At Masjid al-Haram"
+      ],
+      "ar": [
+        "في منى",
+        "في عرفات",
+        "في مزدلفة",
+        "في المسجد الحرام"
+      ],
+      "ur": [
+        "منیٰ میں",
+        "عرفات میں",
+        "مزدلفہ میں",
+        "مسجدِ حرام میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say at the end of the Farewell Pilgrimage sermon?",
+      "ar": "ماذا قال النبي ﷺ في ختام خطبة حجة الوداع؟",
+      "ur": "خطبۂ حجۃ الوداع کے آخر میں نبی ﷺ نے کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "'Convey these words of mine to those who are not present here'",
+        "'Do not return to Makkah'",
+        "'Fight everyone who disagrees'",
+        "'Choose a king among you'"
+      ],
+      "ar": [
+        "«فليبلّغ الشاهدُ الغائب» (أي بلّغوا كلامي من لم يحضر)",
+        "«لا تعودوا إلى مكة»",
+        "«قاتلوا كل من خالفكم»",
+        "«اختاروا ملكًا بينكم»"
+      ],
+      "ur": [
+        "«میری یہ باتیں ان لوگوں تک پہنچا دو جو یہاں موجود نہیں»",
+        "«مکہ دوبارہ نہ آنا»",
+        "«جو اختلاف کرے اس سے لڑو»",
+        "«اپنے میں سے کوئی بادشاہ چن لو»"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the disbelievers spread in the Prophet's ﷺ paths in Makkah?",
+      "ar": "ماذا كان الكفار ينثرون في طرق النبي ﷺ في مكة؟",
+      "ur": "کفار مکہ میں نبی ﷺ کے راستوں میں کیا بچھاتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Flowers",
+        "Sand",
+        "Water",
+        "Thorns"
+      ],
+      "ar": [
+        "الورود",
+        "الرمل",
+        "الماء",
+        "الشوك"
+      ],
+      "ur": [
+        "پھول",
+        "ریت",
+        "پانی",
+        "کانٹے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the weather of Makkah generally like?",
+      "ar": "كيف يكون طقس مكة عمومًا؟",
+      "ur": "مکہ کا موسم عموماً کیسا ہوتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Very cold and snowy",
+        "Rainy all year",
+        "Extremely hot",
+        "Mild and cool"
+      ],
+      "ar": [
+        "شديد البرودة وكثير الثلوج",
+        "ممطر طوال العام",
+        "شديد الحرارة",
+        "معتدل وبارد"
+      ],
+      "ur": [
+        "بہت سرد اور برفانی",
+        "سال بھر بارش والا",
+        "نہایت گرم",
+        "معتدل اور ٹھنڈا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How large was the population of Makkah in the blessed era of the Prophet ﷺ?",
+      "ar": "ما حجم سكان مكة في العهد المبارك للنبي ﷺ؟",
+      "ur": "نبی ﷺ کے مبارک دور میں مکہ کی آبادی کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Millions",
+        "Very small",
+        "Over a hundred thousand",
+        "About ten million"
+      ],
+      "ar": [
+        "ملايين",
+        "قليل جدًا",
+        "أكثر من مئة ألف",
+        "نحو عشرة ملايين"
+      ],
+      "ur": [
+        "لاکھوں کروڑوں",
+        "بہت کم",
+        "ایک لاکھ سے زیادہ",
+        "تقریباً ایک کروڑ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Between what was Makkah situated at that time?",
+      "ar": "بماذا كانت مكة محاطة في ذلك الوقت؟",
+      "ur": "اس وقت مکہ کس کے درمیان واقع تھا؟"
+    },
+    "options": {
+      "en": [
+        "It was surrounded by mountains",
+        "It lay beside the sea",
+        "It was in the middle of a forest",
+        "It was on an island"
+      ],
+      "ar": [
+        "كانت محاطة بالجبال",
+        "كانت بجانب البحر",
+        "كانت وسط غابة",
+        "كانت في جزيرة"
+      ],
+      "ur": [
+        "پہاڑوں سے گھرا ہوا تھا",
+        "سمندر کے کنارے تھا",
+        "جنگل کے بیچ میں تھا",
+        "ایک جزیرے پر تھا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In the era of messengership, what was the main occupation of the people of Makkah?",
+      "ar": "ما كانت المهنة الرئيسة لأهل مكة في عهد الرسالة؟",
+      "ur": "دورِ رسالت میں اہلِ مکہ کا بنیادی پیشہ کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Fishing and mining",
+        "Factory work",
+        "Printing",
+        "Herding and trade"
+      ],
+      "ar": [
+        "الصيد والتعدين",
+        "العمل في المصانع",
+        "الطباعة",
+        "الرعي والتجارة"
+      ],
+      "ur": [
+        "ماہی گیری اور کان کنی",
+        "کارخانوں میں کام",
+        "چھاپہ خانہ",
+        "گلہ بانی اور تجارت"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What kind of people were the people of Makkah at that time?",
+      "ar": "كيف كان أهل مكة في ذلك الوقت؟",
+      "ur": "اس وقت اہلِ مکہ کیسے لوگ تھے؟"
+    },
+    "options": {
+      "en": [
+        "Peaceful monotheists",
+        "Scholars of scripture",
+        "Warlike and idol-worshippers",
+        "Sailors and fishermen"
+      ],
+      "ar": [
+        "موحدون مسالمون",
+        "علماء بالكتب",
+        "محاربون وعبّاد أصنام",
+        "بحارة وصيادون"
+      ],
+      "ur": [
+        "پرامن موحد",
+        "کتابوں کے عالم",
+        "جنگجو اور بت پرست",
+        "ملاح اور ماہی گیر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "On what occasion, when the Ansar thought the Messenger might now settle in Makkah, did the Prophet ﷺ say: 'Now my living and dying is with the Ansar'?",
+      "ar": "في أي مناسبة، حين ظن الأنصار أن الرسول ﷺ قد يستقر في مكة، قال: «المحيا محياكم والممات مماتكم»؟",
+      "ur": "جب انصار کو خیال ہوا کہ رسول ﷺ اب مکہ میں رہ جائیں گے تو کس موقع پر آپ ﷺ نے فرمایا: «اب میرا جینا مرنا انصار کے ساتھ ہے»؟"
+    },
+    "options": {
+      "en": [
+        "On the occasion of the Battle of Badr",
+        "On the occasion of the Battle of Hunayn",
+        "On the occasion of the Farewell Pilgrimage",
+        "On the occasion of the Treaty of Hudaybiyyah"
+      ],
+      "ar": [
+        "في غزوة بدر",
+        "في غزوة حنين",
+        "في حجة الوداع",
+        "في صلح الحديبية"
+      ],
+      "ur": [
+        "غزوۂ بدر کے موقع پر",
+        "غزوۂ حنین کے موقع پر",
+        "حجۃ الوداع کے موقع پر",
+        "صلحِ حدیبیہ کے موقع پر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the special quality of Makkah?",
+      "ar": "ما الميزة الخاصة لمكة؟",
+      "ur": "مکہ کی خاص خوبی کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "It is the most blessed place in the universe; every year millions gather here for Hajj and, regardless of colour and race, proclaim the oneness of God",
+        "It is the richest city in the world",
+        "It is the largest port in Arabia",
+        "It is the capital of an empire"
+      ],
+      "ar": [
+        "إنها أبرك بقعة في الكون؛ يجتمع فيها كل عام الملايين للحج ويعلنون وحدانية الله دون نظر إلى اللون أو العرق",
+        "إنها أغنى مدينة في العالم",
+        "إنها أكبر ميناء في الجزيرة",
+        "إنها عاصمة إمبراطورية"
+      ],
+      "ur": [
+        "یہ کائنات کی سب سے بابرکت جگہ ہے؛ ہر سال لاکھوں فرزندانِ توحید حج کے لیے جمع ہوتے ہیں اور رنگ و نسل کے فرق کے بغیر اللہ کی وحدانیت کا اعلان کرتے ہیں",
+        "یہ دنیا کا سب سے امیر شہر ہے",
+        "یہ عرب کی سب سے بڑی بندرگاہ ہے",
+        "یہ ایک سلطنت کا دارالحکومت ہے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ purify Makkah of?",
+      "ar": "مم طهّر النبي ﷺ مكة؟",
+      "ur": "نبی ﷺ نے مکہ کو کس چیز سے پاک کیا؟"
+    },
+    "options": {
+      "en": [
+        "Of water",
+        "Of sand",
+        "Of trade",
+        "Of the idols"
+      ],
+      "ar": [
+        "من الماء",
+        "من الرمل",
+        "من التجارة",
+        "من الأصنام"
+      ],
+      "ur": [
+        "پانی سے",
+        "ریت سے",
+        "تجارت سے",
+        "بتوں سے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Return to Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Is fighting (killing and plunder) permitted in Makkah?",
+      "ar": "هل يجوز القتال (القتل والنهب) في مكة؟",
+      "ur": "کیا مکہ میں لڑائی (قتل و غارت اور لوٹ مار) جائز ہے؟"
+    },
+    "options": {
+      "en": [
+        "Yes, at any time",
+        "Only in Ramadan",
+        "No, it is not permitted",
+        "Only against the Quraysh"
+      ],
+      "ar": [
+        "نعم، في أي وقت",
+        "في رمضان فقط",
+        "لا، لا يجوز",
+        "ضد قريش فقط"
+      ],
+      "ur": [
+        "ہاں، کسی بھی وقت",
+        "صرف رمضان میں",
+        "نہیں، جائز نہیں",
+        "صرف قریش کے خلاف"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why is fighting not permitted in Makkah?",
+      "ar": "لماذا لا يجوز القتال في مكة؟",
+      "ur": "مکہ میں لڑائی کیوں جائز نہیں؟"
+    },
+    "options": {
+      "en": [
+        "Because it is too small",
+        "Because the Quran has declared it a place of safety for people",
+        "Because it has no weapons",
+        "Because the Quraysh forbade it"
+      ],
+      "ar": [
+        "لأنها صغيرة جدًا",
+        "لأن القرآن جعلها مكان أمن للناس",
+        "لأنه لا أسلحة فيها",
+        "لأن قريشًا منعت ذلك"
+      ],
+      "ur": [
+        "کیونکہ یہ بہت چھوٹا ہے",
+        "کیونکہ قرآن نے اسے لوگوں کے لیے امن کی جگہ قرار دیا ہے",
+        "کیونکہ وہاں ہتھیار نہیں",
+        "کیونکہ قریش نے منع کیا تھا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On which side of the House of the Kaaba is the Black Stone installed?",
+      "ar": "في أي جانب من بيت الكعبة رُكّب الحجر الأسود؟",
+      "ur": "خانہ کعبہ کی کس جانب حجرِ اسود نصب ہے؟"
+    },
+    "options": {
+      "en": [
+        "The eastern side",
+        "The western side",
+        "The northern side",
+        "The southern side"
+      ],
+      "ar": [
+        "الجانب الشرقي",
+        "الجانب الغربي",
+        "الجانب الشمالي",
+        "الجانب الجنوبي"
+      ],
+      "ur": [
+        "مشرقی جانب",
+        "مغربی جانب",
+        "شمالی جانب",
+        "جنوبی جانب"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — The Kaaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who was the first person killed for the sake of Islam?",
+      "ar": "من أول من قُتل في سبيل الإسلام؟",
+      "ur": "اسلام کی خاطر سب سے پہلے قتل ہونے والے شخص کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hamza",
+        "Hazrat Bilal",
+        "Hazrat Yasir only",
+        "Harith ibn Hala"
+      ],
+      "ar": [
+        "حمزة",
+        "بلال",
+        "ياسر وحده",
+        "الحارث بن هالة"
+      ],
+      "ur": [
+        "حضرت حمزہ",
+        "حضرت بلال",
+        "صرف حضرت یاسر",
+        "حارث بن ہالہ"
       ]
     },
     "correct_index": 3,
@@ -1539,28 +3395,60 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which of these was first an enemy of Islam but after accepting it greatly benefited Islam?",
-      "ar": "أي من هؤلاء كان عدوًّا للإسلام أولًا ثم نفع الإسلام كثيرًا بعد إسلامه؟",
-      "ur": "ان میں سے کون پہلے اسلام کا دشمن تھا مگر مسلمان ہو کر اسلام کو بہت فائدہ پہنچایا؟"
+      "en": "Name the two companions whom the Quraysh of Makkah taunted for their poverty.",
+      "ar": "سمِّ الصحابيين اللذين عيّرتهما قريش بفقرهما.",
+      "ur": "ان دو صحابہ کے نام بتائیے جنہیں قریشِ مکہ غربت کا طعنہ دیتے تھے۔"
     },
     "options": {
       "en": [
-        "Hazrat Bilal",
-        "Hazrat Khalid ibn al-Walid",
-        "Hazrat Ali",
-        "Hazrat Zayd"
+        "Hazrat Uthman and Hazrat Abd al-Rahman ibn Awf",
+        "Hazrat Abu Bakr and Hazrat Umar",
+        "Hazrat Suhayb al-Rumi and Hazrat Bilal al-Habashi",
+        "Hazrat Zubayr and Hazrat Talha"
       ],
       "ar": [
-        "بلال",
-        "خالد بن الوليد",
-        "علي",
-        "زيد"
+        "عثمان وعبد الرحمن بن عوف",
+        "أبو بكر وعمر",
+        "صهيب الرومي وبلال الحبشي",
+        "الزبير وطلحة"
       ],
       "ur": [
-        "حضرت بلال",
-        "حضرت خالد بن ولید",
-        "حضرت علی",
-        "حضرت زید"
+        "حضرت عثمان اور حضرت عبدالرحمن بن عوف",
+        "حضرت ابو بکر اور حضرت عمر",
+        "حضرت صہیب رومی اور حضرت بلال حبشی",
+        "حضرت زبیر اور حضرت طلحہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When Hazrat Uthman accepted Islam, who used to punish him?",
+      "ar": "عندما أسلم عثمان، من كان يعاقبه؟",
+      "ur": "جب حضرت عثمان اسلام لائے تو انہیں کون سزا دیتا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Hakam ibn al-As",
+        "Abu Lahab",
+        "Walid ibn Mughira"
+      ],
+      "ar": [
+        "أبو جهل",
+        "الحكم بن العاص",
+        "أبو لهب",
+        "الوليد بن المغيرة"
+      ],
+      "ur": [
+        "ابو جہل",
+        "حکم بن العاص",
+        "ابو لہب",
+        "ولید بن مغیرہ"
       ]
     },
     "correct_index": 1,
@@ -1571,223 +3459,255 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "On what occasion did the Prophet ﷺ come to Makkah in the seventh year after the Hijra?",
-      "ar": "في أي مناسبة جاء النبي ﷺ مكة في السنة السابعة بعد الهجرة؟",
-      "ur": "ہجرت کے ساتویں سال نبی ﷺ کس موقع پر مکہ آئے؟"
+      "en": "Which relatives did Hazrat Umar beat, before accepting Islam, for accepting Islam?",
+      "ar": "أي أقارب ضربهم عمر، قبل إسلامه، لأنهم أسلموا؟",
+      "ur": "حضرت عمر نے اسلام لانے سے پہلے کن رشتہ داروں کو اسلام قبول کرنے پر مارا؟"
     },
     "options": {
       "en": [
-        "Battle of Badr",
-        "Umrat al-Qada",
-        "Battle of Hunayn",
-        "Farewell Pilgrimage"
+        "His sister and his brother-in-law",
+        "His mother and father",
+        "His uncle and aunt",
+        "His son and daughter"
       ],
       "ar": [
-        "غزوة بدر",
-        "عمرة القضاء",
-        "غزوة حنين",
-        "حجة الوداع"
+        "أخته وزوج أخته",
+        "أمه وأباه",
+        "عمه وعمته",
+        "ابنه وابنته"
       ],
       "ur": [
-        "غزوۂ بدر",
-        "عمرۃ القضا",
-        "غزوۂ حنین",
-        "حجۃ الوداع"
+        "اپنی بہن اور بہنوئی کو",
+        "اپنی ماں اور باپ کو",
+        "اپنے چچا اور پھوپھی کو",
+        "اپنے بیٹے اور بیٹی کو"
       ]
     },
-    "correct_index": 1,
-    "source": "Seerah — Return to Makkah",
+    "correct_index": 0,
+    "source": "Seerah — Companions in Makkah",
     "event_id": null
   },
   {
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "How many days did the Prophet ﷺ stay in Makkah for the Umrat al-Qada?",
-      "ar": "كم يومًا أقام النبي ﷺ في مكة في عمرة القضاء؟",
-      "ur": "عمرۃ القضا کے موقع پر نبی ﷺ مکہ میں کتنے دن ٹھہرے؟"
+      "en": "Which noble companions are called al-Sabiqun al-Awwalun?",
+      "ar": "أي الصحابة الكرام يُسمَّون السابقين الأولين؟",
+      "ur": "کن جلیل القدر صحابہ کو سابقون الاولون کہا جاتا ہے؟"
     },
     "options": {
       "en": [
-        "One day",
-        "Thirty days",
-        "Three days",
-        "One year"
+        "The companions who fought at Badr",
+        "The companions who migrated to Abyssinia only",
+        "The companions who were present at Hunayn",
+        "The companions who accepted Islam at the beginning"
       ],
       "ar": [
-        "يومًا واحدًا",
-        "ثلاثين يومًا",
-        "ثلاثة أيام",
-        "سنة"
+        "الصحابة الذين قاتلوا في بدر",
+        "الصحابة الذين هاجروا إلى الحبشة فقط",
+        "الصحابة الذين حضروا حنينًا",
+        "الصحابة الذين أسلموا في البداية"
       ],
       "ur": [
-        "ایک دن",
-        "تیس دن",
-        "تین دن",
-        "ایک سال"
+        "وہ صحابہ جو بدر میں لڑے",
+        "وہ صحابہ جنہوں نے صرف حبشہ ہجرت کی",
+        "وہ صحابہ جو حنین میں موجود تھے",
+        "وہ صحابہ جو ابتدا میں اسلام لائے"
       ]
     },
-    "correct_index": 2,
-    "source": "Seerah — Return to Makkah",
+    "correct_index": 3,
+    "source": "Seerah — Companions in Makkah",
     "event_id": null
   },
   {
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "For what purpose did the Prophet ﷺ come to Makkah in Ramadan, 8 AH?",
-      "ar": "لأي غرض جاء النبي ﷺ مكة في رمضان سنة 8 هـ؟",
-      "ur": "رمضان 8 ہجری میں نبی ﷺ کس مقصد سے مکہ آئے؟"
+      "en": "Which relative used to punish Hazrat Zubayr ibn al-Awwam severely for accepting Islam?",
+      "ar": "أي قريب كان يعذب الزبير بن العوام بشدة لإسلامه؟",
+      "ur": "حضرت زبیر بن العوام کو اسلام لانے پر کون سا رشتہ دار سخت سزا دیتا تھا؟"
     },
     "options": {
       "en": [
-        "To trade",
-        "To conquer Makkah",
-        "To visit relatives",
-        "To pray only"
+        "His father",
+        "His brother",
+        "His uncle",
+        "His son"
       ],
       "ar": [
-        "للتجارة",
-        "لفتح مكة",
-        "لزيارة الأقارب",
-        "للصلاة فقط"
+        "أبوه",
+        "أخوه",
+        "عمه",
+        "ابنه"
       ],
       "ur": [
-        "تجارت کے لیے",
-        "مکہ فتح کرنے کے لیے",
-        "رشتہ داروں سے ملنے",
-        "صرف نماز کے لیے"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Return to Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "At which place did the Prophet ﷺ give the Farewell Pilgrimage sermon?",
-      "ar": "في أي مكان ألقى النبي ﷺ خطبة حجة الوداع؟",
-      "ur": "نبی ﷺ نے خطبۂ حجۃ الوداع کہاں دیا؟"
-    },
-    "options": {
-      "en": [
-        "Mina",
-        "Arafat",
-        "Muzdalifah",
-        "Masjid al-Haram"
-      ],
-      "ar": [
-        "منى",
-        "عرفات",
-        "مزدلفة",
-        "المسجد الحرام"
-      ],
-      "ur": [
-        "منیٰ",
-        "عرفات",
-        "مزدلفہ",
-        "مسجدِ حرام"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Return to Makkah",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "What did the disbelievers spread in the Prophet's ﷺ path in Makkah?",
-      "ar": "ماذا كان الكفار ينثرون في طريق النبي ﷺ في مكة؟",
-      "ur": "کفار مکہ میں نبی ﷺ کے راستے میں کیا بچھاتے تھے؟"
-    },
-    "options": {
-      "en": [
-        "Flowers",
-        "Thorns",
-        "Sand",
-        "Water"
-      ],
-      "ar": [
-        "الورود",
-        "الشوك",
-        "الرمل",
-        "الماء"
-      ],
-      "ur": [
-        "پھول",
-        "کانٹے",
-        "ریت",
-        "پانی"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Makkan Period",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "What did the Prophet ﷺ purify the Kaaba and Makkah of?",
-      "ar": "مم طهّر النبي ﷺ الكعبة ومكة؟",
-      "ur": "نبی ﷺ نے کعبہ اور مکہ کو کس چیز سے پاک کیا؟"
-    },
-    "options": {
-      "en": [
-        "Water",
-        "Sand",
-        "Idols",
-        "Trade"
-      ],
-      "ar": [
-        "الماء",
-        "الرمل",
-        "الأصنام",
-        "التجارة"
-      ],
-      "ur": [
-        "پانی سے",
-        "ریت سے",
-        "بتوں سے",
-        "تجارت سے"
+        "ان کا باپ",
+        "ان کا بھائی",
+        "ان کا چچا",
+        "ان کا بیٹا"
       ]
     },
     "correct_index": 2,
-    "source": "Seerah — Return to Makkah",
+    "source": "Seerah — Companions in Makkah",
     "event_id": null
   },
   {
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "In which surah is the command \"Warn your close relatives\"?",
-      "ar": "في أي سورة الأمر «وأنذر عشيرتك الأقربين»؟",
-      "ur": "\"اپنے قریبی رشتہ داروں کو ڈراؤ\" کا حکم کس سورت میں ہے؟"
+      "en": "Whose mother went on a hunger strike when that companion accepted Islam?",
+      "ar": "أم أي صحابي أضربت عن الطعام حين أسلم؟",
+      "ur": "کس صحابی کی والدہ نے ان کے اسلام لانے پر بھوک ہڑتال کی؟"
     },
     "options": {
       "en": [
-        "Surah al-Shu'ara",
+        "Hazrat Bilal",
+        "Hazrat Sa'd ibn Abi Waqqas",
+        "Hazrat Umar",
+        "Hazrat Hamza"
+      ],
+      "ar": [
+        "بلال",
+        "سعد بن أبي وقاص",
+        "عمر",
+        "حمزة"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت سعد بن ابی وقاص",
+        "حضرت عمر",
+        "حضرت حمزہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah of the Quran is the command 'Warn your close relatives'?",
+      "ar": "في أي سورة من القرآن الأمر «وأنذر عشيرتك الأقربين»؟",
+      "ur": "«اپنے قریبی رشتہ داروں کو ڈراؤ» کا حکم قرآن کی کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Shu'ara, verse 214",
         "Surah al-Fil",
         "Surah al-Ikhlas",
         "Surah al-Nas"
       ],
       "ar": [
-        "سورة الشعراء",
+        "سورة الشعراء، الآية 214",
         "سورة الفيل",
         "سورة الإخلاص",
         "سورة الناس"
       ],
       "ur": [
-        "سورۃ الشعراء",
+        "سورۃ الشعراء، آیت 214",
         "سورۃ الفیل",
         "سورۃ الاخلاص",
         "سورۃ الناس"
       ]
     },
     "correct_index": 0,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which surah's verses did the Prophet ﷺ recite to Utba ibn al-Walid?",
+      "ar": "آيات أي سورة تلاها النبي ﷺ على عتبة بن الوليد؟",
+      "ur": "نبی ﷺ نے عتبہ بن ولید کو کس سورت کی آیات سنائیں؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fatiha",
+        "Surah al-Ikhlas",
+        "Surah al-Kawthar",
+        "Ha Mim al-Sajda (Surah Fussilat)"
+      ],
+      "ar": [
+        "سورة الفاتحة",
+        "سورة الإخلاص",
+        "سورة الكوثر",
+        "حم السجدة (سورة فصلت)"
+      ],
+      "ur": [
+        "سورۃ الفاتحہ",
+        "سورۃ الاخلاص",
+        "سورۃ الکوثر",
+        "حمٓ السجدہ (سورۂ فصلت)"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In which surah are the words 'Declare plainly what you have been commanded'?",
+      "ar": "في أي سورة ورد قوله تعالى «فاصدع بما تؤمر»؟",
+      "ur": "«جو حکم دیا گیا ہے اسے کھول کر سنا دو» کے الفاظ کس سورت میں ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Asr",
+        "Surah al-Hijr, verse 94",
+        "Surah al-Nas"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة العصر",
+        "سورة الحجر، الآية 94",
+        "سورة الناس"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ العصر",
+        "سورۃ الحجر، آیت 94",
+        "سورۃ الناس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Open Preaching",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In which year of prophethood did the struggle between disbelief and Islam begin?",
+      "ar": "في أي سنة من البعثة بدأ الصراع بين الكفر والإسلام؟",
+      "ur": "نبوت کے کس سال کفر و اسلام کی کشمکش شروع ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In the first year of prophethood",
+        "In the fourth year of prophethood",
+        "In the tenth year of prophethood",
+        "In the thirteenth year of prophethood"
+      ],
+      "ar": [
+        "في السنة الأولى للبعثة",
+        "في السنة الرابعة للبعثة",
+        "في السنة العاشرة للبعثة",
+        "في السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کے پہلے سال",
+        "نبوت کے چوتھے سال",
+        "نبوت کے دسویں سال",
+        "نبوت کے تیرہویں سال"
+      ]
+    },
+    "correct_index": 1,
     "source": "Seerah — Makkan Period",
     "event_id": null
   },
@@ -1827,28 +3747,92 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who threw a camel's entrails on the Prophet ﷺ while he prayed at the Kaaba?",
-      "ar": "من ألقى أحشاء جمل على النبي ﷺ وهو يصلي عند الكعبة؟",
-      "ur": "کعبہ میں نماز کے دوران نبی ﷺ پر اونٹ کی اوجھڑی کس نے ڈالی؟"
+      "en": "Who threw a camel's entrails on the Prophet ﷺ while he was praying in the House of the Kaaba?",
+      "ar": "من ألقى أحشاء جمل على النبي ﷺ وهو يصلي في بيت الكعبة؟",
+      "ur": "بیت اللہ میں نماز کے دوران نبی ﷺ پر اونٹ کی اوجھڑی کس نے ڈالی؟"
     },
     "options": {
       "en": [
         "Abu Bakr",
-        "Uqba ibn Abi Mu'ayt",
         "Hazrat Hamza",
-        "Hazrat Abbas"
+        "Hazrat Abbas",
+        "Uqba ibn Abi Mu'ayt"
       ],
       "ar": [
         "أبو بكر",
-        "عقبة بن أبي معيط",
         "حمزة",
-        "العباس"
+        "العباس",
+        "عقبة بن أبي معيط"
       ],
       "ur": [
         "ابو بکر",
-        "عقبہ بن ابی معیط",
         "حضرت حمزہ",
-        "حضرت عباس"
+        "حضرت عباس",
+        "عقبہ بن ابی معیط"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which daughter of the Prophet ﷺ removed it from him?",
+      "ar": "أي بنات النبي ﷺ أزالته عنه؟",
+      "ur": "نبی ﷺ کی کس صاحبزادی نے اسے آپ ﷺ سے ہٹایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zaynab",
+        "Hazrat Ruqayya",
+        "Hazrat Fatima",
+        "Hazrat Umm Kulthum"
+      ],
+      "ar": [
+        "زينب",
+        "رقية",
+        "فاطمة",
+        "أم كلثوم"
+      ],
+      "ur": [
+        "حضرت زینب",
+        "حضرت رقیہ",
+        "حضرت فاطمہ",
+        "حضرت ام کلثوم"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "'Daughter, do not weep; God will protect your father.' To which daughter did the Prophet ﷺ say these blessed words?",
+      "ar": "«يا بنية، لا تبكي؛ فإن الله مانع أباك». لأي بناته قال النبي ﷺ هذه الكلمات المباركة؟",
+      "ur": "«بیٹی! مت رو، اللہ تیرے باپ کی حفاظت فرمائے گا»: نبی ﷺ نے یہ مبارک الفاظ اپنی کس صاحبزادی سے فرمائے؟"
+    },
+    "options": {
+      "en": [
+        "To Hazrat Zaynab",
+        "To Hazrat Fatima",
+        "To Hazrat Ruqayya",
+        "To Hazrat Umm Kulthum"
+      ],
+      "ar": [
+        "للسيدة زينب",
+        "للسيدة فاطمة",
+        "للسيدة رقية",
+        "للسيدة أم كلثوم"
+      ],
+      "ur": [
+        "حضرت زینب سے",
+        "حضرت فاطمہ سے",
+        "حضرت رقیہ سے",
+        "حضرت ام کلثوم سے"
       ]
     },
     "correct_index": 1,
@@ -1859,28 +3843,28 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which daughter of the Prophet ﷺ removed it from him?",
-      "ar": "أي بنات النبي ﷺ أزالته عنه؟",
-      "ur": "نبی ﷺ کی کس صاحبزادی نے اسے ہٹایا؟"
+      "en": "The supremacy of which tribe ended because of the preaching of Islam?",
+      "ar": "سيادة أي قبيلة انتهت بسبب دعوة الإسلام؟",
+      "ur": "اسلام کی تبلیغ کی وجہ سے کس قبیلے کی سرداری ختم ہوئی؟"
     },
     "options": {
       "en": [
-        "Hazrat Fatima",
-        "Hazrat Zaynab",
-        "Hazrat Ruqayya",
-        "Hazrat Umm Kulthum"
+        "The Quraysh",
+        "Banu Hashim",
+        "Banu Taym",
+        "Banu Aws"
       ],
       "ar": [
-        "فاطمة",
-        "زينب",
-        "رقية",
-        "أم كلثوم"
+        "قريش",
+        "بنو هاشم",
+        "بنو تيم",
+        "بنو الأوس"
       ],
       "ur": [
-        "حضرت فاطمہ",
-        "حضرت زینب",
-        "حضرت رقیہ",
-        "حضرت ام کلثوم"
+        "قریش کی",
+        "بنو ہاشم کی",
+        "بنو تیم کی",
+        "بنو اوس کی"
       ]
     },
     "correct_index": 0,
@@ -1891,32 +3875,1920 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Who said: \"O Muhammad, I do not call you a liar, but I will not accept what you say\"?",
-      "ar": "من قال: «يا محمد، لا أكذبك ولكن لا أقبل ما تقول»؟",
-      "ur": "کس نے کہا: \"اے محمد! میں آپ کو جھوٹا نہیں کہتا مگر آپ کی باتیں ماننے کو تیار نہیں\"؟"
+      "en": "Name the disbeliever who used to say: 'O Muhammad, I do not call you a liar, but I am not ready to accept the things you say.'",
+      "ar": "سمِّ الكافر الذي كان يقول: «يا محمد، لا أكذبك ولكني لا أقبل ما تقول».",
+      "ur": "اس کافر کا نام بتائیے جو کہتا تھا: «اے محمد! میں آپ کو جھوٹا نہیں کہتا مگر آپ کی باتیں ماننے کو تیار نہیں»۔"
     },
     "options": {
       "en": [
         "Abu Bakr",
         "Hazrat Umar",
-        "Abu Jahl",
-        "Waraqa"
+        "Waraqa",
+        "Abu Jahl"
       ],
       "ar": [
         "أبو بكر",
         "عمر",
-        "أبو جهل",
-        "ورقة"
+        "ورقة",
+        "أبو جهل"
       ],
       "ur": [
         "ابو بکر",
         "حضرت عمر",
-        "ابو جہل",
-        "ورقہ"
+        "ورقہ",
+        "ابو جہل"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which companions were the greatest targets of the disbelievers' cruelty?",
+      "ar": "أي الصحابة كانوا أكثر استهدافًا لظلم الكفار؟",
+      "ur": "کفار کے ظلم کا سب سے زیادہ نشانہ کون سے صحابہ بنے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr, Hazrat Umar, Hazrat Uthman and Hazrat Ali",
+        "Hazrat Hamza, Hazrat Abbas, Hazrat Zubayr and Hazrat Talha",
+        "Hazrat Bilal, Hazrat Abdullah ibn Mas'ud, Hazrat Yasir and Hazrat Sumayya",
+        "Hazrat Khalid, Hazrat Amr, Hazrat Ikrima and Hazrat Abu Sufyan"
+      ],
+      "ar": [
+        "أبو بكر وعمر وعثمان وعلي",
+        "حمزة والعباس والزبير وطلحة",
+        "بلال وعبد الله بن مسعود وياسر وسمية",
+        "خالد وعمرو وعكرمة وأبو سفيان"
+      ],
+      "ur": [
+        "حضرت ابو بکر، حضرت عمر، حضرت عثمان اور حضرت علی",
+        "حضرت حمزہ، حضرت عباس، حضرت زبیر اور حضرت طلحہ",
+        "حضرت بلال، حضرت عبداللہ بن مسعود، حضرت یاسر اور حضرت سمیہ",
+        "حضرت خالد، حضرت عمرو، حضرت عکرمہ اور حضرت ابو سفیان"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which women were severely tormented for accepting Islam?",
+      "ar": "أي النساء عُذّبن بشدة لإسلامهن؟",
+      "ur": "کن خواتین کو اسلام قبول کرنے پر سخت اذیتیں دی گئیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Khadija, Hazrat Aisha and Hazrat Hafsa",
+        "Hazrat Lubayna, Hazrat Zinnira and Hazrat Nahdiyya",
+        "Hazrat Fatima, Hazrat Zaynab and Hazrat Ruqayya",
+        "Hazrat Asma, Hazrat Safiyya and Hazrat Umm Salama"
+      ],
+      "ar": [
+        "خديجة وعائشة وحفصة",
+        "لبينة وزنيرة والنهدية",
+        "فاطمة وزينب ورقية",
+        "أسماء وصفية وأم سلمة"
+      ],
+      "ur": [
+        "حضرت خدیجہ، حضرت عائشہ اور حضرت حفصہ",
+        "حضرت لبینہ، حضرت زنیرہ اور حضرت نہدیہ",
+        "حضرت فاطمہ، حضرت زینب اور حضرت رقیہ",
+        "حضرت اسماء، حضرت صفیہ اور حضرت ام سلمہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What is the difference in days between Hazrat Hamza's and Hazrat Umar's acceptance of Islam?",
+      "ar": "كم يومًا بين إسلام حمزة وإسلام عمر؟",
+      "ur": "حضرت حمزہ اور حضرت عمر کے اسلام لانے میں کتنے دن کا فرق ہے؟"
+    },
+    "options": {
+      "en": [
+        "Three days",
+        "One day",
+        "Ten days",
+        "One year"
+      ],
+      "ar": [
+        "ثلاثة أيام",
+        "يوم واحد",
+        "عشرة أيام",
+        "سنة"
+      ],
+      "ur": [
+        "تین دن",
+        "ایک دن",
+        "دس دن",
+        "ایک سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Of Hazrat Hamza and Hazrat Umar, who accepted Islam first?",
+      "ar": "أيّهما أسلم أولًا: حمزة أم عمر؟",
+      "ur": "حضرت حمزہ اور حضرت عمر میں پہلے اسلام کس نے قبول کیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar",
+        "Both on the same day",
+        "Neither, they accepted in Madinah",
+        "Hazrat Hamza"
+      ],
+      "ar": [
+        "عمر",
+        "كلاهما في اليوم نفسه",
+        "لا أحد منهما، أسلما في المدينة",
+        "حمزة"
+      ],
+      "ur": [
+        "حضرت عمر",
+        "دونوں ایک ہی دن",
+        "کسی نے نہیں، مدینہ میں مسلمان ہوئے",
+        "حضرت حمزہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the companion who was first to raise a sword in defence of Islam.",
+      "ar": "سمِّ الصحابي الذي كان أول من سلّ سيفًا دفاعًا عن الإسلام.",
+      "ur": "اسلام کے دفاع میں سب سے پہلے تلوار اٹھانے والے صحابی کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Yasir",
+        "Hazrat Zubayr ibn al-Awwam",
+        "Hazrat Abu Dharr"
+      ],
+      "ar": [
+        "بلال",
+        "ياسر",
+        "الزبير بن العوام",
+        "أبو ذر"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت یاسر",
+        "حضرت زبیر بن العوام",
+        "حضرت ابو ذر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For which companion's acceptance of Islam did the Prophet ﷺ pray to God?",
+      "ar": "لإسلام أي صحابي دعا النبي ﷺ الله؟",
+      "ur": "نبی ﷺ نے کس صحابی کے اسلام لانے کے لیے اللہ سے دعا فرمائی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr",
+        "Hazrat Umar",
+        "Hazrat Ali",
+        "Hazrat Uthman"
+      ],
+      "ar": [
+        "أبو بكر",
+        "عمر",
+        "علي",
+        "عثمان"
+      ],
+      "ur": [
+        "حضرت ابو بکر",
+        "حضرت عمر",
+        "حضرت علی",
+        "حضرت عثمان"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion is called 'Murad-e-Rasul' (the Messenger's desire)?",
+      "ar": "أي صحابي يُلقب بـ«مراد الرسول»؟",
+      "ur": "کس صحابی کو «مرادِ رسول» کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar Faruq",
+        "Hazrat Bilal",
+        "Hazrat Uthman",
+        "Hazrat Zayd"
+      ],
+      "ar": [
+        "عمر الفاروق",
+        "بلال",
+        "عثمان",
+        "زيد"
+      ],
+      "ur": [
+        "حضرت عمر فاروق",
+        "حضرت بلال",
+        "حضرت عثمان",
+        "حضرت زید"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When Hazrat Umar left home with a drawn sword, which companion stopped him on the road and told him that his sister and brother-in-law had accepted Islam?",
+      "ar": "حين خرج عمر من بيته شاهرًا سيفه، أي صحابي استوقفه في الطريق وأخبره أن أخته وزوج أخته أسلما؟",
+      "ur": "جب حضرت عمر ننگی تلوار لے کر گھر سے نکلے تو کس صحابی نے راستے میں روک کر بتایا کہ ان کی بہن اور بہنوئی مسلمان ہو چکے ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr",
+        "Hazrat Ali",
+        "Hazrat Hamza",
+        "Nu'aym ibn Abdullah"
+      ],
+      "ar": [
+        "أبو بكر",
+        "علي",
+        "حمزة",
+        "نعيم بن عبد الله"
+      ],
+      "ur": [
+        "ابو بکر",
+        "حضرت علی",
+        "حضرت حمزہ",
+        "نعیم بن عبداللہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On hearing the verses of which surah of the Holy Quran did Hazrat Umar announce his acceptance of Islam?",
+      "ar": "عند سماع آيات أي سورة من القرآن الكريم أعلن عمر إسلامه؟",
+      "ur": "قرآنِ کریم کی کس سورت کی آیات سن کر حضرت عمر نے اسلام قبول کرنے کا اعلان کیا؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Ikhlas",
+        "Surah Ta-Ha",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الإخلاص",
+        "سورة طه",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الاخلاص",
+        "سورۂ طٰہٰ",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which place did Hazrat Umar go and pledge allegiance to the Prophet ﷺ on the truth?",
+      "ar": "في أي مكان ذهب عمر وبايع النبي ﷺ على الحق؟",
+      "ur": "حضرت عمر کس مقام پر جا کر نبی ﷺ سے حق پر بیعت ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "In the Cave of Hira",
+        "In Dar al-Arqam",
+        "In Masjid Quba",
+        "At Mount Safa"
+      ],
+      "ar": [
+        "في غار حراء",
+        "في دار الأرقم",
+        "في مسجد قباء",
+        "على جبل الصفا"
+      ],
+      "ur": [
+        "غارِ حرا میں",
+        "دارِ ارقم میں",
+        "مسجدِ قبا میں",
+        "کوہِ صفا پر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name the first person who stepped into this world as a Muslim.",
+      "ar": "سمِّ أول من وُلد في هذه الدنيا مسلمًا.",
+      "ur": "اس شخصیت کا نام بتائیے جو سب سے پہلے مسلمان پیدا ہوئیں۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha Siddiqa",
+        "Hazrat Fatima",
+        "Hazrat Ali",
+        "Hazrat Hasan"
+      ],
+      "ar": [
+        "عائشة الصديقة",
+        "فاطمة",
+        "علي",
+        "الحسن"
+      ],
+      "ur": [
+        "حضرت عائشہ صدیقہ",
+        "حضرت فاطمہ",
+        "حضرت علی",
+        "حضرت حسن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the first woman martyr in Islam.",
+      "ar": "سمِّ أول شهيدة في الإسلام.",
+      "ur": "اسلام کی پہلی شہیدہ کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Khadija",
+        "Hazrat Fatima",
+        "Hazrat Asma",
+        "Hazrat Sumayya"
+      ],
+      "ar": [
+        "خديجة",
+        "فاطمة",
+        "أسماء",
+        "سمية"
+      ],
+      "ur": [
+        "حضرت خدیجہ",
+        "حضرت فاطمہ",
+        "حضرت اسماء",
+        "حضرت سمیہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name the Arab wrestler who challenged the Prophet ﷺ to a wrestling match as proof of prophethood but, even after being defeated, did not accept Islam.",
+      "ar": "سمِّ المصارع العربي الذي تحدّى النبي ﷺ في المصارعة دليلًا على النبوة لكنه لم يُسلم حتى بعد هزيمته.",
+      "ur": "اس عرب پہلوان کا نام بتائیے جس نے نبی ﷺ کو نبوت کے ثبوت کے طور پر کشتی کا چیلنج دیا مگر ہارنے کے بعد بھی اسلام قبول نہ کیا۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hamza",
+        "Abu Bakr",
+        "Abdullah Jum'i (as printed in the source)",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "حمزة",
+        "أبو بكر",
+        "عبد الله الجمحي (كما ورد في المصدر)",
+        "علي"
+      ],
+      "ur": [
+        "حضرت حمزہ",
+        "ابو بکر",
+        "عبداللہ جمعی (جیسا کہ ماخذ میں چھپا ہے)",
+        "حضرت علی"
       ]
     },
     "correct_index": 2,
     "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ daughters also took part in the first Hijra to Abyssinia?",
+      "ar": "أي بنات النبي ﷺ شاركت أيضًا في الهجرة الأولى إلى الحبشة؟",
+      "ur": "نبی ﷺ کی کون سی صاحبزادی ہجرتِ حبشہ اولیٰ میں شریک تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Fatima",
+        "Hazrat Ruqayya",
+        "Hazrat Zaynab",
+        "Hazrat Umm Kulthum"
+      ],
+      "ar": [
+        "فاطمة",
+        "رقية",
+        "زينب",
+        "أم كلثوم"
+      ],
+      "ur": [
+        "حضرت فاطمہ",
+        "حضرت رقیہ",
+        "حضرت زینب",
+        "حضرت ام کلثوم"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many times did the Muslims make Hijra in the era of prophethood?",
+      "ar": "كم مرة هاجر المسلمون في عهد النبوة؟",
+      "ur": "دورِ نبوت میں مسلمانوں نے کتنی بار ہجرت کی؟"
+    },
+    "options": {
+      "en": [
+        "Three times",
+        "Once",
+        "Five times",
+        "Ten times"
+      ],
+      "ar": [
+        "ثلاث مرات",
+        "مرة واحدة",
+        "خمس مرات",
+        "عشر مرات"
+      ],
+      "ur": [
+        "تین بار",
+        "ایک بار",
+        "پانچ بار",
+        "دس بار"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was the leader of the caravan of the first Hijra to Abyssinia?",
+      "ar": "من كان أمير قافلة الهجرة الأولى إلى الحبشة؟",
+      "ur": "ہجرتِ حبشہ اولیٰ کے قافلے کے سردار کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ja'far",
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Uthman Ghani"
+      ],
+      "ar": [
+        "جعفر",
+        "علي",
+        "بلال",
+        "عثمان بن عفان"
+      ],
+      "ur": [
+        "حضرت جعفر",
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت عثمان غنی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which month did the Muslims make the first Hijra toward Abyssinia?",
+      "ar": "في أي شهر هاجر المسلمون الهجرة الأولى نحو الحبشة؟",
+      "ur": "مسلمانوں نے حبشہ کی طرف پہلی ہجرت کس مہینے میں کی؟"
+    },
+    "options": {
+      "en": [
+        "The month of Ramadan",
+        "The month of Muharram",
+        "The month of Rajab",
+        "The month of Dhul-Hijja"
+      ],
+      "ar": [
+        "شهر رمضان",
+        "شهر محرم",
+        "شهر رجب",
+        "شهر ذي الحجة"
+      ],
+      "ur": [
+        "رمضان کے مہینے میں",
+        "محرم کے مہینے میں",
+        "رجب کے مہینے میں",
+        "ذوالحجہ کے مہینے میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who gave a comprehensive speech on behalf of the Muslims in the Negus's court?",
+      "ar": "من ألقى كلمة جامعة باسم المسلمين في بلاط النجاشي؟",
+      "ur": "نجاشی کے دربار میں مسلمانوں کی طرف سے جامع تقریر کس نے کی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Ja'far",
+        "Hazrat Bilal",
+        "Hazrat Hamza"
+      ],
+      "ar": [
+        "علي",
+        "جعفر",
+        "بلال",
+        "حمزة"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت جعفر",
+        "حضرت بلال",
+        "حضرت حمزہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To demonstrate the truth of the Quran, which surah's verses did Hazrat Ja'far recite in the Negus's court?",
+      "ar": "لإظهار صدق القرآن، آيات أي سورة تلا جعفر في بلاط النجاشي؟",
+      "ur": "قرآن کی حقانیت ظاہر کرنے کے لیے حضرت جعفر نے نجاشی کے دربار میں کس سورت کی آیات تلاوت کیں؟"
+    },
+    "options": {
+      "en": [
+        "Surah Maryam",
+        "Surah al-Fil",
+        "Surah al-Nas",
+        "Surah al-Kawthar"
+      ],
+      "ar": [
+        "سورة مريم",
+        "سورة الفيل",
+        "سورة الناس",
+        "سورة الكوثر"
+      ],
+      "ur": [
+        "سورۂ مریم",
+        "سورۃ الفیل",
+        "سورۃ الناس",
+        "سورۃ الکوثر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "For how long did the Muslims stay in Abyssinia in the first Hijra?",
+      "ar": "كم مكث المسلمون في الحبشة في الهجرة الأولى؟",
+      "ur": "پہلی ہجرت میں مسلمان حبشہ میں کتنا عرصہ رہے؟"
+    },
+    "options": {
+      "en": [
+        "Three years",
+        "Ten years",
+        "One day",
+        "Three months"
+      ],
+      "ar": [
+        "ثلاث سنوات",
+        "عشر سنوات",
+        "يومًا واحدًا",
+        "ثلاثة أشهر"
+      ],
+      "ur": [
+        "تین سال",
+        "دس سال",
+        "ایک دن",
+        "تین مہینے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In which year did the second Hijra to Abyssinia take place?",
+      "ar": "في أي سنة وقعت الهجرة الثانية إلى الحبشة؟",
+      "ur": "حبشہ کی دوسری ہجرت کس سال ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In the first year of prophethood",
+        "In the tenth year of prophethood",
+        "In the seventh year of prophethood",
+        "In the thirteenth year of prophethood"
+      ],
+      "ar": [
+        "في السنة الأولى للبعثة",
+        "في السنة العاشرة للبعثة",
+        "في السنة السابعة للبعثة",
+        "في السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کے پہلے سال",
+        "نبوت کے دسویں سال",
+        "نبوت کے ساتویں سال",
+        "نبوت کے تیرہویں سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many people were there in total in the second Hijra to Abyssinia?",
+      "ar": "كم كان عدد المهاجرين في الهجرة الثانية إلى الحبشة؟",
+      "ur": "حبشہ کی دوسری ہجرت میں کل کتنے لوگ تھے؟"
+    },
+    "options": {
+      "en": [
+        "Sixteen",
+        "One hundred and three",
+        "Seventy",
+        "Three hundred"
+      ],
+      "ar": [
+        "ستة عشر",
+        "مئة وثلاثة",
+        "سبعون",
+        "ثلاثمئة"
+      ],
+      "ur": [
+        "سولہ",
+        "ایک سو تین",
+        "ستر",
+        "تین سو"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who was the leader of the Muslim emigrants in the second Hijra to Abyssinia?",
+      "ar": "من كان أمير المهاجرين المسلمين في الهجرة الثانية إلى الحبشة؟",
+      "ur": "حبشہ کی دوسری ہجرت میں مسلمان مہاجرین کے سردار کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ja'far",
+        "Hazrat Uthman",
+        "Hazrat Ali",
+        "Hazrat Bilal"
+      ],
+      "ar": [
+        "جعفر",
+        "عثمان",
+        "علي",
+        "بلال"
+      ],
+      "ur": [
+        "حضرت جعفر",
+        "حضرت عثمان",
+        "حضرت علی",
+        "حضرت بلال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who were the neighbours of the Prophet ﷺ in Makkah?",
+      "ar": "من كان جيران النبي ﷺ في مكة؟",
+      "ur": "مکہ میں نبی ﷺ کے پڑوسی کون تھے؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr, Umar and Uthman",
+        "Hamza, Abbas and Ali",
+        "Bilal, Yasir and Ibn Mas'ud",
+        "Abu Lahab, Hakam ibn Abi al-As, Uqba ibn Abi Mu'ayt and others"
+      ],
+      "ar": [
+        "أبو بكر وعمر وعثمان",
+        "حمزة والعباس وعلي",
+        "بلال وياسر وابن مسعود",
+        "أبو لهب والحكم بن أبي العاص وعقبة بن أبي معيط وآخرون"
+      ],
+      "ur": [
+        "ابو بکر، عمر، عثمان",
+        "حمزہ، عباس، علی",
+        "بلال، یاسر، ابن مسعود",
+        "ابو لہب، حکم بن ابی العاص، عقبہ بن ابی معیط اور دیگر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many of the Ashara Mubashshara (the ten promised Paradise) took part in the first Hijra to Abyssinia?",
+      "ar": "كم من العشرة المبشرين بالجنة شاركوا في الهجرة الأولى إلى الحبشة؟",
+      "ur": "عشرہ مبشرہ میں سے کتنے حضرات ہجرتِ حبشہ اولیٰ میں شریک تھے؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Seven",
+        "Three",
+        "All ten"
+      ],
+      "ar": [
+        "واحد",
+        "سبعة",
+        "ثلاثة",
+        "العشرة جميعًا"
+      ],
+      "ur": [
+        "ایک",
+        "سات",
+        "تین",
+        "سب دس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which three of the Ashara Mubashshara took part in the first Hijra to Abyssinia?",
+      "ar": "من هم الثلاثة من العشرة المبشرين الذين شاركوا في الهجرة الأولى إلى الحبشة؟",
+      "ur": "عشرہ مبشرہ میں سے وہ تین حضرات کون تھے جو ہجرتِ حبشہ اولیٰ میں شریک تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr, Hazrat Umar and Hazrat Ali",
+        "Hazrat Uthman, Hazrat Zubayr and Hazrat Abd al-Rahman ibn Awf",
+        "Hazrat Talha, Hazrat Sa'd and Hazrat Sa'id",
+        "Hazrat Abu Ubayda, Hazrat Hamza and Hazrat Bilal"
+      ],
+      "ar": [
+        "أبو بكر وعمر وعلي",
+        "عثمان والزبير وعبد الرحمن بن عوف",
+        "طلحة وسعد وسعيد",
+        "أبو عبيدة وحمزة وبلال"
+      ],
+      "ur": [
+        "حضرت ابو بکر، حضرت عمر، حضرت علی",
+        "حضرت عثمان، حضرت زبیر، حضرت عبدالرحمن بن عوف",
+        "حضرت طلحہ، حضرت سعد، حضرت سعید",
+        "حضرت ابو عبیدہ، حضرت حمزہ، حضرت بلال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How far is Shi'b Abi Talib from Makkah?",
+      "ar": "كم يبعد شعب أبي طالب عن مكة؟",
+      "ur": "شعبِ ابی طالب مکہ سے کتنے فاصلے پر ہے؟"
+    },
+    "options": {
+      "en": [
+        "Three miles",
+        "One hundred miles",
+        "Thirty miles",
+        "Ten miles"
+      ],
+      "ar": [
+        "ثلاثة أميال",
+        "مئة ميل",
+        "ثلاثون ميلًا",
+        "عشرة أميال"
+      ],
+      "ur": [
+        "تین میل",
+        "سو میل",
+        "تیس میل",
+        "دس میل"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose property was Shi'b Abi Talib?",
+      "ar": "لمن كان شعب أبي طالب مِلكًا؟",
+      "ur": "شعبِ ابی طالب کس کی ملکیت تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Lahab's",
+        "Abu Jahl's",
+        "Abu Bakr's",
+        "Abu Talib's"
+      ],
+      "ar": [
+        "لأبي لهب",
+        "لأبي جهل",
+        "لأبي بكر",
+        "لأبي طالب"
+      ],
+      "ur": [
+        "ابو لہب کی",
+        "ابو جہل کی",
+        "ابو بکر کی",
+        "ابو طالب کی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Because of failure in what matter did the Quraysh make life narrow for the Muslims?",
+      "ar": "بسبب فشلهم في أي أمر ضيّقت قريش الحياة على المسلمين؟",
+      "ur": "قریش نے کس معاملے میں ناکامی کی وجہ سے مسلمانوں پر زندگی تنگ کی؟"
+    },
+    "options": {
+      "en": [
+        "Because of a defeat at Badr",
+        "Because of a famine",
+        "Because of their diplomatic failure in Abyssinia",
+        "Because of the loss of the Kaaba keys"
+      ],
+      "ar": [
+        "بسبب هزيمة في بدر",
+        "بسبب مجاعة",
+        "بسبب فشلهم الدبلوماسي في الحبشة",
+        "بسبب ضياع مفاتيح الكعبة"
+      ],
+      "ur": [
+        "بدر میں شکست کی وجہ سے",
+        "قحط کی وجہ سے",
+        "حبشہ میں اپنی سفارتی ناکامی کی وجہ سے",
+        "کعبہ کی چابیاں کھو جانے کی وجہ سے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hijra to Abyssinia",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When did the event of the moon splitting in two occur?",
+      "ar": "متى وقعت حادثة انشقاق القمر؟",
+      "ur": "چاند کے دو ٹکڑے ہونے کا واقعہ کب پیش آیا؟"
+    },
+    "options": {
+      "en": [
+        "In the first year of prophethood",
+        "In the fifth year of prophethood",
+        "In the tenth year of prophethood",
+        "In the thirteenth year of prophethood"
+      ],
+      "ar": [
+        "في السنة الأولى للبعثة",
+        "في السنة الخامسة للبعثة",
+        "في السنة العاشرة للبعثة",
+        "في السنة الثالثة عشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کے پہلے سال",
+        "نبوت کے پانچویں سال",
+        "نبوت کے دسویں سال",
+        "نبوت کے تیرہویں سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the event of the moon splitting in two called?",
+      "ar": "ماذا يُسمى حدث انشقاق القمر؟",
+      "ur": "چاند کے دو ٹکڑے ہونے کے واقعے کو کیا کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Shaqq al-Qamar (the splitting of the moon)",
+        "Mi'raj",
+        "Hijra",
+        "Fath Makkah"
+      ],
+      "ar": [
+        "شق القمر",
+        "المعراج",
+        "الهجرة",
+        "فتح مكة"
+      ],
+      "ur": [
+        "شقّ القمر",
+        "معراج",
+        "ہجرت",
+        "فتحِ مکہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who demanded the miracle of the splitting of the moon?",
+      "ar": "من الذين طلبوا معجزة انشقاق القمر؟",
+      "ur": "چاند کے دو ٹکڑے ہونے کا معجزہ کن لوگوں نے طلب کیا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr and Umar",
+        "Hamza and Abbas",
+        "Bilal and Yasir",
+        "Abu Jahl, Aas ibn Wa'il, Walid ibn Mughira and others"
+      ],
+      "ar": [
+        "أبو بكر وعمر",
+        "حمزة والعباس",
+        "بلال وياسر",
+        "أبو جهل والعاص بن وائل والوليد بن المغيرة وآخرون"
+      ],
+      "ur": [
+        "ابو بکر اور عمر",
+        "حمزہ اور عباس",
+        "بلال اور یاسر",
+        "ابو جہل، عاص بن وائل، ولید بن مغیرہ اور دیگر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Makkan Period",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What approach did the disbelievers adopt after the deaths of Abu Talib and Hazrat Khadija?",
+      "ar": "ما الموقف الذي اتخذه الكفار بعد وفاة أبي طالب والسيدة خديجة؟",
+      "ur": "ابو طالب اور حضرت خدیجہ کی وفات کے بعد کفار نے کیا رویہ اپنایا؟"
+    },
+    "options": {
+      "en": [
+        "They made peace with the Muslims",
+        "They left Makkah",
+        "They caused the Prophet ﷺ and his companions even more hardship",
+        "They accepted Islam"
+      ],
+      "ar": [
+        "صالحوا المسلمين",
+        "غادروا مكة",
+        "زادوا النبي ﷺ وأصحابه إيذاءً",
+        "أسلموا"
+      ],
+      "ur": [
+        "مسلمانوں سے صلح کر لی",
+        "مکہ چھوڑ دیا",
+        "نبی ﷺ اور صحابہ کو اور زیادہ تکلیفیں پہنچائیں",
+        "اسلام قبول کر لیا"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which month did Abu Talib pass away?",
+      "ar": "في أي شهر توفي أبو طالب؟",
+      "ur": "ابو طالب کا انتقال کس مہینے میں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "In Muharram",
+        "In Ramadan al-Mubarak",
+        "In Rajab",
+        "In Dhul-Hijja"
+      ],
+      "ar": [
+        "في محرم",
+        "في رمضان المبارك",
+        "في رجب",
+        "في ذي الحجة"
+      ],
+      "ur": [
+        "محرم میں",
+        "رمضان المبارک میں",
+        "رجب میں",
+        "ذوالحجہ میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is Abu Talib's real name?",
+      "ar": "ما اسم أبي طالب الحقيقي؟",
+      "ur": "ابو طالب کا اصل نام کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Abd Manaf",
+        "Abd Allah",
+        "Abd al-Muttalib",
+        "Abd al-Uzza"
+      ],
+      "ar": [
+        "عبد مناف",
+        "عبد الله",
+        "عبد المطلب",
+        "عبد العزى"
+      ],
+      "ur": [
+        "عبد مناف",
+        "عبداللہ",
+        "عبدالمطلب",
+        "عبدالعزیٰ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At what age did Abu Talib die?",
+      "ar": "في أي عمر توفي أبو طالب؟",
+      "ur": "ابو طالب کا انتقال کتنی عمر میں ہوا؟"
+    },
+    "options": {
+      "en": [
+        "40 years",
+        "63 years",
+        "120 years",
+        "85 years"
+      ],
+      "ar": [
+        "40 سنة",
+        "63 سنة",
+        "120 سنة",
+        "85 سنة"
+      ],
+      "ur": [
+        "40 سال",
+        "63 سال",
+        "120 سال",
+        "85 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Abu Talib was the grandfather of which two beloved ones of the Prophet ﷺ?",
+      "ar": "جدّ أي حبيبين من أحباب النبي ﷺ كان أبو طالب؟",
+      "ur": "ابو طالب نبی ﷺ کے کن دو پیاروں کے دادا تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali and Hazrat Ja'far",
+        "Hazrat Hamza and Hazrat Abbas",
+        "Hazrat Imam Hasan and Hazrat Imam Husayn",
+        "Hazrat Zubayr and Hazrat Talha"
+      ],
+      "ar": [
+        "علي وجعفر",
+        "حمزة والعباس",
+        "الإمام الحسن والإمام الحسين",
+        "الزبير وطلحة"
+      ],
+      "ur": [
+        "حضرت علی اور حضرت جعفر",
+        "حضرت حمزہ اور حضرت عباس",
+        "حضرت امام حسن اور حضرت امام حسین",
+        "حضرت زبیر اور حضرت طلحہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Hazrat Khadija's age at the time of her passing?",
+      "ar": "كم كان عمر السيدة خديجة عند وفاتها؟",
+      "ur": "حضرت خدیجہ کی وفات کے وقت ان کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "40 years",
+        "65 years",
+        "50 years",
+        "85 years"
+      ],
+      "ar": [
+        "40 سنة",
+        "65 سنة",
+        "50 سنة",
+        "85 سنة"
+      ],
+      "ur": [
+        "40 سال",
+        "65 سال",
+        "50 سال",
+        "85 سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many days apart were the deaths of Hazrat Khadija and Abu Talib?",
+      "ar": "كم يومًا بين وفاة السيدة خديجة ووفاة أبي طالب؟",
+      "ur": "حضرت خدیجہ اور ابو طالب کی وفات میں کتنے دن کا فرق تھا؟"
+    },
+    "options": {
+      "en": [
+        "Three days",
+        "One day",
+        "Ten days",
+        "One year"
+      ],
+      "ar": [
+        "ثلاثة أيام",
+        "يوم واحد",
+        "عشرة أيام",
+        "سنة"
+      ],
+      "ur": [
+        "تین دن",
+        "ایک دن",
+        "دس دن",
+        "ایک سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Shi'b Abi Talib",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Prophet ﷺ make the journey to Ta'if?",
+      "ar": "في أي سنة سافر النبي ﷺ إلى الطائف؟",
+      "ur": "نبی ﷺ نے طائف کا سفر کس سال کیا؟"
+    },
+    "options": {
+      "en": [
+        "In the first year of prophethood",
+        "In the fifth year of prophethood",
+        "In the thirteenth year of prophethood",
+        "In the tenth year of prophethood"
+      ],
+      "ar": [
+        "في السنة الأولى للبعثة",
+        "في السنة الخامسة للبعثة",
+        "في السنة الثالثة عشرة للبعثة",
+        "في السنة العاشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کے پہلے سال",
+        "نبوت کے پانچویں سال",
+        "نبوت کے تیرہویں سال",
+        "نبوت کے دسویں سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many chiefs did the Prophet ﷺ meet in Ta'if?",
+      "ar": "كم زعيمًا قابل النبي ﷺ في الطائف؟",
+      "ur": "نبی ﷺ طائف میں کتنے سرداروں سے ملے؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Seven",
+        "Three",
+        "Twelve"
+      ],
+      "ar": [
+        "واحدًا",
+        "سبعة",
+        "ثلاثة",
+        "اثني عشر"
+      ],
+      "ur": [
+        "ایک",
+        "سات",
+        "تین",
+        "بارہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In the valley of Nakhla, how many jinn accepted Islam after hearing the Quran from the Prophet ﷺ?",
+      "ar": "في وادي نخلة، كم جنيًّا أسلم بعد سماع القرآن من النبي ﷺ؟",
+      "ur": "وادیٔ نخلہ میں نبی ﷺ سے قرآن سن کر کتنے جن مسلمان ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "One jinn",
+        "Seven jinn",
+        "Three hundred jinn",
+        "No jinn"
+      ],
+      "ar": [
+        "جني واحد",
+        "سبعة من الجن",
+        "ثلاثمئة جني",
+        "لم يُسلم أحد"
+      ],
+      "ur": [
+        "ایک جن",
+        "سات جن",
+        "تین سو جن",
+        "کوئی نہیں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "When Hazrat Aisha Siddiqa asked whether a harder time than the Battle of Uhud had ever come upon the Prophet ﷺ, what answer did he give?",
+      "ar": "حين سألت عائشة الصديقة هل مرّ على النبي ﷺ يوم أشد من يوم أحد، ماذا أجاب؟",
+      "ur": "جب حضرت عائشہ صدیقہ نے پوچھا کہ کیا غزوۂ احد سے بھی سخت وقت آپ ﷺ پر آیا تو آپ ﷺ نے کیا جواب دیا؟"
+    },
+    "options": {
+      "en": [
+        "'The occasion of Ta'if was also hard'",
+        "'No, Uhud was the hardest'",
+        "'The Battle of Badr was harder'",
+        "'Nothing was ever hard for me'"
+      ],
+      "ar": [
+        "«كان يوم الطائف أشد أيضًا»",
+        "«لا، أحد أشد الأيام»",
+        "«كان يوم بدر أشد»",
+        "«لم يشتد عليّ شيء قط»"
+      ],
+      "ur": [
+        "«طائف کا موقع بھی سخت تھا»",
+        "«نہیں، احد سب سے سخت تھا»",
+        "«غزوۂ بدر زیادہ سخت تھا»",
+        "«مجھ پر کبھی کوئی وقت سخت نہ آیا»"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Journey to Ta'if",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After accepting Islam, who went before the Quraysh in the House of the Kaaba, recited the kalima and recited the Holy Quran?",
+      "ar": "بعد إسلامه، من وقف أمام قريش في بيت الكعبة وأعلن الشهادة وتلا القرآن الكريم؟",
+      "ur": "اسلام لانے کے بعد کس نے قریش کے سامنے خانہ کعبہ میں کلمہ اور قرآنِ پاک پڑھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Anas",
+        "Hazrat Ali",
+        "Hazrat Zayd",
+        "Hazrat Abu Dharr al-Ghifari"
+      ],
+      "ar": [
+        "أنس",
+        "علي",
+        "زيد",
+        "أبو ذر الغفاري"
+      ],
+      "ur": [
+        "حضرت انس",
+        "حضرت علی",
+        "حضرت زید",
+        "حضرت ابو ذر غفاری"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Companions in Makkah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In whose house was the Prophet ﷺ staying on the night of the Mi'raj?",
+      "ar": "في بيت من كان النبي ﷺ ليلة المعراج؟",
+      "ur": "شبِ معراج نبی ﷺ کس کے گھر میں تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Hafsa",
+        "Hazrat Umm Hani",
+        "Hazrat Sawda"
+      ],
+      "ar": [
+        "عائشة",
+        "حفصة",
+        "أم هانئ",
+        "سودة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت حفصہ",
+        "حضرت ام ہانی",
+        "حضرت سودہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which was the first stage in the Mi'raj?",
+      "ar": "ما أول محطة في المعراج؟",
+      "ur": "معراج کا پہلا مرحلہ کون سا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Masjid Quba",
+        "Masjid al-Aqsa",
+        "Masjid al-Nabawi",
+        "Mount Uhud"
+      ],
+      "ar": [
+        "مسجد قباء",
+        "المسجد الأقصى",
+        "المسجد النبوي",
+        "جبل أحد"
+      ],
+      "ur": [
+        "مسجدِ قبا",
+        "مسجدِ اقصیٰ",
+        "مسجدِ نبوی",
+        "جبلِ احد"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At which place on the night of the Mi'raj did Jibra'il refuse to go further?",
+      "ar": "في أي موضع ليلة المعراج امتنع جبريل عن المضي أبعد؟",
+      "ur": "شبِ معراج میں جبریل کس مقام سے آگے جانے سے رک گئے؟"
+    },
+    "options": {
+      "en": [
+        "Sidrat al-Muntaha",
+        "Masjid al-Aqsa",
+        "Cave of Hira",
+        "Mount Safa"
+      ],
+      "ar": [
+        "سدرة المنتهى",
+        "المسجد الأقصى",
+        "غار حراء",
+        "جبل الصفا"
+      ],
+      "ur": [
+        "سدرۃ المنتہیٰ",
+        "مسجدِ اقصیٰ",
+        "غارِ حرا",
+        "کوہِ صفا"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At the word of which prophet did the Prophet ﷺ keep going to God to have the prayers reduced?",
+      "ar": "بقول أي نبي ظل النبي ﷺ يراجع ربه لتخفيف الصلوات؟",
+      "ur": "کس نبی کے کہنے پر نبی ﷺ نمازوں میں کمی کے لیے بار بار اللہ کے پاس گئے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Nuh",
+        "Hazrat Yusuf",
+        "Hazrat Dawud",
+        "Hazrat Musa"
+      ],
+      "ar": [
+        "نوح عليه السلام",
+        "يوسف عليه السلام",
+        "داود عليه السلام",
+        "موسى عليه السلام"
+      ],
+      "ur": [
+        "حضرت نوح علیہ السلام",
+        "حضرت یوسف علیہ السلام",
+        "حضرت داود علیہ السلام",
+        "حضرت موسیٰ علیہ السلام"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On the night of the Mi'raj, which prophet did the Prophet ﷺ see praying in his grave?",
+      "ar": "أي نبي رآه النبي ﷺ ليلة المعراج يصلي في قبره؟",
+      "ur": "شبِ معراج میں نبی ﷺ نے کس نبی کو ان کی قبر میں نماز پڑھتے دیکھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Nuh",
+        "Hazrat Yusuf",
+        "Hazrat Musa",
+        "Hazrat Dawud"
+      ],
+      "ar": [
+        "نوح عليه السلام",
+        "يوسف عليه السلام",
+        "موسى عليه السلام",
+        "داود عليه السلام"
+      ],
+      "ur": [
+        "حضرت نوح علیہ السلام",
+        "حضرت یوسف علیہ السلام",
+        "حضرت موسیٰ علیہ السلام",
+        "حضرت داود علیہ السلام"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In Masjid al-Aqsa, who addressed the gathering after the Prophet's ﷺ address?",
+      "ar": "في المسجد الأقصى، من خطب في الجمع بعد خطبة النبي ﷺ؟",
+      "ur": "مسجدِ اقصیٰ میں نبی ﷺ کے خطاب کے بعد مجمع سے کس نے خطاب کیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Musa",
+        "Hazrat Ibrahim",
+        "Hazrat Isa",
+        "Hazrat Nuh"
+      ],
+      "ar": [
+        "موسى عليه السلام",
+        "إبراهيم عليه السلام",
+        "عيسى عليه السلام",
+        "نوح عليه السلام"
+      ],
+      "ur": [
+        "حضرت موسیٰ علیہ السلام",
+        "حضرت ابراہیم علیہ السلام",
+        "حضرت عیسیٰ علیہ السلام",
+        "حضرت نوح علیہ السلام"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What did Hazrat Ibrahim say about the Prophet ﷺ in Masjid al-Aqsa?",
+      "ar": "ماذا قال إبراهيم عليه السلام عن النبي ﷺ في المسجد الأقصى؟",
+      "ur": "مسجدِ اقصیٰ میں حضرت ابراہیم نے نبی ﷺ کے بارے میں کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "'O company of prophets, the stature Muhammad has, no one else has'",
+        "'O company of prophets, Muhammad is a king'",
+        "'O company of prophets, he is only a traveller'",
+        "'O company of prophets, he has no rank'"
+      ],
+      "ar": [
+        "«يا معشر الأنبياء، إن لمحمد من المنزلة ما ليس لأحد غيره»",
+        "«يا معشر الأنبياء، محمد ملك»",
+        "«يا معشر الأنبياء، إنه مجرد مسافر»",
+        "«يا معشر الأنبياء، لا منزلة له»"
+      ],
+      "ur": [
+        "«اے گروہِ انبیاء! محمد ﷺ کا جو مقام ہے وہ کسی اور کا نہیں»",
+        "«اے گروہِ انبیاء! محمد ﷺ بادشاہ ہیں»",
+        "«اے گروہِ انبیاء! وہ محض ایک مسافر ہیں»",
+        "«اے گروہِ انبیاء! ان کا کوئی مقام نہیں»"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "On returning from the Mi'raj, to whom did the Prophet ﷺ first tell this event, according to the source?",
+      "ar": "عند عودته من المعراج، لمن أخبر النبي ﷺ بهذه الحادثة أولًا بحسب المصدر؟",
+      "ur": "معراج سے واپسی پر نبی ﷺ نے یہ واقعہ (ماخذ کے مطابق) سب سے پہلے کس کو بتایا؟"
+    },
+    "options": {
+      "en": [
+        "To Abu Bakr",
+        "To Hazrat Ali",
+        "To Hazrat Khadija",
+        "To Abu Jahl"
+      ],
+      "ar": [
+        "لأبي بكر",
+        "لعلي",
+        "لخديجة",
+        "لأبي جهل"
+      ],
+      "ur": [
+        "ابو بکر کو",
+        "حضرت علی کو",
+        "حضرت خدیجہ کو",
+        "ابو جہل کو"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What place did the Prophet ﷺ see in the Mi'raj where angels circle?",
+      "ar": "ما المكان الذي رآه النبي ﷺ في المعراج وتطوف به الملائكة؟",
+      "ur": "معراج میں نبی ﷺ نے وہ کون سی جگہ دیکھی جہاں فرشتے طواف کرتے ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Masjid Quba",
+        "Dar al-Arqam",
+        "Bayt al-Ma'mur",
+        "Dar al-Nadwa"
+      ],
+      "ar": [
+        "مسجد قباء",
+        "دار الأرقم",
+        "البيت المعمور",
+        "دار الندوة"
+      ],
+      "ur": [
+        "مسجدِ قبا",
+        "دارِ ارقم",
+        "بیتِ معمور",
+        "دارِ ندوہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Mi'raj",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In Madinah Munawwara, how many people at the beginning went house to house inviting to Islam?",
+      "ar": "في المدينة المنورة، كم شخصًا في البداية طافوا من بيت إلى بيت يدعون إلى الإسلام؟",
+      "ur": "مدینہ منورہ میں ابتدا میں کتنے لوگوں نے گھر گھر جا کر اسلام کی دعوت دی؟"
+    },
+    "options": {
+      "en": [
+        "Two people",
+        "Six people",
+        "Twelve people",
+        "Seventy people"
+      ],
+      "ar": [
+        "شخصان",
+        "ستة أشخاص",
+        "اثنا عشر شخصًا",
+        "سبعون شخصًا"
+      ],
+      "ur": [
+        "دو افراد",
+        "چھ افراد",
+        "بارہ افراد",
+        "ستر افراد"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For what purpose had these people of Madinah come to Makkah?",
+      "ar": "لأي غرض جاء هؤلاء الناس من المدينة إلى مكة؟",
+      "ur": "مدینہ کے یہ لوگ مکہ کس مقصد سے آئے تھے؟"
+    },
+    "options": {
+      "en": [
+        "They had come for Hajj",
+        "They had come for trade only",
+        "They had come to fight",
+        "They had come to settle"
+      ],
+      "ar": [
+        "جاؤوا للحج",
+        "جاؤوا للتجارة فقط",
+        "جاؤوا للقتال",
+        "جاؤوا للاستقرار"
+      ],
+      "ur": [
+        "حج کے لیے آئے تھے",
+        "صرف تجارت کے لیے آئے تھے",
+        "لڑنے کے لیے آئے تھے",
+        "آباد ہونے کے لیے آئے تھے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In the days of Hajj, for what purpose did the Prophet ﷺ go outside Makkah?",
+      "ar": "في أيام الحج، لأي غرض خرج النبي ﷺ خارج مكة؟",
+      "ur": "ایامِ حج میں نبی ﷺ مکہ سے باہر کس مقصد سے تشریف لے جاتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "For hunting",
+        "For trade",
+        "For rest",
+        "For preaching, because various tribes had come to perform Hajj"
+      ],
+      "ar": [
+        "للصيد",
+        "للتجارة",
+        "للراحة",
+        "للدعوة، لأن قبائل مختلفة جاءت للحج"
+      ],
+      "ur": [
+        "شکار کے لیے",
+        "تجارت کے لیے",
+        "آرام کے لیے",
+        "تبلیغ کے لیے، کیونکہ مختلف قبائل حج کرنے آئے ہوتے تھے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "The teacher the Prophet ﷺ sent to Madinah: how long did he stay there?",
+      "ar": "المعلم الذي أرسله النبي ﷺ إلى المدينة: كم مكث هناك؟",
+      "ur": "نبی ﷺ نے جس معلم کو مدینہ بھیجا وہ وہاں کتنا عرصہ رہے؟"
+    },
+    "options": {
+      "en": [
+        "One day",
+        "Ten years",
+        "Ten months",
+        "Three weeks"
+      ],
+      "ar": [
+        "يومًا واحدًا",
+        "عشر سنوات",
+        "عشرة أشهر",
+        "ثلاثة أسابيع"
+      ],
+      "ur": [
+        "ایک دن",
+        "دس سال",
+        "دس مہینے",
+        "تین ہفتے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who was leading the caravan that came from Madinah for Hajj in the 13th year of prophethood?",
+      "ar": "من كان يقود القافلة التي جاءت من المدينة للحج في السنة الثالثة عشرة للبعثة؟",
+      "ur": "نبوت کے تیرہویں سال مدینہ سے حج کے لیے آنے والے قافلے کی قیادت کون کر رہے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Mus'ab ibn Umayr",
+        "Hazrat Ali",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "بلال",
+        "مصعب بن عمير",
+        "علي",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت مصعب بن عمیر",
+        "حضرت علی",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many women pledged allegiance in the second pledge of Aqaba?",
+      "ar": "كم امرأة بايعت في بيعة العقبة الثانية؟",
+      "ur": "بیعتِ عقبہ ثانیہ میں کتنی عورتوں نے بیعت کی؟"
+    },
+    "options": {
+      "en": [
+        "Two",
+        "Twelve",
+        "Seventy",
+        "None"
+      ],
+      "ar": [
+        "امرأتان",
+        "اثنتا عشرة",
+        "سبعون",
+        "لا أحد"
+      ],
+      "ur": [
+        "دو",
+        "بارہ",
+        "ستر",
+        "کوئی نہیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Pledges of Aqaba",
     "event_id": null
   },
   {
@@ -1929,182 +5801,22 @@
     },
     "options": {
       "en": [
-        "Twelve",
         "Three",
         "Forty",
-        "Seventy"
+        "Seventy",
+        "Twelve"
       ],
       "ar": [
-        "اثنا عشر",
         "ثلاثة",
         "أربعون",
-        "سبعون"
+        "سبعون",
+        "اثنا عشر"
       ],
       "ur": [
-        "بارہ",
         "تین",
         "چالیس",
-        "ستر"
-      ]
-    },
-    "correct_index": 0,
-    "source": "Seerah — Pledges of Aqaba",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "How many people took part in the first pledge of Aqaba?",
-      "ar": "كم شخصًا شارك في بيعة العقبة الأولى؟",
-      "ur": "بیعتِ عقبہ اولیٰ میں کتنے افراد شریک ہوئے؟"
-    },
-    "options": {
-      "en": [
-        "Two",
-        "Seventy",
-        "Twelve",
-        "One hundred"
-      ],
-      "ar": [
-        "اثنان",
-        "سبعون",
-        "اثنا عشر",
-        "مئة"
-      ],
-      "ur": [
-        "دو",
         "ستر",
-        "بارہ",
-        "سو"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Pledges of Aqaba",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "From which city did the people of the pledge of Aqaba come?",
-      "ar": "من أي مدينة جاء أصحاب بيعة العقبة؟",
-      "ur": "بیعتِ عقبہ والے لوگ کس شہر سے آئے تھے؟"
-    },
-    "options": {
-      "en": [
-        "Taif",
-        "Madinah (Yathrib)",
-        "Damascus",
-        "Jerusalem"
-      ],
-      "ar": [
-        "الطائف",
-        "المدينة (يثرب)",
-        "دمشق",
-        "القدس"
-      ],
-      "ur": [
-        "طائف",
-        "مدینہ (یثرب)",
-        "دمشق",
-        "یروشلم"
-      ]
-    },
-    "correct_index": 1,
-    "source": "Seerah — Pledges of Aqaba",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which two tribes of Madinah did the pledge-takers belong to?",
-      "ar": "إلى أي قبيلتين من المدينة ينتمي أصحاب البيعة؟",
-      "ur": "بیعت کرنے والے مدینہ کے کن دو قبیلوں سے تھے؟"
-    },
-    "options": {
-      "en": [
-        "Aws and Khazraj",
-        "Quraysh and Banu Hashim",
-        "Banu Taym and Banu Adi",
-        "Ghatafan and Hawazin"
-      ],
-      "ar": [
-        "الأوس والخزرج",
-        "قريش وبنو هاشم",
-        "بنو تيم وبنو عدي",
-        "غطفان وهوازن"
-      ],
-      "ur": [
-        "اوس اور خزرج",
-        "قریش اور بنو ہاشم",
-        "بنو تیم اور بنو عدی",
-        "غطفان اور ہوازن"
-      ]
-    },
-    "correct_index": 0,
-    "source": "Seerah — Pledges of Aqaba",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which companion did the Prophet ﷺ send with them to Madinah to teach and preach?",
-      "ar": "أي صحابي أرسله النبي ﷺ معهم إلى المدينة للتعليم والدعوة؟",
-      "ur": "نبی ﷺ نے تعلیم و تبلیغ کے لیے ان کے ساتھ کس صحابی کو مدینہ بھیجا؟"
-    },
-    "options": {
-      "en": [
-        "Hazrat Bilal",
-        "Hazrat Ali",
-        "Hazrat Mus'ab ibn Umayr",
-        "Hazrat Zubayr"
-      ],
-      "ar": [
-        "بلال",
-        "علي",
-        "مصعب بن عمير",
-        "الزبير"
-      ],
-      "ur": [
-        "حضرت بلال",
-        "حضرت علی",
-        "حضرت مصعب بن عمیر",
-        "حضرت زبیر"
-      ]
-    },
-    "correct_index": 2,
-    "source": "Seerah — Pledges of Aqaba",
-    "event_id": null
-  },
-  {
-    "category_slug": "seerah",
-    "difficulty": "easy",
-    "prompt": {
-      "en": "Which uncle of the Prophet ﷺ was present at the second pledge of Aqaba?",
-      "ar": "أي أعمام النبي ﷺ حضر بيعة العقبة الثانية؟",
-      "ur": "بیعتِ عقبہ ثانیہ میں نبی ﷺ کے کون سے چچا موجود تھے؟"
-    },
-    "options": {
-      "en": [
-        "Abu Lahab",
-        "Abu Talib",
-        "Hazrat Hamza",
-        "Hazrat Abbas"
-      ],
-      "ar": [
-        "أبو لهب",
-        "أبو طالب",
-        "حمزة",
-        "العباس"
-      ],
-      "ur": [
-        "ابو لہب",
-        "ابو طالب",
-        "حضرت حمزہ",
-        "حضرت عباس"
+        "بارہ"
       ]
     },
     "correct_index": 3,
@@ -2115,9 +5827,137 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which companion made the Hijra openly, challenging the Quraysh?",
-      "ar": "أي صحابي هاجر علانية متحديًا قريشًا؟",
-      "ur": "کس صحابی نے قریش کو للکارتے ہوئے کھلے عام ہجرت کی؟"
+      "en": "What was the name of the chief of the tribe of Aws?",
+      "ar": "ما اسم زعيم قبيلة الأوس؟",
+      "ur": "قبیلۂ اوس کے سردار کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr",
+        "Hazrat Umar",
+        "Hazrat Sa'd ibn Mu'adh",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "أبو بكر",
+        "عمر",
+        "سعد بن معاذ",
+        "علي"
+      ],
+      "ur": [
+        "حضرت ابو بکر",
+        "حضرت عمر",
+        "حضرت سعد بن معاذ",
+        "حضرت علی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Pledges of Aqaba",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In which surah of the Quran are the plots of the Quraysh to kill the Prophet ﷺ mentioned?",
+      "ar": "في أي سورة من القرآن ذُكرت مؤامرات قريش لقتل النبي ﷺ؟",
+      "ur": "قرآن کی کس سورت میں قریش کی نبی ﷺ کو قتل کرنے کی سازشوں کا ذکر ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Anfal",
+        "Surah al-Ikhlas",
+        "Surah al-Asr"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة الأنفال",
+        "سورة الإخلاص",
+        "سورة العصر"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ الانفال",
+        "سورۃ الاخلاص",
+        "سورۃ العصر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name the companion who was the first to emigrate to Madinah.",
+      "ar": "سمِّ الصحابي الذي كان أول من هاجر إلى المدينة.",
+      "ur": "مدینہ کی طرف سب سے پہلے ہجرت کرنے والے صحابی کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Salama ibn Abd al-As'ad (as printed in the source)",
+        "Hazrat Umar",
+        "Hazrat Ali",
+        "Hazrat Abu Bakr"
+      ],
+      "ar": [
+        "أبو سلمة بن عبد الأسد",
+        "عمر",
+        "علي",
+        "أبو بكر"
+      ],
+      "ur": [
+        "حضرت ابو سلمہ بن عبدالاسد",
+        "حضرت عمر",
+        "حضرت علی",
+        "حضرت ابو بکر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "On receiving the command for Hijra, which companion first set out for Madinah with his wife?",
+      "ar": "عند صدور الأمر بالهجرة، أي صحابي خرج أولًا إلى المدينة مع زوجته؟",
+      "ur": "ہجرت کا حکم ملنے پر کون سے صحابی سب سے پہلے اپنی بیوی کے ساتھ مدینہ روانہ ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Bilal",
+        "Hazrat Ali",
+        "Hazrat Zubayr",
+        "Hazrat Amir ibn Rabi'a"
+      ],
+      "ar": [
+        "بلال",
+        "علي",
+        "الزبير",
+        "عامر بن ربيعة"
+      ],
+      "ur": [
+        "حضرت بلال",
+        "حضرت علی",
+        "حضرت زبیر",
+        "حضرت عامر بن ربیعہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the companion who made Hijra openly, challenging the Quraysh.",
+      "ar": "سمِّ الصحابي الذي هاجر علانية متحديًا قريشًا.",
+      "ur": "اس صحابی کا نام بتائیے جنہوں نے قریش کو للکارتے ہوئے کھلے عام ہجرت کی۔"
     },
     "options": {
       "en": [
@@ -2147,28 +5987,124 @@
     "category_slug": "seerah",
     "difficulty": "easy",
     "prompt": {
-      "en": "Which female companion prepared the provisions for the Prophet's ﷺ Hijra journey?",
-      "ar": "أي صحابية جهّزت الزاد لرحلة هجرة النبي ﷺ؟",
-      "ur": "نبی ﷺ کے سفرِ ہجرت کا توشہ کس خاتون صحابیہ نے تیار کیا؟"
+      "en": "At what time did the Prophet ﷺ inform Abu Bakr Siddiq of the divine permission for Hijra?",
+      "ar": "في أي وقت أخبر النبي ﷺ أبا بكر الصديق بالإذن الإلهي بالهجرة؟",
+      "ur": "نبی ﷺ نے ابو بکر صدیق کو ہجرت کی الٰہی اجازت کی اطلاع کس وقت دی؟"
     },
     "options": {
       "en": [
+        "At dawn",
+        "At midday",
+        "At midnight",
+        "At sunset"
+      ],
+      "ar": [
+        "عند الفجر",
+        "عند الظهيرة",
+        "عند منتصف الليل",
+        "عند الغروب"
+      ],
+      "ur": [
+        "فجر کے وقت",
+        "دوپہر کے وقت",
+        "آدھی رات کو",
+        "غروب کے وقت"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On hearing of the Prophet's ﷺ Hijra, which female companion prepared the provisions for the journey?",
+      "ar": "عند سماعها بهجرة النبي ﷺ، أي صحابية جهّزت الزاد للرحلة؟",
+      "ur": "نبی ﷺ کی ہجرت کی خبر سن کر کس خاتون صحابیہ نے سفر کا توشہ تیار کیا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Asma bint Abu Bakr Siddiq",
         "Hazrat Hafsa",
         "Hazrat Sawda",
-        "Hazrat Asma bint Abu Bakr",
         "Hazrat Zaynab"
       ],
       "ar": [
+        "أسماء بنت أبي بكر الصديق",
         "حفصة",
         "سودة",
-        "أسماء بنت أبي بكر",
         "زينب"
       ],
       "ur": [
+        "حضرت اسماء بنت ابو بکر صدیق",
         "حضرت حفصہ",
         "حضرت سودہ",
-        "حضرت اسماء بنت ابو بکر",
         "حضرت زینب"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the literal meaning of hijra?",
+      "ar": "ما المعنى الحرفي للهجرة؟",
+      "ur": "ہجرت کا لغوی معنی کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "To fight",
+        "To trade",
+        "To return",
+        "To separate / to part"
+      ],
+      "ar": [
+        "القتال",
+        "التجارة",
+        "العودة",
+        "الانفصال / الترك"
+      ],
+      "ur": [
+        "لڑنا",
+        "تجارت کرنا",
+        "لوٹنا",
+        "جدا ہونا / چھوڑنا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "According to the hadith, who is the true emigrant (muhajir)?",
+      "ar": "بحسب الحديث، من هو المهاجر الحقيقي؟",
+      "ur": "حدیث کے مطابق حقیقی مہاجر کون ہے؟"
+    },
+    "options": {
+      "en": [
+        "One who travels the farthest",
+        "One who owns the most wealth",
+        "One who keeps away from what God has forbidden",
+        "One who fights the most battles"
+      ],
+      "ar": [
+        "من سافر أبعد مسافة",
+        "من يملك أكبر ثروة",
+        "من هجر ما نهى الله عنه",
+        "من خاض أكثر المعارك"
+      ],
+      "ur": [
+        "جو سب سے دور سفر کرے",
+        "جس کے پاس سب سے زیادہ مال ہو",
+        "جو اللہ کی منع کی ہوئی چیزوں سے دور رہے",
+        "جو سب سے زیادہ جنگیں لڑے"
       ]
     },
     "correct_index": 2,
@@ -2204,6 +6140,102 @@
       ]
     },
     "correct_index": 1,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "On which day did the Prophet ﷺ leave Makkah at the time of the Hijra?",
+      "ar": "في أي يوم غادر النبي ﷺ مكة وقت الهجرة؟",
+      "ur": "ہجرت کے وقت نبی ﷺ نے مکہ کس دن چھوڑا؟"
+    },
+    "options": {
+      "en": [
+        "On the night of Thursday",
+        "On the night of Friday",
+        "On the night of Monday",
+        "On the night of Sunday"
+      ],
+      "ar": [
+        "ليلة الخميس",
+        "ليلة الجمعة",
+        "ليلة الاثنين",
+        "ليلة الأحد"
+      ],
+      "ur": [
+        "جمعرات کی رات",
+        "جمعہ کی رات",
+        "پیر کی رات",
+        "اتوار کی رات"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which month did the Prophet ﷺ, the Master of the Universe, leave Makkah for the Hijra?",
+      "ar": "في أي شهر غادر النبي ﷺ سيد الكون مكة للهجرة؟",
+      "ur": "سرورِ کائنات ﷺ نے ہجرت کے لیے مکہ کس مہینے میں چھوڑا؟"
+    },
+    "options": {
+      "en": [
+        "In Muharram",
+        "In Ramadan",
+        "In Rajab",
+        "In Safar"
+      ],
+      "ar": [
+        "في محرم",
+        "في رمضان",
+        "في رجب",
+        "في صفر"
+      ],
+      "ur": [
+        "محرم میں",
+        "رمضان میں",
+        "رجب میں",
+        "صفر میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hijra to Madinah",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "On what date did the Prophet ﷺ emigrate from Makkah?",
+      "ar": "في أي تاريخ هاجر النبي ﷺ من مكة؟",
+      "ur": "نبی ﷺ نے مکہ سے کس تاریخ کو ہجرت فرمائی؟"
+    },
+    "options": {
+      "en": [
+        "1 Muharram",
+        "12 Rabi al-Awwal",
+        "26 or 27 Safar",
+        "27 Rajab"
+      ],
+      "ar": [
+        "1 محرم",
+        "12 ربيع الأول",
+        "26 أو 27 صفر",
+        "27 رجب"
+      ],
+      "ur": [
+        "1 محرم",
+        "12 ربیع الاول",
+        "26 یا 27 صفر",
+        "27 رجب"
+      ]
+    },
+    "correct_index": 2,
     "source": "Seerah — Hijra to Madinah",
     "event_id": null
   }

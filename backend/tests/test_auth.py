@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import uuid
 
+import pytest
 from sqlalchemy import text
 
 from app.db import SessionLocal
@@ -49,6 +50,73 @@ async def test_register_rejects_duplicate_email_and_login_checks_password(client
     assert ok.status_code == 200
 
     await _delete_account(client, token, "TestPass123!")
+
+
+@pytest.mark.parametrize(
+    ("requested_role", "expected_role"),
+    [("student", "player"), ("teacher", "teacher")],
+)
+async def test_signup_accepts_student_and_teacher_roles(client, requested_role, expected_role):
+    email = _unique_email()
+    result = await client.post(
+        "/auth/signup",
+        json={
+            "email": email,
+            "password": "TestPass123!",
+            "display_name": "SignupUser",
+            "gender": "male",
+            "role": requested_role,
+        },
+    )
+    assert result.status_code == 201, result.text
+    body = result.json()
+    assert body["role"] == expected_role
+
+    me = await client.get(
+        "/auth/me", headers={"Authorization": f"Bearer {body['access_token']}"}
+    )
+    assert me.status_code == 200
+    assert me.json()["role"] == expected_role
+    await _delete_account(client, body["access_token"], "TestPass123!")
+
+
+@pytest.mark.parametrize("requested_role", ["admin", "developer", "unknown", "player"])
+async def test_signup_rejects_roles_outside_student_and_teacher(client, requested_role):
+    result = await client.post(
+        "/auth/signup",
+        json={
+            "email": _unique_email(),
+            "password": "TestPass123!",
+            "display_name": "RejectedRole",
+            "gender": "male",
+            "role": requested_role,
+        },
+    )
+    assert result.status_code == 422
+    assert result.json()["detail"] == "role must be 'student' or 'teacher'"
+
+
+async def test_legacy_register_and_guest_endpoints_remain_available(client):
+    email = _unique_email()
+    registered = await client.post(
+        "/auth/register",
+        json={
+            "email": email,
+            "password": "TestPass123!",
+            "display_name": "LegacyRegister",
+            "gender": "male",
+        },
+    )
+    assert registered.status_code == 201
+    assert registered.json()["role"] == "player"
+    await _delete_account(client, registered.json()["access_token"], "TestPass123!")
+
+    guest = await client.post(
+        "/auth/guest", json={"display_name": "LegacyGuest", "gender": "female"}
+    )
+    assert guest.status_code == 201
+    assert guest.json()["role"] == "player"
+    await _delete_account(client, guest.json()["access_token"])
 
 
 async def test_account_deletion_requires_correct_password(client):

@@ -151,12 +151,15 @@ class _ModeCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+                      style: const TextStyle(
+                        color: MazeColors.textPrimary,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       subtitle,
-                      style: TextStyle(color: Colors.white.withValues(alpha: 0.75), fontSize: 12),
+                      style: TextStyle(color: MazeColors.textSecondary, fontSize: 12),
                     ),
                   ],
                 ),

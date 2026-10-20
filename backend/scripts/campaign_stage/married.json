@@ -1,0 +1,4578 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At what age did the Prophet ﷺ make his first marriage?",
+      "ar": "في أي عمر تزوج النبي ﷺ زواجه الأول؟",
+      "ur": "نبی ﷺ نے پہلا نکاح کس عمر میں کیا؟"
+    },
+    "options": {
+      "en": [
+        "At the age of 25",
+        "At the age of 15",
+        "At the age of 30",
+        "At the age of 40"
+      ],
+      "ar": [
+        "في سن 25",
+        "في سن 15",
+        "في سن 30",
+        "في سن 40"
+      ],
+      "ur": [
+        "25 سال کی عمر میں",
+        "15 سال کی عمر میں",
+        "30 سال کی عمر میں",
+        "40 سال کی عمر میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the age difference between the Prophet ﷺ and his first wife?",
+      "ar": "كم كان الفرق في العمر بين النبي ﷺ وزوجته الأولى؟",
+      "ur": "نبی ﷺ اور آپ ﷺ کی پہلی زوجہ کی عمر میں کتنا فرق تھا؟"
+    },
+    "options": {
+      "en": [
+        "Five years",
+        "Twenty-five years",
+        "One year",
+        "Fifteen years"
+      ],
+      "ar": [
+        "خمس سنوات",
+        "خمس وعشرون سنة",
+        "سنة واحدة",
+        "خمس عشرة سنة"
+      ],
+      "ur": [
+        "پانچ سال",
+        "پچیس سال",
+        "ایک سال",
+        "پندرہ سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ marry the first time?",
+      "ar": "من تزوج النبي ﷺ أول مرة؟",
+      "ur": "نبی ﷺ نے پہلی بار کس سے نکاح فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Sawda",
+        "Hazrat Khadija",
+        "Hazrat Hafsa"
+      ],
+      "ar": [
+        "عائشة",
+        "سودة",
+        "السيدة خديجة",
+        "حفصة"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت سودہ",
+        "حضرت خدیجہ",
+        "حضرت حفصہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Hazrat Khadija's title?",
+      "ar": "ما لقب السيدة خديجة؟",
+      "ur": "حضرت خدیجہ کا لقب کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Umm al-Masakin",
+        "Tahira (the Pure)",
+        "Umm al-Mu'minin only",
+        "Siddiqa"
+      ],
+      "ar": [
+        "أم المساكين",
+        "الطاهرة",
+        "أم المؤمنين فقط",
+        "الصديقة"
+      ],
+      "ur": [
+        "ام المساکین",
+        "طاہرہ (پاکیزہ)",
+        "صرف ام المومنین",
+        "صدیقہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Among which women of Makkah was Hazrat Khadija counted?",
+      "ar": "في أي فئة من نساء مكة كانت تُعدّ السيدة خديجة؟",
+      "ur": "حضرت خدیجہ مکہ کی کن عورتوں میں شمار ہوتی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "The noble and wealthy",
+        "The poor",
+        "The slaves",
+        "The shepherds"
+      ],
+      "ar": [
+        "الشريفات الثريات",
+        "الفقيرات",
+        "الإماء",
+        "الراعيات"
+      ],
+      "ur": [
+        "شریف اور مالدار عورتوں میں",
+        "غریب عورتوں میں",
+        "کنیزوں میں",
+        "چرواہوں میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the name of Hazrat Khadija's father?",
+      "ar": "ما اسم والد السيدة خديجة؟",
+      "ur": "حضرت خدیجہ کے والد کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Quhafa",
+        "Abd al-Muttalib",
+        "Asad",
+        "Khuwaylid"
+      ],
+      "ar": [
+        "أبو قحافة",
+        "عبد المطلب",
+        "أسد",
+        "خويلد"
+      ],
+      "ur": [
+        "ابو قحافہ",
+        "عبدالمطلب",
+        "اسد",
+        "خویلد"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "By what name did the Prophet ﷺ remember Hazrat Khadija?",
+      "ar": "بأي اسم كان النبي ﷺ يذكر السيدة خديجة؟",
+      "ur": "نبی ﷺ حضرت خدیجہ کو کس نام سے یاد فرماتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Umm al-Masakin",
+        "Al-Siddiqa",
+        "Khayr al-Nisa' (the best of women)",
+        "Al-Faruqa"
+      ],
+      "ar": [
+        "أم المساكين",
+        "الصديقة",
+        "خير النساء",
+        "الفاروقة"
+      ],
+      "ur": [
+        "ام المساکین",
+        "صدیقہ",
+        "خیر النساء (عورتوں میں بہترین)",
+        "فاروقہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Had Hazrat Khadija married before her marriage to the Prophet ﷺ?",
+      "ar": "هل تزوجت السيدة خديجة قبل زواجها من النبي ﷺ؟",
+      "ur": "کیا حضرت خدیجہ کا نبی ﷺ سے نکاح سے پہلے بھی نکاح ہو چکا تھا؟"
+    },
+    "options": {
+      "en": [
+        "No, never",
+        "Yes",
+        "Only once, and she was widowed twice",
+        "It is not known"
+      ],
+      "ar": [
+        "لا، أبدًا",
+        "نعم",
+        "مرة واحدة فقط",
+        "غير معروف"
+      ],
+      "ur": [
+        "نہیں، کبھی نہیں",
+        "ہاں",
+        "صرف ایک بار اور وہ بیوہ نہ ہوئیں",
+        "معلوم نہیں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What kind of woman was Hazrat Khadija?",
+      "ar": "أي امرأة كانت السيدة خديجة؟",
+      "ur": "حضرت خدیجہ کیسی خاتون تھیں؟"
+    },
+    "options": {
+      "en": [
+        "A woman of very good character, well-mannered and chaste",
+        "A woman who disliked guests",
+        "A woman who avoided trade",
+        "A woman who was harsh"
+      ],
+      "ar": [
+        "امرأة حسنة الخلق مهذبة عفيفة",
+        "امرأة تكره الضيوف",
+        "امرأة تتجنب التجارة",
+        "امرأة قاسية"
+      ],
+      "ur": [
+        "نہایت اچھے اخلاق والی، با ادب اور پاکدامن خاتون",
+        "مہمانوں کو ناپسند کرنے والی",
+        "تجارت سے بچنے والی",
+        "سخت مزاج"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say about Hazrat Khadija?",
+      "ar": "ماذا قال النبي ﷺ عن السيدة خديجة؟",
+      "ur": "نبی ﷺ حضرت خدیجہ کے بارے میں کیا فرمایا کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "'Khadija never believed me'",
+        "'Khadija left me in hardship'",
+        "'Khadija was my enemy'",
+        "'When people denied me, Khadija believed me'"
+      ],
+      "ar": [
+        "«لم تصدقني خديجة قط»",
+        "«تركتني خديجة في الشدة»",
+        "«كانت خديجة عدوتي»",
+        "«آمنت بي إذ كذّبني الناس»"
+      ],
+      "ur": [
+        "«خدیجہ نے کبھی میری تصدیق نہ کی»",
+        "«خدیجہ نے مجھے مشکل میں چھوڑ دیا»",
+        "«خدیجہ میری دشمن تھیں»",
+        "«جب لوگوں نے مجھے جھٹلایا تو خدیجہ نے میری تصدیق کی»"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many children of the Prophet ﷺ were born to Hazrat Khadija?",
+      "ar": "كم ولدًا للنبي ﷺ وُلد من السيدة خديجة؟",
+      "ur": "نبی ﷺ کی کتنی اولاد حضرت خدیجہ سے ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Two",
+        "Ten",
+        "Six",
+        "One"
+      ],
+      "ar": [
+        "اثنان",
+        "عشرة",
+        "ستة",
+        "واحد"
+      ],
+      "ur": [
+        "دو",
+        "دس",
+        "چھ",
+        "ایک"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What are the names of the Prophet's ﷺ children born of Hazrat Khadija?",
+      "ar": "ما أسماء أولاد النبي ﷺ من السيدة خديجة؟",
+      "ur": "حضرت خدیجہ سے پیدا ہونے والی نبی ﷺ کی اولاد کے نام لکھیے۔"
+    },
+    "options": {
+      "en": [
+        "Fatima, Hasan, Husayn, Ali, Ja'far and Aqil",
+        "Zaynab, Ruqayya, Umm Kulthum, Fatima, Qasim and Abdullah (also called Tahir and Tayyib)",
+        "Ibrahim, Qasim, Hasan, Husayn, Zaynab and Maria",
+        "Aisha, Hafsa, Sawda, Zaynab, Umm Salama and Maymuna"
+      ],
+      "ar": [
+        "فاطمة والحسن والحسين وعلي وجعفر وعقيل",
+        "زينب ورقية وأم كلثوم وفاطمة والقاسم وعبد الله (ويُلقب بالطاهر والطيب)",
+        "إبراهيم والقاسم والحسن والحسين وزينب وماريا",
+        "عائشة وحفصة وسودة وزينب وأم سلمة وميمونة"
+      ],
+      "ur": [
+        "فاطمہ، حسن، حسین، علی، جعفر، عقیل",
+        "حضرت زینب، رقیہ، ام کلثوم، فاطمہ، قاسم، اور عبداللہ (جنہیں طاہر و طیب بھی کہا جاتا ہے)",
+        "ابراہیم، قاسم، حسن، حسین، زینب، ماریہ",
+        "عائشہ، حفصہ، سودہ، زینب، ام سلمہ، میمونہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "For how long did the Prophet ﷺ stay in companionship with Hazrat Khadija?",
+      "ar": "كم مدة صحبة النبي ﷺ للسيدة خديجة؟",
+      "ur": "نبی ﷺ حضرت خدیجہ کے ساتھ کتنا عرصہ رہے؟"
+    },
+    "options": {
+      "en": [
+        "25 years",
+        "5 years",
+        "40 years",
+        "1 year"
+      ],
+      "ar": [
+        "25 سنة",
+        "5 سنوات",
+        "40 سنة",
+        "سنة واحدة"
+      ],
+      "ur": [
+        "25 سال",
+        "5 سال",
+        "40 سال",
+        "ایک سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did Hazrat Khadija pass away?",
+      "ar": "في أي سنة توفيت السيدة خديجة؟",
+      "ur": "حضرت خدیجہ کی وفات کس سال ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "The first year of prophethood",
+        "The fifth year of prophethood",
+        "The thirteenth year of prophethood",
+        "The tenth year of prophethood"
+      ],
+      "ar": [
+        "السنة الأولى للبعثة",
+        "السنة الخامسة للبعثة",
+        "السنة الثالثة عشرة للبعثة",
+        "السنة العاشرة للبعثة"
+      ],
+      "ur": [
+        "نبوت کے پہلے سال",
+        "نبوت کے پانچویں سال",
+        "نبوت کے تیرہویں سال",
+        "نبوت کے دسویں سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What honour does Hazrat Khadija hold?",
+      "ar": "ما الفضل الذي تختص به السيدة خديجة؟",
+      "ur": "حضرت خدیجہ کو کون سا اعزاز حاصل ہے؟"
+    },
+    "options": {
+      "en": [
+        "The first woman martyr",
+        "The first woman to migrate",
+        "The first woman to accept Islam",
+        "The first woman to fight"
+      ],
+      "ar": [
+        "أول شهيدة",
+        "أول مهاجرة",
+        "أول امرأة أسلمت",
+        "أول مقاتلة"
+      ],
+      "ur": [
+        "پہلی شہیدہ",
+        "پہلی مہاجرہ",
+        "اسلام قبول کرنے والی پہلی خاتون",
+        "پہلی مجاہدہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Did the Prophet ﷺ make a second marriage while Hazrat Khadija was alive?",
+      "ar": "هل تزوج النبي ﷺ زواجًا ثانيًا في حياة السيدة خديجة؟",
+      "ur": "کیا نبی ﷺ نے حضرت خدیجہ کی زندگی میں دوسرا نکاح کیا؟"
+    },
+    "options": {
+      "en": [
+        "Yes, with Hazrat Sawda",
+        "No",
+        "Yes, with Hazrat Aisha",
+        "Yes, with Hazrat Hafsa"
+      ],
+      "ar": [
+        "نعم، من سودة",
+        "لا",
+        "نعم، من عائشة",
+        "نعم، من حفصة"
+      ],
+      "ur": [
+        "ہاں، حضرت سودہ سے",
+        "نہیں",
+        "ہاں، حضرت عائشہ سے",
+        "ہاں، حضرت حفصہ سے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which family did Hazrat Khadija belong to?",
+      "ar": "إلى أي أسرة تنتمي السيدة خديجة؟",
+      "ur": "حضرت خدیجہ کس خاندان سے تھیں؟"
+    },
+    "options": {
+      "en": [
+        "She belonged to Banu Asad",
+        "She belonged to Banu Taym",
+        "She belonged to Banu Umayya",
+        "She belonged to Banu Makhzum"
+      ],
+      "ar": [
+        "إلى بني أسد",
+        "إلى بني تيم",
+        "إلى بني أمية",
+        "إلى بني مخزوم"
+      ],
+      "ur": [
+        "بنو اسد سے",
+        "بنو تیم سے",
+        "بنو امیہ سے",
+        "بنو مخزوم سے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What did Jibra'il say about Hazrat Khadija when she was bringing food for the Prophet ﷺ?",
+      "ar": "ماذا قال جبريل عن السيدة خديجة حين كانت تحمل الطعام للنبي ﷺ؟",
+      "ur": "جب حضرت خدیجہ نبی ﷺ کے لیے کھانا لا رہی تھیں تو جبرائیل نے ان کے بارے میں کیا کہا؟"
+    },
+    "options": {
+      "en": [
+        "'Tell her to stop bringing food'",
+        "'Tell her to leave Makkah'",
+        "'Tell her to prepare for war'",
+        "'Convey to her greetings from her Lord and from me, and give her the glad tidings of a palace of pearls in Paradise'"
+      ],
+      "ar": [
+        "«قل لها أن تتوقف عن إحضار الطعام»",
+        "«قل لها أن تغادر مكة»",
+        "«قل لها أن تستعد للحرب»",
+        "«أقرئها السلام من ربها ومني، وبشّرها ببيت في الجنة من لؤلؤ»"
+      ],
+      "ur": [
+        "«ان سے کہیے کھانا لانا بند کر دیں»",
+        "«ان سے کہیے مکہ چھوڑ دیں»",
+        "«ان سے کہیے جنگ کی تیاری کریں»",
+        "«انہیں ان کے رب کی اور میری طرف سے سلام پہنچا دیجیے اور جنت میں موتیوں کے محل کی خوشخبری سنا دیجیے»"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Hazrat Khadija",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "At what age did the Prophet ﷺ make his second marriage?",
+      "ar": "في أي عمر تزوج النبي ﷺ زواجه الثاني؟",
+      "ur": "نبی ﷺ نے دوسرا نکاح کس عمر میں کیا؟"
+    },
+    "options": {
+      "en": [
+        "At the age of thirty",
+        "At the age of forty",
+        "At the age of fifty",
+        "At the age of sixty"
+      ],
+      "ar": [
+        "في سن الثلاثين",
+        "في سن الأربعين",
+        "في سن الخمسين",
+        "في سن الستين"
+      ],
+      "ur": [
+        "تیس سال کی عمر میں",
+        "چالیس سال کی عمر میں",
+        "پچاس سال کی عمر میں",
+        "ساٹھ سال کی عمر میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ marry the second time?",
+      "ar": "من تزوج النبي ﷺ المرة الثانية؟",
+      "ur": "نبی ﷺ نے دوسری بار کس سے نکاح فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Sawda",
+        "Hazrat Hafsa",
+        "Hazrat Zaynab bint Jahsh"
+      ],
+      "ar": [
+        "عائشة",
+        "سودة",
+        "حفصة",
+        "زينب بنت جحش"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت سودہ",
+        "حضرت حفصہ",
+        "حضرت زینب بنت جحش"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Sawda at the time of the marriage, as given in the source?",
+      "ar": "كم كان عمر السيدة سودة وقت الزواج بحسب المصدر؟",
+      "ur": "ماخذ کے مطابق نکاح کے وقت حضرت سودہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Fifty years",
+        "Twenty years",
+        "Ten years",
+        "Eighty years"
+      ],
+      "ar": [
+        "خمسون سنة",
+        "عشرون سنة",
+        "عشر سنوات",
+        "ثمانون سنة"
+      ],
+      "ur": [
+        "پچاس سال",
+        "بیس سال",
+        "دس سال",
+        "اسی سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Sawda?",
+      "ar": "بنت من كانت السيدة سودة؟",
+      "ur": "حضرت سودہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Bakr's daughter",
+        "Umar's daughter",
+        "Abu Sufyan's daughter",
+        "Zam'a's daughter"
+      ],
+      "ar": [
+        "بنت أبي بكر",
+        "بنت عمر",
+        "بنت أبي سفيان",
+        "بنت زمعة"
+      ],
+      "ur": [
+        "ابو بکر کی بیٹی",
+        "عمر کی بیٹی",
+        "ابو سفیان کی بیٹی",
+        "زمعہ کی بیٹی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How many children were born to the Prophet ﷺ from Hazrat Sawda?",
+      "ar": "كم ولدًا وُلد للنبي ﷺ من السيدة سودة؟",
+      "ur": "حضرت سودہ سے نبی ﷺ کی کتنی اولاد ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Two",
+        "None",
+        "Six"
+      ],
+      "ar": [
+        "واحد",
+        "اثنان",
+        "لا أحد",
+        "ستة"
+      ],
+      "ur": [
+        "ایک",
+        "دو",
+        "کوئی نہیں",
+        "چھ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ marry the third time?",
+      "ar": "من تزوج النبي ﷺ المرة الثالثة؟",
+      "ur": "نبی ﷺ نے تیسری بار کس سے نکاح فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hafsa",
+        "Hazrat Aisha Siddiqa",
+        "Hazrat Umm Salama",
+        "Hazrat Maymuna"
+      ],
+      "ar": [
+        "حفصة",
+        "عائشة الصديقة",
+        "أم سلمة",
+        "ميمونة"
+      ],
+      "ur": [
+        "حضرت حفصہ",
+        "حضرت عائشہ صدیقہ",
+        "حضرت ام سلمہ",
+        "حضرت میمونہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did the Prophet ﷺ marry Hazrat Aisha?",
+      "ar": "متى تزوج النبي ﷺ عائشة؟",
+      "ur": "نبی ﷺ نے حضرت عائشہ سے نکاح کب کیا؟"
+    },
+    "options": {
+      "en": [
+        "In the month of Shawwal, year 10 of prophethood",
+        "In Ramadan, 2 AH",
+        "In Muharram, 1 AH",
+        "In Rajab, 8 AH"
+      ],
+      "ar": [
+        "في شوال من السنة العاشرة للبعثة",
+        "في رمضان سنة 2 هـ",
+        "في محرم سنة 1 هـ",
+        "في رجب سنة 8 هـ"
+      ],
+      "ur": [
+        "شوال، نبوت کے دسویں سال",
+        "رمضان، 2 ہجری",
+        "محرم، 1 ہجری",
+        "رجب، 8 ہجری"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of the marriage with Hazrat Aisha?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من عائشة؟",
+      "ur": "حضرت عائشہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About thirty years",
+        "About forty years",
+        "About sixty-five years",
+        "About fifty years"
+      ],
+      "ar": [
+        "نحو ثلاثين سنة",
+        "نحو أربعين سنة",
+        "نحو خمس وستين سنة",
+        "نحو خمسين سنة"
+      ],
+      "ur": [
+        "تقریباً تیس سال",
+        "تقریباً چالیس سال",
+        "تقریباً پینسٹھ سال",
+        "تقریباً پچاس سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Aisha at the time of the marriage, and when did the rukhsati take place?",
+      "ar": "كم كان عمر عائشة وقت العقد، ومتى كان الزفاف؟",
+      "ur": "نکاح کے وقت حضرت عائشہ کی عمر کتنی تھی اور رخصتی کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Sixteen years, with the rukhsati the same day",
+        "Twenty years, with the rukhsati at twenty-two",
+        "Six years, with the rukhsati at the age of nine",
+        "Twelve years, with the rukhsati at fifteen"
+      ],
+      "ar": [
+        "ست عشرة سنة، والزفاف في اليوم نفسه",
+        "عشرون سنة، والزفاف في الثانية والعشرين",
+        "ست سنوات، والزفاف في سن التاسعة",
+        "اثنتا عشرة سنة، والزفاف في الخامسة عشرة"
+      ],
+      "ur": [
+        "سولہ سال، اور رخصتی اسی دن",
+        "بیس سال، اور رخصتی بائیس سال کی عمر میں",
+        "چھ سال، اور رخصتی نو سال کی عمر میں ہوئی",
+        "بارہ سال، اور رخصتی پندرہ سال کی عمر میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Aisha?",
+      "ar": "بنت من كانت السيدة عائشة؟",
+      "ur": "حضرت عائشہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar's",
+        "Hazrat Abu Bakr Siddiq's",
+        "Hazrat Uthman's",
+        "Abu Sufyan's"
+      ],
+      "ar": [
+        "بنت عمر",
+        "بنت أبي بكر الصديق",
+        "بنت عثمان",
+        "بنت أبي سفيان"
+      ],
+      "ur": [
+        "حضرت عمر کی",
+        "حضرت ابو بکر صدیق کی",
+        "حضرت عثمان کی",
+        "ابو سفیان کی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How long did Hazrat Aisha live after the Prophet's ﷺ passing, according to the source?",
+      "ar": "كم عاشت السيدة عائشة بعد وفاة النبي ﷺ بحسب المصدر؟",
+      "ur": "ماخذ کے مطابق حضرت عائشہ نبی ﷺ کے وصال کے بعد کتنا عرصہ زندہ رہیں؟"
+    },
+    "options": {
+      "en": [
+        "About 47 years",
+        "About 7 years",
+        "About 100 years",
+        "About 1 year"
+      ],
+      "ar": [
+        "نحو 47 سنة",
+        "نحو 7 سنوات",
+        "نحو 100 سنة",
+        "نحو سنة"
+      ],
+      "ur": [
+        "تقریباً 47 سال",
+        "تقریباً 7 سال",
+        "تقریباً 100 سال",
+        "تقریباً ایک سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What was the mahr (dower) fixed for Hazrat Aisha, according to the source?",
+      "ar": "كم كان مهر عائشة بحسب المصدر؟",
+      "ur": "ماخذ کے مطابق حضرت عائشہ کا مہر کتنا مقرر ہوا؟"
+    },
+    "options": {
+      "en": [
+        "10 dirhams",
+        "10,000 dirhams",
+        "No mahr",
+        "400 dirhams"
+      ],
+      "ar": [
+        "10 دراهم",
+        "10000 درهم",
+        "لا مهر",
+        "400 درهم"
+      ],
+      "ur": [
+        "10 درہم",
+        "10,000 درہم",
+        "کوئی مہر نہیں",
+        "400 درہم"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What quality of Hazrat Aisha distinguishes her among all the wives?",
+      "ar": "أي صفة للسيدة عائشة تميّزها بين جميع الزوجات؟",
+      "ur": "حضرت عائشہ کی کون سی خوبی انہیں تمام ازواج میں ممتاز کرتی ہے؟"
+    },
+    "options": {
+      "en": [
+        "Wealth",
+        "Skill in trade",
+        "Knowledge and excellence",
+        "Skill in poetry only"
+      ],
+      "ar": [
+        "الثروة",
+        "المهارة في التجارة",
+        "العلم والفضل",
+        "الشعر فقط"
+      ],
+      "ur": [
+        "دولت",
+        "تجارت میں مہارت",
+        "علم اور فضیلت",
+        "صرف شاعری"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who slandered Hazrat Aisha?",
+      "ar": "من الذي اتهم عائشة؟",
+      "ur": "حضرت عائشہ پر بہتان کس نے لگایا؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl",
+        "Abdullah ibn Ubayy, chief of the hypocrites",
+        "Abu Lahab",
+        "Hazrat Hassan only"
+      ],
+      "ar": [
+        "أبو جهل",
+        "عبد الله بن أبي رأس المنافقين",
+        "أبو لهب",
+        "حسان وحده"
+      ],
+      "ur": [
+        "ابو جہل",
+        "عبداللہ بن ابی، سردارِ منافقین",
+        "ابو لہب",
+        "صرف حضرت حسان"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who led the funeral prayer of Hazrat Aisha?",
+      "ar": "من أمّ صلاة الجنازة على عائشة؟",
+      "ur": "حضرت عائشہ کی نمازِ جنازہ کس نے پڑھائی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Hurayra",
+        "Hazrat Ali",
+        "Hazrat Umar",
+        "Hazrat Uthman"
+      ],
+      "ar": [
+        "أبو هريرة",
+        "علي",
+        "عمر",
+        "عثمان"
+      ],
+      "ur": [
+        "حضرت ابو ہریرہ نے",
+        "حضرت علی نے",
+        "حضرت عمر نے",
+        "حضرت عثمان نے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was Hazrat Aisha buried?",
+      "ar": "أين دُفنت عائشة؟",
+      "ur": "حضرت عائشہ کہاں دفن ہوئیں؟"
+    },
+    "options": {
+      "en": [
+        "In Makkah",
+        "In Ta'if",
+        "In Jerusalem",
+        "In Jannat al-Baqi"
+      ],
+      "ar": [
+        "في مكة",
+        "في الطائف",
+        "في القدس",
+        "في جنة البقيع"
+      ],
+      "ur": [
+        "مکہ میں",
+        "طائف میں",
+        "یروشلم میں",
+        "جنت البقیع میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the fourth wife of the Prophet ﷺ.",
+      "ar": "سمِّ الزوجة الرابعة للنبي ﷺ.",
+      "ur": "نبی ﷺ کی چوتھی زوجہ کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Sawda",
+        "Hazrat Maymuna",
+        "Hazrat Hafsa",
+        "Hazrat Safiyya"
+      ],
+      "ar": [
+        "سودة",
+        "ميمونة",
+        "حفصة",
+        "صفية"
+      ],
+      "ur": [
+        "حضرت سودہ",
+        "حضرت میمونہ",
+        "حضرت حفصہ",
+        "حضرت صفیہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Hafsa at the time of marriage to the Prophet ﷺ?",
+      "ar": "كم كان عمر حفصة وقت زواجها من النبي ﷺ؟",
+      "ur": "نبی ﷺ سے نکاح کے وقت حضرت حفصہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Ten years",
+        "Twenty years",
+        "Forty years",
+        "Sixty years"
+      ],
+      "ar": [
+        "عشر سنوات",
+        "عشرون سنة",
+        "أربعون سنة",
+        "ستون سنة"
+      ],
+      "ur": [
+        "دس سال",
+        "بیس سال",
+        "چالیس سال",
+        "ساٹھ سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of marriage to Hazrat Hafsa?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من حفصة؟",
+      "ur": "حضرت حفصہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "56 years",
+        "40 years",
+        "63 years",
+        "70 years"
+      ],
+      "ar": [
+        "56 سنة",
+        "40 سنة",
+        "63 سنة",
+        "70 سنة"
+      ],
+      "ur": [
+        "56 سال",
+        "40 سال",
+        "63 سال",
+        "70 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Hafsa?",
+      "ar": "بنت من كانت السيدة حفصة؟",
+      "ur": "حضرت حفصہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Abu Bakr's",
+        "Hazrat Uthman's",
+        "Hazrat Ali's",
+        "Hazrat Umar Faruq's"
+      ],
+      "ar": [
+        "بنت أبي بكر",
+        "بنت عثمان",
+        "بنت علي",
+        "بنت عمر الفاروق"
+      ],
+      "ur": [
+        "حضرت ابو بکر کی",
+        "حضرت عثمان کی",
+        "حضرت علی کی",
+        "حضرت عمر فاروق کی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Hafsa pass away?",
+      "ar": "متى توفيت حفصة؟",
+      "ur": "حضرت حفصہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 2 AH",
+        "In 11 AH",
+        "In 45 AH",
+        "In 100 AH"
+      ],
+      "ar": [
+        "في سنة 2 هـ",
+        "في سنة 11 هـ",
+        "في سنة 45 هـ",
+        "في سنة 100 هـ"
+      ],
+      "ur": [
+        "2 ہجری میں",
+        "11 ہجری میں",
+        "45 ہجری میں",
+        "100 ہجری میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ marry the fifth time?",
+      "ar": "من تزوج النبي ﷺ المرة الخامسة؟",
+      "ur": "نبی ﷺ نے پانچویں بار کس سے نکاح فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hafsa",
+        "Hazrat Umm Salama",
+        "Hazrat Safiyya",
+        "Hazrat Juwayriyya"
+      ],
+      "ar": [
+        "حفصة",
+        "أم سلمة",
+        "صفية",
+        "جويرية"
+      ],
+      "ur": [
+        "حضرت حفصہ",
+        "حضرت ام سلمہ",
+        "حضرت صفیہ",
+        "حضرت جویریہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Umm Salama at the time of the marriage?",
+      "ar": "كم كان عمر أم سلمة وقت الزواج؟",
+      "ur": "نکاح کے وقت حضرت ام سلمہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "26 years",
+        "16 years",
+        "46 years",
+        "66 years"
+      ],
+      "ar": [
+        "26 سنة",
+        "16 سنة",
+        "46 سنة",
+        "66 سنة"
+      ],
+      "ur": [
+        "26 سال",
+        "16 سال",
+        "46 سال",
+        "66 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of the marriage with Hazrat Umm Salama?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من أم سلمة؟",
+      "ur": "حضرت ام سلمہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About 30 years",
+        "About 40 years",
+        "About 70 years",
+        "About 57 years"
+      ],
+      "ar": [
+        "نحو 30 سنة",
+        "نحو 40 سنة",
+        "نحو 70 سنة",
+        "نحو 57 سنة"
+      ],
+      "ur": [
+        "تقریباً 30 سال",
+        "تقریباً 40 سال",
+        "تقریباً 70 سال",
+        "تقریباً 57 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the title of Hazrat Zaynab bint Khuzayma?",
+      "ar": "ما لقب السيدة زينب بنت خزيمة؟",
+      "ur": "حضرت زینب بنت خزیمہ کا لقب کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Tahira",
+        "Siddiqa",
+        "Umm al-Masakin (Mother of the Poor)",
+        "Khayr al-Nisa'"
+      ],
+      "ar": [
+        "الطاهرة",
+        "الصديقة",
+        "أم المساكين",
+        "خير النساء"
+      ],
+      "ur": [
+        "طاہرہ",
+        "صدیقہ",
+        "ام المساکین (غریبوں کی ماں)",
+        "خیر النساء"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Zaynab bint Khuzayma pass away?",
+      "ar": "متى توفيت زينب بنت خزيمة؟",
+      "ur": "حضرت زینب بنت خزیمہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 10 AH after many years",
+        "In 3 AH (she remained in the Prophet's ﷺ marriage for only two or three months)",
+        "In 1 AH",
+        "In 20 AH"
+      ],
+      "ar": [
+        "في سنة 10 هـ بعد سنوات طويلة",
+        "في سنة 3 هـ (ولم تبقَ في عصمة النبي ﷺ إلا شهرين أو ثلاثة)",
+        "في سنة 1 هـ",
+        "في سنة 20 هـ"
+      ],
+      "ur": [
+        "10 ہجری میں، کئی سال بعد",
+        "3 ہجری میں (نبی ﷺ کے نکاح میں صرف دو تین مہینے رہیں)",
+        "1 ہجری میں",
+        "20 ہجری میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of the marriage with Hazrat Umm Salama?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من أم سلمة؟",
+      "ur": "حضرت ام سلمہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About 57 years",
+        "About 20 years",
+        "About 80 years",
+        "About 35 years"
+      ],
+      "ar": [
+        "نحو 57 سنة",
+        "نحو 20 سنة",
+        "نحو 80 سنة",
+        "نحو 35 سنة"
+      ],
+      "ur": [
+        "تقریباً 57 سال",
+        "تقریباً 20 سال",
+        "تقریباً 80 سال",
+        "تقریباً 35 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Umm Salama at the time of her passing?",
+      "ar": "كم كان عمر أم سلمة عند وفاتها؟",
+      "ur": "وفات کے وقت حضرت ام سلمہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Forty years",
+        "Sixty years",
+        "One hundred years",
+        "Eighty-four years (84)"
+      ],
+      "ar": [
+        "أربعون سنة",
+        "ستون سنة",
+        "مئة سنة",
+        "أربع وثمانون سنة (84)"
+      ],
+      "ur": [
+        "چالیس سال",
+        "ساٹھ سال",
+        "سو سال",
+        "چوراسی سال (84)"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Hazrat Umm Salama's real name?",
+      "ar": "ما اسم أم سلمة الحقيقي؟",
+      "ur": "حضرت ام سلمہ کا اصل نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Ramla",
+        "Safiyya",
+        "Hind",
+        "Juwayriyya"
+      ],
+      "ar": [
+        "رملة",
+        "صفية",
+        "هند",
+        "جويرية"
+      ],
+      "ur": [
+        "رملہ",
+        "صفیہ",
+        "ہند",
+        "جویریہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Why is Hazrat Umm Salama called 'Umm Salama'?",
+      "ar": "لماذا تُسمى أم سلمة بهذا الاسم؟",
+      "ur": "حضرت ام سلمہ کو «ام سلمہ» کیوں کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Salama was her father's name",
+        "Salama was the name of her son",
+        "Salama was her tribe",
+        "Salama was her city"
+      ],
+      "ar": [
+        "لأن سلمة اسم أبيها",
+        "لأن سلمة كان اسم ابنها",
+        "لأن سلمة اسم قبيلتها",
+        "لأن سلمة اسم مدينتها"
+      ],
+      "ur": [
+        "کیونکہ سلمہ ان کے والد کا نام تھا",
+        "کیونکہ سلمہ ان کے بیٹے کا نام تھا",
+        "کیونکہ سلمہ ان کے قبیلے کا نام تھا",
+        "کیونکہ سلمہ ان کے شہر کا نام تھا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Umm Salama pass away?",
+      "ar": "متى توفيت أم سلمة؟",
+      "ur": "حضرت ام سلمہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "She passed away in 63 AH",
+        "In 11 AH",
+        "In 20 AH",
+        "In 100 AH"
+      ],
+      "ar": [
+        "توفيت سنة 63 هـ",
+        "سنة 11 هـ",
+        "سنة 20 هـ",
+        "سنة 100 هـ"
+      ],
+      "ur": [
+        "63 ہجری میں",
+        "11 ہجری میں",
+        "20 ہجری میں",
+        "100 ہجری میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "After which important event did Hazrat Umm Salama die?",
+      "ar": "بعد أي حدث مهم توفيت أم سلمة؟",
+      "ur": "حضرت ام سلمہ کی وفات کس اہم واقعے کے بعد ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "After the Battle of Badr",
+        "After the Conquest of Makkah",
+        "After the Treaty of Hudaybiyya",
+        "After the event of Karbala"
+      ],
+      "ar": [
+        "بعد غزوة بدر",
+        "بعد فتح مكة",
+        "بعد صلح الحديبية",
+        "بعد حادثة كربلاء"
+      ],
+      "ur": [
+        "غزوۂ بدر کے بعد",
+        "فتحِ مکہ کے بعد",
+        "صلحِ حدیبیہ کے بعد",
+        "واقعۂ کربلا کے بعد"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the seventh wife of the Prophet ﷺ.",
+      "ar": "سمِّ الزوجة السابعة للنبي ﷺ.",
+      "ur": "نبی ﷺ کی ساتویں زوجہ کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hafsa",
+        "Hazrat Sawda",
+        "Hazrat Zaynab bint Jahsh",
+        "Hazrat Maymuna"
+      ],
+      "ar": [
+        "حفصة",
+        "سودة",
+        "زينب بنت جحش",
+        "ميمونة"
+      ],
+      "ur": [
+        "حضرت حفصہ",
+        "حضرت سودہ",
+        "حضرت زینب بنت جحش",
+        "حضرت میمونہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What relation was Hazrat Zaynab bint Jahsh to the Prophet ﷺ?",
+      "ar": "ما صلة القرابة بين السيدة زينب بنت جحش والنبي ﷺ؟",
+      "ur": "حضرت زینب بنت جحش کا نبی ﷺ سے کیا رشتہ تھا؟"
+    },
+    "options": {
+      "en": [
+        "She was his sister",
+        "She was a paternal-aunt's daughter (a cousin)",
+        "She was his mother's sister",
+        "She was unrelated"
+      ],
+      "ar": [
+        "كانت أخته",
+        "كانت بنت عمة (ابنة عم)",
+        "كانت خالته",
+        "لم تكن قريبة"
+      ],
+      "ur": [
+        "آپ ﷺ کی بہن تھیں",
+        "پھوپھی زاد بہن تھیں",
+        "آپ ﷺ کی خالہ تھیں",
+        "کوئی رشتہ نہ تھا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In whose marriage was Hazrat Zaynab bint Jahsh before the Prophet ﷺ?",
+      "ar": "في عصمة من كانت السيدة زينب بنت جحش قبل النبي ﷺ؟",
+      "ur": "نبی ﷺ سے پہلے حضرت زینب بنت جحش کس کے نکاح میں تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zayd ibn Haritha",
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Umar"
+      ],
+      "ar": [
+        "زيد بن حارثة",
+        "علي",
+        "عثمان",
+        "عمر"
+      ],
+      "ur": [
+        "حضرت زید بن حارثہ",
+        "حضرت علی",
+        "حضرت عثمان",
+        "حضرت عمر"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Zaynab bint Jahsh at the time of marriage to the Prophet ﷺ?",
+      "ar": "كم كان عمر زينب بنت جحش وقت زواجها من النبي ﷺ؟",
+      "ur": "نبی ﷺ سے نکاح کے وقت حضرت زینب بنت جحش کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "15 years",
+        "55 years",
+        "75 years",
+        "35 years"
+      ],
+      "ar": [
+        "15 سنة",
+        "55 سنة",
+        "75 سنة",
+        "35 سنة"
+      ],
+      "ur": [
+        "15 سال",
+        "55 سال",
+        "75 سال",
+        "35 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "In which year did the Prophet ﷺ marry Hazrat Zaynab bint Jahsh?",
+      "ar": "في أي سنة تزوج النبي ﷺ زينب بنت جحش؟",
+      "ur": "نبی ﷺ نے حضرت زینب بنت جحش سے نکاح کس سال فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "In 1 AH",
+        "In 8 AH",
+        "In 5 AH",
+        "In 10 AH"
+      ],
+      "ar": [
+        "في سنة 1 هـ",
+        "في سنة 8 هـ",
+        "في سنة 5 هـ",
+        "في سنة 10 هـ"
+      ],
+      "ur": [
+        "1 ہجری میں",
+        "8 ہجری میں",
+        "5 ہجری میں",
+        "10 ہجری میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of marriage to Hazrat Zaynab bint Jahsh?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من زينب بنت جحش؟",
+      "ur": "حضرت زینب بنت جحش سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About 30 years",
+        "About 58 years",
+        "About 40 years",
+        "About 70 years"
+      ],
+      "ar": [
+        "نحو 30 سنة",
+        "نحو 58 سنة",
+        "نحو 40 سنة",
+        "نحو 70 سنة"
+      ],
+      "ur": [
+        "تقریباً 30 سال",
+        "تقریباً 58 سال",
+        "تقریباً 40 سال",
+        "تقریباً 70 سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Who performed the marriage of the Prophet ﷺ with Hazrat Zaynab bint Jahsh?",
+      "ar": "من الذي عقد زواج النبي ﷺ من زينب بنت جحش؟",
+      "ur": "نبی ﷺ کا حضرت زینب بنت جحش سے نکاح کس نے کروایا؟"
+    },
+    "options": {
+      "en": [
+        "God Most High",
+        "Hazrat Abu Bakr",
+        "Hazrat Umar",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "الله تعالى",
+        "أبو بكر",
+        "عمر",
+        "علي"
+      ],
+      "ur": [
+        "اللہ تعالیٰ نے",
+        "حضرت ابو بکر نے",
+        "حضرت عمر نے",
+        "حضرت علی نے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where is the mention of the marriage with Hazrat Zaynab bint Jahsh found?",
+      "ar": "أين ورد ذكر الزواج من زينب بنت جحش؟",
+      "ur": "حضرت زینب بنت جحش سے نکاح کا ذکر کہاں ملتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "In the Torah only",
+        "In the Injil only",
+        "Nowhere",
+        "In the Quran"
+      ],
+      "ar": [
+        "في التوراة فقط",
+        "في الإنجيل فقط",
+        "لم يرد في أي مكان",
+        "في القرآن"
+      ],
+      "ur": [
+        "صرف تورات میں",
+        "صرف انجیل میں",
+        "کہیں نہیں",
+        "قرآن میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which surah is the marriage with Hazrat Zaynab bint Jahsh mentioned?",
+      "ar": "في أي سورة ذُكر الزواج من زينب بنت جحش؟",
+      "ur": "حضرت زینب بنت جحش سے نکاح کا ذکر کس سورت میں ہے؟"
+    },
+    "options": {
+      "en": [
+        "Surah al-Fil",
+        "Surah al-Asr",
+        "Surah al-Ahzab",
+        "Surah al-Nas"
+      ],
+      "ar": [
+        "سورة الفيل",
+        "سورة العصر",
+        "سورة الأحزاب",
+        "سورة الناس"
+      ],
+      "ur": [
+        "سورۃ الفیل",
+        "سورۃ العصر",
+        "سورۃ الاحزاب",
+        "سورۃ الناس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Zaynab bint Jahsh pass away?",
+      "ar": "متى توفيت زينب بنت جحش؟",
+      "ur": "حضرت زینب بنت جحش کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 5 AH",
+        "In 20 AH",
+        "In 40 AH",
+        "In 100 AH"
+      ],
+      "ar": [
+        "في سنة 5 هـ",
+        "في سنة 20 هـ",
+        "في سنة 40 هـ",
+        "في سنة 100 هـ"
+      ],
+      "ur": [
+        "5 ہجری میں",
+        "20 ہجری میں",
+        "40 ہجری میں",
+        "100 ہجری میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Who led the funeral prayer of Hazrat Zaynab bint Jahsh?",
+      "ar": "من أمّ صلاة الجنازة على زينب بنت جحش؟",
+      "ur": "حضرت زینب بنت جحش کی نمازِ جنازہ کس نے پڑھائی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar Faruq",
+        "Hazrat Abu Bakr",
+        "Hazrat Ali",
+        "Hazrat Uthman"
+      ],
+      "ar": [
+        "عمر الفاروق",
+        "أبو بكر",
+        "علي",
+        "عثمان"
+      ],
+      "ur": [
+        "حضرت عمر فاروق نے",
+        "حضرت ابو بکر نے",
+        "حضرت علی نے",
+        "حضرت عثمان نے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where was Hazrat Zaynab bint Jahsh buried?",
+      "ar": "أين دُفنت زينب بنت جحش؟",
+      "ur": "حضرت زینب بنت جحش کہاں دفن ہوئیں؟"
+    },
+    "options": {
+      "en": [
+        "In Makkah",
+        "In Ta'if",
+        "In Jerusalem",
+        "In Madinah Munawwara"
+      ],
+      "ar": [
+        "في مكة",
+        "في الطائف",
+        "في القدس",
+        "في المدينة المنورة"
+      ],
+      "ur": [
+        "مکہ میں",
+        "طائف میں",
+        "یروشلم میں",
+        "مدینہ منورہ میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the eighth wife of the Prophet ﷺ.",
+      "ar": "سمِّ الزوجة الثامنة للنبي ﷺ.",
+      "ur": "نبی ﷺ کی آٹھویں زوجہ کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Sawda",
+        "Hazrat Hafsa",
+        "Hazrat Juwayriyya",
+        "Hazrat Maymuna"
+      ],
+      "ar": [
+        "سودة",
+        "حفصة",
+        "جويرية",
+        "ميمونة"
+      ],
+      "ur": [
+        "حضرت سودہ",
+        "حضرت حفصہ",
+        "حضرت جویریہ",
+        "حضرت میمونہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Juwayriyya?",
+      "ar": "بنت من كانت السيدة جويرية؟",
+      "ur": "حضرت جویریہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Sufyan",
+        "Harith ibn Abi Dirar, chief of the tribe of Banu al-Mustaliq",
+        "Huyayy ibn Akhtab",
+        "Harith ibn Huzn"
+      ],
+      "ar": [
+        "أبو سفيان",
+        "الحارث بن أبي ضرار سيد بني المصطلق",
+        "حيي بن أخطب",
+        "الحارث بن حزن"
+      ],
+      "ur": [
+        "ابو سفیان کی",
+        "حارث بن ابی ضرار کی، جو بنو المصطلق کا سردار تھا",
+        "حیی بن اخطب کی",
+        "حارث بن حزن کی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did the Prophet ﷺ marry Hazrat Juwayriyya?",
+      "ar": "متى تزوج النبي ﷺ جويرية؟",
+      "ur": "نبی ﷺ نے حضرت جویریہ سے نکاح کب کیا؟"
+    },
+    "options": {
+      "en": [
+        "In 5 AH",
+        "In 1 AH",
+        "In 8 AH",
+        "In 10 AH"
+      ],
+      "ar": [
+        "في سنة 5 هـ",
+        "في سنة 1 هـ",
+        "في سنة 8 هـ",
+        "في سنة 10 هـ"
+      ],
+      "ur": [
+        "5 ہجری میں",
+        "1 ہجری میں",
+        "8 ہجری میں",
+        "10 ہجری میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of marriage to Hazrat Juwayriyya?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من جويرية؟",
+      "ur": "حضرت جویریہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About 30 years",
+        "About 40 years",
+        "About 70 years",
+        "About 58 years"
+      ],
+      "ar": [
+        "نحو 30 سنة",
+        "نحو 40 سنة",
+        "نحو 70 سنة",
+        "نحو 58 سنة"
+      ],
+      "ur": [
+        "تقریباً 30 سال",
+        "تقریباً 40 سال",
+        "تقریباً 70 سال",
+        "تقریباً 58 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Juwayriyya at the time of marriage to the Prophet ﷺ?",
+      "ar": "كم كان عمر جويرية وقت زواجها من النبي ﷺ؟",
+      "ur": "نبی ﷺ سے نکاح کے وقت حضرت جویریہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Ten years",
+        "Forty years",
+        "Twenty years",
+        "Sixty years"
+      ],
+      "ar": [
+        "عشر سنوات",
+        "أربعون سنة",
+        "عشرون سنة",
+        "ستون سنة"
+      ],
+      "ur": [
+        "دس سال",
+        "چالیس سال",
+        "بیس سال",
+        "ساٹھ سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Juwayriyya pass away?",
+      "ar": "متى توفيت جويرية؟",
+      "ur": "حضرت جویریہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 10 AH",
+        "She passed away in 50 AH",
+        "In 20 AH",
+        "In 100 AH"
+      ],
+      "ar": [
+        "سنة 10 هـ",
+        "توفيت سنة 50 هـ",
+        "سنة 20 هـ",
+        "سنة 100 هـ"
+      ],
+      "ur": [
+        "10 ہجری میں",
+        "50 ہجری میں",
+        "20 ہجری میں",
+        "100 ہجری میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where is Hazrat Juwayriyya buried?",
+      "ar": "أين دُفنت جويرية؟",
+      "ur": "حضرت جویریہ کہاں دفن ہیں؟"
+    },
+    "options": {
+      "en": [
+        "In Jannat al-Baqi",
+        "In Makkah",
+        "In Ta'if",
+        "In Jerusalem"
+      ],
+      "ar": [
+        "في جنة البقيع",
+        "في مكة",
+        "في الطائف",
+        "في القدس"
+      ],
+      "ur": [
+        "جنت البقیع میں",
+        "مکہ میں",
+        "طائف میں",
+        "یروشلم میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How long did Hazrat Juwayriyya live after the Prophet's ﷺ passing?",
+      "ar": "كم عاشت جويرية بعد وفاة النبي ﷺ؟",
+      "ur": "نبی ﷺ کے وصال کے بعد حضرت جویریہ کتنا عرصہ زندہ رہیں؟"
+    },
+    "options": {
+      "en": [
+        "About four years",
+        "About one hundred years",
+        "About one year",
+        "About forty years"
+      ],
+      "ar": [
+        "نحو أربع سنوات",
+        "نحو مئة سنة",
+        "نحو سنة",
+        "نحو أربعين سنة"
+      ],
+      "ur": [
+        "تقریباً چار سال",
+        "تقریباً سو سال",
+        "تقریباً ایک سال",
+        "تقریباً چالیس سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did the Prophet ﷺ marry Hazrat Umm Habiba?",
+      "ar": "متى تزوج النبي ﷺ أم حبيبة؟",
+      "ur": "نبی ﷺ نے حضرت ام حبیبہ سے نکاح کب کیا؟"
+    },
+    "options": {
+      "en": [
+        "In 1 AH",
+        "In 3 AH",
+        "In 7 AH",
+        "In 10 AH"
+      ],
+      "ar": [
+        "في سنة 1 هـ",
+        "في سنة 3 هـ",
+        "في سنة 7 هـ",
+        "في سنة 10 هـ"
+      ],
+      "ur": [
+        "1 ہجری میں",
+        "3 ہجری میں",
+        "7 ہجری میں",
+        "10 ہجری میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of marriage to Hazrat Umm Habiba?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من أم حبيبة؟",
+      "ur": "حضرت ام حبیبہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About thirty years",
+        "About sixty years",
+        "About forty years",
+        "About seventy years"
+      ],
+      "ar": [
+        "نحو ثلاثين سنة",
+        "نحو ستين سنة",
+        "نحو أربعين سنة",
+        "نحو سبعين سنة"
+      ],
+      "ur": [
+        "تقریباً تیس سال",
+        "تقریباً ساٹھ سال",
+        "تقریباً چالیس سال",
+        "تقریباً ستر سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Umm Habiba at the time of marriage to the Prophet ﷺ?",
+      "ar": "كم كان عمر أم حبيبة وقت زواجها من النبي ﷺ؟",
+      "ur": "نبی ﷺ سے نکاح کے وقت حضرت ام حبیبہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "36 years",
+        "16 years",
+        "56 years",
+        "76 years"
+      ],
+      "ar": [
+        "36 سنة",
+        "16 سنة",
+        "56 سنة",
+        "76 سنة"
+      ],
+      "ur": [
+        "36 سال",
+        "16 سال",
+        "56 سال",
+        "76 سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Umm Habiba?",
+      "ar": "بنت من كانت السيدة أم حبيبة؟",
+      "ur": "حضرت ام حبیبہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Abu Jahl's",
+        "Abu Lahab's",
+        "Abu Talib's",
+        "Abu Sufyan's"
+      ],
+      "ar": [
+        "بنت أبي جهل",
+        "بنت أبي لهب",
+        "بنت أبي طالب",
+        "بنت أبي سفيان"
+      ],
+      "ur": [
+        "ابو جہل کی",
+        "ابو لہب کی",
+        "ابو طالب کی",
+        "ابو سفیان کی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was Hazrat Umm Habiba's real name?",
+      "ar": "ما اسم أم حبيبة الحقيقي؟",
+      "ur": "حضرت ام حبیبہ کا اصل نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Hind",
+        "Safiyya",
+        "Ramla",
+        "Juwayriyya"
+      ],
+      "ar": [
+        "هند",
+        "صفية",
+        "رملة",
+        "جويرية"
+      ],
+      "ur": [
+        "ہند",
+        "صفیہ",
+        "رملہ",
+        "جویریہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Of which Muslim ruler was Hazrat Umm Habiba the sister?",
+      "ar": "أخت أي حاكم مسلم كانت أم حبيبة؟",
+      "ur": "حضرت ام حبیبہ کس مسلم حکمران کی بہن تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umar",
+        "Hazrat Amir Mu'awiya",
+        "Hazrat Ali",
+        "Hazrat Uthman"
+      ],
+      "ar": [
+        "عمر",
+        "الأمير معاوية",
+        "علي",
+        "عثمان"
+      ],
+      "ur": [
+        "حضرت عمر کی",
+        "حضرت امیر معاویہ کی",
+        "حضرت علی کی",
+        "حضرت عثمان کی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which family did Hazrat Umm Habiba belong to?",
+      "ar": "إلى أي أسرة تنتمي أم حبيبة؟",
+      "ur": "حضرت ام حبیبہ کس خاندان سے تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Banu Umayya",
+        "Banu Hashim",
+        "Banu Taym",
+        "Banu Asad"
+      ],
+      "ar": [
+        "بني أمية",
+        "بني هاشم",
+        "بني تيم",
+        "بني أسد"
+      ],
+      "ur": [
+        "بنو امیہ سے",
+        "بنو ہاشم سے",
+        "بنو تیم سے",
+        "بنو اسد سے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How long did Hazrat Umm Habiba live after the Prophet's ﷺ passing?",
+      "ar": "كم عاشت أم حبيبة بعد وفاة النبي ﷺ؟",
+      "ur": "نبی ﷺ کے وصال کے بعد حضرت ام حبیبہ کتنا عرصہ زندہ رہیں؟"
+    },
+    "options": {
+      "en": [
+        "About 3 years",
+        "About 100 years",
+        "About 1 year",
+        "About 34 years"
+      ],
+      "ar": [
+        "نحو 3 سنوات",
+        "نحو 100 سنة",
+        "نحو سنة",
+        "نحو 34 سنة"
+      ],
+      "ur": [
+        "تقریباً 3 سال",
+        "تقریباً 100 سال",
+        "تقریباً ایک سال",
+        "تقریباً 34 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Umm Habiba pass away?",
+      "ar": "متى توفيت أم حبيبة؟",
+      "ur": "حضرت ام حبیبہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 11 AH",
+        "In 20 AH",
+        "She passed away in 44 AH",
+        "In 100 AH"
+      ],
+      "ar": [
+        "سنة 11 هـ",
+        "سنة 20 هـ",
+        "توفيت سنة 44 هـ",
+        "سنة 100 هـ"
+      ],
+      "ur": [
+        "11 ہجری میں",
+        "20 ہجری میں",
+        "44 ہجری میں",
+        "100 ہجری میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Where is Hazrat Umm Habiba buried?",
+      "ar": "أين دُفنت أم حبيبة؟",
+      "ur": "حضرت ام حبیبہ کہاں دفن ہیں؟"
+    },
+    "options": {
+      "en": [
+        "In Makkah",
+        "In Madinah Munawwara",
+        "In Ta'if",
+        "In Damascus"
+      ],
+      "ar": [
+        "في مكة",
+        "في المدينة المنورة",
+        "في الطائف",
+        "في دمشق"
+      ],
+      "ur": [
+        "مکہ میں",
+        "مدینہ منورہ میں",
+        "طائف میں",
+        "دمشق میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did the Prophet ﷺ marry Hazrat Safiyya?",
+      "ar": "متى تزوج النبي ﷺ صفية؟",
+      "ur": "نبی ﷺ نے حضرت صفیہ سے نکاح کب کیا؟"
+    },
+    "options": {
+      "en": [
+        "In 7 AH",
+        "In 1 AH",
+        "In 3 AH",
+        "In 10 AH"
+      ],
+      "ar": [
+        "في سنة 7 هـ",
+        "في سنة 1 هـ",
+        "في سنة 3 هـ",
+        "في سنة 10 هـ"
+      ],
+      "ur": [
+        "7 ہجری میں",
+        "1 ہجری میں",
+        "3 ہجری میں",
+        "10 ہجری میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of the marriage with Hazrat Safiyya?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من صفية؟",
+      "ur": "حضرت صفیہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "30 years",
+        "40 years",
+        "70 years",
+        "59 years"
+      ],
+      "ar": [
+        "30 سنة",
+        "40 سنة",
+        "70 سنة",
+        "59 سنة"
+      ],
+      "ur": [
+        "30 سال",
+        "40 سال",
+        "70 سال",
+        "59 سال"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Safiyya when she came into the Prophet's ﷺ marriage?",
+      "ar": "كم كان عمر صفية حين دخلت في عصمة النبي ﷺ؟",
+      "ur": "نبی ﷺ کے نکاح میں آتے وقت حضرت صفیہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Seven years",
+        "Forty years",
+        "Seventeen years",
+        "Sixty years"
+      ],
+      "ar": [
+        "سبع سنوات",
+        "أربعون سنة",
+        "سبع عشرة سنة",
+        "ستون سنة"
+      ],
+      "ur": [
+        "سات سال",
+        "چالیس سال",
+        "سترہ سال",
+        "ساٹھ سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After finishing which battle did the Prophet ﷺ marry Hazrat Safiyya?",
+      "ar": "بعد انتهاء أي غزوة تزوج النبي ﷺ صفية؟",
+      "ur": "نبی ﷺ نے کس جنگ کے اختتام کے بعد حضرت صفیہ سے نکاح فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "After the Battle of Badr",
+        "After the Battle of Khaybar",
+        "After the Battle of Uhud",
+        "After the Battle of Tabuk"
+      ],
+      "ar": [
+        "بعد غزوة بدر",
+        "بعد غزوة خيبر",
+        "بعد غزوة أحد",
+        "بعد غزوة تبوك"
+      ],
+      "ur": [
+        "غزوۂ بدر کے بعد",
+        "غزوۂ خیبر کے بعد",
+        "غزوۂ احد کے بعد",
+        "غزوۂ تبوک کے بعد"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Safiyya?",
+      "ar": "بنت من كانت السيدة صفية؟",
+      "ur": "حضرت صفیہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Huyayy ibn Akhtab",
+        "Abu Sufyan",
+        "Harith ibn Abi Dirar",
+        "Harith ibn Huzn"
+      ],
+      "ar": [
+        "حيي بن أخطب",
+        "أبو سفيان",
+        "الحارث بن أبي ضرار",
+        "الحارث بن حزن"
+      ],
+      "ur": [
+        "حیی بن اخطب کی",
+        "ابو سفیان کی",
+        "حارث بن ابی ضرار کی",
+        "حارث بن حزن کی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What was Hazrat Safiyya's mahr?",
+      "ar": "ما مهر صفية؟",
+      "ur": "حضرت صفیہ کا مہر کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "400 dirhams",
+        "A herd of camels",
+        "Ten gold coins",
+        "Freedom in exchange for ransom"
+      ],
+      "ar": [
+        "400 درهم",
+        "قطيع من الإبل",
+        "عشرة دنانير ذهبية",
+        "العتق مقابل الفداء"
+      ],
+      "ur": [
+        "400 درہم",
+        "اونٹوں کا ریوڑ",
+        "دس سونے کے سکے",
+        "فدیے کے بدلے آزادی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "From the descendants of which prophet was Hazrat Safiyya?",
+      "ar": "من نسل أي نبي كانت السيدة صفية؟",
+      "ur": "حضرت صفیہ کس نبی کی اولاد میں سے تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ibrahim",
+        "Hazrat Isa",
+        "Hazrat Harun (Aaron)",
+        "Hazrat Nuh"
+      ],
+      "ar": [
+        "إبراهيم عليه السلام",
+        "عيسى عليه السلام",
+        "هارون عليه السلام",
+        "نوح عليه السلام"
+      ],
+      "ur": [
+        "حضرت ابراہیم علیہ السلام",
+        "حضرت عیسیٰ علیہ السلام",
+        "حضرت ہارون علیہ السلام",
+        "حضرت نوح علیہ السلام"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What dream had Hazrat Safiyya seen before the marriage with the Prophet ﷺ?",
+      "ar": "أي رؤيا رأتها صفية قبل الزواج من النبي ﷺ؟",
+      "ur": "نبی ﷺ سے نکاح سے پہلے حضرت صفیہ نے کون سا خواب دیکھا تھا؟"
+    },
+    "options": {
+      "en": [
+        "That the sun had set",
+        "That a moon had fallen into her lap",
+        "That a mountain had moved",
+        "That a river had dried"
+      ],
+      "ar": [
+        "أن الشمس غربت",
+        "أن قمرًا سقط في حجرها",
+        "أن جبلًا تحرك",
+        "أن نهرًا جفّ"
+      ],
+      "ur": [
+        "کہ سورج ڈوب گیا",
+        "کہ چاند ان کی گود میں آ گرا",
+        "کہ پہاڑ ہل گیا",
+        "کہ دریا سوکھ گیا"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Safiyya pass away?",
+      "ar": "متى توفيت صفية؟",
+      "ur": "حضرت صفیہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "She passed away in 50 AH",
+        "In 10 AH",
+        "In 20 AH",
+        "In 100 AH"
+      ],
+      "ar": [
+        "توفيت سنة 50 هـ",
+        "سنة 10 هـ",
+        "سنة 20 هـ",
+        "سنة 100 هـ"
+      ],
+      "ur": [
+        "50 ہجری میں",
+        "10 ہجری میں",
+        "20 ہجری میں",
+        "100 ہجری میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did the Prophet ﷺ marry Hazrat Maymuna?",
+      "ar": "متى تزوج النبي ﷺ ميمونة؟",
+      "ur": "نبی ﷺ نے حضرت میمونہ سے نکاح کب کیا؟"
+    },
+    "options": {
+      "en": [
+        "In 1 AH",
+        "In 3 AH",
+        "In 10 AH",
+        "In 7 AH"
+      ],
+      "ar": [
+        "في سنة 1 هـ",
+        "في سنة 3 هـ",
+        "في سنة 10 هـ",
+        "في سنة 7 هـ"
+      ],
+      "ur": [
+        "1 ہجری میں",
+        "3 ہجری میں",
+        "10 ہجری میں",
+        "7 ہجری میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of marriage to Hazrat Maymuna?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من ميمونة؟",
+      "ur": "حضرت میمونہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About 30 years",
+        "About 40 years",
+        "About 60 years",
+        "About 70 years"
+      ],
+      "ar": [
+        "نحو 30 سنة",
+        "نحو 40 سنة",
+        "نحو 60 سنة",
+        "نحو 70 سنة"
+      ],
+      "ur": [
+        "تقریباً 30 سال",
+        "تقریباً 40 سال",
+        "تقریباً 60 سال",
+        "تقریباً 70 سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Maymuna at the time of marriage to the Prophet ﷺ?",
+      "ar": "كم كان عمر ميمونة وقت زواجها من النبي ﷺ؟",
+      "ur": "نبی ﷺ سے نکاح کے وقت حضرت میمونہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "16 years",
+        "36 years",
+        "56 years",
+        "76 years"
+      ],
+      "ar": [
+        "16 سنة",
+        "36 سنة",
+        "56 سنة",
+        "76 سنة"
+      ],
+      "ur": [
+        "16 سال",
+        "36 سال",
+        "56 سال",
+        "76 سال"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Whose daughter was Hazrat Maymuna?",
+      "ar": "بنت من كانت السيدة ميمونة؟",
+      "ur": "حضرت میمونہ کس کی بیٹی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Harith ibn Huzn",
+        "Abu Sufyan",
+        "Huyayy ibn Akhtab",
+        "Harith ibn Abi Dirar"
+      ],
+      "ar": [
+        "الحارث بن حزن",
+        "أبو سفيان",
+        "حيي بن أخطب",
+        "الحارث بن أبي ضرار"
+      ],
+      "ur": [
+        "حارث بن حزن کی",
+        "ابو سفیان کی",
+        "حیی بن اخطب کی",
+        "حارث بن ابی ضرار کی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After which battle did the Prophet ﷺ marry Hazrat Maymuna?",
+      "ar": "بعد أي غزوة تزوج النبي ﷺ ميمونة؟",
+      "ur": "نبی ﷺ نے کس جنگ کے بعد حضرت میمونہ سے نکاح فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "After the Battle of Badr",
+        "After the Battle of Uhud",
+        "After the Battle of Tabuk",
+        "After the Battle of Khaybar"
+      ],
+      "ar": [
+        "بعد غزوة بدر",
+        "بعد غزوة أحد",
+        "بعد غزوة تبوك",
+        "بعد غزوة خيبر"
+      ],
+      "ur": [
+        "غزوۂ بدر کے بعد",
+        "غزوۂ احد کے بعد",
+        "غزوۂ تبوک کے بعد",
+        "غزوۂ خیبر کے بعد"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Maymuna pass away?",
+      "ar": "متى توفيت ميمونة؟",
+      "ur": "حضرت میمونہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 11 AH",
+        "In 20 AH",
+        "She passed away in 51 AH",
+        "In 100 AH"
+      ],
+      "ar": [
+        "سنة 11 هـ",
+        "سنة 20 هـ",
+        "توفيت سنة 51 هـ",
+        "سنة 100 هـ"
+      ],
+      "ur": [
+        "11 ہجری میں",
+        "20 ہجری میں",
+        "51 ہجری میں",
+        "100 ہجری میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Where was Hazrat Maymuna buried?",
+      "ar": "أين دُفنت ميمونة؟",
+      "ur": "حضرت میمونہ کہاں دفن ہوئیں؟"
+    },
+    "options": {
+      "en": [
+        "In Jannat al-Baqi",
+        "At the place Sarif",
+        "In Makkah",
+        "In Ta'if"
+      ],
+      "ar": [
+        "في جنة البقيع",
+        "في موضع سرف",
+        "في مكة",
+        "في الطائف"
+      ],
+      "ur": [
+        "جنت البقیع میں",
+        "سرف نامی مقام پر",
+        "مکہ میں",
+        "طائف میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Maymuna at the time of the Prophet's ﷺ passing, according to the source?",
+      "ar": "كم كان عمر ميمونة عند وفاة النبي ﷺ بحسب المصدر؟",
+      "ur": "ماخذ کے مطابق نبی ﷺ کے وصال کے وقت حضرت میمونہ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About forty years",
+        "About ten years",
+        "About seventy years",
+        "About ninety years"
+      ],
+      "ar": [
+        "نحو أربعين سنة",
+        "نحو عشر سنوات",
+        "نحو سبعين سنة",
+        "نحو تسعين سنة"
+      ],
+      "ur": [
+        "تقریباً چالیس سال",
+        "تقریباً دس سال",
+        "تقریباً ستر سال",
+        "تقریباً نوے سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did the Prophet ﷺ marry Hazrat Maria Qibtiyya?",
+      "ar": "متى تزوج النبي ﷺ ماريا القبطية؟",
+      "ur": "نبی ﷺ نے حضرت ماریہ قبطیہ سے نکاح کب کیا؟"
+    },
+    "options": {
+      "en": [
+        "In 1 AH",
+        "In 3 AH",
+        "In 11 AH",
+        "In 8 AH"
+      ],
+      "ar": [
+        "في سنة 1 هـ",
+        "في سنة 3 هـ",
+        "في سنة 11 هـ",
+        "في سنة 8 هـ"
+      ],
+      "ur": [
+        "1 ہجری میں",
+        "3 ہجری میں",
+        "11 ہجری میں",
+        "8 ہجری میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was the Prophet ﷺ at the time of marriage to Hazrat Maria?",
+      "ar": "كم كان عمر النبي ﷺ وقت زواجه من ماريا؟",
+      "ur": "حضرت ماریہ سے نکاح کے وقت نبی ﷺ کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About 30 years",
+        "About 40 years",
+        "About 61 years",
+        "About 70 years"
+      ],
+      "ar": [
+        "نحو 30 سنة",
+        "نحو 40 سنة",
+        "نحو 61 سنة",
+        "نحو 70 سنة"
+      ],
+      "ur": [
+        "تقریباً 30 سال",
+        "تقریباً 40 سال",
+        "تقریباً 61 سال",
+        "تقریباً 70 سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which son of the Prophet ﷺ was born of Hazrat Maria?",
+      "ar": "أي أبناء النبي ﷺ وُلد من السيدة ماريا؟",
+      "ur": "نبی ﷺ کے کون سے صاحبزادے حضرت ماریہ سے پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Qasim",
+        "Hazrat Ibrahim",
+        "Hazrat Abdullah",
+        "Hazrat Hasan"
+      ],
+      "ar": [
+        "القاسم",
+        "إبراهيم",
+        "عبد الله",
+        "الحسن"
+      ],
+      "ur": [
+        "حضرت قاسم",
+        "حضرت ابراہیم",
+        "حضرت عبداللہ",
+        "حضرت حسن"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How long after the Prophet's ﷺ passing did Hazrat Maria pass away?",
+      "ar": "بعد كم من وفاة النبي ﷺ توفيت ماريا؟",
+      "ur": "نبی ﷺ کے وصال کے کتنے عرصے بعد حضرت ماریہ کی وفات ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "Six years later",
+        "One year later",
+        "Forty years later",
+        "Right away"
+      ],
+      "ar": [
+        "بعد ست سنوات",
+        "بعد سنة",
+        "بعد أربعين سنة",
+        "فورًا"
+      ],
+      "ur": [
+        "چھ سال بعد",
+        "ایک سال بعد",
+        "چالیس سال بعد",
+        "فوراً"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which two wives passed away in front of the Prophet ﷺ (during his physical life)?",
+      "ar": "أي زوجتين توفيتا في حياة النبي ﷺ؟",
+      "ur": "نبی ﷺ کی ظاہری حیات میں آپ ﷺ کی کون سی دو ازواج وفات پا گئیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha and Hazrat Hafsa",
+        "Hazrat Sawda and Hazrat Maymuna",
+        "Hazrat Safiyya and Hazrat Juwayriyya",
+        "Hazrat Khadija and Hazrat Zaynab bint Khuzayma"
+      ],
+      "ar": [
+        "عائشة وحفصة",
+        "سودة وميمونة",
+        "صفية وجويرية",
+        "خديجة وزينب بنت خزيمة"
+      ],
+      "ur": [
+        "حضرت عائشہ اور حضرت حفصہ",
+        "حضرت سودہ اور حضرت میمونہ",
+        "حضرت صفیہ اور حضرت جویریہ",
+        "حضرت خدیجہ اور حضرت زینب بنت خزیمہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ wives is unmatched in knowledge and excellence?",
+      "ar": "أي زوجات النبي ﷺ لا نظير لها في العلم والفضل؟",
+      "ur": "نبی ﷺ کی کون سی زوجہ علم و فضیلت میں بے مثال ہیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Hafsa",
+        "Hazrat Sawda",
+        "Hazrat Aisha",
+        "Hazrat Maymuna"
+      ],
+      "ar": [
+        "حفصة",
+        "سودة",
+        "عائشة",
+        "ميمونة"
+      ],
+      "ur": [
+        "حضرت حفصہ",
+        "حضرت سودہ",
+        "حضرت عائشہ",
+        "حضرت میمونہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ wives, after accepting Islam, placed all her wealth at his feet?",
+      "ar": "أي زوجات النبي ﷺ وضعت كل مالها بين يديه بعد إسلامها؟",
+      "ur": "نبی ﷺ کی کس زوجہ نے اسلام لانے کے بعد اپنی ساری دولت آپ ﷺ کے قدموں میں رکھ دی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Khadija",
+        "Hazrat Hafsa",
+        "Hazrat Safiyya"
+      ],
+      "ar": [
+        "عائشة",
+        "خديجة",
+        "حفصة",
+        "صفية"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت خدیجہ",
+        "حضرت حفصہ",
+        "حضرت صفیہ"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ wives is called Umm al-Masakin?",
+      "ar": "أي زوجات النبي ﷺ تُلقب بأم المساكين؟",
+      "ur": "نبی ﷺ کی کس زوجہ کو ام المساکین کہا جاتا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zaynab bint Khuzayma",
+        "Hazrat Khadija",
+        "Hazrat Aisha",
+        "Hazrat Hafsa"
+      ],
+      "ar": [
+        "زينب بنت خزيمة",
+        "خديجة",
+        "عائشة",
+        "حفصة"
+      ],
+      "ur": [
+        "حضرت زینب بنت خزیمہ",
+        "حضرت خدیجہ",
+        "حضرت عائشہ",
+        "حضرت حفصہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which of the Prophet's ﷺ wives was his cousin?",
+      "ar": "أي زوجات النبي ﷺ كانت ابنة عمّته؟",
+      "ur": "نبی ﷺ کی کون سی زوجہ آپ ﷺ کی پھوپھی زاد بہن تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Aisha",
+        "Hazrat Hafsa",
+        "Hazrat Sawda",
+        "Hazrat Zaynab bint Jahsh"
+      ],
+      "ar": [
+        "عائشة",
+        "حفصة",
+        "سودة",
+        "زينب بنت جحش"
+      ],
+      "ur": [
+        "حضرت عائشہ",
+        "حضرت حفصہ",
+        "حضرت سودہ",
+        "حضرت زینب بنت جحش"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "From which two wives were the Prophet's ﷺ children born?",
+      "ar": "من أي زوجتين وُلد أولاد النبي ﷺ؟",
+      "ur": "نبی ﷺ کی اولاد کن دو ازواج سے ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "From Hazrat Aisha and Hazrat Hafsa",
+        "From Hazrat Sawda and Hazrat Maymuna",
+        "From Hazrat Khadija and Hazrat Maria",
+        "From Hazrat Safiyya and Hazrat Juwayriyya"
+      ],
+      "ar": [
+        "من عائشة وحفصة",
+        "من سودة وميمونة",
+        "من خديجة وماريا",
+        "من صفية وجويرية"
+      ],
+      "ur": [
+        "حضرت عائشہ اور حضرت حفصہ سے",
+        "حضرت سودہ اور حضرت میمونہ سے",
+        "حضرت خدیجہ اور حضرت ماریہ سے",
+        "حضرت صفیہ اور حضرت جویریہ سے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What is the name of the Prophet's ﷺ eldest daughter?",
+      "ar": "ما اسم كبرى بنات النبي ﷺ؟",
+      "ur": "نبی ﷺ کی سب سے بڑی صاحبزادی کا نام کیا ہے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Fatima",
+        "Hazrat Zaynab",
+        "Hazrat Ruqayya",
+        "Hazrat Umm Kulthum"
+      ],
+      "ar": [
+        "فاطمة",
+        "زينب",
+        "رقية",
+        "أم كلثوم"
+      ],
+      "ur": [
+        "حضرت فاطمہ",
+        "حضرت زینب",
+        "حضرت رقیہ",
+        "حضرت ام کلثوم"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Zaynab (the Prophet's ﷺ daughter) married?",
+      "ar": "من زوج السيدة زينب بنت النبي ﷺ؟",
+      "ur": "نبی ﷺ کی صاحبزادی حضرت زینب کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Abu al-As ibn al-Rabi'",
+        "Hazrat Ali",
+        "Hazrat Uthman",
+        "Hazrat Umar"
+      ],
+      "ar": [
+        "أبو العاص بن الربيع",
+        "علي",
+        "عثمان",
+        "عمر"
+      ],
+      "ur": [
+        "ابو العاص بن ربیع سے",
+        "حضرت علی سے",
+        "حضرت عثمان سے",
+        "حضرت عمر سے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Zaynab (the Prophet's ﷺ daughter) pass away?",
+      "ar": "متى توفيت السيدة زينب بنت النبي ﷺ؟",
+      "ur": "نبی ﷺ کی صاحبزادی حضرت زینب کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 1 AH",
+        "In 3 AH",
+        "In 11 AH",
+        "In 8 AH"
+      ],
+      "ar": [
+        "في سنة 1 هـ",
+        "في سنة 3 هـ",
+        "في سنة 11 هـ",
+        "في سنة 8 هـ"
+      ],
+      "ur": [
+        "1 ہجری میں",
+        "3 ہجری میں",
+        "11 ہجری میں",
+        "8 ہجری میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many children did Hazrat Zaynab (the Prophet's ﷺ daughter) have?",
+      "ar": "كم ولدًا كان للسيدة زينب بنت النبي ﷺ؟",
+      "ur": "نبی ﷺ کی صاحبزادی حضرت زینب کی کتنی اولاد تھی؟"
+    },
+    "options": {
+      "en": [
+        "None",
+        "Ten",
+        "Two: one son and one daughter",
+        "One only"
+      ],
+      "ar": [
+        "لا أحد",
+        "عشرة",
+        "اثنان: ابن وبنت",
+        "واحد فقط"
+      ],
+      "ur": [
+        "کوئی نہیں",
+        "دس",
+        "دو: ایک بیٹا اور ایک بیٹی",
+        "صرف ایک"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Write the name of the Prophet's ﷺ second daughter.",
+      "ar": "اكتب اسم الابنة الثانية للنبي ﷺ.",
+      "ur": "نبی ﷺ کی دوسری صاحبزادی کا نام لکھیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zaynab",
+        "Hazrat Ruqayya",
+        "Hazrat Fatima",
+        "Hazrat Umm Kulthum"
+      ],
+      "ar": [
+        "زينب",
+        "رقية",
+        "فاطمة",
+        "أم كلثوم"
+      ],
+      "ur": [
+        "حضرت زینب",
+        "حضرت رقیہ",
+        "حضرت فاطمہ",
+        "حضرت ام کلثوم"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Ruqayya married?",
+      "ar": "من زوج السيدة رقية؟",
+      "ur": "حضرت رقیہ کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Uthman",
+        "Hazrat Ali",
+        "Hazrat Umar",
+        "Abu al-As"
+      ],
+      "ar": [
+        "عثمان",
+        "علي",
+        "عمر",
+        "أبو العاص"
+      ],
+      "ur": [
+        "حضرت عثمان سے",
+        "حضرت علی سے",
+        "حضرت عمر سے",
+        "ابو العاص سے"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many children did Hazrat Ruqayya have?",
+      "ar": "كم ولدًا كان للسيدة رقية؟",
+      "ur": "حضرت رقیہ کی کتنی اولاد تھی؟"
+    },
+    "options": {
+      "en": [
+        "None",
+        "Five",
+        "Ten",
+        "One"
+      ],
+      "ar": [
+        "لا أحد",
+        "خمسة",
+        "عشرة",
+        "واحد"
+      ],
+      "ur": [
+        "کوئی نہیں",
+        "پانچ",
+        "دس",
+        "ایک"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Ruqayya pass away?",
+      "ar": "متى توفيت السيدة رقية؟",
+      "ur": "حضرت رقیہ کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In 10 AH, in Muharram",
+        "In 5 AH, in Rajab",
+        "In 2 AH, in the month of Ramadan al-Mubarak",
+        "In 8 AH, in Shawwal"
+      ],
+      "ar": [
+        "في سنة 10 هـ في محرم",
+        "في سنة 5 هـ في رجب",
+        "في سنة 2 هـ في شهر رمضان المبارك",
+        "في سنة 8 هـ في شوال"
+      ],
+      "ur": [
+        "10 ہجری، محرم میں",
+        "5 ہجری، رجب میں",
+        "2 ہجری، ماہِ رمضان المبارک میں",
+        "8 ہجری، شوال میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Because of nursing Hazrat Ruqayya, in which battle was Hazrat Uthman Ghani unable to take part (as per the Prophet's ﷺ order)?",
+      "ar": "بسبب تمريضه السيدة رقية، في أي غزوة لم يستطع عثمان المشاركة (بأمر النبي ﷺ)؟",
+      "ur": "حضرت رقیہ کی تیمارداری کی وجہ سے حضرت عثمان غنی (نبی ﷺ کے حکم سے) کس جنگ میں شریک نہ ہو سکے؟"
+    },
+    "options": {
+      "en": [
+        "In the Battle of Uhud",
+        "In the Battle of Badr",
+        "In the Battle of Tabuk",
+        "In the Battle of Hunayn"
+      ],
+      "ar": [
+        "في غزوة أحد",
+        "في غزوة بدر",
+        "في غزوة تبوك",
+        "في غزوة حنين"
+      ],
+      "ur": [
+        "غزوۂ احد میں",
+        "غزوۂ بدر میں",
+        "غزوۂ تبوک میں",
+        "غزوۂ حنین میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Name the Prophet's ﷺ third daughter.",
+      "ar": "سمِّ الابنة الثالثة للنبي ﷺ.",
+      "ur": "نبی ﷺ کی تیسری صاحبزادی کا نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umm Kulthum",
+        "Hazrat Zaynab",
+        "Hazrat Ruqayya",
+        "Hazrat Fatima"
+      ],
+      "ar": [
+        "أم كلثوم",
+        "زينب",
+        "رقية",
+        "فاطمة"
+      ],
+      "ur": [
+        "حضرت ام کلثوم",
+        "حضرت زینب",
+        "حضرت رقیہ",
+        "حضرت فاطمہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Umm Kulthum married?",
+      "ar": "من زوج السيدة أم كلثوم؟",
+      "ur": "حضرت ام کلثوم کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "To Hazrat Ali",
+        "To Hazrat Umar",
+        "To Abu al-As",
+        "To Hazrat Uthman"
+      ],
+      "ar": [
+        "علي",
+        "عمر",
+        "أبو العاص",
+        "عثمان"
+      ],
+      "ur": [
+        "حضرت علی سے",
+        "حضرت عمر سے",
+        "ابو العاص سے",
+        "حضرت عثمان سے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many children did Hazrat Umm Kulthum have?",
+      "ar": "كم ولدًا كان للسيدة أم كلثوم؟",
+      "ur": "حضرت ام کلثوم کی کتنی اولاد تھی؟"
+    },
+    "options": {
+      "en": [
+        "One",
+        "Five",
+        "None",
+        "Ten"
+      ],
+      "ar": [
+        "واحد",
+        "خمسة",
+        "لا أحد",
+        "عشرة"
+      ],
+      "ur": [
+        "ایک",
+        "پانچ",
+        "کوئی نہیں",
+        "دس"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Umm Kulthum pass away?",
+      "ar": "متى توفيت السيدة أم كلثوم؟",
+      "ur": "حضرت ام کلثوم کی وفات کب ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "In Muharram, 1 AH",
+        "In Sha'ban, 9 AH",
+        "In Ramadan, 2 AH",
+        "In Rajab, 12 AH"
+      ],
+      "ar": [
+        "في محرم سنة 1 هـ",
+        "في شعبان سنة 9 هـ",
+        "في رمضان سنة 2 هـ",
+        "في رجب سنة 12 هـ"
+      ],
+      "ur": [
+        "محرم، 1 ہجری میں",
+        "شعبان، 9 ہجری میں",
+        "رمضان، 2 ہجری میں",
+        "رجب، 12 ہجری میں"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How old was Hazrat Umm Kulthum at the time of her passing?",
+      "ar": "كم كان عمر أم كلثوم عند وفاتها؟",
+      "ur": "وفات کے وقت حضرت ام کلثوم کی عمر کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "About twenty-eight years",
+        "About eight years",
+        "About sixty years",
+        "About eighty years"
+      ],
+      "ar": [
+        "نحو ثمان وعشرين سنة",
+        "نحو ثماني سنوات",
+        "نحو ستين سنة",
+        "نحو ثمانين سنة"
+      ],
+      "ur": [
+        "تقریباً اٹھائیس سال",
+        "تقریباً آٹھ سال",
+        "تقریباً ساٹھ سال",
+        "تقریباً اسی سال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Write the name of the Prophet's ﷺ fourth daughter.",
+      "ar": "اكتب اسم الابنة الرابعة للنبي ﷺ.",
+      "ur": "نبی ﷺ کی چوتھی صاحبزادی کا نام لکھیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Zaynab",
+        "Hazrat Ruqayya",
+        "Hazrat Umm Kulthum",
+        "Hazrat Fatima"
+      ],
+      "ar": [
+        "زينب",
+        "رقية",
+        "أم كلثوم",
+        "فاطمة"
+      ],
+      "ur": [
+        "حضرت زینب",
+        "حضرت رقیہ",
+        "حضرت ام کلثوم",
+        "حضرت فاطمہ"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To whom was Hazrat Fatima married?",
+      "ar": "من زوج السيدة فاطمة؟",
+      "ur": "حضرت فاطمہ کا نکاح کس سے ہوا؟"
+    },
+    "options": {
+      "en": [
+        "To Hazrat Uthman",
+        "To Hazrat Umar",
+        "To Hazrat Ali",
+        "To Abu al-As"
+      ],
+      "ar": [
+        "عثمان",
+        "عمر",
+        "علي",
+        "أبو العاص"
+      ],
+      "ur": [
+        "حضرت عثمان سے",
+        "حضرت عمر سے",
+        "حضرت علی سے",
+        "ابو العاص سے"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "When did Hazrat Fatima's marriage take place?",
+      "ar": "متى تم زواج السيدة فاطمة؟",
+      "ur": "حضرت فاطمہ کا نکاح کب ہوا؟"
+    },
+    "options": {
+      "en": [
+        "10 AH",
+        "2 AH",
+        "5 AH",
+        "1 BH"
+      ],
+      "ar": [
+        "10 هـ",
+        "2 هـ",
+        "5 هـ",
+        "1 قبل الهجرة"
+      ],
+      "ur": [
+        "10 ہجری",
+        "2 ہجری",
+        "5 ہجری",
+        "ہجرت سے ایک سال پہلے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many children did Hazrat Fatima have?",
+      "ar": "كم ولدًا كان للسيدة فاطمة؟",
+      "ur": "حضرت فاطمہ کی کتنی اولاد تھی؟"
+    },
+    "options": {
+      "en": [
+        "Five (three sons and two daughters)",
+        "Two",
+        "Ten",
+        "None"
+      ],
+      "ar": [
+        "خمسة (ثلاثة أبناء وبنتان)",
+        "اثنان",
+        "عشرة",
+        "لا أحد"
+      ],
+      "ur": [
+        "پانچ (تین بیٹے اور دو بیٹیاں)",
+        "دو",
+        "دس",
+        "کوئی نہیں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "At what age did Hazrat Fatima pass away?",
+      "ar": "في أي عمر توفيت السيدة فاطمة؟",
+      "ur": "حضرت فاطمہ کی وفات کتنی عمر میں ہوئی؟"
+    },
+    "options": {
+      "en": [
+        "About 9 years",
+        "About 60 years",
+        "About 90 years",
+        "She passed away at about 29 years of age"
+      ],
+      "ar": [
+        "نحو 9 سنوات",
+        "نحو 60 سنة",
+        "نحو 90 سنة",
+        "توفيت في نحو التاسعة والعشرين"
+      ],
+      "ur": [
+        "تقریباً 9 سال",
+        "تقریباً 60 سال",
+        "تقریباً 90 سال",
+        "تقریباً 29 سال کی عمر میں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "With what honour did the Prophet ﷺ bestow Hazrat Fatima?",
+      "ar": "بأي فضل أكرم النبي ﷺ السيدة فاطمة؟",
+      "ur": "نبی ﷺ نے حضرت فاطمہ کو کس اعزاز سے نوازا؟"
+    },
+    "options": {
+      "en": [
+        "He made her a queen",
+        "He gave her a palace",
+        "He gave her the honour of being the leader of the women of Paradise",
+        "He gave her great wealth"
+      ],
+      "ar": [
+        "جعلها ملكة",
+        "أعطاها قصرًا",
+        "بفضل كونها سيدة نساء الجنة",
+        "أعطاها ثروة عظيمة"
+      ],
+      "ur": [
+        "انہیں ملکہ بنایا",
+        "انہیں محل دیا",
+        "جنت کی عورتوں کی سردار ہونے کا اعزاز دیا",
+        "انہیں بڑی دولت دی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Did Hazrat Ali make a second marriage while Hazrat Fatima was alive?",
+      "ar": "هل تزوج علي زواجًا ثانيًا في حياة السيدة فاطمة؟",
+      "ur": "کیا حضرت علی نے حضرت فاطمہ کی زندگی میں دوسرا نکاح کیا؟"
+    },
+    "options": {
+      "en": [
+        "Yes, with Hazrat Umama",
+        "No",
+        "Yes, with Hazrat Asma",
+        "Yes, with Hazrat Hafsa"
+      ],
+      "ar": [
+        "نعم، من أمامة",
+        "لا",
+        "نعم، من أسماء",
+        "نعم، من حفصة"
+      ],
+      "ur": [
+        "ہاں، حضرت امامہ سے",
+        "نہیں",
+        "ہاں، حضرت اسماء سے",
+        "ہاں، حضرت حفصہ سے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Write the names of the Prophet's ﷺ three sons.",
+      "ar": "اكتب أسماء أبناء النبي ﷺ الثلاثة.",
+      "ur": "نبی ﷺ کے تین صاحبزادوں کے نام لکھیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Qasim, Hazrat Abdullah (Tahir and Tayyib) and Hazrat Ibrahim",
+        "Hazrat Hasan, Hazrat Husayn and Hazrat Ali",
+        "Hazrat Ja'far, Hazrat Aqil and Hazrat Hamza",
+        "Hazrat Zayd, Hazrat Usama and Hazrat Anas"
+      ],
+      "ar": [
+        "القاسم وعبد الله (الطاهر والطيب) وإبراهيم",
+        "الحسن والحسين وعلي",
+        "جعفر وعقيل وحمزة",
+        "زيد وأسامة وأنس"
+      ],
+      "ur": [
+        "حضرت قاسم، حضرت عبداللہ (جن کے القاب طاہر و طیب تھے)، حضرت ابراہیم",
+        "حضرت حسن، حضرت حسین، حضرت علی",
+        "حضرت جعفر، حضرت عقیل، حضرت حمزہ",
+        "حضرت زید، حضرت اسامہ، حضرت انس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "From which wives were the Prophet's ﷺ sons born?",
+      "ar": "من أي زوجات وُلد أبناء النبي ﷺ؟",
+      "ur": "نبی ﷺ کے صاحبزادے کن ازواج سے پیدا ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "All three from Hazrat Khadija",
+        "All three from Hazrat Aisha",
+        "Hazrat Qasim from Hazrat Maria",
+        "Hazrat Qasim and Hazrat Abdullah from Hazrat Khadija, and Hazrat Ibrahim from Hazrat Maria"
+      ],
+      "ar": [
+        "الثلاثة من خديجة",
+        "الثلاثة من عائشة",
+        "القاسم من ماريا",
+        "القاسم وعبد الله من خديجة، وإبراهيم من ماريا"
+      ],
+      "ur": [
+        "تینوں حضرت خدیجہ سے",
+        "تینوں حضرت عائشہ سے",
+        "حضرت قاسم حضرت ماریہ سے",
+        "حضرت قاسم اور حضرت عبداللہ حضرت خدیجہ سے، اور حضرت ابراہیم حضرت ماریہ سے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "At what ages did the Prophet's ﷺ sons pass away, one by one?",
+      "ar": "في أي أعمار توفي أبناء النبي ﷺ واحدًا تلو الآخر؟",
+      "ur": "نبی ﷺ کے صاحبزادے ایک ایک کر کے کس عمر میں فوت ہوئے؟"
+    },
+    "options": {
+      "en": [
+        "All at forty years",
+        "All at ten years",
+        "Hazrat Qasim at two years; Hazrat Abdullah and Hazrat Ibrahim at seventeen or eighteen months",
+        "All at one week"
+      ],
+      "ar": [
+        "جميعهم في الأربعين",
+        "جميعهم في العاشرة",
+        "القاسم في السنتين، وعبد الله وإبراهيم في سبعة عشر أو ثمانية عشر شهرًا",
+        "جميعهم في أسبوع"
+      ],
+      "ur": [
+        "سب چالیس سال کی عمر میں",
+        "سب دس سال کی عمر میں",
+        "حضرت قاسم دو سال کی عمر میں؛ حضرت عبداللہ اور حضرت ابراہیم سترہ یا اٹھارہ ماہ کی عمر میں",
+        "سب ایک ہفتے کی عمر میں"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which son of the Prophet ﷺ lived the longest?",
+      "ar": "أي أبناء النبي ﷺ عاش أطول؟",
+      "ur": "نبی ﷺ کے کون سے صاحبزادے سب سے زیادہ جیے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ibrahim",
+        "Hazrat Qasim",
+        "Hazrat Abdullah",
+        "Hazrat Hasan"
+      ],
+      "ar": [
+        "إبراهيم",
+        "القاسم",
+        "عبد الله",
+        "الحسن"
+      ],
+      "ur": [
+        "حضرت ابراہیم",
+        "حضرت قاسم",
+        "حضرت عبداللہ",
+        "حضرت حسن"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "After which son's name is the Prophet's ﷺ kunya?",
+      "ar": "على اسم أي ابن كانت كنية النبي ﷺ؟",
+      "ur": "نبی ﷺ کی کنیت کس صاحبزادے کے نام پر ہے؟"
+    },
+    "options": {
+      "en": [
+        "After Qasim: Abu al-Qasim",
+        "After Ibrahim: Abu Ibrahim",
+        "After Abdullah: Abu Abdullah",
+        "After Hasan: Abu al-Hasan"
+      ],
+      "ar": [
+        "على اسم القاسم: أبو القاسم",
+        "على اسم إبراهيم: أبو إبراهيم",
+        "على اسم عبد الله: أبو عبد الله",
+        "على اسم الحسن: أبو الحسن"
+      ],
+      "ur": [
+        "قاسم کے نام پر: ابو القاسم",
+        "ابراہیم کے نام پر: ابو ابراہیم",
+        "عبداللہ کے نام پر: ابو عبداللہ",
+        "حسن کے نام پر: ابو الحسن"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "How many grandsons and granddaughters did the Prophet ﷺ have, as given in the source?",
+      "ar": "كم حفيدًا وحفيدة كان للنبي ﷺ بحسب المصدر؟",
+      "ur": "ماخذ کے مطابق نبی ﷺ کے کتنے نواسے اور نواسیاں تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Two grandsons and no granddaughters",
+        "Ten grandsons and ten granddaughters",
+        "None",
+        "Five grandsons and three granddaughters"
+      ],
+      "ar": [
+        "حفيدان ولا حفيدات",
+        "عشرة أحفاد وعشر حفيدات",
+        "لا أحد",
+        "خمسة أحفاد وثلاث حفيدات"
+      ],
+      "ur": [
+        "دو نواسے اور کوئی نواسی نہیں",
+        "دس نواسے اور دس نواسیاں",
+        "کوئی نہیں",
+        "پانچ نواسے اور تین نواسیاں"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Children of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which two grandsons did the Prophet ﷺ love very much?",
+      "ar": "أي حفيدين أحبهما النبي ﷺ حبًّا شديدًا؟",
+      "ur": "نبی ﷺ کن دو نواسوں سے بہت محبت فرماتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Ali and Ja'far",
+        "Qasim and Ibrahim",
+        "Imam Hasan and Imam Husayn",
+        "Usama and Zayd"
+      ],
+      "ar": [
+        "علي وجعفر",
+        "القاسم وإبراهيم",
+        "الإمام الحسن والإمام الحسين",
+        "أسامة وزيد"
+      ],
+      "ur": [
+        "علی اور جعفر",
+        "قاسم اور ابراہیم",
+        "امام حسن اور امام حسین",
+        "اسامہ اور زید"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ say about his two grandsons?",
+      "ar": "ماذا قال النبي ﷺ عن حفيديه؟",
+      "ur": "نبی ﷺ نے اپنے دونوں نواسوں کے بارے میں کیا فرمایا؟"
+    },
+    "options": {
+      "en": [
+        "'These are my servants'",
+        "'These are my (the Prophet's) flowers'",
+        "'These are my soldiers'",
+        "'These are my merchants'"
+      ],
+      "ar": [
+        "«هما خادماي»",
+        "«هما ريحانتاي من الدنيا»",
+        "«هما جنديّاي»",
+        "«هما تاجراي»"
+      ],
+      "ur": [
+        "«یہ میرے خادم ہیں»",
+        "«یہ دونوں میرے (نبی کے) پھول ہیں»",
+        "«یہ میرے سپاہی ہیں»",
+        "«یہ میرے تاجر ہیں»"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Write the honour with which the Prophet ﷺ favoured these two grandsons.",
+      "ar": "اكتب الفضل الذي خصّ به النبي ﷺ هذين الحفيدين.",
+      "ur": "وہ اعزاز لکھیے جس سے نبی ﷺ نے ان دونوں نواسوں کو نوازا۔"
+    },
+    "options": {
+      "en": [
+        "'Hasan and Husayn are the leaders of the youth of Paradise'",
+        "'Hasan and Husayn are kings of Makkah'",
+        "'Hasan and Husayn are the richest men'",
+        "'Hasan and Husayn are the best traders'"
+      ],
+      "ar": [
+        "«الحسن والحسين سيدا شباب أهل الجنة»",
+        "«الحسن والحسين ملكا مكة»",
+        "«الحسن والحسين أغنى الناس»",
+        "«الحسن والحسين أفضل التجار»"
+      ],
+      "ur": [
+        "«حسن اور حسین جنت کے نوجوانوں کے سردار ہیں»",
+        "«حسن اور حسین مکہ کے بادشاہ ہیں»",
+        "«حسن اور حسین سب سے مالدار ہیں»",
+        "«حسن اور حسین بہترین تاجر ہیں»"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Through which grandson of the Prophet ﷺ did his lineage continue, according to the source?",
+      "ar": "من خلال أي حفيد استمر نسل النبي ﷺ بحسب المصدر؟",
+      "ur": "ماخذ کے مطابق نبی ﷺ کی نسل کس نواسے کے ذریعے آگے چلی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Imam Hasan only",
+        "Hazrat Ali",
+        "Hazrat Qasim",
+        "Hazrat Imam Husayn"
+      ],
+      "ar": [
+        "الإمام الحسن فقط",
+        "علي",
+        "القاسم",
+        "الإمام الحسين"
+      ],
+      "ur": [
+        "صرف امام حسن کے ذریعے",
+        "حضرت علی کے ذریعے",
+        "حضرت قاسم کے ذریعے",
+        "حضرت امام حسین کے ذریعے"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What were the ages of the Prophet's ﷺ grandsons at the time of his passing?",
+      "ar": "كم كان عمر حفيدي النبي ﷺ عند وفاته؟",
+      "ur": "نبی ﷺ کے وصال کے وقت دونوں نواسوں کی عمریں کتنی تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Both about thirty years",
+        "Both about one year",
+        "Imam Hasan about seven years, Imam Husayn about six years",
+        "Both about fifty years"
+      ],
+      "ar": [
+        "كلاهما نحو ثلاثين سنة",
+        "كلاهما نحو سنة",
+        "الإمام الحسن نحو سبع سنوات والإمام الحسين نحو ست سنوات",
+        "كلاهما نحو خمسين سنة"
+      ],
+      "ur": [
+        "دونوں تقریباً تیس سال",
+        "دونوں تقریباً ایک سال",
+        "امام حسن تقریباً سات سال، امام حسین تقریباً چھ سال",
+        "دونوں تقریباً پچاس سال"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which grandson of the Prophet ﷺ sacrificed himself and his whole family in the path of God for the sake of Islam?",
+      "ar": "أي حفيد للنبي ﷺ ضحّى بنفسه وبأهله كلهم في سبيل الله من أجل الإسلام؟",
+      "ur": "نبی ﷺ کے کس نواسے نے اسلام کی خاطر اپنی اور اپنے پورے خاندان کی قربانی اللہ کی راہ میں دی؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Imam Hasan",
+        "Hazrat Imam Husayn",
+        "Hazrat Qasim",
+        "Hazrat Ibrahim"
+      ],
+      "ar": [
+        "الإمام الحسن",
+        "الإمام الحسين",
+        "القاسم",
+        "إبراهيم"
+      ],
+      "ur": [
+        "حضرت امام حسن نے",
+        "حضرت امام حسین نے",
+        "حضرت قاسم نے",
+        "حضرت ابراہیم نے"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "At the time of Imam Husayn's martyrdom, which of the Prophet's ﷺ wives was alive?",
+      "ar": "وقت استشهاد الإمام الحسين، أي زوجات النبي ﷺ كانت على قيد الحياة؟",
+      "ur": "امام حسین کی شہادت کے وقت نبی ﷺ کی کون سی زوجہ مطہرہ حیات تھیں؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Umm Salama",
+        "Hazrat Khadija",
+        "Hazrat Zaynab bint Khuzayma",
+        "Hazrat Maria"
+      ],
+      "ar": [
+        "أم سلمة",
+        "خديجة",
+        "زينب بنت خزيمة",
+        "ماريا"
+      ],
+      "ur": [
+        "حضرت ام سلمہ",
+        "حضرت خدیجہ",
+        "حضرت زینب بنت خزیمہ",
+        "حضرت ماریہ"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name four close female relatives of the Prophet ﷺ whose name was Zaynab.",
+      "ar": "اذكر أربع قريبات للنبي ﷺ اسمهن زينب.",
+      "ur": "نبی ﷺ کی چار قریبی خواتین کے نام بتائیے جن کا نام زینب تھا۔"
+    },
+    "options": {
+      "en": [
+        "Four wives",
+        "Four daughters",
+        "Four aunts",
+        "Two wives (Zaynab bint Khuzayma and Zaynab bint Jahsh), one daughter, and one granddaughter (Hazrat Fatima's daughter)"
+      ],
+      "ar": [
+        "أربع زوجات",
+        "أربع بنات",
+        "أربع عمّات",
+        "زوجتان (زينب بنت خزيمة وزينب بنت جحش)، وبنت، وحفيدة (ابنة فاطمة)"
+      ],
+      "ur": [
+        "چار ازواج",
+        "چار صاحبزادیاں",
+        "چار پھوپھیاں",
+        "دو ازواج (زینب بنت خزیمہ اور زینب بنت جحش)، ایک صاحبزادی، اور ایک نواسی (حضرت فاطمہ کی بیٹی)"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Wives of the Prophet",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which grandson of the Prophet ﷺ would sit on the Prophet's ﷺ shoulders, because of whom he would prolong his prostration?",
+      "ar": "أي حفيد للنبي ﷺ كان يعلو ظهره الشريف فيطيل السجود من أجله؟",
+      "ur": "نبی ﷺ کے کون سے نواسے آپ ﷺ کے کندھوں پر چڑھ جاتے اور جن کی وجہ سے آپ ﷺ سجدہ طویل فرما دیتے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Imam Hasan only",
+        "Hazrat Ali",
+        "Hazrat Imam Husayn",
+        "Hazrat Qasim"
+      ],
+      "ar": [
+        "الإمام الحسن فقط",
+        "علي",
+        "الإمام الحسين",
+        "القاسم"
+      ],
+      "ur": [
+        "صرف امام حسن",
+        "حضرت علی",
+        "حضرت امام حسین",
+        "حضرت قاسم"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Grandsons of the Prophet",
+    "event_id": null
+  }
+]

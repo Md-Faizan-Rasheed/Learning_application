@@ -1,0 +1,674 @@
+[
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In which year did the Prophet ﷺ write letters to the rulers?",
+      "ar": "في أي سنة كتب النبي ﷺ الرسائل إلى الملوك؟",
+      "ur": "نبی ﷺ نے بادشاہوں کو خطوط کس سال لکھے؟"
+    },
+    "options": {
+      "en": [
+        "In 7 AH",
+        "In 1 AH",
+        "In 4 AH",
+        "In 10 AH"
+      ],
+      "ar": [
+        "في سنة 7 هـ",
+        "في سنة 1 هـ",
+        "في سنة 4 هـ",
+        "في سنة 10 هـ"
+      ],
+      "ur": [
+        "7 ہجری میں",
+        "1 ہجری میں",
+        "4 ہجری میں",
+        "10 ہجری میں"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What was the heading (structure) of the Prophet's ﷺ letters to the rulers?",
+      "ar": "ما هيكل رسائل النبي ﷺ إلى الملوك؟",
+      "ur": "نبی ﷺ کے خطوط کا عنوان (ترتیب) کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "A list of demands at the beginning, threats in the middle, and a date at the end",
+        "A greeting at the beginning, a trade offer in the middle, and a poem at the end",
+        "A prayer at the beginning, a war plan in the middle, and a signature of the Quraysh at the end",
+        "Praise of God at the beginning, the invitation to Islam in the middle, and the seal of prophethood at the end"
+      ],
+      "ar": [
+        "قائمة مطالب في البداية، وتهديدات في الوسط، وتاريخ في النهاية",
+        "تحية في البداية، وعرض تجاري في الوسط، وقصيدة في النهاية",
+        "دعاء في البداية، وخطة حرب في الوسط، وتوقيع قريش في النهاية",
+        "حمد الله في البداية، والدعوة إلى الإسلام في الوسط، وخاتم النبوة في النهاية"
+      ],
+      "ur": [
+        "شروع میں مطالبات کی فہرست، بیچ میں دھمکیاں، آخر میں تاریخ",
+        "شروع میں سلام، بیچ میں تجارتی پیشکش، آخر میں ایک نظم",
+        "شروع میں دعا، بیچ میں جنگی منصوبہ، آخر میں قریش کے دستخط",
+        "شروع میں اللہ کی حمد، بیچ میں اسلام کی دعوت، اور آخر میں مہرِ نبوت"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What did the Prophet ﷺ write at the end of the letter (the words of the seal)?",
+      "ar": "ماذا كتب النبي ﷺ في آخر الرسالة (عبارة الختم)؟",
+      "ur": "نبی ﷺ نے خط کے آخر میں کیا لکھا (مہر کے الفاظ)؟"
+    },
+    "options": {
+      "en": [
+        "'La ilaha illa Allah' only",
+        "'Bismillah' only",
+        "'Muhammad Rasul Allah' (he would apply the seal of prophethood)",
+        "'Allahu Akbar'"
+      ],
+      "ar": [
+        "«لا إله إلا الله» فقط",
+        "«بسم الله» فقط",
+        "«محمد رسول الله» (وكان يضع ختم النبوة)",
+        "«الله أكبر»"
+      ],
+      "ur": [
+        "صرف «لا الٰہ الا اللہ»",
+        "صرف «بسم اللہ»",
+        "«محمد رسول اللہ» (آپ ﷺ مہرِ نبوت لگاتے تھے)",
+        "«اللہ اکبر»"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "To how many rulers did the Prophet ﷺ write letters?",
+      "ar": "إلى كم ملكًا كتب النبي ﷺ رسائل؟",
+      "ur": "نبی ﷺ نے کتنے بادشاہوں کو خطوط لکھے؟"
+    },
+    "options": {
+      "en": [
+        "Two",
+        "Ten",
+        "Fifty",
+        "One hundred"
+      ],
+      "ar": [
+        "اثنين",
+        "عشرة",
+        "خمسين",
+        "مئة"
+      ],
+      "ur": [
+        "دو",
+        "دس",
+        "پچاس",
+        "سو"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which ruler tore up the Prophet's ﷺ blessed letter?",
+      "ar": "أي حاكم مزّق رسالة النبي ﷺ المباركة؟",
+      "ur": "کس بدبخت بادشاہ نے نبی ﷺ کا مبارک خط پھاڑ دیا؟"
+    },
+    "options": {
+      "en": [
+        "Khusraw Parviz",
+        "The Negus",
+        "Heraclius (Caesar)",
+        "Muqawqis"
+      ],
+      "ar": [
+        "كسرى أبرويز",
+        "النجاشي",
+        "هرقل (قيصر)",
+        "المقوقس"
+      ],
+      "ur": [
+        "خسرو پرویز",
+        "نجاشی",
+        "ہرقل (قیصر)",
+        "مقوقس"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "What was the total number of the Prophet's ﷺ envoys to the rulers?",
+      "ar": "كم كان مجموع عدد سفراء النبي ﷺ إلى الملوك؟",
+      "ur": "نبی ﷺ کے قاصدوں کی کل تعداد کتنی تھی؟"
+    },
+    "options": {
+      "en": [
+        "Two",
+        "Fifty",
+        "One hundred",
+        "Ten"
+      ],
+      "ar": [
+        "اثنان",
+        "خمسون",
+        "مئة",
+        "عشرة"
+      ],
+      "ur": [
+        "دو",
+        "پچاس",
+        "سو",
+        "دس"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion did the Prophet ﷺ send to Khusraw Parviz, the king of Iran?",
+      "ar": "أي صحابي أرسله النبي ﷺ إلى كسرى أبرويز ملك فارس؟",
+      "ur": "ایران کے بادشاہ خسرو پرویز کے پاس نبی ﷺ نے کس صحابی کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Dihya al-Kalbi",
+        "Hazrat Hatib ibn Abi Balta'a",
+        "Hazrat Abdullah ibn Hudhafa",
+        "Hazrat Amr ibn Umayya"
+      ],
+      "ar": [
+        "دحية الكلبي",
+        "حاطب بن أبي بلتعة",
+        "عبد الله بن حذافة",
+        "عمرو بن أمية"
+      ],
+      "ur": [
+        "حضرت دحیہ کلبی",
+        "حضرت حاطب بن ابی بلتعہ",
+        "حضرت عبداللہ بن حذافہ",
+        "حضرت عمرو بن امیہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Whom did the Prophet ﷺ send to the Negus, king of Abyssinia?",
+      "ar": "من أرسل النبي ﷺ إلى النجاشي ملك الحبشة؟",
+      "ur": "حبشہ کے بادشاہ نجاشی کے پاس نبی ﷺ نے کس کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Amr ibn Umayya",
+        "Hazrat Bilal",
+        "Hazrat Zayd"
+      ],
+      "ar": [
+        "علي",
+        "عمرو بن أمية",
+        "بلال",
+        "زيد"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عمرو بن امیہ",
+        "حضرت بلال",
+        "حضرت زید"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion did the Prophet ﷺ send to Caesar, king of Rome?",
+      "ar": "أي صحابي أرسله النبي ﷺ إلى قيصر ملك الروم؟",
+      "ur": "روم کے بادشاہ قیصر کے پاس نبی ﷺ نے کس صحابی کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Dihya al-Kalbi",
+        "Hazrat Abu Bakr",
+        "Hazrat Umar",
+        "Hazrat Khalid"
+      ],
+      "ar": [
+        "دحية الكلبي",
+        "أبو بكر",
+        "عمر",
+        "خالد"
+      ],
+      "ur": [
+        "حضرت دحیہ کلبی",
+        "حضرت ابو بکر",
+        "حضرت عمر",
+        "حضرت خالد"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "In the form of which envoy of the Prophet ﷺ did Jibra'il come?",
+      "ar": "بصورة أي مبعوث للنبي ﷺ كان يأتي جبريل؟",
+      "ur": "جبرائیل علیہ السلام نبی ﷺ کے کس قاصد کی صورت میں آیا کرتے تھے؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Umar",
+        "Dihya al-Kalbi"
+      ],
+      "ar": [
+        "علي",
+        "بلال",
+        "عمر",
+        "دحية الكلبي"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت عمر",
+        "حضرت دحیہ کلبی"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which envoy did the Prophet ﷺ send to Muqawqis, king of Egypt?",
+      "ar": "أي مبعوث أرسله النبي ﷺ إلى المقوقس ملك مصر؟",
+      "ur": "مصر کے بادشاہ مقوقس کے پاس نبی ﷺ نے کس قاصد کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Dihya al-Kalbi",
+        "Hazrat Amr ibn al-As",
+        "Hazrat Hatib ibn Abi Balta'a",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "دحية الكلبي",
+        "عمرو بن العاص",
+        "حاطب بن أبي بلتعة",
+        "علي"
+      ],
+      "ur": [
+        "حضرت دحیہ کلبی",
+        "حضرت عمرو بن عاص",
+        "حضرت حاطب بن ابی بلتعہ",
+        "حضرت علی"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which envoy did the Prophet ﷺ send to Mundhir ibn Sawa, king of Bahrain?",
+      "ar": "أي مبعوث أرسله النبي ﷺ إلى المنذر بن ساوى ملك البحرين؟",
+      "ur": "بحرین کے بادشاہ منذر بن ساوی کے پاس نبی ﷺ نے کس قاصد کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Dihya al-Kalbi",
+        "Hazrat al-Ala' ibn al-Hadrami",
+        "Hazrat Bilal",
+        "Hazrat Zubayr"
+      ],
+      "ar": [
+        "دحية الكلبي",
+        "العلاء بن الحضرمي",
+        "بلال",
+        "الزبير"
+      ],
+      "ur": [
+        "حضرت دحیہ کلبی",
+        "حضرت علاء بن حضرمی",
+        "حضرت بلال",
+        "حضرت زبیر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which envoy did the Prophet ﷺ send to Harith ibn Abi Shamir al-Ghassani?",
+      "ar": "أي مبعوث أرسله النبي ﷺ إلى الحارث بن أبي شمر الغساني؟",
+      "ur": "حارث بن ابی شمر غسانی کے پاس نبی ﷺ نے کس قاصد کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Shuja' ibn Wahb",
+        "Hazrat Ali",
+        "Hazrat Abu Bakr",
+        "Hazrat Bilal"
+      ],
+      "ar": [
+        "شجاع بن وهب",
+        "علي",
+        "أبو بكر",
+        "بلال"
+      ],
+      "ur": [
+        "حضرت شجاع بن وہب",
+        "حضرت علی",
+        "حضرت ابو بکر",
+        "حضرت بلال"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "By whose hand did the Prophet ﷺ send the letter to the king of Ta'if, as given in the source?",
+      "ar": "على يد من أرسل النبي ﷺ الرسالة إلى ملك الطائف بحسب المصدر؟",
+      "ur": "نبی ﷺ نے طائف کے بادشاہ کو خط کس کے ہاتھ بھیجا (ماخذ کے مطابق)؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Hamza",
+        "Hazrat Abdullah ibn Jarir"
+      ],
+      "ar": [
+        "علي",
+        "بلال",
+        "حمزة",
+        "عبد الله بن جرير"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت حمزہ",
+        "حضرت عبداللہ بن جریر"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "What was the name of the king of Ta'if, as given in the source?",
+      "ar": "ما اسم ملك الطائف بحسب المصدر؟",
+      "ur": "ماخذ کے مطابق طائف کے بادشاہ کا نام کیا تھا؟"
+    },
+    "options": {
+      "en": [
+        "Khusraw Parviz",
+        "Mundhir ibn Sawa",
+        "Dhu al-Kala'",
+        "Musaylima"
+      ],
+      "ar": [
+        "كسرى أبرويز",
+        "المنذر بن ساوى",
+        "ذو الكلاع",
+        "مسيلمة"
+      ],
+      "ur": [
+        "خسرو پرویز",
+        "منذر بن ساوی",
+        "ذوالکلاع",
+        "مسیلمہ"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "Which companion did the Prophet ﷺ send to the king of Oman?",
+      "ar": "أي صحابي أرسله النبي ﷺ إلى ملك عمان؟",
+      "ur": "عمان کے بادشاہ کے پاس نبی ﷺ نے کس صحابی کو بھیجا؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Ali",
+        "Hazrat Amr ibn al-As",
+        "Hazrat Khalid",
+        "Hazrat Umar"
+      ],
+      "ar": [
+        "علي",
+        "عمرو بن العاص",
+        "خالد",
+        "عمر"
+      ],
+      "ur": [
+        "حضرت علی",
+        "حضرت عمرو بن عاص",
+        "حضرت خالد",
+        "حضرت عمر"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name the companion whom the Prophet ﷺ sent to Musaylima the Liar, the false prophet.",
+      "ar": "سمِّ الصحابي الذي أرسله النبي ﷺ إلى مسيلمة الكذاب مدّعي النبوة.",
+      "ur": "اس صحابی کا نام بتائیے جنہیں نبی ﷺ نے جھوٹے مدعیِ نبوت مسیلمہ کذاب کے پاس بھیجا۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Habib ibn Zayd",
+        "Hazrat Ali",
+        "Hazrat Bilal",
+        "Hazrat Dihya al-Kalbi"
+      ],
+      "ar": [
+        "حبيب بن زيد",
+        "علي",
+        "بلال",
+        "دحية الكلبي"
+      ],
+      "ur": [
+        "حضرت حبیب بن زید",
+        "حضرت علی",
+        "حضرت بلال",
+        "حضرت دحیہ کلبی"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "easy",
+    "prompt": {
+      "en": "How did Musaylima the Liar treat the Prophet's ﷺ envoy?",
+      "ar": "كيف عامل مسيلمة الكذاب مبعوث النبي ﷺ؟",
+      "ur": "مسیلمہ کذاب نے نبی ﷺ کے قاصد کے ساتھ کیا سلوک کیا؟"
+    },
+    "options": {
+      "en": [
+        "He welcomed him with gifts",
+        "He accepted Islam",
+        "He sent him back safely",
+        "That wicked man martyred him"
+      ],
+      "ar": [
+        "استقبله بالهدايا",
+        "أسلم",
+        "أعاده سالمًا",
+        "قتله ذلك الشقي شهيدًا"
+      ],
+      "ur": [
+        "تحفوں کے ساتھ استقبال کیا",
+        "اسلام قبول کر لیا",
+        "بحفاظت واپس بھیج دیا",
+        "اس بدبخت نے انہیں شہید کر دیا"
+      ]
+    },
+    "correct_index": 3,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which envoy did the Prophet ﷺ send to the governor of Basra (Busra), as given in the source?",
+      "ar": "أي مبعوث أرسله النبي ﷺ إلى والي البصرة بحسب المصدر؟",
+      "ur": "بصرہ کے گورنر کے پاس نبی ﷺ نے کس قاصد کو بھیجا (ماخذ کے مطابق)؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Harith ibn Umayr",
+        "Hazrat Dihya al-Kalbi",
+        "Hazrat Sulayt ibn Amr",
+        "Hazrat Hatib"
+      ],
+      "ar": [
+        "الحارث بن عمير",
+        "دحية الكلبي",
+        "سليط بن عمرو",
+        "حاطب"
+      ],
+      "ur": [
+        "حضرت حارث بن عمیر",
+        "حضرت دحیہ کلبی",
+        "حضرت سلیط بن عمرو",
+        "حضرت حاطب"
+      ]
+    },
+    "correct_index": 2,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Which envoy did the Prophet ﷺ send to the governor of Yamama, as given in the source?",
+      "ar": "أي مبعوث أرسله النبي ﷺ إلى والي اليمامة بحسب المصدر؟",
+      "ur": "یمامہ کے گورنر کے پاس نبی ﷺ نے کس قاصد کو بھیجا (ماخذ کے مطابق)؟"
+    },
+    "options": {
+      "en": [
+        "Hazrat Sulayt ibn Amr",
+        "Hazrat Harith ibn Umayr",
+        "Hazrat Amr ibn al-As",
+        "Hazrat Ali"
+      ],
+      "ar": [
+        "سليط بن عمرو",
+        "الحارث بن عمير",
+        "عمرو بن العاص",
+        "علي"
+      ],
+      "ur": [
+        "حضرت سلیط بن عمرو",
+        "حضرت حارث بن عمیر",
+        "حضرت عمرو بن عاص",
+        "حضرت علی"
+      ]
+    },
+    "correct_index": 1,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  },
+  {
+    "category_slug": "seerah",
+    "difficulty": "medium",
+    "prompt": {
+      "en": "Name the two men whom the Prophet ﷺ sent as envoys to the Quraysh at the time of the Treaty of Hudaybiyya.",
+      "ar": "سمِّ الرجلين اللذين أرسلهما النبي ﷺ سفيرين إلى قريش وقت صلح الحديبية.",
+      "ur": "صلحِ حدیبیہ کے موقع پر سرورِ کائنات ﷺ نے قریش کے پاس جن دو حضرات کو سفیر بنا کر بھیجا ان کے نام بتائیے۔"
+    },
+    "options": {
+      "en": [
+        "Hazrat Uthman Dhu al-Nurayn and Hazrat Khirash ibn Umayya",
+        "Hazrat Abu Bakr and Hazrat Umar",
+        "Hazrat Ali and Hazrat Hamza",
+        "Hazrat Bilal and Hazrat Zayd"
+      ],
+      "ar": [
+        "عثمان ذو النورين وخراش بن أمية",
+        "أبو بكر وعمر",
+        "علي وحمزة",
+        "بلال وزيد"
+      ],
+      "ur": [
+        "حضرت عثمان ذوالنورین اور حضرت خراش بن امیہ",
+        "حضرت ابو بکر اور حضرت عمر",
+        "حضرت علی اور حضرت حمزہ",
+        "حضرت بلال اور حضرت زید"
+      ]
+    },
+    "correct_index": 0,
+    "source": "Seerah — Letters to Rulers",
+    "event_id": null
+  }
+]

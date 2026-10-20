@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../services/local_progress_preferences.dart';
 import '../models/ghost_sample.dart';
 
 /// C1 — "Save per-level, local only": one best-run ghost per level,
@@ -13,7 +14,9 @@ import '../models/ghost_sample.dart';
 class GhostRunRepository {
   const GhostRunRepository();
 
-  String _keyFor(int levelId) => 'seerah_maze_ghost_level_$levelId';
+  Future<String> _keyFor(int levelId) => LocalProgressPreferences.keyFor(
+        'seerah_maze_ghost_level_$levelId',
+      );
 
   /// The best recorded run for [levelId], oldest sample first — or an
   /// empty list if there's no best run yet, or the stored data is
@@ -21,7 +24,8 @@ class GhostRunRepository {
   /// reason to block the level from loading.
   Future<List<GhostSample>> loadBest(int levelId) async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_keyFor(levelId));
+    final key = await _keyFor(levelId);
+    final raw = prefs.getString(key);
     if (raw == null) return const [];
     try {
       final decoded = jsonDecode(raw) as List;
@@ -39,6 +43,8 @@ class GhostRunRepository {
   /// about what "best" means.
   Future<void> save(int levelId, List<GhostSample> samples) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_keyFor(levelId), jsonEncode(samples.map((s) => s.toJson()).toList()));
+    final key = await _keyFor(levelId);
+    await prefs.setString(
+        key, jsonEncode(samples.map((s) => s.toJson()).toList()));
   }
 }

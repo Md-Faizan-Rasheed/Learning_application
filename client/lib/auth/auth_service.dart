@@ -119,7 +119,8 @@ class AuthService {
       body: jsonEncode({'email': email}),
     );
     if (res.statusCode != 200) {
-      throw AuthException('Could not process that request (${res.statusCode}).');
+      throw AuthException(
+          'Could not process that request (${res.statusCode}).');
     }
   }
 
@@ -131,14 +132,14 @@ class AuthService {
     String role = 'player',
   }) async {
     final res = await _client.post(
-      Uri.parse('$kApiBaseUrl/auth/register'),
+      Uri.parse('$kApiBaseUrl/auth/signup'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'email': email,
         'password': password,
         'display_name': displayName,
         'gender': gender,
-        'role': role,
+        'role': role == 'player' ? 'student' : role,
       }),
     );
     if (res.statusCode == 409) {

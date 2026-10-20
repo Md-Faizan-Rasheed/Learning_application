@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../services/local_progress_preferences.dart';
 import '../models/daily_maze_progress.dart';
 
 /// C2 — local persistence for [DailyMazeProgress], same
@@ -14,10 +15,12 @@ class DailyMazeRepository {
 
   Future<DailyMazeProgress> load() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_key);
+    final key = await LocalProgressPreferences.keyFor(_key);
+    final raw = prefs.getString(key);
     if (raw == null) return const DailyMazeProgress();
     try {
-      return DailyMazeProgress.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+      return DailyMazeProgress.fromJson(
+          jsonDecode(raw) as Map<String, dynamic>);
     } catch (_) {
       return const DailyMazeProgress();
     }
@@ -25,6 +28,7 @@ class DailyMazeRepository {
 
   Future<void> save(DailyMazeProgress progress) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_key, jsonEncode(progress.toJson()));
+    final key = await LocalProgressPreferences.keyFor(_key);
+    await prefs.setString(key, jsonEncode(progress.toJson()));
   }
 }

@@ -124,6 +124,9 @@ class MatchSocket {
     String difficulty = 'easy',
     String category = 'mixed',
     String? stageSlug,
+    int? questionStart,
+    int? questionEnd,
+    void Function(String error)? onError,
   }) {
     _socket?.emitWithAck(
       'find_match',
@@ -132,9 +135,17 @@ class MatchSocket {
         'difficulty': difficulty,
         'category': category,
         if (stageSlug != null) 'stage_slug': stageSlug,
+        if (stageSlug != null && questionStart != null)
+          'question_start': questionStart,
+        if (stageSlug != null && questionEnd != null)
+          'question_end': questionEnd,
       },
       ack: (resp) {
         if (resp is Map) {
+          if (resp['ok'] != true) {
+            onError?.call(resp['error'] as String? ?? 'match_start_failed');
+            return;
+          }
           _matchId = resp['match_id'] as String? ?? _matchId;
           _userId = resp['user_id'] as String? ?? _userId;
 

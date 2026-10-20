@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'local_progress_preferences.dart';
 import '../utils/word_bank_entry.dart';
 import '../utils/word_search_generator.dart';
 
@@ -31,7 +32,8 @@ class WordMasteryStore {
 
   Future<Map<String, dynamic>> _read() async {
     final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_key);
+    final key = await LocalProgressPreferences.keyFor(_key);
+    final raw = prefs.getString(key);
     if (raw == null) return {};
     try {
       return jsonDecode(raw) as Map<String, dynamic>;
@@ -42,7 +44,8 @@ class WordMasteryStore {
 
   Future<void> _write(Map<String, dynamic> data) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_key, jsonEncode(data));
+    final key = await LocalProgressPreferences.keyFor(_key);
+    await prefs.setString(key, jsonEncode(data));
   }
 
   /// Records one finished puzzle: every word in [allWords] was found (a
@@ -57,8 +60,8 @@ class WordMasteryStore {
     required Set<String> hintedWords,
   }) async {
     final data = await _read();
-    final categoryData =
-        Map<String, dynamic>.from(data[category.name] as Map<String, dynamic>? ?? {});
+    final categoryData = Map<String, dynamic>.from(
+        data[category.name] as Map<String, dynamic>? ?? {});
     for (final word in allWords) {
       final wasHinted = hintedWords.contains(word);
       final alreadyHinted = categoryData[word] == true;
@@ -76,12 +79,15 @@ class WordMasteryStore {
     List<WordEntry> bank,
   ) async {
     final data = await _read();
-    final categoryData = data[category.name] as Map<String, dynamic>? ?? const {};
+    final categoryData =
+        data[category.name] as Map<String, dynamic>? ?? const {};
     return {
       for (final entry in bank)
         entry.word: !categoryData.containsKey(entry.word)
             ? _weightUnseen
-            : (categoryData[entry.word] == true ? _weightHinted : _weightMastered),
+            : (categoryData[entry.word] == true
+                ? _weightHinted
+                : _weightMastered),
     };
   }
 }

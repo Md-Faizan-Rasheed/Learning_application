@@ -20,16 +20,19 @@ async def rate_limit(*, key: str, limit: int, window_seconds: int) -> None:
     land under this key within `window_seconds`. Call once per request, at
     the top of a route, before doing any real work.
 
-    Fixed-window via INCR+EXPIRE: only the request that opens a new window
-    (count == 1) sets the TTL, so later hits in the same window don't keep
-    pushing the reset time back. There's a theoretical race between two
-    simultaneous first-hits both seeing count == 1 and both calling EXPIRE —
-    harmless here since they'd set the same TTL value anyway.
+    Fixed-window via INCR+EXPIRE, issued as one MULTI/EXEC pipeline so a
+    process restart (e.g. uvicorn --reload) can never land between the two
+    commands and leave the key stuck at a high count with no TTL — that
+    previously meant a key made so could never reset. EXPIRE's NX flag also
+    makes this idempotent: only sets the TTL if the key doesn't already have
+    one, so later hits in the same window don't keep pushing the reset time
+    back.
     """
     full_key = f"ratelimit:{key}"
-    count = await redis_client.incr(full_key)
-    if count == 1:
-        await redis_client.expire(full_key, window_seconds)
+    pipe = redis_client.pipeline()
+    pipe.incr(full_key)
+    pipe.expire(full_key, window_seconds, nx=True)
+    count, _ = await pipe.execute()
     if count > limit:
         retry_after = await redis_client.ttl(full_key)
         raise HTTPException(

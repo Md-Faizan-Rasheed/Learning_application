@@ -78,7 +78,10 @@ class _CustomizeSheetContentState extends State<_CustomizeSheetContent> {
               Text(
                 t.mazeCustomizeScreenTitle,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(color: MazeColors.textPrimary),
               ),
               const SizedBox(height: 16),
               for (final def in kMazeCharacterSkins) ...[
@@ -163,7 +166,7 @@ class _SkinTile extends StatelessWidget {
                 child: Text(
                   name,
                   style: TextStyle(
-                    color: Colors.white.withValues(alpha: dim),
+                    color: MazeColors.textPrimary.withValues(alpha: unlocked ? 1 : 0.72),
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -171,7 +174,7 @@ class _SkinTile extends StatelessWidget {
               if (!unlocked)
                 Text(
                   t.mazeSkinLockedAtLevel(def.unlockLevel),
-                  style: TextStyle(color: Colors.white.withValues(alpha: dim), fontSize: 11),
+                  style: TextStyle(color: MazeColors.textSecondary, fontSize: 11),
                 )
               else if (selected)
                 const Icon(Icons.check_circle_rounded, color: MazeColors.star, size: 20),

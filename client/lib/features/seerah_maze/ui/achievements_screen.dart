@@ -143,7 +143,7 @@ class _AchievementTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dim = unlocked ? 1.0 : 0.45;
+    final dim = unlocked ? 1.0 : 0.72;
     return Semantics(
       label: '$title. $description. ${unlocked ? unlockedLabel : lockedLabel}.',
       excludeSemantics: true,
@@ -162,12 +162,12 @@ class _AchievementTile extends StatelessWidget {
               decoration: BoxDecoration(
                 color: unlocked
                     ? MazeColors.star.withValues(alpha: 0.2)
-                    : Colors.white.withValues(alpha: 0.06),
+                    : MazeColors.textPrimary.withValues(alpha: 0.06),
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 icon,
-                color: unlocked ? MazeColors.star : Colors.white.withValues(alpha: dim),
+                color: unlocked ? MazeColors.star : MazeColors.textPrimary.withValues(alpha: dim),
                 size: 24,
               ),
             ),
@@ -179,15 +179,17 @@ class _AchievementTile extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: dim),
+                      color: MazeColors.textPrimary.withValues(alpha: dim),
                       fontWeight: FontWeight.w800,
                     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     description,
-                    style:
-                        TextStyle(color: Colors.white.withValues(alpha: dim * 0.75), fontSize: 12),
+                    style: TextStyle(
+                      color: MazeColors.textSecondary.withValues(alpha: unlocked ? 1 : 0.9),
+                      fontSize: 12,
+                    ),
                   ),
                   if (!unlocked) ...[
                     const SizedBox(height: 8),
@@ -196,7 +198,7 @@ class _AchievementTile extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: progress,
                         minHeight: 5,
-                        backgroundColor: Colors.white.withValues(alpha: 0.08),
+                        backgroundColor: MazeColors.textPrimary.withValues(alpha: 0.12),
                         color: MazeColors.wall,
                       ),
                     ),

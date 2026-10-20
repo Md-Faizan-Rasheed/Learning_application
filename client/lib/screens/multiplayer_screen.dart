@@ -49,6 +49,8 @@ class MultiplayerScreen extends StatefulWidget {
     this.maxSeats = kMultiplayerMaxSeats,
     this.roomCode,
     this.campaignStageId,
+    this.campaignQuestionStart,
+    this.campaignQuestionEnd,
   });
 
   final String lang;
@@ -71,6 +73,8 @@ class MultiplayerScreen extends StatefulWidget {
   /// event_framework_tags.tag_value), and what CampaignMapScreen has on
   /// hand for each stage it lists.
   final String? campaignStageId;
+  final int? campaignQuestionStart;
+  final int? campaignQuestionEnd;
 
   @override
   State<MultiplayerScreen> createState() => _MultiplayerScreenState();
@@ -88,6 +92,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
   int? _selectedIndex;
   RoundResult? _roundResult;
   int _questionNumber = 0;
+  int _totalQuestionCount = 8;
   int _combo = 0;
 
   // Campaign mode only — stay at their initial values (never read) for
@@ -186,6 +191,11 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
           category: widget.category,
           difficulty: widget.difficulty,
           stageSlug: widget.campaignStageId,
+          questionStart: widget.campaignQuestionStart,
+          questionEnd: widget.campaignQuestionEnd,
+          onError: (_) => _failAndLeave(
+            AppLocalizations.of(context)!.campaignQuizUnavailable,
+          ),
         );
         break;
 
@@ -262,6 +272,7 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
 
     setState(() {
       _question = question;
+      _totalQuestionCount = data['total_rounds'] as int? ?? _totalQuestionCount;
       _remainingTimeMs = question.timeMs;
       _submitted = false;
       _selectedIndex = null;
@@ -289,7 +300,8 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
   void _handleStageMomentum(Map<String, dynamic> data) {
     if (!mounted) return;
     setState(() {
-      _campaignMomentum = (data['momentum'] as num?)?.toInt() ?? _campaignMomentum;
+      _campaignMomentum =
+          (data['momentum'] as num?)?.toInt() ?? _campaignMomentum;
       _campaignStreak = (data['streak'] as num?)?.toInt() ?? _campaignStreak;
     });
   }
@@ -493,6 +505,10 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
     if (!mounted) return;
 
     debugPrint('Resume snapshot: $data');
+    final totalRounds = data['total_rounds'];
+    if (totalRounds is int && totalRounds > 0) {
+      setState(() => _totalQuestionCount = totalRounds);
+    }
   }
 
   /// Fastest correct answer, closest round, and biggest single-round rank
@@ -867,7 +883,17 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
                     children: [
                       Flexible(
                         child: Text(
-                          t.mpQuestionNumber(_questionNumber),
+                          widget.campaignStageId != null
+                              ? t.campaignQuestionProgress(
+                                  _questionNumber,
+                                  widget.campaignQuestionEnd != null &&
+                                          widget.campaignQuestionStart != null
+                                      ? widget.campaignQuestionEnd! -
+                                          widget.campaignQuestionStart! +
+                                          1
+                                      : _totalQuestionCount,
+                                )
+                              : t.mpQuestionNumber(_questionNumber),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
@@ -1020,7 +1046,8 @@ class _MultiplayerScreenState extends State<MultiplayerScreen>
             children: [
               won
                   ? const MedalIcon(size: 56)
-                  : Icon(Icons.flag_rounded, size: 56, color: AppPalette.inkMuted),
+                  : Icon(Icons.flag_rounded,
+                      size: 56, color: AppPalette.inkMuted),
               const SizedBox(height: 8),
               Text(
                 myStanding == null
@@ -1407,7 +1434,9 @@ class _ComboBadge extends StatelessWidget {
           Text(
             AppLocalizations.of(context)!.mpComboX(combo),
             style: const TextStyle(
-                color: AppPalette.ink, fontWeight: FontWeight.w800, fontSize: 12),
+                color: AppPalette.ink,
+                fontWeight: FontWeight.w800,
+                fontSize: 12),
           ),
         ],
       ),
@@ -1451,9 +1480,10 @@ class _CampaignMomentumBar extends StatelessWidget {
                   builder: (context, value, _) => LinearProgressIndicator(
                     value: value,
                     minHeight: 8,
-                    backgroundColor: AppPalette.borderTaupe.withValues(alpha: 0.5),
-                    valueColor:
-                        const AlwaysStoppedAnimation<Color>(AppPalette.deepTeal),
+                    backgroundColor:
+                        AppPalette.borderTaupe.withValues(alpha: 0.5),
+                    valueColor: const AlwaysStoppedAnimation<Color>(
+                        AppPalette.deepTeal),
                   ),
                 ),
               ),
@@ -1484,15 +1514,17 @@ class _RoundResultBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final ok = answered && correct;
-    final color =
-        !answered ? AppPalette.inkMuted : (ok ? AppPalette.correctGold : AppPalette.incorrectRed);
+    final color = !answered
+        ? AppPalette.inkMuted
+        : (ok ? AppPalette.correctGold : AppPalette.incorrectRed);
 
     return Column(
       children: [
         Container(
           padding: const EdgeInsets.all(14),
           decoration: cardStockDecoration(
-            color: Color.alphaBlend(color.withValues(alpha: 0.10), AppPalette.cardStock),
+            color: Color.alphaBlend(
+                color.withValues(alpha: 0.10), AppPalette.cardStock),
             borderColor: color.withValues(alpha: 0.4),
           ),
           child: Row(
@@ -1529,7 +1561,9 @@ class _RoundResultBanner extends StatelessWidget {
                 rankShift! > 0
                     ? Icons.arrow_upward_rounded
                     : Icons.arrow_downward_rounded,
-                color: rankShift! > 0 ? AppPalette.deepTeal : AppPalette.incorrectRed,
+                color: rankShift! > 0
+                    ? AppPalette.deepTeal
+                    : AppPalette.incorrectRed,
                 size: 16,
               ),
               const SizedBox(width: 4),
@@ -1538,7 +1572,9 @@ class _RoundResultBanner extends StatelessWidget {
                     ? t.mpRankUp(rankShift!)
                     : t.mpRankDown(-rankShift!),
                 style: TextStyle(
-                  color: rankShift! > 0 ? AppPalette.deepTeal : AppPalette.incorrectRed,
+                  color: rankShift! > 0
+                      ? AppPalette.deepTeal
+                      : AppPalette.incorrectRed,
                   fontWeight: FontWeight.w700,
                   fontSize: 12.5,
                 ),
@@ -1703,8 +1739,7 @@ class _CardTableLobby extends StatelessWidget {
               ),
               for (var seat = 0; seat < seatCap; seat++)
                 Builder(builder: (context) {
-                  final angle =
-                      (2 * math.pi * seat / seatCap) - (math.pi / 2);
+                  final angle = (2 * math.pi * seat / seatCap) - (math.pi / 2);
                   final dx = orbitRadius * math.cos(angle);
                   final dy = orbitRadius * math.sin(angle);
                   final player = bySeat[seat];

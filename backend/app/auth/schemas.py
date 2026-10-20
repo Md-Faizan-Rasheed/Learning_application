@@ -25,6 +25,29 @@ class RegisterIn(BaseModel):
         return self.role in ("player", "teacher")
 
 
+class SignupIn(BaseModel):
+    """Request contract for the new public signup flow.
+
+    Keep this separate from RegisterIn so the new endpoint accepts only the
+    product-facing roles while the legacy /auth/register contract remains
+    unchanged for older clients.
+    """
+
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=128)
+    display_name: str = Field(min_length=1, max_length=64)
+    gender: str
+    role: str
+
+    @property
+    def gender_ok(self) -> bool:
+        return self.gender in ("male", "female")
+
+    @property
+    def role_ok(self) -> bool:
+        return self.role in ("student", "teacher")
+
+
 class LoginIn(BaseModel):
     email: EmailStr
     password: str

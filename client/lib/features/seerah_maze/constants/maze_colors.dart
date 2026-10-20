@@ -17,6 +17,12 @@ class MazeColors {
   static Color get boardPanelShadow => AppPalette.shadowInk;
   static const boardBorder = AppPalette.borderTaupe;
 
+  // Text used on boardPanel/cardStock surfaces. Keep these dark: white text
+  // was nearly invisible on the light parchment cards in mode/customize/
+  // achievements screens.
+  static const textPrimary = AppPalette.ink;
+  static Color get textSecondary => AppPalette.inkMuted;
+
   static const wall = AppPalette.mutedGold;
   static Color get wallGlow => AppPalette.mutedGold.withValues(alpha: 0.45);
   static const wallOutline = AppPalette.ink;

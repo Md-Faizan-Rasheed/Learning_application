@@ -102,6 +102,28 @@ async def get_stage_id_by_slug(db: AsyncSession, slug: str) -> str | None:
     return str(row[0]) if row else None
 
 
+async def get_stage_question_count(db: AsyncSession, slug: str) -> int:
+    """Count active, live Seerah questions currently available for a stage."""
+    row = (
+        await db.execute(
+            text(
+                """
+                SELECT count(DISTINCT q.id)
+                FROM event_framework_tags eft
+                JOIN questions q ON q.event_id = eft.event_id AND q.review_state = 'live'
+                JOIN categories c ON c.id = q.category_id
+                WHERE eft.framework = 'movement_stage'
+                  AND eft.tag_value = :slug
+                  AND c.slug = 'seerah'
+                  AND c.is_active = TRUE
+                """
+            ),
+            {"slug": slug},
+        )
+    ).scalar_one()
+    return int(row or 0)
+
+
 async def get_stage_by_id(db: AsyncSession, stage_id: str) -> dict | None:
     row = (
         await db.execute(
@@ -282,11 +304,13 @@ async def get_stages_for_user(db: AsyncSession, user_id: str) -> list[dict]:
                        COALESCE(csp.target, 100) AS target,
                        csp.completed_at,
                        (
-                           SELECT count(*)
+                           SELECT count(DISTINCT q.id)
                            FROM event_framework_tags eft
                            JOIN questions q
                                 ON q.event_id = eft.event_id AND q.review_state = 'live'
+                           JOIN categories c ON c.id = q.category_id
                            WHERE eft.tag_value = cs.slug AND eft.framework = 'movement_stage'
+                             AND c.slug = 'seerah' AND c.is_active = TRUE
                        ) AS question_count
                 FROM campaign_stages cs
                 LEFT JOIN campaign_stage_progress csp

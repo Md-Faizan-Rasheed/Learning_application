@@ -1,11 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-import 'api/game_api.dart' show kApiBaseUrl;
 import 'api/profile_api.dart';
 import 'auth/auth_screen.dart';
 import 'auth/auth_service.dart';
@@ -23,6 +20,7 @@ import 'screens/teacher/teacher_home_screen.dart';
 import 'features/seerah_maze/ui/level_select_screen.dart';
 import 'screens/find_my_ayah_screen.dart';
 import 'screens/names_on_water_screen.dart';
+import 'screens/prophet_names_on_water_screen.dart';
 import 'screens/word_search_screen.dart';
 import 'services/tap_through_logger.dart';
 import 'theme/app_theme.dart';
@@ -34,10 +32,10 @@ import 'widgets/ambient_backdrop.dart';
 import 'widgets/card_stock.dart';
 import 'widgets/category_options.dart';
 import 'widgets/continue_arrow_icon.dart';
-import 'widgets/category_picker_dialog.dart';
 import 'widgets/fade_scroll_edge.dart';
 import 'widgets/language_picker.dart';
 import 'widgets/names_of_allah_mode_sheet.dart';
+import 'widgets/prophet_names_mode_sheet.dart';
 import 'widgets/reward_card.dart';
 import 'widgets/word_search_difficulty_sheet.dart';
 
@@ -52,6 +50,13 @@ const String _kSentryDsn =
 // removing any of the feature's code; remove this constant entirely once
 // Campaign Mode is a permanent, unconditional part of the nav.
 const bool kCampaignModeEnabled = true;
+
+// Anonymous Home is enabled by default now that account-required actions have
+// sign-in gates. Disable with --dart-define=ANONYMOUS_HOME_ENABLED=false.
+const bool kAnonymousHomeEnabled = bool.fromEnvironment(
+  'ANONYMOUS_HOME_ENABLED',
+  defaultValue: true,
+);
 
 Future<void> main() async {
   await SentryFlutter.init(
@@ -117,12 +122,23 @@ class _IslamicGameAppState extends State<IslamicGameApp> {
                             setState(() {});
                           },
                         ))
-              : AuthScreen(
-                  auth: _auth,
-                  onSignedIn: (_) => setState(() {}),
-                  currentLang: _locale.languageCode,
-                  onLocaleChange: _setLocale,
-                ),
+              : kAnonymousHomeEnabled
+                  ? HomeScreen(
+                      auth: _auth,
+                      currentLang: _locale.languageCode,
+                      onLocaleChange: _setLocale,
+                      onSignOut: () async {
+                        await _auth.signOut();
+                        setState(() {});
+                      },
+                      onSignedIn: (_) => setState(() {}),
+                    )
+                  : AuthScreen(
+                      auth: _auth,
+                      onSignedIn: (_) => setState(() {}),
+                      currentLang: _locale.languageCode,
+                      onLocaleChange: _setLocale,
+                    ),
     );
   }
 }
@@ -134,12 +150,14 @@ class HomeScreen extends StatefulWidget {
     required this.currentLang,
     required this.onLocaleChange,
     required this.onSignOut,
+    this.onSignedIn,
   });
 
   final AuthService auth;
   final String currentLang;
   final void Function(Locale) onLocaleChange;
   final Future<void> Function() onSignOut;
+  final void Function(Session)? onSignedIn;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -147,10 +165,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  bool _healthLoading = true;
-  bool _healthOk = false;
-  String? _healthError;
-
   bool _profileLoading = true;
   Profile? _profile;
   List<Quest> _quests = [];
@@ -168,7 +182,6 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    _checkHealth();
     _loadProfileAndQuests();
 
     _animationController = AnimationController(
@@ -210,33 +223,12 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
-  Future<void> _checkHealth() async {
-    setState(() {
-      _healthLoading = true;
-      _healthError = null;
-    });
-    try {
-      final res = await http
-          .get(Uri.parse('$kApiBaseUrl/health'))
-          .timeout(const Duration(seconds: 5));
-      final body =
-          jsonDecode(utf8.decode(res.bodyBytes)) as Map<String, dynamic>;
-      setState(() {
-        _healthOk = body['status'] == 'ok';
-        _healthLoading = false;
-      });
-    } catch (e) {
-      setState(() {
-        _healthOk = false;
-        _healthError = e.toString();
-        _healthLoading = false;
-      });
-    }
-  }
-
   Future<void> _loadProfileAndQuests() async {
     final token = widget.auth.current?.token;
-    if (token == null) return;
+    if (token == null) {
+      _profileLoading = false;
+      return;
+    }
     setState(() => _profileLoading = true);
 
     Profile? profile;
@@ -277,17 +269,12 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  Future<void> _openPracticeWithPicker() async {
-    final token = widget.auth.current?.token;
-    if (token == null) return;
-    final category = await showCategoryPicker(context, token: token);
-    if (category == null || !mounted) return;
-    _openPractice(category);
-  }
-
   void _openMultiplayer() {
     final token = widget.auth.current?.token;
-    if (token == null) return;
+    if (token == null) {
+      _showSignInPrompt();
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => MultiplayerChoiceScreen(
@@ -300,7 +287,10 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _openProfile() {
-    if (widget.auth.current == null) return;
+    if (widget.auth.current == null) {
+      _showSignInPrompt();
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => ProfileScreen(
@@ -317,8 +307,56 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  void _openAuth({required bool startInRegister}) {
+    Navigator.of(context).push<void>(
+      MaterialPageRoute(
+        builder: (authContext) => AuthScreen(
+          auth: widget.auth,
+          startInRegister: startInRegister,
+          currentLang: widget.currentLang,
+          onLocaleChange: widget.onLocaleChange,
+          onSignedIn: (session) {
+            Navigator.of(authContext).pop();
+            widget.onSignedIn?.call(session);
+            if (session.role == 'player' && mounted) {
+              _loadProfileAndQuests();
+            }
+          },
+        ),
+      ),
+    );
+  }
+
+  Future<void> _showSignInPrompt() async {
+    if (widget.auth.isSignedIn) return;
+    final t = AppLocalizations.of(context)!;
+    final createAccount = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        icon: const Icon(Icons.lock_outline_rounded),
+        title: Text(t.authRequiredTitle),
+        content: Text(t.authRequiredMessage),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: Text(t.homeLogIn),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: Text(t.homeSignUp),
+          ),
+        ],
+      ),
+    );
+    if (!mounted || createAccount == null) return;
+    _openAuth(startInRegister: createAccount);
+  }
+
   void _openQuests() {
-    if (widget.auth.current == null) return;
+    if (widget.auth.current == null) {
+      _showSignInPrompt();
+      return;
+    }
     Navigator.of(context)
         .push(MaterialPageRoute(
             builder: (_) => QuestsScreen(token: widget.auth.current!.token)))
@@ -326,7 +364,10 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _openCampaign() {
-    if (widget.auth.current == null) return;
+    if (widget.auth.current == null) {
+      _showSignInPrompt();
+      return;
+    }
     Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => CampaignMapScreen(
         token: widget.auth.current!.token,
@@ -337,7 +378,10 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _openAssignedQuizzes() {
-    if (widget.auth.current == null) return;
+    if (widget.auth.current == null) {
+      _showSignInPrompt();
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => AssignedQuizzesScreen(
@@ -390,13 +434,33 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  Future<void> _openProphetNames() async {
+    final choice = await showProphetNamesModePicker(context);
+    if (choice == null || !mounted) return;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => ProphetNamesOnWaterScreen(
+          token: widget.auth.current?.token,
+          chapterIndex: choice.chapterIndex,
+        ),
+      ),
+    );
+  }
+
   void _openLeaderboard() {
-    if (widget.auth.current == null) return;
+    if (widget.auth.current == null) {
+      _showSignInPrompt();
+      return;
+    }
     Navigator.of(context).push(MaterialPageRoute(
         builder: (_) => LeaderboardScreen(token: widget.auth.current!.token)));
   }
 
   void _openAchievements(Profile profile) {
+    if (widget.auth.current == null) {
+      _showSignInPrompt();
+      return;
+    }
     Navigator.of(context).push(MaterialPageRoute(
         builder: (_) => AchievementsScreen(profile: profile)));
   }
@@ -404,18 +468,15 @@ class _HomeScreenState extends State<HomeScreen>
   void _onNavTap(int index) {
     switch (index) {
       case 1:
-        _openPracticeWithPicker();
-        break;
-      case 2:
         _openQuests();
         break;
-      case 3:
+      case 2:
         _openLeaderboard();
         break;
-      case 4:
+      case 3:
         _openProfile();
         break;
-      case 5:
+      case 4:
         _openCampaign();
         break;
     }
@@ -432,24 +493,43 @@ class _HomeScreenState extends State<HomeScreen>
 
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        height: 76,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        backgroundColor: AppPalette.cardStock,
+        indicatorColor: AppPalette.deepTealMuted,
+        indicatorShape: const StadiumBorder(),
+        surfaceTintColor: Colors.transparent,
+        shadowColor: AppPalette.shadowInk,
+        elevation: 10,
         selectedIndex: 0,
         onDestinationSelected: _onNavTap,
         destinations: [
           NavigationDestination(
-              icon: const Icon(Icons.home_rounded), label: t.navHome),
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home_rounded),
+            label: t.navHome,
+          ),
           NavigationDestination(
-              icon: const Icon(Icons.play_circle_outline_rounded),
-              label: t.navPractice),
+            icon: const Icon(Icons.menu_book_outlined),
+            selectedIcon: const Icon(Icons.menu_book_rounded),
+            label: t.navLearn,
+          ),
           NavigationDestination(
-              icon: const Icon(Icons.checklist_rounded), label: t.navLearn),
+            icon: const Icon(Icons.leaderboard_outlined),
+            selectedIcon: const Icon(Icons.leaderboard_rounded),
+            label: t.navLeaderboard,
+          ),
           NavigationDestination(
-              icon: const Icon(Icons.leaderboard_rounded),
-              label: t.navLeaderboard),
-          NavigationDestination(
-              icon: const Icon(Icons.person_rounded), label: t.navProfile),
+            icon: const Icon(Icons.person_outline_rounded),
+            selectedIcon: const Icon(Icons.person_rounded),
+            label: t.navProfile,
+          ),
           if (kCampaignModeEnabled)
             NavigationDestination(
-                icon: const Icon(Icons.map_rounded), label: t.navCampaign),
+              icon: const Icon(Icons.map_outlined),
+              selectedIcon: const Icon(Icons.map_rounded),
+              label: t.navCampaign,
+            ),
         ],
       ),
       body: Stack(
@@ -468,7 +548,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      _buildHeroHeader(context, t, name, profile, level),
+                      _buildHeroHeader(context, t, name, profile, level, width),
                       Center(
                         child: ConstrainedBox(
                           constraints: BoxConstraints(
@@ -479,35 +559,32 @@ class _HomeScreenState extends State<HomeScreen>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                if (!_healthLoading && !_healthOk) ...[
-                                  _buildConnectionError(t),
-                                  const SizedBox(height: 20),
-                                ],
                                 // Highest-priority action first: playing with
-                                // others is a full screen-width tap away,
-                                // not buried in the Quick Play scroller below.
+                                // others is a full screen-width tap away.
                                 _buildMultiplayerCta(context, t),
                                 const SizedBox(height: 24),
-                                _sectionTitle(context, t.homeTodaysJourney),
+                                _sectionTitle(context, t.homeQuickPlay),
                                 const SizedBox(height: 12),
-                                _buildJourney(context, t),
+                                _buildQuickPlay(context, t),
                                 const SizedBox(height: 28),
                                 if (!_profileLoading) ...[
                                   _buildDailyChallenge(context, t),
                                   const SizedBox(height: 28),
                                 ],
-                                _sectionTitle(context, t.homeQuickPlay),
+                                _sectionTitle(context, t.homeTodaysJourney),
                                 const SizedBox(height: 12),
-                                _buildQuickPlay(context, t),
+                                _buildJourney(context, t),
                                 const SizedBox(height: 28),
                                 // Streak is already visible up in the hero
                                 // header — this card adds the one thing that
                                 // isn't shown there yet: progress to the next
                                 // level.
-                                RewardCard(
-                                    totalXp: profile.totalXp,
-                                    questsCompleted: const []),
-                                const SizedBox(height: 28),
+                                if (!_profileLoading) ...[
+                                  RewardCard(
+                                      totalXp: profile.totalXp,
+                                      questsCompleted: const []),
+                                  const SizedBox(height: 28),
+                                ],
                                 Row(
                                   children: [
                                     Expanded(
@@ -550,21 +627,27 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildHeroHeader(BuildContext context, AppLocalizations t, String name,
-      Profile profile, LevelInfo level) {
+      Profile profile, LevelInfo level, double width) {
     final colors = Theme.of(context).colorScheme;
     final media = MediaQuery.of(context);
-    final isMobile = media.size.width < 600;
+    final isMobile = width < 600;
 
     // Hug the real status-bar/notch inset instead of a flat guess — a fixed
     // value either leaves a gap on phones with a short status bar or, worse,
     // sits under a taller one on others.
     final topPadding = media.padding.top + (isMobile ? 10.0 : 16.0);
-    final avatarSize = isMobile ? 40.0 : 48.0;
-    final logoutIconSize = isMobile ? 20.0 : 24.0;
+    final avatarSize = isMobile ? 40.0 : 46.0;
 
     return Container(
       decoration: BoxDecoration(
-        color: colors.primary,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            colors.primary,
+            Color.lerp(colors.primary, AppPalette.ink, 0.18)!,
+          ],
+        ),
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
         boxShadow: [
           BoxShadow(
@@ -581,61 +664,113 @@ class _HomeScreenState extends State<HomeScreen>
               child: CustomPaint(
                 painter: GeometricPatternPainter(
                   color: AppPalette.mutedGold,
-                  opacity: 0.14,
+                  opacity: 0.09,
                 ),
               ),
             ),
-            Padding(
-              padding:
-                  EdgeInsets.fromLTRB(18, topPadding, 18, isMobile ? 16 : 22),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Row(
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1100),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(isMobile ? 18 : 28, topPadding,
+                      isMobile ? 18 : 28, isMobile ? 18 : 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      _BannerAvatar(name: name, size: avatarSize),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          name.isEmpty ? t.appTitle : _greeting(t, name),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: colors.onPrimary,
-                              fontSize: isMobile ? 17 : 19,
-                              fontWeight: FontWeight.w800),
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            width: avatarSize,
+                            height: avatarSize,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.14),
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.28)),
+                            ),
+                            child: const Icon(Icons.star_rounded,
+                                color: AppPalette.mutedGold, size: 27),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  t.appTitle,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: colors.onPrimary
+                                        .withValues(alpha: 0.72),
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 0.6,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  name.isEmpty
+                                      ? t.welcomeBack
+                                      : _greeting(t, name),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: colors.onPrimary,
+                                    fontSize: isMobile ? 17 : 20,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          LanguagePicker(
+                            currentLanguage: widget.currentLang,
+                            onLocaleChange: widget.onLocaleChange,
+                            compact: true,
+                          ),
+                          if (widget.auth.isSignedIn)
+                            _HeaderProfileMenu(
+                              name: name,
+                              size: avatarSize,
+                              onOpenProfile: _openProfile,
+                              onSignOut: widget.onSignOut,
+                            )
+                          else
+                            _HeaderAuthActions(
+                              onSignUp: () => _openAuth(startInRegister: true),
+                              onLogIn: () => _openAuth(startInRegister: false),
+                            ),
+                        ],
                       ),
-                      const SizedBox(width: 6),
-                      _HeaderOverflowMenu(
-                        currentLanguage: widget.currentLang,
-                        onLocaleChange: widget.onLocaleChange,
-                        onSignOut: widget.onSignOut,
-                        iconColor: colors.onPrimary,
-                        iconSize: logoutIconSize,
-                        compact: isMobile,
+                      SizedBox(height: isMobile ? 16 : 20),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _profileLoading
+                                ? const _HeroStatSkeleton()
+                                : _HeroStat(
+                                    icon: Icons.local_fire_department_rounded,
+                                    label:
+                                        t.rewardStreakDays(profile.streakDays),
+                                  ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: _profileLoading
+                                ? const _HeroStatSkeleton()
+                                : _HeroStat(
+                                    icon: Icons.stars_rounded,
+                                    label: t.levelWithTitle(
+                                        level.level, level.title(t)),
+                                  ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  SizedBox(height: isMobile ? 14 : 18),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: _HeroStat(
-                          icon: Icons.local_fire_department_rounded,
-                          label: t.rewardStreakDays(profile.streakDays),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: _HeroStat(
-                          icon: Icons.stars_rounded,
-                          label: t.levelWithTitle(level.level, level.title(t)),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                ),
               ),
             ),
           ],
@@ -963,6 +1098,15 @@ class _HomeScreenState extends State<HomeScreen>
         },
       ),
       _QuickPlayItem(
+        icon: Icons.menu_book_rounded,
+        title: t.prophetNamesQuickPlayTitle,
+        subtitle: t.prophetNamesQuickPlaySubtitle,
+        onTap: () {
+          logTap('prophet_names');
+          _openProphetNames();
+        },
+      ),
+      _QuickPlayItem(
         icon: Icons.auto_awesome_rounded,
         title: t.fmaQuickPlayTitle,
         subtitle: t.fmaQuickPlaySubtitle,
@@ -1085,141 +1229,87 @@ class _HomeScreenState extends State<HomeScreen>
       ],
     );
   }
+}
 
-  Widget _buildConnectionError(AppLocalizations t) {
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: AppPalette.incorrectRed.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(14),
-        border:
-            Border.all(color: AppPalette.incorrectRed.withValues(alpha: 0.25)),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Icon(Icons.error_outline,
-              color: AppPalette.incorrectRed, size: 20),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(t.backendUnreachable,
-                    style: const TextStyle(
-                        color: AppPalette.incorrectRed,
-                        fontWeight: FontWeight.w700)),
-                if (_healthError != null) ...[
-                  const SizedBox(height: 4),
-                  Text(_healthError!,
-                      style: TextStyle(
-                          color: AppPalette.incorrectRed, fontSize: 12)),
-                ],
-              ],
-            ),
+class _HeaderAuthActions extends StatelessWidget {
+  const _HeaderAuthActions({
+    required this.onSignUp,
+    required this.onLogIn,
+  });
+
+  final VoidCallback onSignUp;
+  final VoidCallback onLogIn;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final colors = Theme.of(context).colorScheme;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        TextButton(
+          onPressed: onLogIn,
+          style: TextButton.styleFrom(
+            foregroundColor: colors.onPrimary,
+            minimumSize: const Size(0, 40),
+            padding: const EdgeInsets.symmetric(horizontal: 7),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          TextButton(onPressed: _checkHealth, child: Text(t.retry)),
-        ],
-      ),
+          child: Text(
+            t.homeLogIn,
+            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
+          ),
+        ),
+        const SizedBox(width: 3),
+        FilledButton(
+          onPressed: onSignUp,
+          style: FilledButton.styleFrom(
+            backgroundColor: AppPalette.mutedGold,
+            foregroundColor: AppPalette.ink,
+            minimumSize: const Size(0, 40),
+            padding: const EdgeInsets.symmetric(horizontal: 9),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+          child: Text(
+            t.homeSignUp,
+            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
+          ),
+        ),
+      ],
     );
   }
 }
 
-/// Collapses the header's language and sign-out actions into one kebab
-/// menu. "Language" reopens as a second menu anchored on the same icon,
-/// reusing [kSupportedLanguages] so the choices stay in sync with
-/// [LanguagePicker] itself; "Sign out" calls [onSignOut] directly — both
-/// handlers are unchanged, only how they're triggered.
-class _HeaderOverflowMenu extends StatelessWidget {
-  const _HeaderOverflowMenu({
-    required this.currentLanguage,
-    required this.onLocaleChange,
+/// Opens the profile and sign-out actions from the home header avatar.
+class _HeaderProfileMenu extends StatelessWidget {
+  const _HeaderProfileMenu({
+    required this.name,
+    required this.size,
+    required this.onOpenProfile,
     required this.onSignOut,
-    required this.iconColor,
-    required this.iconSize,
-    required this.compact,
   });
 
-  final String currentLanguage;
-  final void Function(Locale) onLocaleChange;
+  final String name;
+  final double size;
+  final VoidCallback onOpenProfile;
   final Future<void> Function() onSignOut;
-  final Color iconColor;
-  final double iconSize;
-  final bool compact;
-
-  static const _kLanguageAction = 'language';
-  static const _kSignOutAction = 'sign_out';
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return PopupMenuButton<String>(
-      tooltip: MaterialLocalizations.of(context).showMenuTooltip,
-      icon: Icon(Icons.more_vert, color: iconColor, size: iconSize),
-      padding: EdgeInsets.all(compact ? 6 : 8),
+      tooltip: t.navProfile,
+      padding: const EdgeInsetsDirectional.only(start: 8),
       onSelected: (action) {
-        if (action == _kLanguageAction) {
-          _showLanguageMenu(context);
-        } else if (action == _kSignOutAction) {
-          onSignOut();
-        }
+        if (action == 'profile') onOpenProfile();
+        if (action == 'sign_out') onSignOut();
       },
       itemBuilder: (context) => [
-        PopupMenuItem(
-          value: _kLanguageAction,
-          child: Text(t.changeLanguage),
-        ),
-        PopupMenuItem(
-          value: _kSignOutAction,
-          child: Text(t.signOut),
-        ),
+        PopupMenuItem(value: 'profile', child: Text(t.navProfile)),
+        PopupMenuItem(value: 'sign_out', child: Text(t.signOut)),
       ],
+      child: _BannerAvatar(name: name, size: size),
     );
-  }
-
-  void _showLanguageMenu(BuildContext context) {
-    final box = context.findRenderObject() as RenderBox;
-    final overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
-    final position = RelativeRect.fromRect(
-      Rect.fromPoints(
-        box.localToGlobal(Offset.zero, ancestor: overlay),
-        box.localToGlobal(box.size.bottomRight(Offset.zero), ancestor: overlay),
-      ),
-      Offset.zero & overlay.size,
-    );
-    showMenu<Locale>(
-      context: context,
-      position: position,
-      items: [
-        for (final lang in kSupportedLanguages)
-          PopupMenuItem(
-            value: Locale(lang.code),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 24,
-                  child: lang.code == currentLanguage
-                      ? Icon(Icons.check,
-                          size: 18,
-                          color: Theme.of(context).colorScheme.primary)
-                      : null,
-                ),
-                const SizedBox(width: 6),
-                Text(
-                  lang.nativeName,
-                  style: TextStyle(
-                    fontWeight: lang.code == currentLanguage
-                        ? FontWeight.w800
-                        : FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          ),
-      ],
-    ).then((locale) {
-      if (locale != null) onLocaleChange(locale);
-    });
   }
 }
 
@@ -1231,29 +1321,56 @@ class _HeroStat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+      constraints: const BoxConstraints(minHeight: 54),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
       decoration: BoxDecoration(
-        color: AppPalette.cardStock,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppPalette.mutedGold, width: 1.5),
+        color: Colors.white.withValues(alpha: 0.13),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.22)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: AppPalette.mutedGold, size: 18),
-          const SizedBox(width: 6),
+          Icon(icon, color: AppPalette.mutedGold, size: 20),
+          const SizedBox(width: 8),
           Flexible(
             child: Text(
               label,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                  color: AppPalette.ink,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 13),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onPrimary,
+                fontWeight: FontWeight.w800,
+                fontSize: 13,
+              ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _HeroStatSkeleton extends StatelessWidget {
+  const _HeroStatSkeleton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 54,
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.11),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.16)),
+      ),
+      alignment: Alignment.center,
+      child: Container(
+        width: 86,
+        height: 10,
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.28),
+          borderRadius: BorderRadius.circular(8),
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'local_progress_preferences.dart';
+
 /// Local, per-device tracking of "Find My Ayah" engagement: which
 /// situations have ever been opened (drives the Explore tree's leaf-bloom
 /// tint and the Check In tab's "already seen" badge) and the calendar date
@@ -17,7 +19,8 @@ class FindMyAyahProgress {
 
   Future<Set<String>> visitedSituationIds() async {
     final prefs = await SharedPreferences.getInstance();
-    return (prefs.getStringList(_visitedKey) ?? const []).toSet();
+    final key = await LocalProgressPreferences.keyFor(_visitedKey);
+    return (prefs.getStringList(key) ?? const []).toSet();
   }
 
   /// Records [situationId] as opened. Returns true the first time this
@@ -26,10 +29,11 @@ class FindMyAyahProgress {
   /// to decide whether a discovery milestone was just crossed.
   Future<bool> markVisited(String situationId) async {
     final prefs = await SharedPreferences.getInstance();
+    final key = await LocalProgressPreferences.keyFor(_visitedKey);
     final visited = await visitedSituationIds();
     if (visited.contains(situationId)) return false;
     visited.add(situationId);
-    await prefs.setStringList(_visitedKey, visited.toList());
+    await prefs.setStringList(key, visited.toList());
     return true;
   }
 
@@ -39,13 +43,15 @@ class FindMyAyahProgress {
   /// only allows one "attempt" per day either way).
   Future<bool> isFirstCheckInToday() async {
     final prefs = await SharedPreferences.getInstance();
-    final last = prefs.getString(_lastCheckInKey);
+    final key = await LocalProgressPreferences.keyFor(_lastCheckInKey);
+    final last = prefs.getString(key);
     return last != _todayKey();
   }
 
   Future<void> markCheckedInToday() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_lastCheckInKey, _todayKey());
+    final key = await LocalProgressPreferences.keyFor(_lastCheckInKey);
+    await prefs.setString(key, _todayKey());
   }
 
   /// Whether the first-run "Tap a star to explore" hint has already been
@@ -53,12 +59,14 @@ class FindMyAyahProgress {
   /// novel enough to deserve a one-time nudge, but only ever the once.
   Future<bool> hasSeenExploreHint() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_seenExploreHintKey) ?? false;
+    final key = await LocalProgressPreferences.keyFor(_seenExploreHintKey);
+    return prefs.getBool(key) ?? false;
   }
 
   Future<void> markExploreHintSeen() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_seenExploreHintKey, true);
+    final key = await LocalProgressPreferences.keyFor(_seenExploreHintKey);
+    await prefs.setBool(key, true);
   }
 
   String _todayKey() {
@@ -80,7 +88,8 @@ const List<int> kFindMyAyahMilestones = [10, 20, 30, 40];
 /// ordinary check-in, a larger flat weight when a milestone was just
 /// crossed. Pure function so it's directly testable without touching
 /// SharedPreferences.
-int findMyAyahMilestoneWeight({required int visitedCountBefore, required int visitedCountAfter}) {
+int findMyAyahMilestoneWeight(
+    {required int visitedCountBefore, required int visitedCountAfter}) {
   for (final milestone in kFindMyAyahMilestones) {
     if (visitedCountBefore < milestone && visitedCountAfter >= milestone) {
       return 4;
