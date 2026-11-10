@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'api/profile_api.dart';
@@ -35,6 +36,7 @@ import 'widgets/continue_arrow_icon.dart';
 import 'widgets/fade_scroll_edge.dart';
 import 'widgets/language_picker.dart';
 import 'widgets/names_of_allah_mode_sheet.dart';
+import 'widgets/onboarding_tour.dart';
 import 'widgets/prophet_names_mode_sheet.dart';
 import 'widgets/reward_card.dart';
 import 'widgets/word_search_difficulty_sheet.dart';
@@ -173,6 +175,14 @@ class _HomeScreenState extends State<HomeScreen>
   static const _dailyAutoSwipeInterval = Duration(seconds: 5);
 
   final PageController _dailyPageController = PageController();
+  static const _onboardingSeenKey = 'home_onboarding_seen_v1';
+  final _multiplayerTourKey = GlobalKey(debugLabel: 'tour-multiplayer');
+  final _quickPlayTourKey = GlobalKey(debugLabel: 'tour-quick-play');
+  final _learnTourKey = GlobalKey(debugLabel: 'tour-learn');
+  final _leaderboardTourKey = GlobalKey(debugLabel: 'tour-leaderboard');
+  final _profileTourKey = GlobalKey(debugLabel: 'tour-profile');
+  final _campaignTourKey = GlobalKey(debugLabel: 'tour-campaign');
+  bool _showOnboarding = false;
   int _dailyPageIndex = 0;
   Timer? _dailyAutoSwipeTimer;
 
@@ -182,6 +192,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _checkFirstLaunch());
     _loadProfileAndQuests();
 
     _animationController = AnimationController(
@@ -193,6 +204,20 @@ class _HomeScreenState extends State<HomeScreen>
     _animationController!.forward();
     _scheduleDailyAutoSwipe();
   }
+
+  Future<void> _checkFirstLaunch() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (!mounted || prefs.getBool(_onboardingSeenKey) == true) return;
+    setState(() => _showOnboarding = true);
+  }
+
+  Future<void> _markOnboardingSeen() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_onboardingSeenKey, true);
+    if (mounted) setState(() => _showOnboarding = false);
+  }
+
+  void _replayOnboarding() => setState(() => _showOnboarding = true);
 
   @override
   void dispose() {
@@ -491,128 +516,216 @@ class _HomeScreenState extends State<HomeScreen>
             displayName: name, totalXp: 0, streakDays: 0, recentMatches: []);
     final level = levelForXp(profile.totalXp);
 
-    return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        height: 76,
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-        backgroundColor: AppPalette.cardStock,
-        indicatorColor: AppPalette.deepTealMuted,
-        indicatorShape: const StadiumBorder(),
-        surfaceTintColor: Colors.transparent,
-        shadowColor: AppPalette.shadowInk,
-        elevation: 10,
-        selectedIndex: 0,
-        onDestinationSelected: _onNavTap,
-        destinations: [
-          NavigationDestination(
-            icon: const Icon(Icons.home_outlined),
-            selectedIcon: const Icon(Icons.home_rounded),
-            label: t.navHome,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.menu_book_outlined),
-            selectedIcon: const Icon(Icons.menu_book_rounded),
-            label: t.navLearn,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.leaderboard_outlined),
-            selectedIcon: const Icon(Icons.leaderboard_rounded),
-            label: t.navLeaderboard,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.person_outline_rounded),
-            selectedIcon: const Icon(Icons.person_rounded),
-            label: t.navProfile,
-          ),
-          if (kCampaignModeEnabled)
-            NavigationDestination(
-              icon: const Icon(Icons.map_outlined),
-              selectedIcon: const Icon(Icons.map_rounded),
-              label: t.navCampaign,
+    return Stack(
+      children: [
+        ExcludeSemantics(
+          excluding: _showOnboarding,
+          child: Scaffold(
+            bottomNavigationBar: NavigationBar(
+              height: 76,
+              labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+              backgroundColor: AppPalette.cardStock,
+              indicatorColor: AppPalette.deepTealMuted,
+              indicatorShape: const StadiumBorder(),
+              surfaceTintColor: Colors.transparent,
+              shadowColor: AppPalette.shadowInk,
+              elevation: 10,
+              selectedIndex: 0,
+              onDestinationSelected: _onNavTap,
+              destinations: [
+                NavigationDestination(
+                  icon: const Icon(Icons.home_outlined),
+                  selectedIcon: const Icon(Icons.home_rounded),
+                  label: t.navHome,
+                ),
+                NavigationDestination(
+                  key: _learnTourKey,
+                  icon: const Icon(Icons.menu_book_outlined),
+                  selectedIcon: const Icon(Icons.menu_book_rounded),
+                  label: t.navLearn,
+                ),
+                NavigationDestination(
+                  key: _leaderboardTourKey,
+                  icon: const Icon(Icons.leaderboard_outlined),
+                  selectedIcon: const Icon(Icons.leaderboard_rounded),
+                  label: t.navLeaderboard,
+                ),
+                NavigationDestination(
+                  key: _profileTourKey,
+                  icon: const Icon(Icons.person_outline_rounded),
+                  selectedIcon: const Icon(Icons.person_rounded),
+                  label: t.navProfile,
+                ),
+                if (kCampaignModeEnabled)
+                  NavigationDestination(
+                    key: _campaignTourKey,
+                    icon: const Icon(Icons.map_outlined),
+                    selectedIcon: const Icon(Icons.map_rounded),
+                    label: t.navCampaign,
+                  ),
+              ],
             ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          const Positioned.fill(child: AmbientBackdrop()),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final width = constraints.maxWidth;
-              final isDesktop = width >= 900;
-              final isTablet = width >= 600 && width < 900;
-              final horizontalPadding =
-                  isDesktop ? 48.0 : (isTablet ? 32.0 : 18.0);
+            body: Stack(
+              children: [
+                const Positioned.fill(child: AmbientBackdrop()),
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    final width = constraints.maxWidth;
+                    final isDesktop = width >= 900;
+                    final isTablet = width >= 600 && width < 900;
+                    final horizontalPadding =
+                        isDesktop ? 48.0 : (isTablet ? 32.0 : 18.0);
 
-              return FadeTransition(
-                opacity: _fadeAnimation!,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      _buildHeroHeader(context, t, name, profile, level, width),
-                      Center(
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                              maxWidth: isDesktop ? 900 : double.infinity),
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                horizontalPadding, 18, horizontalPadding, 24),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                // Highest-priority action first: playing with
-                                // others is a full screen-width tap away.
-                                _buildMultiplayerCta(context, t),
-                                const SizedBox(height: 24),
-                                _sectionTitle(context, t.homeQuickPlay),
-                                const SizedBox(height: 12),
-                                _buildQuickPlay(context, t),
-                                const SizedBox(height: 28),
-                                if (!_profileLoading) ...[
-                                  _buildDailyChallenge(context, t),
-                                  const SizedBox(height: 28),
-                                ],
-                                _sectionTitle(context, t.homeTodaysJourney),
-                                const SizedBox(height: 12),
-                                _buildJourney(context, t),
-                                const SizedBox(height: 28),
-                                // Streak is already visible up in the hero
-                                // header — this card adds the one thing that
-                                // isn't shown there yet: progress to the next
-                                // level.
-                                if (!_profileLoading) ...[
-                                  RewardCard(
-                                      totalXp: profile.totalXp,
-                                      questsCompleted: const []),
-                                  const SizedBox(height: 28),
-                                ],
-                                Row(
-                                  children: [
-                                    Expanded(
-                                        child: _sectionTitle(
-                                            context, t.profileAchievements)),
-                                    TextButton(
-                                      onPressed: () =>
-                                          _openAchievements(profile),
-                                      child: Text(t.homeSeeAll),
-                                    ),
-                                  ],
+                    return FadeTransition(
+                      opacity: _fadeAnimation!,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            _buildHeroHeader(
+                                context, t, name, profile, level, width),
+                            Center(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                    maxWidth:
+                                        isDesktop ? 900 : double.infinity),
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB(
+                                      horizontalPadding,
+                                      18,
+                                      horizontalPadding,
+                                      24),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      // Highest-priority action first: playing with
+                                      // others is a full screen-width tap away.
+                                      KeyedSubtree(
+                                        key: _multiplayerTourKey,
+                                        child: _buildMultiplayerCta(context, t),
+                                      ),
+                                      const SizedBox(height: 24),
+                                      KeyedSubtree(
+                                        key: _quickPlayTourKey,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            _sectionTitle(
+                                                context, t.homeQuickPlay),
+                                            const SizedBox(height: 12),
+                                            _buildQuickPlay(context, t),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(height: 28),
+                                      if (!_profileLoading) ...[
+                                        _buildDailyChallenge(context, t),
+                                        const SizedBox(height: 28),
+                                      ],
+                                      _sectionTitle(
+                                          context, t.homeTodaysJourney),
+                                      const SizedBox(height: 12),
+                                      _buildJourney(context, t),
+                                      const SizedBox(height: 28),
+                                      // Streak is already visible up in the hero
+                                      // header — this card adds the one thing that
+                                      // isn't shown there yet: progress to the next
+                                      // level.
+                                      if (!_profileLoading) ...[
+                                        RewardCard(
+                                            totalXp: profile.totalXp,
+                                            questsCompleted: const []),
+                                        const SizedBox(height: 28),
+                                      ],
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                              child: _sectionTitle(context,
+                                                  t.profileAchievements)),
+                                          TextButton(
+                                            onPressed: () =>
+                                                _openAchievements(profile),
+                                            child: Text(t.homeSeeAll),
+                                          ),
+                                        ],
+                                      ),
+                                      _buildAchievements(context, t, profile),
+                                      const SizedBox(height: 20),
+                                      _buildDailyContentCarousel(context, t),
+                                    ],
+                                  ),
                                 ),
-                                _buildAchievements(context, t, profile),
-                                const SizedBox(height: 20),
-                                _buildDailyContentCarousel(context, t),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
-              );
-            },
+              ],
+            ),
           ),
-        ],
-      ),
+        ),
+        if (_showOnboarding)
+          OnboardingTour(
+            steps: [
+              OnboardingStep(
+                target: _multiplayerTourKey,
+                title: t.onboardingMultiplayerTitle,
+                description: t.onboardingMultiplayerBody,
+                icon: Icons.groups_rounded,
+                visual: OnboardingVisual.multiplayer,
+              ),
+              if (kCampaignModeEnabled)
+                OnboardingStep(
+                  target: _campaignTourKey,
+                  title: t.onboardingCampaignTitle,
+                  description: t.onboardingCampaignBody,
+                  icon: Icons.map_rounded,
+                  visual: OnboardingVisual.campaign,
+                ),
+              OnboardingStep(
+                target: _quickPlayTourKey,
+                title: t.onboardingQuickPlayTitle,
+                description: t.onboardingQuickPlayBody,
+                icon: Icons.flash_on_rounded,
+                visual: OnboardingVisual.quickPlay,
+              ),
+              OnboardingStep(
+                target: _profileTourKey,
+                title: t.onboardingProfileTitle,
+                description: t.onboardingProfileBody,
+                icon: Icons.person_rounded,
+                visual: OnboardingVisual.profile,
+              ),
+              OnboardingStep(
+                target: _leaderboardTourKey,
+                title: t.onboardingLeaderboardTitle,
+                description: t.onboardingLeaderboardBody,
+                icon: Icons.leaderboard_rounded,
+                visual: OnboardingVisual.leaderboard,
+              ),
+              OnboardingStep(
+                target: _learnTourKey,
+                title: t.onboardingLearnTitle,
+                description: t.onboardingLearnBody,
+                icon: Icons.menu_book_rounded,
+                visual: OnboardingVisual.learn,
+              ),
+            ],
+            skipLabel: t.onboardingSkip,
+            nextLabel: t.onboardingNext,
+            backLabel: t.onboardingBack,
+            finishLabel: t.onboardingFinish,
+            stepLabel: t.onboardingStepProgress,
+            doneTitle: t.onboardingDoneTitle,
+            doneDescription: t.onboardingDoneBody,
+            onSkip: _markOnboardingSeen,
+            onFinish: _markOnboardingSeen,
+          ),
+      ],
     );
   }
 
@@ -736,11 +849,26 @@ class _HomeScreenState extends State<HomeScreen>
                               size: avatarSize,
                               onOpenProfile: _openProfile,
                               onSignOut: widget.onSignOut,
+                              onReplayTutorial: _replayOnboarding,
                             )
                           else
-                            _HeaderAuthActions(
-                              onSignUp: () => _openAuth(startInRegister: true),
-                              onLogIn: () => _openAuth(startInRegister: false),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                _HeaderAuthActions(
+                                  onSignUp: () =>
+                                      _openAuth(startInRegister: true),
+                                  onLogIn: () =>
+                                      _openAuth(startInRegister: false),
+                                ),
+                                IconButton(
+                                  tooltip: t.onboardingHelp,
+                                  onPressed: _replayOnboarding,
+                                  visualDensity: VisualDensity.compact,
+                                  color: colors.onPrimary,
+                                  icon: const Icon(Icons.help_outline_rounded),
+                                ),
+                              ],
                             ),
                         ],
                       ),
@@ -1287,12 +1415,14 @@ class _HeaderProfileMenu extends StatelessWidget {
     required this.size,
     required this.onOpenProfile,
     required this.onSignOut,
+    required this.onReplayTutorial,
   });
 
   final String name;
   final double size;
   final VoidCallback onOpenProfile;
   final Future<void> Function() onSignOut;
+  final VoidCallback onReplayTutorial;
 
   @override
   Widget build(BuildContext context) {
@@ -1302,10 +1432,12 @@ class _HeaderProfileMenu extends StatelessWidget {
       padding: const EdgeInsetsDirectional.only(start: 8),
       onSelected: (action) {
         if (action == 'profile') onOpenProfile();
+        if (action == 'tutorial') onReplayTutorial();
         if (action == 'sign_out') onSignOut();
       },
       itemBuilder: (context) => [
         PopupMenuItem(value: 'profile', child: Text(t.navProfile)),
+        PopupMenuItem(value: 'tutorial', child: Text(t.onboardingReplay)),
         PopupMenuItem(value: 'sign_out', child: Text(t.signOut)),
       ],
       child: _BannerAvatar(name: name, size: size),

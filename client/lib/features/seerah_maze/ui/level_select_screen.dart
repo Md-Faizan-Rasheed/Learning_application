@@ -34,10 +34,12 @@ class SeerahMazeLevelSelectScreen extends StatefulWidget {
   const SeerahMazeLevelSelectScreen({super.key});
 
   @override
-  State<SeerahMazeLevelSelectScreen> createState() => _SeerahMazeLevelSelectScreenState();
+  State<SeerahMazeLevelSelectScreen> createState() =>
+      _SeerahMazeLevelSelectScreenState();
 }
 
-class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScreen> {
+class _SeerahMazeLevelSelectScreenState
+    extends State<SeerahMazeLevelSelectScreen> {
   static const _repository = MazeProgressRepository();
 
   MazeProgress _progress = const MazeProgress();
@@ -98,15 +100,40 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
     _repository.save(_progress);
   }
 
+  void _openHeaderAction(_MazeHeaderAction action) {
+    MazeAudioService.instance.playButtonTap();
+    switch (action) {
+      case _MazeHeaderAction.modes:
+        Navigator.of(context)
+            .push(
+                MaterialPageRoute(builder: (_) => const MazeModePickerScreen()))
+            .then((_) => _loadAchievementSideData());
+      case _MazeHeaderAction.library:
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => MazeLibraryScreen(
+              collectedFactLevelIds: _progress.collectedFactLevelIds,
+            ),
+          ),
+        );
+      case _MazeHeaderAction.achievements:
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const MazeAchievementsScreen()),
+        );
+      case _MazeHeaderAction.customize:
+        _openCustomizeSheet();
+    }
+  }
+
   void _onLevelCompleted(int levelId, int stars, int timeSeconds) {
     setState(() {
       final bestStars = (_progress.starsByLevel[levelId] ?? 0);
       final bestTime = _progress.bestTimeSecondsByLevel[levelId];
       _progress = _progress.copyWith(
-        highestUnlockedLevel:
-            levelId >= _progress.highestUnlockedLevel && levelId < kMazeLevels.length
-                ? levelId + 1
-                : _progress.highestUnlockedLevel,
+        highestUnlockedLevel: levelId >= _progress.highestUnlockedLevel &&
+                levelId < kMazeLevels.length
+            ? levelId + 1
+            : _progress.highestUnlockedLevel,
         starsByLevel: {
           ..._progress.starsByLevel,
           levelId: stars > bestStars ? stars : bestStars,
@@ -129,7 +156,8 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
     final unlocked = level.id <= _progress.highestUnlockedLevel;
     if (!unlocked) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.mazeLockedMessage)),
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!.mazeLockedMessage)),
       );
       return;
     }
@@ -170,85 +198,139 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: Transform.flip(
-                            flipX: Directionality.of(context) == TextDirection.rtl,
-                            child: const Icon(Icons.arrow_back_rounded, color: Colors.white),
-                          ),
-                          onPressed: () => Navigator.of(context).pop(),
-                        ),
-                        Expanded(
+                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final compact = constraints.maxWidth < 520;
+                        final pillBelow = constraints.maxWidth < 390;
+                        final pill = _ExplorerLevelAndStarsPill(
+                          totalStars: totalStars,
+                          levelInfo: _levelInfo,
+                        );
+
+                        Widget actionButton(_MazeHeaderAction action) {
+                          final (icon, label) = switch (action) {
+                            _MazeHeaderAction.modes => (
+                                Icons.grid_view_rounded,
+                                t.mazeModePickerButtonSemantics
+                              ),
+                            _MazeHeaderAction.library => (
+                                Icons.auto_stories_rounded,
+                                t.mazeLibraryButtonSemantics
+                              ),
+                            _MazeHeaderAction.achievements => (
+                                Icons.emoji_events_rounded,
+                                t.mazeAchievementsButtonSemantics
+                              ),
+                            _MazeHeaderAction.customize => (
+                                Icons.palette_rounded,
+                                t.mazeCustomizeButtonSemantics
+                              ),
+                          };
+                          return Semantics(
+                            button: true,
+                            label: label,
+                            child: IconButton(
+                              tooltip: label,
+                              icon: Icon(icon, color: Colors.white),
+                              onPressed: () => _openHeaderAction(action),
+                            ),
+                          );
+                        }
+
+                        final title = Expanded(
                           child: Text(
                             t.mazeScreenTitle,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                                color: Colors.white, fontWeight: FontWeight.w800, fontSize: 20),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 20,
+                            ),
                           ),
-                        ),
-                        Semantics(
-                          button: true,
-                          label: t.mazeModePickerButtonSemantics,
-                          child: IconButton(
-                            icon: const Icon(Icons.grid_view_rounded, color: Colors.white),
-                            onPressed: () {
-                              MazeAudioService.instance.playButtonTap();
-                              Navigator.of(context)
-                                  .push(
-                                    MaterialPageRoute(builder: (_) => const MazeModePickerScreen()),
+                        );
+                        final backButton = IconButton(
+                          tooltip: MaterialLocalizations.of(context)
+                              .backButtonTooltip,
+                          icon: Transform.flip(
+                            flipX:
+                                Directionality.of(context) == TextDirection.rtl,
+                            child: const Icon(Icons.arrow_back_rounded,
+                                color: Colors.white),
+                          ),
+                          onPressed: () => Navigator.of(context).pop(),
+                        );
+
+                        return Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              children: [
+                                backButton,
+                                title,
+                                if (compact)
+                                  PopupMenuButton<_MazeHeaderAction>(
+                                    tooltip: MaterialLocalizations.of(context)
+                                        .showMenuTooltip,
+                                    icon: const Icon(Icons.more_vert_rounded,
+                                        color: Colors.white),
+                                    onSelected: _openHeaderAction,
+                                    itemBuilder: (context) => [
+                                      PopupMenuItem(
+                                        value: _MazeHeaderAction.modes,
+                                        child: Text(
+                                            t.mazeModePickerButtonSemantics),
+                                      ),
+                                      PopupMenuItem(
+                                        value: _MazeHeaderAction.library,
+                                        child:
+                                            Text(t.mazeLibraryButtonSemantics),
+                                      ),
+                                      PopupMenuItem(
+                                        value: _MazeHeaderAction.achievements,
+                                        child: Text(
+                                            t.mazeAchievementsButtonSemantics),
+                                      ),
+                                      PopupMenuItem(
+                                        value: _MazeHeaderAction.customize,
+                                        child: Text(
+                                            t.mazeCustomizeButtonSemantics),
+                                      ),
+                                    ],
                                   )
-                                  .then((_) => _loadAchievementSideData());
-                            },
-                          ),
-                        ),
-                        Semantics(
-                          button: true,
-                          label: t.mazeLibraryButtonSemantics,
-                          child: IconButton(
-                            icon: const Icon(Icons.auto_stories_rounded, color: Colors.white),
-                            onPressed: () {
-                              MazeAudioService.instance.playButtonTap();
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => MazeLibraryScreen(
-                                    collectedFactLevelIds: _progress.collectedFactLevelIds,
-                                  ),
+                                else ...[
+                                  actionButton(_MazeHeaderAction.modes),
+                                  actionButton(_MazeHeaderAction.library),
+                                  actionButton(_MazeHeaderAction.achievements),
+                                  actionButton(_MazeHeaderAction.customize),
+                                  pill,
+                                ],
+                                if (compact && !pillBelow) pill,
+                              ],
+                            ),
+                            if (pillBelow)
+                              Padding(
+                                padding: const EdgeInsetsDirectional.only(
+                                    end: 8, top: 4),
+                                child: Align(
+                                  alignment: AlignmentDirectional.centerEnd,
+                                  child: pill,
                                 ),
-                              );
-                            },
-                          ),
-                        ),
-                        Semantics(
-                          button: true,
-                          label: t.mazeAchievementsButtonSemantics,
-                          child: IconButton(
-                            icon: const Icon(Icons.emoji_events_rounded, color: Colors.white),
-                            onPressed: () {
-                              MazeAudioService.instance.playButtonTap();
-                              Navigator.of(context).push(
-                                MaterialPageRoute(builder: (_) => const MazeAchievementsScreen()),
-                              );
-                            },
-                          ),
-                        ),
-                        Semantics(
-                          button: true,
-                          label: t.mazeCustomizeButtonSemantics,
-                          child: IconButton(
-                            icon: const Icon(Icons.palette_rounded, color: Colors.white),
-                            onPressed: _openCustomizeSheet,
-                          ),
-                        ),
-                        _ExplorerLevelAndStarsPill(totalStars: totalStars, levelInfo: _levelInfo),
-                      ],
+                              ),
+                          ],
+                        );
+                      },
                     ),
                   ),
                   Expanded(
                     child: _loading
-                        ? const Center(child: CircularProgressIndicator(color: Colors.white))
-                        : _JourneyPath(progress: _progress, onTapLevel: _openLevel),
+                        ? const Center(
+                            child:
+                                CircularProgressIndicator(color: Colors.white))
+                        : _JourneyPath(
+                            progress: _progress, onTapLevel: _openLevel),
                   ),
                 ],
               ),
@@ -260,13 +342,16 @@ class _SeerahMazeLevelSelectScreenState extends State<SeerahMazeLevelSelectScree
   }
 }
 
+enum _MazeHeaderAction { modes, library, achievements, customize }
+
 /// D2 — one pill, two readouts: the Explorer Level (with a thin
 /// progress-to-next-level bar) and the existing total-stars count,
 /// combined rather than added as a second header element so the row
 /// doesn't grow any more crowded than it already is. Tapping it opens
 /// Achievements (D1), since that's what most directly feeds the level.
 class _ExplorerLevelAndStarsPill extends StatelessWidget {
-  const _ExplorerLevelAndStarsPill({required this.totalStars, required this.levelInfo});
+  const _ExplorerLevelAndStarsPill(
+      {required this.totalStars, required this.levelInfo});
 
   final int totalStars;
   final ExplorerLevelInfo? levelInfo;
@@ -301,7 +386,8 @@ class _ExplorerLevelAndStarsPill extends StatelessWidget {
             children: [
               if (info != null) ...[
                 Text(t.mazeExplorerLevelLabel(info.level),
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.w700)),
                 const SizedBox(width: 5),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(999),
@@ -325,7 +411,8 @@ class _ExplorerLevelAndStarsPill extends StatelessWidget {
               const Icon(Icons.star_rounded, color: MazeColors.star, size: 16),
               const SizedBox(width: 4),
               Text('$totalStars/${kMazeLevels.length * 3}',
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+                  style: const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w700)),
             ],
           ),
         ),
@@ -356,7 +443,8 @@ class _JourneyPath extends StatefulWidget {
   State<_JourneyPath> createState() => _JourneyPathState();
 }
 
-class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixin {
+class _JourneyPathState extends State<_JourneyPath>
+    with TickerProviderStateMixin {
   late final AnimationController _pulseController;
   late final AnimationController _dotController;
   late final Animation<double> _pulseScale;
@@ -375,13 +463,14 @@ class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixi
   @override
   void initState() {
     super.initState();
-    _pulseController =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 1400))
-          ..repeat(reverse: true);
-    _pulseScale = Tween<double>(begin: 1.0, end: 1.05)
-        .animate(CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut));
-    _dotController = AnimationController(vsync: this, duration: const Duration(seconds: 6))
-      ..repeat();
+    _pulseController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1400))
+      ..repeat(reverse: true);
+    _pulseScale = Tween<double>(begin: 1.0, end: 1.05).animate(
+        CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut));
+    _dotController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 6))
+          ..repeat();
   }
 
   @override
@@ -396,7 +485,8 @@ class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixi
   /// down the viewport — "focus automatically centered on the current
   /// node" per the spec, biased slightly upward so the path ahead stays
   /// visible too, not just the path already walked.
-  void _centerOnCurrent(double targetY, double viewportHeight, double maxScrollExtent) {
+  void _centerOnCurrent(
+      double targetY, double viewportHeight, double maxScrollExtent) {
     if (_centeredOnce) return;
     _centeredOnce = true;
     final target = (targetY - viewportHeight / 3).clamp(0.0, maxScrollExtent);
@@ -414,27 +504,32 @@ class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixi
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final progress = widget.progress;
-    final currentLevelId = progress.highestUnlockedLevel.clamp(1, kMazeLevels.length);
+    final currentLevelId =
+        progress.highestUnlockedLevel.clamp(1, kMazeLevels.length);
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        final pathWidth =
-            (constraints.maxWidth - _horizontalPadding * 2).clamp(1.0, double.infinity);
+        final pathWidth = (constraints.maxWidth - _horizontalPadding * 2)
+            .clamp(1.0, double.infinity);
         final centers = <Offset>[];
         for (var i = 0; i < kMazeLevels.length; i++) {
           final level = kMazeLevels[i];
-          final diameter = level.id == currentLevelId ? _currentNodeDiameter : _nodeDiameter;
+          final diameter =
+              level.id == currentLevelId ? _currentNodeDiameter : _nodeDiameter;
           final radius = diameter / 2;
-          final x =
-              (pathWidth * _xFractions[i % _xFractions.length]).clamp(radius, pathWidth - radius);
+          final x = (pathWidth * _xFractions[i % _xFractions.length])
+              .clamp(radius, pathWidth - radius);
           final y = _topPadding + radius + i * _verticalSpacing;
           centers.add(Offset(x, y));
         }
-        final totalHeight =
-            centers.isEmpty ? 0.0 : centers.last.dy + _currentNodeDiameter / 2 + _bottomPadding;
+        final totalHeight = centers.isEmpty
+            ? 0.0
+            : centers.last.dy + _currentNodeDiameter / 2 + _bottomPadding;
         final viewportHeight = constraints.maxHeight;
-        final maxScrollExtent = (totalHeight - viewportHeight).clamp(0.0, double.infinity);
-        _centerOnCurrent(centers[currentLevelId - 1].dy, viewportHeight, maxScrollExtent);
+        final maxScrollExtent =
+            (totalHeight - viewportHeight).clamp(0.0, double.infinity);
+        _centerOnCurrent(
+            centers[currentLevelId - 1].dy, viewportHeight, maxScrollExtent);
 
         final segments = <CampaignPathSegment>[
           for (var i = 0; i < kMazeLevels.length - 1; i++)
@@ -456,7 +551,8 @@ class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixi
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  for (final chapter in kMazeChapters) _chapterBand(chapter, centers, pathWidth),
+                  for (final chapter in kMazeChapters)
+                    _chapterBand(chapter, centers, pathWidth),
                   Positioned.fill(
                     child: AnimatedBuilder(
                       animation: _dotController,
@@ -464,7 +560,8 @@ class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixi
                         painter: CampaignPathPainter(
                           segments: segments,
                           traveledColor: AppPalette.mutedGold,
-                          aheadColor: colors.outlineVariant.withValues(alpha: 0.4),
+                          aheadColor:
+                              colors.outlineVariant.withValues(alpha: 0.4),
                           dotProgress: _dotController.value,
                           dotColor: AppPalette.mutedGold,
                         ),
@@ -484,10 +581,13 @@ class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixi
                         animation: _pulseScale,
                         builder: (context, _) => _LevelNode(
                           level: kMazeLevels[i],
-                          unlocked: kMazeLevels[i].id <= progress.highestUnlockedLevel,
+                          unlocked: kMazeLevels[i].id <=
+                              progress.highestUnlockedLevel,
                           isCurrent: kMazeLevels[i].id == currentLevelId,
                           stars: progress.starsByLevel[kMazeLevels[i].id] ?? 0,
-                          pulseScale: kMazeLevels[i].id == currentLevelId ? _pulseScale.value : 1.0,
+                          pulseScale: kMazeLevels[i].id == currentLevelId
+                              ? _pulseScale.value
+                              : 1.0,
                           onTap: () => widget.onTapLevel(kMazeLevels[i]),
                         ),
                       ),
@@ -503,7 +603,8 @@ class _JourneyPathState extends State<_JourneyPath> with TickerProviderStateMixi
 
   /// A faint rounded band spanning every node in [chapter], with its era
   /// title pinned at the top — B1's "chapter regions".
-  Widget _chapterBand(MazeChapter chapter, List<Offset> centers, double pathWidth) {
+  Widget _chapterBand(
+      MazeChapter chapter, List<Offset> centers, double pathWidth) {
     final firstIndex = chapter.firstLevelId - 1;
     final lastIndex = chapter.lastLevelId - 1;
     if (firstIndex >= centers.length || lastIndex >= centers.length) {
@@ -577,7 +678,9 @@ class _LevelNode extends StatelessWidget {
       height: diameter,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: unlocked ? MazeColors.boardPanel : MazeColors.boardPanel.withValues(alpha: 0.45),
+        color: unlocked
+            ? MazeColors.boardPanel
+            : MazeColors.boardPanel.withValues(alpha: 0.45),
         border: Border.all(
           color: isCurrent ? MazeColors.wall : MazeColors.boardBorder,
           width: isCurrent ? 3 : 1.5,
@@ -585,7 +688,9 @@ class _LevelNode extends StatelessWidget {
         boxShadow: isCurrent
             ? [
                 BoxShadow(
-                    color: MazeColors.wall.withValues(alpha: 0.35), blurRadius: 18, spreadRadius: 2)
+                    color: MazeColors.wall.withValues(alpha: 0.35),
+                    blurRadius: 18,
+                    spreadRadius: 2)
               ]
             : null,
       ),
@@ -593,9 +698,12 @@ class _LevelNode extends StatelessWidget {
       child: Opacity(
         opacity: unlocked ? 1 : 0.55,
         child: Icon(
-          unlocked ? mazeDestinationIconFor(level.destinationKind) : Icons.lock_rounded,
-          color:
-              unlocked ? MazeColors.destinationIcon : MazeColors.wallOutline.withValues(alpha: 0.7),
+          unlocked
+              ? mazeDestinationIconFor(level.destinationKind)
+              : Icons.lock_rounded,
+          color: unlocked
+              ? MazeColors.destinationIcon
+              : MazeColors.wallOutline.withValues(alpha: 0.7),
           size: isCurrent ? 32 : 24,
         ),
       ),
@@ -606,7 +714,8 @@ class _LevelNode extends StatelessWidget {
       button: true,
       enabled: unlocked,
       label: unlocked
-          ? t.mazeLevelSemanticsUnlocked(level.id, levelText.character, levelText.destination) +
+          ? t.mazeLevelSemanticsUnlocked(
+                  level.id, levelText.character, levelText.destination) +
               (stars > 0 ? t.mazeStarsEarnedSuffix(stars) : '')
           : t.mazeLevelSemanticsLocked(level.id),
       // Without this, the node's own route-name/star Text children merge
@@ -637,12 +746,15 @@ class _LevelNode extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: MazeColors.wall,
-                        border: Border.all(color: MazeColors.boardPanel, width: 2),
+                        border:
+                            Border.all(color: MazeColors.boardPanel, width: 2),
                       ),
                       child: Text(
                         '${level.id}',
                         style: const TextStyle(
-                            fontSize: 11, fontWeight: FontWeight.w800, color: Colors.black),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black),
                       ),
                     ),
                   ),
@@ -658,7 +770,9 @@ class _LevelNode extends StatelessWidget {
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                color: unlocked ? Colors.white : Colors.white.withValues(alpha: 0.5),
+                color: unlocked
+                    ? Colors.white
+                    : Colors.white.withValues(alpha: 0.5),
               ),
             ),
             if (unlocked) ...[
@@ -670,7 +784,9 @@ class _LevelNode extends StatelessWidget {
                   (i) => Icon(
                     Icons.star_rounded,
                     size: 12,
-                    color: i < stars ? MazeColors.star : Colors.white.withValues(alpha: 0.25),
+                    color: i < stars
+                        ? MazeColors.star
+                        : Colors.white.withValues(alpha: 0.25),
                   ),
                 ),
               ),

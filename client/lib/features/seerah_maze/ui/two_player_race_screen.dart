@@ -26,9 +26,11 @@ import 'responsive/maze_breakpoints.dart';
 /// Deliberately plain, like the Daily puzzle: no mechanics, no
 /// persistence — this is a head-to-head for fun, not a tracked mode.
 class TwoPlayerRaceScreen extends StatefulWidget {
-  TwoPlayerRaceScreen({super.key, Random? random, MazeProgressRepository? progressRepository})
+  TwoPlayerRaceScreen(
+      {super.key, Random? random, MazeProgressRepository? progressRepository})
       : random = random ?? Random(),
-        progressRepository = progressRepository ?? const MazeProgressRepository();
+        progressRepository =
+            progressRepository ?? const MazeProgressRepository();
 
   final Random random;
 
@@ -60,7 +62,8 @@ class _TwoPlayerRaceScreenState extends State<TwoPlayerRaceScreen> {
   int _raceId = 0;
   void Function(MazeDirection)? _p1Mover;
   void Function(MazeDirection)? _p2Mover;
-  MazeCharacterSkinDef _skin = mazeCharacterSkinDefFor(MazeCharacterSkinId.traveler);
+  MazeCharacterSkinDef _skin =
+      mazeCharacterSkinDefFor(MazeCharacterSkinId.traveler);
 
   @override
   void initState() {
@@ -125,7 +128,8 @@ class _TwoPlayerRaceScreenState extends State<TwoPlayerRaceScreen> {
 
   Future<void> _showWinnerDialog(int player) async {
     final t = AppLocalizations.of(context)!;
-    final winnerName = player == 1 ? t.mazePlayerOneLabel : t.mazePlayerTwoLabel;
+    final winnerName =
+        player == 1 ? t.mazePlayerOneLabel : t.mazePlayerTwoLabel;
     final action = await showDialog<_RaceEndAction>(
       context: context,
       barrierDismissible: false,
@@ -213,7 +217,8 @@ class _TwoPlayerRaceScreenState extends State<TwoPlayerRaceScreen> {
         children: [
           Text(
             label,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 14),
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w800, fontSize: 14),
           ),
           Expanded(
             child: Padding(
@@ -263,8 +268,10 @@ class _TwoPlayerRaceScreenState extends State<TwoPlayerRaceScreen> {
                     children: [
                       IconButton(
                         icon: Transform.flip(
-                          flipX: Directionality.of(context) == TextDirection.rtl,
-                          child: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+                          flipX:
+                              Directionality.of(context) == TextDirection.rtl,
+                          child: const Icon(Icons.arrow_back_rounded,
+                              color: Colors.white),
                         ),
                         onPressed: () {
                           MazeAudioService.instance.playButtonTap();
@@ -276,32 +283,60 @@ class _TwoPlayerRaceScreenState extends State<TwoPlayerRaceScreen> {
                           t.mazeTwoPlayerTitle,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w800, fontSize: 18),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 18),
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.pause_circle_filled_rounded, color: Colors.white),
+                        icon: const Icon(Icons.pause_circle_filled_rounded,
+                            color: Colors.white),
                         onPressed: _onPause,
                       ),
                     ],
                   ),
                 ),
-                _playerColumn(
-                  playerIndex: 1,
-                  label: t.mazePlayerOneLabel,
-                  controller: _p1,
-                  onWon: () => _onPlayerWon(1),
-                  onMoveRequesterReady: (fn) => _p1Mover = fn,
-                  getMover: () => _p1Mover,
-                ),
-                const Divider(color: MazeColors.boardBorder, height: 1),
-                _playerColumn(
-                  playerIndex: 2,
-                  label: t.mazePlayerTwoLabel,
-                  controller: _p2,
-                  onWon: () => _onPlayerWon(2),
-                  onMoveRequesterReady: (fn) => _p2Mover = fn,
-                  getMover: () => _p2Mover,
+                Expanded(
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final landscape =
+                          constraints.maxWidth > constraints.maxHeight;
+                      final playerOne = _playerColumn(
+                        playerIndex: 1,
+                        label: t.mazePlayerOneLabel,
+                        controller: _p1,
+                        onWon: () => _onPlayerWon(1),
+                        onMoveRequesterReady: (fn) => _p1Mover = fn,
+                        getMover: () => _p1Mover,
+                      );
+                      final playerTwo = _playerColumn(
+                        playerIndex: 2,
+                        label: t.mazePlayerTwoLabel,
+                        controller: _p2,
+                        onWon: () => _onPlayerWon(2),
+                        onMoveRequesterReady: (fn) => _p2Mover = fn,
+                        getMover: () => _p2Mover,
+                      );
+                      if (landscape) {
+                        return Row(
+                          children: [
+                            playerOne,
+                            const VerticalDivider(
+                                color: MazeColors.boardBorder, width: 1),
+                            playerTwo,
+                          ],
+                        );
+                      }
+                      return Column(
+                        children: [
+                          playerOne,
+                          const Divider(
+                              color: MazeColors.boardBorder, height: 1),
+                          playerTwo,
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

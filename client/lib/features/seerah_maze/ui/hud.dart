@@ -90,7 +90,8 @@ class MazeHud extends StatelessWidget {
             maxLines: titleMaxLines,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 15),
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w800, fontSize: 15),
           ),
           const SizedBox(height: 2),
           Semantics(
@@ -128,7 +129,8 @@ class MazeHud extends StatelessWidget {
       );
 
   Widget _starsPill(AppLocalizations t) => Semantics(
-        label: t.mazeHudStarsSemantics(starsCollected, MazeConstants.collectibleStarCount),
+        label: t.mazeHudStarsSemantics(
+            starsCollected, MazeConstants.collectibleStarCount),
         child: _Pill(
           icon: Icons.star_rounded,
           iconColor: MazeColors.star,
@@ -142,7 +144,9 @@ class MazeHud extends StatelessWidget {
     final delta = ghostDeltaSeconds;
     if (delta == null) return null;
     final seconds = delta.abs().toStringAsFixed(1);
-    final text = delta <= 0 ? t.mazeGhostDeltaAhead(seconds) : t.mazeGhostDeltaBehind(seconds);
+    final text = delta <= 0
+        ? t.mazeGhostDeltaAhead(seconds)
+        : t.mazeGhostDeltaBehind(seconds);
     return Semantics(
       label: t.mazeGhostHudSemantics(text),
       child: _Pill(
@@ -176,25 +180,36 @@ class MazeHud extends StatelessWidget {
     if (!reverseControlsActive) return null;
     return Semantics(
       label: t.mazeReverseActiveSemantics,
-      child: _Pill(icon: Icons.swap_horiz_rounded, label: t.mazeReverseActiveLabel),
+      child: _Pill(
+          icon: Icons.swap_horiz_rounded, label: t.mazeReverseActiveLabel),
     );
   }
 
   Widget _hintButton(AppLocalizations t) => Semantics(
         button: true,
-        label: hintsLocked ? t.mazeHintLockedSemantics : t.mazeHudHintSemantics(hintsRemaining),
+        label: hintsLocked
+            ? t.mazeHintLockedSemantics
+            : t.mazeHudHintSemantics(hintsRemaining),
         child: Stack(
           clipBehavior: Clip.none,
           children: [
             IconButton(
               icon: Icon(
-                hintsLocked ? Icons.lightbulb_outline_rounded : Icons.lightbulb_rounded,
-                color: hintsLocked ? Colors.white.withValues(alpha: 0.35) : Colors.white,
+                hintsLocked
+                    ? Icons.lightbulb_outline_rounded
+                    : Icons.lightbulb_rounded,
+                color: hintsLocked
+                    ? Colors.white.withValues(alpha: 0.35)
+                    : Colors.white,
               ),
-              onPressed: hintsLocked ? null : (hintsRemaining > 0 ? onHint : null),
+              onPressed:
+                  hintsLocked ? null : (hintsRemaining > 0 ? onHint : null),
             ),
             if (!hintsLocked)
-              Positioned(right: 4, top: 4, child: _Pill(label: '$hintsRemaining', dense: true)),
+              Positioned(
+                  right: 4,
+                  top: 4,
+                  child: _Pill(label: '$hintsRemaining', dense: true)),
           ],
         ),
       );
@@ -203,7 +218,8 @@ class MazeHud extends StatelessWidget {
         button: true,
         label: t.mazeHudPauseSemantics,
         child: IconButton(
-          icon: const Icon(Icons.pause_circle_filled_rounded, color: Colors.white),
+          icon: const Icon(Icons.pause_circle_filled_rounded,
+              color: Colors.white),
           onPressed: onPause,
         ),
       );
@@ -215,14 +231,23 @@ class MazeHud extends StatelessWidget {
     // The delta text's length varies with the run (and with locale), so
     // this shrinks it rather than overflowing the narrow vertical side
     // panel on a longer reading — costs nothing when it already fits.
-    final ghostPill =
-        rawGhostPill == null ? null : FittedBox(fit: BoxFit.scaleDown, child: rawGhostPill);
+    final ghostPill = rawGhostPill == null
+        ? null
+        : FittedBox(fit: BoxFit.scaleDown, child: rawGhostPill);
     final rawBankPill = _bankPill(t);
-    final bankPill =
-        rawBankPill == null ? null : FittedBox(fit: BoxFit.scaleDown, child: rawBankPill);
+    final bankPill = rawBankPill == null
+        ? null
+        : FittedBox(fit: BoxFit.scaleDown, child: rawBankPill);
     final rawReversePill = _reverseBadge(t);
-    final reversePill =
-        rawReversePill == null ? null : FittedBox(fit: BoxFit.scaleDown, child: rawReversePill);
+    final reversePill = rawReversePill == null
+        ? null
+        : FittedBox(fit: BoxFit.scaleDown, child: rawReversePill);
+    final secondaryStatus = <Widget>[
+      if (ghostPill != null) ghostPill,
+      if (bankPill != null) bankPill,
+      if (reversePill != null) reversePill,
+      if (heldKeys.isNotEmpty) _keyInventory(t),
+    ];
     final content = axis == Axis.vertical
         ? SafeArea(
             child: Padding(
@@ -262,19 +287,54 @@ class MazeHud extends StatelessWidget {
             bottom: false,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-              child: Row(
-                children: [
-                  _backButton(t, context),
-                  Expanded(child: _levelAndTimer(t)),
-                  if (ghostPill != null) ...[ghostPill, const SizedBox(width: 6)],
-                  if (bankPill != null) ...[bankPill, const SizedBox(width: 6)],
-                  if (reversePill != null) ...[reversePill, const SizedBox(width: 6)],
-                  if (heldKeys.isNotEmpty) _keyInventory(t),
-                  _starsPill(t),
-                  const SizedBox(width: 6),
-                  _hintButton(t),
-                  _pauseButton(t),
-                ],
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final wrapStatuses =
+                      constraints.maxWidth < 560 && secondaryStatus.isNotEmpty;
+                  final primary = Row(
+                    children: [
+                      _backButton(t, context),
+                      Expanded(child: _levelAndTimer(t)),
+                      _starsPill(t),
+                      _hintButton(t),
+                      _pauseButton(t),
+                    ],
+                  );
+
+                  if (wrapStatuses) {
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        primary,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2),
+                          child: Wrap(
+                            alignment: WrapAlignment.center,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            spacing: 8,
+                            runSpacing: 4,
+                            children: secondaryStatus,
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+
+                  return Row(
+                    children: [
+                      _backButton(t, context),
+                      Expanded(child: _levelAndTimer(t)),
+                      for (final status in secondaryStatus) ...[
+                        status,
+                        const SizedBox(width: 6),
+                      ],
+                      _starsPill(t),
+                      const SizedBox(width: 6),
+                      _hintButton(t),
+                      _pauseButton(t),
+                    ],
+                  );
+                },
               ),
             ),
           );
@@ -283,7 +343,8 @@ class MazeHud extends StatelessWidget {
 }
 
 class _Pill extends StatelessWidget {
-  const _Pill({this.icon, this.iconColor, required this.label, this.dense = false});
+  const _Pill(
+      {this.icon, this.iconColor, required this.label, this.dense = false});
 
   final IconData? icon;
   final Color? iconColor;
@@ -293,7 +354,8 @@ class _Pill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: dense ? 5 : 8, vertical: dense ? 1 : 4),
+      padding: EdgeInsets.symmetric(
+          horizontal: dense ? 5 : 8, vertical: dense ? 1 : 4),
       decoration: BoxDecoration(
         color: Colors.black.withValues(alpha: 0.28),
         borderRadius: BorderRadius.circular(999),
@@ -306,7 +368,9 @@ class _Pill extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w700, fontSize: dense ? 10 : 12),
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: dense ? 10 : 12),
           ),
         ],
       ),
